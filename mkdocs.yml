@@ -2,3 +2,5 @@
 # alphabetically.
 ---
 site_name: "Replace This Placeholder Before Making This Public"
+theme:
+  name: material
