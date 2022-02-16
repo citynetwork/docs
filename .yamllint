@@ -1,0 +1,16 @@
+---
+extends: default
+ignore: |
+  .tox/
+rules:
+  braces:
+    max-spaces-inside: 1
+    min-spaces-inside: 0
+  brackets:
+    max-spaces-inside: 1
+    min-spaces-inside: 0
+  document-start:
+    level: error
+  key-ordering: enable
+  truthy:
+    level: error
