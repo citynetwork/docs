@@ -5,6 +5,7 @@ copyright: >
   <a href="https://creativecommons.org/licenses/by-sa/4.0/">
   <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/>
   </a>
+edit_uri: ./edit/main/docs
 plugins:
   - git-authors:
       enabled: true
