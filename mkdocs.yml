@@ -12,7 +12,10 @@ plugins:
       timezone: Etc/UTC
       type: iso_date
   - search
+repo_url: https://github.com/citynetwork/docs
 site_name: "Replace This Placeholder Before Making This Public"
 theme:
-  name: material
   custom_dir: theme
+  icon:
+    repo: fontawesome/brands/github
+  name: material
