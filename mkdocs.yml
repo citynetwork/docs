@@ -1,6 +1,8 @@
 # Configuration settings in this file should be ordered
 # alphabetically.
 ---
+plugins:
+  - search
 site_name: "Replace This Placeholder Before Making This Public"
 theme:
   name: material
