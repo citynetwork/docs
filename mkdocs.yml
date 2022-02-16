@@ -1,6 +1,10 @@
 # Configuration settings in this file should be ordered
 # alphabetically.
 ---
+copyright: >
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+  <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/>
+  </a>
 plugins:
   - git-authors:
       enabled: true

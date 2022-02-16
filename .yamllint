@@ -12,5 +12,8 @@ rules:
   document-start:
     level: error
   key-ordering: enable
+  line-length:
+    allow-non-breakable-words: true
+    max: 90
   truthy:
     level: error
