@@ -11,6 +11,9 @@ plugins:
       locale: en
       timezone: Etc/UTC
       type: iso_date
+  - htmlproofer:
+      raise_error: true
+      validate_external_urls: true
   - search
 repo_url: https://github.com/citynetwork/docs
 site_name: "Replace This Placeholder Before Making This Public"
