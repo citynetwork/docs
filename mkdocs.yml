@@ -2,7 +2,17 @@
 # alphabetically.
 ---
 plugins:
+  - git-authors:
+      enabled: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+      enabled: true
+      fallback_to_build_date: false
+      locale: en
+      timezone: Etc/UTC
+      type: iso_date
   - search
 site_name: "Replace This Placeholder Before Making This Public"
 theme:
   name: material
+  custom_dir: theme
