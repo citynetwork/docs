@@ -1,8 +1,10 @@
 # Contribution Guide
 
-See something on this site that is inaccurate, missing, or that could
-simply be improved? There are multiple ways for you to help make this
-site better, and we welcome all of them.
+!!! question
+
+    See something on this site that is inaccurate, missing, or that could
+	simply be improved? There are multiple ways for you to help make this
+	site better, and we welcome all of them.
 
 
 ## Markdown
