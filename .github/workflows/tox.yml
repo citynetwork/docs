@@ -23,7 +23,7 @@ jobs:
       - name: Upload build
         uses: actions/upload-artifact@v2
         with:
-          name: build-${{ matrix.python-version }}
+          name: build-${{ matrix.python-version }}-${{ github.sha }}
           path: site/
     strategy:
       matrix:
