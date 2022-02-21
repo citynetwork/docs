@@ -22,6 +22,8 @@ plugins:
       raise_error: true
       validate_external_urls: true
   - macros
+  - pdf-export:
+      enabled_if_env: DOCS_ENABLE_PDF_EXPORT
   - search
 repo_url: https://github.com/citynetwork/docs
 site_name: "Replace This Placeholder Before Making This Public"

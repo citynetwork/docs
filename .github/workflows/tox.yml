@@ -11,10 +11,15 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+      - name: Install packages
+        run: |
+          sudo apt-get install weasyprint
+      - name: Install Python dependencies
         run: |
           pip install tox tox-gh-actions
-      - name: Test with tox
+      - env:
+          DOCS_ENABLE_PDF_EXPORT: 1
+        name: Test with tox
         # Explicitly specifying the testenvs shouldn't really be
         # necessary here, but for some reason tox invokes no testenvs
         # at all if invoked as just "tox" from the GitHub Actions
