@@ -24,7 +24,7 @@ jobs:
         # necessary here, but for some reason tox invokes no testenvs
         # at all if invoked as just "tox" from the GitHub Actions
         # workflow. Until that is fixed, name the testenvs.
-        run: tox -e gitlint,yamllint,build
+        run: tox -e gitlint,yamllint,bashate,build
       - name: Upload build
         uses: actions/upload-artifact@v2
         with:
