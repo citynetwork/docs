@@ -10,14 +10,12 @@ To do so, you will need
   [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier),
 * the other user’s OpenStack API user ID.
 
-!!! hint
-
-    Any {{extra.brand}} user can always retrieve their own user ID
-	with the following command:
-
-	```
-	openstack token issue -f value -c user_id
-	```
+> Any {{extra.brand}} user can always retrieve their own user ID
+> with the following command:
+>
+> ```
+> openstack token issue -f value -c user_id
+> ```
 
 Once you have assembled this information, you can proceed with the
 `openstack acl user add` command:
@@ -38,4 +36,3 @@ openstack acl user remove \
   --operation-type read \
   https://region.{{extra.brand_domain}}:9311/v1/secrets/<secret_id>
 ```
-

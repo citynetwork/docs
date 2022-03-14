@@ -16,12 +16,10 @@ openstack secret store \
   -n mysecret
 ```
 
-!!! note
-
-    The example output below uses {{extra.brand}}’s `Fra1` region. In other
-	regions, the secret 
-	[URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
-	will differ.
+> The example output below uses {{extra.brand}}’s `Fra1` region. In
+> other regions, the secret
+> [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
+> will differ.
 
 
 ```
@@ -81,11 +79,9 @@ $ openstack secret get -p \
 +---------+---------------------------+
 ```
 
-!!! note
-
-    Unlike many other OpenStack services, which allow you to retrieve
-    object references by name or UUID, Barbican only lets you retrieve
-    secrets by their full
-	[URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier).
-	That URI must include the
-	`https://<region>.{{extra.brand_domain}}:9311/v1/secrets/` prefix.
+> Unlike many other OpenStack services, which allow you to retrieve
+> object references by name or UUID, Barbican only lets you retrieve
+> secrets by their full
+> [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier).
+> That URI must include the
+> `https://<region>.{{extra.brand_domain}}:9311/v1/secrets/` prefix.
