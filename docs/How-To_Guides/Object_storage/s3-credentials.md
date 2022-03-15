@@ -20,14 +20,13 @@ populate the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
 environment variables (or whichever configuration options your
 application requires).
 
-!!! note
-    Your S3-compatible credentials are always scoped to your
-    {{extra.brand}} *region* and *project*. You cannot reuse an access
-    and secret key across multiple regions or projects.
-
-    Also, your credentials are only “S3-compatible” in the sense that
-    they use the same *format* as AWS S3 does. They are never valid against
-    AWS S3 itself.
+> Your S3-compatible credentials are always scoped to your
+> {{extra.brand}} *region* and *project*. You cannot reuse an access
+> and secret key across multiple regions or projects.
+>
+> Also, your credentials are only “S3-compatible” in the sense that
+> they use the same *format* as AWS S3 does. They are never valid against
+> AWS S3 itself.
 
 
 ## Listing credentials
@@ -47,7 +46,5 @@ you can do so with the following command:
 openstack ec2 credentials delete <access-key-id>
 ```
 
-!!! warning
-
-    Deleting a set of S3-compatible credentials will *immediately*
-    revoke access for any applications that were using it.
+> Deleting a set of S3-compatible credentials will *immediately*
+> revoke access for any applications that were using it.

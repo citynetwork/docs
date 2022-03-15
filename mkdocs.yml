@@ -11,8 +11,7 @@ extra:
   brand_domain: "citycloud.com"
   company: "City Network"
   company_domain: "citynetwork.eu"
-markdown_extensions:
-  - admonition
+markdown_extensions: []
 plugins:
   - git-authors:
       enabled: true

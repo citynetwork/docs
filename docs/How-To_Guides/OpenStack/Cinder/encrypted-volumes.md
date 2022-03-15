@@ -26,10 +26,8 @@ openstack volume type list
 +--------------------------------------+-----------------------+-----------+
 ```
 
-!!! hint
-
-	In {{extra.brand}}, all volume types that support encryption use
-	the suffix `_encrypted`.
+> In {{extra.brand}}, all volume types that support encryption use the
+> suffix `_encrypted`.
 
 To create a volume with encryption, you need to explicitly specify the
 `--type` option to the `openstack volume create` command. The

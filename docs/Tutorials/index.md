@@ -19,8 +19,6 @@ This section does *not* include detailed walkthroughs of specific
 technical tasks. For those, please see our [How-To
 Guides](../How-To_Guides/index.md) section.
 
-!!! note
-
-    If you find our tutorials helpful, you might also be interested in our
-	self-paced online training courses, available from
-	[our course booking site](https://shop.{{config.extra.company_domain}}).
+> If you find our tutorials helpful, you might also be interested in
+> our self-paced online training courses, available from [our course
+> booking site](https://shop.{{config.extra.company_domain}}).
