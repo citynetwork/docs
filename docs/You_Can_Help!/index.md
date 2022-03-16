@@ -5,6 +5,25 @@ simply be improved? There are multiple ways for you to help make this
 site better, and we welcome all of them.
 
 
+## Technical Writing Resources
+
+Whether you are an experienced technical writer, a regular (or
+not-so-regular) open source contributor, or you’re making your very
+first writing contribution, there are a ton of helpful resources on
+technical writing. Here are a few:
+
+* [Digital Ocean](https://www.digitalocean.com/)’s [Technical Writing
+  Guidelines](https://www.digitalocean.com/community/tutorials/digitalocean-s-technical-writing-guidelines)
+* [Red Hat](https://www.redhat.com)’s [Writing Style
+  Guide](https://github.com/StyleGuides/WritingStyleGuide)
+* [Gareth Dwyer](https://dwyer.co.za/)’s [Technical
+  Writing](https://github.com/sixhobbits/technical-writing) repository
+* [Bolaji Ayodeji](https://www.bolajiayodeji.com/)’s [Awesome
+  Technical
+  Writing](https://github.com/BolajiAyodeji/awesome-technical-writing)
+  collection
+
+
 ## Markdown
 
 The documentation on this site uses
@@ -63,8 +82,6 @@ and be accessible from <http://localhost:8000> in your browser.
 
 
 ## Quality checks
-
-<!-- GitHub Actions workflows cannot run until the repo is made public. -->
 
 There are a few checks that we apply to the configuration. They run
 automatically via GitHub Actions workflows when you send your PR:
