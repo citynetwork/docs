@@ -35,8 +35,10 @@ repo_url: https://github.com/citynetwork/docs
 site_name: "Replace This Placeholder Before Making This Public"
 theme:
   custom_dir: theme
+  favicon: assets/favicon.ico
   icon:
     repo: fontawesome/brands/github
+  logo: assets/logo.png
   name: material
   palette:
     scheme: cleura
