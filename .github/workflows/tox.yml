@@ -30,6 +30,13 @@ jobs:
         with:
           name: build-${{ matrix.python-version }}-${{ github.sha }}
           path: site/
+      - if: ${{ github.ref == 'refs/heads/main' }}
+        name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+
     strategy:
       matrix:
         python-version:
