@@ -1,10 +1,10 @@
 # HTTPS-terminating load balancers
 
 In {{extra.brand}}’s load balancing service, [OpenStack
-Octavia](https://docs.openstack.org/octavia), you can configure load
-balancers so that they manage HTTPS termination. That is to say that
-the load balancer encrypts and decrypts HTTPS traffic, and forwards
-HTTP to and from a backend web server.
+Octavia](https://docs.openstack.org/octavia/latest/), you can
+configure load balancers so that they manage HTTPS termination. That
+is to say that the load balancer encrypts and decrypts HTTPS traffic,
+and forwards HTTP to and from a backend web server.
 
 To do so, the load balancer must have access to encryption credentials
 (such as certificates and private keys), which it stores in Barbican.
