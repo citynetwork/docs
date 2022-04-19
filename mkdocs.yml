@@ -11,6 +11,8 @@ extra:
   brand_domain: "citycloud.com"
   company: "City Network"
   company_domain: "citynetwork.eu"
+extra_css:
+  - assets/stylesheets/cleura-palette.css
 markdown_extensions: []
 plugins:
   - git-authors:
@@ -36,3 +38,5 @@ theme:
   icon:
     repo: fontawesome/brands/github
   name: material
+  palette:
+    scheme: cleura
