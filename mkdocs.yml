@@ -17,6 +17,7 @@ extra_css:
   - assets/stylesheets/cleura-palette.css
 markdown_extensions: []
 plugins:
+  - awesome-pages
   - git-authors:
       enabled: true
   - git-revision-date-localized:
@@ -38,6 +39,8 @@ site_name: "Docs"
 theme:
   custom_dir: theme
   favicon: assets/favicon.ico
+  features:
+    - navigation.indexes
   icon:
     repo: fontawesome/brands/github
   logo: assets/logo.png

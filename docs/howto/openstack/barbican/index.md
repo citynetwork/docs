@@ -5,8 +5,8 @@ OpenStack's secret storage facility. In {{extra.brand}}, Barbican is
 supported for the following purposes:
 
 * [Generic secret storage](generic-secret.md),
-* [encryption for persistent volumes](../Cinder/encrypted-volumes.md),
-* [certificate storage for HTTPS load balancers](../Octavia/tls-lb.md).
+* [encryption for persistent volumes](../cinder/encrypted-volumes.md),
+* [certificate storage for HTTPS load balancers](../octavia/tls-lb.md).
 
 To manage secrets with Barbican, you will need the `openstack` command
 line interface (CLI), and its Barbican plugin. You can install them

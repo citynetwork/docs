@@ -117,7 +117,7 @@ There are two options to work around this limitation:
    volume (if you have access to them), and proceed with the deletion.
 2. You can ask the user that created the volume to [add you to the
    Access Control List (ACL) for the
-   secret](../Barbican/share-secret.md). This will enable you to read
+   secret](../barbican/share-secret.md). This will enable you to read
    the secret, and to delete the volume using your own credentials.
 
 
@@ -148,7 +148,7 @@ This means that you have two options:
 1. If you *do* trust us to include your instances in live migrations
    and evacuations, even if they attach encrypted volumes, then you
    can [add our administrative account to the Access Control List
-   (ACL) for your secrets](../Barbican/share-secret.md).
+   (ACL) for your secrets](../barbican/share-secret.md).
 2. If you *don’t* want to share your secrets but you still want to use
    encrypted volumes, you should build your own mechanism or process
    (preferably automated) so that your instances recover in case they

@@ -17,7 +17,7 @@ We group these into two major categories:
 
 This section does *not* include detailed walkthroughs of specific
 technical tasks. For those, please see our [How-To
-Guides](../How-To_Guides/index.md) section.
+Guides](../howto/) section.
 
 > If you find our tutorials helpful, you might also be interested in
 > our self-paced online training courses, available from [our course
