@@ -30,13 +30,6 @@ jobs:
         with:
           name: build-${{ matrix.python-version }}-${{ github.sha }}
           path: site/
-      - if: ${{ github.ref == 'refs/heads/main' }}
-        name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-
     strategy:
       matrix:
         python-version:
@@ -44,8 +37,14 @@ jobs:
           - '3.9'
           - '3.10'
 
-name: Python package
+name: Build
 
+# We want to run this workflow on each push to a topic branch, and on
+# each pull request. Once we merge to main, we want to run the
+# "deploy" workflow instead.
 'on':
-  - push
-  - pull_request
+  pull_request: {}
+  push:
+    branches:
+      - '!main'
+      - '!gh-pages'

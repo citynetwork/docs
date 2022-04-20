@@ -1,0 +1,27 @@
+---
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - name: Install Python dependencies
+        run: |
+          pip install tox
+      - env:
+          DOCS_ENABLE_PDF_EXPORT: 1
+        name: Deploy to gh-pages
+        run: tox -e deploy-github
+
+name: Deploy
+
+'on':
+  push:
+    branches:
+      - main

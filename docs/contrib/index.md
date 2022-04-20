@@ -71,7 +71,8 @@ then send us a standard [GitHub pull
 request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 If you would like to see your changes as you are working on them, you
-can do that with [tox](https://tox.wiki/en/latest/):
+can do that with [tox](https://tox.wiki/en/latest/). Having checked
+out the topic branch with your modifications, run:
 
 ```bash
 tox -e serve
