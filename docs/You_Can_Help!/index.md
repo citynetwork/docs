@@ -120,10 +120,11 @@ git config core.hooksPath .githooks
 
 ## License
 
-The content on this site is available under the [Creative Commons
-Attribution-ShareAlike 4.0 International
+With the sole exception of trademarks like “{{brand}}” and the
+{{brand}} logo, the content on this site is available under the
+[Creative Commons Attribution-ShareAlike 4.0 International
 license](https://creativecommons.org/licenses/by-sa/4.0/), as you can
-see from the
-![CC BY-SA](https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg)
+see from the ![CC
+BY-SA](https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg)
 icon at the bottom of each page. Please keep in mind that you are
 making your contribution under those terms.

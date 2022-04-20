@@ -8,7 +8,7 @@ We group these into two major categories:
 
 * **Browser-based tutorials** get you started on
   {{config.extra.brand}} using the
-  [{{config.extra.brand}} Admin Panel](https://admin.{{config.extra.brand_domain}}/).
+  [{{config.extra.gui}}](https://{{config.extra.gui_domain}}/).
 
 * **Terminal-based tutorials** introduce you to command-line
   interfaces (CLIs) and their interaction with

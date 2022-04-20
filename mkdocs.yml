@@ -7,10 +7,14 @@ copyright: >
   </a>
 edit_uri: ./edit/main/docs
 extra:
-  brand: "City Cloud"
+  brand: "Cleura"
   brand_domain: "citycloud.com"
-  company: "City Network"
-  company_domain: "citynetwork.eu"
+  company: "Cleura"
+  company_domain: "cleura.com"
+  gui: "Cleura Cloud Management Console"
+  gui_domain: "cleura.cloud"
+extra_css:
+  - assets/stylesheets/cleura-palette.css
 markdown_extensions: []
 plugins:
   - git-authors:
@@ -30,9 +34,13 @@ plugins:
       enabled_if_env: DOCS_ENABLE_PDF_EXPORT
   - search
 repo_url: https://github.com/citynetwork/docs
-site_name: "Replace This Placeholder Before Making This Public"
+site_name: "Docs"
 theme:
   custom_dir: theme
+  favicon: assets/favicon.ico
   icon:
     repo: fontawesome/brands/github
+  logo: assets/logo.png
   name: material
+  palette:
+    scheme: cleura
