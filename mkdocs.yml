@@ -35,7 +35,7 @@ plugins:
       enabled_if_env: DOCS_ENABLE_PDF_EXPORT
   - search
 repo_url: https://github.com/citynetwork/docs
-site_name: "Docs"
+site_name: "Docs (Beta)"
 theme:
   custom_dir: theme
   favicon: assets/favicon.ico

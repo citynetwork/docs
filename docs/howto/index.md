@@ -13,6 +13,8 @@ focused on a specific cloud technology.
   credentials, the `openstack` client, and/or the native OpenStack
   APIs.
 
+<!-- TODO: we’ll enable these as we migrate content.
+
 * **Kubernetes** How-Tos cover what you can do with a Kubernetes
   cluster on {{config.extra.brand}}.
 
@@ -23,6 +25,7 @@ focused on a specific cloud technology.
   and
   [Kubernetes](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)
   providers.
+-->
 
 * **Object storage** How-Tos deal with the S3 and Swift object storage
   APIs, and how you can use them for object storage in

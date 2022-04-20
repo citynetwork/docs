@@ -1,7 +1,9 @@
+# TODO: We'll enable the disabled sections as we migrate/create
+# content.
 nav:
   - index.md
-  - concepts
+#  - concepts
   - howto
-  - tutorials
-  - reference
+#  - tutorials
+#  - reference
   - contrib
