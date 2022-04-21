@@ -46,4 +46,13 @@ theme:
   logo: assets/logo.png
   name: material
   palette:
-    scheme: cleura
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/lightbulb-outline
+        name: "Switch to dark mode"
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/lightbulb
+        name: "Switch to light mode"
