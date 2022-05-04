@@ -15,7 +15,12 @@ extra:
   gui_domain: "cleura.cloud"
 extra_css:
   - assets/stylesheets/cleura-palette.css
-markdown_extensions: []
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - tables
 plugins:
   - awesome-pages
   - git-authors:
