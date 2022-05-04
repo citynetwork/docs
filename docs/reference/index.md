@@ -1,16 +1,10 @@
 # Reference
 
-This is our reference section. If you are an application developer
-programming against one of our APIs, or you would like to know what a
-specific term on your invoice refers to, you've come to the right
-place.
+This is our reference section. It serves to provide general reference
+information about {{config.extra.brand}} services.
 
-* The **{{config.extra.brand}} REST API** reference covers our service
-  at `https://rest.{{config.extra.brand_domain}}` that you can use to
-  programmatically query your account usage, invoice data,
-  utilization, and many other details available to our
-  {{config.extra.brand}} customers.
+## Feature and service availability
 
-* Our **Glossary** has a list of technical terms you might find on
-  your invoice, in a proposal, or in communications with our sales,
-  support, or professional services staff.
+* Our **[Feature Support Matrix](features/index.md)** lists cloud
+  features and their availability across {{config.extra.brand}}
+  regions.
