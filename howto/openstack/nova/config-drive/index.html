@@ -13,7 +13,7 @@
     
     
       
-        <title>HTTPS-terminating load balancers - Docs (Beta)</title>
+        <title>Launching an instance with a configuration drive - Docs (Beta)</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#https-terminating-load-balancers" class="md-skip">
+        <a href="#launching-an-instance-with-a-configuration-drive" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HTTPS-terminating load balancers
+              Launching an instance with a configuration drive
             
           </span>
         </div>
@@ -522,12 +522,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" type="checkbox" id="__nav_2_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" type="checkbox" id="__nav_2_3_3" checked>
       
       
       
@@ -552,11 +554,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../nova/config-drive/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Launching an instance with a configuration drive
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Launching an instance with a configuration drive
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background-openstack-metadata-discovery" class="md-nav__link">
+    Background: OpenStack metadata discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#store-metadata-on-a-configuration-drive" class="md-nav__link">
+    Store metadata on a configuration drive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-the-configuration-drive-on-server-creation-openstack-cli" class="md-nav__link">
+    Enable the configuration drive on server creation (openstack CLI)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -573,14 +630,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_4" type="checkbox" id="__nav_2_3_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_4" type="checkbox" id="__nav_2_3_4" >
       
       
       
@@ -605,66 +660,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          HTTPS-terminating load balancers
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../octavia/tls-lb/" class="md-nav__link">
         HTTPS-terminating load balancers
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#pkcs-12-certificate-bundles" class="md-nav__link">
-    PKCS #12 Certificate Bundles
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-barbican-secrets-from-pkcs-12-bundles" class="md-nav__link">
-    Creating Barbican secrets from PKCS #12 bundles
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-https-enabled-load-balancer-listeners" class="md-nav__link">
-    Creating HTTPS-enabled load balancer listeners
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -761,22 +761,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pkcs-12-certificate-bundles" class="md-nav__link">
-    PKCS #12 Certificate Bundles
+  <a href="#background-openstack-metadata-discovery" class="md-nav__link">
+    Background: OpenStack metadata discovery
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-barbican-secrets-from-pkcs-12-bundles" class="md-nav__link">
-    Creating Barbican secrets from PKCS #12 bundles
+  <a href="#store-metadata-on-a-configuration-drive" class="md-nav__link">
+    Store metadata on a configuration drive
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-https-enabled-load-balancer-listeners" class="md-nav__link">
-    Creating HTTPS-enabled load balancer listeners
+  <a href="#enable-the-configuration-drive-on-server-creation-openstack-cli" class="md-nav__link">
+    Enable the configuration drive on server creation (openstack CLI)
   </a>
   
 </li>
@@ -790,111 +790,49 @@
             
           
           <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="tls-lb.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="config-drive.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
               
   
                 
-  <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/octavia/tls-lb.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/nova/config-drive.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="https-terminating-load-balancers">HTTPS-terminating load balancers</h1>
-<p>In Cleura’s load balancing service, <a href="https://docs.openstack.org/octavia/latest/">OpenStack
-Octavia</a>, you can
-configure load balancers so that they manage HTTPS termination. That
-is to say that the load balancer encrypts and decrypts HTTPS traffic,
-and forwards HTTP to and from a backend web server.</p>
-<p>To do so, the load balancer must have access to encryption credentials
-(such as certificates and private keys), which it stores in Barbican.</p>
-<h2 id="pkcs-12-certificate-bundles">PKCS #12 Certificate Bundles</h2>
-<p>The <a href="https://en.wikipedia.org/wiki/PKCS_12">PKCS #12</a> archive format
-includes SSL certificates, certificate chains, and private keys all in
-one bundle. Most certificate providers give you the option of
-downloading certificate credentials using the PKCS #12 format.</p>
-<p>In case your certificate provider has made your certificate chain and
-key available seperately, using the PEM format, you can easily convert
-it to PKCS #12 using the following <code>openssl</code> command:</p>
-<pre><code>openssl pkcs12 -export -inkey key.pem -in fullchain.pem -out bundle.p12
+<h1 id="launching-an-instance-with-a-configuration-drive">Launching an instance with a configuration drive</h1>
+<h2 id="background-openstack-metadata-discovery">Background: OpenStack metadata discovery</h2>
+<p>OpenStack Compute uses metadata to inject custom configurations to
+instances on boot. You can add custom scripts, install packages, and
+add SSH keys to the instances using metadata.</p>
+<p>By default, metadata discovery in Cleura Cloud uses an HTTP
+data source that booting instances connect to. Sometimes this is
+undesirable or — for specific instance/networking configurations —
+unreliable. Under those circumstances, you can use an alternate
+configuration source.</p>
+<h2 id="store-metadata-on-a-configuration-drive">Store metadata on a configuration drive</h2>
+<p>A <strong>configuration drive</strong> (config drive) is a read-only virtual drive
+that is attached to an instance during boot. The instance can then
+mount the drive and read files from it. Configuration drives are used
+as a data source for
+<a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a>.</p>
+<h2 id="enable-the-configuration-drive-on-server-creation-openstack-cli">Enable the configuration drive on server creation (<code>openstack</code> CLI)</h2>
+<p>To enable the configuration drive, you need to pass the parameter
+<code>--use-config-drive</code> to the <code>openstack server create</code> command.</p>
+<p>In the following example, replace the image, flavor, keypair, and
+network reference, as well as the instance name, to match your desired
+configuration.</p>
+<pre><code class="language-bash">openstack server create \
+  --use-config-drive \
+  --image &quot;Ubuntu 20.04 Focal Fossa&quot; \
+  --flavor b.1c2gb \
+  --keypair mykey
+  --nic net-id=3a747038-ee59-404c-973d-5f795e8ebb73 \
+  myinstance
 </code></pre>
-<p>When prompted for an export password, use a blank one.</p>
-<h2 id="creating-barbican-secrets-from-pkcs-12-bundles">Creating Barbican secrets from PKCS #12 bundles</h2>
-<p>To create a secret from a stored PKCS #12 bundle, you need pass in the
-contents of the bundle, <em>pre-encoded with
-<a href="https://en.wikipedia.org/wiki/Base64">Base64</a></em>, as the secret’s
-payload.</p>
-<pre><code class="language-bash">openstack secret store \
-  --name='tls_secret1' \
-  -t 'application/octet-stream' \
-  -e 'base64' \
-  --payload=&quot;$(base64 &lt; server.p12)&quot;
-</code></pre>
-<pre><code>+---------------+---------------------------------------------------------------------------------+
-| Field         | Value                                                                           |
-+---------------+---------------------------------------------------------------------------------+
-| Secret href   | https://kna1.citycloud.com:9311/v1/secrets/69bd82f5-60c9-4764-99ec-7a3dff05d2aa |
-| Name          | tls_secret1                                                                     |
-| Created       | None                                                                            |
-| Status        | None                                                                            |
-| Content types | {'default': 'application/octet-stream'}                                         |
-| Algorithm     | aes                                                                             |
-| Bit length    | 256                                                                             |
-| Secret type   | opaque                                                                          |
-| Mode          | cbc                                                                             |
-| Expiration    | None                                                                            |
-+---------------+---------------------------------------------------------------------------------+
-</code></pre>
-<h2 id="creating-https-enabled-load-balancer-listeners">Creating HTTPS-enabled load balancer listeners</h2>
-<p>Once you have created your secret containing your certificate data,
-you can create a load balancer <em>listener</em> with the following
-properties:</p>
-<ul>
-<li>It uses the <code>TERMINATED_HTTPS</code> protocol,</li>
-<li>It sets its “default TLS container” to the Barbican secret
-  containing the PKCS #12 bundle,</li>
-<li>It listens on the standard HTTPS port, 443.</li>
-</ul>
-<p>You create such a listener with the following command:</p>
-<pre><code class="language-bash">openstack loadbalancer listener create \
-  --protocol-port 443 \
-  --protocol TERMINATED_HTTPS \
-  --name listener1 \
-  --default-tls-container=https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  \
-  &lt;loadbalancer-name-or-id&gt;
-</code></pre>
-<pre><code>+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Field                       | Value                                                                                                                                                                                                                                                                              |
-+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| admin_state_up              | True                                                                                                                                                                                                                                                                               |
-| connection_limit            | -1                                                                                                                                                                                                                                                                                 |
-| created_at                  | 2021-01-20T11:51:46                                                                                                                                                                                                                                                                |
-| default_pool_id             | None                                                                                                                                                                                                                                                                               |
-| default_tls_container_ref   | https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae                                                                                                                                                                                                    |
-| description                 |                                                                                                                                                                                                                                                                                    |
-| id                          | 4ec6b23d-d08a-4de0-9e12-54ac690ee1ec                                                                                                                                                                                                                                               |
-| insert_headers              | None                                                                                                                                                                                                                                                                               |
-| l7policies                  |                                                                                                                                                                                                                                                                                    |
-| loadbalancers               | 2c2a0760-c3a8-48d2-bdd0-288c3d33a43f                                                                                                                                                                                                                                               |
-| name                        | listener1                                                                                                                                                                                                                                                                          |
-| operating_status            | OFFLINE                                                                                                                                                                                                                                                                            |
-| project_id                  | 4a9484063d4c40d29301ad745c0e2c69                                                                                                                                                                                                                                                   |
-| protocol                    | TERMINATED_HTTPS                                                                                                                                                                                                                                                                   |
-| protocol_port               | 443                                                                                                                                                                                                                                                                                |
-| provisioning_status         | PENDING_CREATE                                                                                                                                                                                                                                                                     |
-| sni_container_refs          | []                                                                                                                                                                                                                                                                                 |
-| timeout_client_data         | 50000                                                                                                                                                                                                                                                                              |
-| timeout_member_connect      | 5000                                                                                                                                                                                                                                                                               |
-| timeout_member_data         | 50000                                                                                                                                                                                                                                                                              |
-| timeout_tcp_inspect         | 0                                                                                                                                                                                                                                                                                  |
-| updated_at                  | None                                                                                                                                                                                                                                                                               |
-| client_ca_tls_container_ref | None                                                                                                                                                                                                                                                                               |
-| client_authentication       | NONE                                                                                                                                                                                                                                                                               |
-| client_crl_container_ref    | None                                                                                                                                                                                                                                                                               |
-| allowed_cidrs               | None                                                                                                                                                                                                                                                                               |
-| tls_ciphers                 | TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256 |
-| tls_versions                |                                                                                                                                                                                                                                                                                    |
-+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<p>Once the instance launches, you can monitor its configuration process
+by monitoring the instance console log:</p>
+<pre><code class="language-bash">openstack console log show myinstance
 </code></pre>
 
   <hr>
@@ -902,11 +840,11 @@ properties:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-19</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-27</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-19</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-27</span>
       
     
   </small>
@@ -917,7 +855,7 @@ properties:</p>
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:florian@cleura.com'>Florian Haas</a></span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:namrata.sitlani@citynetwork.eu'>NamrataSitlani</a></span>
       </small>
     </div>
   
@@ -933,7 +871,7 @@ properties:</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../nova/config-drive/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Launching an instance with a configuration drive" rel="prev">
+        <a href="../../cinder/encrypted-volumes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Encrypted volumes" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -942,20 +880,20 @@ properties:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Launching an instance with a configuration drive
+              Encrypted volumes
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../../../contrib/" class="md-footer__link md-footer__link--next" aria-label="Next: Contribution Guide" rel="next">
+        <a href="../../octavia/tls-lb/" class="md-footer__link md-footer__link--next" aria-label="Next: HTTPS-terminating load balancers" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Contribution Guide
+              HTTPS-terminating load balancers
             </div>
           </div>
           <div class="md-footer__button md-icon">
