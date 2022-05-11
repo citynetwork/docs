@@ -1,4 +1,4 @@
-# Client-side encryption with S3 API (SSE-C)
+# Client-side encryption (SSE-C)
 
 You can use objects encryption via S3 API, according to the[Amazon
 SSE-C](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html)
@@ -57,7 +57,7 @@ rclone versions won't work here.
 1. Download and install the latest rclone for your distribution:
    <https://rclone.org/downloads/>
 2. Create or retrieve your [access key ID and secret
-   key](s3-credentials.md).
+   key](credentials.md).
 3. Create a configuration file named `~/.rclone.conf`, with the
    following content:
 
