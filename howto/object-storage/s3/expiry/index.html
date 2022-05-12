@@ -13,7 +13,7 @@
     
     
       
-        <title>Launching an instance with a configuration drive - Docs (Beta)</title>
+        <title>Object expiry - Docs (Beta)</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#launching-an-instance-with-a-configuration-drive" class="md-skip">
+        <a href="#object-expiry" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Launching an instance with a configuration drive
+              Object expiry
             
           </span>
         </div>
@@ -287,12 +287,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -317,12 +319,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1" type="checkbox" id="__nav_2_2_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1" type="checkbox" id="__nav_2_2_1" checked>
       
       
       
@@ -355,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
+      <a href="../credentials/" class="md-nav__link">
         Working with S3-compatible credentials
       </a>
     </li>
@@ -367,11 +371,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Object expiry
       </a>
+      
     </li>
   
 
@@ -383,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
+      <a href="../sse-c/" class="md-nav__link">
         Client-side encryption (SSE-C)
       </a>
     </li>
@@ -397,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
+      <a href="../versioning/" class="md-nav__link">
         Object versioning
       </a>
     </li>
@@ -423,14 +437,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
       
       
       
@@ -484,7 +496,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../barbican/">Barbican (secret storage)</a>
+          <a href="../../../openstack/barbican/">Barbican (secret storage)</a>
           
             <label for="__nav_2_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -507,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../barbican/generic-secret/" class="md-nav__link">
+      <a href="../../../openstack/barbican/generic-secret/" class="md-nav__link">
         Generic secret storage
       </a>
     </li>
@@ -521,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../barbican/share-secret/" class="md-nav__link">
+      <a href="../../../openstack/barbican/share-secret/" class="md-nav__link">
         Sharing secrets via ACLs
       </a>
     </li>
@@ -572,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cinder/encrypted-volumes/" class="md-nav__link">
+      <a href="../../../openstack/cinder/encrypted-volumes/" class="md-nav__link">
         Encrypted volumes
       </a>
     </li>
@@ -591,14 +603,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" type="checkbox" id="__nav_2_3_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" type="checkbox" id="__nav_2_3_3" >
       
       
       
@@ -623,66 +633,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Launching an instance with a configuration drive
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../openstack/nova/config-drive/" class="md-nav__link">
         Launching an instance with a configuration drive
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#background-openstack-metadata-discovery" class="md-nav__link">
-    Background: OpenStack metadata discovery
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#store-metadata-on-a-configuration-drive" class="md-nav__link">
-    Store metadata on a configuration drive
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-the-configuration-drive-on-server-creation-openstack-cli" class="md-nav__link">
-    Enable the configuration drive on server creation (openstack CLI)
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -731,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../octavia/tls-lb/" class="md-nav__link">
+      <a href="../../../openstack/octavia/tls-lb/" class="md-nav__link">
         HTTPS-terminating load balancers
       </a>
     </li>
@@ -1033,35 +988,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#background-openstack-metadata-discovery" class="md-nav__link">
-    Background: OpenStack metadata discovery
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#store-metadata-on-a-configuration-drive" class="md-nav__link">
-    Store metadata on a configuration drive
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-the-configuration-drive-on-server-creation-openstack-cli" class="md-nav__link">
-    Enable the configuration drive on server creation (openstack CLI)
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1069,61 +995,70 @@
             
           
           <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="config-drive.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+            <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="expiry.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
               
   
                 
-  <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/nova/config-drive.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/expiry.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="launching-an-instance-with-a-configuration-drive">Launching an instance with a configuration drive</h1>
-<h2 id="background-openstack-metadata-discovery">Background: OpenStack metadata discovery</h2>
-<p>OpenStack Compute uses metadata to inject custom configurations to
-instances on boot. You can add custom scripts, install packages, and
-add SSH keys to the instances using metadata.</p>
-<p>By default, metadata discovery in Cleura Cloud uses an HTTP
-data source that booting instances connect to. Sometimes this is
-undesirable or — for specific instance/networking configurations —
-unreliable. Under those circumstances, you can use an alternate
-configuration source.</p>
-<h2 id="store-metadata-on-a-configuration-drive">Store metadata on a configuration drive</h2>
-<p>A <strong>configuration drive</strong> (config drive) is a read-only virtual drive
-that is attached to an instance during boot. The instance can then
-mount the drive and read files from it. Configuration drives are used
-as a data source for
-<a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a>.</p>
-<h2 id="enable-the-configuration-drive-on-server-creation-openstack-cli">Enable the configuration drive on server creation (<code>openstack</code> CLI)</h2>
-<p>To enable the configuration drive, you need to pass the parameter
-<code>--use-config-drive</code> to the <code>openstack server create</code> command.</p>
-<p>In the following example, replace the image, flavor, keypair, and
-network reference, as well as the instance name, to match your desired
-configuration.</p>
-<div class="highlight"><pre><span></span><code>openstack server create <span class="se">\</span>
-  --use-config-drive <span class="se">\</span>
-  --image <span class="s2">&quot;Ubuntu 20.04 Focal Fossa&quot;</span> <span class="se">\</span>
-  --flavor b.1c2gb <span class="se">\</span>
-  --keypair mykey
-  --nic net-id<span class="o">=</span>3a747038-ee59-404c-973d-5f795e8ebb73 <span class="se">\</span>
-  myinstance
+<h1 id="object-expiry">Object expiry</h1>
+<blockquote>
+<p>Object expiry requires that you configure your environment with
+<a href="../credentials/">working S3-compatible credentials</a>.</p>
+</blockquote>
+<p>You can set a bucket's lifecycle configuration such that it automatically 
+deletes objects after a certain number of days. </p>
+<p>First, you need to create a JSON file, <code>lifecycle.json</code>, that contains
+the lifecycle configuration rule. Be sure to set <code>Days</code> to your
+desired value:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cleanup&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enabled&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;Expiration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;Days&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p>Once the instance launches, you can monitor its configuration process
-by monitoring the instance console log:</p>
-<div class="highlight"><pre><span></span><code>openstack console log show myinstance
+<p>Then, apply this lifecycle configuration to your bucket using one of
+the following commands:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
+  --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
+  s3api put-bucket-lifecycle-configuration <span class="se">\</span>
+  --lifecycle-configuration file://lifecycle.json <span class="se">\ </span>
+  --bucket &lt;bucket-name&gt;
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>mc ilm import &lt;region&gt;/&lt;bucket-name&gt; &lt; lifecycle.json
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>s3cmd -c ~/.s3cfg-&lt;region&gt; setlifecycle lifecycle.json s3://&lt;bucket-name&gt;
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-27</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-11</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-27</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-11</span>
       
     
   </small>
@@ -1134,7 +1069,7 @@ by monitoring the instance console log:</p>
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:namrata.sitlani@citynetwork.eu'>NamrataSitlani</a></span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:foad.lind@citynetwork.eu'>Foad Lind</a></span>
       </small>
     </div>
   
@@ -1150,7 +1085,7 @@ by monitoring the instance console log:</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../cinder/encrypted-volumes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Encrypted volumes" rel="prev">
+        <a href="../credentials/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Working with S3-compatible credentials" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1159,20 +1094,20 @@ by monitoring the instance console log:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Encrypted volumes
+              Working with S3-compatible credentials
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../octavia/tls-lb/" class="md-footer__link md-footer__link--next" aria-label="Next: HTTPS-terminating load balancers" rel="next">
+        <a href="../sse-c/" class="md-footer__link md-footer__link--next" aria-label="Next: Client-side encryption (SSE-C)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              HTTPS-terminating load balancers
+              Client-side encryption (SSE-C)
             </div>
           </div>
           <div class="md-footer__button md-icon">

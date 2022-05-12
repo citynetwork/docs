@@ -299,8 +299,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2">
@@ -320,8 +318,44 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1" type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1">
+          S3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="S3" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          S3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../object-storage/s3-credentials/" class="md-nav__link">
+      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
         Working with S3-compatible credentials
       </a>
     </li>
@@ -335,9 +369,44 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../object-storage/sse-c/" class="md-nav__link">
-        Client-side encryption with S3 API (SSE-C)
+      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
+        Object expiry
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
+        Client-side encryption (SSE-C)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
+        Object versioning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1026,35 +1095,35 @@ downloading certificate credentials using the PKCS #12 format.</p>
 <p>In case your certificate provider has made your certificate chain and
 key available seperately, using the PEM format, you can easily convert
 it to PKCS #12 using the following <code>openssl</code> command:</p>
-<pre><code>openssl pkcs12 -export -inkey key.pem -in fullchain.pem -out bundle.p12
-</code></pre>
+<div class="highlight"><pre><span></span><code>openssl pkcs12 -export -inkey key.pem -in fullchain.pem -out bundle.p12
+</code></pre></div>
 <p>When prompted for an export password, use a blank one.</p>
 <h2 id="creating-barbican-secrets-from-pkcs-12-bundles">Creating Barbican secrets from PKCS #12 bundles</h2>
 <p>To create a secret from a stored PKCS #12 bundle, you need pass in the
 contents of the bundle, <em>pre-encoded with
 <a href="https://en.wikipedia.org/wiki/Base64">Base64</a></em>, as the secret’s
 payload.</p>
-<pre><code class="language-bash">openstack secret store \
-  --name='tls_secret1' \
-  -t 'application/octet-stream' \
-  -e 'base64' \
-  --payload=&quot;$(base64 &lt; server.p12)&quot;
-</code></pre>
-<pre><code>+---------------+---------------------------------------------------------------------------------+
+<p><div class="highlight"><pre><span></span><code>openstack secret store <span class="se">\</span>
+  --name<span class="o">=</span><span class="s1">&#39;tls_secret1&#39;</span> <span class="se">\</span>
+  -t <span class="s1">&#39;application/octet-stream&#39;</span> <span class="se">\</span>
+  -e <span class="s1">&#39;base64&#39;</span> <span class="se">\</span>
+  --payload<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>base64 &lt; server.p12<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------+---------------------------------------------------------------------------------+
 | Field         | Value                                                                           |
 +---------------+---------------------------------------------------------------------------------+
 | Secret href   | https://kna1.citycloud.com:9311/v1/secrets/69bd82f5-60c9-4764-99ec-7a3dff05d2aa |
 | Name          | tls_secret1                                                                     |
 | Created       | None                                                                            |
 | Status        | None                                                                            |
-| Content types | {'default': 'application/octet-stream'}                                         |
+| Content types | {&#39;default&#39;: &#39;application/octet-stream&#39;}                                         |
 | Algorithm     | aes                                                                             |
 | Bit length    | 256                                                                             |
 | Secret type   | opaque                                                                          |
 | Mode          | cbc                                                                             |
 | Expiration    | None                                                                            |
 +---------------+---------------------------------------------------------------------------------+
-</code></pre>
+</code></pre></div></p>
 <h2 id="creating-https-enabled-load-balancer-listeners">Creating HTTPS-enabled load balancer listeners</h2>
 <p>Once you have created your secret containing your certificate data,
 you can create a load balancer <em>listener</em> with the following
@@ -1066,14 +1135,14 @@ properties:</p>
 <li>It listens on the standard HTTPS port, 443.</li>
 </ul>
 <p>You create such a listener with the following command:</p>
-<pre><code class="language-bash">openstack loadbalancer listener create \
-  --protocol-port 443 \
-  --protocol TERMINATED_HTTPS \
-  --name listener1 \
-  --default-tls-container=https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  \
+<p><div class="highlight"><pre><span></span><code>openstack loadbalancer listener create <span class="se">\</span>
+  --protocol-port <span class="m">443</span> <span class="se">\</span>
+  --protocol TERMINATED_HTTPS <span class="se">\</span>
+  --name listener1 <span class="se">\</span>
+  --default-tls-container<span class="o">=</span>https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  <span class="se">\</span>
   &lt;loadbalancer-name-or-id&gt;
-</code></pre>
-<pre><code>+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Field                       | Value                                                                                                                                                                                                                                                                              |
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | admin_state_up              | True                                                                                                                                                                                                                                                                               |
@@ -1105,7 +1174,7 @@ properties:</p>
 | tls_ciphers                 | TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256 |
 | tls_versions                |                                                                                                                                                                                                                                                                                    |
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-</code></pre>
+</code></pre></div></p>
 
   <hr>
 <div class="md-source-file">

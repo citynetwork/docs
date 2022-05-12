@@ -299,8 +299,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2">
@@ -320,8 +318,44 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1" type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1">
+          S3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="S3" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          S3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../object-storage/s3-credentials/" class="md-nav__link">
+      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
         Working with S3-compatible credentials
       </a>
     </li>
@@ -335,9 +369,44 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../object-storage/sse-c/" class="md-nav__link">
-        Client-side encryption with S3 API (SSE-C)
+      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
+        Object expiry
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
+        Client-side encryption (SSE-C)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
+        Object versioning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -949,22 +1018,23 @@ desirable to make a secret available to another user.</p>
 <blockquote>
 <p>Any Cleura user can always retrieve their own user ID
 with the following command:</p>
-<p><code>openstack token issue -f value -c user_id</code></p>
+<div class="highlight"><pre><span></span><code>openstack token issue -f value -c user_id
+</code></pre></div>
 </blockquote>
 <p>Once you have assembled this information, you can proceed with the
 <code>openstack acl user add</code> command:</p>
-<pre><code class="language-bash">openstack acl user add \
-  --user &lt;user_id&gt; \
-  --operation-type read \
+<div class="highlight"><pre><span></span><code>openstack acl user add <span class="se">\</span>
+  --user &lt;user_id&gt; <span class="se">\</span>
+  --operation-type <span class="nb">read</span> <span class="se">\</span>
   https://region.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
-</code></pre>
+</code></pre></div>
 <p>If you want to unshare the secret again, you simply use the
 corresponding <code>openstack acl user remove</code> command:</p>
-<pre><code class="language-bash">openstack acl user remove \
-  --user &lt;user_id&gt; \
-  --operation-type read \
+<div class="highlight"><pre><span></span><code>openstack acl user remove <span class="se">\</span>
+  --user &lt;user_id&gt; <span class="se">\</span>
+  --operation-type <span class="nb">read</span> <span class="se">\</span>
   https://region.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
-</code></pre>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">

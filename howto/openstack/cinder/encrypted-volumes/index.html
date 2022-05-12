@@ -299,8 +299,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2">
@@ -320,8 +318,44 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1" type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1">
+          S3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="S3" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          S3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../object-storage/s3-credentials/" class="md-nav__link">
+      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
         Working with S3-compatible credentials
       </a>
     </li>
@@ -335,9 +369,44 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../object-storage/sse-c/" class="md-nav__link">
-        Client-side encryption with S3 API (SSE-C)
+      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
+        Object expiry
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
+        Client-side encryption (SSE-C)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
+        Object versioning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1033,16 +1102,16 @@ you attach the volume to.</p>
 <p>For the creation of an encrypted volume, you need to provide a
 specific <em>volume type.</em> You can retrieve the list of available volume
 types with the following command:</p>
-<pre><code class="language-bash">openstack volume type list
-</code></pre>
-<pre><code>+--------------------------------------+-----------------------+-----------+
+<p><div class="highlight"><pre><span></span><code>openstack volume <span class="nb">type</span> list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------------+-----------------------+-----------+
 | ID                                   | Name                  | Is Public |
 +--------------------------------------+-----------------------+-----------+
 | a479a6b0-b283-41a5-b38b-5b08e7f902ca | volumes_hdd_encrypted | True      |
 | d9dfa98a-238d-4ca0-9abf-701fceb05623 | __DEFAULT__           | True      |
 | 86796611-fb12-4628-b6b1-e09469e301d7 | volumes_hdd           | True      |
 +--------------------------------------+-----------------------+-----------+
-</code></pre>
+</code></pre></div></p>
 <blockquote>
 <p>In Cleura, all volume types that support encryption use the
 suffix <code>_encrypted</code>.</p>
@@ -1051,12 +1120,12 @@ suffix <code>_encrypted</code>.</p>
 <code>--type</code> option to the <code>openstack volume create</code> command. The
 following example creates a volume using the <code>volumes_hdd_encrypted</code>
 type, naming it <code>enc_drive</code> and setting its size to 10 GiB:</p>
-<pre><code class="language-bash">openstack volume create \
-  --type volumes_hdd_encrypted \
-  --size 10 \
+<p><div class="highlight"><pre><span></span><code>openstack volume create <span class="se">\</span>
+  --type volumes_hdd_encrypted <span class="se">\</span>
+  --size <span class="m">10</span> <span class="se">\</span>
   enc_drive
-</code></pre>
-<pre><code>+---------------------+--------------------------------------+
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
 | Field               | Value                                |
 +---------------------+--------------------------------------+
 | attachments         | []                                   |
@@ -1079,7 +1148,7 @@ type, naming it <code>enc_drive</code> and setting its size to 10 GiB:</p>
 | updated_at          | None                                 |
 | user_id             | 966ad341f4e14920b5f589f900246ccc     |
 +---------------------+--------------------------------------+
-</code></pre>
+</code></pre></div></p>
 <p>Upon volume creation, this will create a one-off encryption key, which
 is stored in Barbican and applies to this one volume only. In other
 words, the key created for this volume will be unable to decrypt any
@@ -1088,19 +1157,19 @@ other volumes except the one it was created for.</p>
 <p>Once you have created an encrypted volume, you may retrieve a
 reference to the Barbican secret that represents its encryption
 key. You do this with the following command:</p>
-<pre><code class="language-bash">openstack volume show \
-  --os-volume-api-version 3.66 \
-  -f value \
-  -c encryption_key_id \
+<div class="highlight"><pre><span></span><code>openstack volume show <span class="se">\</span>
+  --os-volume-api-version <span class="m">3</span>.66 <span class="se">\</span>
+  -f value <span class="se">\</span>
+  -c encryption_key_id <span class="se">\</span>
   enc_drive
-</code></pre>
+</code></pre></div>
 <p>Instead of the volume name, you can of course also specify its UUID:</p>
-<pre><code class="language-bash">openstack volume show \
-  --os-volume-api-version 3.66 \
-  -f value \
-  -c encryption_key_id \
+<div class="highlight"><pre><span></span><code>openstack volume show <span class="se">\</span>
+  --os-volume-api-version <span class="m">3</span>.66 <span class="se">\</span>
+  -f value <span class="se">\</span>
+  -c encryption_key_id <span class="se">\</span>
   33211b21-8d4f-48e9-b76f-ec73ffd19def
-</code></pre>
+</code></pre></div>
 <h2 id="deleting-an-encrypted-volume">Deleting an encrypted volume</h2>
 <p>When you decide you no longer need an encrypted volume and want to
 delete it, you can do so with the <code>openstack volume delete</code>

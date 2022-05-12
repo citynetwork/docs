@@ -297,8 +297,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2">
@@ -318,8 +316,44 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1" type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1">
+          S3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="S3" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          S3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../howto/object-storage/s3-credentials/" class="md-nav__link">
+      <a href="../howto/object-storage/s3/credentials/" class="md-nav__link">
         Working with S3-compatible credentials
       </a>
     </li>
@@ -333,9 +367,44 @@
   
   
     <li class="md-nav__item">
-      <a href="../howto/object-storage/sse-c/" class="md-nav__link">
-        Client-side encryption with S3 API (SSE-C)
+      <a href="../howto/object-storage/s3/expiry/" class="md-nav__link">
+        Object expiry
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../howto/object-storage/s3/sse-c/" class="md-nav__link">
+        Client-side encryption (SSE-C)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../howto/object-storage/s3/versioning/" class="md-nav__link">
+        Object versioning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1043,8 +1112,8 @@ request</a>.</p>
 <p>If you would like to see your changes as you are working on them, you
 can do that with <a href="https://tox.wiki/en/latest/">tox</a>. Having checked
 out the topic branch with your modifications, run:</p>
-<pre><code class="language-bash">tox -e serve
-</code></pre>
+<div class="highlight"><pre><span></span><code>tox -e serve
+</code></pre></div>
 <p>A local copy of the documentation will then run on your local machine
 and be accessible from <a href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
 <h2 id="quality-checks">Quality checks</h2>
@@ -1071,12 +1140,12 @@ automatically via GitHub Actions workflows when you send your PR:</p>
 <p>If you’re working in your local Git repository and your work
 environment has <a href="https://tox.wiki/en/latest/">tox</a> installed, you can
 also run the checks locally:</p>
-<pre><code class="language-bash">tox
-</code></pre>
+<div class="highlight"><pre><span></span><code>tox
+</code></pre></div>
 <p>You can also configure your local checkout to run quality checks on
 each commit. To do that, run:</p>
-<pre><code class="language-bash">git config core.hooksPath .githooks
-</code></pre>
+<div class="highlight"><pre><span></span><code>git config core.hooksPath .githooks
+</code></pre></div>
 <h2 id="license">License</h2>
 <p>With the sole exception of trademarks like “Cleura” and the
 Cleura logo, the content on this site is available under the
