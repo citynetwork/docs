@@ -115,3 +115,35 @@ openstack loadbalancer listener create \
 | tls_versions                |                                                                                                                                                                                                                                                                                    |
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
+
+## Updating the TLS certificate for a HTTPS listener
+
+When the certificate associated with a `TERMINATED_HTTPS` listener is
+about to expire, you will need to replace it. You can do this online,
+with no user-noticeable interruption to your service.
+
+1. [Create a new PKCS#12 bundle](#pkcs-12-certificate-bundles) from
+   the updated key, certificate, and CA certificate.
+2. [Create a new Barbican
+   secret](#creating-barbican-secrets-from-pkcs-12-bundles) from the
+   bundle.
+3. List the listener(s) associated with your load balancer:
+   ```bash
+   openstack loadbalancer listener list \
+     --loadbalancer <loadbalancer-name-or-id>
+   ```
+4. For all listeners using the `TERMINATED_HTTPS` protocol, run the
+   following command:
+   ```bash
+   openstack loadbalancer listener set \
+	 --default-tls-container-ref=https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25  \
+	 <listener-name-or-id>
+   ```
+
+Once all your load balancer listeners have completed the update, you
+may proceed to delete the old, now-unused secret:
+
+```bash
+openstack secret delete \
+  https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae
+```
