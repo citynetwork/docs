@@ -18,7 +18,7 @@ one bundle. Most certificate providers give you the option of
 downloading certificate credentials using the PKCS #12 format.
 
 In case your certificate provider has made your certificate chain and
-key available seperately, using the PEM format, you can easily convert
+key available separately, using the PEM format, you can easily convert
 it to PKCS #12 using the following `openssl` command:
 
 ```
@@ -78,7 +78,7 @@ openstack loadbalancer listener create \
   --protocol-port 443 \
   --protocol TERMINATED_HTTPS \
   --name listener1 \
-  --default-tls-container=https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  \
+  --default-tls-container-ref=https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  \
   <loadbalancer-name-or-id>
 ```
 ```
