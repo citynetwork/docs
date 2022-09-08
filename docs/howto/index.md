@@ -6,7 +6,13 @@ specific tasks in {{config.extra.brand}} and the services we support.
 There are several categories of How-To guides, and they tend to be
 focused on a specific cloud technology.
 
-* **OpenStack CLI/API** How-Tos cover tasks that you can accomplish
+* **Kubernetes** How-Tos covering how you can create and manage your Kubernetes deployments using {{config.extra.gui}}.
+
+* **Object storage** How-Tos dealing with the S3 and Swift object storage
+  APIs, and how you can use them for object storage in
+  {{config.extra.brand}}.
+
+* **OpenStack CLI/API** How-Tos covering tasks that you can accomplish
   with the OpenStack command line interfaces and application
   programming interfaces. They generally do not depend on any adjacent
   services or tools, just your {{config.extra.brand}} OpenStack
@@ -14,10 +20,6 @@ focused on a specific cloud technology.
   APIs.
 
 <!-- TODO: we’ll enable these as we migrate content.
-
-* **Kubernetes** How-Tos cover what you can do with a Kubernetes
-  cluster on {{config.extra.brand}}.
-
 * **Terraform** How-Tos deal with Terraform configurations and how you
   can apply them in {{config.extra.brand}}. They build on the
   `terraform` binary and the
@@ -26,7 +28,3 @@ focused on a specific cloud technology.
   [Kubernetes](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)
   providers.
 -->
-
-* **Object storage** How-Tos deal with the S3 and Swift object storage
-  APIs, and how you can use them for object storage in
-  {{config.extra.brand}}.
