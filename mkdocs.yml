@@ -11,7 +11,7 @@ extra:
   brand_domain: "citycloud.com"
   company: "Cleura"
   company_domain: "cleura.com"
-  gui: "Cleura Cloud Management Console"
+  gui: "Cleura Cloud Control Panel"
   gui_domain: "cleura.cloud"
 extra_css:
   - assets/stylesheets/cleura-palette.css
