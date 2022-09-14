@@ -51,3 +51,9 @@
 | Application layer (HTTPS, with secrets management for TLS certificates) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
 
 
+## Kubernetes management
+
+|                   | Kna1                  | Sto2                  | Fra1                  | Dx1              | Tky1             |
+| ----------------- | ----------------      | ----------------      | ----------------      | ---------------- | ---------------- |
+| OpenStack Magnum  | :material-check:      | :material-check:      | :material-check:      | :material-check: | :material-check: |
+| Gardener          | :material-timer-sand: | :material-timer-sand: | :material-timer-sand: | :material-close: | :material-close: |
