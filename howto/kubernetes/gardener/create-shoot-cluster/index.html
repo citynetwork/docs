@@ -13,7 +13,7 @@
     
     
       
-        <title>Working with S3-compatible credentials - Docs (Beta)</title>
+        <title>Creating Kubernetes clusters using Cleura Cloud Control Panel - Docs (Beta)</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#working-with-s3-compatible-credentials" class="md-skip">
+        <a href="#creating-kubernetes-clusters-using-cleura-cloud-control-panel" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Working with S3-compatible credentials
+              Creating Kubernetes clusters using Cleura Cloud Control Panel
             
           </span>
         </div>
@@ -292,12 +292,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -313,7 +315,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../kubernetes/">Kubernetes</a>
+          <a href="../../">Kubernetes</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -334,12 +336,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_2" type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_2" type="checkbox" id="__nav_2_2_2" checked>
       
       
       
@@ -364,11 +368,73 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../kubernetes/gardener/create-shoot-cluster/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Creating Kubernetes clusters using Cleura Cloud Control Panel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Creating Kubernetes clusters using Cleura Cloud Control Panel
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-kubernetes-cluster-in-cleura-cloud-control-panel" class="md-nav__link">
+    Creating a Kubernetes cluster in Cleura Cloud Control Panel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-kubeconfig-file-from-shoot-cluster" class="md-nav__link">
+    Extract kubeconfig file from Shoot cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-your-cluster-with-kubectl-and-deploy-an-application" class="md-nav__link">
+    Access your cluster with kubectl and deploy an application
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -392,14 +458,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
       
       
       
@@ -424,14 +488,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" >
       
       
       
@@ -462,73 +524,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Working with S3-compatible credentials
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
         Working with S3-compatible credentials
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#creating-credentials" class="md-nav__link">
-    Creating credentials
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#listing-credentials" class="md-nav__link">
-    Listing credentials
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-your-s3-api-client" class="md-nav__link">
-    Configuring your S3 API client
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deleting-credentials" class="md-nav__link">
-    Deleting credentials
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -540,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../expiry/" class="md-nav__link">
+      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
         Object expiry
       </a>
     </li>
@@ -554,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sse-c/" class="md-nav__link">
+      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
         Client-side encryption (SSE-C)
       </a>
     </li>
@@ -568,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning/" class="md-nav__link">
+      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
         Object versioning
       </a>
     </li>
@@ -1205,29 +1205,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-credentials" class="md-nav__link">
-    Creating credentials
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#listing-credentials" class="md-nav__link">
-    Listing credentials
+  <a href="#creating-a-kubernetes-cluster-in-cleura-cloud-control-panel" class="md-nav__link">
+    Creating a Kubernetes cluster in Cleura Cloud Control Panel
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-your-s3-api-client" class="md-nav__link">
-    Configuring your S3 API client
+  <a href="#extract-kubeconfig-file-from-shoot-cluster" class="md-nav__link">
+    Extract kubeconfig file from Shoot cluster
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deleting-credentials" class="md-nav__link">
-    Deleting credentials
+  <a href="#access-your-cluster-with-kubectl-and-deploy-an-application" class="md-nav__link">
+    Access your cluster with kubectl and deploy an application
   </a>
   
 </li>
@@ -1242,113 +1242,109 @@
           
           
             <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="credentials.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+              <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="create-shoot-cluster.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
                 
   
                   
 
-  <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/credentials.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/kubernetes/gardener/create-shoot-cluster.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="working-with-s3-compatible-credentials">Working with S3-compatible credentials</h1>
-<p>When you want to interact with object storage in Cleura using
-tools that support an Amazon S3 compatible API (such as <code>s3cmd</code>,
-<code>rclone</code>, the <code>aws</code> CLI, or the Python <code>boto3</code> library), you need an
-S3-compatible access key ID and secret key.</p>
-<h2 id="creating-credentials">Creating credentials</h2>
-<p>You can create a set of S3-compatible credentials with the following
-command:</p>
-<div class="highlight"><pre><span></span><code>openstack ec2 credentials create
-</code></pre></div>
-<p>This will return an <code>Access</code> and <code>Secret</code> key that you can use to
-populate the <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code>
-environment variables (or whichever configuration options your
-application requires).</p>
+<h1 id="creating-kubernetes-clusters-using-cleura-cloud-control-panel">Creating Kubernetes clusters using Cleura Cloud Control Panel</h1>
+<!-- Config interpolation for the gui name didn't work for the title here. -->
+
+<p>If you want to create a Kubernetes cluster, you can do it via Cleura Cloud Control Panel using Gardener.
+This how-to shows you how to do that, and how to deploy a sample application on such a cluster.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To access the cluster from your computer, you will need <a href="https://kubernetes.io/docs/tasks/tools/#kubectl">kubectl</a> installed on your machine.</p>
+<h2 id="creating-a-kubernetes-cluster-in-cleura-cloud-control-panel">Creating a Kubernetes cluster in Cleura Cloud Control Panel</h2>
+<p>To get started, navigate to <a href="https://cleura.cloud">https://cleura.cloud</a>, and in the side panel choose Kubernetes
+→ <a href="https://cleura.cloud/containers/gardener">Managed Kubernetes</a>.
+You will see a Gardener page, in which you can create and manage your clusters. Click <code>Create Kubernetes cluster</code>.</p>
+<p><img alt="Gardener page in Cleura Cloud Control Panel" src="../assets/gardener_page.png" /></p>
 <blockquote>
-<p>Your S3-compatible credentials are always scoped to your
-Cleura <em>region</em> and <em>project</em>. You cannot reuse an access
-and secret key across multiple regions or projects.</p>
-<p>Also, your credentials are only “S3-compatible” in the sense that
-they use the same <em>format</em> as AWS S3 does. They are never valid against
-AWS S3 itself.</p>
+<p>In Gardener's terminology, a Kubernetes cluster is referred as a <strong>Shoot cluster</strong>. You can see the name "Shoot" in various places throughout
+the panel's UI, so it is good to know what it means. To learn more, check
+out <a href="https://gardener.cloud/docs/gardener/concepts/architecture/">Gardener architecture</a>.</p>
 </blockquote>
-<h2 id="listing-credentials">Listing credentials</h2>
-<p>You can list any previously-created credentials with:</p>
-<div class="highlight"><pre><span></span><code>openstack ec2 credentials list
-</code></pre></div>
-<h2 id="configuring-your-s3-api-client">Configuring your S3 API client</h2>
-<p>Once you have obtained your S3-compatible access and secret key, you
-need to configure your S3 client with it.</p>
-<p>How exactly you do that depends on your preferred client:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Create a new profile, named after your Cleura region:
-<div class="highlight"><pre><span></span><code>aws configure <span class="nb">set</span> <span class="se">\</span>
-  --profile &lt;region&gt; <span class="se">\</span>
-  aws_access_key_id &lt;access-key&gt;
-aws configure <span class="nb">set</span> <span class="se">\</span>
-  --profile &lt;region&gt; <span class="se">\</span>
-  aws_secret_access_key &lt;secret-key&gt;
-</code></pre></div></p>
-<p>For the <code>aws</code> CLI, you cannot define a region's endpoint in the
-profile. As such, you must add the
-<code>--endpoint-url=https://s3-&lt;region&gt;.citycloud.com:8080</code>
-option to each <code>aws s3api</code> call.</p>
-</div>
-<div class="tabbed-block">
-<p>Create a new alias, named after your Cleura region:
-<div class="highlight"><pre><span></span><code>mc <span class="nb">alias</span> <span class="nb">set</span> &lt;region&gt; <span class="se">\</span>
-  https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
-  &lt;access-key&gt; &lt;secret-key&gt;
-</code></pre></div>
-Once you have configured an alias like this, you are able to
-run bucket operations with <code>mc</code> using the <code>alias/bucket</code> syntax.</p>
-</div>
-<div class="tabbed-block">
-<p><code>s3cmd</code> does not support configuration profiles, so you need to use
-a separate configuration file for each Cleura region you
-want to use:
-<div class="highlight"><pre><span></span><code>s3cmd -c ~/.s3cfg-&lt;region&gt; --configure
-</code></pre></div></p>
-<ul>
-<li>Set your <code>Access Key</code> and <code>Secret Key</code> when prompted.</li>
-<li>Leave <code>Default Region</code> unchanged.</li>
-<li>Set <code>S3 Endpoint</code> to <code>s3-&lt;region&gt;.citycloud.com:8080</code>.</li>
-<li>Set <code>DNS-style bucket+hostname:port template for accessing a bucket</code>
-  to <code>s3-&lt;region&gt;.citycloud.com:8080</code> as well.</li>
-<li>Set <code>Use HTTPS protocol</code> to <code>Yes</code> (the default).</li>
-<li>Configure GnuPG encryption and your HTTP proxy server, if needed.</li>
-<li>Test access with your supplied credentials.</li>
-</ul>
-<p>On subsequent invocations of the <code>s3cmd</code> CLI, always add the
-<code>-c ~/.s3cfg-&lt;region&gt;</code> option.</p>
-</div>
-</div>
-</div>
-<h2 id="deleting-credentials">Deleting credentials</h2>
-<p>If at any time you need to delete a set of AWS-compatible credentials,
-you can do so with the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack ec2 credentials delete &lt;access-key-id&gt;
-</code></pre></div>
+<p>In the opened form, fill in the name of the cluster and a region to see the rest of the options. Hover over question mark icons at each form
+field to learn more about it. For the purposes of this how-to, you can leave everything at default values and click <code>Create</code> at the bottom.</p>
 <blockquote>
-<p>Deleting a set of S3-compatible credentials will <em>immediately</em>
-revoke access for any applications that were using it.</p>
+<p>In the form you can see a section about worker groups. This name refers to Kubernetes worker nodes.</p>
 </blockquote>
+<p>In the list of clusters, you will see your new Gardener shoot bootstrapping. The icon on the left marks the progress. Creating the cluster
+can take up to several minutes.</p>
+<p><img alt="Shoot cluster bootstrapping" src="../assets/shoot_bootstrapping.png" /></p>
+<h2 id="extract-kubeconfig-file-from-shoot-cluster">Extract kubeconfig file from Shoot cluster</h2>
+<p>When the Shoot cluster is up and running, you need to get a kubeconfig file to be able to access it. To do that, click on the cluster to
+expand its properties, and open <code>Kubeconfig</code>.</p>
+<p><img alt="Kubeconfig in Gardener Shoot view" src="../assets/shoot_kubeconfig.png" /></p>
+<p>You should now see the file's contents. You have the option to <code>Copy Config</code> or <code>Rotate Kubeconfig</code> if your credentials got compromised.
+Copy the content of the kubeconfig and insert it into <code>~/.kube/config</code>. Create the directory and the file if needed.</p>
+<blockquote>
+<p>By default, Kubectl searches for its configuration in
+<code>~/.kube/config</code>, but you can modify this behaviour if needed. More
+info
+<a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">here</a>.</p>
+</blockquote>
+<p>Check if your kubectl uses the proper configuration by running:</p>
+<div class="highlight"><pre><span></span><code>kubectl config view
+</code></pre></div>
+<p>You should see something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">clusters</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span><span class="w"></span>
+<span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.test-cluster.p40698.staging-k8s.cleura.cloud</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span><span class="w"></span>
+<span class="nt">contexts</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span><span class="w"></span>
+<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster-token</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span><span class="w"></span>
+<span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Config</span><span class="w"></span>
+<span class="nt">preferences</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="nt">users</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster-token</span><span class="w"></span>
+<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDACTED</span><span class="w"></span>
+</code></pre></div>
+<h2 id="access-your-cluster-with-kubectl-and-deploy-an-application">Access your cluster with kubectl and deploy an application</h2>
+<p>Check your available nodes by running:</p>
+<div class="highlight"><pre><span></span><code>kubectl get nodes
+</code></pre></div>
+<p>You should see Gardener's worker node that is available:</p>
+<div class="highlight"><pre><span></span><code><span class="go">NAME                                                STATUS   ROLES    AGE    VERSION</span>
+<span class="go">shoot--p40698--test-cluster-czg4zf-z1-5d7b5-bfl7p   Ready    &lt;none&gt;   156m   v1.24.3</span>
+</code></pre></div>
+<p>Create a sample deployment with a Hello World application:</p>
+<div class="highlight"><pre><span></span><code>kubectl create deployment hello-node --image<span class="o">=</span>registry.k8s.io/echoserver:1.4
+kubectl expose deployment hello-node --type<span class="o">=</span>LoadBalancer --port<span class="o">=</span><span class="m">8080</span>
+</code></pre></div>
+<p>To access the created app, list the available services:</p>
+<div class="highlight"><pre><span></span><code>kubectl get services
+</code></pre></div>
+<p>You should get the load balancer service with its external IP and port number:</p>
+<div class="highlight"><pre><span></span><code><span class="go">NAME         TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)          AGE</span>
+<span class="go">hello-node   LoadBalancer   100.69.16.106   &lt;External IP&gt;   8080:32039/TCP   34m</span>
+<span class="go">kubernetes   ClusterIP      100.64.0.1      &lt;none&gt;          443/TCP          3h46m</span>
+</code></pre></div>
+<p>Open a browser and open <code>&lt;External IP&gt;:8080</code>. You should see the page of the Hello World app.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-08</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-11</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-08</span>
       
     
   </small>
@@ -1363,7 +1359,7 @@ revoke access for any applications that were using it.</p>
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:foad.lind@citynetwork.eu'>Foad Lind</a></span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:mateusz.guziak@cleura.com'>Mateusz Guziak</a></span>
       </small>
     </div>
   
@@ -1382,7 +1378,7 @@ revoke access for any applications that were using it.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../../kubernetes/gardener/create-shoot-cluster/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating Kubernetes clusters using Cleura Cloud Control Panel" rel="prev">
+        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kubernetes in Cleura" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1391,20 +1387,20 @@ revoke access for any applications that were using it.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Creating Kubernetes clusters using Cleura Cloud Control Panel
+              Kubernetes in Cleura
             </div>
           </div>
         </a>
       
       
         
-        <a href="../expiry/" class="md-footer__link md-footer__link--next" aria-label="Next: Object expiry" rel="next">
+        <a href="../../../object-storage/s3/credentials/" class="md-footer__link md-footer__link--next" aria-label="Next: Working with S3-compatible credentials" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Object expiry
+              Working with S3-compatible credentials
             </div>
           </div>
           <div class="md-footer__button md-icon">
