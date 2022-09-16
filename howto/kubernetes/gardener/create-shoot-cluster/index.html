@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.1">
     
     
       
@@ -1266,8 +1266,8 @@ This how-to shows you how to do that, and how to deploy a sample application on 
 You will see a Gardener page, in which you can create and manage your clusters. Click <code>Create Kubernetes cluster</code>.</p>
 <p><img alt="Gardener page in Cleura Cloud Control Panel" src="../assets/gardener_page.png" /></p>
 <blockquote>
-<p>In Gardener's terminology, a Kubernetes cluster is referred as a <strong>Shoot cluster</strong>. You can see the name "Shoot" in various places throughout
-the panel's UI, so it is good to know what it means. To learn more, check
+<p>In Gardener&rsquo;s terminology, a Kubernetes cluster is referred as a <strong>Shoot cluster</strong>. You can see the name &ldquo;Shoot&rdquo; in various places throughout
+the panel&rsquo;s UI, so it is good to know what it means. To learn more, check
 out <a href="https://gardener.cloud/docs/gardener/concepts/architecture/">Gardener architecture</a>.</p>
 </blockquote>
 <p>In the opened form, fill in the name of the cluster and a region to see the rest of the options. Hover over question mark icons at each form
@@ -1282,7 +1282,7 @@ can take up to several minutes.</p>
 <p>When the Shoot cluster is up and running, you need to get a kubeconfig file to be able to access it. To do that, click on the cluster to
 expand its properties, and open <code>Kubeconfig</code>.</p>
 <p><img alt="Kubeconfig in Gardener Shoot view" src="../assets/shoot_kubeconfig.png" /></p>
-<p>You should now see the file's contents. You have the option to <code>Copy Config</code> or <code>Rotate Kubeconfig</code> if your credentials got compromised.
+<p>You should now see the file&rsquo;s contents. You have the option to <code>Copy Config</code> or <code>Rotate Kubeconfig</code> if your credentials got compromised.
 Copy the content of the kubeconfig and insert it into <code>~/.kube/config</code>. Create the directory and the file if needed.</p>
 <blockquote>
 <p>By default, Kubectl searches for its configuration in
@@ -1317,7 +1317,7 @@ info
 <p>Check your available nodes by running:</p>
 <div class="highlight"><pre><span></span><code>kubectl get nodes
 </code></pre></div>
-<p>You should see Gardener's worker node that is available:</p>
+<p>You should see Gardener&rsquo;s worker node that is available:</p>
 <div class="highlight"><pre><span></span><code><span class="go">NAME                                                STATUS   ROLES    AGE    VERSION</span>
 <span class="go">shoot--p40698--test-cluster-czg4zf-z1-5d7b5-bfl7p   Ready    &lt;none&gt;   156m   v1.24.3</span>
 </code></pre></div>
@@ -1439,7 +1439,7 @@ kubectl expose deployment hello-node --type<span class="o">=</span>LoadBalancer 
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.48f2be22.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d691e9de.min.js"></script>
       
     
   </body>
