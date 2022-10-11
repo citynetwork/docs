@@ -2,23 +2,23 @@
 
 ## OpenStack Services
 
-|                                | Sto1HS    | Sto2HS   |
-| ------------------------------ | --------- | ------   |
-| Barbican (secret storage)      | Victoria  | Victoria |
-| Cinder (block storage)         | Victoria  | Victoria |
-| Glance (image management)      | Victoria  | Victoria |
-| Heat (orchestration)           | Victoria  | Victoria |
-| Keystone (identity management) | Victoria  | Victoria |
-| Magnum (container management)  | Victoria  | Victoria |
-| Neutron (networking)           | Victoria  | Victoria |
-| Nova (server virtualization)   | Victoria  | Victoria |
-| Octavia (load balancing)       | Victoria  | Victoria |
+|                                | Sto1HS    | Sto2HS |
+| ------------------------------ | --------- | ------ |
+| Barbican (secret storage)      | Xena      | Xena   |
+| Cinder (block storage)         | Xena      | Xena   |
+| Glance (image management)      | Xena      | Xena   |
+| Heat (orchestration)           | Xena      | Xena   |
+| Keystone (identity management) | Xena      | Xena   |
+| Magnum (container management)  | Xena      | Xena   |
+| Neutron (networking)           | Xena      | Xena   |
+| Nova (server virtualization)   | Xena      | Xena   |
+| Octavia (load balancing)       | Xena      | Xena   |
 
 
 ## Ceph Services
 
-|                               | Sto1HS    | Sto2HS   |
-| --------------------------    | --------- | ------   |
-| Block storage (for OpenStack) | Nautilus  | Nautilus |
-| Object storage (Swift API)    | Nautilus  | Nautilus |
-| Object storage (S3 API)       | Nautilus  | Nautilus |
+|                               | Sto1HS    | Sto2HS  |
+| --------------------------    | --------- | ------  |
+| Block storage (for OpenStack) | Pacific   | Pacific |
+| Object storage (Swift API)    | Pacific   | Pacific |
+| Object storage (S3 API)       | Pacific   | Pacific |
