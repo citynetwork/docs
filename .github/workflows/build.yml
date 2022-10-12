@@ -4,9 +4,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
+          # Retrieve the full commit history, so that
+          # mkdocs-git-authors-plugin can do its job.
           fetch-depth: 0
+          # Checkout a pull request's HEAD commit instead of the merge
+          # commit, so that gitlint lints the correct commit message.
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
