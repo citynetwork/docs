@@ -17,8 +17,8 @@
 
 ## Ceph Services
 
-|                               | Kna1      | Sto2             | Fra1     | Dx1      | Tky1             |
-| --------------------------    | --------- | ------           | -----    | -----    | ------           |
-| Block storage (for OpenStack) | Nautilus  | Nautilus         | Nautilus | Nautilus | Nautilus         |
-| Object storage (Swift API)    | Nautilus  | :material-close: | Nautilus | Pacific  | :material-close: |
-| Object storage (S3 API)       | Nautilus  | :material-close: | Nautilus | Pacific  | :material-close: |
+|                               | Kna1      | Sto2             | Fra1    | Dx1     | Tky1             |
+| --------------------------    | --------- | ------           | -----   | -----   | ------           |
+| Block storage (for OpenStack) | Pacific   | Pacific          | Pacific | Pacific | Pacific          |
+| Object storage (Swift API)    | Pacific   | :material-close: | Pacific | Pacific | :material-close: |
+| Object storage (S3 API)       | Pacific   | :material-close: | Pacific | Pacific | :material-close: |
