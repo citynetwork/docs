@@ -2,7 +2,7 @@
 
 ## OpenStack Services
 
-|                                | Kna1  | Sto2   | Fra1  | Dx1   | Tky1   |
+|                                | KNA1  | STO2   | FRA1  | DX1   | TKY1   |
 | ------------------------------ | ----- | ------ | ----- | ----- | ------ |
 | Barbican (secret storage)      | Xena  | Xena   | Xena  | Xena  | Xena   |
 | Cinder (block storage)         | Xena  | Xena   | Xena  | Xena  | Xena   |
@@ -17,7 +17,7 @@
 
 ## Ceph Services
 
-|                               | Kna1      | Sto2             | Fra1     | Dx1      | Tky1             |
+|                               | KNA1      | STO2             | FRA1     | DX1      | TKY1             |
 | --------------------------    | --------- | ------           | -----    | -----    | ------           |
 | Block storage (for OpenStack) | Nautilus  | Nautilus         | Nautilus | Nautilus | Nautilus         |
 | Object storage (Swift API)    | Nautilus  | :material-close: | Nautilus | Pacific  | :material-close: |
