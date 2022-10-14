@@ -1256,34 +1256,49 @@
 <h1 id="creating-kubernetes-clusters-using-cleura-cloud-control-panel">Creating Kubernetes clusters using Cleura Cloud Control Panel</h1>
 <!-- Config interpolation for the gui name didn't work for the title here. -->
 
-<p>If you want to create a Kubernetes cluster, you can do it via Cleura Cloud Control Panel using Gardener.
-This how-to shows you how to do that, and how to deploy a sample application on such a cluster.</p>
+<p>If you want to create a Kubernetes cluster, you can do it via
+Cleura Cloud Control Panel using Gardener. This how-to shows you how to do
+that, and how to deploy a sample application on such a cluster.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>To access the cluster from your computer, you will need <a href="https://kubernetes.io/docs/tasks/tools/#kubectl">kubectl</a> installed on your machine.</p>
+<p>To access the cluster from your computer, you will need
+<a href="https://kubernetes.io/docs/tasks/tools/#kubectl">kubectl</a> installed
+on your machine.</p>
 <h2 id="creating-a-kubernetes-cluster-in-cleura-cloud-control-panel">Creating a Kubernetes cluster in Cleura Cloud Control Panel</h2>
-<p>To get started, navigate to <a href="https://cleura.cloud">https://cleura.cloud</a>, and in the side panel choose Kubernetes
-→ <a href="https://cleura.cloud/containers/gardener">Managed Kubernetes</a>.
-You will see a Gardener page, in which you can create and manage your clusters. Click <code>Create Kubernetes cluster</code>.</p>
+<p>To get started, navigate to <a href="https://cleura.cloud">https://cleura.cloud</a>, and
+in the side panel choose Kubernetes → <a href="https://cleura.cloud/containers/gardener">Managed
+Kubernetes</a>.
+You will see a Gardener page, in which you can create and manage your
+clusters. Click <code>Create Kubernetes cluster</code>.</p>
 <p><img alt="Gardener page in Cleura Cloud Control Panel" src="../assets/gardener_page.png" /></p>
 <blockquote>
-<p>In Gardener&rsquo;s terminology, a Kubernetes cluster is referred as a <strong>Shoot cluster</strong>. You can see the name &ldquo;Shoot&rdquo; in various places throughout
-the panel&rsquo;s UI, so it is good to know what it means. To learn more, check
-out <a href="https://gardener.cloud/docs/gardener/concepts/architecture/">Gardener architecture</a>.</p>
+<p>In Gardener&rsquo;s terminology, a Kubernetes cluster is referred as a
+<strong>Shoot cluster</strong>. You can see the name &ldquo;Shoot&rdquo; in various places
+throughout the panel&rsquo;s UI, so it is good to know what it means. To
+learn more, check out <a href="https://gardener.cloud/docs/gardener/concepts/architecture/">Gardener
+architecture</a>.</p>
 </blockquote>
-<p>In the opened form, fill in the name of the cluster and a region to see the rest of the options. Hover over question mark icons at each form
-field to learn more about it. For the purposes of this how-to, you can leave everything at default values and click <code>Create</code> at the bottom.</p>
+<p>In the opened form, fill in the name of the cluster and a region to
+see the rest of the options. Hover over question mark icons at each
+form field to learn more about it. For the purposes of this how-to,
+you can leave everything at default values and click <code>Create</code> at the
+bottom.</p>
 <blockquote>
-<p>In the form you can see a section about worker groups. This name refers to Kubernetes worker nodes.</p>
+<p>In the form you can see a section about worker groups. This name
+refers to Kubernetes worker nodes.</p>
 </blockquote>
-<p>In the list of clusters, you will see your new Gardener shoot bootstrapping. The icon on the left marks the progress. Creating the cluster
-can take up to several minutes.</p>
+<p>In the list of clusters, you will see your new Gardener shoot
+bootstrapping. The icon on the left marks the progress. Creating the
+cluster can take up to several minutes.</p>
 <p><img alt="Shoot cluster bootstrapping" src="../assets/shoot_bootstrapping.png" /></p>
 <h2 id="extract-kubeconfig-file-from-shoot-cluster">Extract kubeconfig file from Shoot cluster</h2>
-<p>When the Shoot cluster is up and running, you need to get a kubeconfig file to be able to access it. To do that, click on the cluster to
+<p>When the Shoot cluster is up and running, you need to get a kubeconfig
+file to be able to access it. To do that, click on the cluster to
 expand its properties, and open <code>Kubeconfig</code>.</p>
 <p><img alt="Kubeconfig in Gardener Shoot view" src="../assets/shoot_kubeconfig.png" /></p>
-<p>You should now see the file&rsquo;s contents. You have the option to <code>Copy Config</code> or <code>Rotate Kubeconfig</code> if your credentials got compromised.
-Copy the content of the kubeconfig and insert it into <code>~/.kube/config</code>. Create the directory and the file if needed.</p>
+<p>You should now see the file&rsquo;s contents. You have the option to <code>Copy
+Config</code> or <code>Rotate Kubeconfig</code> if your credentials got compromised.
+Copy the content of the kubeconfig and insert it into
+<code>~/.kube/config</code>. Create the directory and the file if needed.</p>
 <blockquote>
 <p>By default, Kubectl searches for its configuration in
 <code>~/.kube/config</code>, but you can modify this behaviour if needed. More
@@ -1328,19 +1343,21 @@ kubectl expose deployment hello-node --type<span class="o">=</span>LoadBalancer 
 <p>To access the created app, list the available services:</p>
 <div class="highlight"><pre><span></span><code>kubectl get services
 </code></pre></div>
-<p>You should get the load balancer service with its external IP and port number:</p>
+<p>You should get the load balancer service with its external IP and port
+number:</p>
 <div class="highlight"><pre><span></span><code><span class="go">NAME         TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)          AGE</span>
 <span class="go">hello-node   LoadBalancer   100.69.16.106   &lt;External IP&gt;   8080:32039/TCP   34m</span>
 <span class="go">kubernetes   ClusterIP      100.64.0.1      &lt;none&gt;          443/TCP          3h46m</span>
 </code></pre></div>
-<p>Open a browser and open <code>&lt;External IP&gt;:8080</code>. You should see the page of the Hello World app.</p>
+<p>Open a browser and open <code>&lt;External IP&gt;:8080</code>. You should see the
+page of the Hello World app.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-14</span>
       
         <br>
         Created:
@@ -1359,7 +1376,7 @@ kubectl expose deployment hello-node --type<span class="o">=</span>LoadBalancer 
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:mateusz.guziak@cleura.com'>Mateusz Guziak</a></span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:florian@cleura.com'>Florian Haas</a>, <a href='mailto:mateusz.guziak@cleura.com'>Mateusz Guziak</a></span>
       </small>
     </div>
   
