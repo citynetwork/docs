@@ -554,8 +554,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#creating-a-versioned-object" class="md-nav__link">
+    Creating a versioned object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-object-versions" class="md-nav__link">
+    Listing object versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#retrieving-a-versioned-object" class="md-nav__link">
     Retrieving a versioned object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-a-versioned-object" class="md-nav__link">
+    Deleting a versioned object
   </a>
   
 </li>
@@ -1212,8 +1233,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#creating-a-versioned-object" class="md-nav__link">
+    Creating a versioned object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-object-versions" class="md-nav__link">
+    Listing object versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#retrieving-a-versioned-object" class="md-nav__link">
     Retrieving a versioned object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-a-versioned-object" class="md-nav__link">
+    Deleting a versioned object
   </a>
   
 </li>
@@ -1251,8 +1293,8 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
   --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
-  s3api put-bucket-versioning <span class="se">\ </span>
-  --versioning-configuration <span class="nv">Status</span><span class="o">=</span>Enabled <span class="se">\ </span>
+  s3api put-bucket-versioning <span class="se">\</span>
+  --versioning-configuration <span class="nv">Status</span><span class="o">=</span>Enabled <span class="se">\</span>
   --bucket &lt;bucket-name&gt;
 </code></pre></div>
 </div>
@@ -1273,7 +1315,7 @@ the following commands:</p>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
   --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
-  s3api get-bucket-versioning <span class="se">\ </span>
+  s3api get-bucket-versioning <span class="se">\</span>
   --bucket &lt;bucket-name&gt;
 </code></pre></div>
 </div>
@@ -1286,15 +1328,72 @@ the following commands:</p>
 </div>
 </div>
 </div>
-<h2 id="retrieving-a-versioned-object">Retrieving a versioned object</h2>
-<p>To download a specific version of an object in a bucket, use one of
-the following commands:</p>
+<h2 id="creating-a-versioned-object">Creating a versioned object</h2>
+<p>Once object versioning is enabled on a bucket, the normal object
+creation and replacement commands behave in a manner different from
+that in unversioned buckets:</p>
+<ul>
+<li>If the object does not already exist, it is created (as in an
+  unversioned bucket).</li>
+<li>If the object does already exist, it is not replaced. Instead, a new
+  version appears in addition to the old one.</li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">aws</label><label for="__tabbed_3_2">mc</label><label for="__tabbed_3_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
   --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
-  s3api get-object <span class="se">\ </span>
+  s3api put-object <span class="se">\</span>
+  --bucket &lt;bucket-name&gt; <span class="se">\</span>
+  --key &lt;object-name&gt; <span class="se">\</span>
+  --body &lt;local-filename&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>mc cp <span class="se">\</span>
+  &lt;local-filename&gt; <span class="se">\</span>
+  &lt;region&gt;/&lt;bucket-name&gt;/&lt;object-name&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>s3cmd put &lt;local-filename&gt; s3://&lt;bucket&gt;
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="listing-object-versions">Listing object versions</h2>
+<p>In a bucket that has versioning enabled, you may list the versions
+available for an object:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">aws</label><label for="__tabbed_4_2">mc</label><label for="__tabbed_4_3">s3cmd</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
+  --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
+  s3api list-object-versions <span class="se">\</span>
+  --bucket &lt;bucket-name&gt; <span class="se">\</span>
+  --key &lt;object-name&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><div class="highlight"><pre><span></span><code>mc stat --versions &lt;region&gt;/&lt;bucket-name&gt;
+</code></pre></div>
+This functionality may be impacted by bugs in several versions of
+the <code>mc</code> client.</p>
+</div>
+<div class="tabbed-block">
+<p>This functionality is not available with the <code>s3cmd</code> command.</p>
+</div>
+</div>
+</div>
+<h2 id="retrieving-a-versioned-object">Retrieving a versioned object</h2>
+<p>To download a specific version of an object in a bucket, use one of
+the following commands:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">aws</label><label for="__tabbed_5_2">mc</label><label for="__tabbed_5_3">s3cmd</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
+  --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
+  s3api get-object <span class="se">\</span>
   --bucket &lt;bucket-name&gt; <span class="se">\</span>
   --key &lt;object-name&gt; <span class="se">\</span>
   --version-id &lt;versionid&gt; <span class="se">\</span>
@@ -1315,14 +1414,66 @@ the following commands:</p>
 </div>
 <p>When you download an object from a versioned bucket <em>without</em>
 specifying a version identifier, your S3 client will download the
-latest version of the object that the bucket contains.</p>
+latest version of that object.</p>
+<h2 id="deleting-a-versioned-object">Deleting a versioned object</h2>
+<p>Like the commands to <em>create</em> objects, the commands to <em>delete</em> them
+behave differently once object versioning is enabled on a bucket.</p>
+<p>The command to delete an object will normally not delete it, but
+revert it to the prior version. The exception to this rule is when
+there is only a single version of the object left in the bucket, in
+which case object removal does occur.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">aws</label><label for="__tabbed_6_2">mc</label><label for="__tabbed_6_3">s3cmd</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
+  --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
+  s3api delete-object <span class="se">\</span>
+  --bucket &lt;bucket-name&gt; <span class="se">\</span>
+  --key &lt;object-name&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>mc rm <span class="se">\</span>
+  &lt;region&gt;/&lt;bucket-name&gt;/&lt;object-name&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>s3cmd del s3://&lt;bucket-name&gt;/&lt;object-name&gt;
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>You also have the option of deleting not the latest version, but a
+specific object version:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">aws</label><label for="__tabbed_7_2">mc</label><label for="__tabbed_7_3">s3cmd</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
+  --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
+  s3api delete-object <span class="se">\</span>
+  --version-id &lt;versionid&gt; <span class="se">\</span>
+  --bucket &lt;bucket-name&gt; <span class="se">\</span>
+  --key &lt;object-name&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>mc rm <span class="se">\</span>
+  --version-id &lt;versionid&gt; <span class="se">\</span>
+  &lt;region&gt;/&lt;bucket-name&gt;/&lt;object-name&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>This functionality is not available with the <code>s3cmd</code> command.</p>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-10</span>
       
         <br>
         Created:
@@ -1341,7 +1492,7 @@ latest version of the object that the bucket contains.</p>
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'><a href='mailto:foad.lind@citynetwork.eu'>Foad Lind</a></span>
+          Authors: <span class='git-page-authors git-authors'><a href='mailto:florian@cleura.com'>Florian Haas</a>, <a href='mailto:foad.lind@citynetwork.eu'>Foad Lind</a></span>
       </small>
     </div>
   
