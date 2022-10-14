@@ -11,6 +11,9 @@ you [send your PR](modifications.md):
   message style.
 * We check whether the documentation still builds correctly, with your
   change applied.
+* We apply [pymarkdownlnt](https://github.com/jackdewinter/pymarkdown)
+  checks for Markdown consistency and to encourage some good
+  documentation practices.
 * We check to make sure that no internal or external links in the
   documentation are dead. This is one example where the checks might
   fail through no fault of yours — some external link may have
