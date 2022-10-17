@@ -6,6 +6,9 @@ specific tasks in {{config.extra.brand}} and the services we support.
 There are several categories of How-To guides, and they tend to be
 focused on a specific cloud technology.
 
+* **Getting Started** How-Tos help you create an account in Cleura
+  Cloud, and start using our services.
+
 * **Kubernetes** How-Tos covering how you can create and manage your Kubernetes deployments using {{config.extra.gui}}.
 
 * **Object storage** How-Tos dealing with the S3 and Swift object storage
