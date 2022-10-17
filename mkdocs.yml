@@ -36,6 +36,7 @@ plugins:
       locale: en
       timezone: Etc/UTC
       type: iso_date
+  - glightbox
   - htmlproofer:
       raise_error: true
       validate_external_urls: true
