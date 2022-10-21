@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.1, mkdocs-material-8.5.6" name="generator"/>
-<title>Generic secret storage - Docs (Beta)</title>
+<title>Creating a new network from the Cleura Cloud Control Panel - Docs (Beta)</title>
 <link href="../../../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -30,7 +30,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#generic-secret-storage">
+<a class="md-skip" href="#creating-a-new-network-from-the-cleura-cloud-control-panel">
           Skip to content
         </a>
 </div>
@@ -54,7 +54,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Generic secret storage
+              Creating a new network from the Cleura Cloud Control Panel
             
           </span>
 </div>
@@ -274,10 +274,10 @@
           OpenStack
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" id="__nav_2_5_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" id="__nav_2_5_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Barbican (secret storage)</a>
+<a href="../../barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_5_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -288,36 +288,13 @@
           Barbican (secret storage)
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Generic secret storage
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../barbican/generic-secret/">
         Generic secret storage
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-store-a-generic-secret">
-    How to store a generic secret
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-retrieve-secrets">
-    How to retrieve secrets
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../share-secret/">
+<a class="md-nav__link" href="../../barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -344,8 +321,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_5_3">
           Neutron (networking service)
           <span class="md-nav__icon md-icon"></span>
@@ -357,12 +334,13 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../neutron/new-network-control-panel/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         Creating a new network from the Cleura Cloud Control Panel
       </a>
 </li>
@@ -509,114 +487,71 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-store-a-generic-secret">
-    How to store a generic secret
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-retrieve-secrets">
-    How to retrieve secrets
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="generic-secret.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/barbican/generic-secret.md" title="Edit this page">
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="new-network-control-panel.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/neutron/new-network-control-panel.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="generic-secret-storage">Generic secret storage</h1>
-<p>The simplest way to use Barbican is to create and retrieve a securely
-stored, generic secret.</p>
-<h2 id="how-to-store-a-generic-secret">How to store a generic secret</h2>
-<p>It is possible to store any secret data with Barbican. The command
-below will create a secret of the type <code>passphrase</code>, named <code>mysecret</code>,
-which contains the passphrase <code>my very secret passphrase</code>.</p>
-<div class="highlight"><pre><span></span><code>openstack secret store <span class="se">\</span>
-  --secret-type passphrase <span class="se">\</span>
-  -p <span class="s2">"my very secret passphrase"</span> <span class="se">\</span>
-  -n mysecret
-</code></pre></div>
-<blockquote>
-<p>The example output below uses Cleura’s <code>Fra1</code> region. In
-other regions, the secret
-<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URIs</a>
-will differ.</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code>+---------------+--------------------------------------------------------------------------------+
-| Field         | Value                                                                          |
-+---------------+--------------------------------------------------------------------------------+
-| Secret href   | https://fra1.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba |
-| Name          | mysecret                                                                       |
-| Created       | None                                                                           |
-| Status        | None                                                                           |
-| Content types | None                                                                           |
-| Algorithm     | aes                                                                            |
-| Bit length    | 256                                                                            |
-| Secret type   | passphrase                                                                     |
-| Mode          | cbc                                                                            |
-| Expiration    | None                                                                           |
-+---------------+--------------------------------------------------------------------------------+
-</code></pre></div>
-<p>Note that <code>passphrase</code> type secrets are symmetrically encrypted, using
-the <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a>
-encryption algorithm with a 256-bit key length. You can select other
-bit lengths and algorithms with the <code>-b</code> and <code>-a</code> command line
-options, if desired.</p>
-<h2 id="how-to-retrieve-secrets">How to retrieve secrets</h2>
-<p>Secrets are stored in Barbican in an encrypted format. You can see
-a list of secrets created for your user with the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack secret list
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
-| Secret href                                                                    | Name     | Created                   | Status | Content types                           | Algorithm | Bit length | Secret type | Mode | Expiration |
-+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
-| https://fra1.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba | mysecret | 2021-04-29T10:33:18+00:00 | ACTIVE | {'default': 'application/octet-stream'} | aes       |        256 | passphrase  | cbc  | None       |
-| https://fra1.citycloud.com:9311/v1/secrets/ad628532-53b8-4d2f-91e5-0097b51da4e | None     | 2021-04-27T13:52:10+00:00 | ACTIVE | {'default': 'application/octet-stream'} | aes       |        256 | symmetric   | None | None       |
-+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
-</code></pre></div>
-<p>You can retrieve the decrypted secret with the <code>openstack secret get</code>
-command, adding the <code>-p</code> (or <code>--payload</code>) option:</p>
-<div class="highlight"><pre><span></span><code>$ openstack secret get -p <span class="se">\</span>
-  https://fra1.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>+---------+---------------------------+
-| Field   | Value                     |
-+---------+---------------------------+
-| Payload | my very secret passphrase |
-+---------+---------------------------+
-</code></pre></div>
-<blockquote>
-<p>Unlike many other OpenStack services, which allow you to retrieve
-object references by name or UUID, Barbican only lets you retrieve
-secrets by their full
-<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI</a>.
-That URI must include the
-<code>https://&lt;region&gt;.citycloud.com:9311/v1/secrets/</code> prefix.</p>
-</blockquote>
+<h1 id="creating-a-new-network-from-the-cleura-cloud-control-panel">Creating a new network from the Cleura Cloud Control Panel</h1>
+<p>Before creating a server in Cleura Cloud, you need to have a
+network to make the new server a member of. You may have more than one
+network per region, so let us now walk through creating a new network
+using the Cleura Cloud Control Panel. Fire up your favorite web browser, navigate
+to the <a href="https://cleura.cloud">Cleura Cloud</a> page, and login
+into your Cleura account.</p>
+<p>On the top right-hand side of the Cleura Cloud Control Panel, click the <em>Create</em>
+button. A new pane will slide into view from the right-hand side of
+the browser window, titled <em>Create</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-net-panel/shot-01.png"><img alt="Create a new object" src="../assets/new-net-panel/shot-01.png"/></a></p>
+<p>You will notice several rounded boxes prominently displayed on that 
+pane, each for defining, configuring, and instantiating a different 
+Cleura Cloud object. Go ahead and click the <em>Network</em> box. A 
+new pane titled <em>Create Network</em> will slide over. At the top, type in a 
+name and select one of the available regions for the new network.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-net-panel/shot-02.png"><img alt="New network name and region" src="../assets/new-net-panel/shot-02.png"/></a></p>
+<p>Expand the <em>Advanced Options</em> section below, make sure <em>Port 
+Security</em> is enabled, and leave the MTU parameter blank.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-net-panel/shot-03.png"><img alt="MTU and port security" src="../assets/new-net-panel/shot-03.png"/></a></p>
+<p>You probably want a full-featured network for your cloud servers, so
+please activate the <em>Create a complete network containing a subnet and a router</em>
+option. You will notice that
+<a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">a network address in CIDR notation</a>
+is pre-configured for your network. You also get a couple of
+DNS servers, a Gateway, and a DHCP server.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-net-panel/shot-04.png"><img alt="Complete network" src="../assets/new-net-panel/shot-04.png"/></a></p>
+<p>Scroll down a little bit if you have to. Assuming you want your cloud 
+servers to reach hosts on the Internet, for <em>External network</em> make 
+sure you select <em>ext-net</em>. Then, click the green <em>Create</em> button to 
+create the new network.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-net-panel/shot-05.png"><img alt="Finish creating network" src="../assets/new-net-panel/shot-05.png"/></a></p>
+<p>In a few seconds, the new network will be readily available. You may 
+see all defined networks, in all supported regions, by selecting 
+<em>Networking</em> &gt; <em>Networks</em> (see the left-hand side pane on the 
+Cleura Cloud Control Panel).</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-net-panel/shot-06.png"><img alt="All networks in all regions" src="../assets/new-net-panel/shot-06.png"/></a></p>
+<p>For more information regarding a specific network, click the 
+corresponding three-dot icon (right-hand side) and select <em>View 
+details</em>. Then, you can glance over all the details regarding the 
+selected network’s ports, subnets, and routers.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-net-panel/shot-07.png"><img alt="Network details" src="../assets/new-net-panel/shot-07.png"/></a></p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-19</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-20</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-03-08</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-20</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors"><a href="mailto:florian@cleura.com">Florian Haas</a></span>
+          Authors: <span class="git-page-authors git-authors"><a href="mailto:christos.varelas@citynetwork.eu">Christos Varelas</a></span>
 </small>
 </div>
 </article>
@@ -625,7 +560,7 @@ That URI must include the
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Using Barbican for secret storage" class="md-footer__link md-footer__link--prev" href="../" rel="prev">
+<a aria-label="Previous: Assigning multiple public (floating) IPs to a server" class="md-footer__link md-footer__link--prev" href="../multiple-public-ips/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -634,17 +569,17 @@ That URI must include the
 <span class="md-footer__direction">
                 Previous
               </span>
-              Using Barbican for secret storage
+              Assigning multiple public (floating) IPs to a server
             </div>
 </div>
 </a>
-<a aria-label="Next: Sharing secrets via ACLs" class="md-footer__link md-footer__link--next" href="../share-secret/" rel="next">
+<a aria-label="Next: Launching an instance with a configuration drive" class="md-footer__link md-footer__link--next" href="../../nova/config-drive/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Sharing secrets via ACLs
+              Launching an instance with a configuration drive
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -656,7 +591,7 @@ That URI must include the
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
 <div class="md-copyright__highlight">
-<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </img></a>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
 </div>
   
   
