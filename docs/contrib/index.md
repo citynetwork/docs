@@ -66,15 +66,68 @@ on how to propose changes to another user’s repository.
 ### Making contributions using Git
 
 The Git repository for this site lives at <{{ config.repo_url }}>. You
-can fork that repository, make the proposed changes in your fork, and
-then send us a standard [GitHub pull
+can [fork that
+repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo),
+make the proposed changes in your fork, and then send us a standard
+[GitHub pull
 request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
+For this purpose, use `git` in combination with either GitHub's web
+interface, or the `gh` command-line interface (CLI).
+
+First, create a fork of the documentation repository:
+
+=== "`git` client and web browser"
+    Open <{{ config.repo_url }}> and click the *Fork* button.
+    When you create your new fork, it's fine to leave the
+    *Copy the `main` branch only* option enabled.
+    
+    Then, proceed to create a new local checkout of your fork:
+    ```bash
+    git clone git@github.com:<yourusername>/<your-repo-fork> {{ config.extra.brand | lower }}-docs
+    cd {{ config.extra.brand | lower }}-docs
+    ```
+=== "`gh` client"
+    ```bash
+    gh repo fork --clone {{ config.repo_url }} -- {{ config.extra.brand | lower }}-docs
+    cd {{ config.extra.brand | lower }}-docs
+    ```
+    
+Next, create a local topic branch and make your modifications:
+    
+```bash
+git checkout -b <your-topic-branch-name>
+# edit your files
+git add <files-to-add>
+git commit
+```
+
+Please see notes on commit messages, [below](#quality-checks).
+
+Finally, create a pull request (PR) from your changes:
+
+=== "`git` client and web browser"
+    Run the following `git` command (assuming `origin` is the
+    remote that points to your fork):
+    ```bash
+    git push origin <your-topic-branch-name>
+    ```
+    Then, open your browser to the URL suggested by the `git push`
+    command, and proceed to create a pull request.
+=== "`gh` client"
+    ```bash
+    gh pr create --fill
+    ```
+
+### Monitoring changes as you edit
+
 If you would like to see your changes as you are working on them, you
-can do that with [tox](https://tox.wiki/en/latest/). Having checked
-out the topic branch with your modifications, run:
+can do that with [tox](https://tox.wiki/en/latest/). Having created a
+topic branch with your modifications, run:
 
 ```bash
+cd {{ config.extra.brand | lower }}-docs
+git checkout <your-topic-branch-name>
 tox -e serve
 ```
 
