@@ -467,6 +467,9 @@
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index md-nav__link--active">
 <a href="./">You can help!</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
 </div>
 <nav aria-label="You can help!" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
@@ -474,6 +477,16 @@
           You can help!
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="modifications/">
+        Modifying content on this site
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="quality/">
+        Quality checks
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -502,30 +515,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#modifications-to-content-on-this-site">
-    Modifications to content on this site
-  </a>
-<nav aria-label="Modifications to content on this site" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#making-contributions-from-your-browser">
-    Making contributions from your browser
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#making-contributions-using-git">
-    Making contributions using Git
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#quality-checks">
-    Quality checks
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#license">
     License
   </a>
@@ -544,6 +533,9 @@
 <p>See something on this site that is inaccurate, missing, or that could
 simply be improved? There are multiple ways for you to help make this
 site better, and we welcome all of them.</p>
+<p>You can make modifications and contributions <a href="modifications">using
+Git</a>, and we apply certain <a href="quality">checks</a> to ensure
+consistent documentation quality.</p>
 <h2 id="technical-writing-resources">Technical Writing Resources</h2>
 <p>Whether you are an experienced technical writer, a regular (or
 not-so-regular) open source contributor, or you’re making your very
@@ -580,58 +572,6 @@ GitHub</a>.</p>
 <p>Or you simply look at the source of one of the pages on this site (try
 the Edit button on this one!) and figure it out as you go along — it’s
 really pretty straightforward.</p>
-<h2 id="modifications-to-content-on-this-site">Modifications to content on this site</h2>
-<p>You have two options for editing content: directly in your browser
-using GitHub, or using a Git-based workflow from your local work
-environment.</p>
-<h3 id="making-contributions-from-your-browser">Making contributions from your browser</h3>
-<p>Every page on this site has an Edit button 🖍️. If you click it, it’ll
-take you straight to the corresponding source page in GitHub. Then,
-you can follow <a href="https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository">GitHub’s
-documentation</a>
-on how to propose changes to another user’s repository.</p>
-<h3 id="making-contributions-using-git">Making contributions using Git</h3>
-<p>The Git repository for this site lives at <a href="https://github.com/citynetwork/docs">https://github.com/citynetwork/docs</a>. You
-can fork that repository, make the proposed changes in your fork, and
-then send us a standard <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">GitHub pull
-request</a>.</p>
-<p>If you would like to see your changes as you are working on them, you
-can do that with <a href="https://tox.wiki/en/latest/">tox</a>. Having checked
-out the topic branch with your modifications, run:</p>
-<div class="highlight"><pre><span></span><code>tox -e serve
-</code></pre></div>
-<p>A local copy of the documentation will then run on your local machine
-and be accessible from <a href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
-<h2 id="quality-checks">Quality checks</h2>
-<p>There are a few checks that we apply to the configuration. They run
-automatically via GitHub Actions workflows when you send your PR:</p>
-<ul>
-<li>We check the commit message with
-  <a href="https://jorisroovers.com/gitlint/">gitlint</a>, and enforce the
-  <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional
-  Commits</a> commit
-  message style.</li>
-<li>We check whether the documentation still builds correctly, with your
-  change applied.</li>
-<li>We check to make sure that no internal or external links in the
-  documentation are dead. This is one example where the checks might
-  fail through no fault of yours at all — some external link may have
-  disappeared between the most recent change and your contribution, by
-  pure coincidence. When that happens, we’ll fix it together.</li>
-<li>We check some YAML conventions with
-  <a href="https://yamllint.readthedocs.io/en/stable/">yamllint</a>. However,
-  most contributions would probably only touch Markdown files and not
-  YAML, so you’re unlikely to trip over this.</li>
-</ul>
-<p>If you’re working in your local Git repository and your work
-environment has <a href="https://tox.wiki/en/latest/">tox</a> installed, you can
-also run the checks locally:</p>
-<div class="highlight"><pre><span></span><code>tox
-</code></pre></div>
-<p>You can also configure your local checkout to run quality checks on
-each commit. To do that, run:</p>
-<div class="highlight"><pre><span></span><code>git config core.hooksPath .githooks
-</code></pre></div>
 <h2 id="license">License</h2>
 <p>With the sole exception of trademarks like “Cleura” and the
 Cleura logo, the content on this site is available under the
@@ -646,7 +586,7 @@ making your contribution under those terms.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-20</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-25</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-02-16</span>
@@ -674,6 +614,19 @@ making your contribution under those terms.</p>
               </span>
               Compliant Cloud
             </div>
+</div>
+</a>
+<a aria-label="Next: Modifying content on this site" class="md-footer__link md-footer__link--next" href="modifications/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Modifying content on this site
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
 </div>
 </a>
 </nav>
