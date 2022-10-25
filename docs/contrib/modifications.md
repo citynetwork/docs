@@ -14,7 +14,7 @@ documentation](https://docs.github.com/en/repositories/working-with-files/managi
 on how to propose changes to another user’s repository.
 
 
-## Modifying using Git
+## Modifying content using Git
 
 The Git repository for this site lives at <{{ config.repo_url }}>. You
 can [fork that
