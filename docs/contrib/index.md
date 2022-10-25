@@ -4,6 +4,9 @@ See something on this site that is inaccurate, missing, or that could
 simply be improved? There are multiple ways for you to help make this
 site better, and we welcome all of them.
 
+You can make modifications and contributions [using
+Git](modifications), and we apply certain [checks](quality) to ensure
+consistent documentation quality.
 
 ## Technical Writing Resources
 
@@ -47,130 +50,6 @@ Or you simply look at the source of one of the pages on this site (try
 the Edit button on this one!) and figure it out as you go along — it’s
 really pretty straightforward.
 
-## Modifications to content on this site
-
-You have two options for editing content: directly in your browser
-using GitHub, or using a Git-based workflow from your local work
-environment.
-
-
-### Making contributions from your browser
-
-Every page on this site has an Edit button 🖍️. If you click it, it’ll
-take you straight to the corresponding source page in GitHub. Then,
-you can follow [GitHub’s
-documentation](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository)
-on how to propose changes to another user’s repository.
-
-
-### Making contributions using Git
-
-The Git repository for this site lives at <{{ config.repo_url }}>. You
-can [fork that
-repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo),
-make the proposed changes in your fork, and then send us a standard
-[GitHub pull
-request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
-
-For this purpose, use `git` in combination with either GitHub's web
-interface, or the `gh` command-line interface (CLI).
-
-First, create a fork of the documentation repository:
-
-=== "`git` client and web browser"
-    Open <{{ config.repo_url }}> and click the *Fork* button.
-    When you create your new fork, it's fine to leave the
-    *Copy the `main` branch only* option enabled.
-    
-    Then, proceed to create a new local checkout of your fork:
-    ```bash
-    git clone git@github.com:<yourusername>/<your-repo-fork> {{ config.extra.brand | lower }}-docs
-    cd {{ config.extra.brand | lower }}-docs
-    ```
-=== "`gh` client"
-    ```bash
-    gh repo fork --clone {{ config.repo_url }} -- {{ config.extra.brand | lower }}-docs
-    cd {{ config.extra.brand | lower }}-docs
-    ```
-    
-Next, create a local topic branch and make your modifications:
-    
-```bash
-git checkout -b <your-topic-branch-name>
-# edit your files
-git add <files-to-add>
-git commit
-```
-
-Please see notes on commit messages, [below](#quality-checks).
-
-Finally, create a pull request (PR) from your changes:
-
-=== "`git` client and web browser"
-    Run the following `git` command (assuming `origin` is the
-    remote that points to your fork):
-    ```bash
-    git push origin <your-topic-branch-name>
-    ```
-    Then, open your browser to the URL suggested by the `git push`
-    command, and proceed to create a pull request.
-=== "`gh` client"
-    ```bash
-    gh pr create --fill
-    ```
-
-### Monitoring changes as you edit
-
-If you would like to see your changes as you are working on them, you
-can do that with [tox](https://tox.wiki/en/latest/). Having created a
-topic branch with your modifications, run:
-
-```bash
-cd {{ config.extra.brand | lower }}-docs
-git checkout <your-topic-branch-name>
-tox -e serve
-```
-
-A local copy of the documentation will then run on your local machine
-and be accessible from <http://localhost:8000> in your browser.
-
-
-## Quality checks
-
-There are a few checks that we apply to the configuration. They run
-automatically via GitHub Actions workflows when you send your PR:
-
-* We check the commit message with
-  [gitlint](https://jorisroovers.com/gitlint/), and enforce the
-  [Conventional
-  Commits](https://www.conventionalcommits.org/en/v1.0.0/) commit
-  message style.
-* We check whether the documentation still builds correctly, with your
-  change applied.
-* We check to make sure that no internal or external links in the
-  documentation are dead. This is one example where the checks might
-  fail through no fault of yours at all — some external link may have
-  disappeared between the most recent change and your contribution, by
-  pure coincidence. When that happens, we’ll fix it together.
-* We check some YAML conventions with
-  [yamllint](https://yamllint.readthedocs.io/en/stable/). However,
-  most contributions would probably only touch Markdown files and not
-  YAML, so you’re unlikely to trip over this.
-
-If you’re working in your local Git repository and your work
-environment has [tox](https://tox.wiki/en/latest/) installed, you can
-also run the checks locally:
-
-```bash
-tox
-```
-
-You can also configure your local checkout to run quality checks on
-each commit. To do that, run:
-
-```bash
-git config core.hooksPath .githooks
-```
 
 ## License
 
