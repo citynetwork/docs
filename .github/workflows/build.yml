@@ -18,7 +18,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install packages
         run: |
-          sudo apt-get install weasyprint
+          sudo apt-get update
+          sudo apt-get -y install weasyprint
       - name: Install Python dependencies
         run: |
           pip install tox tox-gh-actions
