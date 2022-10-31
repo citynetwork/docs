@@ -634,12 +634,20 @@ tox -e serve
 </code></pre></div>
 <p>A local copy of the documentation will then run on your local machine
 and be accessible from <a href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
+<p>When you are planning to make several changes in rapid succession, you
+may want to speed up rendering the site after each change. You may do
+so by disabling a plugin that checks all links (including external
+links) for accessibility:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cleura-docs
+<span class="nb">export</span> <span class="nv">DOCS_ENABLE_HTMLPROOFER</span><span class="o">=</span><span class="nb">false</span>
+tox -e serve
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-25</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-31</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-25</span>
