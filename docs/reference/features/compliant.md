@@ -20,19 +20,20 @@
 
 ## Block storage
 
-|                                | Sto1HS           | Sto2HS           |
-| ------------------------------ | ---------------- | ---------------- |
-| Highly available storage       | :material-check: | :material-check: |
-| High-performance local storage | :material-close: | :material-close: |
+|                                                                 | Sto1HS           | Sto2HS           |
+| ------------------------------                                  | ---------------- | ---------------- |
+| Highly available storage                                        | :material-check: | :material-check: |
+| High-performance local storage                                  | :material-close: | :material-close: |
+| [Volume encryption](/howto/openstack/cinder/encrypted-volumes/) | :material-check: | :material-check: |
 
 
 ## Object storage
 
-|                                | Sto1HS           | Sto2HS           |
-| ------------------------------ | ---------------- | ---------------- |
-| S3 API                         | :material-check: | :material-check: |
-| S3 SSE-C                       | :material-check: | :material-check: |
-| Swift API                      | :material-check: | :material-check: |
+|                                                         | Sto1HS           | Sto2HS           |
+| ------------------------------                          | ---------------- | ---------------- |
+| S3 API                                                  | :material-check: | :material-check: |
+| S3 [SSE-C](S3 [SSE-C](/howto/object-storage/s3/sse-c/)) | :material-check: | :material-check: |
+| Swift API                                               | :material-check: | :material-check: |
 
 
 ## Networking (Layer 2/3)
@@ -46,8 +47,8 @@
 
 ## Load Balancers 
 
-|                                                                         | Sto1HS           | Sto2HS           |
-| --------------------------------------------------------------------    | ---------------- | ---------------- |
-| Transport layer (TCP/UDP)                                               | :material-check: | :material-check: |
-| Application layer (HTTP)                                                | :material-check: | :material-check: |
-| Application layer (HTTPS, with secrets management for TLS certificates) | :material-check: | :material-check: |
+|                                                                                                             | Sto1HS           | Sto2HS           |
+| --------------------------------------------------------------------                                        | ---------------- | ---------------- |
+| Transport layer (TCP/UDP)                                                                                   | :material-check: | :material-check: |
+| Application layer (HTTP)                                                                                    | :material-check: | :material-check: |
+| Application layer ([HTTPS, with secrets management for TLS certificates](/howto/openstack/octavia/tls-lb/)) | :material-check: | :material-check: |

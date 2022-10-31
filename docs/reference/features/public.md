@@ -18,19 +18,21 @@
 
 ## Block storage
 
-|                                | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
-| ------------------------------ | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
-| Highly available storage       | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
-| High-performance local storage | :material-check: | :material-check: | :material-check: | :material-close: | :material-close: |
+|                                                                 | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
+| ------------------------------                                  | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| Highly available storage                                        | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
+| High-performance local storage                                  | :material-check: | :material-check: | :material-check: | :material-close: | :material-close: |
+| [Volume encryption](/howto/openstack/cinder/encrypted-volumes/) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
+
 
 
 ## Object storage
 
-|                                | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
-| ------------------------------ | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
-| S3 API                         | :material-check: | :material-close: | :material-check: | :material-check: | :material-close: |
-| S3 SSE-C                       | :material-check: | :material-close: | :material-check: | :material-check: | :material-close: |
-| Swift API                      | :material-check: | :material-close: | :material-check: | :material-check: | :material-close: |
+|                                             | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
+| ------------------------------              | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| S3 API                                      | :material-check: | :material-close: | :material-check: | :material-check: | :material-close: |
+| S3 [SSE-C](/howto/object-storage/s3/sse-c/) | :material-check: | :material-close: | :material-check: | :material-check: | :material-close: |
+| Swift API                                   | :material-check: | :material-close: | :material-check: | :material-check: | :material-close: |
 
 
 ## Networking (Layer 2/3)
@@ -44,11 +46,11 @@
 
 ## Load Balancers 
 
-|                                                                         | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
-| --------------------------------------------------------------------    | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
-| Transport layer (TCP/UDP)                                               | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
-| Application layer (HTTP)                                                | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
-| Application layer (HTTPS, with secrets management for TLS certificates) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
+|                                                                                                             | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
+| --------------------------------------------------------------------                                        | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| Transport layer (TCP/UDP)                                                                                   | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
+| Application layer (HTTP)                                                                                    | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
+| Application layer ([HTTPS, with secrets management for TLS certificates](/howto/openstack/octavia/tls-lb/)) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
 
 
 ## Kubernetes management
