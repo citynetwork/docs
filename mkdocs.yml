@@ -38,6 +38,8 @@ plugins:
       type: iso_date
   - glightbox
   - htmlproofer:
+      # yamllint disable-line rule:truthy
+      enabled: !ENV [DOCS_ENABLE_HTMLPROOFER, True]
       raise_error: true
       validate_external_urls: true
   - macros

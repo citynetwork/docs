@@ -85,4 +85,13 @@ tox -e serve
 A local copy of the documentation will then run on your local machine
 and be accessible from <http://localhost:8000> in your browser.
 
+When you are planning to make several changes in rapid succession, you
+may want to speed up rendering the site after each change. You may do
+so by disabling a plugin that checks all links (including external
+links) for accessibility:
 
+```bash
+cd {{ config.extra.brand | lower }}-docs
+export DOCS_ENABLE_HTMLPROOFER=false
+tox -e serve
+```
