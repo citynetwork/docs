@@ -1,15 +1,12 @@
 # For the purpose of this file, see:
 # https://timvink.github.io/mkdocs-git-authors-plugin/mailmap.html
-Christos Varelas <christos.varelas@citynetwork.eu>
+Christos Varelas <christos.varelas@cleura.com> <christos.varelas@citynetwork.eu>
 Christos Varelas <christos.varelas@cleura.com>
-Dmitriy Rabotyagov <dmitriy.rabotyagov@citynetwork.eu>
-Dmitriy Rabotyagov <dmitriy.rabotyagov@cleura.com>
+Dmitriy Rabotyagov <dmitriy.rabotyagov@cleura.com> <dmitriy.rabotyagov@citynetwork.eu>
 Eliott Trouillet <53047591+packettoobig@users.noreply.github.com>
-Florian Haas <florian@citynetwork.eu>
-Florian Haas <florian@cleura.com>
-Foad Lind <foad.lind@citynetwork.eu>
-Foad Lind <foad.lind@cleura.com>
-Mateusz Guziak <mateusz.guziak@cleura.com>
-Mateusz Guziak <skipper126@interia.pl>
-Namrata Sitlani <namrata.sitlani@citynetwork.eu>
-Namrata Sitlani <namrata.sitlani@cleura.com>
+Florian Haas <florian@cleura.com> <florian@citynetwork.eu>
+Florian Haas <florian@cleura.com> <florian.haas@cleura.com>
+Foad Lind <foad.lind@cleura.com> <foad.lind@citynetwork.eu>
+Jean-Philippe Evrard <evrardjp@users.noreply.github.com> <open-source@a.spamming.party>
+Mateusz Guziak <mateusz.guziak@cleura.com> <skipper126@interia.pl>
+Namrata Sitlani <namrata.sitlani@cleura.com> <namrata.sitlani@citynetwork.eu>
