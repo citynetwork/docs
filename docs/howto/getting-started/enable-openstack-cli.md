@@ -169,3 +169,19 @@ openstack --help
 
 When you need help on a specific command, type something like 
 `openstack help command`.
+
+
+## Auto-adjusting the CLI output to your terminal size
+
+Many of the subcommands available in the `openstack` CLI produce
+tabular about by default. To ensure that this output always fits
+neatly into your terminal window, you may add the following line
+either to OpenStack RC file(s), or to your shell initialization file
+(like `.profile` or `.bashrc`):
+
+```bash
+export CLIFF_FIT_WIDTH=1
+```
+
+Then, be sure to either re-source the file you modified, and/or
+restart your shell.
