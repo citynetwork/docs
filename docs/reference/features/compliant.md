@@ -12,10 +12,10 @@
 
 ## Virtualization
 
-|               | Sto1HS                | Sto2HS                |
-| ------------- | ----------------      | --------------------- |
-| Dedicated CPU | :material-close:      | :material-close:      |
-| Virtual GPU   | :material-timer-sand: | :material-timer-sand: |
+|                                               | Sto1HS                | Sto2HS                |
+| -------------                                 | ----------------      | --------------------- |
+| [Dedicated CPU](../../flavors/#compute-tiers) | :material-close:      | :material-close:      |
+| [Virtual GPU](../../flavors/#compute-tiers)   | :material-timer-sand: | :material-timer-sand: |
 
 
 ## Block storage
@@ -23,7 +23,7 @@
 |                                                                 | Sto1HS           | Sto2HS           |
 | ------------------------------                                  | ---------------- | ---------------- |
 | Highly available storage                                        | :material-check: | :material-check: |
-| High-performance local storage                                  | :material-close: | :material-close: |
+| [High-performance local storage](../../flavors/#compute-tiers)  | :material-close: | :material-close: |
 | [Volume encryption](/howto/openstack/cinder/encrypted-volumes/) | :material-check: | :material-check: |
 
 

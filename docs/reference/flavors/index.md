@@ -1,0 +1,58 @@
+# Flavors
+
+Any server instance running in {{extra.brand}} Cloud has a **flavor**,
+which defines the number of virtual CPU cores, the amount of virtual
+RAM, and other performance-related factors.
+
+
+## Naming convention
+
+Flavor names in {{extra.brand}} follow a convention, which can be
+summarized as `X.YcZgb`:
+
+* `X` stands for a lowercase letter identifying the [compute
+  tier](#compute-tiers), with `b` representing the general-purpose
+  tier. It is always followed by a full-stop (`.`).
+* `Y` stands for the number of virtual CPU cores. This number is
+  always followed by the letter `c`.
+* `Z` stands for the allocated amount of virtual RAM, in
+  [gibibytes](https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)). This
+  number is always followed by the string `gb`.
+
+For example, the flavor named `b.4c32gb` would be used for a
+general-purpose compute instance with 4 cores and 32 GiB RAM.
+
+
+## Compute tiers
+
+{{extra.brand}} Cloud defines the following compute tiers:
+
+* `b`: General purpose. This is the default compute tier. Instances
+  launched with matching flavors use highly available network-attached
+  storage. This makes them flexible to migrate within the
+  {{extra.brand}} Cloud infrastructure, without interruption.
+  Some
+  [limitations](../../howto/openstack/cinder/encrypted-volumes/#block-device-encryption-caveats)
+  apply to instances with attached [encrypted
+  volumes](../../howto/openstack/cinder/encrypted-volumes/).
+* `s`: High-performance local storage. Instances
+  launched with matching flavors use local, directly-attached
+  storage. This generally provides higher throughput and lower
+  latency for I/O intensive applications, but instances launched with
+  these flavors must configure their own high availability and data
+  replication.
+* `c`: Dedicated CPU. Instances launched with matching flavors are
+  guaranteed to run on compute hardware where CPU cores are allocated
+  to instances on a one-to-one basis and one virtual core maps
+  directly to a physical CPU core.
+* `g`: Virtual GPU. Instances launched with matching flavors have
+  access to a
+  [GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit).
+
+Some tiers are only available in select {{extra.brand}} Cloud
+regions. For details on tier availability, see the [Feature support
+matrix](../features/index.md).
+
+The general-purpose tier is always available to all {{extra.brand}}
+Cloud customers. For access to other tiers, contact our
+[{{extra.support}}](https://{{extra.support_domain}}/servicedesk).

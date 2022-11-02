@@ -10,10 +10,10 @@
 
 ## Virtualization
 
-|               | Kna1             | Sto2                  | Fra1             | Dx1              | Tky1             |
-| ------------- | ---------------- | --------------------- | ---------------- | ---------------- | ---------------- |
-| Dedicated CPU | :material-close: | :material-close:      | :material-close: | :material-close: | :material-close: |
-| Virtual GPU   | :material-close: | :material-timer-sand: | :material-close: | :material-close: | :material-close: |
+|                                               | Kna1             | Sto2                  | Fra1             | Dx1              | Tky1             |
+| -------------                                 | ---------------- | --------------------- | ---------------- | ---------------- | ---------------- |
+| [Dedicated CPU](../../flavors/#compute-tiers) | :material-close: | :material-close:      | :material-close: | :material-close: | :material-close: |
+| [Virtual GPU](../../flavors/#compute-tiers)   | :material-close: | :material-timer-sand: | :material-close: | :material-close: | :material-close: |
 
 
 ## Block storage
@@ -21,7 +21,7 @@
 |                                                                 | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
 | ------------------------------                                  | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | Highly available storage                                        | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
-| High-performance local storage                                  | :material-check: | :material-check: | :material-check: | :material-close: | :material-close: |
+| [High-performance local storage](../../flavors/#compute-tiers)  | :material-check: | :material-check: | :material-check: | :material-close: | :material-close: |
 | [Volume encryption](/howto/openstack/cinder/encrypted-volumes/) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
 
 
