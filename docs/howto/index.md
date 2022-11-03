@@ -9,13 +9,14 @@ focused on a specific cloud technology.
 * **Getting Started** How-Tos help you create an account in Cleura
   Cloud, and start using our services.
 
-* **Kubernetes** How-Tos covering how you can create and manage your Kubernetes deployments using {{config.extra.gui}}.
+* **Kubernetes** How-Tos cover how you can create and manage your
+  Kubernetes deployments using {{config.extra.gui}}.
 
-* **Object storage** How-Tos dealing with the S3 and Swift object storage
+* **Object storage** How-Tos deal with the S3 and Swift object storage
   APIs, and how you can use them for object storage in
   {{config.extra.brand}}.
 
-* **OpenStack CLI/API** How-Tos covering tasks that you can accomplish
+* **OpenStack CLI/API** How-Tos cover tasks that you can accomplish
   with the OpenStack command line interfaces and application
   programming interfaces. They generally do not depend on any adjacent
   services or tools, just your {{config.extra.brand}} OpenStack
