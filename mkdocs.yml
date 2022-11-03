@@ -13,6 +13,8 @@ extra:
   company_domain: "cleura.com"
   gui: "Cleura Cloud Control Panel"
   gui_domain: "cleura.cloud"
+  support: "Service Center"
+  support_domain: "servicecenter.citynetwork.eu"
 extra_css:
   - assets/stylesheets/cleura-palette.css
 markdown_extensions:
