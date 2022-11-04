@@ -115,3 +115,31 @@ cd {{ config.extra.brand | lower }}-docs
 export DOCS_ENABLE_HTMLPROOFER=false
 tox -e serve
 ```
+
+## A note on commit messages
+
+When you submit a change, you will need to provide a commit message,
+which is very nearly as important as the change itself. Excellent
+guides on what constitutes a good commit message are available from
+[Tim
+Pope](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+and [Colleen
+Murphy](http://www.gazlene.net/getting-work-done-in-open-source.html).
+
+In addition, we have adopted the [Conventional
+Commits](https://www.conventionalcommits.org/en/v1.0.0/) style for
+commit message subjects. Please make sure that your commit message
+starts with one of the following prefixes:
+
+* `feat:` denotes a content addition, such as adding documentation for
+  some {{extra.brand}} Cloud functionality that was not included in
+  the documentation before.
+* `fix:` denotes a content correction, such as fixing a
+  documentation bug.
+* `build:` denotes a change to the build process, such as an
+  improvement to a CI check.
+* `chore:` denotes a minor change that is neither a feature, nor a
+  fix, nor a build improvement, such as when you edit the `.mailmap`
+  file.
+* `docs:` denotes a change to the documention *for* this site, such as
+  an update to the `README.md` file.
