@@ -25,3 +25,9 @@ other documentation to this site. If you want to help,
 [here’s how!](contrib/index.md)
 
 
+## Site analytics and cookies
+
+This site does not set cookies, which is why we also don't need to
+annoy you with a cookie consent banner. We use
+[cookie-free](https://plausible.io/data-policy#how-we-count-unique-users-without-cookies)
+site analytics from [Plausible](https://plausible.io).

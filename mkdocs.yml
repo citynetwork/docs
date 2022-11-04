@@ -7,6 +7,9 @@ copyright: >
   </a>
 edit_uri: ./edit/main/docs
 extra:
+  analytics:
+    domain: docs.cleura.cloud
+    provider: plausible
   brand: "Cleura"
   brand_domain: "citycloud.com"
   company: "Cleura"
