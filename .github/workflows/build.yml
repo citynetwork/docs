@@ -24,7 +24,6 @@ jobs:
         run: |
           pip install tox tox-gh-actions
       - env:
-          DOCS_ENABLE_HTMLPROOFER: false
           DOCS_ENABLE_PDF_EXPORT: 1
         name: Test with tox
         # Explicitly specifying the testenvs shouldn't really be
