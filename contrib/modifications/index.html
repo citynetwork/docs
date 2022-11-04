@@ -531,6 +531,11 @@
     Monitoring changes as you edit
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a-note-on-commit-messages">
+    A note on commit messages
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -574,6 +579,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#monitoring-changes-as-you-edit">
     Monitoring changes as you edit
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a-note-on-commit-messages">
+    A note on commit messages
   </a>
 </li>
 </ul>
@@ -682,12 +692,38 @@ links) for accessibility:</p>
 <span class="nb">export</span> <span class="nv">DOCS_ENABLE_HTMLPROOFER</span><span class="o">=</span><span class="nb">false</span>
 tox -e serve
 </code></pre></div>
+<h2 id="a-note-on-commit-messages">A note on commit messages</h2>
+<p>When you submit a change, you will need to provide a commit message,
+which is very nearly as important as the change itself. Excellent
+guides on what constitutes a good commit message are available from
+<a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim
+Pope</a>
+and <a href="http://www.gazlene.net/getting-work-done-in-open-source.html">Colleen
+Murphy</a>.</p>
+<p>In addition, we have adopted the <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional
+Commits</a> style for
+commit message subjects. Please make sure that your commit message
+starts with one of the following prefixes:</p>
+<ul>
+<li><code>feat:</code> denotes a content addition, such as adding documentation for
+  some Cleura Cloud functionality that was not included in
+  the documentation before.</li>
+<li><code>fix:</code> denotes a content correction, such as fixing a
+  documentation bug.</li>
+<li><code>build:</code> denotes a change to the build process, such as an
+  improvement to a CI check.</li>
+<li><code>chore:</code> denotes a minor change that is neither a feature, nor a
+  fix, nor a build improvement, such as when you edit the <code>.mailmap</code>
+  file.</li>
+<li><code>docs:</code> denotes a change to the documention <em>for</em> this site, such as
+  an update to the <code>README.md</code> file.</li>
+</ul>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-01</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-04</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-25</span>
