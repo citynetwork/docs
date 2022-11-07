@@ -1,5 +1,4 @@
-# Creating Kubernetes clusters using Cleura Cloud Control Panel
-<!-- Config interpolation for the gui name didn't work for the title here. -->
+# Creating Kubernetes clusters with Gardener
 
 If you want to create a Kubernetes cluster, you can do it via
 {{config.extra.gui}} using Gardener. This how-to shows you how to do

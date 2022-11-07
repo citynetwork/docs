@@ -1,6 +1,6 @@
 # Creating a new account in Cleura Cloud
 
-To gain access to the {{extra.brand}} Cloud Control Panel, you first
+To gain access to the {{extra.gui}}, you first
 have to create a new account. For that, navigate to
 <https://cleura.cloud>. At the bottom right-hand side of the page,
 click on the _Create account_ button.
@@ -17,7 +17,7 @@ box, and then click on the _Create_ button.
 
 ![Type in necessary details](assets/02-type-email-country.png)
 
-This will redirect you to the {{extra.brand}} Cloud Control Panel, and
+This will redirect you to the {{extra.gui}}, and
 since you are logging in from a new account for the first time, you
 now have to take three simple steps.
 
@@ -57,7 +57,7 @@ now have to take three simple steps.
 ![Account verification](assets/06-step-3.png)
 
 After the account verification is complete, you are greeted by the
-Cleura Cloud Control Panel. Feel free to follow through the
+{{extra.gui}}. Feel free to follow through the
 introductory guide to the environment --- that will not take long ---
 or skip it and start taking advantage of the Cleura Cloud without
 delay.
