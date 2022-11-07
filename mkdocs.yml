@@ -14,7 +14,7 @@ extra:
   brand_domain: "citycloud.com"
   company: "Cleura"
   company_domain: "cleura.com"
-  gui: "Cleura Cloud Control Panel"
+  gui: "Cleura Cloud Management Panel"
   gui_domain: "cleura.cloud"
   support: "Service Center"
   support_domain: "servicecenter.citynetwork.eu"
