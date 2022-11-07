@@ -7,7 +7,7 @@ create and manage the lifecycle of objects related, for example, to
 Compute, Networking, or Storage.
 
 Before installing `openstack` to your local laptop or workstation, you 
-first need to have an OpenStack user in your {{extra.brand}} account. 
+first need to have an OpenStack user in your {{brand}} account. 
 Next, you create and download a special RC file onto your computer, 
 modify it to reflect your OpenStack user's credentials, and source it. 
 Only then will you be able to use any installed `openstack` client.
@@ -15,16 +15,16 @@ Only then will you be able to use any installed `openstack` client.
 ## Creating an OpenStack user
 
 From your favorite web browser, navigate to the [Cleura 
-Cloud](https://{{extra.gui_domain}}) page, and login into your 
-{{extra.brand}} account.
+Cloud](https://{{gui_domain}}) page, and login into your 
+{{brand}} account.
 
-Please make sure the left-hand side pane on the {{extra.gui}} is fully 
+Please make sure the left-hand side pane on the {{gui}} is fully 
 visible, click the _Users_ category to expand it, and click on 
 _Openstack Users_.
 
 ![Add a new OpenStack user](assets/ostack-cli/shot-01.png)
 
-Then, at the top right-hand side of the {{extra.gui}}, click once more 
+Then, at the top right-hand side of the {{gui}}, click once more 
 the _Add new Openstack user_ option. A new pane will slide into view, 
 titled _Create Openstack User_.
 
@@ -54,14 +54,14 @@ _Description_ box.
 
 The new OpenStack user will be ready in just a few seconds. At any 
 time, you can view all available OpenStack users by going to the 
-left-hand side pane on the {{extra.gui}} and selecting _Users_ > 
+left-hand side pane on the {{gui}} and selecting _Users_ > 
 _Openstack Users_.
 
 ![All available OpenStack users](assets/ostack-cli/shot-06.png)
 
 ## Creating and downloading an RC file
 
-On the {{extra.gui}} expand the left-hand side pane, click _Users_ and 
+On the {{gui}} expand the left-hand side pane, click _Users_ and 
 then _Openstack Users_. You will then see, listed in the main pane 
 titled _Openstack Users_, all available users. Click on the 
 three-dotted round icon on the right of the user you want to create an 
@@ -148,7 +148,7 @@ examples follow.
 
 Provided you have already sourced your RC file, you can now use the 
 `openstack` command line tool to access various OpenStack APIs on the 
-{{extra.brand}} Cloud.
+{{brand}} Cloud.
 
 To make sure your local installation of `openstack` works as expected, 
 type:
@@ -157,7 +157,7 @@ type:
 openstack token issue
 ```
 
-If `openstack` can indeed connect to the {{extra.brand}} Cloud 
+If `openstack` can indeed connect to the {{brand}} Cloud 
 OpenStack APIs, then you will get information, in tabular format, 
 regarding the issuance of a new token.
 

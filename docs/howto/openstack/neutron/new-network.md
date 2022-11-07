@@ -1,27 +1,27 @@
 # Creating new networks in Cleura Cloud
 
-Before creating a server in {{extra.brand}} Cloud, you need at least
+Before creating a server in {{brand}} Cloud, you need at least
 one network to make the new server a member of. Since you may have
 more than one network per region, let us now walk through creating
-a new network using the {{extra.gui}}, or using the OpenStack CLI.
+a new network using the {{gui}}, or using the OpenStack CLI.
 
 ## Prerequisites
 
-Whether you choose to work from the {{extra.gui}} or with the
+Whether you choose to work from the {{gui}} or with the
 OpenStack CLI, you need to [have an account](/howto/getting-started/create-account)
-in {{extra.brand}} Cloud. Additionally, to use the OpenStack
+in {{brand}} Cloud. Additionally, to use the OpenStack
 CLI make sure to [enable it first](/howto/getting-started/enable-openstack-cli).
 
 ## Creating a network
 
-To create a network from the {{extra.gui}}, fire up your favorite web
-browser, navigate to the [Cleura Cloud](https://{{extra.gui_domain}})
-page, and login into your {{extra.brand}} account. On the other hand,
+To create a network from the {{gui}}, fire up your favorite web
+browser, navigate to the [Cleura Cloud](https://{{gui_domain}})
+page, and login into your {{brand}} account. On the other hand,
 if you prefer to work with OpenStack CLI, please do not forget to
 source the RC file first.
 
-=== "{{extra.gui}}"
-    On the top right-hand side of the {{extra.gui}}, click the _Create_
+=== "{{gui}}"
+    On the top right-hand side of the {{gui}}, click the _Create_
     button. A new pane will slide into view from the right-hand side of
     the browser window, titled _Create_.
 
@@ -29,7 +29,7 @@ source the RC file first.
 
     You will notice several rounded boxes prominently displayed on that
     pane, each for defining, configuring, and instantiating a different
-    {{extra.brand}} Cloud object. Go ahead and click the _Network_ box. A
+    {{brand}} Cloud object. Go ahead and click the _Network_ box. A
     new pane titled _Create Network_ will slide over. At the top, type
     in a name and select one of the available regions for the new
     network.
@@ -83,12 +83,12 @@ source the RC file first.
 
 Creating a new network does not necessarily mean it has all the
 features you most likely would expect. Unless you work from the
-{{extra.gui}}, where almost every component is activated for you with
+{{gui}}, where almost every component is activated for you with
 a few clicks here and there, when you use the OpenStack CLI there is
 some extra work you need to do before you get a network you would
 characterize as useful.
 
-=== "{{extra.gui}}"
+=== "{{gui}}"
     Expand the _Advanced Options_ section below, make sure _Port Security_
     is enabled, and leave the MTU parameter blank.
 
@@ -206,15 +206,15 @@ characterize as useful.
 
 ## Listing networks and getting information
 
-At any time, you may connect to the {{extra.gui}}, list all networks
+At any time, you may connect to the {{gui}}, list all networks
 you have already created, and get detailed information for any of
 these networks. Alternatively, you may get all that information using
 the OpenStack CLI.
 
-=== "{{extra.gui}}"
+=== "{{gui}}"
     You may see all defined networks, in all supported regions, by
     selecting _Networking_ > _Networks_ (see the left-hand side pane
-    on the {{extra.gui}}).
+    on the {{gui}}).
 
     ![All networks in all regions](assets/new-net-panel/shot-06.png)
 

@@ -1,18 +1,18 @@
 # About our tutorials
 
-Our tutorials are gentle introductions to {{config.extra.brand}}. They
+Our tutorials are gentle introductions to {{brand}}. They
 generally require very little prior knowledge and assume only that you
 have access to a browser, or to a terminal.
 
 We group these into two major categories:
 
 * **Browser-based tutorials** get you started on
-  {{config.extra.brand}} using the
-  [{{config.extra.gui}}](https://{{config.extra.gui_domain}}/).
+  {{brand}} using the
+  [{{gui}}](https://{{gui_domain}}/).
 
 * **Terminal-based tutorials** introduce you to command-line
   interfaces (CLIs) and their interaction with
-  {{config.extra.brand}}’s web-based Application Programming
+  {{brand}}’s web-based Application Programming
   Interfaces (APIs).
 
 This section does *not* include detailed walkthroughs of specific
@@ -21,4 +21,4 @@ Guides](../howto/) section.
 
 > If you find our tutorials helpful, you might also be interested in
 > our self-paced online training courses, available from [our course
-> booking site](https://shop.{{config.extra.company_domain}}).
+> booking site](https://shop.{{company_domain}}).

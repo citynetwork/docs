@@ -10,7 +10,7 @@ To do so, you will need
   [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier),
 * the other user’s OpenStack API user ID.
 
-> Any {{extra.brand}} user can always retrieve their own user ID
+> Any {{brand}} user can always retrieve their own user ID
 > with the following command:
 >
 > ```
@@ -24,7 +24,7 @@ Once you have assembled this information, you can proceed with the
 openstack acl user add \
   --user <user_id> \
   --operation-type read \
-  https://region.{{extra.brand_domain}}:9311/v1/secrets/<secret_id>
+  https://region.{{brand_domain}}:9311/v1/secrets/<secret_id>
 ```
 
 If you want to unshare the secret again, you simply use the
@@ -34,5 +34,5 @@ corresponding `openstack acl user remove` command:
 openstack acl user remove \
   --user <user_id> \
   --operation-type read \
-  https://region.{{extra.brand_domain}}:9311/v1/secrets/<secret_id>
+  https://region.{{brand_domain}}:9311/v1/secrets/<secret_id>
 ```

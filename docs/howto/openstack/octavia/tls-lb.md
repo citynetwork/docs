@@ -1,6 +1,6 @@
 # HTTPS-terminating load balancers
 
-In {{extra.brand}}’s load balancing service, [OpenStack
+In {{brand}}’s load balancing service, [OpenStack
 Octavia](https://docs.openstack.org/octavia/latest/), you can
 configure load balancers so that they manage HTTPS termination. That
 is to say that the load balancer encrypts and decrypts HTTPS traffic,

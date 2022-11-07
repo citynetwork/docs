@@ -1,6 +1,6 @@
 # Working with S3-compatible credentials
 
-When you want to interact with object storage in {{extra.brand}} using
+When you want to interact with object storage in {{brand}} using
 tools that support an Amazon S3 compatible API (such as `s3cmd`,
 `rclone`, the `aws` CLI, or the Python `boto3` library), you need an
 S3-compatible access key ID and secret key.
@@ -21,7 +21,7 @@ environment variables (or whichever configuration options your
 application requires).
 
 > Your S3-compatible credentials are always scoped to your
-> {{extra.brand}} *region* and *project*. You cannot reuse an access
+> {{brand}} *region* and *project*. You cannot reuse an access
 > and secret key across multiple regions or projects.
 >
 > Also, your credentials are only “S3-compatible” in the sense that
@@ -45,7 +45,7 @@ need to configure your S3 client with it.
 How exactly you do that depends on your preferred client:
 
 === "aws"
-    Create a new profile, named after your {{extra.brand}} region:
+    Create a new profile, named after your {{brand}} region:
     ```bash
     aws configure set \
       --profile <region> \
@@ -57,20 +57,20 @@ How exactly you do that depends on your preferred client:
 
     For the `aws` CLI, you cannot define a region's endpoint in the
     profile. As such, you must add the
-    `--endpoint-url=https://s3-<region>.{{extra.brand_domain}}:8080`
+    `--endpoint-url=https://s3-<region>.{{brand_domain}}:8080`
     option to each `aws s3api` call.
 === "mc"
-    Create a new alias, named after your {{extra.brand}} region:
+    Create a new alias, named after your {{brand}} region:
     ```bash
     mc alias set <region> \
-      https://s3-<region>.{{extra.brand_domain}}:8080 \
+      https://s3-<region>.{{brand_domain}}:8080 \
       <access-key> <secret-key>
     ```
 	Once you have configured an alias like this, you are able to
 	run bucket operations with `mc` using the `alias/bucket` syntax.
 === "s3cmd"
     `s3cmd` does not support configuration profiles, so you need to use
-    a separate configuration file for each {{extra.brand}} region you
+    a separate configuration file for each {{brand}} region you
     want to use:
     ```bash
     s3cmd -c ~/.s3cfg-<region> --configure
@@ -78,9 +78,9 @@ How exactly you do that depends on your preferred client:
 
     * Set your `Access Key` and `Secret Key` when prompted.
     * Leave `Default Region` unchanged.
-    * Set `S3 Endpoint` to `s3-<region>.{{extra.brand_domain}}:8080`.
+    * Set `S3 Endpoint` to `s3-<region>.{{brand_domain}}:8080`.
     * Set `DNS-style bucket+hostname:port template for accessing a bucket`
-      to `s3-<region>.{{extra.brand_domain}}:8080` as well.
+      to `s3-<region>.{{brand_domain}}:8080` as well.
     * Set `Use HTTPS protocol` to `Yes` (the default).
     * Configure GnuPG encryption and your HTTP proxy server, if needed.
     * Test access with your supplied credentials.

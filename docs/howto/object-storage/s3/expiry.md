@@ -30,7 +30,7 @@ the following commands:
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{extra.brand_domain}}:8080 \
+      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api put-bucket-lifecycle-configuration \
 	  --lifecycle-configuration file://lifecycle.json \ 
 	  --bucket <bucket-name>

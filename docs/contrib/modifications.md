@@ -7,7 +7,7 @@ environment.
 ## Notes on specific content additions
 
 **Screen shots:** If you are contributing a change that contains
-screen shots from {{extra.gui}}, they should use a resolution of
+screen shots from {{gui}}, they should use a resolution of
 1920×1080 pixels (1080p). If your screen uses a larger resolution, use
 [Firefox Responsive Design
 Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/)
@@ -55,13 +55,13 @@ First, create a fork of the documentation repository:
     
     Then, proceed to create a new local checkout of your fork:
     ```bash
-    git clone git@github.com:<yourusername>/<your-repo-fork> {{ config.extra.brand | lower }}-docs
-    cd {{ config.extra.brand | lower }}-docs
+    git clone git@github.com:<yourusername>/<your-repo-fork> {{ brand | lower }}-docs
+    cd {{ brand | lower }}-docs
     ```
 === "`gh` client"
     ```bash
-    gh repo fork --clone {{ config.repo_url }} -- {{ config.extra.brand | lower }}-docs
-    cd {{ config.extra.brand | lower }}-docs
+    gh repo fork --clone {{ config.repo_url }} -- {{ brand | lower }}-docs
+    cd {{ brand | lower }}-docs
     ```
     
 Next, create a local topic branch and make your modifications:
@@ -97,7 +97,7 @@ To see your changes as you work on them, you can use
 your modifications, run:
 
 ```bash
-cd {{ config.extra.brand | lower }}-docs
+cd {{ brand | lower }}-docs
 git checkout <your-topic-branch-name>
 tox -e serve
 ```
@@ -111,7 +111,7 @@ so by disabling a plugin that checks all links (including external
 links) for accessibility:
 
 ```bash
-cd {{ config.extra.brand | lower }}-docs
+cd {{ brand | lower }}-docs
 export DOCS_ENABLE_HTMLPROOFER=false
 tox -e serve
 ```
@@ -132,7 +132,7 @@ commit message subjects. Please make sure that your commit message
 starts with one of the following prefixes:
 
 * `feat:` denotes a content addition, such as adding documentation for
-  some {{extra.brand}} Cloud functionality that was not included in
+  some {{brand}} Cloud functionality that was not included in
   the documentation before.
 * `fix:` denotes a content correction, such as fixing a
   documentation bug.

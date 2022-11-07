@@ -1,7 +1,7 @@
 # Using Barbican for secret storage
 
 **[Barbican](https://docs.openstack.org/barbican/latest/)** is
-OpenStack's secret storage facility. In {{extra.brand}}, Barbican is
+OpenStack's secret storage facility. In {{brand}}, Barbican is
 supported for the following purposes:
 
 * [Generic secret storage](generic-secret.md),

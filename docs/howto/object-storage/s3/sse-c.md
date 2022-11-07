@@ -61,29 +61,29 @@ rclone versions won't work here.
 3. Create a configuration file named `~/.rclone.conf`, with the
    following content:
 
-        [{{extra.brand|lower|replace(' ','')}}]
+        [{{brand|lower|replace(' ','')}}]
         type = s3
         provider = Ceph
         env_auth = false
         access_key_id = <access key id>
         secret_access_key = <secret key>
-        endpoint = <region>.{{extra.brand_domain}}:8080
+        endpoint = <region>.{{brand_domain}}:8080
         acl = private
         sse_customer_algorithm = AES256
 
 4. Create an S3 bucket:
 
-        rclone mkdir {{extra.brand|lower|replace(' ','')}}:encrypted
+        rclone mkdir {{brand|lower|replace(' ','')}}:encrypted
 
 5. Sync a directory to the S3 bucket, encrypting the files it
    contains on upload:
 
-        rclone sync ~/media/ {{extra.brand|lower|replace(' ','')}}:encrypted \
+        rclone sync ~/media/ {{brand|lower|replace(' ','')}}:encrypted \
           --s3-sse-customer-key=${secret}
 
 6. Retrieve a file from S3 and decrypt it:
 
-        rclone copy {{extra.brand|lower|replace(' ','')}}:encrypted/file.png \
+        rclone copy {{brand|lower|replace(' ','')}}:encrypted/file.png \
           --s3-sse-customer-key=${secret}
 
 

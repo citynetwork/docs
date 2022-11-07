@@ -26,7 +26,7 @@ openstack volume type list
 +--------------------------------------+-----------------------+-----------+
 ```
 
-> In {{extra.brand}}, all volume types that support encryption use the
+> In {{brand}}, all volume types that support encryption use the
 > suffix `_encrypted`.
 
 To create a volume with encryption, you need to explicitly specify the
@@ -124,7 +124,7 @@ There are two options to work around this limitation:
 ## Block device encryption caveats
 
 Once a volume is configured to use encryption and is also attached to
-an instance in {{extra.brand}}, some caveats apply that you might want
+an instance in {{brand}}, some caveats apply that you might want
 to keep in mind.
 
 Sometimes, automatically or through administrator intervention, we
@@ -133,7 +133,7 @@ is known as *live migration,* and it normally does not interrupt the
 instance’s functionality at all — typically, neither you nor the
 application users notice that live migration has even happened. This
 is a very common occurrence when we do routine upgrades of the
-{{extra.brand}} platform, during our pre-announced maintenance windows.
+{{brand}} platform, during our pre-announced maintenance windows.
 
 The same considerations apply to physical node failure. If the
 physical machine running your instance fails, we can automatically

@@ -1,19 +1,19 @@
 # Start Here
 
-This is the {{extra.brand}} **Beta** documentation web site.
+This is the {{brand}} **Beta** documentation web site.
 
 ## What does "Beta" mean?
 
 The fact that this site is in a Beta stage means that any information
-you find here should be reliable and accurate for {{extra.brand}}
+you find here should be reliable and accurate for {{brand}}
 products and services. If you find any published documentation that is
 inaccurate or not in line with functionality as you observe it on
-{{extra.brand}}, we would very much appreciate if you filed
+{{brand}}, we would very much appreciate if you filed
 [a documentation bug]({{config.repo_url}}/issues).
 
 However, the documentation on this site may be incomplete, meaning
 that it does not yet cover *all* functionality available in
-{{extra.brand}}.
+{{brand}}.
 
 In addition, page paths (URLs) are not yet stable. In other words,
 content may move from one path to another between visits. If you are

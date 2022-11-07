@@ -1,7 +1,7 @@
 # Creating Kubernetes clusters with Gardener
 
 If you want to create a Kubernetes cluster, you can do it via
-{{config.extra.gui}} using Gardener. This how-to shows you how to do
+{{gui}} using Gardener. This how-to shows you how to do
 that, and how to deploy a sample application on such a cluster.
 
 ## Prerequisites
@@ -10,15 +10,15 @@ To access the cluster from your computer, you will need
 [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) installed
 on your machine.
 
-## Creating a Kubernetes cluster in {{config.extra.gui}}
+## Creating a Kubernetes cluster in {{gui}}
 
-To get started, navigate to <https://{{config.extra.gui_domain}}>, and
+To get started, navigate to <https://{{gui_domain}}>, and
 in the side panel choose Kubernetes → [Managed
-Kubernetes](https://{{config.extra.gui_domain}}/containers/gardener).
+Kubernetes](https://{{gui_domain}}/containers/gardener).
 You will see a Gardener page, in which you can create and manage your
 clusters. Click `Create Kubernetes cluster`.
 
-![Gardener page in {{config.extra.gui}}](assets/gardener_page.png)
+![Gardener page in {{gui}}](assets/gardener_page.png)
 
 > In Gardener's terminology, a Kubernetes cluster is referred as a
 > **Shoot cluster**. You can see the name "Shoot" in various places
@@ -72,7 +72,7 @@ apiVersion: v1
 clusters:
   - cluster:
       certificate-authority-data: DATA+OMITTED
-      server: https://api.test-cluster.p40698.staging-k8s.{{config.extra.gui_domain}}
+      server: https://api.test-cluster.p40698.staging-k8s.{{gui_domain}}
     name: shoot--p40698--test-cluster
 contexts:
   - context:

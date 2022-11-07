@@ -2,8 +2,8 @@
 
 <!-- Config interpolation for the company name didn't work for the title here. -->
 
-In {{config.extra.company}} you can run Kubernetes in various
-ways. [{{config.extra.gui}}](https://{{config.extra.gui_domain}})
+In {{company}} you can run Kubernetes in various
+ways. [{{gui}}](https://{{gui_domain}})
 includes management interfaces for [Gardener](https://gardener.cloud/)
 and [OpenStack Magnum](https://docs.openstack.org/magnum/).
 
@@ -14,9 +14,9 @@ It allows you to create clusters and automatically handle their lifecycle operat
 hibernation schedules, and automatic updates to Kubernetes control plane and worker nodes.
 You can read more about Gardener and its capabilities on its [documentation website](https://gardener.cloud/docs/gardener/).
 
-To learn how to use Gardener in the {{config.extra.gui}}, refer to
+To learn how to use Gardener in the {{gui}}, refer to
 [Creating Kubernetes clusters using
-{{config.extra.gui}}](gardener/create-shoot-cluster.md).
+{{gui}}](gardener/create-shoot-cluster.md).
 
 ### Magnum
 

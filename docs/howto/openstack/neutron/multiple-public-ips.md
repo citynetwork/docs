@@ -1,6 +1,6 @@
 # Assigning multiple public (floating) IPs to a server
 
-In {{extra.brand}}, we do not pass external networks to the compute nodes. This means
+In {{brand}}, we do not pass external networks to the compute nodes. This means
 that you, as a user, can not directly attach a server to the public network.
 
 In order to provide connectivity to the public network (for IPv4), you need to use
