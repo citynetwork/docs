@@ -1,1 +1,4 @@
 title: "Neutron (networking service)"
+nav:
+  - new-network.md
+  - multiple-public-ips.md
