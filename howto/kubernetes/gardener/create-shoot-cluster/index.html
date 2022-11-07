@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.8" name="generator"/>
-<title>Creating Kubernetes clusters using Cleura Cloud Control Panel - Docs (Beta)</title>
+<title>Creating Kubernetes clusters with Gardener - Docs (Beta)</title>
 <link href="../../../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.815d1a91.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -32,7 +32,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#creating-kubernetes-clusters-using-cleura-cloud-control-panel">
+<a class="md-skip" href="#creating-kubernetes-clusters-with-gardener">
           Skip to content
         </a>
 </div>
@@ -56,7 +56,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Creating Kubernetes clusters using Cleura Cloud Control Panel
+              Creating Kubernetes clusters with Gardener
             
           </span>
 </div>
@@ -211,11 +211,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Creating Kubernetes clusters using Cleura Cloud Control Panel
+          Creating Kubernetes clusters with Gardener
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Creating Kubernetes clusters using Cleura Cloud Control Panel
+        Creating Kubernetes clusters with Gardener
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -229,8 +229,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-kubernetes-cluster-in-cleura-cloud-control-panel">
-    Creating a Kubernetes cluster in Cleura Cloud Control Panel
+<a class="md-nav__link" href="#creating-a-kubernetes-cluster-in-cleura-cloud-management-panel">
+    Creating a Kubernetes cluster in Cleura Cloud Management Panel
   </a>
 </li>
 <li class="md-nav__item">
@@ -569,8 +569,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-kubernetes-cluster-in-cleura-cloud-control-panel">
-    Creating a Kubernetes cluster in Cleura Cloud Control Panel
+<a class="md-nav__link" href="#creating-a-kubernetes-cluster-in-cleura-cloud-management-panel">
+    Creating a Kubernetes cluster in Cleura Cloud Management Panel
   </a>
 </li>
 <li class="md-nav__item">
@@ -593,22 +593,21 @@
 <a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/kubernetes/gardener/create-shoot-cluster.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="creating-kubernetes-clusters-using-cleura-cloud-control-panel">Creating Kubernetes clusters using Cleura Cloud Control Panel</h1>
-<!-- Config interpolation for the gui name didn't work for the title here. -->
+<h1 id="creating-kubernetes-clusters-with-gardener">Creating Kubernetes clusters with Gardener</h1>
 <p>If you want to create a Kubernetes cluster, you can do it via
-Cleura Cloud Control Panel using Gardener. This how-to shows you how to do
+Cleura Cloud Management Panel using Gardener. This how-to shows you how to do
 that, and how to deploy a sample application on such a cluster.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>To access the cluster from your computer, you will need
 <a href="https://kubernetes.io/docs/tasks/tools/#kubectl">kubectl</a> installed
 on your machine.</p>
-<h2 id="creating-a-kubernetes-cluster-in-cleura-cloud-control-panel">Creating a Kubernetes cluster in Cleura Cloud Control Panel</h2>
+<h2 id="creating-a-kubernetes-cluster-in-cleura-cloud-management-panel">Creating a Kubernetes cluster in Cleura Cloud Management Panel</h2>
 <p>To get started, navigate to <a href="https://cleura.cloud">https://cleura.cloud</a>, and
 in the side panel choose Kubernetes → <a href="https://cleura.cloud/containers/gardener">Managed
 Kubernetes</a>.
 You will see a Gardener page, in which you can create and manage your
 clusters. Click <code>Create Kubernetes cluster</code>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/gardener_page.png"><img alt="Gardener page in Cleura Cloud Control Panel" src="../assets/gardener_page.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/gardener_page.png"><img alt="Gardener page in Cleura Cloud Management Panel" src="../assets/gardener_page.png"/></a></p>
 <blockquote>
 <p>In Gardener’s terminology, a Kubernetes cluster is referred as a
 <strong>Shoot cluster</strong>. You can see the name “Shoot” in various places
@@ -695,7 +694,7 @@ page of the Hello World app.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-07</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-08</span>
