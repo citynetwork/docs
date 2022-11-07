@@ -303,7 +303,7 @@ if you prefer to work with the OpenStack CLI, please do not forget to
 
 ## Viewing information about the newly created server
 === "{{extra.gui}}"
-	From the {{extra.brand}} Cloud Control Panel you may, at any 
+	From the {{extra.gui}} you may, at any 
 	time, see all servers and get detailed information regarding each one 
 	of them; expand the left-hand side vertical pane, click _Compute_, then 
 	_Servers_, and, in the central pane, select the region you want. 
