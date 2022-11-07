@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.8" name="generator"/>
+<title>Creating new servers in Cleura Cloud - Docs (Beta)</title>
+<link href="../../../../assets/stylesheets/main.20d9efc8.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.815d1a91.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gdesc-inner { font-size: 0.75rem; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#creating-new-servers-in-cleura-cloud">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Docs (Beta)
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Creating new servers in Cleura Cloud
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/citynetwork/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
+</a>
+    Docs (Beta)
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/citynetwork/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../..">
+        Start Here
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../">How-To Guides</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="How-To Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          How-To Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2">
+          Getting started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Getting started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          Getting started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/create-account/">
+        Creating a new account in Cleura Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
+        Enabling the OpenStack CLI
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../kubernetes/">Kubernetes</a>
+<label for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Kubernetes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2">
+          Gardener
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Gardener" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Gardener
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
+        Creating Kubernetes clusters using Cleura Cloud Control Panel
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4">
+          Object storage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Object storage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Object storage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4_1">
+          S3
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="S3" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_1">
+<span class="md-nav__icon md-icon"></span>
+          S3
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/credentials/">
+        Working with S3-compatible credentials
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/expiry/">
+        Object expiry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/sse-c/">
+        Client-side encryption (SSE-C)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/versioning/">
+        Object versioning
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5">
+          OpenStack
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="OpenStack" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          OpenStack
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" id="__nav_2_5_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../barbican/">Barbican (secret storage)</a>
+<label for="__nav_2_5_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Barbican (secret storage)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_1">
+<span class="md-nav__icon md-icon"></span>
+          Barbican (secret storage)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../barbican/generic-secret/">
+        Generic secret storage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../barbican/share-secret/">
+        Sharing secrets via ACLs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" id="__nav_2_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5_2">
+          Cinder (persistent block storage)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cinder (persistent block storage)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Cinder (persistent block storage)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cinder/encrypted-volumes/">
+        Encrypted volumes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5_3">
+          Neutron (networking service)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Neutron (networking service)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_3">
+<span class="md-nav__icon md-icon"></span>
+          Neutron (networking service)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../neutron/multiple-public-ips/">
+        Assigning multiple public (floating) IPs to a server
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../neutron/new-network/">
+        Creating new networks in Cleura Cloud
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_4" id="__nav_2_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5_4">
+          Nova (compute service)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nova (compute service)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Nova (compute service)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../config-drive/">
+        Launching an instance with a configuration drive
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Creating new servers in Cleura Cloud
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Creating new servers in Cleura Cloud
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-server">
+    Creating a server
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#viewing-information-about-the-newly-created-server">
+    Viewing information about the newly created server
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connecting-to-the-server-console">
+    Connecting to the server console
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_5" id="__nav_2_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5_5">
+          Octavia (load balancing)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Octavia (load balancing)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Octavia (load balancing)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../octavia/tls-lb/">
+        HTTPS-terminating load balancers
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/">Reference</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Reference" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/features/">Feature Support</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Feature Support" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Feature Support
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/features/public/">
+        Public Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
+        Compliant Cloud
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/flavors/">Flavors</a>
+</div>
+<nav aria-label="Flavors" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Flavors
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/versions/">API Service Versions</a>
+<label for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="API Service Versions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          API Service Versions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
+        Public Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
+        Compliant Cloud
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../contrib/">You can help!</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="You can help!" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          You can help!
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
+        Modifying content on this site
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../contrib/quality/">
+        Quality checks
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-server">
+    Creating a server
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#viewing-information-about-the-newly-created-server">
+    Viewing information about the newly created server
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connecting-to-the-server-console">
+    Connecting to the server console
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="new-server.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/nova/new-server.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="creating-new-servers-in-cleura-cloud">Creating new servers in Cleura Cloud</h1>
+<p>Once you have an <a href="/howto/getting-started/create-account">account in Cleura 
+Cloud</a>, you can create virtual 
+machines — henceforth simply <em>servers</em> — using either the 
+Cleura Cloud Control Panel or the OpenStack CLI. Let us demonstrate the creation of 
+a new server, following both approaches.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need to <a href="/howto/openstack/neutron/new-network">have at least one 
+network</a> in the region you are 
+interested in. Additionally, if you prefer to work with the OpenStack 
+CLI, then make sure to properly <a href="/howto/getting-started/enable-openstack-cli">enable it 
+first</a>. </p>
+<h2 id="creating-a-server">Creating a server</h2>
+<p>To create a server from the Cleura Cloud Control Panel, fire up your favorite web 
+browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud</a> 
+page, and log into your Cleura account. On the other hand, 
+if you prefer to work with the OpenStack CLI, please do not forget to 
+<a href="/howto/getting-started/enable-openstack-cli">source the RC file first</a>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Control Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>On the top right-hand side of the Cleura Cloud Control Panel, click the 
+<em>Create</em> button. A new pane titled <em>Create</em> will slide into view from 
+the right-hand side of the browser window.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-01.png"><img alt="Create new object" src="../assets/new-server/shot-01.png"/></a></p>
+<p>You will notice several rounded boxes on that pane, each for 
+defining, configuring, and instantiating a different Cleura 
+Cloud object. Go ahead and click the <em>Server</em> box. A new pane titled 
+<em>Create a Server</em> will slide over. At the top, type in a name for the 
+new server and select one of the available regions.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-02.png"><img alt="Create new server" src="../assets/new-server/shot-02.png"/></a></p>
+<p>In the <em>Boot source</em> section below, click the dropdown menu on 
+the left and make sure you select <em>Boot from image</em>, so you can choose 
+one of the readily available OS images to boot the new server off of. 
+To pick one of the images, click on the dropdown menu on the right. For 
+this how-to guide, we have chosen <em>ubuntu</em> in general and 
+<em>Ubuntu 22.04 Jammy Jellyfish 20220810</em> in particular.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-03.png"><img alt="Boot source" src="../assets/new-server/shot-03.png"/></a></p>
+<p>Next, make sure <em>Boot Target</em> is set to <em>Volume (Recommended)</em>. 
+Regarding the server’s CPU core count and amount of memory, set the 
+<a href="/reference/flavors"><em>Flavor</em></a> accordingly.
+The default flavor specifies a server with 1 CPU core and 1GB of RAM.
+You can start with that or select a different configuration by clicking
+the dropdown menu at the right of <em>Flavor</em>. Please note that, depending on 
+the chosen flavor, the estimated monthly cost of the server changes. (While a 
+server is shut off you are still getting charged for it, but less so.) 
+At any time, this estimated cost is displayed in the green rectangular area 
+at the top. Something else that affects the cost is the size of the root 
+device. Take a look at the <em>Size</em> parameter below, and notice the 
+default (in 
+<a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibytes</a>). 
+You may leave the root device size unchanged, or modify it to be lower 
+or higher than the default.</p>
+<p>When, at a later time, you decide to delete the server, you can 
+do so but <strong>keep</strong> its boot volume (you may want, for example, to 
+attach the exact same volume to a new server). Just leave the <em>Delete 
+on termination</em> option disabled if you want this kind of flexibility. 
+On the other hand, if you want your root volume to be automatically
+deleted when the server terminates, enable <em>Delete on termination</em>.
+Use this option with caution.</p>
+<p>Finally, you may enable <em>Disaster recovery</em> for the server. If 
+you do, then daily server snapshots will be created, and you will have 
+the option for easy and fast rollups to previous snapshots. Please be 
+aware that enabling this option increases the server’s monthly estimated
+cost (again, it is displayed in the green rectangular area at the top).</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-04.png"><img alt="Server configuration" src="../assets/new-server/shot-04.png"/></a></p>
+<p>Regarding networking, select one of the available networks to 
+attach the new server to. If you want the server accessible from the 
+Internet, do not forget to enable the <em>I want an external IP for my 
+server</em> option. In the section below, set <em>Security Groups</em> to 
+<em>default</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-05.png"><img alt="Networking and security groups" src="../assets/new-server/shot-05.png"/></a></p>
+<p>If you already have one or more public keys in your 
+Cleura Cloud account, you can now select a key to be included 
+in the <code>~/.ssh/authorized_keys</code> file of the server’s default user. That 
+way, you can securely log into the remote user’s account without typing 
+a password. If there are no public keys to choose from, activate the 
+<em>Password login enabled</em> option and set a password for a specific user 
+(with a username you define).</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-06.png"><img alt="Login and keypairs" src="../assets/new-server/shot-06.png"/></a></p>
+<p>A configuration script is automatically prepared based on the 
+choices you have already made. That script runs during system boot and 
+performs housekeeping tasks like user account creation, enabling 
+acceptable authentication methods, and configuring remote package 
+repositories. Click on <em>Advanced Options</em> to see the default script.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-07.png"><img alt="User-data propagation method" src="../assets/new-server/shot-07.png"/></a></p>
+<p>It is now time to create your Cleura Cloud server; 
+click the green <em>Create</em> button, and the new server will be readily 
+available in a few seconds.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-08.png"><img alt="Create new server" src="../assets/new-server/shot-08.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>An <code>openstack</code> command for creating a server may look like 
+this:</p>
+<div class="highlight"><pre><span></span><code>openstack server create <span class="se">\</span>
+    --flavor <span class="nv">$FLAVOR_NAME</span> <span class="se">\</span>
+    --image <span class="nv">$IMAGE_NAME</span> <span class="se">\</span>
+    --boot-from-volume <span class="nv">$VOL_SIZE</span> <span class="se">\</span>
+    --network <span class="nv">$NETWORK_NAME</span> <span class="se">\</span>
+    --security-group <span class="nv">$SEC_GROUP_NAME</span> <span class="se">\</span>
+    --key-name <span class="nv">$KEY_NAME</span> <span class="se">\</span>
+    --wait <span class="se">\</span>
+    <span class="nv">$SERVER_NAME</span>
+</code></pre></div>
+<p>Each variable represents a piece of information we have to look 
+for or, in the cases of <code>KEY_NAME</code> and <code>SERVER_NAME</code>, arbitrarily 
+define.</p>
+<p>Let us begin with the <a href="/reference/flavors"><em>flavors</em></a> (<code>FLAVOR_NAME</code>), which 
+describe combinations of CPU core count and memory size. Each server has a 
+distinct flavor, and to see all available flavors type:</p>
+<div class="highlight"><pre><span></span><code>openstack flavor list
+</code></pre></div>
+<p>You will get a pretty long list of flavors. For our demonstration,
+we suggest you go with <code>b.1c1gb</code>. A server with this particular flavor will 
+have one CPU core and one
+<a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibyte</a> of 
+RAM. Go ahead and set <code>FLAVOR_NAME</code> accordingly:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">FLAVOR_NAME</span><span class="o">=</span><span class="s2">"b.1c1gb"</span>
+</code></pre></div>
+<p>Your server should have an image to boot off of (<code>IMAGE_NAME</code>). 
+For a list of all available images in Cleura Cloud, type:</p>
+<div class="highlight"><pre><span></span><code>openstack image list
+</code></pre></div>
+<p>This time you get a shorter list, but you can still filter for 
+images with the OS you prefer. For example, filter for Ubuntu:</p>
+<div class="highlight"><pre><span></span><code>openstack image list --tag <span class="s2">"os:ubuntu"</span>
+</code></pre></div>
+<p>Continue with the <code>Ubuntu 22.04 Jammy Jellyfish 20220810</code> image:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">IMAGE_NAME</span><span class="o">=</span><span class="s2">"Ubuntu 22.04 Jammy Jellyfish 20220810"</span>
+</code></pre></div>
+<p>Before you go on, decide on the capacity (in gibibytes) of the server’s
+boot volume (<code>VOL_SIZE</code>). We suggest you start with 20 gibibytes:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VOL_SIZE</span><span class="o">=</span><span class="s2">"20"</span>
+</code></pre></div>
+<p>You need at least one network in the region you’re about to 
+create your new server (<code>NETWORK_NAME</code>). To get the names of all 
+available (internal) networks, type:</p>
+<div class="highlight"><pre><span></span><code>openstack network list --internal -c Name
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+----------------+
+| Name           |
++----------------+
+| nordostbahnhof |
++----------------+
+</code></pre></div>
+<p>Set the <code>NETWORK_NAME</code> variable accordingly:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">NETWORK_NAME</span><span class="o">=</span><span class="s2">"nordostbahnhof"</span>
+</code></pre></div>
+<p>Regarding the security group (<code>SEC_GROUP_NAME</code>), unless you 
+have already created one yourself, you will find only one per region:</p>
+<div class="highlight"><pre><span></span><code>openstack security group list -c Name -c Description
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------+------------------------+
+| Name    | Description            |
++---------+------------------------+
+| default | Default security group |
++---------+------------------------+
+</code></pre></div>
+<p>Go ahead and set <code>SEC_GROUP_NAME</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">SEC_GROUP_NAME</span><span class="o">=</span><span class="s2">"default"</span>
+</code></pre></div>
+<p>You most likely want a server you can remotely connect to via 
+SSH without typing a password. Upload one of our public keys to your 
+Cleura Cloud account:</p>
+<div class="highlight"><pre><span></span><code>openstack keypair create --public-key ~/.ssh/id_ed25519.pub bahnhof
+</code></pre></div>
+<p>In the example above, we uploaded the public key 
+<code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named 
+it <code>bahnhof</code>. Follow our example and do not forget to set the 
+<code>KEY_NAME</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">KEY_NAME</span><span class="o">=</span><span class="s2">"bahnhof"</span>
+</code></pre></div>
+<p>By the way, check all uploaded public keys…</p>
+<div class="highlight"><pre><span></span><code>openstack keypair list
+</code></pre></div>
+<p>…and get more information regarding the one you just uploaded:</p>
+<div class="highlight"><pre><span></span><code>openstack keypair show bahnhof
+</code></pre></div>
+<p>You are almost ready to create your new server. Decide on a 
+name…</p>
+<div class="highlight"><pre><span></span><code><span class="nv">SERVER_NAME</span><span class="o">=</span><span class="s2">"zug"</span> <span class="c1"># just an example</span>
+</code></pre></div>
+<p>…and then go ahead and create it:</p>
+<div class="highlight"><pre><span></span><code>openstack server create <span class="se">\</span>
+    --flavor b.1c1gb <span class="se">\</span>
+    --image <span class="nv">$IMAGE_NAME</span> <span class="se">\</span>
+    --boot-from-volume <span class="m">20</span> <span class="se">\</span>
+    --network nordostbahnhof <span class="se">\</span>
+    --security-group default <span class="se">\</span>
+    --key-name bahnhof <span class="se">\</span>
+    --wait <span class="se">\</span>
+    zug
+</code></pre></div>
+<p>(For clarity’s sake, and with the exception of <code>IMAGE_NAME</code>, we 
+used the actual values and not the variables we so meticulously set.) 
+The <code>--wait</code> parameter is optional. Whenever you choose to 
+use it, you get back control of your terminal only after the server is 
+readily available in Cleura Cloud.</p>
+<p>To connect to your server remotely, you need to create a floating IP
+for the external network in the Cleura Cloud, and then assign
+this IP to your server. First, create the floating IP: </p>
+<div class="highlight"><pre><span></span><code>openstack floating ip create ext-net
+</code></pre></div>
+<p>See all floating IPs…</p>
+<div class="highlight"><pre><span></span><code>openstack floating ip list
+</code></pre></div>
+<p>…and assign the one you just created to your server:</p>
+<div class="highlight"><pre><span></span><code>openstack server add floating ip zug <span class="m">198</span>.51.100.12
+</code></pre></div>
+<p>The username of the default user account in the Ubuntu image is 
+<code>ubuntu</code>, so now you can connect to your remote server via SSH without 
+typing a password:</p>
+<div class="highlight"><pre><span></span><code>ssh ubuntu@198.51.100.12
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="viewing-information-about-the-newly-created-server">Viewing information about the newly created server</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Control Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>From the Cleura Cloud Control Panel you may, at any 
+time, see all servers and get detailed information regarding each one 
+of them; expand the left-hand side vertical pane, click <em>Compute</em>, then 
+<em>Servers</em>, and, in the central pane, select the region you want. </p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-09.png"><img alt="Servers and details" src="../assets/new-server/shot-09.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>To see all available servers in the region, type:</p>
+<div class="highlight"><pre><span></span><code>openstack server list
+</code></pre></div>
+<p>You can always get specific information on a particular server:</p>
+<div class="highlight"><pre><span></span><code>openstack server show zug
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="connecting-to-the-server-console">Connecting to the server console</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Control Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>While viewing information regarding your server, you may get 
+its public IP  address (e.g., from the <em>Addresses</em> tab) and connect to 
+it remotely. Alternatively, you may launch a web console and log in; 
+click on the three-dot icon on the right of the server header, and from 
+the pop-up menu that appears select <em>Remote Console</em>.  </p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-10.png"><img alt="Launch remote console" src="../assets/new-server/shot-10.png"/></a></p>
+<p>A new window pops up, and that’s your web console to your 
+Cleura Cloud server. Please note that this window cannot be 
+resized but can be opened on a new browser window or tab.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/new-server/shot-11.png"><img alt="Server console" src="../assets/new-server/shot-11.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>You may have access to the web console of your server, and you need the 
+corresponding URL for it:</p>
+<div class="highlight"><pre><span></span><code>openstack console url show zug
+</code></pre></div>
+<p>Usage of the web console is discouraged, though. Instead,
+securely connect to your server via SSH.</p>
+</div>
+</div>
+</input></input></div>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-03</span>
+<br/>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-03</span>
+</small>
+</div>
+<div class="md-source-date">
+<small>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Launching an instance with a configuration drive" class="md-footer__link md-footer__link--prev" href="../config-drive/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Launching an instance with a configuration drive
+            </div>
+</div>
+</a>
+<a aria-label="Next: HTTPS-terminating load balancers" class="md-footer__link md-footer__link--next" href="../../octavia/tls-lb/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              HTTPS-terminating load balancers
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+</html>
