@@ -1,15 +1,15 @@
-# Launching an instance with a configuration drive
+# Launching a server with a configuration drive
 
 
 ## Background: OpenStack metadata discovery
 
 OpenStack Compute uses metadata to inject custom configurations to
-instances on boot. You can add custom scripts, install packages, and
-add SSH keys to the instances using metadata.
+servers on boot. You can add custom scripts, install packages, and
+add SSH keys to the servers using metadata.
 
 By default, metadata discovery in {{extra.brand}} Cloud uses an HTTP
-data source that booting instances connect to. Sometimes this is
-undesirable or — for specific instance/networking configurations —
+data source that booting servers connect to. Sometimes this is
+undesirable or — for specific server/networking configurations —
 unreliable. Under those circumstances, you can use an alternate
 configuration source.
 
@@ -17,7 +17,7 @@ configuration source.
 ## Store metadata on a configuration drive
 
 A **configuration drive** (config drive) is a read-only virtual drive
-that is attached to an instance during boot. The instance can then
+that is attached to a server during boot. The server can then
 mount the drive and read files from it. Configuration drives are used
 as a data source for
 [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
@@ -29,7 +29,7 @@ To enable the configuration drive, you need to pass the parameter
 `--use-config-drive` to the `openstack server create` command.
 
 In the following example, replace the image, flavor, keypair, and
-network reference, as well as the instance name, to match your desired
+network reference, as well as the server name, to match your desired
 configuration.
 
 ```bash
@@ -39,13 +39,13 @@ openstack server create \
   --flavor b.1c2gb \
   --keypair mykey
   --nic net-id=3a747038-ee59-404c-973d-5f795e8ebb73 \
-  myinstance
+  myserver
 ```
 
-Once the instance launches, you can monitor its configuration process
-by monitoring the instance console log:
+Once the server launches, you can monitor its configuration process
+by monitoring the server console log:
 
 ```bash
-openstack console log show myinstance
+openstack console log show myserver
 ```
 
