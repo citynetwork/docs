@@ -1,4 +1,4 @@
-# Creating new networks in Cleura Cloud
+# Creating new networks
 
 Before creating a server in {{brand}} Cloud, you need at least
 one network to make the new server a member of. Since you may have

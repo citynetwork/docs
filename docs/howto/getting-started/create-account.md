@@ -1,4 +1,4 @@
-# Creating a new account in Cleura Cloud
+# Creating a new account
 
 To gain access to the {{gui}}, you first
 have to create a new account. For that, navigate to

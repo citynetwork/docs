@@ -1,4 +1,4 @@
-# Creating new servers in Cleura Cloud
+# Creating new servers
 
 Once you have an [account in {{brand}} 
 Cloud](/howto/getting-started/create-account), you can create virtual 
