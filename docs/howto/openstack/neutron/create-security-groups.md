@@ -1,13 +1,22 @@
 # Creating security groups
 
-[By definition](https://docs.openstack.org/nova/latest/admin/security-groups.html), security groups are _"[...] sets of IP filter rules that are applied to all project instances, which define networking access to the instance. Group rules are project specific; project members can edit the default rules for their group and add new rule sets."_
+[By
+definition](https://docs.openstack.org/nova/latest/admin/security-groups.html),
+security groups are _"[...] sets of IP filter rules that are applied
+to all project instances, which define networking access to the
+instance. Group rules are project specific; project members can edit
+the default rules for their group and add new rule sets."_
 
 ## Creating a security group
 
-Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into your {{brand}} account. On the other hand, if you prefer to work with the OpenStack CLI, please do not forget to [source the RC file first](/howto/getting-started/enable-openstack-cli).
+Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into
+your {{brand}} account. On the other hand, if you prefer to work with
+the OpenStack CLI, please do not forget to [source the RC file
+first](/howto/getting-started/enable-openstack-cli).
 
 === "{{gui}}"
-    To create a security group click on _Security Groups_ in the left-hand navigation menu:
+    To create a security group click on _Security Groups_ in the
+    left-hand navigation menu:
 
     ![navigation-panel](assets/create-security-groups/01-navigation-panel.png)
 
@@ -15,9 +24,11 @@ Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into your {{bran
 
     ![create-button](assets/create-security-groups/02-create-button.png)
 
-    > An alternative way to create a Security Group is by clicking on _Create ..._ button in the top bar.
+    > An alternative way to create a Security Group is by clicking on
+    _Create ..._ button in the top bar.
 
-    Now give the security group a name and description, and choose in which region to create it, then click _create_:
+    Now give the security group a name and description, and choose in
+    which region to create it, then click _create_:
 
     ![create-panel](assets/create-security-groups/03-name-creation.png)
 === "OpenStack CLI"
@@ -27,7 +38,8 @@ Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into your {{bran
     openstack security group create <name>
     ```
 
-    When the command is executed successfully, you will get information regarding your new security group:
+    When the command is executed successfully, you will get
+    information regarding your new security group:
 
     ```plain
     +-----------------+--------------------------------------------------------------------------------+
@@ -53,13 +65,17 @@ Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into your {{bran
 
 ## Removing default ingress rules
 
-By default, a security group named `default` has been already created for you, allowing all traffic from any source (ingress), and to any destination (egress).
+By default, a security group named `default` has been already created
+for you, allowing all traffic from any source (ingress), and to any
+destination (egress).
+
 === "{{gui}}"
     Click on it and select the _Rules_ tab to view its rules:
 
     ![default-rules](assets/create-security-groups/04-default-rules.png)
 === "OpenStack CLI"
-    View the details of the `default` security group using the following command:
+    View the details of the `default` security group using the
+    following command:
 
     ```bash
     openstack security group show default
@@ -97,13 +113,19 @@ By default, a security group named `default` has been already created for you, a
     +-----------------+--------------------------------------------------------------------------------+
     ```
 
-We recommend to either create and use a new security group other than the default one, **or** restrict ingress traffic to specific ports and sources.
+We recommend to either create and use a new security group other than
+the default one, **or** restrict ingress traffic to specific ports and
+sources.
 
-If you want use the default group, **remove the two ingress rules** that allow all incoming traffic.
+If you want use the default group, **remove the two ingress rules**
+that allow all incoming traffic.
+
 === "{{gui}}"
-    Click on the trashcan action button on the right-hand side for **both ingress** rules.
+    Click on the trashcan action button on the right-hand side for
+    **both ingress** rules.
 
-    Your `default` or newly created security group rules will now looks like this:
+    Your `default` or newly created security group rules will now
+    looks like this:
 
     ![default-ingress-rules](assets/create-security-groups/05-default-ingress-rules.png)
 === "OpenStack CLI"
@@ -146,12 +168,15 @@ If you want use the default group, **remove the two ingress rules** that allow a
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     ```
 
-    The IDs of the two ingress rules, one for IPv4 traffic and one for IPv6, in this case are: `5e5e9f4d-1faa-492d-91f1-c105b464072b` and `86b9413a-ad23-46c4-a35e-9306945dc63c`
+    The IDs of the two ingress rules, one for IPv4 traffic and one for
+    IPv6, in this case are: `5e5e9f4d-1faa-492d-91f1-c105b464072b` and
+    `86b9413a-ad23-46c4-a35e-9306945dc63c`
 
     Delete them by using the following command:
 
     ```bash
-    openstack security group rule delete 5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
+    openstack security group rule delete \
+      5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
     ```
 
     Print the rules again:
@@ -183,7 +208,8 @@ If you want use the default group, **remove the two ingress rules** that allow a
 
 ## Allowing SSH access
 
-The next thing to do, is to allow SSH access on **port 22** to the server, only from specific networks.
+The next thing to do, is to allow SSH access on **port 22** to the
+server, only from specific networks.
 
 === "{{gui}}"
     To do this, click on the _Create new rule_ button.
@@ -193,17 +219,28 @@ The next thing to do, is to allow SSH access on **port 22** to the server, only 
     To create this rule use the following command:
 
     ```bash
-    openstack security group rule create --protocol tcp --dst-port 22 --remote-ip 203.0.113.58/32 default
+    openstack security group rule create \
+      --protocol tcp --dst-port 22 --remote-ip 203.0.113.58/32 default
     ```
 
-> If you don't know your IP, simply visit [icanhazip.com](https://ipv4.icanhazip.com/). In this example your IP is 203.0.113.58 and you want to allow SSH access from this IP address only, enter 203.0.113.58/32 as CIDR. To allow SSH access from any address in that range, instead enter 203.0.113.0/24 as CIDR.
+> If you don't know your IP, simply visit
+> [icanhazip.com](https://ipv4.icanhazip.com/). In this example your
+> IP is 203.0.113.58 and you want to allow SSH access from this IP
+> address only, enter `203.0.113.58/32` as CIDR. If you want to allow
+> SSH access from any address in that [Class C
+> subnet](https://en.wikipedia.org/wiki/Classful_network), instead
+> enter `203.0.113.0/24` as CIDR.
 
 ## Allowing Web Traffic
 
-Next create the rules that allow anyone access the server on **port 80** and **port 443**.
+Next create the rules that allow anyone access the server on **port
+80** and **port 443**.
 
 === "{{gui}}"
-    Using the same logic as before, click on _Create new rule_. Select TCP Protocol and port 80 as both min and max range value. This time, _CIDR_ is left empty, allowing incoming traffic from any IP/source.
+    Using the same logic as before, click on _Create new rule_. Select
+    TCP Protocol and port 80 as both min and max range value. This
+    time, _CIDR_ is left empty, allowing incoming traffic from any
+    IP/source.
 
     ![http-rule](assets/create-security-groups/07-http-rule.png)
 
@@ -213,7 +250,8 @@ Next create the rules that allow anyone access the server on **port 80** and **p
 
     ![rules](assets/create-security-groups/09-rules-now.png)
 === "OpenStack CLI"
-    This time don't specify _--remote-ip_ to allow traffic from all sources, using the following command:
+    This time don't specify _--remote-ip_ to allow traffic from all
+    sources, using the following command:
 
     ```bash
     openstack security group rule create --protocol tcp --dst-port 80 default
@@ -269,4 +307,5 @@ Next create the rules that allow anyone access the server on **port 80** and **p
 
 All the rules for a simple web server are now in place.
 
-For any additional protocol or ingress rule, simply follow the same procedure as above.
+For any additional protocol or ingress rule, simply follow the same
+procedure as above.
