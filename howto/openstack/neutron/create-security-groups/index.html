@@ -599,27 +599,39 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="creating-security-groups">Creating security groups</h1>
-<p><a href="https://docs.openstack.org/nova/latest/admin/security-groups.html">By definition</a>, security groups are <em>”[…] sets of IP filter rules that are applied to all project instances, which define networking access to the instance. Group rules are project specific; project members can edit the default rules for their group and add new rule sets.”</em></p>
+<p><a href="https://docs.openstack.org/nova/latest/admin/security-groups.html">By
+definition</a>,
+security groups are <em>”[…] sets of IP filter rules that are applied
+to all project instances, which define networking access to the
+instance. Group rules are project specific; project members can edit
+the default rules for their group and add new rule sets.”</em></p>
 <h2 id="creating-a-security-group">Creating a security group</h2>
-<p>Navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> page, and log into your Cleura account. On the other hand, if you prefer to work with the OpenStack CLI, please do not forget to <a href="/howto/getting-started/enable-openstack-cli">source the RC file first</a>.</p>
+<p>Navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> page, and log into
+your Cleura account. On the other hand, if you prefer to work with
+the OpenStack CLI, please do not forget to <a href="/howto/getting-started/enable-openstack-cli">source the RC file
+first</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>To create a security group click on <em>Security Groups</em> in the left-hand navigation menu:</p>
+<p>To create a security group click on <em>Security Groups</em> in the
+left-hand navigation menu:</p>
 <p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/01-navigation-panel.png"><img alt="navigation-panel" src="../assets/create-security-groups/01-navigation-panel.png"/></a></p>
 <p>and then click on <em>Create new Security Group</em> in the top-right corner:</p>
 <p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/02-create-button.png"><img alt="create-button" src="../assets/create-security-groups/02-create-button.png"/></a></p>
 <blockquote>
-<p>An alternative way to create a Security Group is by clicking on <em>Create …</em> button in the top bar.</p>
+<p>An alternative way to create a Security Group is by clicking on
+<em>Create …</em> button in the top bar.</p>
 </blockquote>
-<p>Now give the security group a name and description, and choose in which region to create it, then click <em>create</em>:</p>
+<p>Now give the security group a name and description, and choose in
+which region to create it, then click <em>create</em>:</p>
 <p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/03-name-creation.png"><img alt="create-panel" src="../assets/create-security-groups/03-name-creation.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To create a security group use the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack security group create &lt;name&gt;
 </code></pre></div>
-<p>When the command is executed successfully, you will get information regarding your new security group:</p>
+<p>When the command is executed successfully, you will get
+information regarding your new security group:</p>
 <div class="highlight"><pre><span></span><code>+-----------------+--------------------------------------------------------------------------------+
 | Field           | Value                                                                          |
 +-----------------+--------------------------------------------------------------------------------+
@@ -644,7 +656,9 @@
 </div>
 </input></input></div>
 <h2 id="removing-default-ingress-rules">Removing default ingress rules</h2>
-<p>By default, a security group named <code>default</code> has been already created for you, allowing all traffic from any source (ingress), and to any destination (egress).</p>
+<p>By default, a security group named <code>default</code> has been already created
+for you, allowing all traffic from any source (ingress), and to any
+destination (egress).</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -652,7 +666,8 @@
 <p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/04-default-rules.png"><img alt="default-rules" src="../assets/create-security-groups/04-default-rules.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p>View the details of the <code>default</code> security group using the following command:</p>
+<p>View the details of the <code>default</code> security group using the
+following command:</p>
 <div class="highlight"><pre><span></span><code>openstack security group show default
 </code></pre></div>
 <p>you will get a printout similar to this:</p>
@@ -687,13 +702,18 @@
 </div>
 </div>
 </input></input></div>
-<p>We recommend to either create and use a new security group other than the default one, <strong>or</strong> restrict ingress traffic to specific ports and sources.</p>
-<p>If you want use the default group, <strong>remove the two ingress rules</strong> that allow all incoming traffic.</p>
+<p>We recommend to either create and use a new security group other than
+the default one, <strong>or</strong> restrict ingress traffic to specific ports and
+sources.</p>
+<p>If you want use the default group, <strong>remove the two ingress rules</strong>
+that allow all incoming traffic.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Click on the trashcan action button on the right-hand side for <strong>both ingress</strong> rules.</p>
-<p>Your <code>default</code> or newly created security group rules will now looks like this:</p>
+<p>Click on the trashcan action button on the right-hand side for
+<strong>both ingress</strong> rules.</p>
+<p>Your <code>default</code> or newly created security group rules will now
+looks like this:</p>
 <p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/05-default-ingress-rules.png"><img alt="default-ingress-rules" src="../assets/create-security-groups/05-default-ingress-rules.png"/></a></p>
 </div>
 <div class="tabbed-block">
@@ -730,9 +750,12 @@
 | 46f       |             |           |           |            |           |                       |                      |
 +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
 </code></pre></div>
-<p>The IDs of the two ingress rules, one for IPv4 traffic and one for IPv6, in this case are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and <code>86b9413a-ad23-46c4-a35e-9306945dc63c</code></p>
+<p>The IDs of the two ingress rules, one for IPv4 traffic and one for
+IPv6, in this case are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and
+<code>86b9413a-ad23-46c4-a35e-9306945dc63c</code></p>
 <p>Delete them by using the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule delete 5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
+<div class="highlight"><pre><span></span><code>openstack security group rule delete <span class="se">\</span>
+  5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
 </code></pre></div>
 <p>Print the rules again:</p>
 <div class="highlight"><pre><span></span><code>openstack security group rule list default
@@ -759,7 +782,8 @@
 </div>
 </input></input></div>
 <h2 id="allowing-ssh-access">Allowing SSH access</h2>
-<p>The next thing to do, is to allow SSH access on <strong>port 22</strong> to the server, only from specific networks.</p>
+<p>The next thing to do, is to allow SSH access on <strong>port 22</strong> to the
+server, only from specific networks.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -768,27 +792,39 @@
 </div>
 <div class="tabbed-block">
 <p>To create this rule use the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule create --protocol tcp --dst-port <span class="m">22</span> --remote-ip <span class="m">203</span>.0.113.58/32 default
+<div class="highlight"><pre><span></span><code>openstack security group rule create <span class="se">\</span>
+  --protocol tcp --dst-port <span class="m">22</span> --remote-ip <span class="m">203</span>.0.113.58/32 default
 </code></pre></div>
 </div>
 </div>
 </input></input></div>
 <blockquote>
-<p>If you don’t know your IP, simply visit <a href="https://ipv4.icanhazip.com/">icanhazip.com</a>. In this example your IP is 203.0.113.58 and you want to allow SSH access from this IP address only, enter 203.0.113.58/32 as CIDR. To allow SSH access from any address in that range, instead enter 203.0.113.0/24 as CIDR.</p>
+<p>If you don’t know your IP, simply visit
+<a href="https://ipv4.icanhazip.com/">icanhazip.com</a>. In this example your
+IP is 203.0.113.58 and you want to allow SSH access from this IP
+address only, enter <code>203.0.113.58/32</code> as CIDR. If you want to allow
+SSH access from any address in that <a href="https://en.wikipedia.org/wiki/Classful_network">Class C
+subnet</a>, instead
+enter <code>203.0.113.0/24</code> as CIDR.</p>
 </blockquote>
 <h2 id="allowing-web-traffic">Allowing Web Traffic</h2>
-<p>Next create the rules that allow anyone access the server on <strong>port 80</strong> and <strong>port 443</strong>.</p>
+<p>Next create the rules that allow anyone access the server on <strong>port
+80</strong> and <strong>port 443</strong>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Using the same logic as before, click on <em>Create new rule</em>. Select TCP Protocol and port 80 as both min and max range value. This time, <em>CIDR</em> is left empty, allowing incoming traffic from any IP/source.</p>
+<p>Using the same logic as before, click on <em>Create new rule</em>. Select
+TCP Protocol and port 80 as both min and max range value. This
+time, <em>CIDR</em> is left empty, allowing incoming traffic from any
+IP/source.</p>
 <p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/07-http-rule.png"><img alt="http-rule" src="../assets/create-security-groups/07-http-rule.png"/></a></p>
 <p>The same applies to port 443.</p>
 <p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/08-https-rule.png"><img alt="https-rule" src="../assets/create-security-groups/08-https-rule.png"/></a></p>
 <p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/09-rules-now.png"><img alt="rules" src="../assets/create-security-groups/09-rules-now.png"/></a></p>
 </div>
 <div class="tabbed-block">
-<p>This time don’t specify <em>–remote-ip</em> to allow traffic from all sources, using the following command:</p>
+<p>This time don’t specify <em>–remote-ip</em> to allow traffic from all
+sources, using the following command:</p>
 <p><div class="highlight"><pre><span></span><code>openstack security group rule create --protocol tcp --dst-port <span class="m">80</span> default
 </code></pre></div>
 One more time for port 443:</p>
@@ -836,13 +872,14 @@ One more time for port 443:</p>
 </div>
 </input></input></div>
 <p>All the rules for a simple web server are now in place.</p>
-<p>For any additional protocol or ingress rule, simply follow the same procedure as above.</p>
+<p>For any additional protocol or ingress rule, simply follow the same
+procedure as above.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-14</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-08</span>
@@ -850,7 +887,7 @@ One more time for port 443:</p>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christian Mattsson</span>
+          Authors: <span class="git-page-authors git-authors">Christian Mattsson, Florian Haas</span>
 </small>
 </div>
 </article>
