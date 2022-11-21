@@ -1,7 +1,6 @@
 # Creating security groups
 
-[By
-definition](https://docs.openstack.org/nova/latest/admin/security-groups.html),
+[By definition](https://docs.openstack.org/nova/latest/admin/security-groups.html),
 security groups are _"[...] sets of IP filter rules that are applied
 to all project instances, which define networking access to the
 instance. Group rules are project specific; project members can edit
@@ -9,14 +8,14 @@ the default rules for their group and add new rule sets."_
 
 ## Creating a security group
 
-Navigate to the [{{gui}}](https://{{gui_domain}}) start page, and log
-into your {{brand}} account. On the other hand, if you prefer to work
-with the OpenStack CLI, please do not forget to [source the RC file
-first](/howto/getting-started/enable-openstack-cli).
+Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into
+your {{brand}} account. On the other hand, if you prefer to work with
+the OpenStack CLI, please do not forget
+to [source the RC file first](/howto/getting-started/enable-openstack-cli).
 
 === "{{gui}}"
-    To create a security group click on _Security Groups_ in the
-    left-hand navigation menu:
+    To create a security group click on _Security Groups_ in the left-hand
+    side navigation menu:
 
     ![navigation-panel](assets/create-security-groups/01-navigation-panel.png)
 
@@ -31,6 +30,7 @@ first](/howto/getting-started/enable-openstack-cli).
     which region to create it, then click _create_:
 
     ![create-panel](assets/create-security-groups/03-name-creation.png)
+
 === "OpenStack CLI"
     To create a security group use the following command:
 
@@ -66,13 +66,22 @@ first](/howto/getting-started/enable-openstack-cli).
 ## Removing default ingress rules
 
 By default, a security group named `default` has been already created
-for you, allowing all traffic from any source (ingress), and to any
-destination (egress).
+for you, blocking all traffic from any source (ingress), except from
+servers and ports being in the same security group. All traffic to any
+destination (egress) is allowed by default.
+
+> For accounts created before 2022-11-16, the default security
+> group ingress rules allow all incoming traffic.
+> See [Adjust permissive default security group](/howto/openstack/neutron/create-security-groups/#adjust-permissive-default-security-group),
+> to learn how to configure this security group according to
+> our recommendations.
 
 === "{{gui}}"
-    Click on it and select the _Rules_ tab to view its rules:
+    Navigate to the security groups page, click on `default` security
+    group and select the _Rules_ tab to view its rules:
 
     ![default-rules](assets/create-security-groups/04-default-rules.png)
+
 === "OpenStack CLI"
     View the details of the `default` security group using the
     following command:
@@ -94,13 +103,13 @@ destination (egress).
     | project_id      | cb43f189f7904fb88f3bbcfa22653ab8                                               |
     | revision_number | 5                                                                              |
     | rules           | created_at='2022-09-12T15:00:59Z', direction='ingress', ethertype='IPv4',      |
-    |                 | id='5e5e9f4d-1faa-492d-91f1-c105b464072b', normalized_cidr='0.0.0.0/0',        |
-    |                 | remote_ip_prefix='0.0.0.0/0', standard_attr_id='10422245',                     |
-    |                 | updated_at='2022-09-12T15:00:59Z'                                              |
+    |                 | id='5e5e9f4d-1faa-492d-91f1-c105b464072b', protocol='0',                       |
+    |                 | remote_group_id='60776d43-a78c-4eb4-8998-cea7a04c5f9b',                        |
+    |                 | standard_attr_id='10422245', updated_at='2022-09-12T15:00:59Z'                 |
     |                 | created_at='2022-09-12T15:00:59Z', direction='ingress', ethertype='IPv6',      |
-    |                 | id='86b9413a-ad23-46c4-a35e-9306945dc63c', normalized_cidr='::/0',             |
-    |                 | remote_ip_prefix='::/0', standard_attr_id='10422248',                          |
-    |                 | updated_at='2022-09-12T15:00:59Z'                                              |
+    |                 | id='86b9413a-ad23-46c4-a35e-9306945dc63c', protocol='0',                       |
+    |                 | remote_group_id='60776d43-a78c-4eb4-8998-cea7a04c5f9b',                        |
+    |                 | standard_attr_id='10422248', updated_at='2022-09-12T15:00:59Z'                 |
     |                 | created_at='2022-09-12T15:00:57Z', direction='egress', ethertype='IPv6',       |
     |                 | id='ad4a19ef-7fab-4eba-9982-e5b109be121c', standard_attr_id='10422242',        |
     |                 | updated_at='2022-09-12T15:00:57Z'                                              |
@@ -113,21 +122,19 @@ destination (egress).
     +-----------------+--------------------------------------------------------------------------------+
     ```
 
-We recommend to either create and use a new security group other than
-the default one, **or** restrict ingress traffic to specific ports and
-sources.
-
-If you want use the default group, **remove the two ingress rules**
-that allow all incoming traffic.
+If you want to restrict the ingress rules to disallow access from
+other servers and ports in the group, you need to
+**remove the default two ingress rules.**
 
 === "{{gui}}"
     Click on the trashcan action button on the right-hand side for
     **both ingress** rules.
 
     Your `default` or newly created security group rules will now
-    looks like this:
+    look like this:
 
-    ![default-ingress-rules](assets/create-security-groups/05-default-ingress-rules.png)
+    ![default-ingress-rules](assets/create-security-groups/05-default-egress-rules.png)
+
 === "OpenStack CLI"
     To view the rules use the following command:
 
@@ -141,14 +148,14 @@ that allow all incoming traffic.
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    | 5e5e9f4d- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | None                  | None                 |
-    | 1faa-     |             |           |           |            |           |                       |                      |
+    | 5e5e9f4d- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | 60776d43-a78c-4eb4-   | None                 |
+    | 1faa-     |             |           |           |            |           | 8998-cea7a04c5f9b     |                      |
     | 492d-     |             |           |           |            |           |                       |                      |
     | 91f1-     |             |           |           |            |           |                       |                      |
     | c105b4640 |             |           |           |            |           |                       |                      |
     | 72b       |             |           |           |            |           |                       |                      |
-    | 86b9413a- | None        | IPv6      | ::/0      |            | ingress   | None                  | None                 |
-    | ad23-     |             |           |           |            |           |                       |                      |
+    | 86b9413a- | None        | IPv6      | ::/0      |            | ingress   | 60776d43-a78c-4eb4-   | None                 |
+    | ad23-     |             |           |           |            |           | 8998-cea7a04c5f9b     |                      |
     | 46c4-     |             |           |           |            |           |                       |                      |
     | a35e-     |             |           |           |            |           |                       |                      |
     | 9306945dc |             |           |           |            |           |                       |                      |
@@ -225,7 +232,7 @@ server, only from specific networks.
 
 > If you don't know your IP, simply visit
 > [icanhazip.com](https://ipv4.icanhazip.com/). In this example your
-> IP is 203.0.113.58 and you want to allow SSH access from this IP
+> IP is 203.0.113.58, and if you want to allow SSH access from this IP
 > address only, enter `203.0.113.58/32` as CIDR. If you want to allow
 > SSH access from any address in that [Class C
 > subnet](https://en.wikipedia.org/wiki/Classful_network), instead
@@ -233,7 +240,7 @@ server, only from specific networks.
 
 ## Allowing Web Traffic
 
-Next create the rules that allow anyone access the server on **port
+Next create the rules that allow anyone to access the server on **port
 80** and **port 443**.
 
 === "{{gui}}"
@@ -309,3 +316,112 @@ All the rules for a simple web server are now in place.
 
 For any additional protocol or ingress rule, simply follow the same
 procedure as above.
+
+## Adjust permissive default security group
+
+If your account was created before 2022-11-16, and you didn't
+configure the `default` security group, it is most likely permissive for
+all incoming traffic. We recommend to either create and use a new
+security group, other than the default one, or restrict ingress traffic
+to specific ports and sources.
+
+=== "{{gui}}"
+    To check how your `default` security group is configured, click on it
+    and select the Rules tab to view its rules. If you have old,
+    permissive `default` group, the rules should look like this:
+
+    ![default-ingress-rules](assets/create-security-groups/10-default-permissive-rules.png)
+
+    The top two ingress rules, having `::/0` and `0.0.0.0/0` values
+    for remote access filters, mean that incoming traffic from all
+    sources is allowed.
+    
+    If you want to use the default group, remove the two ingress rules
+    that allow all incoming traffic. Click on the trashcan action
+    button on the right-hand side for **both ingress** rules.
+
+    Your `default` or newly created security group rules will now
+    look like this:
+
+    ![default-ingress-rules](assets/create-security-groups/05-default-egress-rules.png)
+
+=== "OpenStack CLI"
+    To view the rules use the following command:
+
+    ```bash
+    openstack security group rule list default
+    ```
+
+    The printout will be similar to this:
+
+    ```plain
+    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+    | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
+    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+    | 5e5e9f4d- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | None                  | None                 |
+    | 1faa-     |             |           |           |            |           |                       |                      |
+    | 492d-     |             |           |           |            |           |                       |                      |
+    | 91f1-     |             |           |           |            |           |                       |                      |
+    | c105b4640 |             |           |           |            |           |                       |                      |
+    | 72b       |             |           |           |            |           |                       |                      |
+    | 86b9413a- | None        | IPv6      | ::/0      |            | ingress   | None                  | None                 |
+    | ad23-     |             |           |           |            |           |                       |                      |
+    | 46c4-     |             |           |           |            |           |                       |                      |
+    | a35e-     |             |           |           |            |           |                       |                      |
+    | 9306945dc |             |           |           |            |           |                       |                      |
+    | 63c       |             |           |           |            |           |                       |                      |
+    | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
+    | 7fab-     |             |           |           |            |           |                       |                      |
+    | 4eba-     |             |           |           |            |           |                       |                      |
+    | 9982-     |             |           |           |            |           |                       |                      |
+    | e5b109be1 |             |           |           |            |           |                       |                      |
+    | 21c       |             |           |           |            |           |                       |                      |
+    | f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
+    | edbb-     |             |           |           |            |           |                       |                      |
+    | 480b-     |             |           |           |            |           |                       |                      |
+    | 910b-     |             |           |           |            |           |                       |                      |
+    | a71c48363 |             |           |           |            |           |                       |                      |
+    | 46f       |             |           |           |            |           |                       |                      |
+    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+    ```
+
+    If the ingress rules have `::/0` and `0.0.0.0/0` values
+    in `IP Range` column, and `None` in the `Remote Security Group`,
+    then incoming traffic from any source is allowed.
+
+    The IDs of the two ingress rules, one for IPv4 traffic and one for
+    IPv6, are: `5e5e9f4d-1faa-492d-91f1-c105b464072b` and
+    `86b9413a-ad23-46c4-a35e-9306945dc63c` respectively.
+
+    Delete them by using the following command:
+
+    ```bash
+    openstack security group rule delete \
+      5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
+    ```
+    Print the rules again:
+
+    ```bash
+    openstack security group rule list default
+    ```
+
+    Now the remaining rules are only the egress ones.
+
+    ```plain
+    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+    | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
+    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+    | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
+    | 7fab-     |             |           |           |            |           |                       |                      |
+    | 4eba-     |             |           |           |            |           |                       |                      |
+    | 9982-     |             |           |           |            |           |                       |                      |
+    | e5b109be1 |             |           |           |            |           |                       |                      |
+    | 21c       |             |           |           |            |           |                       |                      |
+    | f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
+    | edbb-     |             |           |           |            |           |                       |                      |
+    | 480b-     |             |           |           |            |           |                       |                      |
+    | 910b-     |             |           |           |            |           |                       |                      |
+    | a71c48363 |             |           |           |            |           |                       |                      |
+    | 46f       |             |           |           |            |           |                       |                      |
+    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+    ```
