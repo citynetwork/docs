@@ -3,4 +3,5 @@ nav:
   - new-server.md
   - config-drive.md
   - resize-server.md
+  - move-server-between-regions.md
   - rescue-server.md
