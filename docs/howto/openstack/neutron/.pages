@@ -3,3 +3,4 @@ nav:
   - new-network.md
   - create-security-groups.md
   - multiple-public-ips.md
+  - vpnaas.md
