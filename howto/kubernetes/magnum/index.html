@@ -5,19 +5,19 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../../../assets/favicon.ico" rel="icon"/>
+<link href="../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>Launching a server with a configuration drive - Docs (Beta)</title>
-<link href="../../../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
-<link href="../../../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<title>Magnum - Docs (Beta)</title>
+<link href="../../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -28,14 +28,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#launching-a-server-with-a-configuration-drive">
+<a class="md-skip" href="#magnum">
           Skip to content
         </a>
 </div>
@@ -43,8 +43,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
-<img alt="logo" src="../../../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -59,7 +59,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Launching a server with a configuration drive
+              Magnum
             
           </span>
 </div>
@@ -125,8 +125,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
-<img alt="logo" src="../../../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
     Docs (Beta)
   </label>
@@ -142,14 +142,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../..">
+<a class="md-nav__link" href="../../..">
         Start Here
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../">How-To Guides</a>
+<a href="../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -173,22 +173,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../getting-started/create-account/">
+<a class="md-nav__link" href="../../getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/">Kubernetes</a>
+<a href="../">Kubernetes</a>
 <label for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -202,7 +202,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/gardener/">Gardener</a>
+<a href="../gardener/">Gardener</a>
 <label for="__nav_2_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -214,17 +214,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../gardener/create-shoot-cluster/">
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" id="__nav_2_3_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/magnum/">Magnum</a>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" id="__nav_2_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">Magnum</a>
 </div>
 <nav aria-label="Magnum" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_3">
@@ -263,22 +263,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../object-storage/s3/credentials/">
+<a class="md-nav__link" href="../../object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../object-storage/s3/expiry/">
+<a class="md-nav__link" href="../../object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../../object-storage/s3/sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../object-storage/s3/versioning/">
+<a class="md-nav__link" href="../../object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
@@ -288,8 +288,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_5">
           OpenStack
           <span class="md-nav__icon md-icon"></span>
@@ -303,7 +303,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" id="__nav_2_5_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../barbican/">Barbican (secret storage)</a>
+<a href="../../openstack/barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_5_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -315,12 +315,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../barbican/generic-secret/">
+<a class="md-nav__link" href="../../openstack/barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../barbican/share-secret/">
+<a class="md-nav__link" href="../../openstack/barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -340,7 +340,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
@@ -360,7 +360,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../openstack/magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -380,30 +380,30 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../neutron/new-network/">
+<a class="md-nav__link" href="../../openstack/neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../neutron/create-security-groups/">
+<a class="md-nav__link" href="../../openstack/neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../openstack/neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../neutron/vpnaas/">
+<a class="md-nav__link" href="../../openstack/neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_5" id="__nav_2_5_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_5" id="__nav_2_5_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_5_5">
           Nova (compute service)
           <span class="md-nav__icon md-icon"></span>
@@ -415,42 +415,14 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../new-server/">
+<a class="md-nav__link" href="../../openstack/nova/new-server/">
         Creating new servers
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Launching a server with a configuration drive
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../openstack/nova/config-drive/">
         Launching a server with a configuration drive
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#background-openstack-metadata-discovery">
-    Background: OpenStack metadata discovery
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#store-metadata-on-a-configuration-drive">
-    Store metadata on a configuration drive
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#enable-the-configuration-drive-on-server-creation-openstack-cli">
-    Enable the configuration drive on server creation (openstack CLI)
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -468,7 +440,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../octavia/tls-lb/">
+<a class="md-nav__link" href="../../openstack/octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
@@ -484,7 +456,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/">Reference</a>
+<a href="../../../reference/">Reference</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -498,7 +470,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/features/">Feature Support</a>
+<a href="../../../reference/features/">Feature Support</a>
 <label for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -510,12 +482,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/features/public/">
+<a class="md-nav__link" href="../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/features/compliant/">
+<a class="md-nav__link" href="../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -525,7 +497,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/flavors/">Flavors</a>
+<a href="../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-label="Flavors" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_3">
@@ -539,7 +511,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/versions/">API Service Versions</a>
+<a href="../../../reference/versions/">API Service Versions</a>
 <label for="__nav_3_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -551,12 +523,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/versions/public/">
+<a class="md-nav__link" href="../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -569,7 +541,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../contrib/">You can help!</a>
+<a href="../../../contrib/">You can help!</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -581,12 +553,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../contrib/modifications/">
+<a class="md-nav__link" href="../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../contrib/quality/">
+<a class="md-nav__link" href="../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -602,84 +574,42 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#background-openstack-metadata-discovery">
-    Background: OpenStack metadata discovery
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#store-metadata-on-a-configuration-drive">
-    Store metadata on a configuration drive
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#enable-the-configuration-drive-on-server-creation-openstack-cli">
-    Enable the configuration drive on server creation (openstack CLI)
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="config-drive.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/nova/config-drive.md" title="Edit this page">
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="index.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/kubernetes/magnum/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="launching-a-server-with-a-configuration-drive">Launching a server with a configuration drive</h1>
-<h2 id="background-openstack-metadata-discovery">Background: OpenStack metadata discovery</h2>
-<p>OpenStack Compute uses metadata to inject custom configurations to
-servers on boot. You can add custom scripts, install packages, and
-add SSH keys to the servers using metadata.</p>
-<p>By default, metadata discovery in Cleura Cloud uses an HTTP
-data source that booting servers connect to. Sometimes this is
-undesirable or — for specific server/networking configurations —
-unreliable. Under those circumstances, you can use an alternate
-configuration source.</p>
-<h2 id="store-metadata-on-a-configuration-drive">Store metadata on a configuration drive</h2>
-<p>A <strong>configuration drive</strong> (config drive) is a read-only virtual drive
-that is attached to a server during boot. The server can then
-mount the drive and read files from it. Configuration drives are used
-as a data source for
-<a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a>.</p>
-<h2 id="enable-the-configuration-drive-on-server-creation-openstack-cli">Enable the configuration drive on server creation (<code>openstack</code> CLI)</h2>
-<p>To enable the configuration drive, you need to pass the parameter
-<code>--use-config-drive</code> to the <code>openstack server create</code> command.</p>
-<p>In the following example, replace the image, flavor, keypair, and
-network reference, as well as the server name, to match your desired
-configuration.</p>
-<div class="highlight"><pre><span></span><code>openstack server create <span class="se">\</span>
-  --use-config-drive <span class="se">\</span>
-  --image <span class="s2">"Ubuntu 20.04 Focal Fossa"</span> <span class="se">\</span>
-  --flavor b.1c2gb <span class="se">\</span>
-  --keypair mykey
-  --nic net-id<span class="o">=</span>3a747038-ee59-404c-973d-5f795e8ebb73 <span class="se">\</span>
-  myserver
-</code></pre></div>
-<p>Once the server launches, you can monitor its configuration process
-by monitoring the server console log:</p>
-<div class="highlight"><pre><span></span><code>openstack console log show myserver
-</code></pre></div>
+<h1 id="magnum">Magnum</h1>
+<p>Magnum lets you create clusters via the OpenStack APIs. To do that,
+you base your configuration on a Cluster Template. The template
+defines parameters describing how the cluster will be constructed,
+such as worker flavors. In each region, we offer predefined public
+Cluster Templates with ready-to-use configurations.  To learn more
+about Cluster Templates, check out the <a href="https://docs.openstack.org/magnum/latest/user/#clustertemplate">Magnum
+documentation</a>.</p>
+<p>Once you have chosen your Cluster Template, you move on to <a href="/howto/openstack/magnum/new-k8s-cluster">create a
+cluster based on that
+template</a>.  When you create
+the cluster, you can define the number of nodes in your cluster, ask
+for multiple master nodes with a load balancer in front, etc.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-07</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-29</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-27</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-29</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Florian Haas, Namrata Sitlani</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
 </small>
 </div>
 </article>
@@ -688,7 +618,7 @@ by monitoring the server console log:</p>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Creating new servers" class="md-footer__link md-footer__link--prev" href="../new-server/" rel="prev">
+<a aria-label="Previous: Creating Kubernetes clusters with Gardener" class="md-footer__link md-footer__link--prev" href="../gardener/create-shoot-cluster/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -697,17 +627,17 @@ by monitoring the server console log:</p>
 <span class="md-footer__direction">
                 Previous
               </span>
-              Creating new servers
+              Creating Kubernetes clusters with Gardener
             </div>
 </div>
 </a>
-<a aria-label="Next: HTTPS-terminating load balancers" class="md-footer__link md-footer__link--next" href="../../octavia/tls-lb/" rel="next">
+<a aria-label="Next: Working with S3-compatible credentials" class="md-footer__link md-footer__link--next" href="../../object-storage/s3/credentials/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              HTTPS-terminating load balancers
+              Working with S3-compatible credentials
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -735,7 +665,7 @@ by monitoring the server console log:</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

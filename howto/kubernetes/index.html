@@ -201,10 +201,12 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3_2">
-          Gardener
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="gardener/">Gardener</a>
+<label for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-label="Gardener" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_2">
 <span class="md-nav__icon md-icon"></span>
@@ -216,6 +218,20 @@
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" id="__nav_2_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="magnum/">Magnum</a>
+</div>
+<nav aria-label="Magnum" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Magnum
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 </ul>
 </nav>
 </li>
@@ -558,22 +574,6 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#gardener">
-    Gardener
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#magnum">
-    Magnum
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
@@ -584,43 +584,18 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="kubernetes-in-cleura">Kubernetes in Cleura</h1>
-<!-- Config interpolation for the company name didn't work for the 
-title here. -->
-<p>In Cleura you can run Kubernetes in various
-ways. <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> includes management
-interfaces for <a href="https://gardener.cloud/">Gardener</a> and
-<a href="https://docs.openstack.org/magnum/">OpenStack Magnum</a>.</p>
-<h3 id="gardener">Gardener</h3>
-<p>Gardener is a Kubernetes-native system that provides automated 
-management and operation of Kubernetes clusters as a service.
-It allows you to create clusters and automatically handle their 
-lifecycle operations, including configurable maintenance windows,
-hibernation schedules, and automatic updates to Kubernetes control 
-plane and worker nodes.
-You can read more about Gardener and its capabilities on its 
-<a href="https://gardener.cloud/docs/gardener/">documentation website</a>.</p>
-<p>To learn how to use Gardener in the Cleura Cloud Management Panel, refer to
-<a href="gardener/create-shoot-cluster/">Creating Kubernetes clusters using
-Cleura Cloud Management Panel</a>.</p>
-<h3 id="magnum">Magnum</h3>
-<p>Magnum lets you create clusters via the OpenStack APIs. To do that,
-you base your configuration on a Cluster Template. The template
-defines parameters describing how the cluster will be constructed,
-such as worker flavors. In each region, we offer predefined public
-Cluster Templates with ready-to-use configurations.  To learn more
-about Cluster Templates, check out the
-<a href="https://docs.openstack.org/magnum/latest/user/#clustertemplate">Magnum documentation</a>.</p>
-<p>Once you have chosen your Cluster Template, you move on to 
-<a href="/howto/openstack/magnum/new-k8s-cluster">create a cluster based on that template</a>.
-When you create the cluster, you can define the number of nodes in
-your cluster, ask for multiple master nodes with a load balancer
-in front, etc.</p>
+<p>In Cleura Cloud you have several options for deploying and managing
+Kubernetes clusters.</p>
+<p><a href="https://cleura.cloud">Cleura Cloud Management Panel</a> includes management interfaces for
+<a href="gardener/">Gardener</a> and <a href="magnum/">OpenStack Magnum</a>. To manage
+Magnum clusters, you can also use the <a href="../getting-started/enable-openstack-cli/">OpenStack command-line
+interface</a>.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-29</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-08</span>
@@ -628,7 +603,7 @@ in front, etc.</p>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christos Varelas, Florian Haas, Mateusz Guziak</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas, Mateusz Guziak</span>
 </small>
 </div>
 </article>
@@ -650,13 +625,13 @@ in front, etc.</p>
             </div>
 </div>
 </a>
-<a aria-label="Next: Creating Kubernetes clusters with Gardener" class="md-footer__link md-footer__link--next" href="gardener/create-shoot-cluster/" rel="next">
+<a aria-label="Next: Gardener" class="md-footer__link md-footer__link--next" href="gardener/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Creating Kubernetes clusters with Gardener
+              Gardener
             </div>
 </div>
 <div class="md-footer__button md-icon">
