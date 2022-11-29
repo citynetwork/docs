@@ -1,6 +1,6 @@
 # Flavors
 
-Any server instance running in {{brand}} Cloud has a **flavor**,
+Any server instance running in {{brand}} has a **flavor**,
 which defines the number of virtual CPU cores, the amount of virtual
 RAM, and other performance-related factors.
 
@@ -25,12 +25,12 @@ general-purpose compute instance with 4 cores and 32 GiB RAM.
 
 ## Compute tiers
 
-{{brand}} Cloud defines the following compute tiers:
+{{brand}} defines the following compute tiers:
 
 * `b`: General purpose. This is the default compute tier. Instances
   launched with matching flavors use highly available network-attached
   storage. This makes them flexible to migrate within the
-  {{brand}} Cloud infrastructure, without interruption.
+  {{brand}} infrastructure, without interruption.
   Some
   [limitations](../../howto/openstack/cinder/encrypted-volumes/#block-device-encryption-caveats)
   apply to instances with attached [encrypted
@@ -49,10 +49,10 @@ general-purpose compute instance with 4 cores and 32 GiB RAM.
   access to a
   [GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit).
 
-Some tiers are only available in select {{brand}} Cloud
+Some tiers are only available in select {{brand}}
 regions. For details on tier availability, see the [Feature support
 matrix](../features/index.md).
 
 The general-purpose tier is always available to all {{brand}}
-Cloud customers. For access to other tiers, contact our
+customers. For access to other tiers, contact our
 [{{support}}](https://{{support_domain}}/servicedesk).

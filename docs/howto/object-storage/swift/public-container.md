@@ -178,7 +178,7 @@ However, this being a public container, you can *also* retrieve your
 object using any regular HTTP/HTTPS client, using a public URL. This
 URL is composed as follows:
 
-1. The Swift API's base URL, which differs by {{brand}} Cloud region
+1. The Swift API's base URL, which differs by {{brand}} region
    (`https://swift‑<region>.{{brand_domain}}:<port>/swift/v1/`),
 2. the container's account string, starting with `AUTH_`,
 3. the container name (in our example, `public-container`),

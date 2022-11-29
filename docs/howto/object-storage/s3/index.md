@@ -3,9 +3,9 @@
 [S3](https://en.wikipedia.org/wiki/Amazon_S3) is an object-access API
 based on HTTP and HTTPS.
 
-In {{brand}} Cloud, you interact with the S3 API using either the
-`s3cmd` command-line interface (CLI), the MinIO client CLI (`mc`), or
-the standard `aws` CLI.
+In {{brand}}, you interact with the S3 API using either the `s3cmd`
+command-line interface (CLI), the MinIO client CLI (`mc`), or the
+standard `aws` CLI.
 
 Either way, [in addition to installing and configuring the Python
 `openstackclient`
@@ -27,6 +27,6 @@ install one of the aforementioned utilities.
 
 ## Availability
 
-The S3 API is available in select {{brand}} Cloud regions. Refer to
-[the feature support matrix](/reference/features/) for details on S3
-API availability.
+The S3 API is available in select {{brand}} regions. Refer to [the
+feature support matrix](/reference/features/) for details on S3 API
+availability.

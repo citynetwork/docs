@@ -14,8 +14,8 @@ Only then will you be able to use any installed `openstack` client.
 
 ## Creating an OpenStack user
 
-From your favorite web browser, navigate to the [Cleura 
-Cloud](https://{{gui_domain}}) page, and login into your 
+From your favorite web browser, navigate to the
+[{{gui}}](https://{{gui_domain}}) start page, and login into your
 {{brand}} account.
 
 Please make sure the left-hand side pane on the {{gui}} is fully 
@@ -148,7 +148,7 @@ examples follow.
 
 Provided you have already sourced your RC file, you can now use the 
 `openstack` command line tool to access various OpenStack APIs on the 
-{{brand}} Cloud.
+{{brand}}.
 
 To make sure your local installation of `openstack` works as expected, 
 type:
@@ -157,7 +157,7 @@ type:
 openstack token issue
 ```
 
-If `openstack` can indeed connect to the {{brand}} Cloud 
+If `openstack` can indeed connect to the {{brand}} 
 OpenStack APIs, then you will get information, in tabular format, 
 regarding the issuance of a new token.
 

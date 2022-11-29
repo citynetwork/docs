@@ -6,8 +6,8 @@ name](https://en.wikipedia.org/wiki/Swift_(programming_language))) is
 an object-access API similar to, but distinct from, the [S3](../s3/) object
 storage API.
 
-In {{brand}} Cloud, you interact with the Swift API using either the
-`swift` command-line interface (CLI), or the standard `openstack` CLI.
+In {{brand}}, you interact with the Swift API using either the `swift`
+command-line interface (CLI), or the standard `openstack` CLI.
 
 Either way, [in addition to installing and configuring the Python
 `openstackclient`
@@ -29,6 +29,6 @@ manager of your operating system, or `pip`:
 
 ## Availability
 
-The OpenStack Swift API is available in select {{brand}} Cloud
+The OpenStack Swift API is available in select {{brand}}
 regions. Refer to [the feature support matrix](/reference/features/)
 for details on Swift API availability.

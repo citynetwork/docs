@@ -1,24 +1,24 @@
 # Creating new networks
 
-Before creating a server in {{brand}} Cloud, you need at least
+Before creating a server in {{brand}}, you need at least
 one network to make the new server a member of. Since you may have
 more than one network per region, let us now walk through creating
 a new network using the {{gui}}, or using the OpenStack CLI.
 
 ## Prerequisites
 
-Whether you choose to work from the {{gui}} or with the
-OpenStack CLI, you need to [have an account](/howto/getting-started/create-account)
-in {{brand}} Cloud. Additionally, to use the OpenStack
-CLI make sure to [enable it first](/howto/getting-started/enable-openstack-cli).
+Whether you choose to work from the {{gui}} or with the OpenStack CLI,
+you need to [have an account](/howto/getting-started/create-account)
+in {{brand}}. Additionally, to use the OpenStack CLI make sure to
+[enable it first](/howto/getting-started/enable-openstack-cli).
 
 ## Creating a network
 
 To create a network from the {{gui}}, fire up your favorite web
-browser, navigate to the [Cleura Cloud](https://{{gui_domain}})
-page, and login into your {{brand}} account. On the other hand,
-if you prefer to work with OpenStack CLI, please do not forget to
-source the RC file first.
+browser, navigate to the [Cleura Cloud](https://{{gui_domain}}) start
+page, and login into your {{brand}} account. On the other hand, if you
+prefer to work with OpenStack CLI, please do not forget to source the
+RC file first.
 
 === "{{gui}}"
     On the top right-hand side of the {{gui}}, click the _Create_
@@ -29,7 +29,7 @@ source the RC file first.
 
     You will notice several rounded boxes prominently displayed on that
     pane, each for defining, configuring, and instantiating a different
-    {{brand}} Cloud object. Go ahead and click the _Network_ box. A
+    {{brand}} object. Go ahead and click the _Network_ box. A
     new pane titled _Create Network_ will slide over. At the top, type
     in a name and select one of the available regions for the new
     network.

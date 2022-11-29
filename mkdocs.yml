@@ -10,7 +10,7 @@ extra:
   analytics:
     domain: docs.cleura.cloud
     provider: plausible
-  brand: "Cleura"
+  brand: "Cleura Cloud"
   brand_domain: "citycloud.com"
   company: "Cleura"
   company_domain: "cleura.com"

@@ -53,8 +53,8 @@ really pretty straightforward.
 
 ## License
 
-With the sole exception of trademarks like “{{brand}}” and the
-{{brand}} logo, the content on this site is available under the
+With the sole exception of trademarks like “{{company}}” and the
+{{company}} logo, the content on this site is available under the
 [Creative Commons Attribution-ShareAlike 4.0 International
 license](https://creativecommons.org/licenses/by-sa/4.0/), as you can
 see from the ![CC

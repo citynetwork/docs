@@ -1,6 +1,6 @@
 # Kubernetes in Cleura
 
-In {{brand}} Cloud you have several options for deploying and managing
+In {{brand}}, you have several options for deploying and managing
 Kubernetes clusters.
 
 [{{gui}}](https://{{gui_domain}}) includes management interfaces for

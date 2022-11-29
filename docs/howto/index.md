@@ -6,8 +6,8 @@ specific tasks in {{brand}} and the services we support.
 There are several categories of How-To guides, and they tend to be
 focused on a specific cloud technology.
 
-* **Getting Started** How-Tos help you create an account in Cleura
-  Cloud, and start using our services.
+* **Getting Started** How-Tos help you create an account in {{brand}},
+  and start using our services.
 
 * **Kubernetes** How-Tos cover how you can create and manage your
   Kubernetes deployments using {{gui}}.

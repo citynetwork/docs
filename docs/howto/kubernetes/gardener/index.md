@@ -10,7 +10,7 @@ worker nodes.
 You can read more about Gardener and its capabilities on its
 [documentation website](https://gardener.cloud/docs/gardener/).
 
-> Gardener in {{brand}} Cloud is currently in a **closed beta** stage.
+> Gardener in {{brand}} is currently in a **closed beta** stage.
 > For access to the closed beta, contact our
 > [{{support}}](https://{{support_domain}}/servicedesk).
 

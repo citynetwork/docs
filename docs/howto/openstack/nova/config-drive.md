@@ -7,7 +7,7 @@ OpenStack Compute uses metadata to inject custom configurations to
 servers on boot. You can add custom scripts, install packages, and
 add SSH keys to the servers using metadata.
 
-By default, metadata discovery in {{brand}} Cloud uses an HTTP
+By default, metadata discovery in {{brand}} uses an HTTP
 data source that booting servers connect to. Sometimes this is
 undesirable or — for specific server/networking configurations —
 unreliable. Under those circumstances, you can use an alternate

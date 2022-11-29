@@ -8,13 +8,13 @@ cluster following both approaches.
 
 ## Prerequisites
 
-First and foremost, you need an [account in {{brand}} 
-Cloud](/howto/getting-started/create-account). If you prefer
-to work with the OpenStack CLI, go ahead and [enable it 
-first](/howto/getting-started/enable-openstack-cli). Then, in
-addition to the Python `openstackclient` module, make sure you
-also install the corresponding plugin module for Magnum. Use 
-either the package manager of your operating system or `pip`:
+First and foremost, you need an [account in
+{{brand}}](/howto/getting-started/create-account). If you prefer to
+work with the OpenStack CLI, go ahead and [enable it
+first](/howto/getting-started/enable-openstack-cli). Then, in addition
+to the Python `openstackclient` module, make sure you also install the
+corresponding plugin module for Magnum. Use either the package manager
+of your operating system or `pip`:
 
 === "Debian/Ubuntu"
 	```bash
@@ -30,10 +30,10 @@ either the package manager of your operating system or `pip`:
 
 ## Creating a Kubernetes cluster
 
-To create a Kubernetes cluster from the {{gui}}, fire up your favorite 
-web browser, navigate to the [{{brand}} Cloud](https://{{gui_domain}}) 
-page, and log into your {{brand}} account. On the other hand, if you 
-prefer to work with the OpenStack CLI, please do not forget to [source 
+To create a Kubernetes cluster from the {{gui}}, fire up your favorite
+web browser, navigate to the [{{gui}}](https://{{gui_domain}}) start
+page, and log into your {{brand}} account. On the other hand, if you
+prefer to work with the OpenStack CLI, please do not forget to [source
 the RC file first](/howto/getting-started/enable-openstack-cli).
 
 === "{{gui}}"

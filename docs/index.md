@@ -1,11 +1,11 @@
 # Start Here
 
-This is the {{brand}} **Beta** documentation web site.
+This is the {{company}} **Beta** documentation web site.
 
 ## What does "Beta" mean?
 
 The fact that this site is in a Beta stage means that any information
-you find here should be reliable and accurate for {{brand}}
+you find here should be reliable and accurate for {{company}}
 products and services. If you find any published documentation that is
 inaccurate or not in line with functionality as you observe it on
 {{brand}}, we would very much appreciate if you filed

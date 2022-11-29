@@ -139,7 +139,7 @@ commit message subjects. Please make sure that your commit message
 starts with one of the following prefixes:
 
 * `feat:` denotes a content addition, such as adding documentation for
-  some {{brand}} Cloud functionality that was not included in
+  some {{brand}} functionality that was not included in
   the documentation before.
 * `fix:` denotes a content correction, such as fixing a
   documentation bug.

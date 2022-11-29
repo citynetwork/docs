@@ -1,10 +1,10 @@
 # Creating new servers
 
-Once you have an [account in {{brand}} 
-Cloud](/howto/getting-started/create-account), you can create virtual 
-machines --- henceforth simply _servers_ --- using either the 
-{{gui}} or the OpenStack CLI. Let us demonstrate the creation of 
-a new server, following both approaches.
+Once you have an [account in
+{{brand}}](/howto/getting-started/create-account), you can create
+virtual machines --- henceforth simply _servers_ --- using either the
+{{gui}} or the OpenStack CLI. Let us demonstrate the creation of a new
+server, following both approaches.
 
 ## Prerequisites
 
@@ -16,11 +16,11 @@ first](/howto/getting-started/enable-openstack-cli).
 
 ## Creating a server
 
-To create a server from the {{gui}}, fire up your favorite web 
-browser, navigate to the [Cleura Cloud](https://{{gui_domain}}) 
-page, and log into your {{brand}} account. On the other hand, 
-if you prefer to work with the OpenStack CLI, please do not forget to 
-[source the RC file first](/howto/getting-started/enable-openstack-cli).
+To create a server from the {{gui}}, fire up your favorite web
+browser, navigate to the [{{gui}}](https://{{gui_domain}}) start page,
+and log into your {{brand}} account. On the other hand, if you prefer
+to work with the OpenStack CLI, please do not forget to [source the RC
+file first](/howto/getting-started/enable-openstack-cli).
 
 === "{{gui}}"
 	On the top right-hand side of the {{gui}}, click the 
@@ -30,7 +30,7 @@ if you prefer to work with the OpenStack CLI, please do not forget to
 	![Create new object](assets/new-server/shot-01.png)
 		
 	You will notice several rounded boxes on that pane, each for 
-	defining, configuring, and instantiating a different {{brand}} 
+	defining, configuring, and instantiating a different {{company}} 
 	Cloud object. Go ahead and click the _Server_ box. A new pane titled 
 	_Create a Server_ will slide over. At the top, type in a name for the 
 	new server and select one of the available regions.
@@ -87,7 +87,7 @@ if you prefer to work with the OpenStack CLI, please do not forget to
 	![Networking and security groups](assets/new-server/shot-05.png)
 		
 	If you already have one or more public keys in your 
-	{{brand}} Cloud account, you can now select a key to be included 
+	{{brand}} account, you can now select a key to be included 
 	in the `~/.ssh/authorized_keys` file of the server's default user. That 
 	way, you can securely log into the remote user's account without typing 
 	a password. If there are no public keys to choose from, activate the 
@@ -104,7 +104,7 @@ if you prefer to work with the OpenStack CLI, please do not forget to
 		
 	![User-data propagation method](assets/new-server/shot-07.png)
 		
-	It is now time to create your {{brand}} Cloud server; 
+	It is now time to create your {{brand}} server; 
 	click the green _Create_ button, and the new server will be readily 
 	available in a few seconds.
 		
@@ -148,7 +148,7 @@ if you prefer to work with the OpenStack CLI, please do not forget to
 	```
 		
 	Your server should have an image to boot off of (`IMAGE_NAME`). 
-	For a list of all available images in {{brand}} Cloud, type:
+	For a list of all available images in {{brand}}, type:
 		
 	```bash
 	openstack image list
@@ -219,14 +219,14 @@ if you prefer to work with the OpenStack CLI, please do not forget to
 		
 	You most likely want a server you can remotely connect to via 
 	SSH without typing a password. Upload one of our public keys to your 
-	{{brand}} Cloud account:
+	{{brand}} account:
 		
 	```bash
 	openstack keypair create --public-key ~/.ssh/id_ed25519.pub bahnhof
 	```
 		
 	In the example above, we uploaded the public key 
-	`~/.ssh/id_ed25519.pub` to our {{brand}} Cloud account and named 
+	`~/.ssh/id_ed25519.pub` to our {{brand}} account and named 
 	it `bahnhof`. Follow our example and do not forget to set the 
 	`KEY_NAME`:
 		
@@ -271,10 +271,10 @@ if you prefer to work with the OpenStack CLI, please do not forget to
 	used the actual values and not the variables we so meticulously set.) 
 	The `--wait` parameter is optional. Whenever you choose to 
 	use it, you get back control of your terminal only after the server is 
-	readily available in {{brand}} Cloud.
+	readily available in {{brand}}.
 	
 	To connect to your server remotely, you need to create a floating IP
-	for the external network in the {{brand}} Cloud, and then assign
+	for the external network in the {{brand}}, and then assign
 	this IP to your server. First, create the floating IP: 
 	
 	```bash
@@ -332,7 +332,7 @@ if you prefer to work with the OpenStack CLI, please do not forget to
 	![Launch remote console](assets/new-server/shot-10.png)
 		
 	A new window pops up, and that's your web console to your 
-	{{brand}} Cloud server. Please note that this window cannot be 
+	{{brand}} server. Please note that this window cannot be 
 	resized but can be opened on a new browser window or tab.
 		
 	![Server console](assets/new-server/shot-11.png)

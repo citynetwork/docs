@@ -131,7 +131,7 @@ Choose a new flavor that you want your server to use instead.
     +-----------------------+---------------+
     ```
 
-The resize process might take a minute or more. {{brand}} Cloud will
+The resize process might take a minute or more. {{brand}} will
 now make a restore point in case the resize process fails. It would
 then restore your server to the state it was before the resize.
 
@@ -169,4 +169,4 @@ automatically have the resize confirmed after 24 hours.
     openstack server resize revert <server_id>
     ```
 
-This concludes the process of resizing a server in {{brand}} Cloud.
+This concludes the process of resizing a server in {{brand}}.

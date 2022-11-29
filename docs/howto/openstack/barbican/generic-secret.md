@@ -16,7 +16,7 @@ openstack secret store \
   -n mysecret
 ```
 
-> The example output below uses {{brand}}’s `Fra1` region. In
+> The example output below uses {{brand}}'s `Fra1` region. In
 > other regions, the secret
 > [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
 > will differ.
