@@ -6,9 +6,12 @@ that, and how to deploy a sample application on such a cluster.
 
 ## Prerequisites
 
-To access the cluster from your computer, you will need
-[kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) installed
-on your machine.
+* To access Gardener functionality from {{gui}}, you need to enroll in
+  our closed beta. For access to the closed beta, contact our
+  [{{support}}](https://{{support_domain}}/servicedesk).
+* To access the Kubernetes cluster from your computer, you will need
+  [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) installed
+  on your machine.
 
 ## Creating a Kubernetes cluster in {{gui}}
 
