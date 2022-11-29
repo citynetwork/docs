@@ -19,12 +19,15 @@
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -376,6 +379,11 @@
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../openstack/neutron/vpnaas/">
+        Creating a VPN connection between regions
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -565,7 +573,7 @@
 have to create a new account. For that, navigate to
 <a href="https://cleura.cloud">https://cleura.cloud</a>. At the bottom right-hand side of the page,
 click on the <em>Create account</em> button.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/01-login-page.png"><img alt="Create new account" src="../assets/01-login-page.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/01-login-page.png"><img alt="Create new account" src="../assets/01-login-page.png"/></a></p>
 <p>Select the new account type (that would be <em>Company</em> or <em>Private</em>),
 carefully type in a valid email address, and choose your country.
 At your leisure, please read the <a href="https://citycontrolpanel.com/files/City_Network_General_Terms_And_Conditions_City_Cloud.pdf">City Network General Terms And
@@ -573,18 +581,18 @@ Conditions</a>
 and our <a href="https://citycontrolpanel.com/files/City_Network_CDPA.pdf">Data Processing Agreement</a>.
 Agree to these documents (select <em>Yes</em>), check  the <em>I’m not a robot</em>
 box, and then click on the <em>Create</em> button.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/02-type-email-country.png"><img alt="Type in necessary details" src="../assets/02-type-email-country.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/02-type-email-country.png"><img alt="Type in necessary details" src="../assets/02-type-email-country.png"/></a></p>
 <p>This will redirect you to the Cleura Cloud Management Panel, and
 since you are logging in from a new account for the first time, you
 now have to take three simple steps.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/03-step-1.png"><img alt="Three steps to take" src="../assets/03-step-1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/03-step-1.png"><img alt="Three steps to take" src="../assets/03-step-1.png"/></a></p>
 <ul>
 <li><strong>Step 1 - Confirm your email</strong>. Check your inbox or your SPAM/junk
   folder for an email from <code>no-reply@cleura.com</code> with the subject
   <em>Thank you for your registration - Cleura Cloud</em>. Open that email
   and click on the link in the message body.</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/04-conf-email.png"><img alt="Three steps to take" src="../assets/04-conf-email.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/04-conf-email.png"><img alt="Three steps to take" src="../assets/04-conf-email.png"/></a></p>
 <ul>
 <li><strong>Step 2 - Account information</strong>. After clicking on the confirmation
   link you move on to step two, where you enter all relevant
@@ -596,7 +604,7 @@ now have to take three simple steps.</p>
   not forget to click on <em>I have a rebate code</em> and type it in
   below. When you are done, click on the <em>Save</em> button.</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/05-step-2.png"><img alt="Confirm account information" src="../assets/05-step-2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/05-step-2.png"><img alt="Confirm account information" src="../assets/05-step-2.png"/></a></p>
 <ul>
 <li><strong>Step 3 - Account verification</strong>. While the new account is being
   created, and before it becomes fully operational, you have to take
@@ -610,7 +618,7 @@ now have to take three simple steps.</p>
   you will be asked for the username of the new account, so have that
   piece of info handy.</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/06-step-3.png"><img alt="Account verification" src="../assets/06-step-3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/06-step-3.png"><img alt="Account verification" src="../assets/06-step-3.png"/></a></p>
 <p>After the account verification is complete, you are greeted by the
 Cleura Cloud Management Panel. Feel free to follow through the
 introductory guide to the environment — that will not take long —
@@ -687,5 +695,5 @@ delay.</p>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

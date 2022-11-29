@@ -19,12 +19,15 @@
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
-            .gdesc-inner { font-size: 0.75rem; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
             .gslide-image img { background: white; }
             
                 .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
                 </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -408,6 +411,11 @@
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vpnaas/">
+        Creating a VPN connection between regions
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -635,16 +643,16 @@ first</a>.</p>
 <div class="tabbed-block">
 <p>To create a security group click on <em>Security Groups</em> in the
 left-hand navigation menu:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/01-navigation-panel.png"><img alt="navigation-panel" src="../assets/create-security-groups/01-navigation-panel.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/01-navigation-panel.png"><img alt="navigation-panel" src="../assets/create-security-groups/01-navigation-panel.png"/></a></p>
 <p>and then click on <em>Create new Security Group</em> in the top-right corner:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/02-create-button.png"><img alt="create-button" src="../assets/create-security-groups/02-create-button.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/02-create-button.png"><img alt="create-button" src="../assets/create-security-groups/02-create-button.png"/></a></p>
 <blockquote>
 <p>An alternative way to create a Security Group is by clicking on
 <em>Create …</em> button in the top bar.</p>
 </blockquote>
 <p>Now give the security group a name and description, and choose in
 which region to create it, then click <em>create</em>:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/03-name-creation.png"><img alt="create-panel" src="../assets/create-security-groups/03-name-creation.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/03-name-creation.png"><img alt="create-panel" src="../assets/create-security-groups/03-name-creation.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To create a security group use the following command:</p>
@@ -683,7 +691,7 @@ destination (egress).</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Click on it and select the <em>Rules</em> tab to view its rules:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/04-default-rules.png"><img alt="default-rules" src="../assets/create-security-groups/04-default-rules.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/04-default-rules.png"><img alt="default-rules" src="../assets/create-security-groups/04-default-rules.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>View the details of the <code>default</code> security group using the
@@ -734,7 +742,7 @@ that allow all incoming traffic.</p>
 <strong>both ingress</strong> rules.</p>
 <p>Your <code>default</code> or newly created security group rules will now
 looks like this:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/05-default-ingress-rules.png"><img alt="default-ingress-rules" src="../assets/create-security-groups/05-default-ingress-rules.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/05-default-ingress-rules.png"><img alt="default-ingress-rules" src="../assets/create-security-groups/05-default-ingress-rules.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To view the rules use the following command:</p>
@@ -808,7 +816,7 @@ server, only from specific networks.</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>To do this, click on the <em>Create new rule</em> button.
-<a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/06-create-security-group-rule.png"><img alt="create-rule-panel" src="../assets/create-security-groups/06-create-security-group-rule.png"/></a></p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/06-create-security-group-rule.png"><img alt="create-rule-panel" src="../assets/create-security-groups/06-create-security-group-rule.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To create this rule use the following command:</p>
@@ -837,10 +845,10 @@ enter <code>203.0.113.0/24</code> as CIDR.</p>
 TCP Protocol and port 80 as both min and max range value. This
 time, <em>CIDR</em> is left empty, allowing incoming traffic from any
 IP/source.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/07-http-rule.png"><img alt="http-rule" src="../assets/create-security-groups/07-http-rule.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/07-http-rule.png"><img alt="http-rule" src="../assets/create-security-groups/07-http-rule.png"/></a></p>
 <p>The same applies to port 443.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/08-https-rule.png"><img alt="https-rule" src="../assets/create-security-groups/08-https-rule.png"/></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-description="" data-height="auto" data-title="" data-width="100%" href="../assets/create-security-groups/09-rules-now.png"><img alt="rules" src="../assets/create-security-groups/09-rules-now.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/08-https-rule.png"><img alt="https-rule" src="../assets/create-security-groups/08-https-rule.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/09-rules-now.png"><img alt="rules" src="../assets/create-security-groups/09-rules-now.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>This time don’t specify <em>–remote-ip</em> to allow traffic from all
@@ -965,5 +973,5 @@ procedure as above.</p>
 </div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
-<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom"});})</script></body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
