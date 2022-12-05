@@ -1,0 +1,7 @@
+title: S3 API
+nav:
+  - index.md
+  - credentials.md
+  - expiry.md
+  - versioning.md
+  - sse-c.md
