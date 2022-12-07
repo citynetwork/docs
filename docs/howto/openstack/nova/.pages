@@ -1,5 +1,6 @@
 title: Nova (compute service)
 nav:
   - new-server.md
-  - resize-server.md
   - config-drive.md
+  - resize-server.md
+  - rescue-server.md
