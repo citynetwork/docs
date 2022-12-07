@@ -769,13 +769,13 @@ interface, or the <code>gh</code> command-line interface (CLI).</p>
 When you create your new fork, it’s fine to leave the
 <em>Copy the <code>main</code> branch only</em> option enabled.</p>
 <p>Then, proceed to create a new local checkout of your fork:
-<div class="highlight"><pre><span></span><code>git clone git@github.com:&lt;yourusername&gt;/&lt;your-repo-fork&gt; cleura-docs
-<span class="nb">cd</span> cleura-docs
+<div class="highlight"><pre><span></span><code>git clone git@github.com:&lt;yourusername&gt;/&lt;your-repo-fork&gt; cleura cloud-docs
+<span class="nb">cd</span> cleura cloud-docs
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>gh repo fork --clone https://github.com/citynetwork/docs -- cleura-docs
-<span class="nb">cd</span> cleura-docs
+<div class="highlight"><pre><span></span><code>gh repo fork --clone https://github.com/citynetwork/docs -- cleura cloud-docs
+<span class="nb">cd</span> cleura cloud-docs
 </code></pre></div>
 </div>
 </div>
@@ -808,7 +808,7 @@ command, and proceed to create a pull request.</p>
 <p>To see your changes as you work on them, you can use
 <a href="https://tox.wiki/en/latest/">tox</a>. Having created a topic branch with
 your modifications, run:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cleura-docs
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cleura cloud-docs
 git checkout &lt;your-topic-branch-name&gt;
 tox -e serve
 </code></pre></div>
@@ -818,7 +818,7 @@ and be accessible from <a href="http://localhost:8000">http://localhost:8000</a>
 may want to speed up rendering the site after each change. You may do
 so by disabling a plugin that checks all links (including external
 links) for accessibility:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cleura-docs
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cleura cloud-docs
 <span class="nb">export</span> <span class="nv">DOCS_ENABLE_HTMLPROOFER</span><span class="o">=</span><span class="nb">false</span>
 tox -e serve
 </code></pre></div>
@@ -853,7 +853,7 @@ starts with one of the following prefixes:</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-29</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-25</span>

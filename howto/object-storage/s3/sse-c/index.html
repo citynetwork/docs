@@ -759,7 +759,7 @@ rclone versions won’t work here.</p>
 <li>
 <p>Create a configuration file named <code>~/.rclone.conf</code>, with the
    following content:</p>
-<pre><code>[cleura]
+<pre><code>[cleuracloud]
 type = s3
 provider = Ceph
 env_auth = false
@@ -772,19 +772,19 @@ sse_customer_algorithm = AES256
 </li>
 <li>
 <p>Create an S3 bucket:</p>
-<pre><code>rclone mkdir cleura:encrypted
+<pre><code>rclone mkdir cleuracloud:encrypted
 </code></pre>
 </li>
 <li>
 <p>Sync a directory to the S3 bucket, encrypting the files it
    contains on upload:</p>
-<pre><code>rclone sync ~/media/ cleura:encrypted \
+<pre><code>rclone sync ~/media/ cleuracloud:encrypted \
   --s3-sse-customer-key=${secret}
 </code></pre>
 </li>
 <li>
 <p>Retrieve a file from S3 and decrypt it:</p>
-<pre><code>rclone copy cleura:encrypted/file.png \
+<pre><code>rclone copy cleuracloud:encrypted/file.png \
   --s3-sse-customer-key=${secret}
 </code></pre>
 </li>

@@ -731,7 +731,7 @@ types with the following command:</p>
 +--------------------------------------+-----------------------+-----------+
 </code></pre></div></p>
 <blockquote>
-<p>In Cleura, all volume types that support encryption use the
+<p>In Cleura Cloud, all volume types that support encryption use the
 suffix <code>_encrypted</code>.</p>
 </blockquote>
 <p>To create a volume with encryption, you need to explicitly specify the
@@ -810,7 +810,7 @@ fail.</p>
 </ol>
 <h2 id="block-device-encryption-caveats">Block device encryption caveats</h2>
 <p>Once a volume is configured to use encryption and is also attached to
-an instance in Cleura, some caveats apply that you might want
+an instance in Cleura Cloud, some caveats apply that you might want
 to keep in mind.</p>
 <p>Sometimes, automatically or through administrator intervention, we
 move one of your instances to another physical machine. This process
@@ -818,7 +818,7 @@ is known as <em>live migration,</em> and it normally does not interrupt the
 instance’s functionality at all — typically, neither you nor the
 application users notice that live migration has even happened. This
 is a very common occurrence when we do routine upgrades of the
-Cleura platform, during our pre-announced maintenance windows.</p>
+Cleura Cloud platform, during our pre-announced maintenance windows.</p>
 <p>The same considerations apply to physical node failure. If the
 physical machine running your instance fails, we can automatically
 recover it onto another machine — an action known as <em>evacuation.</em></p>
