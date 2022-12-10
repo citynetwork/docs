@@ -4,3 +4,4 @@ nav:
   - create-security-groups.md
   - multiple-public-ips.md
   - vpnaas.md
+  - delete-network.md
