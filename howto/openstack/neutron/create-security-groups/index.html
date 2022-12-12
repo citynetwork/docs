@@ -316,6 +316,11 @@
     Allowing Web Traffic
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adjust-permissive-default-security-group">
+    Adjust permissive default security group
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -701,6 +706,11 @@
     Allowing Web Traffic
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adjust-permissive-default-security-group">
+    Adjust permissive default security group
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -712,22 +722,21 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="creating-security-groups">Creating security groups</h1>
-<p><a href="https://docs.openstack.org/nova/latest/admin/security-groups.html">By
-definition</a>,
+<p><a href="https://docs.openstack.org/nova/latest/admin/security-groups.html">By definition</a>,
 security groups are <em>”[…] sets of IP filter rules that are applied
 to all project instances, which define networking access to the
 instance. Group rules are project specific; project members can edit
 the default rules for their group and add new rule sets.”</em></p>
 <h2 id="creating-a-security-group">Creating a security group</h2>
-<p>Navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log
-into your Cleura Cloud account. On the other hand, if you prefer to work
-with the OpenStack CLI, please do not forget to <a href="/howto/getting-started/enable-openstack-cli">source the RC file
-first</a>.</p>
+<p>Navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> page, and log into
+your Cleura Cloud account. On the other hand, if you prefer to work with
+the OpenStack CLI, please do not forget
+to <a href="/howto/getting-started/enable-openstack-cli">source the RC file first</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>To create a security group click on <em>Security Groups</em> in the
-left-hand navigation menu:</p>
+<p>To create a security group click on <em>Security Groups</em> in the left-hand
+side navigation menu:</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/01-navigation-panel.png"><img alt="navigation-panel" src="../assets/create-security-groups/01-navigation-panel.png"/></a></p>
 <p>and then click on <em>Create new Security Group</em> in the top-right corner:</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/02-create-button.png"><img alt="create-button" src="../assets/create-security-groups/02-create-button.png"/></a></p>
@@ -770,12 +779,21 @@ information regarding your new security group:</p>
 </input></input></div>
 <h2 id="removing-default-ingress-rules">Removing default ingress rules</h2>
 <p>By default, a security group named <code>default</code> has been already created
-for you, allowing all traffic from any source (ingress), and to any
-destination (egress).</p>
+for you, blocking all traffic from any source (ingress), except from
+servers and ports being in the same security group. All traffic to any
+destination (egress) is allowed by default.</p>
+<blockquote>
+<p>For accounts created before 2022-11-16, the default security
+group ingress rules allow all incoming traffic.
+See <a href="/howto/openstack/neutron/create-security-groups/#adjust-permissive-default-security-group">Adjust permissive default security group</a>,
+to learn how to configure this security group according to
+our recommendations.</p>
+</blockquote>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Click on it and select the <em>Rules</em> tab to view its rules:</p>
+<p>Navigate to the security groups page, click on <code>default</code> security
+group and select the <em>Rules</em> tab to view its rules:</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/04-default-rules.png"><img alt="default-rules" src="../assets/create-security-groups/04-default-rules.png"/></a></p>
 </div>
 <div class="tabbed-block">
@@ -794,13 +812,13 @@ following command:</p>
 | project_id      | cb43f189f7904fb88f3bbcfa22653ab8                                               |
 | revision_number | 5                                                                              |
 | rules           | created_at='2022-09-12T15:00:59Z', direction='ingress', ethertype='IPv4',      |
-|                 | id='5e5e9f4d-1faa-492d-91f1-c105b464072b', normalized_cidr='0.0.0.0/0',        |
-|                 | remote_ip_prefix='0.0.0.0/0', standard_attr_id='10422245',                     |
-|                 | updated_at='2022-09-12T15:00:59Z'                                              |
+|                 | id='5e5e9f4d-1faa-492d-91f1-c105b464072b', protocol='0',                       |
+|                 | remote_group_id='60776d43-a78c-4eb4-8998-cea7a04c5f9b',                        |
+|                 | standard_attr_id='10422245', updated_at='2022-09-12T15:00:59Z'                 |
 |                 | created_at='2022-09-12T15:00:59Z', direction='ingress', ethertype='IPv6',      |
-|                 | id='86b9413a-ad23-46c4-a35e-9306945dc63c', normalized_cidr='::/0',             |
-|                 | remote_ip_prefix='::/0', standard_attr_id='10422248',                          |
-|                 | updated_at='2022-09-12T15:00:59Z'                                              |
+|                 | id='86b9413a-ad23-46c4-a35e-9306945dc63c', protocol='0',                       |
+|                 | remote_group_id='60776d43-a78c-4eb4-8998-cea7a04c5f9b',                        |
+|                 | standard_attr_id='10422248', updated_at='2022-09-12T15:00:59Z'                 |
 |                 | created_at='2022-09-12T15:00:57Z', direction='egress', ethertype='IPv6',       |
 |                 | id='ad4a19ef-7fab-4eba-9982-e5b109be121c', standard_attr_id='10422242',        |
 |                 | updated_at='2022-09-12T15:00:57Z'                                              |
@@ -815,19 +833,17 @@ following command:</p>
 </div>
 </div>
 </input></input></div>
-<p>We recommend to either create and use a new security group other than
-the default one, <strong>or</strong> restrict ingress traffic to specific ports and
-sources.</p>
-<p>If you want use the default group, <strong>remove the two ingress rules</strong>
-that allow all incoming traffic.</p>
+<p>If you want to restrict the ingress rules to disallow access from
+other servers and ports in the group, you need to
+<strong>remove the default two ingress rules.</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Click on the trashcan action button on the right-hand side for
 <strong>both ingress</strong> rules.</p>
 <p>Your <code>default</code> or newly created security group rules will now
-looks like this:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/05-default-ingress-rules.png"><img alt="default-ingress-rules" src="../assets/create-security-groups/05-default-ingress-rules.png"/></a></p>
+look like this:</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/05-default-egress-rules.png"><img alt="default-ingress-rules" src="../assets/create-security-groups/05-default-egress-rules.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To view the rules use the following command:</p>
@@ -837,14 +853,14 @@ looks like this:</p>
 <div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
 | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
 +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-| 5e5e9f4d- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | None                  | None                 |
-| 1faa-     |             |           |           |            |           |                       |                      |
+| 5e5e9f4d- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | 60776d43-a78c-4eb4-   | None                 |
+| 1faa-     |             |           |           |            |           | 8998-cea7a04c5f9b     |                      |
 | 492d-     |             |           |           |            |           |                       |                      |
 | 91f1-     |             |           |           |            |           |                       |                      |
 | c105b4640 |             |           |           |            |           |                       |                      |
 | 72b       |             |           |           |            |           |                       |                      |
-| 86b9413a- | None        | IPv6      | ::/0      |            | ingress   | None                  | None                 |
-| ad23-     |             |           |           |            |           |                       |                      |
+| 86b9413a- | None        | IPv6      | ::/0      |            | ingress   | 60776d43-a78c-4eb4-   | None                 |
+| ad23-     |             |           |           |            |           | 8998-cea7a04c5f9b     |                      |
 | 46c4-     |             |           |           |            |           |                       |                      |
 | a35e-     |             |           |           |            |           |                       |                      |
 | 9306945dc |             |           |           |            |           |                       |                      |
@@ -914,14 +930,14 @@ server, only from specific networks.</p>
 <blockquote>
 <p>If you don’t know your IP, simply visit
 <a href="https://ipv4.icanhazip.com/">icanhazip.com</a>. In this example your
-IP is 203.0.113.58 and you want to allow SSH access from this IP
+IP is 203.0.113.58, and if you want to allow SSH access from this IP
 address only, enter <code>203.0.113.58/32</code> as CIDR. If you want to allow
 SSH access from any address in that <a href="https://en.wikipedia.org/wiki/Classful_network">Class C
 subnet</a>, instead
 enter <code>203.0.113.0/24</code> as CIDR.</p>
 </blockquote>
 <h2 id="allowing-web-traffic">Allowing Web Traffic</h2>
-<p>Next create the rules that allow anyone access the server on <strong>port
+<p>Next create the rules that allow anyone to access the server on <strong>port
 80</strong> and <strong>port 443</strong>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
@@ -987,12 +1003,103 @@ One more time for port 443:</p>
 <p>All the rules for a simple web server are now in place.</p>
 <p>For any additional protocol or ingress rule, simply follow the same
 procedure as above.</p>
+<h2 id="adjust-permissive-default-security-group">Adjust permissive default security group</h2>
+<p>If your account was created before 2022-11-16, and you didn’t
+configure the <code>default</code> security group, it is most likely permissive for
+all incoming traffic. We recommend to either create and use a new
+security group, other than the default one, or restrict ingress traffic
+to specific ports and sources.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Cleura Cloud Management Panel</label><label for="__tabbed_6_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>To check how your <code>default</code> security group is configured, click on it
+and select the Rules tab to view its rules. If you have old,
+permissive <code>default</code> group, the rules should look like this:</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/10-default-permissive-rules.png"><img alt="default-ingress-rules" src="../assets/create-security-groups/10-default-permissive-rules.png"/></a></p>
+<p>The top two ingress rules, having <code>::/0</code> and <code>0.0.0.0/0</code> values
+for remote access filters, mean that incoming traffic from all
+sources is allowed.</p>
+<p>If you want to use the default group, remove the two ingress rules
+that allow all incoming traffic. Click on the trashcan action
+button on the right-hand side for <strong>both ingress</strong> rules.</p>
+<p>Your <code>default</code> or newly created security group rules will now
+look like this:</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/create-security-groups/05-default-egress-rules.png"><img alt="default-ingress-rules" src="../assets/create-security-groups/05-default-egress-rules.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>To view the rules use the following command:</p>
+<div class="highlight"><pre><span></span><code>openstack security group rule list default
+</code></pre></div>
+<p>The printout will be similar to this:</p>
+<div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+| ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
++-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+| 5e5e9f4d- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | None                  | None                 |
+| 1faa-     |             |           |           |            |           |                       |                      |
+| 492d-     |             |           |           |            |           |                       |                      |
+| 91f1-     |             |           |           |            |           |                       |                      |
+| c105b4640 |             |           |           |            |           |                       |                      |
+| 72b       |             |           |           |            |           |                       |                      |
+| 86b9413a- | None        | IPv6      | ::/0      |            | ingress   | None                  | None                 |
+| ad23-     |             |           |           |            |           |                       |                      |
+| 46c4-     |             |           |           |            |           |                       |                      |
+| a35e-     |             |           |           |            |           |                       |                      |
+| 9306945dc |             |           |           |            |           |                       |                      |
+| 63c       |             |           |           |            |           |                       |                      |
+| ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
+| 7fab-     |             |           |           |            |           |                       |                      |
+| 4eba-     |             |           |           |            |           |                       |                      |
+| 9982-     |             |           |           |            |           |                       |                      |
+| e5b109be1 |             |           |           |            |           |                       |                      |
+| 21c       |             |           |           |            |           |                       |                      |
+| f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
+| edbb-     |             |           |           |            |           |                       |                      |
+| 480b-     |             |           |           |            |           |                       |                      |
+| 910b-     |             |           |           |            |           |                       |                      |
+| a71c48363 |             |           |           |            |           |                       |                      |
+| 46f       |             |           |           |            |           |                       |                      |
++-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+</code></pre></div>
+<p>If the ingress rules have <code>::/0</code> and <code>0.0.0.0/0</code> values
+in <code>IP Range</code> column, and <code>None</code> in the <code>Remote Security Group</code>,
+then incoming traffic from any source is allowed.</p>
+<p>The IDs of the two ingress rules, one for IPv4 traffic and one for
+IPv6, are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and
+<code>86b9413a-ad23-46c4-a35e-9306945dc63c</code> respectively.</p>
+<p>Delete them by using the following command:</p>
+<p><div class="highlight"><pre><span></span><code>openstack security group rule delete <span class="se">\</span>
+  5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
+</code></pre></div>
+Print the rules again:</p>
+<div class="highlight"><pre><span></span><code>openstack security group rule list default
+</code></pre></div>
+<p>Now the remaining rules are only the egress ones.</p>
+<div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+| ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
++-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+| ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
+| 7fab-     |             |           |           |            |           |                       |                      |
+| 4eba-     |             |           |           |            |           |                       |                      |
+| 9982-     |             |           |           |            |           |                       |                      |
+| e5b109be1 |             |           |           |            |           |                       |                      |
+| 21c       |             |           |           |            |           |                       |                      |
+| f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
+| edbb-     |             |           |           |            |           |                       |                      |
+| 480b-     |             |           |           |            |           |                       |                      |
+| 910b-     |             |           |           |            |           |                       |                      |
+| a71c48363 |             |           |           |            |           |                       |                      |
+| 46f       |             |           |           |            |           |                       |                      |
++-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-29</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-21</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-08</span>
@@ -1000,7 +1107,7 @@ procedure as above.</p>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christian Mattsson, Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Christian Mattsson, Florian Haas, Mateusz Guziak</span>
 </small>
 </div>
 </article>
