@@ -1,0 +1,1261 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Deleting networks - Docs (Beta)</title>
+<link href="../../../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#deleting-networks">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Docs (Beta)
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Deleting networks
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/citynetwork/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
+</a>
+    Docs (Beta)
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/citynetwork/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../..">
+        Start Here
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../">How-To Guides</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="How-To Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          How-To Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2">
+          Getting started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Getting started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          Getting started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/create-account/">
+        Creating a new account
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
+        Enabling the OpenStack CLI
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3">
+          OpenStack
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="OpenStack" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          OpenStack
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../barbican/">Barbican (secret storage)</a>
+<label for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Barbican (secret storage)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Barbican (secret storage)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../barbican/generic-secret/">
+        Generic secret storage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../barbican/share-secret/">
+        Sharing secrets via ACLs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2">
+          Cinder (persistent block storage)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cinder (persistent block storage)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Cinder (persistent block storage)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cinder/encrypted-volumes/">
+        Encrypted volumes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" id="__nav_2_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_3">
+          Magnum (Kubernetes cluster management)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Magnum (Kubernetes cluster management)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Magnum (Kubernetes cluster management)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../magnum/new-k8s-cluster/">
+        Creating new Kubernetes clusters
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_4" id="__nav_2_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_4">
+          Neutron (networking service)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Neutron (networking service)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Neutron (networking service)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../new-network/">
+        Creating new networks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../create-security-groups/">
+        Creating security groups
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../multiple-public-ips/">
+        Assigning multiple public (floating) IPs to a server
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vpnaas/">
+        Creating a VPN connection between regions
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Deleting networks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Deleting networks
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#selecting-a-network">
+    Selecting a network
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#determining-component-dependencies">
+    Determining component dependencies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tearing-down-networks">
+    Tearing down networks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#networks-with-a-subnet-but-no-router">
+    Networks with a subnet but no router
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#networks-with-no-subnet-and-no-router">
+    Networks with no subnet and no router
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recap-of-networks-and-towns">
+    Recap: Of networks and towns
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_5" id="__nav_2_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_5">
+          Nova (compute service)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nova (compute service)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Nova (compute service)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/new-server/">
+        Creating new servers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/resize-server/">
+        Resizing a server
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/config-drive/">
+        Launching a server with a configuration drive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_6" id="__nav_2_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_6">
+          Octavia (load balancing)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Octavia (load balancing)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_6">
+<span class="md-nav__icon md-icon"></span>
+          Octavia (load balancing)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../octavia/tls-lb/">
+        HTTPS-terminating load balancers
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4">
+          Object storage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Object storage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Object storage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../object-storage/s3/">S3 API</a>
+<label for="__nav_2_4_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="S3 API" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_1">
+<span class="md-nav__icon md-icon"></span>
+          S3 API
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/credentials/">
+        Working with S3-compatible credentials
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/expiry/">
+        Object expiry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/versioning/">
+        Object versioning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/sse-c/">
+        Client-side encryption (SSE-C)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../object-storage/swift/">Swift API</a>
+<label for="__nav_2_4_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Swift API" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Swift API
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/private-container/">
+        Working with a private Swift container
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/public-container/">
+        Working with a public Swift container
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/tempurl/">
+        Using temporary URLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/expiry/">
+        Object expiry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/versioning/">
+        Object versioning
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../kubernetes/">Kubernetes</a>
+<label for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Kubernetes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../kubernetes/gardener/">Gardener</a>
+<label for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Gardener" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Gardener
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
+        Creating Kubernetes clusters with Gardener
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../kubernetes/magnum/">Magnum</a>
+</div>
+<nav aria-label="Magnum" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_3">
+<span class="md-nav__icon md-icon"></span>
+          Magnum
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6">
+          Account &amp; Billing
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Account &amp; Billing" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
+          Account &amp; Billing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
+        Changing your account billing data
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/">Reference</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Reference" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/features/">Feature Support</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Feature Support" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Feature Support
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/features/public/">
+        Public Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
+        Compliant Cloud
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/flavors/">Flavors</a>
+</div>
+<nav aria-label="Flavors" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Flavors
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/versions/">API Service Versions</a>
+<label for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="API Service Versions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          API Service Versions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
+        Public Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
+        Compliant Cloud
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../contrib/">You can help!</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="You can help!" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          You can help!
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
+        Modifying content on this site
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../contrib/quality/">
+        Quality checks
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#selecting-a-network">
+    Selecting a network
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#determining-component-dependencies">
+    Determining component dependencies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tearing-down-networks">
+    Tearing down networks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#networks-with-a-subnet-but-no-router">
+    Networks with a subnet but no router
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#networks-with-no-subnet-and-no-router">
+    Networks with no subnet and no router
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recap-of-networks-and-towns">
+    Recap: Of networks and towns
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="delete-network.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/neutron/delete-network.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="deleting-networks">Deleting networks</h1>
+<p>Deleting a network in Cleura Cloud may sound like a pretty straightforward 
+task — and it is. It’s just that before deleting a network, there are 
+some steps we almost always need to take. In what follows we show, step 
+by step and through specific examples, how we delete networks using 
+either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI, 
+you need to <a href="/howto/getting-started/create-account">have an account</a> in 
+Cleura Cloud. Additionally, to use the OpenStack CLI, make sure to <a href="/howto/getting-started/enable-openstack-cli">enable 
+it</a> for the region you 
+will be working in.</p>
+<h2 id="selecting-a-network">Selecting a network</h2>
+<p>Unless you already have the ID or know the name of the network you wish 
+to delete, you may first list all available networks.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Fire up your favorite web browser, navigate to the
+<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
+Cleura Cloud account.</p>
+<p>In the vertical pane on the left-hand side of the dashboard, expand the 
+<em>Networking</em> section and click <em>Networks</em>. In the central pane of the 
+page, you will see all networks in all regions you have access to. For 
+the purposes of this guide, let us assume you no longer need network 
+<code>carmacks</code>, so now you want to delete it.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-01.png"><img alt="Listing networks" src="../assets/del-net/shot-01.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>To list all available networks in the region you are currently in, type 
+the following:</p>
+<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
+| ID                                   | Name         | Subnets                              |
++--------------------------------------+--------------+--------------------------------------+
+| 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
+| 9b127d2c-01d7-4803-994f-f88292870c1d | teslin       | bd1d0ff2-7270-4a9a-a7ad-fff47e997e7b |
+| cb0a298a-bbb6-4ad6-832a-1456dafe45db | carmacks     | 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5 |
+| e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
++--------------------------------------+--------------+--------------------------------------+
+</code></pre></div></p>
+</div>
+</div>
+</input></input></div>
+<p>Let us assume you wish to delete the network named <code>carmacks</code>.</p>
+<h2 id="determining-component-dependencies">Determining component dependencies</h2>
+<p>If the network to be deleted has a subnet component — and most likely 
+it will have —, you will first have to delete the subnet before 
+deleting the network. If, in addition, the network is behind a router 
+(figurately speaking), then before deleting the subnet, you will have 
+to disconnect it from the router. Finally, you will have the option to 
+delete the router also. Let us see what the situation is with network 
+<code>carmacks</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>For more information on <code>carmacks</code>, click the three-dot icon 
+(right-hand side of the network row) and select <em>View details</em>. Four 
+tabs immediately appear below; <em>Details</em>, <em>Ports</em>, <em>Subnets</em>, and 
+<em>Routers</em>. Looking at the <em>Details</em> tab, it is clear that network 
+<code>carmacks</code> has a subnet and is behind a router. You may click on tabs 
+<em>Subnets</em> and <em>Routers</em>, to see more information regarding the network 
+subnet and the router in front of the network.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-02.png"><img alt="Network details" src="../assets/del-net/shot-02.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>To quickly check whether network <code>carmacks</code> has a subnet or not, type:</p>
+<p><div class="highlight"><pre><span></span><code>openstack network show carmacks -c subnets
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------+--------------------------------------+
+| Field   | Value                                |
++---------+--------------------------------------+
+| subnets | 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5 |
++---------+--------------------------------------+
+</code></pre></div></p>
+<p>If the value for the field <code>subnets</code> is non-empty, like in the example 
+output above, that means the network has a subnet indeed, and the value 
+is the ID of that subnet. At this point, it helps to assign the subnet 
+ID to an environment variable, like so:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">SUBNET_ID</span><span class="o">=</span><span class="s2">"7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5"</span>
+</code></pre></div>
+<p>What about a router in front of <code>carmacks</code>? You might try checking the
+output of this command:</p>
+<p><div class="highlight"><pre><span></span><code>openstack network show carmacks
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | UP                                   |
+| availability_zone_hints   |                                      |
+| availability_zones        | nova                                 |
+| created_at                | 2022-12-09T18:52:09Z                 |
+| description               |                                      |
+| dns_domain                | None                                 |
+| id                        | cb0a298a-bbb6-4ad6-832a-1456dafe45db |
+| ipv4_address_scope        | None                                 |
+| ipv6_address_scope        | None                                 |
+| is_default                | None                                 |
+| is_vlan_transparent       | None                                 |
+| mtu                       | 1500                                 |
+| name                      | carmacks                             |
+| port_security_enabled     | True                                 |
+| project_id                | 94109c764a754e24ac0f6b01aef82359     |
+| provider:network_type     | None                                 |
+| provider:physical_network | None                                 |
+| provider:segmentation_id  | None                                 |
+| qos_policy_id             | None                                 |
+| revision_number           | 2                                    |
+| router:external           | Internal                             |
+| segments                  | None                                 |
+| shared                    | False                                |
+| status                    | ACTIVE                               |
+| subnets                   | 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5 |
+| tags                      |                                      |
+| tenant_id                 | 94109c764a754e24ac0f6b01aef82359     |
+| updated_at                | 2022-12-09T18:55:18Z                 |
++---------------------------+--------------------------------------+
+</code></pre></div></p>
+<p>While it usually pays off to use <code>openstack</code> commands with the verb 
+<code>show</code> on various objects, in this case, you don’t get what you’re 
+looking for — which is an indication of the presence or absence of a 
+router in front of <code>carmacks</code>. In cases like this, try looking at 
+things from a different vantage point. Try, in particular, to list all 
+routers:</p>
+<p><div class="highlight"><pre><span></span><code>openstack router list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+------------------------+-----------------+--------+-------+------------------------+------+
+| ID                     | Name            | Status | State | Project                | HA   |
++------------------------+-----------------+--------+-------+------------------------+------+
+| 5ac45739-a379-4936-    | router-kna1     | ACTIVE | UP    | 94109c764a754e24ac0f6b | True |
+| 8b1b-67d10e017f4d      |                 |        |       | 01aef82359             |      |
+| 79ff91ae-91b5-4991-    | carmacks-router | ACTIVE | UP    | 94109c764a754e24ac0f6b | True |
+| af61-91e923fac87b      |                 |        |       | 01aef82359             |      |
++------------------------+-----------------+--------+-------+------------------------+------+
+</code></pre></div></p>
+<p>The name of the second router says it all, but since it is just a name, 
+it doesn’t hurt to verify the role of this router:</p>
+<p><div class="highlight"><pre><span></span><code>openstack router show carmacks-router -c interfaces_info
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-----------------+--------------------------------------------------------------------------------+
+| Field           | Value                                                                          |
++-----------------+--------------------------------------------------------------------------------+
+| interfaces_info | [{"port_id": "439bc9d5-c8a9-4de1-93b9-b01e69258a56", "ip_address": "10.1.0.1", |
+|                 | "subnet_id": "7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5"}]                          |
++-----------------+--------------------------------------------------------------------------------+
+</code></pre></div></p>
+<p>Looking at the value of <code>interfaces_info</code>, it is easy to see that 
+<code>subnet_id</code> has the value of the variable <code>SUBNET_ID</code> you just 
+instantiated. In other words, router <code>carmacks-router</code> is indeed in 
+front of network <code>carmacks</code>.</p>
+<blockquote>
+<p>There will be times when router names won’t help much. Then, try a 
+more exhaustive search approach:</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">for</span> i <span class="k">in</span> <span class="k">$(</span>openstack router list -f value -c Name<span class="k">)</span><span class="p">;</span> <span class="se">\</span>
+    <span class="k">do</span> <span class="nb">echo</span> Checking router <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span> <span class="se">\</span>
+    openstack router show <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> -f json -c interfaces_info <span class="se">\</span>
+    <span class="p">|</span> grep <span class="s2">"</span><span class="nv">$SUBNET_ID</span><span class="s2">"</span><span class="p">;</span> <span class="se">\</span>
+<span class="k">done</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Checking router carmacks-router
+      "subnet_id": "7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5"
+Checking router router-kna1
+</code></pre></div></p>
+</blockquote>
+</div>
+</div>
+</input></input></div>
+<h2 id="tearing-down-networks">Tearing down networks</h2>
+<p>Now that you know you’re dealing with a full-blown network and a 
+router, you start by disconnecting the subnet from the router. Then, 
+you will move on to deleting the subnet and the network, and after 
+that, you can finish up with deleting the router.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Go to the <em>Subnets</em> tab of the <code>carmacks</code> network, and click the gray 
+notepad-and-pen icon (at the left of the red circle-with-trashcan icon).</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-03.png"><img alt="Network subnets" src="../assets/del-net/shot-03.png"/></a></p>
+<p>A vertical pane titled <em>Modify Subnet</em> will slide over from the 
+right-hand side of the page. Pay attention to the <em>Router Connections</em> 
+section. You will notice an active connection to the router. Click the 
+red circle-with-line-over-chainlink icon to deactivate the connection, 
+effectively disconnecting the subnet from the router.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-04.png"><img alt="Disconnect subnet" src="../assets/del-net/shot-04.png"/></a></p>
+<p>A pop-up window will appear, asking if you really want to go ahead with 
+the disconnection. Just click the red <em>Yes, Remove interface</em> button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-05.png"><img alt="Remove interface" src="../assets/del-net/shot-05.png"/></a></p>
+<p>After disconnecting the subnet, click the red circle-and-trashcan icon 
+to delete it. Once more, a pop-up will appear asking for confirmation. 
+Click the red <em>Yes, Delete</em> button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-06.png"><img alt="Delete subnet" src="../assets/del-net/shot-06.png"/></a></p>
+<p>As soon as you delete the subnet, in the <em>Subnets</em> tab you will see the 
+message <em>No subnets found</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-07.png"><img alt="No subnets" src="../assets/del-net/shot-07.png"/></a></p>
+<p>You can now delete the network. Click the three-dot icon (right-hand 
+side of the network row) and select <em>Delete Network</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-08.png"><img alt="Delete Carmacks" src="../assets/del-net/shot-08.png"/></a></p>
+<p>Of course, you will have to confirm this action. Clicking the red <em>Yes, 
+Delete</em> button is enough.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-09.png"><img alt="Confirm network delete" src="../assets/del-net/shot-09.png"/></a></p>
+<p>After deleting the network, it will not be on the list of all available 
+networks.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-10.png"><img alt="List of networks" src="../assets/del-net/shot-10.png"/></a></p>
+<p>There’s still that router lying around, and if you have no use for it, 
+go to the <em>Routers</em> page to delete it. In the vertical pane on the 
+left, expand the <em>Networking</em> section and click on <em>Routers</em>. In the 
+central pane of the page, you will see all routers in all regions you 
+have access to.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-11.png"><img alt="All routers" src="../assets/del-net/shot-11.png"/></a></p>
+<p>Click the red three-dot icon of the router you wish to delete and 
+select <em>Delete Router</em>. A pop-up will appear asking for confirmation, 
+so click the red <em>Yes, Delete</em> button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-12.png"><img alt="Confirm router delete" src="../assets/del-net/shot-12.png"/></a></p>
+<p>After successfully deleting the router, there will be no trace of it in 
+the list of all routers.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-13.png"><img alt="Router is gone" src="../assets/del-net/shot-13.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>First, take a look at all available subnets:</p>
+<p><div class="highlight"><pre><span></span><code>openstack subnet list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-------------------------------+-----------------+--------------------------------+---------------+
+| ID                            | Name            | Network                        | Subnet        |
++-------------------------------+-----------------+--------------------------------+---------------+
+| 421d8fd2-dd7f-4f7c-9a51-      | subnet-kna1     | e0c4ce17-2722-4777-8140-       | 10.15.20.0/24 |
+| 42ef4a866dd9                  |                 | d6c87479e190                   |               |
+| 7fa9e5a2-7d5a-466e-b120-      | carmacks-subnet | cb0a298a-bbb6-4ad6-832a-       | 10.1.0.0/24   |
+| 7d2bffb99ce5                  |                 | 1456dafe45db                   |               |
+| bd1d0ff2-7270-4a9a-a7ad-      | teslin-subnet   | 9b127d2c-01d7-4803-994f-       | 10.254.0.0/24 |
+| fff47e997e7b                  |                 | f88292870c1d                   |               |
++-------------------------------+-----------------+--------------------------------+---------------+
+</code></pre></div></p>
+<p>As you would expect, included on the list is subnet <code>carmacks-subnet</code>, 
+which you are about to delete. That’s easier said than done, though:</p>
+<p><div class="highlight"><pre><span></span><code>openstack subnet delete <span class="nv">$SUBNET_ID</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Failed to delete subnet with name or ID '7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5': ConflictException: 409:
+Client Error for url: kna1.citycloud.com:9696/v2.0/subnets/7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5,
+Unable to complete operation on subnet 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5:
+One or more ports have an IP allocation from this subnet.
+1 of 1 subnets failed to delete.
+</code></pre></div></p>
+<p>The trick here is to first disconnect the subnet from the corresponding 
+router, which is perfectly doable from the side of the router. As we 
+discovered a bit earlier, the router we are talking about is 
+<code>carmacks-router</code>:</p>
+<div class="highlight"><pre><span></span><code>openstack router remove subnet carmacks-router <span class="nv">$SUBNET_ID</span>
+</code></pre></div>
+<p>If the command above is successful, you will see no output on your 
+terminal. Now, an attempt to delete <code>carmacks-subnet</code> should go through 
+with flying colors:</p>
+<div class="highlight"><pre><span></span><code>openstack subnet delete <span class="nv">$SUBNET_ID</span>
+</code></pre></div>
+<p>Again, no command output means success, but we suggest you check 
+yourself:</p>
+<p><div class="highlight"><pre><span></span><code>openstack subnet list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------+---------------+---------------------------------+---------------+
+| ID                             | Name          | Network                         | Subnet        |
++--------------------------------+---------------+---------------------------------+---------------+
+| 421d8fd2-dd7f-4f7c-9a51-       | subnet-kna1   | e0c4ce17-2722-4777-8140-        | 10.15.20.0/24 |
+| 42ef4a866dd9                   |               | d6c87479e190                    |               |
+| bd1d0ff2-7270-4a9a-a7ad-       | teslin-subnet | 9b127d2c-01d7-4803-994f-        | 10.254.0.0/24 |
+| fff47e997e7b                   |               | f88292870c1d                    |               |
++--------------------------------+---------------+---------------------------------+---------------+
+</code></pre></div></p>
+<p>The subnet <code>carmacks-subnet</code> is not on the list, which is what you 
+wanted exactly. Next is network <code>carmacks</code>, which you should be able to 
+delete by now. First, take a look at all available networks:</p>
+<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
+| ID                                   | Name         | Subnets                              |
++--------------------------------------+--------------+--------------------------------------+
+| 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
+| 9b127d2c-01d7-4803-994f-f88292870c1d | teslin       | bd1d0ff2-7270-4a9a-a7ad-fff47e997e7b |
+| cb0a298a-bbb6-4ad6-832a-1456dafe45db | carmacks     |                                      |
+| e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
++--------------------------------------+--------------+--------------------------------------+
+</code></pre></div></p>
+<p>Network <code>carmacks</code> is on the list, and by looking at the <code>Subnets</code> 
+column, you see that it has no subnet. That’s expected, so go ahead and 
+delete the network:</p>
+<div class="highlight"><pre><span></span><code>openstack network delete carmacks
+</code></pre></div>
+<p>No command output signals success, but it never hurts to verify yourself:</p>
+<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
+| ID                                   | Name         | Subnets                              |
++--------------------------------------+--------------+--------------------------------------+
+| 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
+| 9b127d2c-01d7-4803-994f-f88292870c1d | teslin       | bd1d0ff2-7270-4a9a-a7ad-fff47e997e7b |
+| e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
++--------------------------------------+--------------+--------------------------------------+
+</code></pre></div></p>
+<p>Network <code>carmacks</code> is gone, and if you have no use of 
+<code>carmacks-router</code>, go ahead and delete it:</p>
+<div class="highlight"><pre><span></span><code>openstack router delete carmacks-router
+</code></pre></div>
+<p>There is no output on the terminal, and yet the router is gone:</p>
+<p><div class="highlight"><pre><span></span><code>openstack router list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-----------------------------+-------------+--------+-------+------------------------------+------+
+| ID                          | Name        | Status | State | Project                      | HA   |
++-----------------------------+-------------+--------+-------+------------------------------+------+
+| 5ac45739-a379-4936-8b1b-    | router-kna1 | ACTIVE | UP    | 94109c764a754e24ac0f6b01aef8 | True |
+| 67d10e017f4d                |             |        |       | 2359                         |      |
++-----------------------------+-------------+--------+-------+------------------------------+------+
+</code></pre></div></p>
+</div>
+</div>
+</input></input></div>
+<h2 id="networks-with-a-subnet-but-no-router">Networks with a subnet but no router</h2>
+<p>These are faster to delete, for there is no router to disconnect the 
+subnet from. For our demonstration, we created network <code>teslin</code>, with 
+subnet <code>teslin-subnet</code> and no router in front of it. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the vertical pane on the left-hand side of the dashboard, expand the 
+<em>Networking</em> section and click <em>Networks</em>. In the central pane of the 
+page, you will see all networks in all regions you have access to. 
+Select a network with a subnet and no router — like <code>teslin</code> in our 
+example.</p>
+<p>Looking at the network details, it is immediately apparent that there’s 
+no router in front of it.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-14.png"><img alt="No router in sight" src="../assets/del-net/shot-14.png"/></a></p>
+<p>Go to the <em>Subnets</em> tab, and click the red circle-with-trashcan icon to 
+delete the subnet.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-15.png"><img alt="Delete subnet" src="../assets/del-net/shot-15.png"/></a></p>
+<p>Then, click the red three-dot icon at the right-hand side of the 
+<code>teslin</code> row, and select <em>Delete Network</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-16.png"><img alt="Delete Teslin" src="../assets/del-net/shot-16.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>Let us first take a look at all available networks…</p>
+<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
+| ID                                   | Name         | Subnets                              |
++--------------------------------------+--------------+--------------------------------------+
+| 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
+| 9b127d2c-01d7-4803-994f-f88292870c1d | teslin       | bd1d0ff2-7270-4a9a-a7ad-fff47e997e7b |
+| e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
++--------------------------------------+--------------+--------------------------------------+
+</code></pre></div></p>
+<p>…and at all available subnets:</p>
+<p><div class="highlight"><pre><span></span><code>openstack subnet list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------+---------------+---------------------------------+---------------+
+| ID                             | Name          | Network                         | Subnet        |
++--------------------------------+---------------+---------------------------------+---------------+
+| 421d8fd2-dd7f-4f7c-9a51-       | subnet-kna1   | e0c4ce17-2722-4777-8140-        | 10.15.20.0/24 |
+| 42ef4a866dd9                   |               | d6c87479e190                    |               |
+| bd1d0ff2-7270-4a9a-a7ad-       | teslin-subnet | 9b127d2c-01d7-4803-994f-        | 10.254.0.0/24 |
+| fff47e997e7b                   |               | f88292870c1d                    |               |
++--------------------------------+---------------+---------------------------------+---------------+
+</code></pre></div></p>
+<p>Since there is nothing to disconnect the <code>teslin-subnet</code> from, you may 
+go ahead and delete the subnet:</p>
+<div class="highlight"><pre><span></span><code>openstack subnet delete teslin-subnet
+</code></pre></div>
+<p>There is no command output. This is expected, but why not check 
+yourself?</p>
+<p><div class="highlight"><pre><span></span><code>openstack subnet list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------------------+-------------+----------------------------------+---------------+
+| ID                              | Name        | Network                          | Subnet        |
++---------------------------------+-------------+----------------------------------+---------------+
+| 421d8fd2-dd7f-4f7c-9a51-        | subnet-kna1 | e0c4ce17-2722-4777-8140-         | 10.15.20.0/24 |
+| 42ef4a866dd9                    |             | d6c87479e190                     |               |
++---------------------------------+-------------+----------------------------------+---------------+
+</code></pre></div></p>
+<p>Finally, network <code>teslin</code> can go away with a single command:</p>
+<div class="highlight"><pre><span></span><code>openstack network delete teslin
+</code></pre></div>
+<p>The absence of any output means the command was successful. Take a look 
+yourself:</p>
+<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
+| ID                                   | Name         | Subnets                              |
++--------------------------------------+--------------+--------------------------------------+
+| 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
+| e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
++--------------------------------------+--------------+--------------------------------------+
+</code></pre></div></p>
+</div>
+</div>
+</input></input></div>
+<h2 id="networks-with-no-subnet-and-no-router">Networks with no subnet and no router</h2>
+<p>You may directly, without the slightest preparation, delete networks 
+like these. For our demonstration, we created a network named <code>mayo</code>, 
+with no subnet and no router in front of it.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>While viewing all available networks, click the red three-dot icon at 
+the right-hand side of the <code>mayo</code> row and select <em>Delete Network</em>. You 
+will have to confirm the action, and the network will be gone as soon 
+as you do.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-17.png"><img alt="Delete Mayo" src="../assets/del-net/shot-17.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>Once more, take a look at all remaining networks:</p>
+<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
+| ID                                   | Name         | Subnets                              |
++--------------------------------------+--------------+--------------------------------------+
+| 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
+| e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
++--------------------------------------+--------------+--------------------------------------+
+</code></pre></div></p>
+<p>Since <code>mayo</code> has no subnet, issue a single command to delete it:</p>
+<div class="highlight"><pre><span></span><code>openstack network delete mayo
+</code></pre></div>
+<p>And, yes, it is still a good idea to check yourself:</p>
+<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
+| ID                                   | Name         | Subnets                              |
++--------------------------------------+--------------+--------------------------------------+
+| e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
++--------------------------------------+--------------+--------------------------------------+
+</code></pre></div></p>
+</div>
+</div>
+</input></input></div>
+<h2 id="recap-of-networks-and-towns">Recap: Of networks and towns</h2>
+<p>Depending on the features of a Neutron network, deleting it may require 
+some preparation work. For the purposes of this guide, we created three
+different networks with different characteristics; <code>carmacks</code>, <code>teslin</code>,
+and <code>mayo</code>. Then, either from the Cleura Cloud Management Panel or with the help of OpenStack
+CLI, we showed how we discover any component dependencies and how we
+work towards deletion. Eventually, all three test networks were gone.
+We should point out, though, that all three namesake towns in Yukon are
+still there.</p>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-10</span>
+<br/>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-10</span>
+</small>
+</div>
+<div class="md-source-date">
+<small>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Creating a VPN connection between regions" class="md-footer__link md-footer__link--prev" href="../vpnaas/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Creating a VPN connection between regions
+            </div>
+</div>
+</a>
+<a aria-label="Next: Creating new servers" class="md-footer__link md-footer__link--next" href="../../nova/new-server/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Creating new servers
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
