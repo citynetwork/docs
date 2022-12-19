@@ -13,68 +13,52 @@ In order to move a server from one region to another, you will need
 
 ## Finding a volume's ID
 
-=== "{{gui}}"
-    To find your server's boot volume in the {{gui}}, open your web
-    browser, navigate to the [{{gui}}](https://{{gui_domain}}), and log into your {{brand}} account.
+To work with the OpenStack CLI, please do not forget to [source the RC file first](/howto/getting-started/enable-openstack-cli/).
 
-    On the left side panel of the {{gui}} expand _Compute_, then click on _Servers_. 
+Use the ID of the server instead of using the server name. This will make sure that you are using the correct server.
 
-    ![The left hand side navigation panel, with the word "Servers" highlighted.](assets/move-server-between-regions/shot-01.png)
+Find the ID of your server by matching the name, using the following command:
 
-    To get more details of the server you want to move, expand the view of the server by clicking it.
+```bash
+openstack server list --name 'name'
+```
 
-    ![Server details view, showing that the server has two attached volumes, one being "{boot volume}".](assets/move-server-between-regions/shot-02.png)
+Printout reference:
 
-    On the left bottom side of the expanded view, there is a section called _Attached volumes:_. Below this you will see _{- Boot Volume -} <number\>GB_, click on it and then click _Copy ID_.
+```plain
++-----------------+-----------------+---------+-----------------+--------------------+-------------+
+| ID              | Name            | Status  | Networks        | Image              | Flavor      |
++-----------------+-----------------+---------+-----------------+--------------------+-------------+
+| 4E88215E-2DF9-4 | Name2           | SHUTOFF | STO2_test_netwo | N/A (booted from v | b.1c1gb     |
+| 9CA-8D39-31C01D |                 |         | rk=10.x.y.z     | olume)             |             |
+| 5B7EAE          |                 |         |                 |                    |             |
+| FAD16A17-A4F1-4 | Name1           | ACTIVE  | STO2_test_netwo | N/A (booted from v | b.1c1gb     |
+| 74C-9B90-DE14C8 |                 |         | rk=10.x.y.z     | olume)             |             |
+| AB8100          |                 |         |                 |                    |             |
++-----------------+-----------------+---------+-----------------+--------------------+-------------+
+```
 
-    > If your server does not have an attached volume with the prefix _{- Boot Volume -}_ then your server is not using boot from volume. This guide is only applicable to boot from volume servers.
-=== "Openstack CLI"
-    If you work with the OpenStack CLI, please do not forget to [source the RC file first](/howto/getting-started/enable-openstack-cli/).
+This guide is only applicable to servers that are using boot from volume. To verify this, make sure your server's `Image` value is `N/A (booted from volume)`.
 
-    Use the ID of the server instead of using the server name. This will make sure that you are using the correct server.
+To get the ID of your server's boot volume, use the following command:
 
-    Find the ID of your server by matching the name, using the following command:
+```bash
+openstack server show -c volumes_attached <server_id>
+```
 
-    ```bash
-    openstack server list --name 'name'
-    ```
+Output:
 
-    Printout reference:
+```plain
++------------------+-------------------------------------------+
+| Field            | Value                                     |
++------------------+-------------------------------------------+
+| volumes_attached | id='14942b23-25EF-4181-9C54-E5C100E4EEB8' |
+|                  | id='34e2ca96-3C34-464F-AC66-9FEF7A6810B8' |
+|                  | id='68756558-DBF0-44DB-9475-1BC24822371C' |
++------------------+-------------------------------------------+
+```
 
-    ```plain
-    +-----------------+-----------------+---------+-----------------+--------------------+-------------+
-    | ID              | Name            | Status  | Networks        | Image              | Flavor      |
-    +-----------------+-----------------+---------+-----------------+--------------------+-------------+
-    | 4E88215E-2DF9-4 | Name2           | SHUTOFF | STO2_test_netwo | N/A (booted from v | b.1c1gb     |
-    | 9CA-8D39-31C01D |                 |         | rk=10.x.y.z     | olume)             |             |
-    | 5B7EAE          |                 |         |                 |                    |             |
-    | FAD16A17-A4F1-4 | Name1           | ACTIVE  | STO2_test_netwo | N/A (booted from v | b.1c1gb     |
-    | 74C-9B90-DE14C8 |                 |         | rk=10.x.y.z     | olume)             |             |
-    | AB8100          |                 |         |                 |                    |             |
-    +-----------------+-----------------+---------+-----------------+--------------------+-------------+
-    ```
-
-    This guide is only applicable to servers that are using boot from volume. To verify this, make sure your server's `Image` value is `N/A (booted from volume)`.
-
-    To get the ID of your server's boot volume, use the following command:
-
-    ```bash
-    openstack server show -c volumes_attached <server_id>
-    ```
-
-    Output:
-
-    ```plain
-    +------------------+-------------------------------------------+
-    | Field            | Value                                     |
-    +------------------+-------------------------------------------+
-    | volumes_attached | id='14942b23-25EF-4181-9C54-E5C100E4EEB8' |
-    |                  | id='34e2ca96-3C34-464F-AC66-9FEF7A6810B8' |
-    |                  | id='68756558-DBF0-44DB-9475-1BC24822371C' |
-    +------------------+-------------------------------------------+
-    ```
-
-    If there are multiple volumes attached, the first volume in the list is the server system volume. Copy this ID.
+If there are multiple volumes attached, the first volume in the list is the server system volume. Copy this ID.
 
 If you want to move any other attached volumes along with your server's system volume, you also need to follow the same steps for each one of these volumes.
 
@@ -82,20 +66,14 @@ If you want to move any other attached volumes along with your server's system v
 
 In the next step you are instructed to make a copy of the server's system volume. Some operating systems or applications might experience issues being copied at the same time it might be performing operations.
 
-While this step is not strictly required, it is recommended to first power off your server by logging into it and shuting down the operation system. This can also be done with the {{gui}} or the OpenStack CLI.
-=== "{{gui}}"
-    In the top right-hand corner of the server panel, locate the menu button.
+While this step is not strictly required, it is recommended to first
+power off your server.
 
-    ![An orange circle with three white dots.](assets/move-server-between-regions/shot-03.png)
+Stop the running server with the following command:
 
-    Then click on _Stop Server_ in the list.
-
-=== "Openstack CLI"
-    Stop the running server with the following command:
-
-    ```bash
-    openstack server stop <server_id>
-    ```
+```bash
+openstack server stop <server_id>
+```
 
 ## Creating a copy of a volume
 
@@ -310,47 +288,31 @@ openstack image show -c checksum <new_image_id>
 
 ## Creating a volume from an image
 
-=== "{{gui}}"
-    On the left side panel of the {{gui}} expand _Storage_, then click on _Volumes_.
+First you must choose the image you want to create a volume from.
 
-    ![The left hand side navigation panel, with the word "Volumes" highlighted.](assets/move-server-between-regions/shot-04.png)
+List all your private images with the following command:
 
-    In the top right corner, find the button labeled _Create new volume_ and click on it.
+```bash
+openstack image list --private
+```
 
-    ![The button "Create new volume" with an orange icon of a plus sign next to it.](assets/move-server-between-regions/shot-05.png)
+Example printout:
 
-    Select your target region and expand the _Advanced Options_ category, and select _Private Image_ as the source for the volume.
+```plain
++--------------------------------------+--------------------------+--------+
+| ID                                   | Name                     | Status |
++--------------------------------------+--------------------------+--------+
+| f9ce95de-564e-4f6e-ad0e-789c84f30b7c | <new_image_name>         | active |
++--------------------------------------+--------------------------+--------+
+```
 
-    ![The "Create a volume" panel, with the "Advanced Options" menu expanded, revealing that "Private Image" is chosen as source for this volume.](assets/move-server-between-regions/shot-06.png)
+Then create the volume using the ID of the image in this command:
 
-    Find the image for your volume in the dropdown list next to _Private Image_, fill in the name, description and size for the volume and click on _Create_.
+```bash
+openstack volume create --size <GB> --image <new_image_id> <new_volume_name>
+```
 
-=== "Openstack CLI"
-    First you must choose the image you want to create a volume from.
-
-    List all your private images with the following command:
-
-    ```bash
-    openstack image list --private
-    ```
-
-    Example printout:
-
-    ```plain
-    +--------------------------------------+--------------------------+--------+
-    | ID                                   | Name                     | Status |
-    +--------------------------------------+--------------------------+--------+
-    | f9ce95de-564e-4f6e-ad0e-789c84f30b7c | <new_image_name>         | active |
-    +--------------------------------------+--------------------------+--------+
-    ```
-
-    Then create the volume using the ID of the image in this command:
-
-    ```bash
-    openstack volume create --size <GB> --image <new_image_id> <new_volume_name>
-    ```
-
-    > Substitute `<GB>` with the size in gigabytes you wish the volume to be.
+> Substitute `<GB>` with the size in gigabytes you wish the volume to be.
 
 ## Creating a server from a volume
 
