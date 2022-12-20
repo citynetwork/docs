@@ -29,12 +29,12 @@ Printout reference:
 +-----------------+-----------------+---------+-----------------+--------------------+-------------+
 | ID              | Name            | Status  | Networks        | Image              | Flavor      |
 +-----------------+-----------------+---------+-----------------+--------------------+-------------+
-| 4E88215E-2DF9-4 | Name2           | SHUTOFF | STO2_test_netwo | N/A (booted from v | b.1c1gb     |
-| 9CA-8D39-31C01D |                 |         | rk=10.x.y.z     | olume)             |             |
-| 5B7EAE          |                 |         |                 |                    |             |
-| FAD16A17-A4F1-4 | Name1           | ACTIVE  | STO2_test_netwo | N/A (booted from v | b.1c1gb     |
-| 74C-9B90-DE14C8 |                 |         | rk=10.x.y.z     | olume)             |             |
-| AB8100          |                 |         |                 |                    |             |
+| 4e88215e-2df9-4 | Name2           | SHUTOFF | STO2_test_netwo | N/A (booted from v | b.1c1gb     |
+| 9ca-8d39-31c01d |                 |         | rk=10.x.y.z     | olume)             |             |
+| 5b7eae          |                 |         |                 |                    |             |
+| fad16a17-a4f1-4 | Name1           | ACTIVE  | STO2_test_netwo | N/A (booted from v | b.1c1gb     |
+| 74c-9b90-de14c8 |                 |         | rk=10.x.y.z     | olume)             |             |
+| ab8100          |                 |         |                 |                    |             |
 +-----------------+-----------------+---------+-----------------+--------------------+-------------+
 ```
 
@@ -52,9 +52,9 @@ Output:
 +------------------+-------------------------------------------+
 | Field            | Value                                     |
 +------------------+-------------------------------------------+
-| volumes_attached | id='14942b23-25EF-4181-9C54-E5C100E4EEB8' |
-|                  | id='34e2ca96-3C34-464F-AC66-9FEF7A6810B8' |
-|                  | id='68756558-DBF0-44DB-9475-1BC24822371C' |
+| volumes_attached | id='14942b23-25ef-4181-9c54-e5c100e4eeb8' |
+|                  | id='34e2ca96-3c34-464f-ac66-9fef7a6810b8' |
+|                  | id='68756558-dbf0-44db-9475-1bc24822371c' |
 +------------------+-------------------------------------------+
 ```
 
@@ -96,18 +96,18 @@ You will get a printout showing you information about the created volume, such a
 | created_at          | 2022-11-10T15:12:11.821647           |
 | description         | None                                 |
 | encrypted           | False                                |
-| id                  | 2FDE1E6D-2D72-4D70-B12D-1A2D314DBA72 |
+| id                  | 2fde1e6d-2d72-4d70-b12d-1a2d314dba72 |
 | multiattach         | False                                |
 | name                | <copy_volume_name>                   |
 | properties          |                                      |
 | replication_status  | None                                 |
 | size                | 20                                   |
 | snapshot_id         | None                                 |
-| source_volid        | 14942b23-25EF-4181-9C54-E5C100E4EEB8 |
+| source_volid        | 14942b23-25ef-4181-9c54-e5c100e4eeb8 |
 | status              | creating                             |
 | type                | default                              |
 | updated_at          | None                                 |
-| user_id             | 9E19-9424-42C4-B70F-A371EC0DB5D3     |
+| user_id             | 9e19-9424-42c4-b70f-a371ec0db5d3     |
 +---------------------+--------------------------------------+
 ```
 
@@ -130,8 +130,8 @@ After a while you will get a printout showing you information of the new image, 
 | container_format    | bare                                 |
 | disk_format         | raw                                  |
 | display_description | None                                 |
-| id                  | 2FDE1E6D-2D72-4D70-B12D-1A2D314DBA72 |
-| image_id            | CFA8620A-52D7-4D84-91EF-B25BB24E6E33 |
+| id                  | 2fde1e6d-2d72-4d70-b12d-1a2d314dba72 |
+| image_id            | cfa8620a-52d7-4d84-91ef-b25bb24e6e33 |
 | image_name          | <new_image_name>                     |
 | protected           | False                                |
 | size                | 20                                   |
@@ -226,8 +226,8 @@ The upload will take some time, depending on your internet upload speed and the 
 | container_format | bare                                                                          |
 | created_at       | 2022-11-17T16:26:58Z                                                          |
 | disk_format      | raw                                                                           |
-| file             | /v2/images/DF4593A9-A4D4-46FE-9C82-1B8F88ECAC5D/file                          |
-| id               | DF4593A9-A4D4-46FE-9C82-1B8F88ECAC5D                                          |
+| file             | /v2/images/df4593a9-a4d4-46fe-9c82-1b8f88ecac5d/file                          |
+| id               | df4593a9-a4d4-46fe-9c82-1b8f88ecac5d                                          |
 | min_disk         | 0                                                                             |
 | min_ram          | 0                                                                             |
 | name             | <new_image_name>                                                              |
@@ -258,8 +258,8 @@ openstack image show <new_image_id>
 | container_format | bare                                                                          |
 | created_at       | 2022-11-17T16:26:58Z                                                          |
 | disk_format      | raw                                                                           |
-| file             | /v2/images/DF4593A9-A4D4-46FE-9C82-1B8F88ECAC5D/file                          |
-| id               | DF4593A9-A4D4-46FE-9C82-1B8F88ECAC5D                                          |
+| file             | /v2/images/df4593a9-a4d4-46fe-9c82-1b8f88ecac5d/file                          |
+| id               | df4593a9-a4d4-46fe-9c82-1b8f88ecac5d                                          |
 | min_disk         | 0                                                                             |
 | min_ram          | 0                                                                             |
 | name             | <new_image_name>                                                              |
