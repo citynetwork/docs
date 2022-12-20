@@ -395,9 +395,31 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Object expiry
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Object expiry
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enabling-object-expiry">
+    Enabling object expiry
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#removing-object-expiry">
+    Removing object expiry
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../versioning/">
@@ -654,6 +676,22 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enabling-object-expiry">
+    Enabling object expiry
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#removing-object-expiry">
+    Removing object expiry
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -670,6 +708,7 @@
 </blockquote>
 <p>You can set a bucket’s lifecycle configuration such that it automatically 
 deletes objects after a certain number of days. </p>
+<h2 id="enabling-object-expiry">Enabling object expiry</h2>
 <p>First, you need to create a JSON file, <code>lifecycle.json</code>, that contains
 the lifecycle configuration rule. Be sure to set <code>Days</code> to your
 desired value:</p>
@@ -706,12 +745,42 @@ the following commands:</p>
 </div>
 </div>
 </input></input></input></div>
+<h2 id="removing-object-expiry">Removing object expiry</h2>
+<p>At some point, you might want to remove the object expiry
+functionality configuration from a bucket, so that objects in it no
+longer auto-delete after a period.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label><label for="__tabbed_2_3">s3cmd</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>With the <code>aws s3api</code> command, you can remove the lifecycle
+configuration from a bucket:
+<div class="highlight"><pre><span></span><code>aws --profile &lt;region&gt; <span class="se">\</span>
+  --endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080 <span class="se">\</span>
+  s3api delete-bucket-lifecycle <span class="se">\</span>
+  --bucket &lt;bucket-name&gt;
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>With <code>mc</code>, you are able to remove just an individual bucket
+lifecycle rule. Assuming your rule uses the ID <code>cleanup</code>, here is
+how you remove it:
+<div class="highlight"><pre><span></span><code>mc ilm rm --id <span class="s2">"cleanup"</span> &lt;region&gt;/&lt;bucket-name&gt;
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>With <code>s3cmd</code>, you can remove the lifecycle configuration from a
+bucket:
+<div class="highlight"><pre><span></span><code>s3cmd -c ~/.s3cfg-&lt;region&gt; dellifecycle s3://&lt;bucket-name&gt;
+</code></pre></div></p>
+</div>
+</div>
+</input></input></input></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-07</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-19</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-11</span>
