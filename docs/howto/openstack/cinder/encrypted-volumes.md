@@ -1,7 +1,11 @@
+---
+description: >
+  Using Barbican secrets for block storage encryption, you can store
+  data in persistent storage volumes in an encrypted fashion.
+---
 # Encrypted volumes
 
-When using Barbican for block storage encryption, you ensure that data
-in persistent storage volumes is stored in an encrypted fashion.
+{{page.meta.description}}
 
 That encryption is transparent to virtual machines (instances) that
 you attach the volume to.

@@ -1,9 +1,15 @@
+---
+description: >
+  Using flavors, you define a server’s performance characteristics and
+  supported features.
+---
 # Flavors
 
 Any server instance running in {{brand}} has a **flavor**,
 which defines the number of virtual CPU cores, the amount of virtual
 RAM, and other performance-related factors.
 
+{{page.meta.description}}
 
 ## Naming convention
 

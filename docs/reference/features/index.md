@@ -1,10 +1,15 @@
+---
+description: >
+  Our services constantly evolve, and we gradually add features to
+  regions as they become available and mature.
+---
+
 # Feature support matrix
 
-Services in {{brand}} constantly evolve, and we gradually
-add features to regions as they become available and mature.
+{{page.meta.description}}
 
-This page lists the cloud features available in each {{company}}
-Cloud region.
+This page lists the cloud features available in each {{brand}}
+region.
 
 * [Public Cloud](public.md): features supported in our {{company}}
   Public Cloud regions.

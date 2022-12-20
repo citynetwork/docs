@@ -1,11 +1,15 @@
+---
+description: >
+  You can set a bucket’s lifecycle configuration such that it
+  automatically deletes objects after a certain number of days.
+---
+
 # Object expiry
 
 > Object expiry requires that you configure your environment with
 > [working S3-compatible credentials](credentials.md).
 
-
-You can set a bucket's lifecycle configuration such that it automatically 
-deletes objects after a certain number of days. 
+{{page.meta.description}}
 
 ## Enabling object expiry
 
