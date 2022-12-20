@@ -5,6 +5,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="You can set a bucket’s lifecycle configuration such that it automatically deletes objects after a certain number of days.
+" name="description"/>
+<link href="https://docs.cleura.cloud/howto/object-storage/s3/expiry/" rel="canonical"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
 <title>Object expiry - Docs (Beta)</title>
@@ -17,6 +20,20 @@
 <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<meta content="website" property="og:type"/>
+<meta content="Object expiry - Docs (Beta)" property="og:title"/>
+<meta content="You can set a bucket’s lifecycle configuration such that it automatically deletes objects after a certain number of days.
+" property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/expiry.png" property="og:image"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://docs.cleura.cloud/howto/object-storage/s3/expiry/" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Object expiry - Docs (Beta)" name="twitter:title"/>
+<meta content="You can set a bucket’s lifecycle configuration such that it automatically deletes objects after a certain number of days.
+" name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/expiry.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -716,8 +733,7 @@
 <p>Object expiry requires that you configure your environment with
 <a href="../credentials/">working S3-compatible credentials</a>.</p>
 </blockquote>
-<p>You can set a bucket’s lifecycle configuration such that it automatically 
-deletes objects after a certain number of days. </p>
+<p>You can set a bucket’s lifecycle configuration such that it automatically deletes objects after a certain number of days.</p>
 <h2 id="enabling-object-expiry">Enabling object expiry</h2>
 <p>First, you need to create a JSON file, <code>lifecycle.json</code>, that contains
 the lifecycle configuration rule. Be sure to set <code>Days</code> to your
@@ -790,7 +806,7 @@ bucket:
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-19</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-20</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-11</span>

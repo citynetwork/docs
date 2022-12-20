@@ -5,6 +5,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.
+" name="description"/>
+<link href="https://docs.cleura.cloud/howto/openstack/cinder/encrypted-volumes/" rel="canonical"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
 <title>Encrypted volumes - Docs (Beta)</title>
@@ -17,6 +20,20 @@
 <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<meta content="website" property="og:type"/>
+<meta content="Encrypted volumes - Docs (Beta)" property="og:title"/>
+<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.
+" property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/encrypted-volumes.png" property="og:image"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://docs.cleura.cloud/howto/openstack/cinder/encrypted-volumes/" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Encrypted volumes - Docs (Beta)" name="twitter:title"/>
+<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.
+" name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/encrypted-volumes.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -732,8 +749,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="encrypted-volumes">Encrypted volumes</h1>
-<p>When using Barbican for block storage encryption, you ensure that data
-in persistent storage volumes is stored in an encrypted fashion.</p>
+<p>Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.</p>
 <p>That encryption is transparent to virtual machines (instances) that
 you attach the volume to.</p>
 <h2 id="creating-an-encrypted-volume">Creating an encrypted volume</h2>
@@ -861,7 +877,7 @@ read access to the volume’s encryption secret.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-07</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-20</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-03-08</span>
