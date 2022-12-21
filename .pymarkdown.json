@@ -1,0 +1,24 @@
+{
+    "extensions": {
+        "front-matter": {
+            "enabled": true
+        }
+    },
+    "plugins" : {
+        "blanks-around-fences": {
+            "enabled": false
+        },
+        "code-block-style": {
+            "enabled": false
+        },
+        "line-length": {
+            "enabled": false
+        },
+        "no-multiple-blanks": {
+            "maximum": 2
+        },
+        "blanks-around-headings": {
+            "enabled": false
+        }
+    }
+}
