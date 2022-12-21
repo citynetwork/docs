@@ -86,10 +86,10 @@ Then, use `swift tempurl` and specify
 * the HTTP method for which the TempURL should apply (usually `GET`),
 * the TempURL lifetime, in seconds,
 * the full path to the object including
-    - the `/v1` prefix,
-    - the account identifier starting with `AUTH_`,
-    - the container name,
-    - the object name,
+  * the `/v1` prefix,
+  * the account identifier starting with `AUTH_`,
+  * the container name,
+  * the object name,
 * the TempURL key.
 
 When specified in this way, the command returns a path similar to the

@@ -1,9 +1,6 @@
 ---
-description: >
-  Our services constantly evolve, and we gradually add features to
-  regions as they become available and mature.
+description: Our services constantly evolve, and we gradually add features to regions as they become available and mature.
 ---
-
 # Feature support matrix
 
 {{page.meta.description}}

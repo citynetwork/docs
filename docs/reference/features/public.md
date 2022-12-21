@@ -8,8 +8,8 @@
 >
 > :material-close: Feature is not available
 
-## Virtualization
 
+## Virtualization
 |                                               | Kna1             | Sto2                  | Fra1             | Dx1              | Tky1             |
 | -------------                                 | ---------------- | --------------------- | ---------------- | ---------------- | ---------------- |
 | [Dedicated CPU](../../flavors/#compute-tiers) | :material-close: | :material-timer-sand: | :material-close: | :material-close: | :material-close: |
@@ -17,7 +17,6 @@
 
 
 ## Block storage
-
 |                                                                 | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
 | ------------------------------                                  | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | Highly available storage                                        | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
@@ -25,9 +24,7 @@
 | [Volume encryption](/howto/openstack/cinder/encrypted-volumes/) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
 
 
-
 ## Object storage
-
 |                                             | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
 | ------------------------------              | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | S3 API                                      | :material-check: | :material-close: | :material-check: | :material-check: | :material-close: |
@@ -36,7 +33,6 @@
 
 
 ## Networking (Layer 2/3)
-
 |                      | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
 | -------------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | IPv4 (with NAT)      | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
@@ -44,8 +40,7 @@
 | VPN (IPsec with PSK) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
 
 
-## Load Balancers 
-
+## Load Balancers
 |                                                                                                             | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
 | --------------------------------------------------------------------                                        | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | Transport layer (TCP/UDP)                                                                                   | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
@@ -54,7 +49,6 @@
 
 
 ## Kubernetes management
-
 |                   | Kna1                  | Sto2                  | Fra1                  | Dx1              | Tky1             |
 | ----------------- | ----------------      | ----------------      | ----------------      | ---------------- | ---------------- |
 | OpenStack Magnum  | :material-check:      | :material-check:      | :material-check:      | :material-check: | :material-check: |

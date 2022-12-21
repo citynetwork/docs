@@ -72,7 +72,7 @@ included in the container.
     ```
 === "Swift CLI"
     ```console
-    $ swift stat public-container 
+    $ swift stat public-container
                           Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88
                         Container: public-container
                           Objects: 0
@@ -96,8 +96,8 @@ included in the container.
 
 To upload an object into the container, create a local test file:
 
-```console
-$ echo "hello world" > testobj.txt
+```bash
+echo "hello world" > testobj.txt
 ```
 
 Then, upload the file (as a Swift object) into your container, and
@@ -205,7 +205,7 @@ it by parsing the CLI's debug output:
 Once you have retrieved your public URL, you can fetch the object's
 contents using the client of your choice. This example uses `curl`:
 
-```
+```console
 $ curl https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
 hello world
 ```

@@ -13,7 +13,7 @@ To do so, you will need
 > Any {{brand}} user can always retrieve their own user ID
 > with the following command:
 >
-> ```
+> ```bash
 > openstack token issue -f value -c user_id
 > ```
 

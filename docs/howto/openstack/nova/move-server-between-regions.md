@@ -226,7 +226,7 @@ You are now done with the steps for the source region. The following
 steps will be done on the target region.
 
 > It is now safe to remove the image you created earlier, using the
-> command: 
+> command:
 > ```bash
 > openstack image delete <image_id>
 > ```

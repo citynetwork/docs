@@ -28,6 +28,7 @@ automatically deleted at that time:
 
 ```console
 $ swift post -H "X-Delete-At: 1709164800" private-container testobj.txt
+
 ```
 
 Then, you can read back the header with `swift stat`:
@@ -58,6 +59,7 @@ deleted after that timespan. This example uses 600 seconds or
 
 ```console
 $ swift post -H "X-Delete-After: 600" private-container testobj.txt
+
 ```
 
 The Swift API then converts this into an `X-Delete-At` header, adding

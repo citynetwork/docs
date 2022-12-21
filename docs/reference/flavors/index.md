@@ -1,7 +1,5 @@
 ---
-description: >
-  Using flavors, you define a server’s performance characteristics and
-  supported features.
+description: Using flavors, you define a server’s performance characteristics and supported features.
 ---
 # Flavors
 

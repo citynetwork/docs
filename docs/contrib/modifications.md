@@ -59,7 +59,7 @@ First, create a fork of the documentation repository:
     Open <{{ config.repo_url }}> and click the *Fork* button.
     When you create your new fork, it's fine to leave the
     *Copy the `main` branch only* option enabled.
-    
+
     Then, proceed to create a new local checkout of your fork:
     ```bash
     git clone git@github.com:<yourusername>/<your-repo-fork> {{ brand | lower }}-docs
@@ -70,9 +70,9 @@ First, create a fork of the documentation repository:
     gh repo fork --clone {{ config.repo_url }} -- {{ brand | lower }}-docs
     cd {{ brand | lower }}-docs
     ```
-    
+
 Next, create a local topic branch and make your modifications:
-    
+
 ```bash
 git checkout -b <your-topic-branch-name>
 # edit your files

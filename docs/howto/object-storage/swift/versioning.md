@@ -22,8 +22,8 @@ In addition to the container holding your live objects,
 versions. In this example, we use the name
 `private-container-versions` for that container:
 
-```console
-$ swift post private-container-versions
+```bash
+swift post private-container-versions
 ```
 This command produces no output.
 
@@ -32,8 +32,8 @@ This command produces no output.
 You must next set the `X-Versions-Location` header on the *original*
 container:
 
-```console
-$ swift post -H "X-Versions-Location: private-container-versions" private-container
+```bash
+swift post -H "X-Versions-Location: private-container-versions" private-container
 ```
 
 ## Testing object versioning
@@ -44,6 +44,7 @@ You can now verify that object versioning is working correctly.
    ```console
    $ echo "bye bye" > testobj.txt
    $ swift upload private-container testobj.txt
+
    ```
 2. Observe that there is now a newly created object in the
    `private-container-versions` container:

@@ -36,15 +36,15 @@ request being made:
 In order to generate encryption key and store it in Barbican, proceed
 as follows.
 
-1.  Generate secret:
+1. Generate secret:
 
         secret_raw=$(pwgen 32 1)
 
-2.  Store secret in Barbican:
+2. Store secret in Barbican:
 
         barbican_secret_url=$(openstack secret store --name objectSecret --algorithm aes --bit-length 256 --payload ${secret_raw} -f value -c 'Secret href')
 
-3.  Retrieve secret from Barbican:
+3. Retrieve secret from Barbican:
 
         secret=$(openstack secret get ${barbican_secret_url} -p -c Payload -f value)
 

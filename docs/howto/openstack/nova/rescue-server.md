@@ -24,55 +24,55 @@ first](../../getting-started/enable-openstack-cli.md).
     Navigate to the server list.
 
     ![The left hand side navigation panel, with the word "Servers"
-	highlighted.](assets/rescue-server/01-left-side-panel.png)
+    highlighted.](assets/rescue-server/01-left-side-panel.png)
 
     Find the server you want to rescue in the list, and on the
     right-hand side, click on its menu button.
 
     ![An orange circle with three white
-	dots.](assets/rescue-server/02-menu-button.png)
+    dots.](assets/rescue-server/02-menu-button.png)
 
     Click on _Rescue Server_.
 
     ![A list of server actions, with the line "Rescue Server"
-	highlighted.](assets/rescue-server/03-menu-list.png)
+    highlighted.](assets/rescue-server/03-menu-list.png)
 
     Once selected, the rescue dialog appears.
 
     Click _No_ to cancel or _Yes, Rescue_ to proceed.
 
     ![About to rescue a server, showing details about the Server name,
-	UUID and region with a question to confirm the rescue with "Yes,
-	Rescue" or cancel it with
-	"No".](assets/rescue-server/04-rescue-button.png)
+    UUID and region with a question to confirm the rescue with "Yes,
+    Rescue" or cancel it with
+    "No".](assets/rescue-server/04-rescue-button.png)
 
     When a server has been switched to rescue mode, its status icon
     appears with an exclamation mark:
 
     ![Exclamation mark on server icon showing the server on "rescue
-	mode".](assets/rescue-server/05-rescue-mode.png)
+    mode".](assets/rescue-server/05-rescue-mode.png)
 
 === "OpenStack CLI"
-	You must first select a system rescue image from the available
+    You must first select a system rescue image from the available
     images:
-	
-	```console
-	$ openstack image list --tag system-rescue
-	+--------------------------------------+---------------+--------+
-	| ID                                   | Name          | Status |
-	+--------------------------------------+---------------+--------+
-	| cb2217f3-1ca7-4440-b10e-df7ff2d92cae | system-rescue | active |
-	+--------------------------------------+---------------+--------+
-	```
-	
+
+    ```console
+    $ openstack image list --tag system-rescue
+    +--------------------------------------+---------------+--------+
+    | ID                                   | Name          | Status |
+    +--------------------------------------+---------------+--------+
+    | cb2217f3-1ca7-4440-b10e-df7ff2d92cae | system-rescue | active |
+    +--------------------------------------+---------------+--------+
+    ```
+
     To start the server using the system rescue image, use the
     following command, substituting the correct ID for the
     `system-rescue` image in your {{brand}} region:
 
     ```bash
     openstack --os-compute-api-version 2.87 \
-	  server rescue \
-	  --image cb2217f3-1ca7-4440-b10e-df7ff2d92cae <server_id>
+      server rescue \
+      --image cb2217f3-1ca7-4440-b10e-df7ff2d92cae <server_id>
     ```
 
     While the rescue is ongoing, the server should have the

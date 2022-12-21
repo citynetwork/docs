@@ -1,9 +1,6 @@
 ---
-description: >
-  You can set a bucket’s lifecycle configuration such that it
-  automatically deletes objects after a certain number of days.
+description: You can set a bucket’s lifecycle configuration such that it automatically deletes objects after a certain number of days.
 ---
-
 # Object expiry
 
 > Object expiry requires that you configure your environment with
@@ -38,7 +35,7 @@ the following commands:
     aws --profile <region> \
       --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api put-bucket-lifecycle-configuration \
-      --lifecycle-configuration file://lifecycle.json \ 
+      --lifecycle-configuration file://lifecycle.json \
       --bucket <bucket-name>
     ```
 === "mc"

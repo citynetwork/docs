@@ -22,7 +22,7 @@ openstack secret store \
 > will differ.
 
 
-```
+```console
 +---------------+--------------------------------------------------------------------------------+
 | Field         | Value                                                                          |
 +---------------+--------------------------------------------------------------------------------+
@@ -50,11 +50,8 @@ options, if desired.
 Secrets are stored in Barbican in an encrypted format. You can see
 a list of secrets created for your user with the following command:
 
-```bash
-openstack secret list
-```
-
-```
+```console
+$ openstack secret list
 +--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
 | Secret href                                                                    | Name     | Created                   | Status | Content types                           | Algorithm | Bit length | Secret type | Mode | Expiration |
 +--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
@@ -66,12 +63,9 @@ openstack secret list
 You can retrieve the decrypted secret with the `openstack secret get`
 command, adding the `-p` (or `--payload`) option:
 
-```bash
+```console
 $ openstack secret get -p \
   https://fra1.{{brand_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba
-```
-
-```
 +---------+---------------------------+
 | Field   | Value                     |
 +---------+---------------------------+

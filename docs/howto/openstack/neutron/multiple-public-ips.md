@@ -24,7 +24,7 @@ to map to it.
 
 Assume you already have a network port inside your private network:
 
-```
+```console
 $ openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
 +-----------+--------------------------------------------------------------------------+
 | Field     | Value                                                                    |
@@ -35,7 +35,7 @@ $ openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
 
 And you also have a floating IP associated with it:
 
-```
+```console
 $ openstack floating ip list -c ID -c "Floating IP Address" -c "Fixed IP Address" -c Port
 +--------------------------------------+---------------------+------------------+--------------------------------------+
 | ID                                   | Floating IP Address | Fixed IP Address | Port                                 |
@@ -47,13 +47,13 @@ $ openstack floating ip list -c ID -c "Floating IP Address" -c "Fixed IP Address
 
 Then what you need to do, is to add extra IP address to your existing port:
 
-```
-$ openstack port set --fixed-ip subnet=5efeae9f-06b8-41a5-987f-085e8c7113a6 51dae637-ad79-4ba9-9e41-78e5e0f3332c
+```bash
+openstack port set --fixed-ip subnet=5efeae9f-06b8-41a5-987f-085e8c7113a6 51dae637-ad79-4ba9-9e41-78e5e0f3332c
 ```
 
-You can then confirm that the port does have two entries in its `fixed_ips` list: 
+You can then confirm that the port does have two entries in its `fixed_ips` list:
 
-```
+```console
 $ openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
 +-----------+---------------------------------------------------------------------------+
 | Field     | Value                                                                     |
@@ -68,15 +68,17 @@ $ openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
 When you have an IP address on your port that is not yet assigned to any
 floating IP, you can assign it to the new floating IP. Proceed with:
 
-```
-$ openstack floating ip set c45a5eaf-2f3a-4679-89fe-266a5cbe840a --port 51dae637-ad79-4ba9-9e41-78e5e0f3332c --fixed-ip-address 10.2.0.228
+```bash
+openstack floating ip set c45a5eaf-2f3a-4679-89fe-266a5cbe840a \
+  --port 51dae637-ad79-4ba9-9e41-78e5e0f3332c \
+  --fixed-ip-address 10.2.0.228
 ```
 
 Then, list the floating (public) IP addresses, together with their
 fixed (private) counterparts:
 
 
-```
+```console
 $ openstack floating ip list -c ID -c "Floating IP Address" -c "Fixed IP Address" -c Port
 +--------------------------------------+---------------------+------------------+--------------------------------------+
 | ID                                   | Floating IP Address | Fixed IP Address | Port                                 |

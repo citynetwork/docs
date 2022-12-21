@@ -66,8 +66,8 @@ How exactly you do that depends on your preferred client:
       https://s3-<region>.{{brand_domain}}:8080 \
       <access-key> <secret-key>
     ```
-	Once you have configured an alias like this, you are able to
-	run bucket operations with `mc` using the `alias/bucket` syntax.
+    Once you have configured an alias like this, you are able to
+    run bucket operations with `mc` using the `alias/bucket` syntax.
 === "s3cmd"
     `s3cmd` does not support configuration profiles, so you need to use
     a separate configuration file for each {{brand}} region you

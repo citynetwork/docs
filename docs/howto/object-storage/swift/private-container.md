@@ -22,8 +22,8 @@ with proper Swift API credentials), use the following command:
     +---------------------------------------+-------------------+----------------------------------------------------+
     ```
 === "Swift CLI"
-    ```console
-    $ swift post private-container
+    ```bash
+    swift post private-container
     ```
     This command produces no output.
 
@@ -90,8 +90,8 @@ you can also use this command:
 
 To upload an object into the container, create a local test file:
 
-```console
-$ echo "hello world" > testobj.txt
+```bash
+echo "hello world" > testobj.txt
 ```
 
 Then, upload the file (as a Swift object) into your container, and

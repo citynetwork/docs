@@ -11,7 +11,7 @@ Select the new account type (that would be _Company_ or _Private_),
 carefully type in a valid email address, and choose your country.
 At your leisure, please read the [City Network General Terms And
 Conditions](https://s3-kna1.citycloud.com:8080/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/City_Network_General_Terms_And_Conditions_City_Cloud.pdf)
-and our 
+and our
 [Data Processing Agreement](https://s3-kna1.citycloud.com:8080/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/City_Network_CDPA.pdf).
 Agree to these documents (select _Yes_), check the _I'm not a robot_
 box, and then click on the _Create_ button.

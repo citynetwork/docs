@@ -21,7 +21,7 @@ In case your certificate provider has made your certificate chain and
 key available separately, using the PEM format, you can easily convert
 it to PKCS #12 using the following `openssl` command:
 
-```
+```bash
 openssl pkcs12 -export -inkey key.pem -in fullchain.pem -out bundle.p12
 ```
 
@@ -35,14 +35,12 @@ contents of the bundle, *pre-encoded with
 [Base64](https://en.wikipedia.org/wiki/Base64)*, as the secret’s
 payload.
 
-```bash
-openstack secret store \
+```console
+$ openstack secret store \
   --name='tls_secret1' \
   -t 'application/octet-stream' \
   -e 'base64' \
   --payload="$(base64 < server.p12)"
-```
-```
 +---------------+---------------------------------------------------------------------------------+
 | Field         | Value                                                                           |
 +---------------+---------------------------------------------------------------------------------+
@@ -73,15 +71,13 @@ properties:
 
 You create such a listener with the following command:
 
-```bash
-openstack loadbalancer listener create \
+```console
+$ openstack loadbalancer listener create \
   --protocol-port 443 \
   --protocol TERMINATED_HTTPS \
   --name listener1 \
   --default-tls-container-ref=https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  \
   <loadbalancer-name-or-id>
-```
-```
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Field                       | Value                                                                                                                                                                                                                                                                              |
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -136,8 +132,8 @@ with no user-noticeable interruption to your service.
    following command:
    ```bash
    openstack loadbalancer listener set \
-	 --default-tls-container-ref=https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25  \
-	 <listener-name-or-id>
+     --default-tls-container-ref=https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25  \
+     <listener-name-or-id>
    ```
 
 Once all your load balancer listeners have completed the update, you

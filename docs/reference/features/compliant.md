@@ -45,7 +45,7 @@
 | VPN (IPsec with PSK) | :material-check: | :material-check: |
 
 
-## Load Balancers 
+## Load Balancers
 
 |                                                                                                             | Sto1HS           | Sto2HS           |
 | --------------------------------------------------------------------                                        | ---------------- | ---------------- |

@@ -1,7 +1,5 @@
 ---
-description: >
-  Using Barbican secrets for block storage encryption, you can store
-  data in persistent storage volumes in an encrypted fashion.
+description: Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.
 ---
 # Encrypted volumes
 
@@ -17,10 +15,8 @@ For the creation of an encrypted volume, you need to provide a
 specific *volume type.* You can retrieve the list of available volume
 types with the following command:
 
-```bash
-openstack volume type list
-```
-```
+```console
+$ openstack volume type list
 +--------------------------------------+-----------------------+-----------+
 | ID                                   | Name                  | Is Public |
 +--------------------------------------+-----------------------+-----------+
@@ -38,13 +34,11 @@ To create a volume with encryption, you need to explicitly specify the
 following example creates a volume using the `volumes_hdd_encrypted`
 type, naming it `enc_drive` and setting its size to 10 GiB:
 
-```bash
-openstack volume create \
+```console
+$ openstack volume create \
   --type volumes_hdd_encrypted \
   --size 10 \
   enc_drive
-```
-```
 +---------------------+--------------------------------------+
 | Field               | Value                                |
 +---------------------+--------------------------------------+
