@@ -2,8 +2,8 @@
 # content.
 nav:
   - index.md
-#  - concepts
   - howto
 #  - tutorials
+  - background
   - reference
   - contrib
