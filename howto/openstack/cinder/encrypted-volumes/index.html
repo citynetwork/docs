@@ -5,8 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.
-" name="description"/>
+<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion." name="description"/>
 <link href="https://docs.cleura.cloud/howto/openstack/cinder/encrypted-volumes/" rel="canonical"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
@@ -22,8 +21,7 @@
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
 <meta content="Encrypted volumes - Docs (Beta)" property="og:title"/>
-<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.
-" property="og:description"/>
+<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion." property="og:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/encrypted-volumes.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
@@ -31,8 +29,7 @@
 <meta content="https://docs.cleura.cloud/howto/openstack/cinder/encrypted-volumes/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Encrypted volumes - Docs (Beta)" name="twitter:title"/>
-<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.
-" name="twitter:description"/>
+<meta content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion." name="twitter:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/encrypted-volumes.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -778,16 +775,15 @@ you attach the volume to.</p>
 <p>For the creation of an encrypted volume, you need to provide a
 specific <em>volume type.</em> You can retrieve the list of available volume
 types with the following command:</p>
-<p><div class="highlight"><pre><span></span><code>openstack volume <span class="nb">type</span> list
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack volume <span class="nb">type</span> list
+<span class="go">+--------------------------------------+-----------------------+-----------+</span>
+<span class="go">| ID                                   | Name                  | Is Public |</span>
+<span class="go">+--------------------------------------+-----------------------+-----------+</span>
+<span class="go">| a479a6b0-b283-41a5-b38b-5b08e7f902ca | volumes_hdd_encrypted | True      |</span>
+<span class="go">| d9dfa98a-238d-4ca0-9abf-701fceb05623 | __DEFAULT__           | True      |</span>
+<span class="go">| 86796611-fb12-4628-b6b1-e09469e301d7 | volumes_hdd           | True      |</span>
+<span class="go">+--------------------------------------+-----------------------+-----------+</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>+--------------------------------------+-----------------------+-----------+
-| ID                                   | Name                  | Is Public |
-+--------------------------------------+-----------------------+-----------+
-| a479a6b0-b283-41a5-b38b-5b08e7f902ca | volumes_hdd_encrypted | True      |
-| d9dfa98a-238d-4ca0-9abf-701fceb05623 | __DEFAULT__           | True      |
-| 86796611-fb12-4628-b6b1-e09469e301d7 | volumes_hdd           | True      |
-+--------------------------------------+-----------------------+-----------+
-</code></pre></div></p>
 <blockquote>
 <p>In Cleura Cloud, all volume types that support encryption use the
 suffix <code>_encrypted</code>.</p>
@@ -796,35 +792,34 @@ suffix <code>_encrypted</code>.</p>
 <code>--type</code> option to the <code>openstack volume create</code> command. The
 following example creates a volume using the <code>volumes_hdd_encrypted</code>
 type, naming it <code>enc_drive</code> and setting its size to 10 GiB:</p>
-<p><div class="highlight"><pre><span></span><code>openstack volume create <span class="se">\</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack volume create <span class="se">\</span>
   --type volumes_hdd_encrypted <span class="se">\</span>
   --size <span class="m">10</span> <span class="se">\</span>
   enc_drive
+<span class="go">+---------------------+--------------------------------------+</span>
+<span class="go">| Field               | Value                                |</span>
+<span class="go">+---------------------+--------------------------------------+</span>
+<span class="go">| attachments         | []                                   |</span>
+<span class="go">| availability_zone   | nova                                 |</span>
+<span class="go">| bootable            | false                                |</span>
+<span class="go">| consistencygroup_id | None                                 |</span>
+<span class="go">| created_at          | 2021-04-27T13:52:10.000000           |</span>
+<span class="go">| description         | None                                 |</span>
+<span class="go">| encrypted           | True                                 |</span>
+<span class="go">| id                  | 33211b21-8d4f-48e9-b76f-ec73ffd19def |</span>
+<span class="go">| multiattach         | False                                |</span>
+<span class="go">| name                | enc_drive                            |</span>
+<span class="go">| properties          |                                      |</span>
+<span class="go">| replication_status  | None                                 |</span>
+<span class="go">| size                | 10                                   |</span>
+<span class="go">| snapshot_id         | None                                 |</span>
+<span class="go">| source_volid        | None                                 |</span>
+<span class="go">| status              | creating                             |</span>
+<span class="go">| type                | volumes_hdd_encrypted                |</span>
+<span class="go">| updated_at          | None                                 |</span>
+<span class="go">| user_id             | 966ad341f4e14920b5f589f900246ccc     |</span>
+<span class="go">+---------------------+--------------------------------------+</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
-| Field               | Value                                |
-+---------------------+--------------------------------------+
-| attachments         | []                                   |
-| availability_zone   | nova                                 |
-| bootable            | false                                |
-| consistencygroup_id | None                                 |
-| created_at          | 2021-04-27T13:52:10.000000           |
-| description         | None                                 |
-| encrypted           | True                                 |
-| id                  | 33211b21-8d4f-48e9-b76f-ec73ffd19def |
-| multiattach         | False                                |
-| name                | enc_drive                            |
-| properties          |                                      |
-| replication_status  | None                                 |
-| size                | 10                                   |
-| snapshot_id         | None                                 |
-| source_volid        | None                                 |
-| status              | creating                             |
-| type                | volumes_hdd_encrypted                |
-| updated_at          | None                                 |
-| user_id             | 966ad341f4e14920b5f589f900246ccc     |
-+---------------------+--------------------------------------+
-</code></pre></div></p>
 <p>Upon volume creation, this will create a one-off encryption key, which
 is stored in Barbican and applies to this one volume only. In other
 words, the key created for this volume will be unable to decrypt any
@@ -899,7 +894,7 @@ read access to the volume’s encryption secret.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-20</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-03-08</span>

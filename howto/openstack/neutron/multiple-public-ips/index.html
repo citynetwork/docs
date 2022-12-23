@@ -754,50 +754,52 @@ address for your port, then associate a public (“floating”) IP address
 to map to it.</p>
 <h2 id="add-an-extra-ip-to-the-port">Add an extra IP to the port</h2>
 <p>Assume you already have a network port inside your private network:</p>
-<div class="highlight"><pre><span></span><code>$ openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
-+-----------+--------------------------------------------------------------------------+
-| Field     | Value                                                                    |
-+-----------+--------------------------------------------------------------------------+
-| fixed_ips | ip_address='10.2.0.58', subnet_id='5efeae9f-06b8-41a5-987f-085e8c7113a6' |
-+-----------+--------------------------------------------------------------------------+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
+<span class="go">+-----------+--------------------------------------------------------------------------+</span>
+<span class="go">| Field     | Value                                                                    |</span>
+<span class="go">+-----------+--------------------------------------------------------------------------+</span>
+<span class="go">| fixed_ips | ip_address='10.2.0.58', subnet_id='5efeae9f-06b8-41a5-987f-085e8c7113a6' |</span>
+<span class="go">+-----------+--------------------------------------------------------------------------+</span>
 </code></pre></div>
 <p>And you also have a floating IP associated with it:</p>
-<div class="highlight"><pre><span></span><code>$ openstack floating ip list -c ID -c "Floating IP Address" -c "Fixed IP Address" -c Port
-+--------------------------------------+---------------------+------------------+--------------------------------------+
-| ID                                   | Floating IP Address | Fixed IP Address | Port                                 |
-+--------------------------------------+---------------------+------------------+--------------------------------------+
-| 989f8a96-4ab4-4190-83e4-25b71d309ea9 | 192.0.2.169         | 10.2.0.58        | 51dae637-ad79-4ba9-9e41-78e5e0f3332c |
-| c45a5eaf-2f3a-4679-89fe-266a5cbe840a | 198.51.100.12       | None             | None                                 |
-+--------------------------------------+---------------------+------------------+--------------------------------------+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack floating ip list -c ID -c <span class="s2">"Floating IP Address"</span> -c <span class="s2">"Fixed IP Address"</span> -c Port
+<span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
+<span class="go">| ID                                   | Floating IP Address | Fixed IP Address | Port                                 |</span>
+<span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
+<span class="go">| 989f8a96-4ab4-4190-83e4-25b71d309ea9 | 192.0.2.169         | 10.2.0.58        | 51dae637-ad79-4ba9-9e41-78e5e0f3332c |</span>
+<span class="go">| c45a5eaf-2f3a-4679-89fe-266a5cbe840a | 198.51.100.12       | None             | None                                 |</span>
+<span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
 </code></pre></div>
 <p>Then what you need to do, is to add extra IP address to your existing port:</p>
-<div class="highlight"><pre><span></span><code>$ openstack port set --fixed-ip subnet=5efeae9f-06b8-41a5-987f-085e8c7113a6 51dae637-ad79-4ba9-9e41-78e5e0f3332c
+<div class="highlight"><pre><span></span><code>openstack port <span class="nb">set</span> --fixed-ip <span class="nv">subnet</span><span class="o">=</span>5efeae9f-06b8-41a5-987f-085e8c7113a6 51dae637-ad79-4ba9-9e41-78e5e0f3332c
 </code></pre></div>
-<p>You can then confirm that the port does have two entries in its <code>fixed_ips</code> list: </p>
-<div class="highlight"><pre><span></span><code>$ openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
-+-----------+---------------------------------------------------------------------------+
-| Field     | Value                                                                     |
-+-----------+---------------------------------------------------------------------------+
-| fixed_ips | ip_address='10.2.0.228', subnet_id='5efeae9f-06b8-41a5-987f-085e8c7113a6' |
-|           | ip_address='10.2.0.58', subnet_id='5efeae9f-06b8-41a5-987f-085e8c7113a6'  |
-+-----------+---------------------------------------------------------------------------+
+<p>You can then confirm that the port does have two entries in its <code>fixed_ips</code> list:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
+<span class="go">+-----------+---------------------------------------------------------------------------+</span>
+<span class="go">| Field     | Value                                                                     |</span>
+<span class="go">+-----------+---------------------------------------------------------------------------+</span>
+<span class="go">| fixed_ips | ip_address='10.2.0.228', subnet_id='5efeae9f-06b8-41a5-987f-085e8c7113a6' |</span>
+<span class="go">|           | ip_address='10.2.0.58', subnet_id='5efeae9f-06b8-41a5-987f-085e8c7113a6'  |</span>
+<span class="go">+-----------+---------------------------------------------------------------------------+</span>
 </code></pre></div>
 <blockquote>
 <p>Don’t forget to configure new IP as an alias to the interface inside your VM!</p>
 </blockquote>
 <p>When you have an IP address on your port that is not yet assigned to any
 floating IP, you can assign it to the new floating IP. Proceed with:</p>
-<div class="highlight"><pre><span></span><code>$ openstack floating ip set c45a5eaf-2f3a-4679-89fe-266a5cbe840a --port 51dae637-ad79-4ba9-9e41-78e5e0f3332c --fixed-ip-address 10.2.0.228
+<div class="highlight"><pre><span></span><code>openstack floating ip <span class="nb">set</span> c45a5eaf-2f3a-4679-89fe-266a5cbe840a <span class="se">\</span>
+  --port 51dae637-ad79-4ba9-9e41-78e5e0f3332c <span class="se">\</span>
+  --fixed-ip-address <span class="m">10</span>.2.0.228
 </code></pre></div>
 <p>Then, list the floating (public) IP addresses, together with their
 fixed (private) counterparts:</p>
-<div class="highlight"><pre><span></span><code>$ openstack floating ip list -c ID -c "Floating IP Address" -c "Fixed IP Address" -c Port
-+--------------------------------------+---------------------+------------------+--------------------------------------+
-| ID                                   | Floating IP Address | Fixed IP Address | Port                                 |
-+--------------------------------------+---------------------+------------------+--------------------------------------+
-| 989f8a96-4ab4-4190-83e4-25b71d309ea9 | 192.0.2.169         | 10.2.0.58        | 51dae637-ad79-4ba9-9e41-78e5e0f3332c |
-| c45a5eaf-2f3a-4679-89fe-266a5cbe840a | 198.51.100.12       | 10.2.0.228       | 51dae637-ad79-4ba9-9e41-78e5e0f3332c |
-+--------------------------------------+---------------------+------------------+--------------------------------------+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack floating ip list -c ID -c <span class="s2">"Floating IP Address"</span> -c <span class="s2">"Fixed IP Address"</span> -c Port
+<span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
+<span class="go">| ID                                   | Floating IP Address | Fixed IP Address | Port                                 |</span>
+<span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
+<span class="go">| 989f8a96-4ab4-4190-83e4-25b71d309ea9 | 192.0.2.169         | 10.2.0.58        | 51dae637-ad79-4ba9-9e41-78e5e0f3332c |</span>
+<span class="go">| c45a5eaf-2f3a-4679-89fe-266a5cbe840a | 198.51.100.12       | 10.2.0.228       | 51dae637-ad79-4ba9-9e41-78e5e0f3332c |</span>
+<span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
 </code></pre></div>
 <p>Now your server is accessible through two different public IP addresses.</p>
 <hr/>
@@ -805,7 +807,7 @@ fixed (private) counterparts:</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-07</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-07-07</span>

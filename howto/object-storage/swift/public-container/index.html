@@ -847,7 +847,7 @@ included in the container.</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift stat public-container 
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift stat public-container
 <span class="go">                      Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88</span>
 <span class="go">                    Container: public-container</span>
 <span class="go">                      Objects: 0</span>
@@ -871,7 +871,7 @@ included in the container.</p>
 </input></input></div>
 <h2 id="uploading-data">Uploading data</h2>
 <p>To upload an object into the container, create a local test file:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"hello world"</span> &gt; testobj.txt
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">"hello world"</span> &gt; testobj.txt
 </code></pre></div>
 <p>Then, upload the file (as a Swift object) into your container, and
 read back its metadata:</p>
@@ -980,15 +980,15 @@ it by parsing the CLI’s debug output:</p>
 </input></input></div>
 <p>Once you have retrieved your public URL, you can fetch the object’s
 contents using the client of your choice. This example uses <code>curl</code>:</p>
-<div class="highlight"><pre><span></span><code>$ curl https://swift-fra1.citycloud.com:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
-hello world
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl https://swift-fra1.citycloud.com:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+<span class="go">hello world</span>
 </code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-29</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-05</span>

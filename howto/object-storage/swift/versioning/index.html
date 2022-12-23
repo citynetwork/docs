@@ -783,13 +783,13 @@ named <code>testobj.txt</code>.</p>
 <code>private-container</code>, you will also need one for your prior
 versions. In this example, we use the name
 <code>private-container-versions</code> for that container:</p>
-<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift post private-container-versions
+<p><div class="highlight"><pre><span></span><code>swift post private-container-versions
 </code></pre></div>
 This command produces no output.</p>
 <h2 id="setting-x-versions-location">Setting <code>X-Versions-Location</code></h2>
 <p>You must next set the <code>X-Versions-Location</code> header on the <em>original</em>
 container:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift post -H <span class="s2">"X-Versions-Location: private-container-versions"</span> private-container
+<div class="highlight"><pre><span></span><code>swift post -H <span class="s2">"X-Versions-Location: private-container-versions"</span> private-container
 </code></pre></div>
 <h2 id="testing-object-versioning">Testing object versioning</h2>
 <p>You can now verify that object versioning is working correctly.</p>
@@ -825,7 +825,7 @@ deletion; it is not suitable for that purpose.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-05</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-05</span>
