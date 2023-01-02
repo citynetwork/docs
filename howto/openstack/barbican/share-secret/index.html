@@ -546,6 +546,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -721,22 +726,22 @@ desirable to make a secret available to another user.</p>
 <blockquote>
 <p>Any Cleura Cloud user can always retrieve their own user ID
 with the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack token issue -f value -c user_id
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>token<span class="w"> </span>issue<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span>-c<span class="w"> </span>user_id
 </code></pre></div>
 </blockquote>
 <p>Once you have assembled this information, you can proceed with the
 <code>openstack acl user add</code> command:</p>
-<div class="highlight"><pre><span></span><code>openstack acl user add <span class="se">\</span>
-  --user &lt;user_id&gt; <span class="se">\</span>
-  --operation-type <span class="nb">read</span> <span class="se">\</span>
-  https://region.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>acl<span class="w"> </span>user<span class="w"> </span>add<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--user<span class="w"> </span>&lt;user_id&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--operation-type<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://region.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
 </code></pre></div>
 <p>If you want to unshare the secret again, you simply use the
 corresponding <code>openstack acl user remove</code> command:</p>
-<div class="highlight"><pre><span></span><code>openstack acl user remove <span class="se">\</span>
-  --user &lt;user_id&gt; <span class="se">\</span>
-  --operation-type <span class="nb">read</span> <span class="se">\</span>
-  https://region.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>acl<span class="w"> </span>user<span class="w"> </span>remove<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--user<span class="w"> </span>&lt;user_id&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--operation-type<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://region.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
 </code></pre></div>
 <hr/>
 <div class="md-source-file">

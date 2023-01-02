@@ -573,6 +573,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -778,17 +783,17 @@ as a data source for
 <p>In the following example, replace the image, flavor, keypair, and
 network reference, as well as the server name, to match your desired
 configuration.</p>
-<div class="highlight"><pre><span></span><code>openstack server create <span class="se">\</span>
-  --use-config-drive <span class="se">\</span>
-  --image <span class="s2">"Ubuntu 20.04 Focal Fossa"</span> <span class="se">\</span>
-  --flavor b.1c2gb <span class="se">\</span>
-  --keypair mykey
-  --nic net-id<span class="o">=</span>3a747038-ee59-404c-973d-5f795e8ebb73 <span class="se">\</span>
-  myserver
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--use-config-drive<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--image<span class="w"> </span><span class="s2">"Ubuntu 20.04 Focal Fossa"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--flavor<span class="w"> </span>b.1c2gb<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--keypair<span class="w"> </span>mykey
+<span class="w">  </span>--nic<span class="w"> </span>net-id<span class="o">=</span>3a747038-ee59-404c-973d-5f795e8ebb73<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>myserver
 </code></pre></div>
 <p>Once the server launches, you can monitor its configuration process
 by monitoring the server console log:</p>
-<div class="highlight"><pre><span></span><code>openstack console log show myserver
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>console<span class="w"> </span>log<span class="w"> </span>show<span class="w"> </span>myserver
 </code></pre></div>
 <hr/>
 <div class="md-source-file">

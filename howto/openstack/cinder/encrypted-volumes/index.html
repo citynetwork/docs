@@ -579,6 +579,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -775,7 +780,7 @@ you attach the volume to.</p>
 <p>For the creation of an encrypted volume, you need to provide a
 specific <em>volume type.</em> You can retrieve the list of available volume
 types with the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack volume <span class="nb">type</span> list
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span><span class="nb">type</span><span class="w"> </span>list
 <span class="go">+--------------------------------------+-----------------------+-----------+</span>
 <span class="go">| ID                                   | Name                  | Is Public |</span>
 <span class="go">+--------------------------------------+-----------------------+-----------+</span>
@@ -792,10 +797,10 @@ suffix <code>_encrypted</code>.</p>
 <code>--type</code> option to the <code>openstack volume create</code> command. The
 following example creates a volume using the <code>volumes_hdd_encrypted</code>
 type, naming it <code>enc_drive</code> and setting its size to 10 GiB:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack volume create <span class="se">\</span>
-  --type volumes_hdd_encrypted <span class="se">\</span>
-  --size <span class="m">10</span> <span class="se">\</span>
-  enc_drive
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--type<span class="w"> </span>volumes_hdd_encrypted<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--size<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>enc_drive
 <span class="go">+---------------------+--------------------------------------+</span>
 <span class="go">| Field               | Value                                |</span>
 <span class="go">+---------------------+--------------------------------------+</span>
@@ -828,18 +833,18 @@ other volumes except the one it was created for.</p>
 <p>Once you have created an encrypted volume, you may retrieve a
 reference to the Barbican secret that represents its encryption
 key. You do this with the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack volume show <span class="se">\</span>
-  --os-volume-api-version <span class="m">3</span>.66 <span class="se">\</span>
-  -f value <span class="se">\</span>
-  -c encryption_key_id <span class="se">\</span>
-  enc_drive
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>volume<span class="w"> </span>show<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--os-volume-api-version<span class="w"> </span><span class="m">3</span>.66<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-f<span class="w"> </span>value<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>encryption_key_id<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>enc_drive
 </code></pre></div>
 <p>Instead of the volume name, you can of course also specify its UUID:</p>
-<div class="highlight"><pre><span></span><code>openstack volume show <span class="se">\</span>
-  --os-volume-api-version <span class="m">3</span>.66 <span class="se">\</span>
-  -f value <span class="se">\</span>
-  -c encryption_key_id <span class="se">\</span>
-  33211b21-8d4f-48e9-b76f-ec73ffd19def
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>volume<span class="w"> </span>show<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--os-volume-api-version<span class="w"> </span><span class="m">3</span>.66<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-f<span class="w"> </span>value<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>encryption_key_id<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>33211b21-8d4f-48e9-b76f-ec73ffd19def
 </code></pre></div>
 <h2 id="deleting-an-encrypted-volume">Deleting an encrypted volume</h2>
 <p>When you decide you no longer need an encrypted volume and want to

@@ -578,6 +578,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -782,7 +787,7 @@ downloading certificate credentials using the PKCS #12 format.</p>
 <p>In case your certificate provider has made your certificate chain and
 key available separately, using the PEM format, you can easily convert
 it to PKCS #12 using the following <code>openssl</code> command:</p>
-<div class="highlight"><pre><span></span><code>openssl pkcs12 -export -inkey key.pem -in fullchain.pem -out bundle.p12
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>pkcs12<span class="w"> </span>-export<span class="w"> </span>-inkey<span class="w"> </span>key.pem<span class="w"> </span>-in<span class="w"> </span>fullchain.pem<span class="w"> </span>-out<span class="w"> </span>bundle.p12
 </code></pre></div>
 <p>When prompted for an export password, use a blank one.</p>
 <h2 id="creating-barbican-secrets-from-pkcs-12-bundles">Creating Barbican secrets from PKCS #12 bundles</h2>
@@ -790,11 +795,11 @@ it to PKCS #12 using the following <code>openssl</code> command:</p>
 contents of the bundle, <em>pre-encoded with
 <a href="https://en.wikipedia.org/wiki/Base64">Base64</a></em>, as the secret’s
 payload.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack secret store <span class="se">\</span>
-  --name<span class="o">=</span><span class="s1">'tls_secret1'</span> <span class="se">\</span>
-  -t <span class="s1">'application/octet-stream'</span> <span class="se">\</span>
-  -e <span class="s1">'base64'</span> <span class="se">\</span>
-  --payload<span class="o">=</span><span class="s2">"</span><span class="k">$(</span>base64 &lt; server.p12<span class="k">)</span><span class="s2">"</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>secret<span class="w"> </span>store<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="o">=</span><span class="s1">'tls_secret1'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-t<span class="w"> </span><span class="s1">'application/octet-stream'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="s1">'base64'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--payload<span class="o">=</span><span class="s2">"</span><span class="k">$(</span>base64<span class="w"> </span>&lt;<span class="w"> </span>server.p12<span class="k">)</span><span class="s2">"</span>
 <span class="go">+---------------+---------------------------------------------------------------------------------+</span>
 <span class="go">| Field         | Value                                                                           |</span>
 <span class="go">+---------------+---------------------------------------------------------------------------------+</span>
@@ -821,12 +826,12 @@ properties:</p>
 <li>It listens on the standard HTTPS port, 443.</li>
 </ul>
 <p>You create such a listener with the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack loadbalancer listener create <span class="se">\</span>
-  --protocol-port <span class="m">443</span> <span class="se">\</span>
-  --protocol TERMINATED_HTTPS <span class="se">\</span>
-  --name listener1 <span class="se">\</span>
-  --default-tls-container-ref<span class="o">=</span>https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  <span class="se">\</span>
-  &lt;loadbalancer-name-or-id&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--protocol-port<span class="w"> </span><span class="m">443</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--protocol<span class="w"> </span>TERMINATED_HTTPS<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>listener1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--default-tls-container-ref<span class="o">=</span>https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae<span class="w">  </span><span class="se">\</span>
+<span class="w">  </span>&lt;loadbalancer-name-or-id&gt;
 <span class="go">+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
 <span class="go">| Field                       | Value                                                                                                                                                                                                                                                                              |</span>
 <span class="go">+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
@@ -871,20 +876,20 @@ with no user-noticeable interruption to your service.</p>
    secret</a> from the
    bundle.</li>
 <li>List the listener(s) associated with your load balancer:
-   <div class="highlight"><pre><span></span><code>openstack loadbalancer listener list <span class="se">\</span>
-  --loadbalancer &lt;loadbalancer-name-or-id&gt;
+   <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--loadbalancer<span class="w"> </span>&lt;loadbalancer-name-or-id&gt;
 </code></pre></div></li>
 <li>For all listeners using the <code>TERMINATED_HTTPS</code> protocol, run the
    following command:
-   <div class="highlight"><pre><span></span><code>openstack loadbalancer listener <span class="nb">set</span> <span class="se">\</span>
-  --default-tls-container-ref<span class="o">=</span>https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25  <span class="se">\</span>
-  &lt;listener-name-or-id&gt;
+   <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--default-tls-container-ref<span class="o">=</span>https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25<span class="w">  </span><span class="se">\</span>
+<span class="w">  </span>&lt;listener-name-or-id&gt;
 </code></pre></div></li>
 </ol>
 <p>Once all your load balancer listeners have completed the update, you
 may proceed to delete the old, now-unused secret:</p>
-<div class="highlight"><pre><span></span><code>openstack secret delete <span class="se">\</span>
-  https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>secret<span class="w"> </span>delete<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae
 </code></pre></div>
 <hr/>
 <div class="md-source-file">

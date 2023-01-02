@@ -588,6 +588,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -853,26 +858,26 @@ name should be this:</p>
 <div class="highlight"><pre><span></span><code>olafsdottir--fra1--katla--rc
 </code></pre></div>
 <p>Take a look at the contents of this file — they should be like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span>olafsdottir
-<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span>&lt;your password goes here&gt;
-<span class="nb">export</span> <span class="nv">OS_AUTH_URL</span><span class="o">=</span>https://fra1.citycloud.com:5000
-<span class="nb">export</span> <span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>...
-<span class="nb">export</span> <span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>...
-<span class="nb">export</span> <span class="nv">OS_REGION_NAME</span><span class="o">=</span>Fra1
-<span class="nb">export</span> <span class="nv">OS_PROJECT_NAME</span><span class="o">=</span><span class="s2">"katla"</span>
-<span class="nb">export</span> <span class="nv">OS_TENANT_NAME</span><span class="o">=</span><span class="s2">"katla"</span>
-<span class="nb">export</span> <span class="nv">OS_AUTH_VERSION</span><span class="o">=</span><span class="m">3</span>
-<span class="nb">export</span> <span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_USERNAME</span><span class="o">=</span>olafsdottir
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_PASSWORD</span><span class="o">=</span>&lt;your<span class="w"> </span>password<span class="w"> </span>goes<span class="w"> </span>here&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_URL</span><span class="o">=</span>https://fra1.citycloud.com:5000
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>...
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>...
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_REGION_NAME</span><span class="o">=</span>Fra1
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_PROJECT_NAME</span><span class="o">=</span><span class="s2">"katla"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_TENANT_NAME</span><span class="o">=</span><span class="s2">"katla"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
 </code></pre></div>
 <p>Before you source the RC file, and thus initialize all relevant environment
 variables, make sure to edit the file and put your OpenStack user
 password in place of <code>&lt;your password goes here&gt;</code>. Also, change the
 permissions of the file, so it is readable and writable by your local
 user only:</p>
-<div class="highlight"><pre><span></span><code>chmod <span class="m">600</span> olafsdottir--fra1--katla--rc
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>olafsdottir--fra1--katla--rc
 </code></pre></div>
 <p>Then, go ahead and source it:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> olafsdottir--fra1--katla--rc
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>olafsdottir--fra1--katla--rc
 </code></pre></div>
 <h2 id="installing-the-openstack-cli">Installing the OpenStack CLI</h2>
 <p>If you do not have the OpenStack CLI tool readily available, use your
@@ -881,15 +886,15 @@ examples follow.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">Mac OS X with Homebrew</label><label for="__tabbed_1_3">Python package</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>apt update <span class="o">&amp;&amp;</span> apt install python3-openstackclient
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-openstackclient
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>brew install openstackclient
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>openstackclient
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>pip install python-openstackclient
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>python-openstackclient
 </code></pre></div>
 </div>
 </div>
@@ -900,13 +905,13 @@ examples follow.</p>
 Cleura Cloud.</p>
 <p>To make sure your local installation of <code>openstack</code> works as expected,
 type:</p>
-<div class="highlight"><pre><span></span><code>openstack token issue
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>token<span class="w"> </span>issue
 </code></pre></div>
 <p>If <code>openstack</code> can indeed connect to the Cleura Cloud
 OpenStack APIs, then you will get information, in tabular format,
 regarding the issuance of a new token.</p>
 <p>To get general help regarding <code>openstack</code>, type:</p>
-<div class="highlight"><pre><span></span><code>openstack --help
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>--help
 </code></pre></div>
 <p>When you need help on a specific command, type something like
 <code>openstack help command</code>.</p>
@@ -916,7 +921,7 @@ tabular about by default. To ensure that this output always fits
 neatly into your terminal window, you may add the following line
 either to OpenStack RC file(s), or to your shell initialization file
 (like <code>.profile</code> or <code>.bashrc</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CLIFF_FIT_WIDTH</span><span class="o">=</span><span class="m">1</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CLIFF_FIT_WIDTH</span><span class="o">=</span><span class="m">1</span>
 </code></pre></div>
 <p>Then, be sure to either re-source the file you modified, and/or
 restart your shell.</p>

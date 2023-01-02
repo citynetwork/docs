@@ -563,6 +563,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -754,7 +759,7 @@ address for your port, then associate a public (“floating”) IP address
 to map to it.</p>
 <h2 id="add-an-extra-ip-to-the-port">Add an extra IP to the port</h2>
 <p>Assume you already have a network port inside your private network:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>port<span class="w"> </span>show<span class="w"> </span>51dae637-ad79-4ba9-9e41-78e5e0f3332c<span class="w"> </span>-c<span class="w"> </span>fixed_ips
 <span class="go">+-----------+--------------------------------------------------------------------------+</span>
 <span class="go">| Field     | Value                                                                    |</span>
 <span class="go">+-----------+--------------------------------------------------------------------------+</span>
@@ -762,7 +767,7 @@ to map to it.</p>
 <span class="go">+-----------+--------------------------------------------------------------------------+</span>
 </code></pre></div>
 <p>And you also have a floating IP associated with it:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack floating ip list -c ID -c <span class="s2">"Floating IP Address"</span> -c <span class="s2">"Fixed IP Address"</span> -c Port
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>ID<span class="w"> </span>-c<span class="w"> </span><span class="s2">"Floating IP Address"</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">"Fixed IP Address"</span><span class="w"> </span>-c<span class="w"> </span>Port
 <span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
 <span class="go">| ID                                   | Floating IP Address | Fixed IP Address | Port                                 |</span>
 <span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
@@ -771,10 +776,10 @@ to map to it.</p>
 <span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
 </code></pre></div>
 <p>Then what you need to do, is to add extra IP address to your existing port:</p>
-<div class="highlight"><pre><span></span><code>openstack port <span class="nb">set</span> --fixed-ip <span class="nv">subnet</span><span class="o">=</span>5efeae9f-06b8-41a5-987f-085e8c7113a6 51dae637-ad79-4ba9-9e41-78e5e0f3332c
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>port<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--fixed-ip<span class="w"> </span><span class="nv">subnet</span><span class="o">=</span>5efeae9f-06b8-41a5-987f-085e8c7113a6<span class="w"> </span>51dae637-ad79-4ba9-9e41-78e5e0f3332c
 </code></pre></div>
 <p>You can then confirm that the port does have two entries in its <code>fixed_ips</code> list:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>port<span class="w"> </span>show<span class="w"> </span>51dae637-ad79-4ba9-9e41-78e5e0f3332c<span class="w"> </span>-c<span class="w"> </span>fixed_ips
 <span class="go">+-----------+---------------------------------------------------------------------------+</span>
 <span class="go">| Field     | Value                                                                     |</span>
 <span class="go">+-----------+---------------------------------------------------------------------------+</span>
@@ -787,13 +792,13 @@ to map to it.</p>
 </blockquote>
 <p>When you have an IP address on your port that is not yet assigned to any
 floating IP, you can assign it to the new floating IP. Proceed with:</p>
-<div class="highlight"><pre><span></span><code>openstack floating ip <span class="nb">set</span> c45a5eaf-2f3a-4679-89fe-266a5cbe840a <span class="se">\</span>
-  --port 51dae637-ad79-4ba9-9e41-78e5e0f3332c <span class="se">\</span>
-  --fixed-ip-address <span class="m">10</span>.2.0.228
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span><span class="nb">set</span><span class="w"> </span>c45a5eaf-2f3a-4679-89fe-266a5cbe840a<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span>51dae637-ad79-4ba9-9e41-78e5e0f3332c<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--fixed-ip-address<span class="w"> </span><span class="m">10</span>.2.0.228
 </code></pre></div>
 <p>Then, list the floating (public) IP addresses, together with their
 fixed (private) counterparts:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack floating ip list -c ID -c <span class="s2">"Floating IP Address"</span> -c <span class="s2">"Fixed IP Address"</span> -c Port
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>ID<span class="w"> </span>-c<span class="w"> </span><span class="s2">"Floating IP Address"</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">"Fixed IP Address"</span><span class="w"> </span>-c<span class="w"> </span>Port
 <span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
 <span class="go">| ID                                   | Floating IP Address | Fixed IP Address | Port                                 |</span>
 <span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>

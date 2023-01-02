@@ -545,6 +545,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../howto/account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../howto/account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -799,7 +804,7 @@ screen dump from the <code>openstack</code> command-line client, please limit it
 width to 100 characters. You can do this by setting the following
 environment variable in your terminal, before you start work on your
 change.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CLIFF_MAX_TERM_WIDTH</span><span class="o">=</span><span class="m">100</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CLIFF_MAX_TERM_WIDTH</span><span class="o">=</span><span class="m">100</span>
 </code></pre></div>
 <h2 id="modifying-content-from-your-browser">Modifying content from your browser</h2>
 <p>Every page on this site has an Edit button 🖍️. If you click it, it’ll
@@ -824,22 +829,22 @@ interface, or the <code>gh</code> command-line interface (CLI).</p>
 When you create your new fork, it’s fine to leave the
 <em>Copy the <code>main</code> branch only</em> option enabled.</p>
 <p>Then, proceed to create a new local checkout of your fork:
-<div class="highlight"><pre><span></span><code>git clone git@github.com:&lt;yourusername&gt;/&lt;your-repo-fork&gt; cleura cloud-docs
-<span class="nb">cd</span> cleura cloud-docs
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;yourusername&gt;/&lt;your-repo-fork&gt;<span class="w"> </span>cleura<span class="w"> </span>cloud-docs
+<span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>gh repo fork --clone https://github.com/citynetwork/docs -- cleura cloud-docs
-<span class="nb">cd</span> cleura cloud-docs
+<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>repo<span class="w"> </span>fork<span class="w"> </span>--clone<span class="w"> </span>https://github.com/citynetwork/docs<span class="w"> </span>--<span class="w"> </span>cleura<span class="w"> </span>cloud-docs
+<span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
 </code></pre></div>
 </div>
 </div>
 </input></input></div>
 <p>Next, create a local topic branch and make your modifications:</p>
-<div class="highlight"><pre><span></span><code>git checkout -b &lt;your-topic-branch-name&gt;
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;your-topic-branch-name&gt;
 <span class="c1"># edit your files</span>
-git add &lt;files-to-add&gt;
-git commit
+git<span class="w"> </span>add<span class="w"> </span>&lt;files-to-add&gt;
+git<span class="w"> </span>commit
 </code></pre></div>
 <p>Please see our <a href="../quality">notes on commit messages</a>.</p>
 <p>Finally, create a pull request (PR) from your changes:</p>
@@ -848,13 +853,13 @@ git commit
 <div class="tabbed-block">
 <p>Run the following <code>git</code> command (assuming <code>origin</code> is the
 remote that points to your fork):
-<div class="highlight"><pre><span></span><code>git push origin &lt;your-topic-branch-name&gt;
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;your-topic-branch-name&gt;
 </code></pre></div>
 Then, open your browser to the URL suggested by the <code>git push</code>
 command, and proceed to create a pull request.</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>gh pr create --fill
+<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--fill
 </code></pre></div>
 </div>
 </div>
@@ -863,9 +868,9 @@ command, and proceed to create a pull request.</p>
 <p>To see your changes as you work on them, you can use
 <a href="https://tox.wiki/en/latest/">tox</a>. Having created a topic branch with
 your modifications, run:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cleura cloud-docs
-git checkout &lt;your-topic-branch-name&gt;
-tox -e serve
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
+git<span class="w"> </span>checkout<span class="w"> </span>&lt;your-topic-branch-name&gt;
+tox<span class="w"> </span>-e<span class="w"> </span>serve
 </code></pre></div>
 <p>A local copy of the documentation will then run on your local machine
 and be accessible from <a href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
@@ -873,9 +878,9 @@ and be accessible from <a href="http://localhost:8000">http://localhost:8000</a>
 may want to speed up rendering the site after each change. You may do
 so by disabling a plugin that checks all links (including external
 links) for accessibility:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cleura cloud-docs
-<span class="nb">export</span> <span class="nv">DOCS_ENABLE_HTMLPROOFER</span><span class="o">=</span><span class="nb">false</span>
-tox -e serve
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
+<span class="nb">export</span><span class="w"> </span><span class="nv">DOCS_ENABLE_HTMLPROOFER</span><span class="o">=</span><span class="nb">false</span>
+tox<span class="w"> </span>-e<span class="w"> </span>serve
 </code></pre></div>
 <h2 id="commit-messages">Commit messages</h2>
 <p>When you submit a change, you will need to provide a commit message,

@@ -578,6 +578,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -799,7 +804,7 @@ network.</p>
 </div>
 <div class="tabbed-block">
 <p>Start by creating a new network, named <code>nordostbahnhof</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack network create nordostbahnhof
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>nordostbahnhof
 </code></pre></div>
 <p>By issuing the command above, you immediately get information
 regarding the new network:</p>
@@ -868,8 +873,8 @@ the new network will be readily available.</p>
 <div class="tabbed-block">
 <p>You now have to create a subnet for the new network. Let us call
 this subnet <code>nordostbahnhof-subnet</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack subnet create nordostbahnhof-subnet <span class="se">\</span>
-    --network nordostbahnhof --subnet-range <span class="m">10</span>.20.30.0/24
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>create<span class="w"> </span>nordostbahnhof-subnet<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--network<span class="w"> </span>nordostbahnhof<span class="w"> </span>--subnet-range<span class="w"> </span><span class="m">10</span>.20.30.0/24
 </code></pre></div>
 <p>Again, you get detailed information regarding the new subnet:</p>
 <div class="highlight"><pre><span></span><code>+----------------------+--------------------------------------+
@@ -903,7 +908,7 @@ this subnet <code>nordostbahnhof-subnet</code>:</p>
 Internet access, you need a router in front of the network. Following
 our unofficial naming convention, go ahead and create a new router
 called <code>nordostbahnhof-router</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack router create nordostbahnhof-router 
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>create<span class="w"> </span>nordostbahnhof-router<span class="w"> </span>
 </code></pre></div>
 <p>As expected, you will see lots of information regarding the new router:</p>
 <div class="highlight"><pre><span></span><code>+-------------------------+--------------------------------------+
@@ -931,13 +936,13 @@ called <code>nordostbahnhof-router</code>:</p>
 </code></pre></div>
 <p>You want the <code>nordostbahnhof-router</code> connected to the external
 network. The name of this network is <code>ext-net</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack router <span class="nb">set</span> nordostbahnhof-router --external-gateway ext-net
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span><span class="nb">set</span><span class="w"> </span>nordostbahnhof-router<span class="w"> </span>--external-gateway<span class="w"> </span>ext-net
 </code></pre></div>
 <p>Please note that if the command above is successful, you will get
 no output on your terminal. There is one last step to take, and
 that is to connect router <code>nordostbahnhof-router</code> to the subnet
 <code>nordostbahnhof-subnet</code> of network <code>nordostbahnhof</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack router add subnet nordostbahnhof-router nordostbahnhof-subnet
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>add<span class="w"> </span>subnet<span class="w"> </span>nordostbahnhof-router<span class="w"> </span>nordostbahnhof-subnet
 </code></pre></div>
 <p>Again, if the command above is successful, you will get no output.</p>
 </div>
@@ -963,14 +968,14 @@ selected network’s ports, subnets, and routers.</p>
 </div>
 <div class="tabbed-block">
 <p>To list all available networks in a specific region, just type:</p>
-<div class="highlight"><pre><span></span><code>openstack network list
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list
 </code></pre></div>
 <p>You can always ask for more specific results. For instance, to see
 all internal networks only, type the following:</p>
-<div class="highlight"><pre><span></span><code>openstack network list --internal
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <p>You can also get detailed information about a specific network:</p>
-<div class="highlight"><pre><span></span><code>openstack network show nordostbahnhof
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>show<span class="w"> </span>nordostbahnhof
 </code></pre></div>
 <p>At any time, type <code>openstack network list --help</code> or
 <code>openstack network show --help</code> to see how to get information

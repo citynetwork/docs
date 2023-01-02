@@ -578,6 +578,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -809,7 +814,7 @@ parenthesis.' src="../assets/resize-server/04-modify-server.png"/></a></p>
 <p>To list all available flavors you can simply run <code>openstack flavor
 list</code>, but that will return a very long unsorted list, instead we
 recommend the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack flavor list -c Name -f value <span class="p">|</span> grep <span class="s1">'[0-9]c[0-9]'</span> <span class="p">|</span> sort -V
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>flavor<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'[0-9]c[0-9]'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-V
 </code></pre></div>
 <p>The printout is a simple and clean list, sorted by the compute
 type, the number of cores and then by the amount of memory.</p>
@@ -849,12 +854,12 @@ progress...".' src="../assets/resize-server/06-resize-in-progress.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To start the resize use the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack server resize --flavor &lt;new_flavor&gt; &lt;server_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>resize<span class="w"> </span>--flavor<span class="w"> </span>&lt;new_flavor&gt;<span class="w"> </span>&lt;server_id&gt;
 </code></pre></div>
 <p>While the resize is ongoing the server should have the
 <code>OS-EXT-STS:task_state</code> of <code>resize_migrating</code> and the <code>status</code> of
 <code>RESIZE</code>.</p>
-<div class="highlight"><pre><span></span><code>openstack server show -c OS-EXT-STS:task_state -c OS-EXT-STS:vm_state -c status &lt;server_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>OS-EXT-STS:task_state<span class="w"> </span>-c<span class="w"> </span>OS-EXT-STS:vm_state<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>&lt;server_id&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+-----------------------+------------------+
 | Field                 | Value            |
@@ -902,11 +907,11 @@ the resize, instead click <em>Cancel</em>.</p>
 </div>
 <div class="tabbed-block">
 <p>This is done by using the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack server resize confirm &lt;server_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>resize<span class="w"> </span>confirm<span class="w"> </span>&lt;server_id&gt;
 </code></pre></div>
 <p>Alternatively, if your server is not working as intended, revert
 the resize with the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack server resize revert &lt;server_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>resize<span class="w"> </span>revert<span class="w"> </span>&lt;server_id&gt;
 </code></pre></div>
 </div>
 </div>

@@ -603,6 +603,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -839,7 +844,7 @@ file first</a>.</p>
 make sure that you are using the correct server.</p>
 <p>Find the ID of your server by matching the name, using the following
 command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack server list --name <span class="s1">'name'</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>list<span class="w"> </span>--name<span class="w"> </span><span class="s1">'name'</span>
 <span class="go">+-----------------+-----------------+---------+-----------------+--------------------+-------------+</span>
 <span class="go">| ID              | Name            | Status  | Networks        | Image              | Flavor      |</span>
 <span class="go">+-----------------+-----------------+---------+-----------------+--------------------+-------------+</span>
@@ -855,7 +860,7 @@ command:</p>
 volume. To verify this, make sure your server’s <code>Image</code> value is <code>N/A
 (booted from volume)</code>.</p>
 <p>To get the ID of your server’s boot volume, use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack server show -c volumes_attached &lt;server_id&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>volumes_attached<span class="w"> </span>&lt;server_id&gt;
 <span class="go">+------------------+-------------------------------------------+</span>
 <span class="go">| Field            | Value                                     |</span>
 <span class="go">+------------------+-------------------------------------------+</span>
@@ -877,11 +882,11 @@ operations.</p>
 <p>While this step is not strictly required, it is recommended to first
 power off your server.</p>
 <p>Stop the running server with the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack server stop &lt;server_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>stop<span class="w"> </span>&lt;server_id&gt;
 </code></pre></div>
 <h2 id="creating-a-copy-of-a-volume">Creating a copy of a volume</h2>
 <p>Begin by making a copy of the volume, using the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack volume create --source &lt;source_volume_id&gt; &lt;copy_volume_name&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>--source<span class="w"> </span>&lt;source_volume_id&gt;<span class="w"> </span>&lt;copy_volume_name&gt;
 </code></pre></div>
 <p>You will get a printout showing you information about the created
 volume, such as <code>source_volid</code> which is the ID of volume you just
@@ -914,7 +919,7 @@ step to create an image.</p>
 <h2 id="creating-an-image-of-a-volume">Creating an image of a volume</h2>
 <p>Then create an image of the copied volume, by using the following
 command:</p>
-<div class="highlight"><pre><span></span><code>openstack image create --volume &lt;copy_volume_id&gt; &lt;new_image_name&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>create<span class="w"> </span>--volume<span class="w"> </span>&lt;copy_volume_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
 </code></pre></div>
 <blockquote>
 <p>Substitute <code>&lt;copy_volume_id&gt;</code> with the ID from the newly created volume in the previous step.</p>
@@ -943,7 +948,7 @@ ID <code>image_id</code>, you need these two values in an upcoming step.</p>
 and while it is, the image <code>status</code> will be <code>uploading</code>. Before you
 continue to the next step, make sure the image <code>status</code> is <code>active</code>,
 otherwise wait a bit and then check again with:</p>
-<div class="highlight"><pre><span></span><code>openstack image show -c status &lt;image_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>&lt;image_id&gt;
 </code></pre></div>
 <p>The printout should look like this before you continue.</p>
 <div class="highlight"><pre><span></span><code>+--------+--------+
@@ -959,7 +964,7 @@ command: <code>openstack volume delete &lt;copy_volume_id&gt;</code></p>
 <h2 id="downloading-an-image">Downloading an image</h2>
 <p>Download the image to your local computer, using the following
 command:</p>
-<div class="highlight"><pre><span></span><code>openstack image save --file &lt;local_image_name&gt;.&lt;disk_format&gt; &lt;image_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>save<span class="w"> </span>--file<span class="w"> </span>&lt;local_image_name&gt;.&lt;disk_format&gt;<span class="w"> </span>&lt;image_id&gt;
 </code></pre></div>
 <blockquote>
 <p>Substitute <code>&lt;disk_format&gt;</code> with the value from the printout in the
@@ -969,14 +974,14 @@ previous step.</p>
 </blockquote>
 <p>When you have downloaded the file, verify that the checksum of the
 file is the same as the <code>checksum</code> value of the image.</p>
-<div class="highlight"><pre><span></span><code>md5 &lt;local_image_name&gt;.&lt;disk_format&gt;
+<div class="highlight"><pre><span></span><code>md5<span class="w"> </span>&lt;local_image_name&gt;.&lt;disk_format&gt;
 </code></pre></div>
 <p>This will output the checksum of your local file.</p>
 <div class="highlight"><pre><span></span><code>MD5 (&lt;local_image_name&gt;.&lt;disk_format&gt;) = 4b086035a943cc1676583c0cc78f0896
 </code></pre></div>
 <p>Show the checksum of the image in the cloud, using the following
 command:</p>
-<div class="highlight"><pre><span></span><code>openstack image show -c checksum &lt;image_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>checksum<span class="w"> </span>&lt;image_id&gt;
 </code></pre></div>
 <p>These two checksums should be the same.</p>
 <div class="highlight"><pre><span></span><code>+----------+----------------------------------+
@@ -990,16 +995,16 @@ steps will be done on the target region.</p>
 <blockquote>
 <p>It is now safe to remove the image you created earlier, using the
 command:
-<div class="highlight"><pre><span></span><code>openstack image delete &lt;image_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>delete<span class="w"> </span>&lt;image_id&gt;
 </code></pre></div></p>
 </blockquote>
 <h2 id="uploading-an-image">Uploading an image</h2>
 <p>Source the RC-file for the region you want to upload to.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> &lt;target_region_openrc&gt;
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>&lt;target_region_openrc&gt;
 </code></pre></div>
 <p>Upload the image to the new region. Set the correct disk format, input
 the path to the image file and select a name for the new image.</p>
-<div class="highlight"><pre><span></span><code>openstack image create --disk-format &lt;disk_format&gt; --file &lt;local_image_name&gt;.&lt;disk_format&gt; &lt;new_image_name&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>create<span class="w"> </span>--disk-format<span class="w"> </span>&lt;disk_format&gt;<span class="w"> </span>--file<span class="w"> </span>&lt;local_image_name&gt;.&lt;disk_format&gt;<span class="w"> </span>&lt;new_image_name&gt;
 </code></pre></div>
 <p>The upload will take some time, depending on your internet upload
 speed and the size of the image. When the upload is finished you get a
@@ -1030,7 +1035,7 @@ printout displaying information about your image.</p>
 <p>But your image is not yet ready to use, Cleura Cloud still needs to
 process the file, which shouldn’t take long. To check the status of
 the image, use the ID of the new image with the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack image show &lt;new_image_id&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>&lt;new_image_id&gt;
 <span class="go">+------------------+-------------------------------------------------------------------------------+</span>
 <span class="go">| Field            | Value                                                                         |</span>
 <span class="go">+------------------+-------------------------------------------------------------------------------+</span>
@@ -1059,7 +1064,7 @@ the image, use the ID of the new image with the following command:</p>
 is done.</p>
 <p>Verify that the checksum of the new image is the same as your local
 file:</p>
-<div class="highlight"><pre><span></span><code>openstack image show -c checksum &lt;new_image_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>checksum<span class="w"> </span>&lt;new_image_id&gt;
 </code></pre></div>
 <blockquote>
 <p>It is now safe to remove the image file from your local computer.</p>
@@ -1067,7 +1072,7 @@ file:</p>
 <h2 id="creating-a-volume-from-an-image">Creating a volume from an image</h2>
 <p>First you must choose the image you want to create a volume from.</p>
 <p>List all your private images with the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack image list --private
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>--private
 <span class="go">+--------------------------------------+--------------------------+--------+</span>
 <span class="go">| ID                                   | Name                     | Status |</span>
 <span class="go">+--------------------------------------+--------------------------+--------+</span>
@@ -1075,7 +1080,7 @@ file:</p>
 <span class="go">+--------------------------------------+--------------------------+--------+</span>
 </code></pre></div>
 <p>Then create the volume using the ID of the image in this command:</p>
-<div class="highlight"><pre><span></span><code>openstack volume create --size &lt;GB&gt; --image &lt;new_image_id&gt; &lt;new_volume_name&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>--size<span class="w"> </span>&lt;GB&gt;<span class="w"> </span>--image<span class="w"> </span>&lt;new_image_id&gt;<span class="w"> </span>&lt;new_volume_name&gt;
 </code></pre></div>
 <blockquote>
 <p>Substitute <code>&lt;GB&gt;</code> with the size in gigabytes you wish the volume to

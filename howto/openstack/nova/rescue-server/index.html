@@ -573,6 +573,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -797,7 +802,7 @@ mode".' src="../assets/rescue-server/05-rescue-mode.png"/></a></p>
 <div class="tabbed-block">
 <p>You must first select a system rescue image from the available
 images:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack image list --tag system-rescue
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>--tag<span class="w"> </span>system-rescue
 <span class="go">+--------------------------------------+---------------+--------+</span>
 <span class="go">| ID                                   | Name          | Status |</span>
 <span class="go">+--------------------------------------+---------------+--------+</span>
@@ -807,14 +812,14 @@ images:</p>
 <p>To start the server using the system rescue image, use the
 following command, substituting the correct ID for the
 <code>system-rescue</code> image in your Cleura Cloud region:</p>
-<div class="highlight"><pre><span></span><code>openstack --os-compute-api-version <span class="m">2</span>.87 <span class="se">\</span>
-  server rescue <span class="se">\</span>
-  --image cb2217f3-1ca7-4440-b10e-df7ff2d92cae &lt;server_id&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>--os-compute-api-version<span class="w"> </span><span class="m">2</span>.87<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>server<span class="w"> </span>rescue<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--image<span class="w"> </span>cb2217f3-1ca7-4440-b10e-df7ff2d92cae<span class="w"> </span>&lt;server_id&gt;
 </code></pre></div>
 <p>While the rescue is ongoing, the server should have the
 <code>OS-EXT-STS:vm_state</code> of <code>rescued</code> and the <code>status</code> of
 <code>RESCUE</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack server show -v OS-EXT-STS:vm_state -c status &lt;server_id&gt;
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-v<span class="w"> </span>OS-EXT-STS:vm_state<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>&lt;server_id&gt;
 <span class="go">+---------------------+---------+</span>
 <span class="go">| Field               | Value   |</span>
 <span class="go">+---------------------+---------+</span>

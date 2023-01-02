@@ -578,6 +578,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -860,15 +865,15 @@ available in a few seconds.</p>
 <div class="tabbed-block">
 <p>An <code>openstack</code> command for creating a server may look like
 this:</p>
-<div class="highlight"><pre><span></span><code>openstack server create <span class="se">\</span>
-    --flavor <span class="nv">$FLAVOR_NAME</span> <span class="se">\</span>
-    --image <span class="nv">$IMAGE_NAME</span> <span class="se">\</span>
-    --boot-from-volume <span class="nv">$VOL_SIZE</span> <span class="se">\</span>
-    --network <span class="nv">$NETWORK_NAME</span> <span class="se">\</span>
-    --security-group <span class="nv">$SEC_GROUP_NAME</span> <span class="se">\</span>
-    --key-name <span class="nv">$KEY_NAME</span> <span class="se">\</span>
-    --wait <span class="se">\</span>
-    <span class="nv">$SERVER_NAME</span>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--flavor<span class="w"> </span><span class="nv">$FLAVOR_NAME</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image<span class="w"> </span><span class="nv">$IMAGE_NAME</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--boot-from-volume<span class="w"> </span><span class="nv">$VOL_SIZE</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--network<span class="w"> </span><span class="nv">$NETWORK_NAME</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--security-group<span class="w"> </span><span class="nv">$SEC_GROUP_NAME</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--key-name<span class="w"> </span><span class="nv">$KEY_NAME</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">$SERVER_NAME</span>
 </code></pre></div>
 <p>Each variable represents a piece of information we have to look
 for or, in the cases of <code>KEY_NAME</code> and <code>SERVER_NAME</code>, arbitrarily
@@ -876,7 +881,7 @@ define.</p>
 <p>Let us begin with the <a href="/reference/flavors"><em>flavors</em></a> (<code>FLAVOR_NAME</code>), which
 describe combinations of CPU core count and memory size. Each server has a
 distinct flavor, and to see all available flavors type:</p>
-<div class="highlight"><pre><span></span><code>openstack flavor list
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>flavor<span class="w"> </span>list
 </code></pre></div>
 <p>You will get a pretty long list of flavors. For our demonstration,
 we suggest you go with <code>b.1c1gb</code>. A server with this particular flavor will
@@ -887,11 +892,11 @@ RAM. Go ahead and set <code>FLAVOR_NAME</code> accordingly:</p>
 </code></pre></div>
 <p>Your server should have an image to boot off of (<code>IMAGE_NAME</code>).
 For a list of all available images in Cleura Cloud, type:</p>
-<div class="highlight"><pre><span></span><code>openstack image list
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list
 </code></pre></div>
 <p>This time you get a shorter list, but you can still filter for
 images with the OS you prefer. For example, filter for Ubuntu:</p>
-<div class="highlight"><pre><span></span><code>openstack image list --tag <span class="s2">"os:ubuntu"</span>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>--tag<span class="w"> </span><span class="s2">"os:ubuntu"</span>
 </code></pre></div>
 <p>Continue with the <code>Ubuntu 22.04 Jammy Jellyfish 20220810</code> image:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">IMAGE_NAME</span><span class="o">=</span><span class="s2">"Ubuntu 22.04 Jammy Jellyfish 20220810"</span>
@@ -903,7 +908,7 @@ boot volume (<code>VOL_SIZE</code>). We suggest you start with 20 gibibytes:</p>
 <p>You need at least one network in the region you’re about to
 create your new server (<code>NETWORK_NAME</code>). To get the names of all
 available (internal) networks, type:</p>
-<div class="highlight"><pre><span></span><code>openstack network list --internal -c Name
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal<span class="w"> </span>-c<span class="w"> </span>Name
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+----------------+
 | Name           |
@@ -916,7 +921,7 @@ available (internal) networks, type:</p>
 </code></pre></div>
 <p>Regarding the security group (<code>SEC_GROUP_NAME</code>), unless you
 have already created one yourself, you will find only one per region:</p>
-<div class="highlight"><pre><span></span><code>openstack security group list -c Name -c Description
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-c<span class="w"> </span>Description
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------+------------------------+
 | Name    | Description            |
@@ -930,7 +935,7 @@ have already created one yourself, you will find only one per region:</p>
 <p>You most likely want a server you can remotely connect to via
 SSH without typing a password. Upload one of our public keys to your
 Cleura Cloud account:</p>
-<div class="highlight"><pre><span></span><code>openstack keypair create --public-key ~/.ssh/id_ed25519.pub bahnhof
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>create<span class="w"> </span>--public-key<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>bahnhof
 </code></pre></div>
 <p>In the example above, we uploaded the public key
 <code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named
@@ -939,25 +944,25 @@ it <code>bahnhof</code>. Follow our example and do not forget to set the
 <div class="highlight"><pre><span></span><code><span class="nv">KEY_NAME</span><span class="o">=</span><span class="s2">"bahnhof"</span>
 </code></pre></div>
 <p>By the way, check all uploaded public keys…</p>
-<div class="highlight"><pre><span></span><code>openstack keypair list
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>list
 </code></pre></div>
 <p>…and get more information regarding the one you just uploaded:</p>
-<div class="highlight"><pre><span></span><code>openstack keypair show bahnhof
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>show<span class="w"> </span>bahnhof
 </code></pre></div>
 <p>You are almost ready to create your new server. Decide on a
 name…</p>
-<div class="highlight"><pre><span></span><code><span class="nv">SERVER_NAME</span><span class="o">=</span><span class="s2">"zug"</span> <span class="c1"># just an example</span>
+<div class="highlight"><pre><span></span><code><span class="nv">SERVER_NAME</span><span class="o">=</span><span class="s2">"zug"</span><span class="w"> </span><span class="c1"># just an example</span>
 </code></pre></div>
 <p>…and then go ahead and create it:</p>
-<div class="highlight"><pre><span></span><code>openstack server create <span class="se">\</span>
-    --flavor b.1c1gb <span class="se">\</span>
-    --image <span class="nv">$IMAGE_NAME</span> <span class="se">\</span>
-    --boot-from-volume <span class="m">20</span> <span class="se">\</span>
-    --network nordostbahnhof <span class="se">\</span>
-    --security-group default <span class="se">\</span>
-    --key-name bahnhof <span class="se">\</span>
-    --wait <span class="se">\</span>
-    zug
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--flavor<span class="w"> </span>b.1c1gb<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image<span class="w"> </span><span class="nv">$IMAGE_NAME</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--boot-from-volume<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--network<span class="w"> </span>nordostbahnhof<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--security-group<span class="w"> </span>default<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--key-name<span class="w"> </span>bahnhof<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>zug
 </code></pre></div>
 <p>(For clarity’s sake, and with the exception of <code>IMAGE_NAME</code>, we
 used the actual values and not the variables we so meticulously set.)
@@ -967,18 +972,18 @@ readily available in Cleura Cloud.</p>
 <p>To connect to your server remotely, you need to create a floating IP
 for the external network in the Cleura Cloud, and then assign
 this IP to your server. First, create the floating IP:</p>
-<div class="highlight"><pre><span></span><code>openstack floating ip create ext-net
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>create<span class="w"> </span>ext-net
 </code></pre></div>
 <p>See all floating IPs…</p>
-<div class="highlight"><pre><span></span><code>openstack floating ip list
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>list
 </code></pre></div>
 <p>…and assign the one you just created to your server:</p>
-<div class="highlight"><pre><span></span><code>openstack server add floating ip zug <span class="m">198</span>.51.100.12
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>zug<span class="w"> </span><span class="m">198</span>.51.100.12
 </code></pre></div>
 <p>The username of the default user account in the Ubuntu image is
 <code>ubuntu</code>, so now you can connect to your remote server via SSH without
 typing a password:</p>
-<div class="highlight"><pre><span></span><code>ssh ubuntu@198.51.100.12
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>ubuntu@198.51.100.12
 </code></pre></div>
 </div>
 </div>
@@ -995,10 +1000,10 @@ of them; expand the left-hand side vertical pane, click <em>Compute</em>, then
 </div>
 <div class="tabbed-block">
 <p>To see all available servers in the region, type:</p>
-<div class="highlight"><pre><span></span><code>openstack server list
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>list
 </code></pre></div>
 <p>You can always get specific information on a particular server:</p>
-<div class="highlight"><pre><span></span><code>openstack server show zug
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>zug
 </code></pre></div>
 </div>
 </div>
@@ -1021,7 +1026,7 @@ resized but can be opened on a new browser window or tab.</p>
 <div class="tabbed-block">
 <p>You may have access to the web console of your server, and you need the
 corresponding URL for it:</p>
-<div class="highlight"><pre><span></span><code>openstack console url show zug
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>console<span class="w"> </span>url<span class="w"> </span>show<span class="w"> </span>zug
 </code></pre></div>
 <p>Usage of the web console is discouraged, though. Instead,
 securely connect to your server via SSH.</p>

@@ -583,6 +583,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -805,7 +810,7 @@ which region to create it, then click <em>create</em>:</p>
 </div>
 <div class="tabbed-block">
 <p>To create a security group use the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack security group create &lt;name&gt;
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>create<span class="w"> </span>&lt;name&gt;
 </code></pre></div>
 <p>When the command is executed successfully, you will get
 information regarding your new security group:</p>
@@ -854,7 +859,7 @@ group and select the <em>Rules</em> tab to view its rules:</p>
 <div class="tabbed-block">
 <p>View the details of the <code>default</code> security group using the
 following command:</p>
-<div class="highlight"><pre><span></span><code>openstack security group show default
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>show<span class="w"> </span>default
 </code></pre></div>
 <p>you will get a printout similar to this:</p>
 <div class="highlight"><pre><span></span><code>+-----------------+--------------------------------------------------------------------------------+
@@ -902,7 +907,7 @@ look like this:</p>
 </div>
 <div class="tabbed-block">
 <p>To view the rules use the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule list default
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
 <p>The printout will be similar to this:</p>
 <div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
@@ -938,11 +943,11 @@ look like this:</p>
 IPv6, in this case are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and
 <code>86b9413a-ad23-46c4-a35e-9306945dc63c</code></p>
 <p>Delete them by using the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule delete <span class="se">\</span>
-  5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>delete<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>5e5e9f4d-1faa-492d-91f1-c105b464072b<span class="w"> </span>86b9413a-ad23-46c4-a35e-9306945dc63c
 </code></pre></div>
 <p>Print the rules again:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule list default
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
 <p>Now the remaining rules are only the egress ones.</p>
 <div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
@@ -976,8 +981,8 @@ server, only from specific networks.</p>
 </div>
 <div class="tabbed-block">
 <p>To create this rule use the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule create <span class="se">\</span>
-  --protocol tcp --dst-port <span class="m">22</span> --remote-ip <span class="m">203</span>.0.113.58/32 default
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">22</span><span class="w"> </span>--remote-ip<span class="w"> </span><span class="m">203</span>.0.113.58/32<span class="w"> </span>default
 </code></pre></div>
 </div>
 </div>
@@ -1009,13 +1014,13 @@ IP/source.</p>
 <div class="tabbed-block">
 <p>This time don’t specify <em>–remote-ip</em> to allow traffic from all
 sources, using the following command:</p>
-<p><div class="highlight"><pre><span></span><code>openstack security group rule create --protocol tcp --dst-port <span class="m">80</span> default
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">80</span><span class="w"> </span>default
 </code></pre></div>
 One more time for port 443:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule create --protocol tcp --dst-port <span class="m">443</span> default
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">443</span><span class="w"> </span>default
 </code></pre></div>
 <p>To view the updated rules, print the them again:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule list default
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
 | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
@@ -1083,7 +1088,7 @@ look like this:</p>
 </div>
 <div class="tabbed-block">
 <p>To view the rules use the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule list default
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
 <p>The printout will be similar to this:</p>
 <div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
@@ -1122,11 +1127,11 @@ then incoming traffic from any source is allowed.</p>
 IPv6, are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and
 <code>86b9413a-ad23-46c4-a35e-9306945dc63c</code> respectively.</p>
 <p>Delete them by using the following command:</p>
-<p><div class="highlight"><pre><span></span><code>openstack security group rule delete <span class="se">\</span>
-  5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>delete<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>5e5e9f4d-1faa-492d-91f1-c105b464072b<span class="w"> </span>86b9413a-ad23-46c4-a35e-9306945dc63c
 </code></pre></div>
 Print the rules again:</p>
-<div class="highlight"><pre><span></span><code>openstack security group rule list default
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
 <p>Now the remaining rules are only the egress ones.</p>
 <div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+

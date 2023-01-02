@@ -593,6 +593,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -827,7 +832,7 @@ the purposes of this guide, let us assume you no longer need network
 <div class="tabbed-block">
 <p>To list all available networks in the region you are currently in, type
 the following:</p>
-<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
 | ID                                   | Name         | Subnets                              |
@@ -864,7 +869,7 @@ subnet and the router in front of the network.</p>
 </div>
 <div class="tabbed-block">
 <p>To quickly check whether network <code>carmacks</code> has a subnet or not, type:</p>
-<p><div class="highlight"><pre><span></span><code>openstack network show carmacks -c subnets
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>show<span class="w"> </span>carmacks<span class="w"> </span>-c<span class="w"> </span>subnets
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------+--------------------------------------+
 | Field   | Value                                |
@@ -880,7 +885,7 @@ ID to an environment variable, like so:</p>
 </code></pre></div>
 <p>What about a router in front of <code>carmacks</code>? You might try checking the
 output of this command:</p>
-<p><div class="highlight"><pre><span></span><code>openstack network show carmacks
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>show<span class="w"> </span>carmacks
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------------------------+--------------------------------------+
 | Field                     | Value                                |
@@ -921,7 +926,7 @@ looking for — which is an indication of the presence or absence of a
 router in front of <code>carmacks</code>. In cases like this, try looking at
 things from a different vantage point. Try, in particular, to list all
 routers:</p>
-<p><div class="highlight"><pre><span></span><code>openstack router list
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+------------------------+-----------------+--------+-------+------------------------+------+
 | ID                     | Name            | Status | State | Project                | HA   |
@@ -934,7 +939,7 @@ routers:</p>
 </code></pre></div></p>
 <p>The name of the second router says it all, but since it is just a name,
 it doesn’t hurt to verify the role of this router:</p>
-<p><div class="highlight"><pre><span></span><code>openstack router show carmacks-router -c interfaces_info
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>show<span class="w"> </span>carmacks-router<span class="w"> </span>-c<span class="w"> </span>interfaces_info
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+-----------------+--------------------------------------------------------------------------------+
 | Field           | Value                                                                          |
@@ -950,10 +955,10 @@ front of network <code>carmacks</code>.</p>
 <blockquote>
 <p>There will be times when router names won’t help much. Then, try a
 more exhaustive search approach:</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">for</span> i <span class="k">in</span> <span class="k">$(</span>openstack router list -f value -c Name<span class="k">)</span><span class="p">;</span> <span class="se">\</span>
-    <span class="k">do</span> <span class="nb">echo</span> Checking router <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span> <span class="se">\</span>
-    openstack router show <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> -f json -c interfaces_info <span class="se">\</span>
-    <span class="p">|</span> grep <span class="s2">"</span><span class="nv">$SUBNET_ID</span><span class="s2">"</span><span class="p">;</span> <span class="se">\</span>
+<p><div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>openstack<span class="w"> </span>router<span class="w"> </span>list<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span>-c<span class="w"> </span>Name<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>Checking<span class="w"> </span>router<span class="w"> </span><span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>openstack<span class="w"> </span>router<span class="w"> </span>show<span class="w"> </span><span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="w"> </span>-f<span class="w"> </span>json<span class="w"> </span>-c<span class="w"> </span>interfaces_info<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"</span><span class="nv">$SUBNET_ID</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="k">done</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Checking router carmacks-router
@@ -1016,7 +1021,7 @@ the list of all routers.</p>
 </div>
 <div class="tabbed-block">
 <p>First, take a look at all available subnets:</p>
-<p><div class="highlight"><pre><span></span><code>openstack subnet list
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+-------------------------------+-----------------+--------------------------------+---------------+
 | ID                            | Name            | Network                        | Subnet        |
@@ -1031,7 +1036,7 @@ the list of all routers.</p>
 </code></pre></div></p>
 <p>As you would expect, included on the list is subnet <code>carmacks-subnet</code>,
 which you are about to delete. That’s easier said than done, though:</p>
-<p><div class="highlight"><pre><span></span><code>openstack subnet delete <span class="nv">$SUBNET_ID</span>
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>delete<span class="w"> </span><span class="nv">$SUBNET_ID</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Failed to delete subnet with name or ID '7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5': ConflictException: 409:
 Client Error for url: kna1.citycloud.com:9696/v2.0/subnets/7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5,
@@ -1043,16 +1048,16 @@ One or more ports have an IP allocation from this subnet.
 router, which is perfectly doable from the side of the router. As we
 discovered a bit earlier, the router we are talking about is
 <code>carmacks-router</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack router remove subnet carmacks-router <span class="nv">$SUBNET_ID</span>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>remove<span class="w"> </span>subnet<span class="w"> </span>carmacks-router<span class="w"> </span><span class="nv">$SUBNET_ID</span>
 </code></pre></div>
 <p>If the command above is successful, you will see no output on your
 terminal. Now, an attempt to delete <code>carmacks-subnet</code> should go through
 with flying colors:</p>
-<div class="highlight"><pre><span></span><code>openstack subnet delete <span class="nv">$SUBNET_ID</span>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>delete<span class="w"> </span><span class="nv">$SUBNET_ID</span>
 </code></pre></div>
 <p>Again, no command output means success, but we suggest you check
 yourself:</p>
-<p><div class="highlight"><pre><span></span><code>openstack subnet list
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------+---------------+---------------------------------+---------------+
 | ID                             | Name          | Network                         | Subnet        |
@@ -1066,7 +1071,7 @@ yourself:</p>
 <p>The subnet <code>carmacks-subnet</code> is not on the list, which is what you
 wanted exactly. Next is network <code>carmacks</code>, which you should be able to
 delete by now. First, take a look at all available networks:</p>
-<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
 | ID                                   | Name         | Subnets                              |
@@ -1080,10 +1085,10 @@ delete by now. First, take a look at all available networks:</p>
 <p>Network <code>carmacks</code> is on the list, and by looking at the <code>Subnets</code>
 column, you see that it has no subnet. That’s expected, so go ahead and
 delete the network:</p>
-<div class="highlight"><pre><span></span><code>openstack network delete carmacks
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>delete<span class="w"> </span>carmacks
 </code></pre></div>
 <p>No command output signals success, but it never hurts to verify yourself:</p>
-<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
 | ID                                   | Name         | Subnets                              |
@@ -1095,10 +1100,10 @@ delete the network:</p>
 </code></pre></div></p>
 <p>Network <code>carmacks</code> is gone, and if you have no use of
 <code>carmacks-router</code>, go ahead and delete it:</p>
-<div class="highlight"><pre><span></span><code>openstack router delete carmacks-router
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>delete<span class="w"> </span>carmacks-router
 </code></pre></div>
 <p>There is no output on the terminal, and yet the router is gone:</p>
-<p><div class="highlight"><pre><span></span><code>openstack router list
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+-----------------------------+-------------+--------+-------+------------------------------+------+
 | ID                          | Name        | Status | State | Project                      | HA   |
@@ -1134,7 +1139,7 @@ delete the subnet.</p>
 </div>
 <div class="tabbed-block">
 <p>Let us first take a look at all available networks…</p>
-<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
 | ID                                   | Name         | Subnets                              |
@@ -1145,7 +1150,7 @@ delete the subnet.</p>
 +--------------------------------------+--------------+--------------------------------------+
 </code></pre></div></p>
 <p>…and at all available subnets:</p>
-<p><div class="highlight"><pre><span></span><code>openstack subnet list
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------+---------------+---------------------------------+---------------+
 | ID                             | Name          | Network                         | Subnet        |
@@ -1158,11 +1163,11 @@ delete the subnet.</p>
 </code></pre></div></p>
 <p>Since there is nothing to disconnect the <code>teslin-subnet</code> from, you may
 go ahead and delete the subnet:</p>
-<div class="highlight"><pre><span></span><code>openstack subnet delete teslin-subnet
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>delete<span class="w"> </span>teslin-subnet
 </code></pre></div>
 <p>There is no command output. This is expected, but why not check
 yourself?</p>
-<p><div class="highlight"><pre><span></span><code>openstack subnet list
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------------------------------+-------------+----------------------------------+---------------+
 | ID                              | Name        | Network                          | Subnet        |
@@ -1172,11 +1177,11 @@ yourself?</p>
 +---------------------------------+-------------+----------------------------------+---------------+
 </code></pre></div></p>
 <p>Finally, network <code>teslin</code> can go away with a single command:</p>
-<div class="highlight"><pre><span></span><code>openstack network delete teslin
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>delete<span class="w"> </span>teslin
 </code></pre></div>
 <p>The absence of any output means the command was successful. Take a look
 yourself:</p>
-<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
 | ID                                   | Name         | Subnets                              |
@@ -1203,7 +1208,7 @@ as you do.</p>
 </div>
 <div class="tabbed-block">
 <p>Once more, take a look at all remaining networks:</p>
-<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
 | ID                                   | Name         | Subnets                              |
@@ -1213,10 +1218,10 @@ as you do.</p>
 +--------------------------------------+--------------+--------------------------------------+
 </code></pre></div></p>
 <p>Since <code>mayo</code> has no subnet, issue a single command to delete it:</p>
-<div class="highlight"><pre><span></span><code>openstack network delete mayo
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>delete<span class="w"> </span>mayo
 </code></pre></div>
 <p>And, yes, it is still a good idea to check yourself:</p>
-<p><div class="highlight"><pre><span></span><code>openstack network list --internal
+<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
 | ID                                   | Name         | Subnets                              |

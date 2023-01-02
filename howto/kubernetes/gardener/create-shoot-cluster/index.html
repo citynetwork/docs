@@ -578,6 +578,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
@@ -822,42 +827,42 @@ info
 <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">here</a>.</p>
 </blockquote>
 <p>Check if your kubectl uses the proper configuration by running:</p>
-<div class="highlight"><pre><span></span><code>kubectl config view
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>config<span class="w"> </span>view
 </code></pre></div>
 <p>You should see something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
-<span class="nt">clusters</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span><span class="w"></span>
-<span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.test-cluster.p40698.staging-k8s.cleura.cloud</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span><span class="w"></span>
-<span class="nt">contexts</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span><span class="w"></span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster-token</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span><span class="w"></span>
-<span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Config</span><span class="w"></span>
-<span class="nt">preferences</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="nt">users</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster-token</span><span class="w"></span>
-<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDACTED</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">clusters</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span>
+<span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.test-cluster.p40698.staging-k8s.cleura.cloud</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span>
+<span class="nt">contexts</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span>
+<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster-token</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span>
+<span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Config</span>
+<span class="nt">preferences</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">users</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster-token</span>
+<span class="w">    </span><span class="nt">user</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDACTED</span>
 </code></pre></div>
 <h2 id="access-your-cluster-with-kubectl-and-deploy-an-application">Access your cluster with kubectl and deploy an application</h2>
 <p>Check your available nodes by running:</p>
-<div class="highlight"><pre><span></span><code>kubectl get nodes
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
 </code></pre></div>
 <p>You should see Gardener’s worker node that is available:</p>
 <div class="highlight"><pre><span></span><code><span class="go">NAME                                                STATUS   ROLES    AGE    VERSION</span>
 <span class="go">shoot--p40698--test-cluster-czg4zf-z1-5d7b5-bfl7p   Ready    &lt;none&gt;   156m   v1.24.3</span>
 </code></pre></div>
 <p>Create a sample deployment with a Hello World application:</p>
-<div class="highlight"><pre><span></span><code>kubectl create deployment hello-node --image<span class="o">=</span>registry.k8s.io/echoserver:1.4
-kubectl expose deployment hello-node --type<span class="o">=</span>LoadBalancer --port<span class="o">=</span><span class="m">8080</span>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>deployment<span class="w"> </span>hello-node<span class="w"> </span>--image<span class="o">=</span>registry.k8s.io/echoserver:1.4
+kubectl<span class="w"> </span>expose<span class="w"> </span>deployment<span class="w"> </span>hello-node<span class="w"> </span>--type<span class="o">=</span>LoadBalancer<span class="w"> </span>--port<span class="o">=</span><span class="m">8080</span>
 </code></pre></div>
 <p>To access the created app, list the available services:</p>
-<div class="highlight"><pre><span></span><code>kubectl get services
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>services
 </code></pre></div>
 <p>You should get the load balancer service with its external IP and port
 number:</p>
