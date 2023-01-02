@@ -211,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.cleura.cloud/howto/openstack/nova/server-group/</loc>
+         <lastmod>2023-01-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.cleura.cloud/howto/openstack/octavia/tls-lb/</loc>
          <lastmod>2023-01-02</lastmod>
          <changefreq>daily</changefreq>

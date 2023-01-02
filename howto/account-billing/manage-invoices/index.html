@@ -6,10 +6,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://docs.cleura.cloud/howto/account-billing/manage-invoices/" rel="canonical"/>
+<link href="../change-credit-card/" rel="prev"/>
+<link href="../../../background/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.0" name="generator"/>
 <title>Managing invoices - Docs (Beta)</title>
-<link href="../../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.f79797b0.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -332,6 +334,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../openstack/nova/new-server/">
         Creating new servers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../openstack/nova/server-group/">
+        Using server groups
       </a>
 </li>
 <li class="md-nav__item">
@@ -768,9 +775,6 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="manage-invoices.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/account-billing/manage-invoices.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
-</a>
 <h1 id="managing-invoices">Managing invoices</h1>
 <p>You may quickly review your invoices regarding the monthly usage of
 Cleura Cloud resources, selectively pay outstanding invoices, save any
@@ -839,34 +843,6 @@ address and activated for the new one.</p>
 </div>
 </main>
 <footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Changing your credit card data" class="md-footer__link md-footer__link--prev" href="../change-credit-card/" rel="prev">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                Previous
-              </span>
-              Changing your credit card data
-            </div>
-</div>
-</a>
-<a aria-label="Next: Background" class="md-footer__link md-footer__link--next" href="../../../background/" rel="next">
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                Next
-              </span>
-              Background
-            </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
@@ -887,7 +863,7 @@ address and activated for the new one.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
