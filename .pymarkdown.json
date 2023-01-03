@@ -12,7 +12,10 @@
             "enabled": false
         },
         "line-length": {
-            "enabled": false
+            "enabled": true,
+            "line_length": 600,
+            "heading_line_length": 80,
+            "code_blocks": false
         },
         "no-multiple-blanks": {
             "maximum": 2
