@@ -1,5 +1,6 @@
 [general]
 contrib=contrib-title-conventional-commits
+regex-style-search=true
 
 # When invoked as just "gitlint" without any other arguments, Gitlint
 # processes the most recent commit message *unless* it's being fed
