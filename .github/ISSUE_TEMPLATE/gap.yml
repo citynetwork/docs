@@ -1,8 +1,4 @@
 ---
-about: >
-  Use this template to report documentation gaps: information that is
-  missing altogether, or that is incomplete.
-assignees: ''
 body:
   - attributes:
       label: Summary
@@ -31,7 +27,8 @@ body:
         already-existing page, please enter its URL. You can either use a
         URL from the rendered site (https://docs.cleura.cloud), or
         from the GitHub sources (https://github.com/citynetwork/docs),
-        either is fine.
+        either is fine. If you are suggesting that a new page should
+        be added, you can leave this blank.
       label: URL path
     id: url
     type: textarea
@@ -46,7 +43,7 @@ body:
       label: My suggestion
     id: suggestion
     type: textarea
-    validation:
+    validations:
       required: true
   - attributes:
       description: >-
@@ -55,8 +52,9 @@ body:
       label: Additional context
     id: context
     type: textarea
-    validation:
+    validations:
       required: false
-labels: ''
+description: >
+  Use this template to report documentation gaps: information that is
+  missing altogether, or that is incomplete.
 name: Missing or incomplete documentation
-title: ''
