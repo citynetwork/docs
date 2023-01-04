@@ -33,11 +33,16 @@ your account has two-factor authentication (2FA) enabled or not.
     ```
 
 === "With 2FA"
-    If you do have 2FA enabled for your account,
-    then first request a token as you would without 2FA enabled:
+
+    If your {{brand}} account has 2FA enabled, you **must** configure
+    it with SMS as a second-factor option. Accounts with only WebAuthn
+    as their second factor cannot be used for {{rest_api}} operations.
+
+    First, initiate a token request giving your {{brand}} username and
+    password, and setting the `twofa_method` option to `sms`:
 
     ```bash
-    curl -d '{"auth": {"login": "your_cc_username", "password": "your_cc_password"}}' \
+    curl -d '{"auth": {"login": "your_cc_username", "password": "your_cc_password", "twofa_method": "sms"}}' \
         https://{{rest_api_domain}}/auth/v1/tokens
     ```
 
@@ -59,17 +64,15 @@ your account has two-factor authentication (2FA) enabled or not.
         https://{{rest_api_domain}}/auth/v1/tokens/request2facode
     ```
 
-    In our example, the code is sent via an SMS message (check the JSON
-    object above and, more specifically, look at the value of `type`).
-    So after getting a new SMS message with your 2FA code, which expires
-    after ten minutes, go ahead and request your token like this:
+    You will now receive your 6-digit second-factor code via an SMS message.
+    This enables you to request your REST API token like this:
 
     ```bash
-    curl -d '{"verify2fa": {"login": "your_cc_username", "verification": "ahb4en3cho", "code": 2fa_code}}' \
+    curl -d '{"verify2fa": {"login": "your_cc_username", "verification": "ahb4en3cho", "code": 123456}}' \
         https://{{rest_api_domain}}/auth/v1/tokens/verify2fa
     ```
 
-    Make sure not to put the `2fa_code` in quotes, for it is
+    Make sure *not* to put the code in quotes, for it is
     of type integer and that fact should be reflected during the
     assignment to `code`. You will get a JSON object with your token:
 
