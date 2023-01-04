@@ -22,15 +22,13 @@ jobs:
           sudo apt-get -y install weasyprint
       - name: Install Python dependencies
         run: |
-          pip install tox tox-gh-actions
+          pip install tox
       - env:
           DOCS_ENABLE_PDF_EXPORT: 1
         name: Test with tox
-        # Explicitly specifying the testenvs shouldn't really be
-        # necessary here, but for some reason tox invokes no testenvs
-        # at all if invoked as just "tox" from the GitHub Actions
-        # workflow. Until that is fixed, name the testenvs.
-        run: tox -e gitlint,yamllint,bashate,markdownlint,build
+        run: |
+          tox -e gitlint
+          tox
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
