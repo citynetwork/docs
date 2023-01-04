@@ -5,34 +5,34 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/howto/object-storage/swift/expiry/" rel="canonical"/>
-<link href="../tempurl/" rel="prev"/>
-<link href="../versioning/" rel="next"/>
-<link href="../../../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.cleura.cloud/howto/getting-started/accessing-cc-rest-api/" rel="canonical"/>
+<link href="../enable-openstack-cli/" rel="prev"/>
+<link href="../../openstack/barbican/" rel="next"/>
+<link href="../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.2" name="generator"/>
-<title>Object expiry - Docs (Beta)</title>
-<link href="../../../../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
-<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>Accessing the Cleura Cloud REST API - Docs (Beta)</title>
+<link href="../../../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Object expiry - Docs (Beta)" property="og:title"/>
+<meta content="Accessing the Cleura Cloud REST API - Docs (Beta)" property="og:title"/>
 <meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/swift/expiry.png" property="og:image"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/getting-started/accessing-cc-rest-api.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/howto/object-storage/swift/expiry/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/getting-started/accessing-cc-rest-api/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Object expiry - Docs (Beta)" name="twitter:title"/>
+<meta content="Accessing the Cleura Cloud REST API - Docs (Beta)" name="twitter:title"/>
 <meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/swift/expiry.png" name="twitter:image"/>
-<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/getting-started/accessing-cc-rest-api.png" name="twitter:image"/>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -43,14 +43,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#object-expiry">
+<a class="md-skip" href="#accessing-the-cleura-cloud-rest-api">
           Skip to content
         </a>
 </div>
@@ -58,8 +58,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
-<img alt="logo" src="../../../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -74,7 +74,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Object expiry
+              Accessing the Cleura Cloud REST API
             
           </span>
 </div>
@@ -140,8 +140,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
-<img alt="logo" src="../../../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
     Docs (Beta)
   </label>
@@ -157,14 +157,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../..">
+<a class="md-nav__link" href="../../..">
         Start Here
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../">How-To Guides</a>
+<a href="../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -175,8 +175,8 @@
           How-To Guides
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_2">
           Getting Started
           <span class="md-nav__icon md-icon"></span>
@@ -188,19 +188,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../getting-started/create-account/">
+<a class="md-nav__link" href="../create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../getting-started/accessing-cc-rest-api/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Accessing the Cleura Cloud REST API
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Accessing the Cleura Cloud REST API
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-token">
+    Creating a token
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-the-token">
+    Testing the token
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -220,7 +243,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../openstack/barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -232,12 +255,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../openstack/barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../openstack/barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -257,12 +280,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
@@ -282,7 +305,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../openstack/magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -302,27 +325,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../openstack/neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../openstack/neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../openstack/neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../openstack/neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../openstack/neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -342,32 +365,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/new-server/">
+<a class="md-nav__link" href="../../openstack/nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/server-group/">
+<a class="md-nav__link" href="../../openstack/nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../openstack/nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../openstack/nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../openstack/nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../openstack/nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -387,7 +410,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../openstack/octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
@@ -397,8 +420,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_4">
           Object storage
           <span class="md-nav__icon md-icon"></span>
@@ -412,7 +435,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../s3/">S3 API</a>
+<a href="../../object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -424,32 +447,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/credentials/">
+<a class="md-nav__link" href="../../object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/expiry/">
+<a class="md-nav__link" href="../../object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/versioning/">
+<a class="md-nav__link" href="../../object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/sse-c/">
+<a class="md-nav__link" href="../../object-storage/s3/sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Swift API</a>
+<a href="../../object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -461,55 +484,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../private-container/">
+<a class="md-nav__link" href="../../object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../public-container/">
+<a class="md-nav__link" href="../../object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tempurl/">
+<a class="md-nav__link" href="../../object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Object expiry
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../object-storage/swift/expiry/">
         Object expiry
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-    Prerequisites
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#auto-deletion-at-a-fixed-date">
-    Auto-deletion at a fixed date
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#auto-deletion-after-a-time-period">
-    Auto-deletion after a time period
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../versioning/">
+<a class="md-nav__link" href="../../object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -522,7 +517,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/">Kubernetes</a>
+<a href="../../kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -536,7 +531,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/gardener/">Gardener</a>
+<a href="../../kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -548,7 +543,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../kubernetes/gardener/create-shoot-cluster/">
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
@@ -558,7 +553,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/magnum/">Magnum</a>
+<a href="../../kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-label="Magnum" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -585,17 +580,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
+<a class="md-nav__link" href="../../account-billing/change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+<a class="md-nav__link" href="../../account-billing/change-credit-card/">
         Changing your credit card data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../account-billing/manage-invoices/">
+<a class="md-nav__link" href="../../account-billing/manage-invoices/">
         Managing invoices
       </a>
 </li>
@@ -608,7 +603,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../background/">Background</a>
+<a href="../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -620,7 +615,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../background/gui-vs-api/">
+<a class="md-nav__link" href="../../../background/gui-vs-api/">
         Cleura Cloud Management Panel vs. OpenStack API
       </a>
 </li>
@@ -630,7 +625,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/">Reference</a>
+<a href="../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -644,7 +639,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/features/">Feature Support</a>
+<a href="../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -656,12 +651,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/features/public/">
+<a class="md-nav__link" href="../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/features/compliant/">
+<a class="md-nav__link" href="../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -671,7 +666,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/flavors/">Flavors</a>
+<a href="../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-label="Flavors" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
@@ -685,7 +680,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/versions/">API Service Versions</a>
+<a href="../../../reference/versions/">API Service Versions</a>
 <label for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -697,12 +692,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/versions/public/">
+<a class="md-nav__link" href="../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -715,7 +710,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../contrib/">You can help!</a>
+<a href="../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -727,12 +722,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../contrib/modifications/">
+<a class="md-nav__link" href="../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../contrib/quality/">
+<a class="md-nav__link" href="../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -754,18 +749,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-    Prerequisites
+<a class="md-nav__link" href="#creating-a-token">
+    Creating a token
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#auto-deletion-at-a-fixed-date">
-    Auto-deletion at a fixed date
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#auto-deletion-after-a-time-period">
-    Auto-deletion after a time period
+<a class="md-nav__link" href="#testing-the-token">
+    Testing the token
   </a>
 </li>
 </ul>
@@ -774,82 +764,189 @@
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="expiry.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<h1 id="object-expiry">Object expiry</h1>
-<p>Using the Swift API, you have the option for objects to automatically
-be deleted, after they have passed an expiry threshold.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>In order to manage object expiry, be sure that you have <a href="../">installed and
-configured</a> the <code>swift</code> command-line interface (CLI). There is
-presently no way to set object expiry with the <code>openstack</code> CLI.</p>
-<h2 id="auto-deletion-at-a-fixed-date">Auto-deletion at a fixed date</h2>
-<p>In order for an object to be automatically deleted at a certain date,
-you must first convert that date to a POSIX timestamp. You may do so
-with the <code>date</code> command. For example, to retrieve the POSIX timestamp
-for February 29, 2024, at 0000 UTC, use this command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">TZ</span><span class="o">=</span>Etc/UTC<span class="w"> </span>date<span class="w"> </span>-d<span class="w"> </span><span class="s1">'2024-02-29'</span><span class="w"> </span>+<span class="s1">'%s'</span>
-<span class="go">1709164800</span>
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="accessing-cc-rest-api.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<h1 id="accessing-the-cleura-cloud-rest-api">Accessing the Cleura Cloud REST API</h1>
+<p>Cleura Cloud provides a REST API, which you can take advantage of with a
+tool like <code>curl</code>. But before you do, you must create a token for the
+current session. For that, you only need to have an
+<a href="/howto/getting-started/create-account">account in Cleura Cloud</a>.</p>
+<h2 id="creating-a-token">Creating a token</h2>
+<p>Cleura Cloud REST API calls use token authentication. The process of
+obtaining a valid token works slightly differently, based on whether
+your account has two-factor authentication (2FA) enabled or not.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Without 2FA</label><label for="__tabbed_1_2">With 2FA</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>If you do not have 2FA enabled for your account, to create a token,
+have your username (<code>your_cc_username</code>) and password
+(<code>your_cc_password</code>) to the Cleura Cloud handy and type:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"auth": {"login": "your_cc_username", "password": "your_cc_password"}}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens
 </code></pre></div>
-<p>You can then set the <code>X-Delete-At</code> header on an object, so that it is
-automatically deleted at that time:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>post<span class="w"> </span>-H<span class="w"> </span><span class="s2">"X-Delete-At: 1709164800"</span><span class="w"> </span>private-container<span class="w"> </span>testobj.txt
+<p>Provided you typed your username and password correctly and that there
+were no connection issues to the remote endpoint, you will get a JSON
+object with a string (<code>token</code>) that holds your session token:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"login_ok"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vahkie7EiDaij7chegaitee2zohsh1oh"</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Then, you can read back the header with <code>swift stat</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>stat<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
-<span class="go">               Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88</span>
-<span class="go">             Container: private-container</span>
-<span class="go">                Object: testobj.txt</span>
-<span class="go">          Content Type: binary/octet-stream</span>
-<span class="go">        Content Length: 12</span>
-<span class="go">         Last Modified: Mon, 05 Dec 2022 14:09:02 GMT</span>
-<span class="go">                  ETag: 6f5902ac237024bdd0c176cb93063dc4</span>
-<span class="go">         Accept-Ranges: bytes</span>
-<span class="go">           X-Timestamp: 1670249342.53870</span>
-<span class="go">           X-Delete-At: 1709164800</span>
-<span class="go">            X-Trans-Id: tx00000646596cd018a2d7b-00638dfb91-300de11-default</span>
-<span class="go">X-Openstack-Request-Id: tx00000646596cd018a2d7b-00638dfb91-300de11-default</span>
+</div>
+<div class="tabbed-block">
+<p>If you do have 2FA enabled for your account,
+then first request a token as you would without 2FA enabled:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"auth": {"login": "your_cc_username", "password": "your_cc_password"}}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens
 </code></pre></div>
-<h2 id="auto-deletion-after-a-time-period">Auto-deletion after a time period</h2>
-<p>Instead of giving an absolute time with <code>X-Delete-At</code>, you can also
-use <code>X-Delete-After</code> (in seconds), so that the object is automatically
-deleted after that timespan. This example uses 600 seconds or
-10 minutes:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>post<span class="w"> </span>-H<span class="w"> </span><span class="s2">"X-Delete-After: 600"</span><span class="w"> </span>private-container<span class="w"> </span>testobj.txt
+<p>Instead of a token, you will get a verification code
+(look at <code>verification</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twofactor_required"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"verification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ahb4en3cho"</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>The Swift API then converts this into an <code>X-Delete-At</code> header, adding
-the specified time span to the date the request is received (indicated
-by the <code>X-Timestamp</code> header).</p>
-<p>You can then read back the object metadata. Observe that in this
-example, the difference between the <code>X-Timestamp</code> and <code>X-Delete-At</code>
-headers is 600 seconds:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>stat<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
-<span class="go">               Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88</span>
-<span class="go">             Container: private-container</span>
-<span class="go">                Object: testobj.txt</span>
-<span class="go">          Content Type: binary/octet-stream</span>
-<span class="go">        Content Length: 12</span>
-<span class="go">         Last Modified: Mon, 05 Dec 2022 14:09:55 GMT</span>
-<span class="go">                  ETag: 6f5902ac237024bdd0c176cb93063dc4</span>
-<span class="go">         Accept-Ranges: bytes</span>
-<span class="go">           X-Timestamp: 1670249395.20576</span>
-<span class="go">           X-Delete-At: 1670249995</span>
-<span class="go">            X-Trans-Id: tx0000065937c08551ba2be-00638dfbb6-301ddeb-default</span>
-<span class="go">X-Openstack-Request-Id: tx0000065937c08551ba2be-00638dfbb6-301ddeb-default</span>
+<p>This verification code is required for requesting a 2FA code:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"request2fa": {"login": "your_cc_username", "verification": "ahb4en3cho"}}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens/request2facode
+</code></pre></div>
+<p>In our example, the code is sent via an SMS message (check the JSON
+object above and, more specifically, look at the value of <code>type</code>).
+So after getting a new SMS message with your 2FA code, which expires
+after ten minutes, go ahead and request your token like this:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"verify2fa": {"login": "your_cc_username", "verification": "ahb4en3cho", "code": 2fa_code}}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens/verify2fa
+</code></pre></div>
+<p>Make sure not to put the <code>2fa_code</code> in quotes, for it is
+of type integer and that fact should be reflected during the
+assignment to <code>code</code>. You will get a JSON object with your token:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"login_ok"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fiushood9oraTiNa4ban3eemeezoeDae"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<p>Now that you have obtained a valid token, you can proceed with making
+REST API calls.</p>
+<h2 id="testing-the-token">Testing the token</h2>
+<p>One way to make sure the token is valid is by getting a list of all
+supported regions. All you have to do is use <code>curl</code> to provide your
+username (<code>your_cc_username</code>) and token and connect to the
+<code>https://rest.cleura.cloud/accesscontrol/v1/openstack/domains</code>
+endpoint:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">"X-AUTH-LOGIN: your_cc_username"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">"X-AUTH-TOKEN: vahkie7EiDaij7chegaitee2zohsh1oh"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://rest.cleura.cloud/accesscontrol/v1/openstack/domains
+</code></pre></div>
+<p>All supported regions should be returned as objects in a JSON array:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweden \/ Stockholm"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SE_STO2"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"zone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stockholm \/ Sweden"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sto2"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79b0cef45b504586ad0bf057dc4cb8b8"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCP_Domain_43597"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Japan"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JP"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"zone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tokyo \/ Japan"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tky1"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany \/ Frankfurt"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"zone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Frankfurt \/ Germany"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fra1"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08db589d04f442e19c272f2cd1a02906"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCP_Domain_43597"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United Arab Emirates"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AE"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"zone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dubai \/ UAE"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dx1"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EU"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"regions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"zone_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Karlskrona \/ Sweden"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kna1"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a018123218f5428ba96d7fb212d90cf2"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CCP_Domain_43597"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-02</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-05</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-02</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas</span>
 </small>
 </div>
 </article>
@@ -877,7 +974,7 @@ headers is 600 seconds:</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

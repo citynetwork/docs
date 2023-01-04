@@ -51,6 +51,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.cleura.cloud/howto/getting-started/accessing-cc-rest-api/</loc>
+         <lastmod>2023-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.cleura.cloud/howto/getting-started/create-account/</loc>
          <lastmod>2023-01-04</lastmod>
          <changefreq>daily</changefreq>
