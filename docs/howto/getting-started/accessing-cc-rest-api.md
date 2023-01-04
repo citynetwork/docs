@@ -7,7 +7,7 @@ current session. For that, you only need to have an
 
 ## Creating a token
 
-Cleura Cloud REST API calls use token authentication. The process of
+{{rest_api}} calls use token authentication. The process of
 obtaining a valid token works slightly differently, based on whether
 your account has two-factor authentication (2FA) enabled or not.
 
@@ -18,7 +18,7 @@ your account has two-factor authentication (2FA) enabled or not.
 
     ```bash
     curl -d '{"auth": {"login": "your_cc_username", "password": "your_cc_password"}}' \
-        https://rest.cleura.cloud/auth/v1/tokens
+        https://{{rest_api_domain}}/auth/v1/tokens
     ```
 
     Provided you typed your username and password correctly and that there
@@ -38,7 +38,7 @@ your account has two-factor authentication (2FA) enabled or not.
 
     ```bash
     curl -d '{"auth": {"login": "your_cc_username", "password": "your_cc_password"}}' \
-        https://rest.cleura.cloud/auth/v1/tokens
+        https://{{rest_api_domain}}/auth/v1/tokens
     ```
 
     Instead of a token, you will get a verification code
@@ -56,7 +56,7 @@ your account has two-factor authentication (2FA) enabled or not.
 
     ```bash
     curl -d '{"request2fa": {"login": "your_cc_username", "verification": "ahb4en3cho"}}' \
-        https://rest.cleura.cloud/auth/v1/tokens/request2facode
+        https://{{rest_api_domain}}/auth/v1/tokens/request2facode
     ```
 
     In our example, the code is sent via an SMS message (check the JSON
@@ -66,7 +66,7 @@ your account has two-factor authentication (2FA) enabled or not.
 
     ```bash
     curl -d '{"verify2fa": {"login": "your_cc_username", "verification": "ahb4en3cho", "code": 2fa_code}}' \
-        https://rest.cleura.cloud/auth/v1/tokens/verify2fa
+        https://{{rest_api_domain}}/auth/v1/tokens/verify2fa
     ```
 
     Make sure not to put the `2fa_code` in quotes, for it is
@@ -81,20 +81,20 @@ your account has two-factor authentication (2FA) enabled or not.
     ```
 
 Now that you have obtained a valid token, you can proceed with making
-REST API calls.
+{{rest_api}} calls.
 
 ## Testing the token
 
 One way to make sure the token is valid is by getting a list of all
 supported regions. All you have to do is use `curl` to provide your
 username (`your_cc_username`) and token and connect to the
-`https://rest.cleura.cloud/accesscontrol/v1/openstack/domains`
+`https://{{rest_api_domain}}/accesscontrol/v1/openstack/domains`
 endpoint:
 
 ```bash
 curl -H "X-AUTH-LOGIN: your_cc_username" \
     -H "X-AUTH-TOKEN: vahkie7EiDaij7chegaitee2zohsh1oh" \
-    https://rest.cleura.cloud/accesscontrol/v1/openstack/domains
+    https://{{rest_api_domain}}/accesscontrol/v1/openstack/domains
 ```
 
 All supported regions should be returned as objects in a JSON array:
