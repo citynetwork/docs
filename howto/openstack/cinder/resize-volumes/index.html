@@ -5,34 +5,35 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/contrib/" rel="canonical"/>
-<link href="../reference/versions/compliant/" rel="prev"/>
-<link href="modifications/" rel="next"/>
-<link href="../assets/favicon.ico" rel="icon"/>
+<meta content="A server may require additional capacity for a persistent storage volume that is attached to it. You can expand a volume online, while it is attached to a running server." name="description"/>
+<link href="https://docs.cleura.cloud/howto/openstack/cinder/resize-volumes/" rel="canonical"/>
+<link href="../../barbican/share-secret/" rel="prev"/>
+<link href="../encrypted-volumes/" rel="next"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.2" name="generator"/>
-<title>Contribution Guide - Docs (Beta)</title>
-<link href="../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>Resizing a volume - Docs (Beta)</title>
+<link href="../../../../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Contribution Guide - Docs (Beta)" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/contrib/index.png" property="og:image"/>
+<meta content="Resizing a volume - Docs (Beta)" property="og:title"/>
+<meta content="A server may require additional capacity for a persistent storage volume that is attached to it. You can expand a volume online, while it is attached to a running server." property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/resize-volumes.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/contrib/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/openstack/cinder/resize-volumes/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Contribution Guide - Docs (Beta)" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/contrib/index.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="Resizing a volume - Docs (Beta)" name="twitter:title"/>
+<meta content="A server may require additional capacity for a persistent storage volume that is attached to it. You can expand a volume online, while it is attached to a running server." name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/resize-volumes.png" name="twitter:image"/>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -43,14 +44,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#contribution-guide">
+<a class="md-skip" href="#resizing-a-volume">
           Skip to content
         </a>
 </div>
@@ -58,8 +59,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href=".." title="Docs (Beta)">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Contribution Guide
+              Resizing a volume
             
           </span>
 </div>
@@ -140,8 +141,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Docs (Beta)">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
     Docs (Beta)
   </label>
@@ -157,14 +158,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../../../..">
         Start Here
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/">How-To Guides</a>
+<a href="../../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -188,20 +189,20 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/getting-started/create-account/">
+<a class="md-nav__link" href="../../../getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3">
           OpenStack
           <span class="md-nav__icon md-icon"></span>
@@ -215,7 +216,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -227,20 +228,20 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_2">
           Cinder (persistent block storage)
           <span class="md-nav__icon md-icon"></span>
@@ -251,13 +252,46 @@
           Cinder (persistent block storage)
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/resize-volumes/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Resizing a volume
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Resizing a volume
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="#checking-the-volumes-state">
+    Checking the volume's state
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expanding-the-volume">
+    Expanding the volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-the-resized-volume">
+    Using the resized volume
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
@@ -277,7 +311,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -297,27 +331,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -337,32 +371,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/new-server/">
+<a class="md-nav__link" href="../../nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/server-group/">
+<a class="md-nav__link" href="../../nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -382,7 +416,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
@@ -407,7 +441,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/object-storage/s3/">S3 API</a>
+<a href="../../../object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -419,22 +453,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/credentials/">
+<a class="md-nav__link" href="../../../object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/expiry/">
+<a class="md-nav__link" href="../../../object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/versioning/">
+<a class="md-nav__link" href="../../../object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../../../object-storage/s3/sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
@@ -444,7 +478,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/object-storage/swift/">Swift API</a>
+<a href="../../../object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -456,27 +490,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/private-container/">
+<a class="md-nav__link" href="../../../object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/public-container/">
+<a class="md-nav__link" href="../../../object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/tempurl/">
+<a class="md-nav__link" href="../../../object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/expiry/">
+<a class="md-nav__link" href="../../../object-storage/swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/versioning/">
+<a class="md-nav__link" href="../../../object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -489,7 +523,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/">Kubernetes</a>
+<a href="../../../kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -503,7 +537,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/gardener/">Gardener</a>
+<a href="../../../kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -515,7 +549,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
@@ -525,7 +559,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/magnum/">Magnum</a>
+<a href="../../../kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-label="Magnum" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -552,17 +586,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/change-billing-data/">
+<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/change-credit-card/">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
         Changing your credit card data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/manage-invoices/">
+<a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
 </li>
@@ -575,7 +609,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../background/">Background</a>
+<a href="../../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -587,7 +621,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../background/gui-vs-api/">
+<a class="md-nav__link" href="../../../../background/gui-vs-api/">
         Cleura Cloud Management Panel vs. OpenStack API
       </a>
 </li>
@@ -597,7 +631,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/">Reference</a>
+<a href="../../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -611,7 +645,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/features/">Feature Support</a>
+<a href="../../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -623,12 +657,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/features/public/">
+<a class="md-nav__link" href="../../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/features/compliant/">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -638,7 +672,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/flavors/">Flavors</a>
+<a href="../../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-label="Flavors" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
@@ -652,7 +686,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/versions/">API Service Versions</a>
+<a href="../../../../reference/versions/">API Service Versions</a>
 <label for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -664,12 +698,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/versions/public/">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -679,10 +713,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href="./">You can help!</a>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -694,12 +728,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="modifications/">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="quality/">
+<a class="md-nav__link" href="../../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -721,18 +755,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#technical-writing-resources">
-    Technical Writing Resources
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#markdown">
-    Markdown
+<a class="md-nav__link" href="#checking-the-volumes-state">
+    Checking the volume's state
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#license">
-    License
+<a class="md-nav__link" href="#expanding-the-volume">
+    Expanding the volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-the-resized-volume">
+    Using the resized volume
   </a>
 </li>
 </ul>
@@ -741,68 +780,78 @@
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="index.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<h1 id="contribution-guide">Contribution Guide</h1>
-<p>See something on this site that is inaccurate, missing, or that could
-simply be improved? There are multiple ways for you to help make this
-site better, and we welcome all of them.</p>
-<p>You can make modifications and contributions <a href="modifications">using
-Git</a>, and we apply certain <a href="quality">checks</a> to ensure
-consistent documentation quality.</p>
-<h2 id="technical-writing-resources">Technical Writing Resources</h2>
-<p>Whether you are an experienced technical writer, a regular (or
-not-so-regular) open source contributor, or you’re making your very
-first writing contribution, there are a ton of helpful resources on
-technical writing. Here are a few:</p>
-<ul>
-<li><a href="https://www.digitalocean.com/">Digital Ocean</a>’s <a href="https://www.digitalocean.com/community/tutorials/digitalocean-s-technical-writing-guidelines">Technical Writing
-  Guidelines</a></li>
-<li><a href="https://www.redhat.com">Red Hat</a>’s <a href="https://github.com/StyleGuides/WritingStyleGuide">Writing Style
-  Guide</a></li>
-<li><a href="https://dwyer.co.za/">Gareth Dwyer</a>’s <a href="https://github.com/sixhobbits/technical-writing">Technical
-  Writing</a> repository</li>
-<li><a href="https://www.bolajiayodeji.com/">Bolaji Ayodeji</a>’s <a href="https://github.com/BolajiAyodeji/awesome-technical-writing">Awesome
-  Technical
-  Writing</a>
-  collection</li>
-</ul>
-<h2 id="markdown">Markdown</h2>
-<p>The documentation on this site uses
-<a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>. Markdown is a
-documentation format that is rich enough to be useful for good
-technical documentation, and yet simpler and easier to learn than
-other formats like
-<a href="https://en.wikipedia.org/wiki/ReStructuredText">reStructuredText</a> or
-<a href="https://en.wikipedia.org/wiki/DocBook">DocBook</a> XML.</p>
-<p>If you’re unfamiliar with Markdown, you can read up on its basics in
-<a href="https://daringfireball.net/projects/markdown/">this classic article by John
-Gruber</a> if you’re
-interested, but chances are that you’ll also find all the information
-you’ll need in <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">this cheat sheet by Adam
-Pritchard</a>,
-or the <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Start Writing guide from
-GitHub</a>.</p>
-<p>Or you simply look at the source of one of the pages on this site (try
-the Edit button on this one!) and figure it out as you go along — it’s
-really pretty straightforward.</p>
-<h2 id="license">License</h2>
-<p>With the sole exception of trademarks like “Cleura” and the
-Cleura logo, the content on this site is available under the
-<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International
-license</a>, as you can
-see from the <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"><img alt="CC
-BY-SA" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/></a>
-icon at the bottom of each page. Please keep in mind that you are
-making your contribution under those terms.</p>
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="resize-volumes.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<h1 id="resizing-a-volume">Resizing a volume</h1>
+<p>A server may require additional capacity for a persistent storage volume that is attached to it. You can expand a volume online, while it is attached to a running server.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>In order to expand a volume online (that is, without detaching it from its server), you must use the OpenStack CLI.
+Make sure you have <a href="../../../getting-started/enable-openstack-cli/">enabled it</a>.</p>
+<h2 id="checking-the-volumes-state">Checking the volume’s state</h2>
+<p>Assume you have a volume named <code>testvol</code> that is currently attached to a server named <code>testsrv</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>list
+<span class="go">+-----------------------------------+---------+--------+------+----------------------------------+</span>
+<span class="go">| ID                                | Name    | Status | Size | Attached to                      |</span>
+<span class="go">+-----------------------------------+---------+--------+------+----------------------------------+</span>
+<span class="go">| 357e1022-4156-4383-a49d-729f86e84 | testvol | in-use |    2 | Attached to testsrv on /dev/vdb  |</span>
+<span class="go">| 347                               |         |        |      |                                  |</span>
+<span class="go">+-----------------------------------+---------+--------+------+----------------------------------+</span>
+</code></pre></div>
+<p>As you can see, this volume’s status is <code>in-use</code>, meaning it is currently attached to a server, and the volume’s size is 2 GiB.</p>
+<p>You can also use <code>openstack server ssh</code> to verify the current state of the block device.
+In this example, the virtual block device <code>/dev/vdb</code> contains an XFS file system and is mounted to <code>/srv</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>ssh<span class="w"> </span>testsrv<span class="w"> </span>--<span class="w"> </span>-l<span class="w"> </span>ubuntu<span class="w"> </span><span class="s2">"mount | grep /dev/vdb"</span>
+<span class="go">/dev/vdb on /srv type xfs (rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota)</span>
+</code></pre></div>
+<h2 id="expanding-the-volume">Expanding the volume</h2>
+<p>You can now change the volume’s size (in this example, we’ll use a new size of 5 GiB).
+Note that in order to be able to do this while the volume is attached to a server, you must invoke the <code>openstack</code> command with the <code>--os-volume-api-version</code> flag:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>--os-volume-api-version<span class="w"> </span><span class="m">3</span>.42<span class="w"> </span>volume<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--size<span class="w"> </span><span class="m">5</span><span class="w"> </span>testvol
+
+<span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>list<span class="w"> </span>
+<span class="go">+-----------------------------------+---------+--------+------+----------------------------------+</span>
+<span class="go">| ID                                | Name    | Status | Size | Attached to                      |</span>
+<span class="go">+-----------------------------------+---------+--------+------+----------------------------------+</span>
+<span class="go">| 357e1022-4156-4383-a49d-729f86e84 | testvol | in-use |    5 | Attached to testsrv on /dev/vdb  |</span>
+<span class="go">| 347                               |         |        |      |                                  |</span>
+<span class="go">+-----------------------------------+---------+--------+------+----------------------------------+</span>
+</code></pre></div>
+<p>When using <a href="https://www.qemu.org/2021/01/19/virtio-blk-scsi-configuration/">one of the VirtIO storage drivers</a>,
+the operating system on the server immediately becomes aware of the new device size.
+There is no need to rescan the block devices from within the guest operating system.</p>
+<p>You can verify this by using the <code>blockdev</code> command in a shell session, querying the block device size in bytes:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>ssh<span class="w"> </span>testsrv<span class="w"> </span>--<span class="w"> </span>-l<span class="w"> </span>ubuntu<span class="w"> </span><span class="s2">"sudo blockdev --getsize64 /dev/vdb"</span>
+<span class="go">5368709120</span>
+</code></pre></div></p>
+<h2 id="using-the-resized-volume">Using the resized volume</h2>
+<p>Resizing a volume only resizes the block device, but does not touch any data structures using that block device.
+In our example, this means that in order to use the block device’s expanded capacity, you must also resize its filesystem:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>ssh<span class="w"> </span>testsrv<span class="w"> </span>--<span class="w"> </span>-l<span class="w"> </span>ubuntu<span class="w"> </span><span class="s2">"sudo xfs_growfs /dev/vdb"</span>
+<span class="go">meta-data=/dev/vdb               isize=512    agcount=4, agsize=131072 blks</span>
+<span class="go">         =                       sectsz=512   attr=2, projid32bit=1</span>
+<span class="go">         =                       crc=1        finobt=1, sparse=1, rmapbt=0</span>
+<span class="go">         =                       reflink=1</span>
+<span class="go">data     =                       bsize=4096   blocks=524288, imaxpct=25</span>
+<span class="go">         =                       sunit=0      swidth=0 blks</span>
+<span class="go">naming   =version 2              bsize=4096   ascii-ci=0, ftype=1</span>
+<span class="go">log      =internal log           bsize=4096   blocks=2560, version=2</span>
+<span class="go">         =                       sectsz=512   sunit=0 blks, lazy-count=1</span>
+<span class="go">realtime =none                   extsz=4096   blocks=0, rtextents=0</span>
+<span class="go">data blocks changed from 524288 to 1310720</span>
+</code></pre></div>
+<p>Once this is complete, you can verify that the filesystem is now available at the desired (expanded) capacity:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>ssh<span class="w"> </span>testsrv<span class="w"> </span>--<span class="w"> </span>-l<span class="w"> </span>ubuntu<span class="w"> </span><span class="s2">"df -h /srv"</span>
+<span class="go">Filesystem      Size  Used Avail Use% Mounted on</span>
+<span class="go">/dev/vdb        5.0G   69M  5.0G   2% /srv</span>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-29</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-03</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-02-16</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-03</span>
 </small>
 </div>
 <div class="md-source-date">
@@ -835,7 +884,7 @@ making your contribution under those terms.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes"], "search": "../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5cf534bf.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
