@@ -1,0 +1,62 @@
+---
+about: >
+  Use this template to report documentation gaps: information that is
+  missing altogether, or that is incomplete.
+assignees: ''
+body:
+  - attributes:
+      label: Summary
+      placeholder: >
+        Replace this with a short summary (one sentence or short
+        paragraph) of the issue you are describing.
+    id: summary
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >
+        What kind of documentation do you think is missing or incomplete?
+      label: Documentation category
+      options:
+        - How-to guide
+        - Background explanation
+        - Reference information
+    id: category
+    type: dropdown
+    validations:
+      required: true
+  - attributes:
+      description: >
+        If you are identifying missing information on an
+        already-existing page, please enter its URL. You can either use a
+        URL from the rendered site (https://docs.cleura.cloud), or
+        from the GitHub sources (https://github.com/citynetwork/docs),
+        either is fine.
+      label: URL path
+    id: url
+    type: textarea
+    validations:
+      required: false
+  - attributes:
+      description: >
+        Tell us what information should be added to the
+        documentation. Please try to be as specific as possible, and
+        make a case for how your suggestion would benefit both
+        yourself and others.
+      label: My suggestion
+    id: suggestion
+    type: textarea
+    validation:
+      required: true
+  - attributes:
+      description: >-
+        If there’s any other context you’d like to share, please add
+        it here. Otherwise, you can leave this blank.
+      label: Additional context
+    id: context
+    type: textarea
+    validation:
+      required: false
+labels: ''
+name: Missing or incomplete documentation
+title: ''
