@@ -793,9 +793,12 @@ object with a string (<code>token</code>) that holds your session token:</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>If you do have 2FA enabled for your account,
-then first request a token as you would without 2FA enabled:</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"auth": {"login": "your_cc_username", "password": "your_cc_password"}}'</span><span class="w"> </span><span class="se">\</span>
+<p>If your Cleura Cloud account has 2FA enabled, you <strong>must</strong> configure
+it with SMS as a second-factor option. Accounts with only WebAuthn
+as their second factor cannot be used for Cleura Cloud REST API operations.</p>
+<p>First, initiate a token request giving your Cleura Cloud username and
+password, and setting the <code>twofa_method</code> option to <code>sms</code>:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"auth": {"login": "your_cc_username", "password": "your_cc_password", "twofa_method": "sms"}}'</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens
 </code></pre></div>
 <p>Instead of a token, you will get a verification code
@@ -810,14 +813,12 @@ then first request a token as you would without 2FA enabled:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"request2fa": {"login": "your_cc_username", "verification": "ahb4en3cho"}}'</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens/request2facode
 </code></pre></div>
-<p>In our example, the code is sent via an SMS message (check the JSON
-object above and, more specifically, look at the value of <code>type</code>).
-So after getting a new SMS message with your 2FA code, which expires
-after ten minutes, go ahead and request your token like this:</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"verify2fa": {"login": "your_cc_username", "verification": "ahb4en3cho", "code": 2fa_code}}'</span><span class="w"> </span><span class="se">\</span>
+<p>You will now receive your 6-digit second-factor code via an SMS message.
+This enables you to request your REST API token like this:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"verify2fa": {"login": "your_cc_username", "verification": "ahb4en3cho", "code": 123456}}'</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens/verify2fa
 </code></pre></div>
-<p>Make sure not to put the <code>2fa_code</code> in quotes, for it is
+<p>Make sure <em>not</em> to put the code in quotes, for it is
 of type integer and that fact should be reflected during the
 assignment to <code>code</code>. You will get a JSON object with your token:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
