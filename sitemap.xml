@@ -166,6 +166,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.cleura.cloud/howto/openstack/cinder/retype-volumes/</loc>
+         <lastmod>2023-01-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.cleura.cloud/howto/openstack/magnum/new-k8s-cluster/</loc>
          <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>

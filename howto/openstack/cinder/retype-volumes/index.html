@@ -5,34 +5,35 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/howto/account-billing/manage-invoices/" rel="canonical"/>
-<link href="../change-credit-card/" rel="prev"/>
-<link href="../../../background/" rel="next"/>
-<link href="../../../assets/favicon.ico" rel="icon"/>
+<meta an="" and="" content="Changing the type of a volume (" detaching="" from="" is="" its="" name="description" new="" offline="" operation="" requires="" retyping")="" server,="" setting="" that="" the="" type."="" volume=""/>
+<link href="https://docs.cleura.cloud/howto/openstack/cinder/retype-volumes/" rel="canonical"/>
+<link href="../encrypted-volumes/" rel="prev"/>
+<link href="../../magnum/new-k8s-cluster/" rel="next"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.2" name="generator"/>
-<title>Managing invoices - Docs (Beta)</title>
-<link href="../../../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>Changing a volume's type - Docs (Beta)</title>
+<link href="../../../../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Managing invoices - Docs (Beta)" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/account-billing/manage-invoices.png" property="og:image"/>
+<meta content="Changing a volume's type - Docs (Beta)" property="og:title"/>
+<meta an="" and="" content="Changing the type of a volume (" detaching="" from="" is="" its="" new="" offline="" operation="" property="og:description" requires="" retyping")="" server,="" setting="" that="" the="" type."="" volume=""/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/retype-volumes.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/howto/account-billing/manage-invoices/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/openstack/cinder/retype-volumes/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Managing invoices - Docs (Beta)" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/account-billing/manage-invoices.png" name="twitter:image"/>
-<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="Changing a volume's type - Docs (Beta)" name="twitter:title"/>
+<meta an="" and="" content="Changing the type of a volume (" detaching="" from="" is="" its="" name="twitter:description" new="" offline="" operation="" requires="" retyping")="" server,="" setting="" that="" the="" type."="" volume=""/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/retype-volumes.png" name="twitter:image"/>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -43,14 +44,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#managing-invoices">
+<a class="md-skip" href="#changing-a-volumes-type">
           Skip to content
         </a>
 </div>
@@ -58,8 +59,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
-<img alt="logo" src="../../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Managing invoices
+              Changing a volume's type
             
           </span>
 </div>
@@ -140,8 +141,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
-<img alt="logo" src="../../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
     Docs (Beta)
   </label>
@@ -157,14 +158,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../../../..">
         Start Here
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../">How-To Guides</a>
+<a href="../../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -188,25 +189,25 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../getting-started/create-account/">
+<a class="md-nav__link" href="../../../getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../getting-started/accessing-cc-rest-api/">
+<a class="md-nav__link" href="../../../getting-started/accessing-cc-rest-api/">
         Accessing the Cleura Cloud REST API
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3">
           OpenStack
           <span class="md-nav__icon md-icon"></span>
@@ -220,7 +221,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -232,20 +233,20 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_2">
           Cinder (persistent block storage)
           <span class="md-nav__icon md-icon"></span>
@@ -257,19 +258,57 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/cinder/retype-volumes/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Changing a volume's type
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Changing a volume's type
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#checking-the-volumes-state">
+    Checking the volume's state
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detaching-the-volume">
+    Detaching the volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#retyping-the-volume">
+    Retyping the volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#re-attaching-the-volume">
+    Re-attaching the volume
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -287,7 +326,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -307,27 +346,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -347,32 +386,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/nova/new-server/">
+<a class="md-nav__link" href="../../nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/nova/server-group/">
+<a class="md-nav__link" href="../../nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -392,7 +431,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
@@ -417,7 +456,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../object-storage/s3/">S3 API</a>
+<a href="../../../object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -429,22 +468,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/s3/credentials/">
+<a class="md-nav__link" href="../../../object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/s3/expiry/">
+<a class="md-nav__link" href="../../../object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/s3/versioning/">
+<a class="md-nav__link" href="../../../object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../../../object-storage/s3/sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
@@ -454,7 +493,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../object-storage/swift/">Swift API</a>
+<a href="../../../object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -466,27 +505,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/swift/private-container/">
+<a class="md-nav__link" href="../../../object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/swift/public-container/">
+<a class="md-nav__link" href="../../../object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/swift/tempurl/">
+<a class="md-nav__link" href="../../../object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/swift/expiry/">
+<a class="md-nav__link" href="../../../object-storage/swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../object-storage/swift/versioning/">
+<a class="md-nav__link" href="../../../object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -499,7 +538,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../kubernetes/">Kubernetes</a>
+<a href="../../../kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -513,7 +552,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../kubernetes/gardener/">Gardener</a>
+<a href="../../../kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -525,7 +564,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
@@ -535,7 +574,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../kubernetes/magnum/">Magnum</a>
+<a href="../../../kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-label="Magnum" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -549,8 +588,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_6">
           Account &amp; Billing
           <span class="md-nav__icon md-icon"></span>
@@ -562,52 +601,19 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../change-billing-data/">
+<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../change-credit-card/">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
         Changing your credit card data
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Managing invoices
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#listing-invoices">
-    Listing invoices
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#displaying-invoice-details">
-    Displaying invoice details
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paying-outstanding-invoices">
-    Paying outstanding invoices
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changing-your-invoice-email-address">
-    Changing your invoice email address
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -618,7 +624,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../background/">Background</a>
+<a href="../../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -630,7 +636,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../background/gui-vs-api/">
+<a class="md-nav__link" href="../../../../background/gui-vs-api/">
         Cleura Cloud Management Panel vs. OpenStack API
       </a>
 </li>
@@ -640,7 +646,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../reference/">Reference</a>
+<a href="../../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -654,7 +660,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../reference/features/">Feature Support</a>
+<a href="../../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -666,12 +672,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/features/public/">
+<a class="md-nav__link" href="../../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/features/compliant/">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -681,7 +687,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../reference/flavors/">Flavors</a>
+<a href="../../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-label="Flavors" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
@@ -695,7 +701,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../reference/versions/">API Service Versions</a>
+<a href="../../../../reference/versions/">API Service Versions</a>
 <label for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -707,12 +713,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/versions/public/">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -725,7 +731,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../contrib/">You can help!</a>
+<a href="../../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -737,12 +743,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../contrib/modifications/">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../contrib/quality/">
+<a class="md-nav__link" href="../../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -764,23 +770,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#listing-invoices">
-    Listing invoices
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#displaying-invoice-details">
-    Displaying invoice details
+<a class="md-nav__link" href="#checking-the-volumes-state">
+    Checking the volume's state
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paying-outstanding-invoices">
-    Paying outstanding invoices
+<a class="md-nav__link" href="#detaching-the-volume">
+    Detaching the volume
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#changing-your-invoice-email-address">
-    Changing your invoice email address
+<a class="md-nav__link" href="#retyping-the-volume">
+    Retyping the volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#re-attaching-the-volume">
+    Re-attaching the volume
   </a>
 </li>
 </ul>
@@ -789,68 +800,117 @@
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="manage-invoices.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<h1 id="managing-invoices">Managing invoices</h1>
-<p>You may quickly review your invoices regarding the monthly usage of
-Cleura Cloud resources, selectively pay outstanding invoices, save any
-number in PDF format, and change the email address for receiving such
-invoices.</p>
-<p>First, fire up your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
-Cleura Cloud account.</p>
-<h2 id="listing-invoices">Listing invoices</h2>
-<p>Make sure the vertical pane on the left-hand side of the dashboard is
-expanded. Please look at the options and click on <em>Invoices</em> (right
-below <em>Users</em>). Then, in the main pane of the dashboard, you will see a
-list of paid and outstanding invoices.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/mgmnt-inv/shot-01.png"><img alt="All invoices" src="../assets/mgmnt-inv/shot-01.png"/></a></p>
-<p>Any paid invoice has a green circle-with-tick icon at the left of its
-row. Also, look at the <em>Outstanding Amount</em> column, where there is a
-value of <code>0.00</code> for each paid invoice.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/mgmnt-inv/shot-02.png"><img alt="Paid invoices" src="../assets/mgmnt-inv/shot-02.png"/></a></p>
-<h2 id="displaying-invoice-details">Displaying invoice details</h2>
-<p>Notice the three-dot orange icon at the right of any invoice row. By
-clicking on it, you get a pop-up with specific options regarding the
-corresponding invoice. For example, you can view the invoice’s PDF or
-download it onto your computer.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/mgmnt-inv/shot-03.png"><img alt="Options regarding selected invoice" src="../assets/mgmnt-inv/shot-03.png"/></a></p>
-<h2 id="paying-outstanding-invoices">Paying outstanding invoices</h2>
-<p>There is also the <em>Pay this invoice</em> option. Choose it for an
-outstanding invoice and you will get a pop-up with a detailed rundown
-of the dues, together with supported payment methods.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/mgmnt-inv/shot-04.png"><img alt="Payment options" src="../assets/mgmnt-inv/shot-04.png"/></a></p>
-<h2 id="changing-your-invoice-email-address">Changing your invoice email address</h2>
-<p>Finally, you may change the email address for receiving invoices. At
-the right-hand side of the dashboard, click the user icon at the top
-of the page. A pane titled <em>Account settings</em> will slide over.</p>
-<p>There are three tabs in that pane:</p>
-<ul>
-<li><em>Customer Info</em>,</li>
-<li><em>Contact</em>,</li>
-<li><em>Settings</em>.</li>
-</ul>
-<p>Click the middle one, <em>Contact</em>. If there is only one email address, it
-will have all available roles activated — including the <em>Billing</em>
-role.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/mgmnt-inv/shot-05.png"><img alt="Contact info" src="../assets/mgmnt-inv/shot-05.png"/></a></p>
-<p>Add a new email address to receive future invoices in a different email.
-Then, make sure the <em>Billing</em> role is deactivated for the old email
-address and activated for the new one.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/mgmnt-inv/shot-06.png"><img alt="New email address for getting billing info" src="../assets/mgmnt-inv/shot-06.png"/></a></p>
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="retype-volumes.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<h1 id="changing-a-volumes-type">Changing a volume’s type</h1>
+<p>You may occasionally need to change the type of a volume.
+This may be due to a volume type being phased out on Cleura Cloud’s part, necessitating data migration.
+Or you might want to enable or disable <a href="../encrypted-volumes/">volume-level encryption</a>.</p>
+<p>Changing the type of a volume (“retyping”) is an offline operation that requires detaching the volume from its server, and setting its new type.
+The resulting downtime may be quite substantial, particularly for large volumes.
+As such, when you need to retype volumes, you should plan ahead well in advance.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>In order to retype volumes, you must use the OpenStack CLI, so make sure you <a href="../../../getting-started/enable-openstack-cli/">have it enabled</a>.</p>
+<p>If you are about to retype a large volume, or one that holds data associated with a critical service, you may be interested in an estimate of how long the retype operation will take.
+In that case, please file a support request with our <a href="https://servicecenter.citynetwork.eu">Service Center</a>.</p>
+<h2 id="checking-the-volumes-state">Checking the volume’s state</h2>
+<p>Assume you have a volume named <code>testvol</code> that is currently attached to a server named <code>testsrv</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>list<span class="w"> </span>--long
+<span class="go">+----------------+---------+--------+------+---------+----------+----------------+------------+</span>
+<span class="go">| ID             | Name    | Status | Size | Type    | Bootable | Attached to    | Properties |</span>
+<span class="go">+----------------+---------+--------+------+---------+----------+----------------+------------+</span>
+<span class="go">| e233e7f3-f33b- | testvol | in-use |   50 | default | false    | Attached to    |            |</span>
+<span class="go">| 4d7a-8f5b-785b |         |        |      |         |          | testsrv on     |            |</span>
+<span class="go">| 34f670bf       |         |        |      |         |          | /dev/vdb       |            |</span>
+<span class="go">+----------------+---------+--------+------+---------+----------+----------------+------------+</span>
+</code></pre></div>
+<p>In this example, this volume status is <code>in-use</code>, meaning it is currently attached to a server, and the volume type is <code>default</code>.</p>
+<h2 id="detaching-the-volume">Detaching the volume</h2>
+<p>You cannot retype a volume while it is attached to a server.
+You must thus detach it first.
+It is safest to do this while the server is shut down:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>stop<span class="w"> </span>testsrv
+
+<span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-c<span class="w"> </span>Status
+<span class="go">+---------+---------+</span>
+<span class="go">| Name    | Status  |</span>
+<span class="go">+---------+---------+</span>
+<span class="go">| testsrv | SHUTOFF |</span>
+<span class="go">+---------+---------+</span>
+</code></pre></div>
+<p>Once your server is in the <code>SHUTOFF</code> state, you can safely proceed to detaching the volume.
+This will change the volume status from <code>in-use</code> to <code>available</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>remove<span class="w"> </span>volume<span class="w"> </span>testsrv<span class="w"> </span>testvol
+
+<span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>list
+<span class="go">+--------------------------------------+---------+-----------+------+-------------+</span>
+<span class="go">| ID                                   | Name    | Status    | Size | Attached to |</span>
+<span class="go">+--------------------------------------+---------+-----------+------+-------------+</span>
+<span class="go">| e233e7f3-f33b-4d7a-8f5b-785b34f670bf | testvol | available |   50 |             |</span>
+<span class="go">+--------------------------------------+---------+-----------+------+-------------+</span>
+</code></pre></div>
+<h2 id="retyping-the-volume">Retyping the volume</h2>
+<p>With the volume safely detached, you can now change its volume type.
+If you were to change the volume type from <code>default</code> to <code>ceph_hdd</code>, you would proceed as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--type<span class="w"> </span>ceph_hdd<span class="w"> </span>--retype-policy<span class="w"> </span>on-demand<span class="w"> </span>testvol
+
+<span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>list<span class="w"> </span>--long
+<span class="go">+---------------+---------+----------+------+---------+----------+-------------+------------+</span>
+<span class="go">| ID            | Name    | Status   | Size | Type    | Bootable | Attached to | Properties |</span>
+<span class="go">+---------------+---------+----------+------+---------+----------+-------------+------------+</span>
+<span class="go">| e233e7f3-f33b | testvol | retyping |   50 | default | false    |             |            |</span>
+<span class="go">| -4d7a-8f5b-78 |         |          |      |         |          |             |            |</span>
+<span class="go">| 5b34f670bf    |         |          |      |         |          |             |            |</span>
+<span class="go">+---------------+---------+----------+------+---------+----------+-------------+------------+</span>
+</code></pre></div>
+<p>Note that the volume status changes from <code>available</code> to <code>retyping</code>: this status change kicks off the actual data migration, which might take a significant amount of time.</p>
+<h2 id="re-attaching-the-volume">Re-attaching the volume</h2>
+<p>If you attempt to re-attach the volume while it is still retyping, you will receive an error:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>volume<span class="w"> </span>testsrv<span class="w"> </span>testvol
+<span class="go">BadRequestException: 400: Client Error for url: https://sto2.citycloud.com:8774/v2.1/servers/b6a26b0e-f911-4ea2-8e45-51f16442da03/os-volume_attachments, Invalid input received: Invalid volume: Volume e233e7f3-f33b-4d7a-8f5b-785b34f670bf status must be available or downloading to reserve, but the current status is retyping. (HTTP 400) (Request-ID: req-36c4f2e5-ef2f-4ff4-b912-0baed2594f4d)</span>
+</code></pre></div>
+<p>You must now wait until the volume status changes back from <code>retyping</code> to <code>available</code>.
+One way to do this is with a bash <code>until</code> loop:</p>
+<div class="highlight"><pre><span></span><code><span class="k">until</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>openstack<span class="w"> </span>volume<span class="w"> </span>show<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>testvol<span class="sb">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"available"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>sleep<span class="w"> </span><span class="m">5</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>Once the volume has returned to the <code>available</code> status, you can re-attach it to the server:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>volume<span class="w"> </span>testsrv<span class="w"> </span>testvol
+<span class="go">+-----------------------+--------------------------------------+</span>
+<span class="go">| Field                 | Value                                |</span>
+<span class="go">+-----------------------+--------------------------------------+</span>
+<span class="go">| ID                    | d2a22868-a133-40a1-b1a6-0cbae3feaf8d |</span>
+<span class="go">| Server ID             | 23a391f7-57ba-4c7f-bdd1-d1b89d6e39b2 |</span>
+<span class="go">| Volume ID             | e233e7f3-f33b-4d7a-8f5b-785b34f670bf |</span>
+<span class="go">| Device                | /dev/vdb                             |</span>
+<span class="go">| Tag                   | None                                 |</span>
+<span class="go">| Delete On Termination | False                                |</span>
+<span class="go">+-----------------------+--------------------------------------+</span>
+</code></pre></div>
+<p>Finally, restart the server:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>start<span class="w"> </span>testsrv
+
+<span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-c<span class="w"> </span>Status
+<span class="go">+---------+--------+</span>
+<span class="go">| Name    | Status |</span>
+<span class="go">+---------+--------+</span>
+<span class="go">| testsrv | ACTIVE |</span>
+<span class="go">+---------+--------+</span>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-03</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-20</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-03</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christos Varelas, Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
 </small>
 </div>
 </article>
@@ -862,7 +922,7 @@ address and activated for the new one.</p>
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
 <div class="md-copyright__highlight">
-<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </img></a>
 </div>
   
   
@@ -878,7 +938,7 @@ address and activated for the new one.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
