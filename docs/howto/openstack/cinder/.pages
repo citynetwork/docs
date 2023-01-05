@@ -3,3 +3,4 @@ nav:
   - resize-volumes.md
   - encrypted-volumes.md
   - retype-volumes.md
+  - sync-volumes.md
