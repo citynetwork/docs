@@ -5,34 +5,34 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/background/gui-vs-api/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../../reference/" rel="next"/>
-<link href="../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.cleura.cloud/howto/account-billing/rest-invoice-data/" rel="canonical"/>
+<link href="../manage-invoices/" rel="prev"/>
+<link href="../../../background/" rel="next"/>
+<link href="../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.2" name="generator"/>
-<title>Cleura Cloud Management Panel vs. OpenStack API - Docs (Beta)</title>
-<link href="../../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>Retrieving invoice data with the Cleura Cloud REST API - Docs (Beta)</title>
+<link href="../../../assets/stylesheets/main.f56500e0.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Cleura Cloud Management Panel vs. OpenStack API - Docs (Beta)" property="og:title"/>
+<meta content="Retrieving invoice data with the Cleura Cloud REST API - Docs (Beta)" property="og:title"/>
 <meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/background/gui-vs-api.png" property="og:image"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/account-billing/rest-invoice-data.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/background/gui-vs-api/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/account-billing/rest-invoice-data/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Cleura Cloud Management Panel vs. OpenStack API - Docs (Beta)" name="twitter:title"/>
+<meta content="Retrieving invoice data with the Cleura Cloud REST API - Docs (Beta)" name="twitter:title"/>
 <meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/background/gui-vs-api.png" name="twitter:image"/>
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/account-billing/rest-invoice-data.png" name="twitter:image"/>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -43,14 +43,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#cleura-cloud-management-panel-vs-openstack-api">
+<a class="md-skip" href="#retrieving-invoice-data-with-the-cleura-cloud-rest-api">
           Skip to content
         </a>
 </div>
@@ -58,8 +58,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Docs (Beta)">
-<img alt="logo" src="../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -74,7 +74,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Cleura Cloud Management Panel vs. OpenStack API
+              Retrieving invoice data with the Cleura Cloud REST API
             
           </span>
 </div>
@@ -140,8 +140,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Docs (Beta)">
-<img alt="logo" src="../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
     Docs (Beta)
   </label>
@@ -157,14 +157,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../..">
         Start Here
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/">How-To Guides</a>
+<a href="../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -188,17 +188,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/create-account/">
+<a class="md-nav__link" href="../../getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/accessing-cc-rest-api/">
+<a class="md-nav__link" href="../../getting-started/accessing-cc-rest-api/">
         Accessing the Cleura Cloud REST API
       </a>
 </li>
@@ -220,7 +220,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../openstack/barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -232,12 +232,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../openstack/barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../openstack/barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -257,17 +257,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/retype-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/retype-volumes/">
         Changing a volume's type
       </a>
 </li>
@@ -287,7 +287,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../openstack/magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -307,27 +307,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../openstack/neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../openstack/neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../openstack/neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../openstack/neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../openstack/neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -347,32 +347,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/new-server/">
+<a class="md-nav__link" href="../../openstack/nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/server-group/">
+<a class="md-nav__link" href="../../openstack/nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../openstack/nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../openstack/nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../openstack/nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../openstack/nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -392,7 +392,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../openstack/octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
@@ -417,7 +417,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/object-storage/s3/">S3 API</a>
+<a href="../../object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -429,22 +429,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/credentials/">
+<a class="md-nav__link" href="../../object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/expiry/">
+<a class="md-nav__link" href="../../object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/versioning/">
+<a class="md-nav__link" href="../../object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../../object-storage/s3/sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
@@ -454,7 +454,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/object-storage/swift/">Swift API</a>
+<a href="../../object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -466,27 +466,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/private-container/">
+<a class="md-nav__link" href="../../object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/public-container/">
+<a class="md-nav__link" href="../../object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/tempurl/">
+<a class="md-nav__link" href="../../object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/expiry/">
+<a class="md-nav__link" href="../../object-storage/swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/versioning/">
+<a class="md-nav__link" href="../../object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -499,7 +499,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/">Kubernetes</a>
+<a href="../../kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -513,7 +513,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/gardener/">Gardener</a>
+<a href="../../kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -525,7 +525,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../kubernetes/gardener/create-shoot-cluster/">
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
@@ -535,7 +535,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/magnum/">Magnum</a>
+<a href="../../kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-label="Magnum" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -549,8 +549,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_6">
           Account &amp; Billing
           <span class="md-nav__icon md-icon"></span>
@@ -562,24 +562,49 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/change-billing-data/">
+<a class="md-nav__link" href="../change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/change-credit-card/">
+<a class="md-nav__link" href="../change-credit-card/">
         Changing your credit card data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/manage-invoices/">
+<a class="md-nav__link" href="../manage-invoices/">
         Managing invoices
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/rest-invoice-data/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Retrieving invoice data with the Cleura Cloud REST API
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Retrieving invoice data with the Cleura Cloud REST API
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saving-invoice-data">
+    Saving invoice data
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sifting-through-invoice-data">
+    Sifting through invoice data
+  </a>
 </li>
 </ul>
 </nav>
@@ -587,10 +612,13 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Background</a>
+<a href="../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -601,33 +629,10 @@
           Background
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Cleura Cloud Management Panel vs. OpenStack API
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../background/gui-vs-api/">
         Cleura Cloud Management Panel vs. OpenStack API
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-case-for-cleura-cloud-management-panel">
-    The case for Cleura Cloud Management Panel
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-case-for-openstack-api">
-    The case for OpenStack API
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -635,7 +640,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/">Reference</a>
+<a href="../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -649,7 +654,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/features/">Feature Support</a>
+<a href="../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -661,12 +666,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/features/public/">
+<a class="md-nav__link" href="../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/features/compliant/">
+<a class="md-nav__link" href="../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -676,7 +681,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/flavors/">Flavors</a>
+<a href="../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-label="Flavors" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
@@ -690,7 +695,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/versions/">API Service Versions</a>
+<a href="../../../reference/versions/">API Service Versions</a>
 <label for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -702,12 +707,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/versions/public/">
+<a class="md-nav__link" href="../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -720,7 +725,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../contrib/">You can help!</a>
+<a href="../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -732,12 +737,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../contrib/modifications/">
+<a class="md-nav__link" href="../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../contrib/quality/">
+<a class="md-nav__link" href="../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -759,13 +764,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-case-for-cleura-cloud-management-panel">
-    The case for Cleura Cloud Management Panel
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-case-for-openstack-api">
-    The case for OpenStack API
+<a class="md-nav__link" href="#saving-invoice-data">
+    Saving invoice data
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sifting-through-invoice-data">
+    Sifting through invoice data
   </a>
 </li>
 </ul>
@@ -774,71 +784,65 @@
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="gui-vs-api.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<h1 id="cleura-cloud-management-panel-vs-openstack-api">Cleura Cloud Management Panel vs. OpenStack API</h1>
-<p>You can do many tasks in Cleura Cloud via the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> or via the OpenStack API, e.g., with
-the help of the
-<a href="../../howto/getting-started/enable-openstack-cli">OpenStack CLI</a> tool.
-For some tasks, though, you <em>will need</em> the OpenStack API.</p>
-<p>But when does it make sense to prefer a particular way of working?
-What are the reasons, if any, for choosing one method over the other?</p>
-<h2 id="the-case-for-cleura-cloud-management-panel">The case for Cleura Cloud Management Panel</h2>
-<p>Ease of use is probably the main reason for choosing the Cleura Cloud Management Panel over
-the OpenStack API. Provided you have an <a href="../../howto/getting-started/create-account">account in
-Cleura Cloud</a>, you can simply
-log in and then follow step-by-step guides to create entities such as
-<a href="../../howto/openstack/neutron/new-network">networks</a>,
-<a href="../../howto/openstack/nova/new-server">servers</a>, or even
-<a href="../../howto/openstack/magnum/new-k8s-cluster">Kubernetes clusters</a>.
-You can just as easily perform administrative tasks like creating
-<a href="../../howto/openstack/neutron/create-security-groups">security
-groups</a>, setting
-up <a href="../../howto/openstack/neutron/vpnaas">region-to-region VPN</a>
-connections, <a href="../../howto/openstack/neutron/delete-network">deleting
-networks</a>, modifying
-<a href="../../howto/account-billing/change-billing-data">billing data</a>, or
-<a href="../../howto/account-billing/manage-invoices">managing invoices</a>.</p>
-<p>All in all, there are many instances when the Cleura Cloud Management Panel is all you want
-and, at the same time, is more than enough for what you want.</p>
-<h2 id="the-case-for-openstack-api">The case for OpenStack API</h2>
-<p>There will be times when working from the terminal of your laptop is
-preferable to using the Cleura Cloud Management Panel. In cases like this, you will use the
-OpenStack API via a tool like the OpenStack CLI. Although <code>openstack</code>
-usually requires some reading before doing a specific task, it doesn’t
-take much time to get used to its logic for constructing commands to
-achieve what you want. Plus, there is hardly a thing you can’t do with
-<code>openstack</code> or a CLI tool that talks to the OpenStack API.</p>
-<p>We should also point out that specific tasks can be performed <em>only</em>
-via the OpenStack API, for there is no counterpart tool in the Cleura Cloud Management Panel
-toolbox.</p>
-<p>For instance, whenever you need to
-<a href="../../howto/openstack/nova/move-server-between-regions">move servers between regions</a>,
-then <code>openstack</code> is your only option. Another instance where you work
-with the OpenStack API and various CLI tools, is when you have to
-interact with the <a href="../../howto/object-storage/s3">S3 API</a> or the
-<a href="../../howto/object-storage/swift">Swift API</a>.</p>
-<p>Even though the command syntax of <code>openstack</code> may sometimes look overly
-complicated, the potential for scripting can speed up many operations
-considerably. In addition to that, the OpenStack API is employed by
-configuration management systems and automation platforms like
-<a href="https://www.ansible.com">Ansible</a>, and infrastructure as code
-systems like <a href="https://www.terraform.io">Terraform</a> and
-<a href="https://www.pulumi.com">Pulumi</a>.</p>
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="rest-invoice-data.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<h1 id="retrieving-invoice-data-with-the-cleura-cloud-rest-api">Retrieving invoice data with the Cleura Cloud REST API</h1>
+<p>You may download some or all of your Cleura Cloud invoice data
+using the Cleura Cloud REST API.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before retrieving any of your invoice data, you need to
+<a href="/howto/getting-started/accessing-cc-rest-api">create a token</a>
+for the current session.</p>
+<h2 id="saving-invoice-data">Saving invoice data</h2>
+<p>To save JSON data about all available invoices locally, submit
+a Cleura Cloud REST API request like this:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">"X-AUTH-LOGIN: your_username"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-H<span class="w"> </span><span class="s2">"X-AUTH-TOKEN: your_token"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-o<span class="w"> </span>invoices.json<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>https://rest.cleura.cloud/account/v1/invoices
+</code></pre></div>
+<p>A command like the above will download the data of up to 20 invoices
+and save them as JSON objects into the file <code>invoices.json</code>. You may
+change the number of invoices with the <code>limit</code> parameter:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">"X-AUTH-LOGIN: your_username"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-H<span class="w"> </span><span class="s2">"X-AUTH-TOKEN: your_token"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-o<span class="w"> </span>invoices.json<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>https://rest.cleura.cloud/account/v1/invoices?limit<span class="o">=</span><span class="m">2</span>
+</code></pre></div>
+<p>That will limit the number of invoices to 2. Please note that you may
+download data from up to 100 invoices.</p>
+<h2 id="sifting-through-invoice-data">Sifting through invoice data</h2>
+<p>Once you have your invoice data, you may sift through it with a tool
+like <code>jq</code>. For example, here is a quick way to check if all downloaded
+invoices are already paid:</p>
+<div class="highlight"><pre><span></span><code><span class="go">jq '.[].status' invoices.json</span>
+<span class="go">"paid"</span>
+<span class="go">"paid"</span>
+</code></pre></div>
+<p>To get a list with all invoice IDs, type the following:</p>
+<div class="highlight"><pre><span></span><code><span class="go">jq '.[].id' invoices.json</span>
+<span class="go">"164..."</span>
+<span class="go">"163..."</span>
+</code></pre></div>
+<p>You may now get more information regarding a specific invoice. Find
+out, for instance, when is (or was) the due date for the invoice with
+ID <code>164...</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="go">jq '.[] | select(.id=="164...") .dueDate' invoices.json</span>
+<span class="go">"2023-01-23"</span>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-05</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-05</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christos Varelas, Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas</span>
 </small>
 </div>
 </article>
@@ -866,7 +870,7 @@ systems like <a href="https://www.terraform.io">Terraform</a> and
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.5cf534bf.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.5cf534bf.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
