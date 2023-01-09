@@ -5,13 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Server groups provide a mechanism to group servers according to a certain policy." name="description"/>
-<link href="https://docs.cleura.cloud/howto/openstack/nova/server-group/" rel="canonical"/>
-<link href="../new-server/" rel="prev"/>
-<link href="../config-drive/" rel="next"/>
+<meta content="You can transfer your data between volumes in the same region, with minimal service downtime." name="description"/>
+<link href="https://docs.cleura.cloud/howto/openstack/cinder/sync-volumes/" rel="canonical"/>
+<link href="../retype-volumes/" rel="prev"/>
+<link href="../../magnum/new-k8s-cluster/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.3" name="generator"/>
-<title>Using server groups - Docs (Beta)</title>
+<title>Transferring data between volumes - Docs (Beta)</title>
 <link href="../../../../assets/stylesheets/main.6b71719e.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,17 +22,17 @@
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Using server groups - Docs (Beta)" property="og:title"/>
-<meta content="Server groups provide a mechanism to group servers according to a certain policy." property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/nova/server-group.png" property="og:image"/>
+<meta content="Transferring data between volumes - Docs (Beta)" property="og:title"/>
+<meta content="You can transfer your data between volumes in the same region, with minimal service downtime." property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/sync-volumes.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/howto/openstack/nova/server-group/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/openstack/cinder/sync-volumes/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Using server groups - Docs (Beta)" name="twitter:title"/>
-<meta content="Server groups provide a mechanism to group servers according to a certain policy." name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/nova/server-group.png" name="twitter:image"/>
+<meta content="Transferring data between volumes - Docs (Beta)" name="twitter:title"/>
+<meta content="You can transfer your data between volumes in the same region, with minimal service downtime." name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/cinder/sync-volumes.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -51,7 +51,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#using-server-groups">
+<a class="md-skip" href="#transferring-data-between-volumes">
           Skip to content
         </a>
 </div>
@@ -75,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Using server groups
+              Transferring data between volumes
             
           </span>
 </div>
@@ -245,9 +245,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2_3_2" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2_3_2" tabindex="0">
           Cinder (persistent block storage)
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -258,24 +258,82 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/resize-volumes/">
+<a class="md-nav__link" href="../resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/retype-volumes/">
+<a class="md-nav__link" href="../retype-volumes/">
         Changing a volume's type
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/sync-volumes/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Transferring data between volumes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Transferring data between volumes
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#checking-the-source-volumes-state">
+    Checking the source volume's state
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#taking-a-snapshot-of-the-source-volume">
+    Taking a snapshot of the source volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-the-target-volume">
+    Creating the target volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#retyping-the-target-volume-optional">
+    Retyping the target volume (optional)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#attaching-the-target-volume">
+    Attaching the target volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#synchronizing-data-between-the-source-and-target-volume">
+    Synchronizing data between the source and target volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detaching-the-source-volume">
+    Detaching the source volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#marking-the-source-volume-read-only-optional">
+    Marking the source volume read-only (optional)
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -340,9 +398,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_5" id="__nav_2_3_5" type="checkbox"/>
-<label aria-expanded="true" class="md-nav__link" for="__nav_2_3_5" tabindex="0">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_5" id="__nav_2_3_5" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3_5" tabindex="0">
           Nova (compute service)
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -353,94 +411,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../new-server/">
+<a class="md-nav__link" href="../../nova/new-server/">
         Creating new servers
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Using server groups
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/server-group/">
         Using server groups
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-    Prerequisites
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#policies">
-    Policies
-  </a>
-<nav aria-label="Policies" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#affinity">
-    Affinity
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#soft-affinity">
-    Soft affinity
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#anti-affinity">
-    Anti-affinity
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#soft-anti-affinity">
-    Soft anti-affinity
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#creating-server-groups">
-    Creating server groups
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#creating-servers-using-server-groups">
-    Creating servers using server groups
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#troubleshooting-common-issues">
-    Troubleshooting common issues
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../config-drive/">
+<a class="md-nav__link" href="../../nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../resize-server/">
+<a class="md-nav__link" href="../../nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../move-server-between-regions/">
+<a class="md-nav__link" href="../../nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../rescue-server/">
+<a class="md-nav__link" href="../../nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -809,47 +805,43 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#policies">
-    Policies
-  </a>
-<nav aria-label="Policies" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#affinity">
-    Affinity
+<a class="md-nav__link" href="#checking-the-source-volumes-state">
+    Checking the source volume's state
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#soft-affinity">
-    Soft affinity
+<a class="md-nav__link" href="#taking-a-snapshot-of-the-source-volume">
+    Taking a snapshot of the source volume
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#anti-affinity">
-    Anti-affinity
+<a class="md-nav__link" href="#creating-the-target-volume">
+    Creating the target volume
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#soft-anti-affinity">
-    Soft anti-affinity
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#creating-server-groups">
-    Creating server groups
+<a class="md-nav__link" href="#retyping-the-target-volume-optional">
+    Retyping the target volume (optional)
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-servers-using-server-groups">
-    Creating servers using server groups
+<a class="md-nav__link" href="#attaching-the-target-volume">
+    Attaching the target volume
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#troubleshooting-common-issues">
-    Troubleshooting common issues
+<a class="md-nav__link" href="#synchronizing-data-between-the-source-and-target-volume">
+    Synchronizing data between the source and target volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detaching-the-source-volume">
+    Detaching the source volume
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#marking-the-source-volume-read-only-optional">
+    Marking the source volume read-only (optional)
   </a>
 </li>
 </ul>
@@ -858,70 +850,207 @@
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="server-group.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<h1 id="using-server-groups">Using server groups</h1>
-<p>In Cleura Cloud, you can use server groups to control the scheduling of a group of servers.</p>
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="sync-volumes.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<h1 id="transferring-data-between-volumes">Transferring data between volumes</h1>
+<p>From time to time, you may want to transfer data from one persistent storage volume to another, while keeping your data within the same Cleura Cloud region.</p>
+<p>For example, you might prefer to select a volume type that has become newly available in that region, but find the downtime associated with <a href="../retype-volumes/">retyping a single volume</a> prohibitive.
+In this case, you can choose an on-line synchronization approach, which comes with much reduced downtime.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>In order to use server groups you must use the OpenStack CLI. Make sure you have <a href="/howto/getting-started/enable-openstack-cli">enabled it</a>.</p>
-<h2 id="policies">Policies</h2>
-<p>A server group can have one of four different policies: affinity, soft-affinity, anti-affinity or soft-anti-affinity.</p>
-<h3 id="affinity">Affinity</h3>
-<p>A server group with the policy of <code>affinity</code> will make sure that all the servers in that group are <strong>always</strong> placed on the same physical compute node.</p>
-<h3 id="soft-affinity">Soft affinity</h3>
-<p>A policy of <code>soft-affinity</code> will <strong>try to</strong> make sure that all the servers in that group are placed on the same physical compute node, but ultimately will allow it if otherwise not possible.</p>
-<h3 id="anti-affinity">Anti-affinity</h3>
-<p>A server group with the policy of <code>anti-affinity</code> will make sure that the servers in that group are <strong>never</strong> placed on the same physical compute node.</p>
-<h3 id="soft-anti-affinity">Soft anti-affinity</h3>
-<p>A policy of <code>soft-anti-affinity</code> will <strong>try to</strong> make sure that all the servers in that group are not placed on the same physical compute node, but ultimately will allow it if otherwise not possible.</p>
-<h2 id="creating-server-groups">Creating server groups</h2>
-<p>To create a server group, use the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>group<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy<span class="w"> </span><span class="o">[</span>affinity<span class="p">|</span>soft-affinity<span class="p">|</span>anti-affinity<span class="p">|</span>soft-anti-affinity<span class="o">]</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>&lt;server_group_name&gt;
+<p>Creating volumes from snapshots (and optionally retyping them) requires using the OpenStack CLI, so make sure you <a href="../../../getting-started/enable-openstack-cli/">have it enabled</a>.</p>
+<h2 id="checking-the-source-volumes-state">Checking the source volume’s state</h2>
+<p>Assume you have a volume named <code>sourcevol</code> that is currently attached to a server named <code>testsrv</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>list<span class="w"> </span>--long
+<span class="go">+---------------+-----------+--------+------+---------+----------+---------------+------------+</span>
+<span class="go">| ID            | Name      | Status | Size | Type    | Bootable | Attached to   | Properties |</span>
+<span class="go">+---------------+-----------+--------+------+---------+----------+---------------+------------+</span>
+<span class="go">| 526f7741-2c44 | sourcevol | in-use |   50 | default | false    | Attached to   |            |</span>
+<span class="go">| -4d04-a0c8-86 |           |        |      |         |          | testsrv on    |            |</span>
+<span class="go">| b8d039e674    |           |        |      |         |          | /dev/vdb      |            |</span>
+<span class="go">+---------------+-----------+--------+------+---------+----------+---------------+------------+</span>
 </code></pre></div>
-<p>With an <code>anti-affinity</code> or <code>soft-anti-affinity</code> policy, you may also configure how many servers you want to allow on the same physical compute node. To do this, use the option <code>--rule max_server_per_host=&lt;number&gt;</code>, where <code>&lt;number&gt;</code> is the amount of servers to allow on the same physical compute node.</p>
-<h2 id="creating-servers-using-server-groups">Creating servers using server groups</h2>
-<p>To apply a server group policy, you must specify the group when creating a server, as a <em>scheduling hint.</em> To do that, use the <code>--hint</code> parameter in the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span>--hint<span class="w"> </span><span class="nv">group</span><span class="o">=</span>&lt;server_group_id&gt;<span class="w"> </span><span class="o">[</span>...<span class="o">]</span><span class="w"> </span>&lt;server_name&gt;
+<p>In this example, the volume status is <code>in-use</code> (meaning the volume is currently attached to a server), and the volume type is <code>default</code>.</p>
+<h2 id="taking-a-snapshot-of-the-source-volume">Taking a snapshot of the source volume</h2>
+<p>First take a <em>snapshot</em> (a consistent, read-only, point-in-time copy) of your source volume.
+Note that since you are taking a snapshot of an <code>in-use</code> volume, you need to use the <code>--force</code> option with the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>--force<span class="w"> </span>--volume<span class="w"> </span>sourcevol<span class="w"> </span>sourcevol-snap
+<span class="go">+-------------+--------------------------------------+</span>
+<span class="go">| Field       | Value                                |</span>
+<span class="go">+-------------+--------------------------------------+</span>
+<span class="go">| created_at  | 2023-01-05T14:34:46.409705           |</span>
+<span class="go">| description | None                                 |</span>
+<span class="go">| id          | 05ece580-4fb0-45dd-96e8-06a46399c38e |</span>
+<span class="go">| name        | sourcevol-snap                       |</span>
+<span class="go">| properties  |                                      |</span>
+<span class="go">| size        | 50                                   |</span>
+<span class="go">| status      | creating                             |</span>
+<span class="go">| updated_at  | None                                 |</span>
+<span class="go">| volume_id   | 526f7741-2c44-4d04-a0c8-86b8d039e674 |</span>
+<span class="go">+-------------+--------------------------------------+</span>
 </code></pre></div>
-<p>If you subsequently launch more servers referencing the same server group, Cleura Cloud concentrates or distributes them according to the server group’s policy.</p>
-<h2 id="troubleshooting-common-issues">Troubleshooting common issues</h2>
-<p>If you keep creating servers within a server group with a policy of <code>anti-affinity</code>, you will eventually exceed the total amount of physical compute nodes in the region. The command will still succeed, but the server will subsequently fail to be scheduled to a compute node. Instead, it will assume the <code>ERROR</code> status with the following <code>fault</code> message: <em>No valid host was found. There are not enough hosts available.</em></p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>fault<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>&lt;server_id&gt;
-<span class="go">+--------+--------------------------------------------------+</span>
-<span class="go">| Field  | Value                                            |</span>
-<span class="go">+--------+--------------------------------------------------+</span>
-<span class="go">| fault  | {'code': 500, 'created': '2022-12-23T11:21:33Z', |</span>
-<span class="go">|        | 'message': 'No valid host was found.             |</span>
-<span class="go">|        | There are not enough hosts available.'}          |</span>
-<span class="go">| status | ERROR                                            |</span>
-<span class="go">+--------+--------------------------------------------------+</span>
+<p>The snapshot status should change from <code>creating</code> to <code>available</code> in a matter of seconds.
+You can subsequently read back its state with the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>snapshot<span class="w"> </span>show<span class="w"> </span>sourcevol-snap
+<span class="go">+--------------------------------------------+--------------------------------------+</span>
+<span class="go">| Field                                      | Value                                |</span>
+<span class="go">+--------------------------------------------+--------------------------------------+</span>
+<span class="go">| created_at                                 | 2023-01-05T14:34:46.000000           |</span>
+<span class="go">| description                                | None                                 |</span>
+<span class="go">| id                                         | 05ece580-4fb0-45dd-96e8-06a46399c38e |</span>
+<span class="go">| name                                       | sourcevol-snap                       |</span>
+<span class="go">| properties                                 |                                      |</span>
+<span class="go">| size                                       | 50                                   |</span>
+<span class="go">| status                                     | available                            |</span>
+<span class="go">| updated_at                                 | 2023-01-05T14:34:49.000000           |</span>
+<span class="go">| volume_id                                  | 526f7741-2c44-4d04-a0c8-86b8d039e674 |</span>
+<span class="go">+--------------------------------------------+--------------------------------------+</span>
 </code></pre></div>
-<p>This is normal as Cleura Cloud cannot schedule the server on a different physical compute node because there already is a server in the server group on every node. The same scheduling error and “fault” message will occur when using a server group with a policy of <code>affinity</code> as well, when you create more servers than a physical compute node can host.</p>
-<p>However when using a soft affinity policy, such as <code>soft-affinity</code> or <code>soft-anti-affinity</code>, the scheduler is allowed to break the server group’s policy if it is unable to uphold it. This means you may want to verify that your servers are on the same or on different physical compute nodes by looking at the <em>hostId</em> value of your servers.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>hostId<span class="w"> </span>&lt;server_id&gt;
-<span class="go">+--------+----------------------------------------------------------+</span>
-<span class="go">| hostId | 8fae028139411e9e125d5f39895bef79f916aefce6003a7888de105d |</span>
-<span class="go">+--------+----------------------------------------------------------+</span>
+<h2 id="creating-the-target-volume">Creating the target volume</h2>
+<p>Once you have created a snapshot of your source volume, you can use it to preseed your target volume:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>--snapshot<span class="w"> </span>sourcevol-snap<span class="w"> </span>targetvol
+<span class="go">+---------------------+--------------------------------------+</span>
+<span class="go">| Field               | Value                                |</span>
+<span class="go">+---------------------+--------------------------------------+</span>
+<span class="go">| attachments         | []                                   |</span>
+<span class="go">| availability_zone   | nova                                 |</span>
+<span class="go">| bootable            | false                                |</span>
+<span class="go">| consistencygroup_id | None                                 |</span>
+<span class="go">| created_at          | 2023-01-05T14:44:10.132096           |</span>
+<span class="go">| description         | None                                 |</span>
+<span class="go">| encrypted           | False                                |</span>
+<span class="go">| id                  | c8e0ff43-f837-478b-ad42-1bdb20dbbdb3 |</span>
+<span class="go">| multiattach         | False                                |</span>
+<span class="go">| name                | targetvol                            |</span>
+<span class="go">| properties          |                                      |</span>
+<span class="go">| replication_status  | None                                 |</span>
+<span class="go">| size                | 50                                   |</span>
+<span class="go">| snapshot_id         | 05ece580-4fb0-45dd-96e8-06a46399c38e |</span>
+<span class="go">| source_volid        | None                                 |</span>
+<span class="go">| status              | creating                             |</span>
+<span class="go">| type                | default                              |</span>
+<span class="go">| updated_at          | None                                 |</span>
+<span class="go">| user_id             | 51ce99c11f9e4ed08e92acca176c33ca     |</span>
+<span class="go">+---------------------+--------------------------------------+</span>
 </code></pre></div>
-<p><code>hostId</code> is a unique identifier for each physical compute node. By comparing this value on your different servers you can be sure if your server group policy is being upheld or not.</p>
-<blockquote>
-<p>It’s not possible to compare <code>hostId</code> between different projects because the values are unique for each project.</p>
-</blockquote>
+<p>You must now wait until the volume status changes from <code>creating</code> to <code>available</code>.
+One way to do this is with a bash <code>until</code> loop:</p>
+<div class="highlight"><pre><span></span><code><span class="k">until</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>openstack<span class="w"> </span>volume<span class="w"> </span>show<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>targetvol<span class="sb">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"available"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>sleep<span class="w"> </span><span class="m">5</span>
+<span class="k">done</span>
+</code></pre></div>
+<h2 id="retyping-the-target-volume-optional">Retyping the target volume (optional)</h2>
+<p>If you want to retain the current type of your target volume, you can safely skip this step.</p>
+<p>If you do need to select a different volume type for your target volume (see <a href="../retype-volumes/">the relevant how-to guide</a> for details on retyping), now is the time to do so.
+Set the new volume type, and then wait for the retype operation to complete.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--type<span class="w"> </span>&lt;new-type&gt;<span class="w"> </span>--retype-policy<span class="w"> </span>on-demand<span class="w"> </span>targetvol
+
+<span class="gp">$ </span><span class="k">until</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>openstack<span class="w"> </span>volume<span class="w"> </span>show<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>targetvol<span class="sb">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"available"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="go">  sleep 5</span>
+<span class="go">done</span>
+</code></pre></div>
+<h2 id="attaching-the-target-volume">Attaching the target volume</h2>
+<p>You can now attach the target volume to your server:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>volume<span class="w"> </span>testsrv<span class="w"> </span>targetvol
+<span class="go">+-----------------------+--------------------------------------+</span>
+<span class="go">| Field                 | Value                                |</span>
+<span class="go">+-----------------------+--------------------------------------+</span>
+<span class="go">| ID                    | d2a22868-a133-40a1-b1a6-0cbae3feaf8d |</span>
+<span class="go">| Server ID             | 23a391f7-57ba-4c7f-bdd1-d1b89d6e39b2 |</span>
+<span class="go">| Volume ID             | e233e7f3-f33b-4d7a-8f5b-785b34f670bf |</span>
+<span class="go">| Device                | /dev/vdc                             |</span>
+<span class="go">| Tag                   | None                                 |</span>
+<span class="go">| Delete On Termination | False                                |</span>
+<span class="go">+-----------------------+--------------------------------------+</span>
+</code></pre></div>
+<h2 id="synchronizing-data-between-the-source-and-target-volume">Synchronizing data between the source and target volume</h2>
+<!-- Creative Commons attribution: this section is partly based on "Volume data migration between volume types" from the CERN OpenStack Private Cloud Guide (https://clouddocs.web.cern.ch/advanced_topics/migrate_volume_type.html), CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). -->
+<p>At this point, your server contains <em>current</em> data on the source volume (<code>sourcevol</code>), and <em>outdated</em> data on the target volume (<code>targetvol</code>), since your application has continued to write data since you took the snapshot.</p>
+<p>Thus, you must now conduct a final synchronization of your data.
+How you do this precisely depends on your workload, but certain rules of thumb apply based on the guest operating system.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Linux/BSD/Unix</label><label for="__tabbed_1_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Mount the device corresponding to the target volume to a temporary path.
+   This may entail that you make some modifications to the filesystem prior to mounting.
+   For example, an XFS filesystem will need a new UUID, which you can set with <code>xfs_admin -U generate &lt;device&gt;</code></li>
+<li>Synchronize your data between the source volume’s mount point and the target volume’s temporary one, for example:
+   <div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-av<span class="w"> </span>/srv/data<span class="w"> </span>/mnt
+</code></pre></div>
+   You can repeat this step as often as necessary.</li>
+<li>Stop any services accessing data on the source volume (this marks the start of your migration downtime).</li>
+<li>Run a final synchronization:
+   <div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-av<span class="w"> </span>/srv/data<span class="w"> </span>/mnt
+</code></pre></div></li>
+<li>Unmount the source volume.</li>
+<li>Remount the target volume to the source volume’s prior mount point.</li>
+<li>Start the service accessing data on the target volume (this marks the end of your migration downtime).</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Assign a drive letter to the device corresponding to the target volume (this example assumes <code>E:</code>)</li>
+<li>Synchronize your data between the source volume’s drive letter (this example assumes <code>D:</code>) and the target volume’s temporary one, for example:
+   <div class="highlight"><pre><span></span><code><span class="nv">%SystemRoot%</span>\system32\robocopy.exe D: E: /MT:16 /R:0 /W:0 /ZB /NP /COPYALL /DCOPY:T /MIR /NFL /NDL /XJD /XO
+</code></pre></div>
+   You can repeat this step as often as necessary.</li>
+<li>Stop any services accessing data on the source volume (this marks the start of your migration downtime).</li>
+<li>Run a final synchronization:
+   <div class="highlight"><pre><span></span><code><span class="nv">%SystemRoot%</span>\system32\robocopy.exe D: E: /MT:16 /R:0 /W:0 /ZB /NP /COPYALL /DCOPY:T /MIR /NFL /NDL /XJD /XO
+</code></pre></div></li>
+<li>Unassign the drive letter (<code>D:</code>) from the device corresponding to the source volume.</li>
+<li>Change the drive letter of the device corresponding to the target volume (<code>E:</code>) to that previously used by the device corresponding to the source volume (<code>D:</code>)</li>
+<li>Start the service accessing data on the target volume (this marks the end of your migration downtime).</li>
+</ol>
+</div>
+</div>
+</input></input></div>
+<h2 id="detaching-the-source-volume">Detaching the source volume</h2>
+<p>Finally, detach the source volume from the server.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>remove<span class="w"> </span>volume<span class="w"> </span>testsrv<span class="w"> </span>sourcevol
+</code></pre></div>
+<h2 id="marking-the-source-volume-read-only-optional">Marking the source volume read-only (optional)</h2>
+<p>If you do not want to delete the source volume straight away, but retain it as a backup in case anything has gone wrong in the migration, it makes good sense to mark it as read-only.
+That way, if the source volume is accidentally attached to a server, its data cannot be modified.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--read-only<span class="w"> </span>sourcevol
+<span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>show<span class="w"> </span>sourcevol
+<span class="go">+------------------------------+--------------------------------------+</span>
+<span class="go">| Field                        | Value                                |</span>
+<span class="go">+------------------------------+--------------------------------------+</span>
+<span class="go">| attachments                  | []                                   |</span>
+<span class="go">| availability_zone            | nova                                 |</span>
+<span class="go">| bootable                     | false                                |</span>
+<span class="go">| consistencygroup_id          | None                                 |</span>
+<span class="go">| created_at                   | 2023-01-05T14:00:40.000000           |</span>
+<span class="go">| description                  | None                                 |</span>
+<span class="go">| encrypted                    | False                                |</span>
+<span class="go">| id                           | 526f7741-2c44-4d04-a0c8-86b8d039e674 |</span>
+<span class="go">| multiattach                  | False                                |</span>
+<span class="go">| name                         | sourcevol                            |</span>
+<span class="go">| properties                   | readonly='True'                      |</span>
+<span class="go">| replication_status           | None                                 |</span>
+<span class="go">| size                         | 50                                   |</span>
+<span class="go">| snapshot_id                  | None                                 |</span>
+<span class="go">| source_volid                 | None                                 |</span>
+<span class="go">| status                       | available                            |</span>
+<span class="go">| type                         | default                              |</span>
+<span class="go">| updated_at                   | 2023-01-05T16:03:55.000000           |</span>
+<span class="go">| user_id                      | 51ce99c11f9e4ed08e92acca176c33ca     |</span>
+<span class="go">+------------------------------+--------------------------------------+</span>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-05</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-05</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christian Mattsson</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
 </small>
 </div>
 </article>
