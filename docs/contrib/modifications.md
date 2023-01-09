@@ -34,8 +34,10 @@ export CLIFF_MAX_TERM_WIDTH=100
 
 ## Modifying content from your browser
 
-Every page on this site has an Edit button 🖍️. If you click it, it’ll
-take you straight to the corresponding source page in GitHub. Then,
+Every page on this site has an Edit button
+([:{{config.theme.icon.edit | replace('/','-')}}:]({{page.edit_url}})).
+If you click it, it’ll
+take you straight to its [corresponding source page]({{page.edit_url}}) in GitHub. Then,
 you can follow [GitHub’s
 documentation](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository)
 on how to propose changes to another user’s repository.
