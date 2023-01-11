@@ -14,11 +14,13 @@ information about {{brand}} services.
   for server instances, and their availability across
   {{brand}} regions.
 
-* Our **[API Service Version Matrix](versions/index.md)** lists the
+* Our **[Service Version Matrix](versions/index.md)** lists the
   open source software versions running in our {{brand}}
   regions.
 
-* The **[{{rest_api}}](cc-rest-api/index.md)** reference
-  documentation provides useful information for accessing the API,
+## API reference
+
+* The **[API reference](api/index.md)** documentation provides useful
+  information for accessing Application Programming Interfaces (APIs),
   getting information, and manipulating all sorts of {{brand}}
   objects.

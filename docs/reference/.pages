@@ -1,1 +1,7 @@
 title: "Reference"
+nav:
+  - index.md
+  - features
+  - flavors
+  - versions
+  - api
