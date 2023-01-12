@@ -3,6 +3,7 @@ nav:
   - index.md
   - credentials.md
   - public-bucket.md
+  - presign.md
   - expiry.md
   - versioning.md
   - sse-c.md
