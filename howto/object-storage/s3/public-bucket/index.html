@@ -5,34 +5,35 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/contrib/modifications/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../quality/" rel="next"/>
-<link href="../../assets/favicon.ico" rel="icon"/>
+<meta content="You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser." name="description"/>
+<link href="https://docs.cleura.cloud/howto/object-storage/s3/public-bucket/" rel="canonical"/>
+<link href="../credentials/" rel="prev"/>
+<link href="../expiry/" rel="next"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>Modifying content on this site - Docs (Beta)</title>
-<link href="../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>Public buckets - Docs (Beta)</title>
+<link href="../../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Modifying content on this site - Docs (Beta)" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/contrib/modifications.png" property="og:image"/>
+<meta content="Public buckets - Docs (Beta)" property="og:title"/>
+<meta content="You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser." property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/public-bucket.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/contrib/modifications/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/object-storage/s3/public-bucket/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Modifying content on this site - Docs (Beta)" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/contrib/modifications.png" name="twitter:image"/>
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="Public buckets - Docs (Beta)" name="twitter:title"/>
+<meta content="You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser." name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/public-bucket.png" name="twitter:image"/>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -43,14 +44,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#modifying-content-on-this-site">
+<a class="md-skip" href="#public-buckets">
           Skip to content
         </a>
 </div>
@@ -58,8 +59,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Docs (Beta)">
-<img alt="logo" src="../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Modifying content on this site
+              Public buckets
             
           </span>
 </div>
@@ -140,8 +141,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Docs (Beta)">
-<img alt="logo" src="../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
     Docs (Beta)
   </label>
@@ -157,14 +158,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../../..">
         Start Here
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/">How-To Guides</a>
+<a href="../../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -188,17 +189,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/create-account/">
+<a class="md-nav__link" href="../../../getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/accessing-cc-rest-api/">
+<a class="md-nav__link" href="../../../getting-started/accessing-cc-rest-api/">
         Accessing the Cleura Cloud REST API
       </a>
 </li>
@@ -220,7 +221,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../../openstack/barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -232,12 +233,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../../openstack/barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../../openstack/barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -257,22 +258,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../../../openstack/cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../../openstack/cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/retype-volumes/">
+<a class="md-nav__link" href="../../../openstack/cinder/retype-volumes/">
         Changing a volume's type
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/sync-volumes/">
+<a class="md-nav__link" href="../../../openstack/cinder/sync-volumes/">
         Transferring data between volumes
       </a>
 </li>
@@ -292,7 +293,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../../openstack/magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -312,27 +313,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../../openstack/neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../../openstack/neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../../openstack/neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../../openstack/neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../../openstack/neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -352,32 +353,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/new-server/">
+<a class="md-nav__link" href="../../../openstack/nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/server-group/">
+<a class="md-nav__link" href="../../../openstack/nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../../openstack/nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../../openstack/nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../../openstack/nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../../openstack/nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -397,7 +398,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../../openstack/octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
@@ -407,9 +408,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2_4" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2_4" tabindex="0">
           Object storage
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -419,10 +420,10 @@
           Object storage
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/object-storage/s3/">S3 API</a>
+<a href="../">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -434,27 +435,65 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/credentials/">
+<a class="md-nav__link" href="../credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/public-bucket/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Public buckets
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Public buckets
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/expiry/">
+<a class="md-nav__link" href="#setting-a-public-read-policy-for-a-bucket">
+    Setting a public read policy for a bucket
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accessing-objects-in-a-public-bucket">
+    Accessing objects in a public bucket
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enabling-bucket-listing">
+    Enabling bucket listing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#removing-a-public-read-policy-from-a-bucket">
+    Removing a public read policy from a bucket
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/versioning/">
+<a class="md-nav__link" href="../versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
@@ -464,7 +503,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/object-storage/swift/">Swift API</a>
+<a href="../../swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -476,27 +515,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/private-container/">
+<a class="md-nav__link" href="../../swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/public-container/">
+<a class="md-nav__link" href="../../swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/tempurl/">
+<a class="md-nav__link" href="../../swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/expiry/">
+<a class="md-nav__link" href="../../swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/versioning/">
+<a class="md-nav__link" href="../../swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -509,7 +548,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/">Kubernetes</a>
+<a href="../../../kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -523,7 +562,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/gardener/">Gardener</a>
+<a href="../../../kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -535,7 +574,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
@@ -545,7 +584,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/magnum/">Magnum</a>
+<a href="../../../kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-label="Magnum" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -572,22 +611,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/change-billing-data/">
+<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/change-credit-card/">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
         Changing your credit card data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/manage-invoices/">
+<a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/rest-invoice-data/">
+<a class="md-nav__link" href="../../../account-billing/rest-invoice-data/">
         Retrieving invoice data with the Cleura Cloud REST API
       </a>
 </li>
@@ -600,7 +639,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../background/">Background</a>
+<a href="../../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -612,7 +651,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../background/gui-vs-api/">
+<a class="md-nav__link" href="../../../../background/gui-vs-api/">
         Cleura Cloud Management Panel vs. OpenStack API
       </a>
 </li>
@@ -622,7 +661,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/">Reference</a>
+<a href="../../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -636,7 +675,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/features/">Feature Support</a>
+<a href="../../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -648,12 +687,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/features/public/">
+<a class="md-nav__link" href="../../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/features/compliant/">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -663,7 +702,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/flavors/">Flavors</a>
+<a href="../../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-label="Flavors" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
@@ -677,7 +716,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/versions/">Service Versions</a>
+<a href="../../../../reference/versions/">Service Versions</a>
 <label for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -689,12 +728,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/versions/public/">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -704,7 +743,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" id="__nav_4_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/api/">API Reference</a>
+<a href="../../../../reference/api/">API Reference</a>
 <label for="__nav_4_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -718,7 +757,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_2" id="__nav_4_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/api/cc/">Cleura Cloud REST API</a>
+<a href="../../../../reference/api/cc/">Cleura Cloud REST API</a>
 </div>
 <nav aria-label="Cleura Cloud REST API" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_5_2">
@@ -732,7 +771,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_3" id="__nav_4_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/api/openstack/">OpenStack API</a>
+<a href="../../../../reference/api/openstack/">OpenStack API</a>
 </div>
 <nav aria-label="OpenStack API" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_5_3">
@@ -749,10 +788,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">You can help!</a>
+<a href="../../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -763,51 +802,13 @@
           You can help!
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Modifying content on this site
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
         Modifying content on this site
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#notes-on-content-additions">
-    Notes on content additions
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#modifying-content-from-your-browser">
-    Modifying content from your browser
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#modifying-content-using-git">
-    Modifying content using Git
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#monitoring-changes-as-you-edit">
-    Monitoring changes as you edit
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#commit-messages">
-    Commit messages
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../quality/">
+<a class="md-nav__link" href="../../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -829,28 +830,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#notes-on-content-additions">
-    Notes on content additions
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#modifying-content-from-your-browser">
-    Modifying content from your browser
+<a class="md-nav__link" href="#setting-a-public-read-policy-for-a-bucket">
+    Setting a public read policy for a bucket
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#modifying-content-using-git">
-    Modifying content using Git
+<a class="md-nav__link" href="#accessing-objects-in-a-public-bucket">
+    Accessing objects in a public bucket
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#monitoring-changes-as-you-edit">
-    Monitoring changes as you edit
+<a class="md-nav__link" href="#enabling-bucket-listing">
+    Enabling bucket listing
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#commit-messages">
-    Commit messages
+<a class="md-nav__link" href="#removing-a-public-read-policy-from-a-bucket">
+    Removing a public read policy from a bucket
   </a>
 </li>
 </ul>
@@ -859,148 +860,124 @@
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="modifications.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/contrib/modifications.md" title="Edit this page">
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="public-bucket.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/public-bucket.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="modifying-content-on-this-site">Modifying content on this site</h1>
-<p>You have two options for editing content: directly in your browser
-using GitHub, or using a Git-based workflow from your local work
-environment.</p>
-<h2 id="notes-on-content-additions">Notes on content additions</h2>
-<p><strong>Sections:</strong> Generally, content additions should fit somewhere within
-the existing top-level and second-level sections. Try not to introduce
-a new top-level or second-level section.</p>
-<p><strong>Screenshots:</strong> If you are contributing a change that contains
-screenshots from Cleura Cloud Management Panel, they should use a resolution of
-1920×1080 pixels (1080p). If your screen uses a larger resolution, use
-<a href="https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/">Firefox Responsive Design
-Mode</a>
-or <a href="https://developer.chrome.com/docs/devtools/device-mode/">Chrome/Chromium Device
-Mode</a> to
-configure your browser with 1080p.
-Screenshots should be added to a directory named <code>assets</code>, located in
-the same directory as the Markdown file you are adding or editing.</p>
-<p><strong>CLI screen dumps:</strong> If you are contributing a change that contains a
-screen dump from the <code>openstack</code> command-line client, please limit its
-width to 100 characters. You can do this by setting the following
-environment variable in your terminal, before you start work on your
-change.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CLIFF_MAX_TERM_WIDTH</span><span class="o">=</span><span class="m">100</span>
+<h1 id="public-buckets">Public buckets</h1>
+<p>You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser.
+Making a bucket globally readable entails setting a <em>bucket policy</em> that enables read access on all its objects.</p>
+<blockquote>
+<p>Setting a bucket policy affects <strong>all</strong> objects in a bucket.
+To avoid inadvertent disclosure of existing information, consider setting public read policies only on empty buckets.</p>
+</blockquote>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Object versioning requires that you configure your environment with <a href="../credentials/">working S3-compatible credentials</a>.</p>
+<h2 id="setting-a-public-read-policy-for-a-bucket">Setting a public read policy for a bucket</h2>
+<p>First, create a local policy file named <code>policy.json</code>, with the following content (replace <code>&lt;bucket-name&gt;</code> with the name of your bucket):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Principal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3:GetObject"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arn:aws:s3:::&lt;bucket-name&gt;/*"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2 id="modifying-content-from-your-browser">Modifying content from your browser</h2>
-<p>Every page on this site has an Edit button
-(<a href="https://github.com/citynetwork/docs/edit/main/docs/contrib/modifications.md"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg></span></a>).
-If you click it, it’ll
-take you straight to its <a href="https://github.com/citynetwork/docs/edit/main/docs/contrib/modifications.md">corresponding source page</a> in GitHub. Then,
-you can follow <a href="https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository">GitHub’s
-documentation</a>
-on how to propose changes to another user’s repository.</p>
-<h2 id="modifying-content-using-git">Modifying content using Git</h2>
-<p>The Git repository for this site lives at <a href="https://github.com/citynetwork/docs">https://github.com/citynetwork/docs</a>. You
-can <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork that
-repository</a>,
-make the proposed changes in your fork, and then send us a standard
-<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">GitHub pull
-request</a>.</p>
-<p>For this purpose, use <code>git</code> in combination with either GitHub’s web
-interface, or the <code>gh</code> command-line interface (CLI).</p>
-<p>First, create a fork of the documentation repository:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><code>git</code> client and web browser</label><label for="__tabbed_1_2"><code>gh</code> client</label></div>
+<p>To apply this policy to a bucket such that read-only access is permitted for everyone, run the following command:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Open <a href="https://github.com/citynetwork/docs">https://github.com/citynetwork/docs</a> and click the <em>Fork</em> button.
-When you create your new fork, it’s fine to leave the
-<em>Copy the <code>main</code> branch only</em> option enabled.</p>
-<p>Then, proceed to create a new local checkout of your fork:
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;yourusername&gt;/&lt;your-repo-fork&gt;<span class="w"> </span>cleura<span class="w"> </span>cloud-docs
-<span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3api<span class="w"> </span>put-bucket-policy<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--policy<span class="w"> </span>file://policy.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>repo<span class="w"> </span>fork<span class="w"> </span>--clone<span class="w"> </span>https://github.com/citynetwork/docs<span class="w"> </span>--<span class="w"> </span>cleura<span class="w"> </span>cloud-docs
-<span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
+<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>anonymous<span class="w"> </span>set-json<span class="w"> </span>policy.json<span class="w"> </span>&lt;region&gt;/&lt;bucket-name&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>setpolicy<span class="w"> </span>policy.json<span class="w"> </span>s3://&lt;bucket-name&gt;
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
-<p>Next, create a local topic branch and make your modifications:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;your-topic-branch-name&gt;
-<span class="c1"># edit your files</span>
-git<span class="w"> </span>add<span class="w"> </span>&lt;files-to-add&gt;
-git<span class="w"> </span>commit
+</input></input></input></div>
+<h2 id="accessing-objects-in-a-public-bucket">Accessing objects in a public bucket</h2>
+<p>To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like <code>curl</code>, you must construct its URI as follows:</p>
+<div class="highlight"><pre><span></span><code>https://s3-&lt;region&gt;.citycloud.com:8080/&lt;project-uuid&gt;:&lt;bucket-name&gt;/object-name
 </code></pre></div>
-<p>Please see our <a href="../quality">notes on commit messages</a>.</p>
-<p>Finally, create a pull request (PR) from your changes:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><code>git</code> client and web browser</label><label for="__tabbed_2_2"><code>gh</code> client</label></div>
+<blockquote>
+<p>Your project UUID is listed as the <code>project_id</code> field in the output of the <code>openstack ec2 credentials create</code> command you used to <a href="../credentials/">create your S3-compatible credentials</a>.</p>
+<p>If you did not note it down at the time of account creation, you can always retrieve it with <code>openstack ec2 credentials &lt;access-key&gt;</code>.</p>
+</blockquote>
+<p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> from the project with the UUID <code>07576783684248f7b2745e34356c6025</code> in the Cleura Cloud Kna1 region, you would run:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-O<span class="w"> </span>https://s3-kna1.citycloud.com:8080/07576783684248f7b2745e34356c6025:foo/bar.pdf
+<span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
+<span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
+<span class="go">100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k</span>
+</code></pre></div>
+<h2 id="enabling-bucket-listing">Enabling bucket listing</h2>
+<p>The <code>policy.json</code> file above allows anyone to retrieve known objects by name, but does not enable listing the bucket’s contents.
+Most of the time, this is what you want.</p>
+<p>However, in case you do need unauthenticated clients to be able to list all objects in a bucket, modify your <code>policy.json</code> file as in the following example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Principal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3:GetObject"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arn:aws:s3:::&lt;bucket-name&gt;/*"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Principal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3:ListBucket"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arn:aws:s3:::&lt;bucket-name&gt;"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Note that for the <code>s3:GetObject</code> action, <code>/*</code> follows the bucket name, whereas for the <code>s3:ListBucket</code> action you specify <em>just</em> the bucket name with no suffix.</p>
+<p>Once you have updated your local <code>policy.json</code> file, apply it just as when you created the policy.</p>
+<p>You can then open a bucket path in your browser, to retrieve an XML document containing a list of all objects in the bucket.
+You would construct the URL by the following schema:</p>
+<div class="highlight"><pre><span></span><code>https://s3-&lt;region&gt;.citycloud.com:8080/&lt;project-uuid&gt;:&lt;bucket-name&gt;
+</code></pre></div>
+<h2 id="removing-a-public-read-policy-from-a-bucket">Removing a public read policy from a bucket</h2>
+<p>If you want to remove a previously-set public read policy from a bucket, and revert to its default policy that requires authentication on every object access, run the following command:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label><label for="__tabbed_2_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Run the following <code>git</code> command (assuming <code>origin</code> is the
-remote that points to your fork):
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;your-topic-branch-name&gt;
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3api<span class="w"> </span>delete-bucket-policy<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
 </code></pre></div>
-Then, open your browser to the URL suggested by the <code>git push</code>
-command, and proceed to create a pull request.</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--fill
+<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>anonymous<span class="w"> </span><span class="nb">set</span><span class="w"> </span>none<span class="w"> </span>&lt;region&gt;/&lt;bucket-name&gt;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>delpolicy<span class="w"> </span>s3://&lt;bucket-name&gt;
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
-<h2 id="monitoring-changes-as-you-edit">Monitoring changes as you edit</h2>
-<p>To see your changes as you work on them, you can use
-<a href="https://tox.wiki/en/latest/">tox</a>. Having created a topic branch with
-your modifications, run:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
-git<span class="w"> </span>checkout<span class="w"> </span>&lt;your-topic-branch-name&gt;
-tox<span class="w"> </span>-e<span class="w"> </span>serve
-</code></pre></div>
-<p>A local copy of the documentation will then run on your local machine
-and be accessible from <a href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
-<p>When you are planning to make several changes in rapid succession, you
-may want to speed up rendering the site after each change. You may do
-so by disabling a plugin that checks all links (including external
-links) for accessibility:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOCS_ENABLE_HTMLPROOFER</span><span class="o">=</span><span class="nb">false</span>
-tox<span class="w"> </span>-e<span class="w"> </span>serve
-</code></pre></div>
-<h2 id="commit-messages">Commit messages</h2>
-<p>When you submit a change, you will need to provide a commit message,
-which is very nearly as important as the change itself. Excellent
-guides on what constitutes a good commit message are available from
-<a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim
-Pope</a>
-and <a href="http://www.gazlene.net/getting-work-done-in-open-source.html">Colleen
-Murphy</a>.</p>
-<p>In addition, we have adopted the <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional
-Commits</a> style for
-commit message subjects. Please make sure that your commit message
-starts with one of the following prefixes:</p>
-<ul>
-<li><code>feat:</code> denotes a content addition, such as adding documentation for
-  some Cleura Cloud functionality that was not included in
-  the documentation before.</li>
-<li><code>fix:</code> denotes a content correction, such as fixing a
-  documentation bug.</li>
-<li><code>build:</code> denotes a change to the build process, such as an
-  improvement to a CI check.</li>
-<li><code>chore:</code> denotes a minor change that is neither a feature, nor a
-  fix, nor a build improvement, such as when you edit the <code>.mailmap</code>
-  file.</li>
-<li><code>docs:</code> denotes a change to the documention <em>for</em> this site, such as
-  an update to the <code>README.md</code> file.</li>
-</ul>
+</input></input></input></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-09</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-11</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-25</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-11</span>
 </small>
 </div>
 <div class="md-source-date">
@@ -1033,7 +1010,7 @@ starts with one of the following prefixes:</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
