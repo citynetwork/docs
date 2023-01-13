@@ -24,7 +24,7 @@ To create a pre-signed URL for an object, you use the following command (replace
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
+      --endpoint-url={{reference_url_s3}} \
       s3 presign \
       --expires-in <seconds>
       s3://<bucket-name>/<object-name>
@@ -53,7 +53,7 @@ The command will return the valid pre-signed URL.
 To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like `curl`, open the URL that the pre-sign command returned:
 
 ```console
-curl -f -O https://s3-<region>.{{brand_domain}}:8080/<bucket-name>/<object-name>?AWSAccessKeyId=<access-key>&Signature=<signature>&Expires=<expiry>
+curl -f -O {{reference_url_s3}}/<bucket-name>/<object-name>?AWSAccessKeyId=<access-key>&Signature=<signature>&Expires=<expiry>
 ```
 
 As long as the query parameters are correct and the signature has not yet expired, this command will succeed.
@@ -65,7 +65,7 @@ If the query parameters are incorrect or the pre-signed URL is past its expiry d
 For example, to retrieve an object named `bar.pdf` in a bucket named `foo` in the {{brand}} Kna1 region via its pre-signed URL, you would run:
 
 ```console
-$ curl -o bar.pdf https://s3-kna1.{{brand_domain}}:8080/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D
+$ curl -o bar.pdf {{reference_url_s3}}/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k
@@ -83,7 +83,7 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
+      --endpoint-url={{reference_url_s3}} \
       s3api put-object \
       --content-disposition 'attachment;filename="bar.pdf"' \
       --bucket <bucket-name> \
@@ -123,7 +123,7 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
     To modify the `Content-Disposition` header of an existing object without downloading and re-uploading its contents, you must use `s3api copy-object`, with the object being its own copy source, and the metadata directive set to `replace`:
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
+      --endpoint-url={{reference_url_s3}} \
       s3api copy-object \
       --copy-source <bucket-name>/<object-name>
       --content-disposition 'attachment;filename="bar.pdf"' \
@@ -146,7 +146,7 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
 Once you have set the `Content-Disposition` header on an object and created a pre-signed URL for it, you can test its functionality with the `curl -OJ` command:
 
 ```console
-$ curl -f -OJ 'https://s3-kna1.{{brand_domain}}:8080/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D'
+$ curl -f -OJ '{{reference_url_s3}}/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D'
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 58503  100 58503    0     0   178k      0 --:--:-- --:--:-- --:--:--  178k

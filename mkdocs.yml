@@ -16,6 +16,8 @@ extra:
   company_domain: "cleura.com"
   gui: "Cleura Cloud Management Panel"
   gui_domain: "cleura.cloud"
+  reference_url_s3: "https://s3-kna1.citycloud.com:8080"
+  reference_url_swift: "https://swift-kna1.citycloud.com:8080"
   rest_api: "Cleura Cloud REST API"
   rest_api_domain: "rest.cleura.cloud"
   support: "Service Center"

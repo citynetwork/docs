@@ -109,7 +109,7 @@ URL pointing to the object. This will enable you to fetch the object
 using a simple HTTP client, like `curl`:
 
 ```console
-$ curl 'https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
+$ curl '{{reference_url_swift}}/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
 hello world
 ```
 
@@ -118,7 +118,7 @@ its lifetime expired, they would be met with an [HTTP
 401](http://http.cat/401) error:
 
 ```console
-$ curl -i 'https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
+$ curl -i '{{reference_url_swift}}/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
 HTTP/1.1 401 Unauthorized
 content-length: 12
 x-trans-id: tx0000001113c5020d8a1de-00638df0ea-301ddeb-default

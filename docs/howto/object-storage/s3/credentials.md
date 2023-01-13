@@ -57,13 +57,13 @@ How exactly you do that depends on your preferred client:
 
     For the `aws` CLI, you cannot define a region's endpoint in the
     profile. As such, you must add the
-    `--endpoint-url=https://s3-<region>.{{brand_domain}}:8080`
+    `--endpoint-url={{reference_url_s3}}`
     option to each `aws s3api` call.
 === "mc"
     Create a new alias, named after your {{brand}} region:
     ```bash
     mc alias set <region> \
-      https://s3-<region>.{{brand_domain}}:8080 \
+      {{reference_url_s3}} \
       <access-key> <secret-key>
     ```
     Once you have configured an alias like this, you are able to

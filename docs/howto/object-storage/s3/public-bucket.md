@@ -35,7 +35,7 @@ To apply this policy to a bucket such that read-only access is permitted for eve
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
+      --endpoint-url={{reference_url_s3}} \
       s3api put-bucket-policy \
       --policy file://policy.json \
       --bucket <bucket-name>
@@ -54,7 +54,7 @@ To apply this policy to a bucket such that read-only access is permitted for eve
 To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like `curl`, you must construct its URI as follows:
 
 ```plain
-https://s3-<region>.{{brand_domain}}:8080/<project-uuid>:<bucket-name>/object-name
+{{reference_url_s3}}/<project-uuid>:<bucket-name>/object-name
 ```
 
 > Your project UUID is listed as the `project_id` field in the output of the `openstack ec2 credentials create` command you used to [create your S3-compatible credentials](credentials.md).
@@ -64,7 +64,7 @@ https://s3-<region>.{{brand_domain}}:8080/<project-uuid>:<bucket-name>/object-na
 For example, to retrieve an object named `bar.pdf` in a bucket named `foo` from the project with the UUID `07576783684248f7b2745e34356c6025` in the {{brand}} Kna1 region, you would run:
 
 ```console
-$ curl -O https://s3-kna1.{{brand_domain}}:8080/07576783684248f7b2745e34356c6025:foo/bar.pdf
+$ curl -O {{reference_url_s3}}/07576783684248f7b2745e34356c6025:foo/bar.pdf
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k
@@ -104,7 +104,7 @@ You can then open a bucket path in your browser, to retrieve an XML document con
 You would construct the URL by the following schema:
 
 ```plain
-https://s3-<region>.{{brand_domain}}:8080/<project-uuid>:<bucket-name>
+{{reference_url_s3}}/<project-uuid>:<bucket-name>
 ```
 
 ## Removing a public read policy from a bucket
@@ -114,7 +114,7 @@ If you want to remove a previously-set public read policy from a bucket, and rev
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
+      --endpoint-url={{reference_url_s3}} \
       s3api delete-bucket-policy \
       --bucket <bucket-name>
     ```
