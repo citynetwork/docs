@@ -5,12 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/howto/object-storage/swift/private-container/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../public-container/" rel="next"/>
+<meta content="You can use the S3 API to temporarily allow access to individual objects without authentication from a browser, using pre-signed URLs." name="description"/>
+<link href="https://docs.cleura.cloud/howto/object-storage/s3/presign/" rel="canonical"/>
+<link href="../public-bucket/" rel="prev"/>
+<link href="../expiry/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>Working with a private Swift container - Docs (Beta)</title>
+<title>Pre-signed object URLs - Docs (Beta)</title>
 <link href="../../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,17 +22,17 @@
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Working with a private Swift container - Docs (Beta)" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/swift/private-container.png" property="og:image"/>
+<meta content="Pre-signed object URLs - Docs (Beta)" property="og:title"/>
+<meta content="You can use the S3 API to temporarily allow access to individual objects without authentication from a browser, using pre-signed URLs." property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/presign.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/howto/object-storage/swift/private-container/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/object-storage/s3/presign/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Working with a private Swift container - Docs (Beta)" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/swift/private-container.png" name="twitter:image"/>
+<meta content="Pre-signed object URLs - Docs (Beta)" name="twitter:title"/>
+<meta content="You can use the S3 API to temporarily allow access to individual objects without authentication from a browser, using pre-signed URLs." name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/presign.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -50,7 +51,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#working-with-a-private-swift-container">
+<a class="md-skip" href="#pre-signed-object-urls">
           Skip to content
         </a>
 </div>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Working with a private Swift container
+              Pre-signed object URLs
             
           </span>
 </div>
@@ -419,10 +420,10 @@
           Object storage
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../s3/">S3 API</a>
+<a href="../">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -434,60 +435,23 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/credentials/">
+<a class="md-nav__link" href="../credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/public-bucket/">
+<a class="md-nav__link" href="../public-bucket/">
         Public buckets
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/presign/">
-        Pre-signed object URLs
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/expiry/">
-        Object expiry
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/versioning/">
-        Object versioning
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../s3/sse-c/">
-        Client-side encryption (SSE-C)
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../">Swift API</a>
-<label for="__nav_2_4_2">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-label="Swift API" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_2_4_2">
-<span class="md-nav__icon md-icon"></span>
-          Swift API
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Working with a private Swift container
+          Pre-signed object URLs
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Working with a private Swift container
+        Pre-signed object URLs
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -501,37 +465,46 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-private-container">
-    Creating a private container
+<a class="md-nav__link" href="#creating-a-pre-signed-url">
+    Creating a pre-signed URL
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#retrieving-container-information">
-    Retrieving container information
+<a class="md-nav__link" href="#accessing-objects-with-a-pre-signed-url">
+    Accessing objects with a pre-signed URL
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uploading-data">
-    Uploading data
+<a class="md-nav__link" href="#setting-the-download-filename-on-the-object">
+    Setting the download filename on the object
+  </a>
+<nav aria-label="Setting the download filename on the object" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-content-disposition-on-object-creation">
+    Setting Content-Disposition on object creation
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#downloading-data">
-    Downloading data
+<a class="md-nav__link" href="#setting-content-disposition-on-existing-objects">
+    Setting Content-Disposition on existing objects
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-the-content-disposition-header">
+    Testing the Content-Disposition header
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caution-do-not-abuse-content-disposition">
+    Caution: do not abuse Content-Disposition
   </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../public-container/">
-        Working with a public Swift container
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../tempurl/">
-        Using temporary URLs
-      </a>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../expiry/">
@@ -540,6 +513,53 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../versioning/">
+        Object versioning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sse-c/">
+        Client-side encryption (SSE-C)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../swift/">Swift API</a>
+<label for="__nav_2_4_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Swift API" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Swift API
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../swift/private-container/">
+        Working with a private Swift container
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../swift/public-container/">
+        Working with a public Swift container
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../swift/tempurl/">
+        Using temporary URLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../swift/expiry/">
+        Object expiry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -839,24 +859,43 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-private-container">
-    Creating a private container
+<a class="md-nav__link" href="#creating-a-pre-signed-url">
+    Creating a pre-signed URL
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#retrieving-container-information">
-    Retrieving container information
+<a class="md-nav__link" href="#accessing-objects-with-a-pre-signed-url">
+    Accessing objects with a pre-signed URL
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uploading-data">
-    Uploading data
+<a class="md-nav__link" href="#setting-the-download-filename-on-the-object">
+    Setting the download filename on the object
+  </a>
+<nav aria-label="Setting the download filename on the object" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-content-disposition-on-object-creation">
+    Setting Content-Disposition on object creation
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#downloading-data">
-    Downloading data
+<a class="md-nav__link" href="#setting-content-disposition-on-existing-objects">
+    Setting Content-Disposition on existing objects
   </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-the-content-disposition-header">
+    Testing the Content-Disposition header
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caution-do-not-abuse-content-disposition">
+    Caution: do not abuse Content-Disposition
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -865,186 +904,163 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/swift/private-container.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/presign.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="working-with-a-private-swift-container">Working with a private Swift container</h1>
+<h1 id="pre-signed-object-urls">Pre-signed object URLs</h1>
+<p>You can use the S3 API to temporarily allow access to individual objects without authentication from a browser, using pre-signed URLs.</p>
+<p>This approach is distinct from enabling <em>permanent</em> <a href="../public-bucket/">anonymous access to objects in a bucket</a>.
+If you are planning to use pre-signed URLs in a bucket, then that bucket should <em>not</em> have a public read policy.</p>
+<blockquote>
+<p>Pre-signed URLs are typically found in web applications using a Software Development Kit (SDK) to interact with the S3 API.
+An example of such an SDK would be <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html">Boto3</a> for Python applications.</p>
+<p>This how-to guide instead uses command-line utilities to illustrate the concept, and to facilitate testing pre-signed URLs in Cleura Cloud.</p>
+</blockquote>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>In order to create a Swift container, be sure that you have
-<a href="../">installed and configured</a> the required command-line interface
-(CLI) tools.</p>
-<h2 id="creating-a-private-container">Creating a private container</h2>
-<p>To create a private container (that is, one that can only be accessed
-with proper Swift API credentials), use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">OpenStack CLI</label><label for="__tabbed_1_2">Swift CLI</label></div>
+<p>The use of pre-signed URLs requires that you configure your environment with <a href="../credentials/">working S3-compatible credentials</a>.</p>
+<h2 id="creating-a-pre-signed-url">Creating a pre-signed URL</h2>
+<p>To create a pre-signed URL for an object, you use the following command (replace <code>&lt;seconds&gt;</code> with the number of seconds you want the pre-signed URL to be valid):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>container<span class="w"> </span>create<span class="w"> </span>private-container
-<span class="go">+---------------------------------------+-------------------+----------------------------------------------------+</span>
-<span class="go">| account                               | container         | x-trans-id                                         |</span>
-<span class="go">+---------------------------------------+-------------------+----------------------------------------------------+</span>
-<span class="go">| AUTH_30a7768a0ffc40359d6110f21a6e7d88 | private-container | tx00000ddb0f9e2a50ad881-00638dbf9c-300de11-default |</span>
-<span class="go">+---------------------------------------+-------------------+----------------------------------------------------+</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3<span class="w"> </span>presign<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--expires-in<span class="w"> </span>&lt;seconds&gt;
+<span class="w">  </span>s3://&lt;bucket-name&gt;/&lt;object-name&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>swift<span class="w"> </span>post<span class="w"> </span>private-container
+<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>share<span class="w"> </span>download<span class="w"> </span>--expire<span class="w"> </span>&lt;seconds&gt;s<span class="w"> </span>&lt;region&gt;/&lt;bucket-name&gt;
 </code></pre></div>
-This command produces no output.</p>
+Note the <code>s</code> suffix for the <code>--expire</code> option.
+<code>mc</code> also supports the suffix <code>m</code> for minutes, <code>h</code> for hours, and <code>d</code> for days.</p>
+<p>If you do not set <code>--expire</code>, <code>mc</code> defaults to creating a pre-signed URL that is valid for 7 days.</p>
+</div>
+<div class="tabbed-block">
+<blockquote>
+<p>For pre-signed URLs generated with <code>s3cmd</code> to work correctly in Cleura Cloud, you must use an <code>s3cmd</code> version later than 2.0.1, and set <code>signurl_use_https = True</code> in your configuration file.</p>
+</blockquote>
+<p><div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>signurl<span class="w"> </span>s3://&lt;bucket-name&gt;/&lt;object-name&gt;<span class="w"> </span>+&lt;seconds&gt;
+</code></pre></div>
+Note the <code>+</code> prefix on the expiry.
+<code>s3cmd</code> also supports setting an absolute expiry date, which does not use the <code>+</code> prefix and must be formatted in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>.</p>
 </div>
 </div>
-</input></input></div>
-<h2 id="retrieving-container-information">Retrieving container information</h2>
-<p>To create a list of all containers accessible with your current set of
-credentials, use this command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">OpenStack CLI</label><label for="__tabbed_2_2">Swift CLI</label></div>
+</input></input></input></div>
+<p>The command will return the valid pre-signed URL.</p>
+<h2 id="accessing-objects-with-a-pre-signed-url">Accessing objects with a pre-signed URL</h2>
+<p>To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like <code>curl</code>, open the URL that the pre-sign command returned:</p>
+<div class="highlight"><pre><span></span><code><span class="go">curl -f -O https://s3-&lt;region&gt;.citycloud.com:8080/&lt;bucket-name&gt;/&lt;object-name&gt;?AWSAccessKeyId=&lt;access-key&gt;&amp;Signature=&lt;signature&gt;&amp;Expires=&lt;expiry&gt;</span>
+</code></pre></div>
+<p>As long as the query parameters are correct and the signature has not yet expired, this command will succeed.
+If the query parameters are incorrect or the pre-signed URL is past its expiry date, it will fail with HTTP 403 (Forbidden) instead.</p>
+<blockquote>
+<p>Pre-signed URLs are valid for HTTP <code>GET</code> requests only.
+Thus, even a valid pre-signed URL will result in HTTP 403 if you force a different HTTP method (such as <code>HEAD</code>, by setting <code>curl -I</code>).</p>
+</blockquote>
+<p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> in the Cleura Cloud Kna1 region via its pre-signed URL, you would run:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-o<span class="w"> </span>bar.pdf<span class="w"> </span>https://s3-kna1.citycloud.com:8080/foo/bar.pdf?AWSAccessKeyId<span class="o">=</span>07576783684248f7b2745e34356c6025<span class="p">&amp;</span><span class="nv">Expires</span><span class="o">=</span><span class="m">1673521496</span><span class="p">&amp;</span><span class="nv">Signature</span><span class="o">=</span>%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D
+<span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
+<span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
+<span class="go">100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k</span>
+</code></pre></div>
+<h2 id="setting-the-download-filename-on-the-object">Setting the download filename on the object</h2>
+<p>When you use <code>curl</code> (and potentially other browsers or HTTP/HTTPS clients) to download an object from a pre-signed URL, the default behavior is to set its filename to the name of the downloaded object <em>including</em> the query parameters.
+This can lead to rather unwieldly filenames.</p>
+<p>To ensure that an object named <code>bar.pdf</code> in a bucket named <code>foo</code> is always downloaded and stored with <code>bar.pdf</code> as its filename, you can set its <code>Content-Disposition</code> header.</p>
+<h3 id="setting-content-disposition-on-object-creation">Setting <code>Content-Disposition</code> on object creation</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label><label for="__tabbed_2_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>container<span class="w"> </span>list
-<span class="go">+-------------------+</span>
-<span class="go">| Name              |</span>
-<span class="go">+-------------------+</span>
-<span class="go">| private-container |</span>
-<span class="go">+-------------------+</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3api<span class="w"> </span>put-object<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--content-disposition<span class="w"> </span><span class="s1">'attachment;filename="bar.pdf"'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>list
-<span class="go">private-container</span>
+<p>The <code>mc</code> client does not correctly support this feature.</p>
+<p>You can set the attribute on object creation:
+ <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>cp<span class="w"> </span>--attr<span class="w"> </span>Content-Disposition<span class="o">=</span><span class="s1">'attachment;filename="bar.pdf"'</span><span class="w"> </span>bar.pdf<span class="w"> </span>kna1/foo/
+</code></pre></div>
+ However, <code>mc</code> cuts off the <code>Content-Disposition</code> header at the semicolon, rendering it useless:
+ <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mc<span class="w"> </span>stat<span class="w"> </span>kna1/foo/bar.pdf
+<span class="go">Name      : bar.pdf</span>
+<span class="go">Date      : 2023-01-12 12:53:52 CET</span>
+<span class="go">Size      : 57 KiB</span>
+<span class="go">ETag      : 630f6e1bf441a0eee63f9cb06804dc79</span>
+<span class="go">Type      : file</span>
+<span class="go">Metadata  :</span>
+<span class="go">  Content-Type       : application/pdf</span>
+<span class="go">  X-Amz-Meta-Filename: bar.pdf</span>
+<span class="go">  Content-Disposition: attachment</span>
+</code></pre></div>
+ You should thus set the <code>Content-Disposition</code> header with a different client.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>modify<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--add-header<span class="w"> </span><span class="s1">'Content-Disposition: attachment; filename="bar.pdf"'</span>
+<span class="w">  </span>s3://foo/bar.pdf
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
-<p>To retrieve more detailed information about an individual container,
-you can also use this command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">OpenStack CLI</label><label for="__tabbed_3_2">Swift CLI</label></div>
+</input></input></input></div>
+<h3 id="setting-content-disposition-on-existing-objects">Setting <code>Content-Disposition</code> on existing objects</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">aws</label><label for="__tabbed_3_2">mc</label><label for="__tabbed_3_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>container<span class="w"> </span>show<span class="w"> </span>private-container
-<span class="go">+----------------+---------------------------------------+</span>
-<span class="go">| Field          | Value                                 |</span>
-<span class="go">+----------------+---------------------------------------+</span>
-<span class="go">| account        | AUTH_30a7768a0ffc40359d6110f21a6e7d88 |</span>
-<span class="go">| bytes_used     | 0                                     |</span>
-<span class="go">| container      | private-container                     |</span>
-<span class="go">| object_count   | 0                                     |</span>
-<span class="go">| storage_policy | default-placement                     |</span>
-<span class="go">+----------------+---------------------------------------+</span>
-</code></pre></div>
+<p>To modify the <code>Content-Disposition</code> header of an existing object without downloading and re-uploading its contents, you must use <code>s3api copy-object</code>, with the object being its own copy source, and the metadata directive set to <code>replace</code>:
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3api<span class="w"> </span>copy-object<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--copy-source<span class="w"> </span>&lt;bucket-name&gt;/&lt;object-name&gt;
+<span class="w">  </span>--content-disposition<span class="w"> </span><span class="s1">'attachment;filename="bar.pdf"'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--metadata-directive<span class="w"> </span>replace
+<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;
+</code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>stat<span class="w"> </span>private-container
-<span class="go">                      Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88</span>
-<span class="go">                    Container: private-container</span>
-<span class="go">                      Objects: 0</span>
-<span class="go">                        Bytes: 0</span>
-<span class="go">                     Read ACL:</span>
-<span class="go">                    Write ACL:</span>
-<span class="go">                      Sync To:</span>
-<span class="go">                     Sync Key:</span>
-<span class="go">                  X-Timestamp: 1670234012.31534</span>
-<span class="go">X-Container-Bytes-Used-Actual: 0</span>
-<span class="go">             X-Storage-Policy: default-placement</span>
-<span class="go">              X-Storage-Class: STANDARD</span>
-<span class="go">                Last-Modified: Mon, 05 Dec 2022 09:53:32 GMT</span>
-<span class="go">                   X-Trans-Id: tx0000073eebb42acd6e7e1-00638dbfe8-301ddeb-default</span>
-<span class="go">       X-Openstack-Request-Id: tx0000073eebb42acd6e7e1-00638dbfe8-301ddeb-default</span>
-<span class="go">                Accept-Ranges: bytes</span>
-<span class="go">                 Content-Type: text/plain; charset=utf-8</span>
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-<h2 id="uploading-data">Uploading data</h2>
-<p>To upload an object into the container, create a local test file:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"hello world"</span><span class="w"> </span>&gt;<span class="w"> </span>testobj.txt
-</code></pre></div>
-<p>Then, upload the file (as a Swift object) into your container, and
-read back its metadata:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">OpenStack CLI</label><label for="__tabbed_4_2">Swift CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>object<span class="w"> </span>create<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
-<span class="go">+-------------+-------------------+----------------------------------+</span>
-<span class="go">| object      | container         | etag                             |</span>
-<span class="go">+-------------+-------------------+----------------------------------+</span>
-<span class="go">| testobj.txt | private-container | 6f5902ac237024bdd0c176cb93063dc4 |</span>
-<span class="go">+-------------+-------------------+----------------------------------+</span>
-
-<span class="gp">$ </span>openstack<span class="w"> </span>object<span class="w"> </span>show<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
-<span class="go">+----------------+---------------------------------------+</span>
-<span class="go">| Field          | Value                                 |</span>
-<span class="go">+----------------+---------------------------------------+</span>
-<span class="go">| account        | AUTH_30a7768a0ffc40359d6110f21a6e7d88 |</span>
-<span class="go">| container      | private-container                     |</span>
-<span class="go">| content-length | 12                                    |</span>
-<span class="go">| content-type   | text/plain                            |</span>
-<span class="go">| etag           | 6f5902ac237024bdd0c176cb93063dc4      |</span>
-<span class="go">| last-modified  | Mon, 05 Dec 2022 10:00:34 GMT         |</span>
-<span class="go">| object         | testobj.txt                           |</span>
-<span class="go">| properties     | mtime='1670234292.370177'             |</span>
-<span class="go">+----------------+---------------------------------------+</span>
-</code></pre></div>
+<p>The <code>mc</code> client does not support modifying object metadata in-place.</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>upload<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
-<span class="go">testobj.txt</span>
-
-<span class="gp">$ </span>swift<span class="w"> </span>stat<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
-<span class="go">               Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88</span>
-<span class="go">             Container: private-container</span>
-<span class="go">                Object: testobj.txt</span>
-<span class="go">          Content Type: text/plain</span>
-<span class="go">        Content Length: 12</span>
-<span class="go">         Last Modified: Mon, 05 Dec 2022 10:00:34 GMT</span>
-<span class="go">                  ETag: 6f5902ac237024bdd0c176cb93063dc4</span>
-<span class="go">            Meta Mtime: 1670234292.370177</span>
-<span class="go">         Accept-Ranges: bytes</span>
-<span class="go">           X-Timestamp: 1670234434.67877</span>
-<span class="go">            X-Trans-Id: tx000000f26ccf73c19f596-00638dc160-300de11-default</span>
-<span class="go">X-Openstack-Request-Id: tx000000f26ccf73c19f596-00638dc160-300de11-default</span>
+<p><code>s3cmd</code> comes with a handy <code>modify --add-header</code> subcommand for updating object metadata in-place:
+<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>modify<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--add-header<span class="w"> </span><span class="s1">'Content-Disposition: attachment; filename="bar.pdf"'</span>
+<span class="w">  </span>s3://foo/bar.pdf
+</code></pre></div></p>
+</div>
+</div>
+</input></input></input></div>
+<h3 id="testing-the-content-disposition-header">Testing the <code>Content-Disposition</code> header</h3>
+<p>Once you have set the <code>Content-Disposition</code> header on an object and created a pre-signed URL for it, you can test its functionality with the <code>curl -OJ</code> command:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-f<span class="w"> </span>-OJ<span class="w"> </span><span class="s1">'https://s3-kna1.citycloud.com:8080/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&amp;Expires=1673521496&amp;Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D'</span>
+<span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
+<span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
+<span class="go">100 58503  100 58503    0     0   178k      0 --:--:-- --:--:-- --:--:--  178k</span>
+<span class="go">curl: Saved to filename 'bar.pdf'</span>
 </code></pre></div>
-</div>
-</div>
-</input></input></div>
-<h2 id="downloading-data">Downloading data</h2>
-<p>To download an object from your Swift container, use the following
-command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">OpenStack CLI</label><label for="__tabbed_5_2">Swift CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>object<span class="w"> </span>save<span class="w"> </span>--file<span class="w"> </span>-<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
-<span class="go">hello world</span>
-</code></pre></div>
-The <code>--file -</code> option prints the file contents to stdout. If
-instead you want to save the object’s content to a local file,
-use <code>--file &lt;filename&gt;</code>.</p>
-<p>If you omit the <code>--file</code> argument altogether, <code>openstack object
-save</code> will create a local file named like the object you are
-downloading (in this case, <code>testobj.txt</code>).</p>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>download<span class="w"> </span>-o<span class="w"> </span>-<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
-<span class="go">hello world</span>
-</code></pre></div>
-The <code>-o -</code> option prints the file contents to stdout. If
-instead you want to save the object’s content to a local file,
-use <code>-o &lt;filename&gt;</code>.</p>
-<p>If you omit the <code>-o</code> argument altogether, <code>swift download</code>
-will create a local file named like the object you are
-downloading (in this case, <code>testobj.txt</code>).</p>
-</div>
-</div>
-</input></input></div>
+<h3 id="caution-do-not-abuse-content-disposition">Caution: do not abuse <code>Content-Disposition</code></h3>
+<p>Please keep in mind that there is nothing that keeps you from having two objects in the same bucket, with <code>Content-Disposition</code> on one object matching the object name of the other.</p>
+<p>For example, in the <code>foo</code> bucket, you may have</p>
+<ul>
+<li>an object named <code>spam.pdf</code> with no <code>Content-Disposition</code> header, and</li>
+<li>another object named <code>eggs.pdf</code>, with <code>Content-Disposition</code> set to include <code>filename="spam.pdf"</code>.</li>
+</ul>
+<p>If you were now to generate a pre-signed URL on <code>eggs.pdf</code> and downloaded it with <code>curl -OJ</code>, you would end up with a local file <em>named</em> <code>spam.pdf</code>, with the <em>contents</em> of <code>eggs.pdf</code>.
+This is obviously <strong>not a good idea,</strong> and you should avoid setting a <code>Content-Disposition</code> header that does not agree with the object name.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-12</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-05</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-12</span>
 </small>
 </div>
 <div class="md-source-date">
