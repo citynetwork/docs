@@ -70,6 +70,15 @@ $ curl -O https://s3-kna1.{{brand_domain}}:8080/07576783684248f7b2745e34356c6025
 100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k
 ```
 
+### Public bucket accessibility via the Swift API
+
+Once you make a bucket public via the S3 API, its objects also become accessible via [the corresponding Swift API path](../swift/public-container.md).
+
+Thus, the following URL paths allow you to retrieve the same public object:
+
+* `https://s3-kna1.{{brand_domain}}:8080/07576783684248f7b2745e34356c6025:foo/bar.pdf`
+* `https://swift-kna1.{{brand_domain}}:8080/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf`
+
 ## Enabling bucket listing
 
 The `policy.json` file above allows anyone to retrieve known objects by name, but does not enable listing the bucket's contents.

@@ -1,3 +1,6 @@
+---
+description: You can use the Swift API to configure a container with public read access, so that anyone can download its objects with a web browser.
+---
 # Working with a public Swift container
 
 ## Prerequisites
@@ -209,3 +212,12 @@ contents using the client of your choice. This example uses `curl`:
 $ curl https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
 hello world
 ```
+
+### Public bucket accessibility via the S3 API
+
+Once you make a container public via the Swift API, its objects also become accessible via [the corresponding S3 API path](../s3/public-bucket.md).
+
+Thus, the following URL paths allow you to retrieve the same public object:
+
+* `https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt`
+* `https://s3-fra1.{{brand_domain}}:8080/30a7768a0ffc40359d6110f21a6e7d88:public-container/testobj.txt`
