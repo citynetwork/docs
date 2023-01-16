@@ -8,6 +8,9 @@ From time to time, you may want to transfer data from one persistent storage vol
 For example, you might prefer to select a volume type that has become newly available in that region, but find the downtime associated with [retyping a single volume](retype-volumes.md) prohibitive.
 In this case, you can choose an on-line synchronization approach, which comes with much reduced downtime.
 
+The process described here assumes that the volume whose contents you are about to transfer is *not* a boot volume --- in other words, that the volume is normally attached as `/dev/vdb` or `/dev/sdc` or similar, but *not* as `/dev/vda` or `/dev/sda`.
+If the volume you need to retype *is* a boot volume, you should plan system downtime and opt for an [offline retype](retype-volumes.md) instead.
+
 ## Prerequisites
 
 Creating volumes from snapshots (and optionally retyping them) requires using the OpenStack CLI, so make sure you [have it enabled](../../getting-started/enable-openstack-cli.md).
