@@ -4,5 +4,6 @@ nav:
   - getting-started
   - openstack
   - object-storage
+  - ansible
   - kubernetes
   - account-billing
