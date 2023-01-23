@@ -10,9 +10,9 @@
 <link href="../retype-volumes/" rel="prev"/>
 <link href="../../magnum/new-k8s-cluster/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.6" name="generator"/>
 <title>Transferring data between volumes - Docs (Beta)</title>
-<link href="../../../../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/main.558e4712.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -115,7 +115,7 @@
 <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list"></ol>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
 </div>
 </div>
@@ -913,6 +913,8 @@
 <p>From time to time, you may want to transfer data from one persistent storage volume to another, while keeping your data within the same Cleura Cloud region.</p>
 <p>For example, you might prefer to select a volume type that has become newly available in that region, but find the downtime associated with <a href="../retype-volumes/">retyping a single volume</a> prohibitive.
 In this case, you can choose an on-line synchronization approach, which comes with much reduced downtime.</p>
+<p>The process described here assumes that the volume whose contents you are about to transfer is <em>not</em> a boot volume — in other words, that the volume is normally attached as <code>/dev/vdb</code> or <code>/dev/sdc</code> or similar, but <em>not</em> as <code>/dev/vda</code> or <code>/dev/sda</code>.
+If the volume you need to retype <em>is</em> a boot volume, you should plan system downtime and opt for an <a href="../retype-volumes/">offline retype</a> instead.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Creating volumes from snapshots (and optionally retyping them) requires using the OpenStack CLI, so make sure you <a href="../../../getting-started/enable-openstack-cli/">have it enabled</a>.</p>
 <h2 id="checking-the-source-volumes-state">Checking the source volume’s state</h2>
@@ -1100,7 +1102,7 @@ That way, if the source volume is accidentally attached to a server, its data ca
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-05</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-16</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-05</span>
@@ -1137,6 +1139,6 @@ That way, if the source volume is accidentally attached to a server, its data ca
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script src="../../../../assets/javascripts/bundle.51d95adb.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
