@@ -1,0 +1,1663 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A walk-through of creating a TCP load balancer" name="description"/>
+<link href="https://docs.cleura.cloud/howto/openstack/octavia/lbaas-tcp/" rel="canonical"/>
+<link href="../../nova/rescue-server/" rel="prev"/>
+<link href="../tls-lb/" rel="next"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.6" name="generator"/>
+<title>Setting up a TCP load balancer - Docs (Beta)</title>
+<link href="../../../../assets/stylesheets/main.558e4712.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<meta content="website" property="og:type"/>
+<meta content="Setting up a TCP load balancer - Docs (Beta)" property="og:title"/>
+<meta content="A walk-through of creating a TCP load balancer" property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/octavia/lbaas-tcp.png" property="og:image"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://docs.cleura.cloud/howto/openstack/octavia/lbaas-tcp/" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Setting up a TCP load balancer - Docs (Beta)" name="twitter:title"/>
+<meta content="A walk-through of creating a TCP load balancer" name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/octavia/lbaas-tcp.png" name="twitter:image"/>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#setting-up-a-tcp-load-balancer">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Docs (Beta)
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Setting up a TCP load balancer
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/citynetwork/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
+</a>
+    Docs (Beta)
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/citynetwork/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../..">
+        Start Here
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../">How-To Guides</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="How-To Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          How-To Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_2" tabindex="0">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Getting Started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/create-account/">
+        Creating a new account
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
+        Enabling the OpenStack CLI
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/accessing-cc-rest-api/">
+        Accessing the Cleura Cloud REST API
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2_3" tabindex="0">
+          OpenStack
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="OpenStack" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          OpenStack
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" id="__nav_2_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../barbican/">Barbican (secret storage)</a>
+<label for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Barbican (secret storage)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Barbican (secret storage)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../barbican/generic-secret/">
+        Generic secret storage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../barbican/share-secret/">
+        Sharing secrets via ACLs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_2" id="__nav_2_3_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3_2" tabindex="0">
+          Cinder (persistent block storage)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cinder (persistent block storage)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Cinder (persistent block storage)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cinder/resize-volumes/">
+        Resizing a volume
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cinder/encrypted-volumes/">
+        Encrypted volumes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cinder/retype-volumes/">
+        Changing a volume's type
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cinder/sync-volumes/">
+        Transferring data between volumes
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" id="__nav_2_3_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3_3" tabindex="0">
+          Magnum (Kubernetes cluster management)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Magnum (Kubernetes cluster management)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Magnum (Kubernetes cluster management)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../magnum/new-k8s-cluster/">
+        Creating new Kubernetes clusters
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_4" id="__nav_2_3_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3_4" tabindex="0">
+          Neutron (networking service)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Neutron (networking service)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Neutron (networking service)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../neutron/new-network/">
+        Creating new networks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../neutron/create-security-groups/">
+        Creating security groups
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../neutron/multiple-public-ips/">
+        Assigning multiple public (floating) IPs to a server
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../neutron/vpnaas/">
+        Creating a VPN connection between regions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../neutron/delete-network/">
+        Deleting networks
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_5" id="__nav_2_3_5" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_3_5" tabindex="0">
+          Nova (compute service)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nova (compute service)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Nova (compute service)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/new-server/">
+        Creating new servers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/server-group/">
+        Using server groups
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/config-drive/">
+        Launching a server with a configuration drive
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/resize-server/">
+        Resizing a server
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/move-server-between-regions/">
+        Moving a server from one region to another
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nova/rescue-server/">
+        Rescuing a server
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_6" id="__nav_2_3_6" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2_3_6" tabindex="0">
+          Octavia (load balancing)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Octavia (load balancing)" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_6">
+<span class="md-nav__icon md-icon"></span>
+          Octavia (load balancing)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Setting up a TCP load balancer
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Setting up a TCP load balancer
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario-and-terminology">
+    Scenario and terminology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-load-balancer">
+    Creating a load balancer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-listener">
+    Creating a listener
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-pool">
+    Creating a pool
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-members-to-the-pool">
+    Adding members to the pool
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assigning-a-floating-ip">
+    Assigning a floating IP
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-the-load-balancer">
+    Testing the load balancer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-a-health-monitor">
+    Adding a health monitor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#observing-and-testing-the-monitor">
+    Observing and testing the monitor
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tls-lb/">
+        HTTPS-terminating load balancers
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_4" tabindex="0">
+          Object storage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Object storage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Object storage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" id="__nav_2_4_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../object-storage/s3/">S3 API</a>
+<label for="__nav_2_4_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="S3 API" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_1">
+<span class="md-nav__icon md-icon"></span>
+          S3 API
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/credentials/">
+        Working with S3-compatible credentials
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/public-bucket/">
+        Public buckets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/presign/">
+        Pre-signed object URLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/expiry/">
+        Object expiry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/versioning/">
+        Object versioning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/s3/sse-c/">
+        Client-side encryption (SSE-C)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_2" id="__nav_2_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../object-storage/swift/">Swift API</a>
+<label for="__nav_2_4_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Swift API" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Swift API
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/private-container/">
+        Working with a private Swift container
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/public-container/">
+        Working with a public Swift container
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/tempurl/">
+        Using temporary URLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/expiry/">
+        Object expiry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../object-storage/swift/versioning/">
+        Object versioning
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../kubernetes/">Kubernetes</a>
+<label for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Kubernetes" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../kubernetes/gardener/">Gardener</a>
+<label for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Gardener" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Gardener
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
+        Creating Kubernetes clusters with Gardener
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" id="__nav_2_5_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../kubernetes/magnum/">Magnum</a>
+</div>
+<nav aria-label="Magnum" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_3">
+<span class="md-nav__icon md-icon"></span>
+          Magnum
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2_6" tabindex="0">
+          Account &amp; Billing
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Account &amp; Billing" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
+          Account &amp; Billing
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
+        Changing your account billing data
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+        Changing your credit card data
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/manage-invoices/">
+        Managing invoices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../account-billing/rest-invoice-data/">
+        Retrieving invoice data with the Cleura Cloud REST API
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../background/">Background</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Background" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Background
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../background/gui-vs-api/">
+        Cleura Cloud Management Panel vs. OpenStack API
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/">Reference</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Reference" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/features/">Feature Support</a>
+<label for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Feature Support" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Feature Support
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/features/public/">
+        Public Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
+        Compliant Cloud
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/flavors/">Flavors</a>
+</div>
+<nav aria-label="Flavors" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Flavors
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/versions/">Service Versions</a>
+<label for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Service Versions" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          Service Versions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
+        Public Cloud
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
+        Compliant Cloud
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" id="__nav_4_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/api/">API Reference</a>
+<label for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="API Reference" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_2" id="__nav_4_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/api/cc/">Cleura Cloud REST API</a>
+</div>
+<nav aria-label="Cleura Cloud REST API" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Cleura Cloud REST API
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_3" id="__nav_4_5_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../reference/api/openstack/">OpenStack API</a>
+</div>
+<nav aria-label="OpenStack API" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_5_3">
+<span class="md-nav__icon md-icon"></span>
+          OpenStack API
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../contrib/">You can help!</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="You can help!" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          You can help!
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
+        Modifying content on this site
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../contrib/quality/">
+        Quality checks
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario-and-terminology">
+    Scenario and terminology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-load-balancer">
+    Creating a load balancer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-listener">
+    Creating a listener
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-pool">
+    Creating a pool
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-members-to-the-pool">
+    Adding members to the pool
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assigning-a-floating-ip">
+    Assigning a floating IP
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-the-load-balancer">
+    Testing the load balancer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-a-health-monitor">
+    Adding a health monitor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#observing-and-testing-the-monitor">
+    Observing and testing the monitor
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/octavia/lbaas-tcp.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<h1 id="setting-up-a-tcp-load-balancer">Setting up a TCP load balancer</h1>
+<p>Octavia is a Load Balancer as a Service (LBaaS) solution designed to
+work with OpenStack. In this guide, we show how to instantiate and
+configure a simple TCP load balancer in Cleura Cloud. All intermediate
+steps are presented and explained through a specific scenario, and we
+work using either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Whether you choose the Cleura Cloud Management Panel or the OpenStack CLI, you need to <a href="/howto/getting-started/create-account">have
+an account</a> in Cleura Cloud.
+Additionally, to use the OpenStack CLI, make sure to <a href="/howto/getting-started/enable-openstack-cli">enable
+it</a> for the region you
+will be working in. Besides the Python <code>openstackclient</code> module, you
+will also have to install the Python <code>octaviaclient</code> module. For that,
+use either the package manager of your operating system or <code>pip</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">Mac OS X with Homebrew</label><label for="__tabbed_1_3">Python Package</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>python3-octaviaclient
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>This particular Python module is unavailable via <code>brew</code>, but you
+can install it via <code>pip</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>python-octaviaclient
+</code></pre></div>
+</div>
+</div>
+</input></input></input></div>
+<h2 id="scenario-and-terminology">Scenario and terminology</h2>
+<p>To configure and test our basic TCP load balancer, we have two servers
+in the same Cleura Cloud region, both having <code>ncat</code> listening on port
+61234/TCP and returning a greeting to clients asking to connect to that
+port. Both servers are in the same internal network, and our load
+balancer will be responsible for redirecting client connections to them
+in a round-robin fashion. The load balancer will have a single floating
+IP address, so prospective clients will have to know only that address
+and not any of the backend server addresses.</p>
+<blockquote>
+<p>Please note that while working with your load balancer, you will
+encounter some technical terms which go a long way toward
+conceptualizing the inner logic of the whole LBaaS system. This guide
+introduces those terms not beforehand but exactly when needed.</p>
+</blockquote>
+<h2 id="creating-a-load-balancer">Creating a load balancer</h2>
+<p>That is only the first step towards our goal, which is to have a fully
+functional TCP load balancer. We will also need a listener and a pool,
+but first things first.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Fire up your favorite web browser, navigate to the
+<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
+Cleura Cloud account. On the top right-hand side of the Cleura Cloud Management Panel, click the
+<em>Create</em> button. A new pane titled <em>Create</em> will slide into view from
+the right-hand side of the browser window. You will notice several
+rounded boxes on that pane, each for defining, configuring, and
+instantiating a different Cleura Cloud object. Go ahead and click the
+<em>Load Balancer</em> box.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-01.png"><img alt="Create new object" src="../assets/shot-01.png"/></a></p>
+<p>A new pane titled <em>Create a Load Balancer</em> will slide over. At the top,
+type in a name for the new load balancer and select one of the
+available regions. Optionally, type in a description.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-02.png"><img alt="Set name, region, and description for the new LB" src="../assets/shot-02.png"/></a></p>
+<p>In the same pane, scroll down a bit if you have to and activate the
+<em>Subnet</em> radio button. Then, from the <em>Subnet</em> dropdown menu below,
+select an appropriate subnet for the new load balancer to move in front
+of. In our example, the two test servers we have are members of the
+<code>network-fra1</code> internal network, and <code>subnet-fra1</code> is the name of the
+corresponding subnet. Click the green <em>Create</em> button below to
+instantiate the new load balancer.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-03.png"><img alt="Select a subnet for the new LB" src="../assets/shot-03.png"/></a></p>
+<p>The creation of the new load balancer starts and, unless something goes
+wrong, finishes successfully in a minute or so. For a view of the load
+balancer, make sure the left-hand side vertical pane of the Cleura Cloud Management Panel is
+fully visible, click on the <em>Networking</em> category to expand it, and then
+click once more on the <em>Load Balancers</em> option. In the main area of the
+Cleura Cloud Management Panel, select the new load balancer, click the three-dot icon on the
+right, and select <em>View details</em> from the pop-up menu that appears.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-04.png"><img alt="View the newly created LB" src="../assets/shot-04.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>To create your load balancer, type something like this:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>mylb<span class="w"> </span>--vip-subnet-id<span class="w"> </span>subnet-fra1
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| admin_state_up      | True                                 |
+| availability_zone   | None                                 |
+| created_at          | 2023-01-16T19:20:01                  |
+| description         |                                      |
+| flavor_id           | None                                 |
+| id                  | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+| listeners           |                                      |
+| name                | mylb                                 |
+| operating_status    | OFFLINE                              |
+| pools               |                                      |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| provider            | amphora                              |
+| provisioning_status | PENDING_CREATE                       |
+| updated_at          | None                                 |
+| vip_address         | 10.15.25.169                         |
+| vip_network_id      | 6c340d2b-e2cf-478a-9074-37e6770decf8 |
+| vip_port_id         | c5b49ecb-3631-4e1c-99f0-04b3fba314e2 |
+| vip_qos_policy_id   | None                                 |
+| vip_subnet_id       | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+| tags                |                                      |
+| additional_vips     |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>In the example above, the name of the load balancer is <code>mylb</code>, and the
+subnet it will be in front of is named <code>subnet-fra1</code> (this is the
+subnet our two test servers are members of). You will notice in the
+command output that, at first, the <code>provisioning_status</code> is
+<code>PENDING_CREATE</code>. To make sure the load balancer has been successfully
+created, try this command a couple of times:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>show<span class="w"> </span>mylb<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------+
+| Field               | Value  |
++---------------------+--------+
+| provisioning_status | ACTIVE |
++---------------------+--------+
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="creating-a-listener">Creating a listener</h2>
+<p>A load balancer needs a way to listen for incoming client connection
+requests. The <em>listener</em> allows a load balancer to do just that. The
+load balancer you instantiated has no listener, so let us see how you
+can equip it with one.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Looking at the detailed view of the new load balancer, you see three
+tabs: <em>Details</em>, <em>Listeners</em>, and <em>Pools</em>. Click the <em>Listeners</em> tab
+and notice the message: “No Listeners for this LoadBalancer”. Time to
+create one, so click the green button labeled <em>Create a Listener</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-05.png"><img alt="Create a listener" src="../assets/shot-05.png"/></a></p>
+<p>From the right-hand side of the Cleura Cloud Management Panel, a pane named <em>Create a
+Listener</em> slides over. Type in a name for the new listener — and
+optionally a description.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-06.png"><img alt="Set name and description for the new listener" src="../assets/shot-06.png"/></a></p>
+<p>Further down, from the <em>Protocol</em> dropdown menu, select the protocol
+the listener will be paying attention to. Since you are setting up a
+TCP load balancer, the protocol for the listener will also have to be
+TCP. Additionally, type in the listening port. The load balancer will
+be redirecting connections to a couple of servers, which listen for
+connections on port 61234/TCP, so it makes sense —though it is not
+necessary— for the load balancer to use that same listening port.
+Since you have not yet defined a pool, ignore the <em>Default pool</em>
+dropdown menu for now. Instead, go ahead and click the green <em>Create</em>
+button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-07.png"><img alt="Select protocol and set port" src="../assets/shot-07.png"/></a></p>
+<p>The listener will be created in no time, and you will be able to see
+its characteristics in the <em>Listeners</em> tab of your load balancer
+detailed view.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-08.png"><img alt="Listener successfully created" src="../assets/shot-08.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>Create a listener for your load balancer like this:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>mylb-listener<span class="w"> </span>--protocol<span class="w"> </span>TCP<span class="w"> </span>--protocol-port<span class="w"> </span><span class="m">61234</span><span class="w"> </span>mylb
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-----------------------------+--------------------------------------+
+| Field                       | Value                                |
++-----------------------------+--------------------------------------+
+| admin_state_up              | True                                 |
+| connection_limit            | -1                                   |
+| created_at                  | 2023-01-16T19:32:59                  |
+| default_pool_id             | None                                 |
+| default_tls_container_ref   | None                                 |
+| description                 |                                      |
+| id                          | 8b4e3309-c460-44a8-a0af-8dd2868138f9 |
+| insert_headers              | None                                 |
+| l7policies                  |                                      |
+| loadbalancers               | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+| name                        | mylb-listener                        |
+| operating_status            | OFFLINE                              |
+| project_id                  | dfc700467396428bacba4376e72cc3e9     |
+| protocol                    | TCP                                  |
+| protocol_port               | 61234                                |
+| provisioning_status         | PENDING_CREATE                       |
+| sni_container_refs          | []                                   |
+| timeout_client_data         | 50000                                |
+| timeout_member_connect      | 5000                                 |
+| timeout_member_data         | 50000                                |
+| timeout_tcp_inspect         | 0                                    |
+| updated_at                  | None                                 |
+| client_ca_tls_container_ref | None                                 |
+| client_authentication       | NONE                                 |
+| client_crl_container_ref    | None                                 |
+| allowed_cidrs               | None                                 |
+| tls_ciphers                 | None                                 |
+| tls_versions                | None                                 |
+| alpn_protocols              | None                                 |
+| tags                        |                                      |
++-----------------------------+--------------------------------------+
+</code></pre></div>
+<p>To check the <code>provisioning_status</code>, type the following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>show<span class="w"> </span>mylb-listener<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------+
+| Field               | Value  |
++---------------------+--------+
+| provisioning_status | ACTIVE |
++---------------------+--------+
+</code></pre></div>
+<p>Since you wanted to create a TCP load balancer, in the command above,
+you specified the connection protocol via the <code>--protocol</code> parameter.
+Also, the new load balancer will be redirecting connections to a couple
+of servers listening on port 61234, so it makes sense to set the
+listening port to 61234 (see the <code>--protocol-port</code> parameter).</p>
+</div>
+</div>
+</input></input></div>
+<h2 id="creating-a-pool">Creating a pool</h2>
+<p>Any server accepting connections from the listener is said to be a
+<em>member</em> of a <em>pool</em>. For our load balancer to work, we must create a
+pool and explicitly list its members.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>With the detailed view of the load balancer expanded, click the <em>Pools</em>
+tab. You will notice the message “No pools for this LoadBalancer”, so
+click the green <em>Create a Pool</em> button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-09.png"><img alt="Create a pool" src="../assets/shot-09.png"/></a></p>
+<p>A new pane named <em>Create a Pool</em> slides over. First, type in a name for
+the new pool. For the <em>Algorithm</em>, make sure to select <em>ROUND_ROBIN</em>.
+Since you are configuring a TCP load balancer, set the <em>Protocol</em> to
+<em>TCP</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-10.png"><img alt="Type in name, set algorithm and protocol" src="../assets/shot-10.png"/></a></p>
+<p>A little bit further down the pane, there is the <em>Listener</em> dropdown
+menu; select the one you created in the previous step. Leave the
+<em>Session persistence</em> parameter as it is, and create your pool with a
+click on the green <em>Create</em> button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-11.png"><img alt="Select listener, create pool" src="../assets/shot-11.png"/></a></p>
+<p>The pool is instantaneously available; as you can see, it has zero
+members and one listener (the one you created in the previous step).</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-12.png"><img alt="Zero members, one listener" src="../assets/shot-12.png"/></a></p>
+<p>Notice that the listener already knows about the new pool, even though
+you did not explicitly mention it.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-13.png"><img alt="The listener knows" src="../assets/shot-13.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>To create a pool named <code>mylb-pool</code> that distributes incoming TCP
+connections to its members in a round-robin fashion from the listener
+named <code>mylb-listener</code>, type this command:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>pool<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>mylb-pool<span class="w"> </span>--lb-algorithm<span class="w"> </span>ROUND_ROBIN<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--listener<span class="w"> </span>mylb-listener<span class="w"> </span>--protocol<span class="w"> </span>TCP
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+----------------------+--------------------------------------+
+| Field                | Value                                |
++----------------------+--------------------------------------+
+| admin_state_up       | True                                 |
+| created_at           | 2023-01-16T19:52:02                  |
+| description          |                                      |
+| healthmonitor_id     |                                      |
+| id                   | e5b9c18d-7c0b-4b95-9dc8-7a778aeb039c |
+| lb_algorithm         | ROUND_ROBIN                          |
+| listeners            | 8b4e3309-c460-44a8-a0af-8dd2868138f9 |
+| loadbalancers        | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+| members              |                                      |
+| name                 | mylb-pool                            |
+| operating_status     | OFFLINE                              |
+| project_id           | dfc700467396428bacba4376e72cc3e9     |
+| protocol             | TCP                                  |
+| provisioning_status  | PENDING_CREATE                       |
+| session_persistence  | None                                 |
+| updated_at           | None                                 |
+| tls_container_ref    | None                                 |
+| ca_tls_container_ref | None                                 |
+| crl_container_ref    | None                                 |
+| tls_enabled          | False                                |
+| tls_ciphers          | None                                 |
+| tls_versions         | None                                 |
+| tags                 |                                      |
+| alpn_protocols       | None                                 |
++----------------------+--------------------------------------+
+</code></pre></div>
+<p>Once more, you may check the <code>provisioning_status</code> by typing the
+following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>pool<span class="w"> </span>show<span class="w"> </span>mylb-pool<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------+
+| Field               | Value  |
++---------------------+--------+
+| provisioning_status | ACTIVE |
++---------------------+--------+
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="adding-members-to-the-pool">Adding members to the pool</h2>
+<p>The pool you created has no members, so it is time to populate it.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the detailed view of your load balancer, go to the <em>Pools</em> tab and
+click the bulleted-list icon.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-14.png"><img alt="Populate the pool" src="../assets/shot-14.png"/></a></p>
+<p>A new pane titled <em>Modify Pool Members</em> appears, listing all the
+servers that share the same region with the load balancer. In our
+example, there are three servers. We created <code>srv-lbaas-1</code> and
+<code>srv-lbaas-2</code> to test the load balancer, so now we click on the
+corresponding plus-sign icons to add those to the pool.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-15.png"><img alt="Add members" src="../assets/shot-15.png"/></a></p>
+<p>You may have noticed that the listening port of each server we added is
+by default 80, but we want port 61234. To change the listening port of
+a server, just click the corresponding notepad-and-pen icon.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-16.png"><img alt="Modify ports" src="../assets/shot-16.png"/></a></p>
+<p>To confirm the changes, click the green <em>Update</em> button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-17.png"><img alt="Apply changes to pool" src="../assets/shot-17.png"/></a></p>
+<p>At this point, the load balancer should have its listener plus a pool
+with two members.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-18.png"><img alt="Pool is populated" src="../assets/shot-18.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>Both our test servers are in the <code>subnet-fra1</code> subnet, one of them has
+IP <code>10.15.25.105</code>, and the other one has IP <code>10.15.25.236</code>. To add
+those two servers in pool <code>mylb-pool</code>, type:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--subnet-id<span class="w"> </span>subnet-fra1<span class="w"> </span>--address<span class="w"> </span><span class="m">10</span>.15.25.105<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--protocol-port<span class="w"> </span><span class="m">61234</span><span class="w"> </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| address             | 10.15.25.105                         |
+| admin_state_up      | True                                 |
+| created_at          | 2023-01-16T20:11:08                  |
+| id                  | 93aed0c8-b425-40b5-b166-f3e44ad9a986 |
+| name                |                                      |
+| operating_status    | NO_MONITOR                           |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| protocol_port       | 61234                                |
+| provisioning_status | PENDING_CREATE                       |
+| subnet_id           | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+| updated_at          | None                                 |
+| weight              | 1                                    |
+| monitor_port        | None                                 |
+| monitor_address     | None                                 |
+| backup              | False                                |
+| tags                |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--subnet-id<span class="w"> </span>subnet-fra1<span class="w"> </span>--address<span class="w"> </span><span class="m">10</span>.15.25.236<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--protocol-port<span class="w"> </span><span class="m">61234</span><span class="w"> </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| address             | 10.15.25.236                         |
+| admin_state_up      | True                                 |
+| created_at          | 2023-01-16T20:11:46                  |
+| id                  | d15527ce-a293-4184-9da5-dcc5f7352a0c |
+| name                |                                      |
+| operating_status    | NO_MONITOR                           |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| protocol_port       | 61234                                |
+| provisioning_status | PENDING_CREATE                       |
+| subnet_id           | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+| updated_at          | None                                 |
+| weight              | 1                                    |
+| monitor_port        | None                                 |
+| monitor_address     | None                                 |
+| backup              | False                                |
+| tags                |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>You may at any time list all members of a particular pool:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>list<span class="w"> </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+------------+------+------------+---------------------+------------+---------------+------------------+--------+
+| id         | name | project_id | provisioning_status | address    | protocol_port | operating_status | weight |
++------------+------+------------+---------------------+------------+---------------+------------------+--------+
+| 93aed0c8-  |      | dfc7004673 | ACTIVE              | 10.15.25.1 |         61234 | NO_MONITOR       |      1 |
+| b425-40b5- |      | 96428bacba |                     | 05         |               |                  |        |
+| b166-      |      | 4376e72cc3 |                     |            |               |                  |        |
+| f3e44ad9a9 |      | e9         |                     |            |               |                  |        |
+| 86         |      |            |                     |            |               |                  |        |
+| d15527ce-  |      | dfc7004673 | ACTIVE              | 10.15.25.2 |         61234 | NO_MONITOR       |      1 |
+| a293-4184- |      | 96428bacba |                     | 36         |               |                  |        |
+| 9da5-      |      | 4376e72cc3 |                     |            |               |                  |        |
+| dcc5f7352a |      | e9         |                     |            |               |                  |        |
+| 0c         |      |            |                     |            |               |                  |        |
++------------+------+------------+---------------------+------------+---------------+------------------+--------+
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="assigning-a-floating-ip">Assigning a floating IP</h2>
+<p>Your load balancer has an internal IP chosen from the subnet you
+indicated earlier. This makes it reachable from other servers in the
+same subnet but not from the Internet. You probably want the load
+balancer to be reachable from anywhere, meaning you have to equip it
+with a floating IP.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Cleura Cloud Management Panel</label><label for="__tabbed_6_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>While viewing your load balancer, click the three-dot icon on the
+right. From the pop-up menu that appears, select <em>Modify Load Balancer</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-19.png"><img alt="Modify load balancer" src="../assets/shot-19.png"/></a></p>
+<p>The <em>Modify Load Balancer</em> pane appears. For the <em>Floating IP</em> option,
+select <em>Create and attach IP</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-20.png"><img alt="Create and attach floating IP" src="../assets/shot-20.png"/></a></p>
+<p>A new pane slides over, named <em>Create a Floating IP</em>. For the <em>Region</em>
+parameter, select the one the load balancer resides in. For the <em>Assign
+to</em> parameter, make sure you choose <em>Load Balancer</em>. In our example,
+there’s only one load balancer in the region we are working in, so the
+parameter <em>Assign To</em> is already set for us. To finalize the
+assignment, click the green <em>Create and Assign</em> button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-21.png"><img alt="Configure attachment" src="../assets/shot-21.png"/></a></p>
+<p>As you may see, your load balancer now has a floating IP. You can now
+use that to test the balancer and make sure it works as expected.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-22.png"><img alt="Floating IP attached to load balancer" src="../assets/shot-22.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>First, create a new floating IP:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>create<span class="w"> </span>ext-net
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| created_at          | 2023-01-16T20:25:25Z                 |
+| description         |                                      |
+| dns_domain          | None                                 |
+| dns_name            | None                                 |
+| fixed_ip_address    | None                                 |
+| floating_ip_address | 198.51.100.129                       |
+| floating_network_id | 2aec7a99-3783-4e2a-bd2b-bbe4fef97d1c |
+| id                  | 69457661-197e-444a-b9ce-54394263dafa |
+| name                | 198.51.100.129                       |
+| port_details        | None                                 |
+| port_id             | None                                 |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| qos_policy_id       | None                                 |
+| revision_number     | 0                                    |
+| router_id           | None                                 |
+| status              | DOWN                                 |
+| subnet_id           | None                                 |
+| tags                | []                                   |
+| updated_at          | 2023-01-16T20:25:25Z                 |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>Then, load the ID of the new floating IP to a variable:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">FLOAT_IP_ID</span><span class="o">=</span><span class="k">$(</span>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--floating-ip-address<span class="w"> </span><span class="m">198</span>.51.100.129<span class="w"> </span>-c<span class="w"> </span>ID<span class="w"> </span>-f<span class="w"> </span>value<span class="k">)</span>
+</code></pre></div>
+<p>Do the same for the VIP port ID of your load balancer:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VIP_PORT_ID</span><span class="o">=</span><span class="k">$(</span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>show<span class="w"> </span>mylb<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-c<span class="w"> </span>vip_port_id<span class="w"> </span>-f<span class="w"> </span>value<span class="k">)</span>
+</code></pre></div>
+<p>Finally, assign the floating IP to your load balancer like so:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--port<span class="w"> </span><span class="nv">$VIP_PORT_ID</span><span class="w"> </span><span class="nv">$FLOAT_IP_ID</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="testing-the-load-balancer">Testing the load balancer</h2>
+<p>Each of the two test servers runs <code>ncat</code> to continuously listen
+on port 61234/TCP and respond to clients with a simple message,
+revealing its hostname:</p>
+<div class="highlight"><pre><span></span><code>ncat<span class="w"> </span>-kv<span class="w"> </span>-l<span class="w"> </span><span class="m">61234</span><span class="w"> </span>-c<span class="w"> </span><span class="s1">'echo Yello from $(hostname)!'</span>
+</code></pre></div>
+<p>Since the load balancer has a floating IP (<code>198.51.100.129</code>,
+in our example), and we know the port it listens to, we can
+try connecting to it via <code>wget</code> and see what happens:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Yello from srv-lbaas-1!
+</code></pre></div>
+<p>It looks like we talked to the first test server. If we run the
+exact same <code>wget</code> command for a second time, since the load balancer
+distributes client connection requests in a round-robin fashion,
+we expect to talk to the second server:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Yello from srv-lbaas-2!
+</code></pre></div>
+<p>During our testing, executing the <code>wget</code> command repeatedly, we were
+getting those two hostnames one after the other — and that was
+proof our TCP load balancer was working as expected. But there is
+one more expectation of any load balancer: the ability to skip
+backend hosts when they are inaccessible.</p>
+<p>To test our load balancer in this new scenario, let us first use
+<code>wget</code> to connect to port 61234 and jot down the backend server
+that will respond:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Yello from srv-lbaas-2!
+</code></pre></div>
+<p>We see that <code>srv-lbaas-2</code> responded. That means the next time we
+try to connect, <code>srv-lbaas-1</code> will respond. But if we SSH into
+<code>srv-lbaas-1</code> and terminate <code>ncat</code>, then after connecting with
+<code>wget</code> we will get a response from <code>srv-lbaas-2</code> — again. This,
+at least, is our expectation. So without further ado, we SSH into
+<code>srv-lbaas-1</code>, we terminate <code>ncat</code>, we log out, and from our local
+terminal, we type:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Yello from srv-lbaas-2!
+</code></pre></div>
+<p>Exactly as we expected, <code>srv-lbaas-2</code> has responded again, proving
+our load balancer behaves correctly. As an exercise, you might want
+to shutdown your <code>srv-lbaas-1</code> and/or re-enable <code>ncat</code>, and check
+the behavior of the load balancer. There should be no surprises.</p>
+<h2 id="adding-a-health-monitor">Adding a health monitor</h2>
+<p>You can add a health monitor to the pool of your load balancer,
+so whenever —and for whatever reason— one or more of the pool
+member services are inaccessible, the load balancer will know and
+won’t even bother trying to redirect client requests to them. Of
+course, whenever an inaccessible service gets accessible again,
+the load balancer will take notice and start treating the
+corresponding pool member as a fully functional server.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><input id="__tabbed_7_2" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">Cleura Cloud Management Panel</label><label for="__tabbed_7_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the detailed view of your load balancer, pull up the
+<em>Pools</em> tab. In the <em>Health Monitor</em> column there is a “0”,
+for the pool has no health monitor yet.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-23.png"><img alt="There is no health monitor" src="../assets/shot-23.png"/></a></p>
+<p>To add a health monitor, click the notepad-and-pen icon.
+A pane titled <em>Modify Pool</em> slides over. Scroll down if
+you have to, and stop when the <em>Health Monitor</em> section is
+fully visible. You will see a message saying, “No health
+monitor created”, so click the green <em>Create a Healthmonitor</em>
+button to create one.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-24.png"><img alt="Create new health monitor" src="../assets/shot-24.png"/></a></p>
+<p>Pick a name for the new health monitor, and set its type to
+TCP. That is the connection protocol that will be used to
+determine whether pool member services are accessible.
+Finalize your choices with a click on the green <em>Create</em>
+button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-25.png"><img alt="Define health monitor characteristics" src="../assets/shot-25.png"/></a></p>
+<p>You will then see that in the <em>Health Monitor</em> column there
+is a “1” — and that means the monitor is active. To see
+real-time information regarding pool members operating status,
+click over “1”.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-26.png"><img alt="Check members operating status" src="../assets/shot-26.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>To create a health monitor for pool <code>mylb-pool</code> of load
+balancer <code>mylb</code>, type something like the following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>healthmonitor<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="o">=</span>mylb-pool-healthmon<span class="w"> </span>--type<span class="o">=</span>TCP<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--delay<span class="o">=</span><span class="m">10</span><span class="w"> </span>--timeout<span class="o">=</span><span class="m">5</span><span class="w"> </span>--max-retries<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| name                | mylb-pool-healthmon                  |
+| admin_state_up      | True                                 |
+| pools               | e5b9c18d-7c0b-4b95-9dc8-7a778aeb039c |
+| created_at          | 2023-01-22T20:22:05                  |
+| provisioning_status | PENDING_CREATE                       |
+| updated_at          | None                                 |
+| delay               | 10                                   |
+| expected_codes      | None                                 |
+| max_retries         | 1                                    |
+| http_method         | None                                 |
+| timeout             | 5                                    |
+| max_retries_down    | 3                                    |
+| url_path            | None                                 |
+| type                | TCP                                  |
+| id                  | 8e720877-969d-4653-9e7e-1ae2df66a0b6 |
+| operating_status    | OFFLINE                              |
+| http_version        | None                                 |
+| domain_name         | None                                 |
+| tags                |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>The name of the new health monitor is <code>mylb-pool-healthmon</code>,
+and the TCP protocol will be used to check whether members
+of pool <code>mylb-pool</code> are online or offline. To check the
+provisioning status of the health monitor, type:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>healthmonitor<span class="w"> </span>show<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mylb-pool-healthmon<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------+
+| Field               | Value  |
++---------------------+--------+
+| provisioning_status | ACTIVE |
++---------------------+--------+
+</code></pre></div>
+<p>Once the health monitor is provisioned, you may at any time
+check the pool members status like so:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>list<span class="w"> </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
+| id        | name      | project_id | provisioning_status | address   | protocol_port | operating_status | weight |
++-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
+| c4351167- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |
+| fcfa-     | lbaas-1   | 96428bacba |                     | 105       |               |                  |        |
+| 48fb-     |           | 4376e72cc3 |                     |           |               |                  |        |
+| 82ac-     |           | e9         |                     |           |               |                  |        |
+| 76ddfdc73 |           |            |                     |           |               |                  |        |
+| ca2       |           |            |                     |           |               |                  |        |
+| 04a32731- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |
+| f3a6-     | lbaas-2   | 96428bacba |                     | 236       |               |                  |        |
+| 41ca-     |           | 4376e72cc3 |                     |           |               |                  |        |
+| a638-     |           | e9         |                     |           |               |                  |        |
+| 6f8767437 |           |            |                     |           |               |                  |        |
+| 50c       |           |            |                     |           |               |                  |        |
++-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="observing-and-testing-the-monitor">Observing and testing the monitor</h2>
+<p>Having a health monitor for your load balancer’s pool up and
+running, whenever the service of interest in any of the pool
+members gets inaccessible, the monitor notices and immediately
+considers the corresponding member as offline. From then on,
+and until the same service gets accessible again, the load
+balancer does not even try to redirect client connections to
+the affected member. During our testing, we killed <code>ncat</code>
+running on <code>srv-lbaas-1</code>, and then took a look at the health
+monitor from the Cleura Cloud Management Panel — and also from a local terminal.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"><input id="__tabbed_8_2" name="__tabbed_8" type="radio"><div class="tabbed-labels"><label for="__tabbed_8_1">Cleura Cloud Management Panel</label><label for="__tabbed_8_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the detailed view of your load balancer, pull up the
+<em>Pools</em> tab and click anywhere on its line. After a second
+or two, you will see information regarding all pool members.
+Pay attention to the <em>Operating Status</em> column, where you
+can see the status of any of the pool members.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/shot-27.png"><img alt="Operating status of all pool members" src="../assets/shot-27.png"/></a></p>
+</div>
+<div class="tabbed-block">
+<p>To check the operating status of any of the pool members
+of your load balancer, type something like this:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>list<span class="w"> </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
+| id        | name      | project_id | provisioning_status | address   | protocol_port | operating_status | weight |
++-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
+| c4351167- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ERROR            |      1 |
+| fcfa-     | lbaas-1   | 96428bacba |                     | 105       |               |                  |        |
+| 48fb-     |           | 4376e72cc3 |                     |           |               |                  |        |
+| 82ac-     |           | e9         |                     |           |               |                  |        |
+| 76ddfdc73 |           |            |                     |           |               |                  |        |
+| ca2       |           |            |                     |           |               |                  |        |
+| 04a32731- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |
+| f3a6-     | lbaas-2   | 96428bacba |                     | 236       |               |                  |        |
+| 41ca-     |           | 4376e72cc3 |                     |           |               |                  |        |
+| a638-     |           | e9         |                     |           |               |                  |        |
+| 6f8767437 |           |            |                     |           |               |                  |        |
+| 50c       |           |            |                     |           |               |                  |        |
++-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
+</code></pre></div>
+<p>In the example above, see the <code>operating_status</code> column,
+specifically the status of server <code>srv-lbaas-1</code>. Regarding
+the operating status of all pool members, you can always
+limit the scope of your query like so:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>list<span class="w"> </span>mylb-pool<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-c<span class="w"> </span>name<span class="w"> </span>-c<span class="w"> </span>operating_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-------------+------------------+
+| name        | operating_status |
++-------------+------------------+
+| srv-lbaas-1 | ERROR            |
+| srv-lbaas-2 | ONLINE           |
++-------------+------------------+
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<p>Finally, let us see what happens when we repeatedly try to
+access the remote service via the load balancer:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+<span class="go">Yello from srv-lbaas-2!</span>
+
+<span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+<span class="go">Yello from srv-lbaas-2!</span>
+
+<span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+<span class="go">Yello from srv-lbaas-2!</span>
+</code></pre></div>
+<p>Since pool member <code>srv-lbaas-1</code> is offline to the health
+monitor, we keep getting an answer from <code>srv-lbaas-2</code>.
+Actually, while the service of interest in <code>srv-lbaas-1</code> is
+inaccessible, then no matter how many times we run the command
+above we will keep getting a response from <code>srv-lbaas-2</code> only.</p>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-17</span>
+<br/>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-17</span>
+</small>
+</div>
+<div class="md-source-date">
+<small>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.51d95adb.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
