@@ -45,10 +45,6 @@ general-purpose compute instance with 4 cores and 32 GiB RAM.
   latency for I/O intensive applications, but instances launched with
   these flavors must configure their own high availability and data
   replication.
-* `c`: Dedicated CPU. Instances launched with matching flavors are
-  guaranteed to run on compute hardware where CPU cores are allocated
-  to instances on a one-to-one basis and one virtual core maps
-  directly to a physical CPU core.
 * `g`: Virtual GPU. Instances launched with matching flavors have
   access to a
   [GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit).

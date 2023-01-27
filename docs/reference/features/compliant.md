@@ -14,7 +14,6 @@
 
 |                                               | Sto1HS                | Sto2HS                |
 | -------------                                 | ----------------      | --------------------- |
-| [Dedicated CPU](../../flavors/#compute-tiers) | :material-close:      | :material-close:      |
 | [Virtual GPU](../../flavors/#compute-tiers)   | :material-timer-sand: | :material-timer-sand: |
 
 

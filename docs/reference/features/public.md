@@ -12,7 +12,6 @@
 ## Virtualization
 |                                               | Kna1             | Sto2                  | Fra1             | Dx1              | Tky1             |
 | -------------                                 | ---------------- | --------------------- | ---------------- | ---------------- | ---------------- |
-| [Dedicated CPU](../../flavors/#compute-tiers) | :material-close: | :material-timer-sand: | :material-close: | :material-close: | :material-close: |
 | [Virtual GPU](../../flavors/#compute-tiers)   | :material-close: | :material-close:      | :material-close: | :material-close: | :material-close: |
 
 
