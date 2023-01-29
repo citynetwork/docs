@@ -1,1 +1,5 @@
 title: Octavia (load balancing)
+nav:
+  - lbaas-tcp.md
+  - tls-lb.md
+  - lbaas-l7pol.md
