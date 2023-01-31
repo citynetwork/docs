@@ -5,33 +5,35 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/tutorials/" rel="canonical"/>
-<link href="../reference/versions/public/" rel="prev"/>
-<link href="../assets/favicon.ico" rel="icon"/>
+<meta content="How to add automatic HTTP to HTTPS redirection to an HTTPS-terminated load balancer" name="description"/>
+<link href="https://docs.cleura.cloud/howto/openstack/octavia/lbaas-l7pol/" rel="canonical"/>
+<link href="../tls-lb/" rel="prev"/>
+<link href="../../../object-storage/s3/" rel="next"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.9" name="generator"/>
-<title>About our tutorials - Docs (Beta)</title>
-<link href="../assets/stylesheets/main.0d440cfe.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>Using layer 7 redirection - Docs (Beta)</title>
+<link href="../../../../assets/stylesheets/main.0d440cfe.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="About our tutorials - Docs (Beta)" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/tutorials/index.png" property="og:image"/>
+<meta content="Using layer 7 redirection - Docs (Beta)" property="og:title"/>
+<meta content="How to add automatic HTTP to HTTPS redirection to an HTTPS-terminated load balancer" property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/octavia/lbaas-l7pol.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/tutorials/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/openstack/octavia/lbaas-l7pol/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="About our tutorials - Docs (Beta)" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/tutorials/index.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="Using layer 7 redirection - Docs (Beta)" name="twitter:title"/>
+<meta content="How to add automatic HTTP to HTTPS redirection to an HTTPS-terminated load balancer" name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/octavia/lbaas-l7pol.png" name="twitter:image"/>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -42,14 +44,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#about-our-tutorials">
+<a class="md-skip" href="#using-layer-7-redirection">
           Skip to content
         </a>
 </div>
@@ -57,8 +59,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href=".." title="Docs (Beta)">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -73,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              About our tutorials
+              Using layer 7 redirection
             
           </span>
 </div>
@@ -139,8 +141,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Docs (Beta)">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
     Docs (Beta)
   </label>
@@ -156,19 +158,19 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../../../..">
         Start Here
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/">How-To Guides</a>
+<a href="../../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
           How-To Guides
@@ -187,30 +189,30 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/getting-started/create-account/">
+<a class="md-nav__link" href="../../../getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/getting-started/accessing-cc-rest-api/">
+<a class="md-nav__link" href="../../../getting-started/accessing-cc-rest-api/">
         Accessing the Cleura Cloud REST API
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
           OpenStack
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
           OpenStack
@@ -219,7 +221,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -231,12 +233,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -256,22 +258,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../../cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/retype-volumes/">
+<a class="md-nav__link" href="../../cinder/retype-volumes/">
         Changing a volume's type
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/sync-volumes/">
+<a class="md-nav__link" href="../../cinder/sync-volumes/">
         Transferring data between volumes
       </a>
 </li>
@@ -291,7 +293,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -311,27 +313,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -351,64 +353,97 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/new-server/">
+<a class="md-nav__link" href="../../nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/server-group/">
+<a class="md-nav__link" href="../../nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_6" id="__nav_2_3_6_label" tabindex="0">
           Octavia (load balancing)
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_6_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_6_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_6">
 <span class="md-nav__icon md-icon"></span>
           Octavia (load balancing)
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/octavia/lbaas-tcp/">
+<a class="md-nav__link" href="../lbaas-tcp/">
         Setting up a TCP load balancer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/octavia/lbaas-l7pol/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Using layer 7 redirection
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Using layer 7 redirection
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assumptions-and-scenario">
+    Assumptions and scenario
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-an-http-listener">
+    Creating an HTTP listener
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-policies-and-rules">
+    Adding policies and rules
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -431,7 +466,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/object-storage/s3/">S3 API</a>
+<a href="../../../object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -443,32 +478,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/credentials/">
+<a class="md-nav__link" href="../../../object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/public-bucket/">
+<a class="md-nav__link" href="../../../object-storage/s3/public-bucket/">
         Public buckets
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/presign/">
+<a class="md-nav__link" href="../../../object-storage/s3/presign/">
         Pre-signed object URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/expiry/">
+<a class="md-nav__link" href="../../../object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/versioning/">
+<a class="md-nav__link" href="../../../object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../../../object-storage/s3/sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
@@ -478,7 +513,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/object-storage/swift/">Swift API</a>
+<a href="../../../object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -490,27 +525,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/private-container/">
+<a class="md-nav__link" href="../../../object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/public-container/">
+<a class="md-nav__link" href="../../../object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/tempurl/">
+<a class="md-nav__link" href="../../../object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/expiry/">
+<a class="md-nav__link" href="../../../object-storage/swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/versioning/">
+<a class="md-nav__link" href="../../../object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -523,7 +558,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/">Kubernetes</a>
+<a href="../../../kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -537,7 +572,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/gardener/">Gardener</a>
+<a href="../../../kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -549,7 +584,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
@@ -559,7 +594,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/magnum/">Magnum</a>
+<a href="../../../kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_5_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -586,22 +621,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/change-billing-data/">
+<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/change-credit-card/">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
         Changing your credit card data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/manage-invoices/">
+<a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/rest-invoice-data/">
+<a class="md-nav__link" href="../../../account-billing/rest-invoice-data/">
         Retrieving invoice data with the Cleura Cloud REST API
       </a>
 </li>
@@ -614,7 +649,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../background/">Background</a>
+<a href="../../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -626,7 +661,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../background/gui-vs-api/">
+<a class="md-nav__link" href="../../../../background/gui-vs-api/">
         Cleura Cloud Management Panel vs. OpenStack API
       </a>
 </li>
@@ -636,7 +671,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/">Reference</a>
+<a href="../../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -650,7 +685,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/features/">Feature Support</a>
+<a href="../../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -662,12 +697,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/features/public/">
+<a class="md-nav__link" href="../../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/features/compliant/">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -677,7 +712,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/flavors/">Flavors</a>
+<a href="../../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
@@ -691,7 +726,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/versions/">Service Versions</a>
+<a href="../../../../reference/versions/">Service Versions</a>
 <label for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -703,12 +738,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/versions/public/">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -718,7 +753,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/api/">API Reference</a>
+<a href="../../../../reference/api/">API Reference</a>
 <label for="__nav_4_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -732,7 +767,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/api/cc/">Cleura Cloud REST API</a>
+<a href="../../../../reference/api/cc/">Cleura Cloud REST API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_5_2_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_5_2">
@@ -746,7 +781,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/api/openstack/">OpenStack API</a>
+<a href="../../../../reference/api/openstack/">OpenStack API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_5_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_5_3">
@@ -766,7 +801,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../contrib/">You can help!</a>
+<a href="../../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -778,12 +813,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../contrib/modifications/">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../contrib/quality/">
+<a class="md-nav__link" href="../../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -799,55 +834,302 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assumptions-and-scenario">
+    Assumptions and scenario
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-an-http-listener">
+    Creating an HTTP listener
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-policies-and-rules">
+    Adding policies and rules
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/tutorials/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/octavia/lbaas-l7pol.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="about-our-tutorials">About our tutorials</h1>
-<p>Our tutorials are gentle introductions to Cleura Cloud. They
-generally require very little prior knowledge and assume only that you
-have access to a browser, or to a terminal.</p>
-<p>We group these into two major categories:</p>
-<ul>
-<li>
-<p><strong>Browser-based tutorials</strong> get you started on
-  Cleura Cloud using the
-  <a href="https://cleura.cloud/">Cleura Cloud Management Panel</a>.</p>
-</li>
-<li>
-<p><strong>Terminal-based tutorials</strong> introduce you to command-line
-  interfaces (CLIs) and their interaction with
-  Cleura Cloud’s web-based Application Programming
-  Interfaces (APIs).</p>
-</li>
-</ul>
-<p>This section does <em>not</em> include detailed walkthroughs of specific
-technical tasks. For those, please see our <a href="../howto/">How-To
-Guides</a> section.</p>
-<blockquote>
-<p>If you find our tutorials helpful, you might also be interested in
-our self-paced online training courses, available from <a href="https://shop.cleura.com">our course
-booking site</a>.</p>
-</blockquote>
+<h1 id="using-layer-7-redirection">Using layer 7 redirection</h1>
+<p>Unlike <a href="../lbaas-tcp/">TCP-based load balancers</a>,
+which may be considered low-level, Layer 7 load balancers follow
+high-level application logic to redirect client requests to back-end
+server pools. They take their name from the <a href="https://en.wikipedia.org/wiki/OSI_model">OSI
+model</a>, where Layer 7 is also
+known as the <em>Application Layer</em>. A Layer 7, or simply L7, load
+balancer decides where to redirect incoming packets based on URI, host,
+HTTP headers, etc.</p>
+<p>One common application of L7 load balancing is HTTP to HTTPS
+redirection. More specifically, you may have an <a href="../tls-lb/">HTTPS-terminated load
+balancer</a> that distributes incoming
+client traffic to one or more back-end services, and you are looking
+for a way to automatically turn each HΤTP request into an HTTPS one. To
+have this kind of automatic redirection, you equip your load balancer
+with a new listener that acknowledges incoming HTTP requests and
+silently forwards them to the existing HTTPS-based listener.</p>
+<p>The HTTP listener will apply a specific <em>L7 policy</em> to accomplish this. In
+general, an L7 policy is nothing but a set of one or more <em>L7 rules</em>,
+along with a predefined action. That action is fallowed when all L7
+rules evaluate to <code>true</code>, and we should point out that an L7 rule is
+a logical test that evaluates to either <code>true</code> or <code>false</code>.</p>
+<p>In what follows, we show, step by step, how we add such a listener,
+policy, and set of rules to an existing HTTPS-terminated load balancer.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>The Cleura Cloud Management Panel does not support defining L7 policies and rules, so you
+will have to work with the OpenStack CLI. <a href="/howto/getting-started/enable-openstack-cli">Enable
+it</a> for the region you
+will be working in, and make sure you have the Python <code>octaviaclient</code>
+module installed. For that, use either the package manager of your
+operating system or <code>pip</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">Mac OS X with Homebrew</label><label for="__tabbed_1_3">Python Package</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>python3-octaviaclient
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>This particular Python module is unavailable via <code>brew</code>, but you
+can install it via <code>pip</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>python-octaviaclient
+</code></pre></div>
+</div>
+</div>
+</input></input></input></div>
+<h2 id="assumptions-and-scenario">Assumptions and scenario</h2>
+<p>We assume you already have an <a href="../tls-lb/">HTTPS-terminated load
+balancer</a> that forwards client
+requests to a back-end server pool. In our test scenario, the load
+balancer was accepting HTTPS requests for <code>whoogle.example.com</code> and
+forwarding them to a two-member pool, with servers each running a
+Docker container for <a href="https://github.com/benbusby/whoogle-search">Whoogle
+Search</a>.</p>
+<h2 id="creating-an-http-listener">Creating an HTTP listener</h2>
+<p>Here is <code>mylb</code>, the load balancer we used during testing…</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>list
+
+<span class="go">+---------------+------+---------------+--------------+---------------------+------------------+----------+</span>
+<span class="go">| id            | name | project_id    | vip_address  | provisioning_status | operating_status | provider |</span>
+<span class="go">+---------------+------+---------------+--------------+---------------------+------------------+----------+</span>
+<span class="go">| eaf6d4f3-     | mylb | dfc7004673964 | 10.15.25.155 | ACTIVE              | ONLINE           | amphora  |</span>
+<span class="go">| 8d73-4b77-    |      | 28bacba4376e7 |              |                     |                  |          |</span>
+<span class="go">| 8bc4-         |      | 2cc3e9        |              |                     |                  |          |</span>
+<span class="go">| 788a3b4e3916  |      |               |              |                     |                  |          |</span>
+<span class="go">+---------------+------+---------------+--------------+---------------------+------------------+----------+</span>
+</code></pre></div>
+<p>…and here is <code>mylb-listener-https</code>, the HTTPS-terminated listener of
+<code>mylb</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>list
+
+<span class="go">+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+</span>
+<span class="go">| id          | default_pool_id | name        | project_id  | protocol    | protocol_port | admin_state_up |</span>
+<span class="go">+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+</span>
+<span class="go">| 95414884-   | 3a683bfb-6c77-  | mylb-       | dfc70046739 | TERMINATED_ |           443 | True           |</span>
+<span class="go">| f9f2-4f76-  | 4ffd-befa-      | listener-   | 6428bacba43 | HTTPS       |               |                |</span>
+<span class="go">| 8aa5-       | 9f5e0e168538    | https       | 76e72cc3e9  |             |               |                |</span>
+<span class="go">| 56741f12825 |                 |             |             |             |               |                |</span>
+<span class="go">| 2           |                 |             |             |             |               |                |</span>
+<span class="go">+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+</span>
+</code></pre></div>
+<p>You may now add <code>mylb-listener-http</code>, a new HTTP-based listener for
+<code>mylb</code>:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>mylb-listener-http<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--protocol-port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mylb
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-----------------------------+--------------------------------------+
+| Field                       | Value                                |
++-----------------------------+--------------------------------------+
+| admin_state_up              | True                                 |
+| connection_limit            | -1                                   |
+| created_at                  | 2023-01-29T16:12:24                  |
+| default_pool_id             | None                                 |
+| default_tls_container_ref   | None                                 |
+| description                 |                                      |
+| id                          | 798e9f76-300d-4769-9dc9-2ee111ed2af7 |
+| insert_headers              | None                                 |
+| l7policies                  |                                      |
+| loadbalancers               | eaf6d4f3-8d73-4b77-8bc4-788a3b4e3916 |
+| name                        | mylb-listener-http                   |
+| operating_status            | OFFLINE                              |
+| project_id                  | dfc700467396428bacba4376e72cc3e9     |
+| protocol                    | HTTP                                 |
+| protocol_port               | 80                                   |
+| provisioning_status         | PENDING_CREATE                       |
+| sni_container_refs          | []                                   |
+| timeout_client_data         | 50000                                |
+| timeout_member_connect      | 5000                                 |
+| timeout_member_data         | 50000                                |
+| timeout_tcp_inspect         | 0                                    |
+| updated_at                  | None                                 |
+| client_ca_tls_container_ref | None                                 |
+| client_authentication       | NONE                                 |
+| client_crl_container_ref    | None                                 |
+| allowed_cidrs               | None                                 |
+| tls_ciphers                 | None                                 |
+| tls_versions                | None                                 |
+| alpn_protocols              | None                                 |
+| tags                        |                                      |
++-----------------------------+--------------------------------------+
+</code></pre></div>
+<p>To check the provisioning status of <code>mylb-listener-http</code>, type:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>show<span class="w"> </span>mylb-listener-http<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------+
+| Field               | Value  |
++---------------------+--------+
+| provisioning_status | ACTIVE |
++---------------------+--------+
+</code></pre></div>
+<p>Have a look at both listeners of <code>mylb</code>:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
+| id          | default_pool_id | name        | project_id  | protocol    | protocol_port | admin_state_up |
++-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
+| 95414884-   | 3a683bfb-6c77-  | mylb-       | dfc70046739 | TERMINATED_ |           443 | True           |
+| f9f2-4f76-  | 4ffd-befa-      | listener-   | 6428bacba43 | HTTPS       |               |                |
+| 8aa5-       | 9f5e0e168538    | https       | 76e72cc3e9  |             |               |                |
+| 56741f12825 |                 |             |             |             |               |                |
+| 2           |                 |             |             |             |               |                |
+| 798e9f76-   | None            | mylb-       | dfc70046739 | HTTP        |            80 | True           |
+| 300d-4769-  |                 | listener-   | 6428bacba43 |             |               |                |
+| 9dc9-       |                 | http        | 76e72cc3e9  |             |               |                |
+| 2ee111ed2af |                 |             |             |             |               |                |
+| 7           |                 |             |             |             |               |                |
++-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
+</code></pre></div>
+<h2 id="adding-policies-and-rules">Adding policies and rules</h2>
+<p>Create <code>mylb-listener-http-policy</code>, a policy for <code>mylb-listener-http</code>:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>l7policy<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--action<span class="w"> </span>REDIRECT_PREFIX<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--redirect-prefix<span class="w"> </span>https://whoogle.example.com<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>mylb-listener-http-policy<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mylb-listener-http
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| listener_id         | 798e9f76-300d-4769-9dc9-2ee111ed2af7 |
+| description         |                                      |
+| admin_state_up      | True                                 |
+| rules               |                                      |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| created_at          | 2023-01-29T16:24:26                  |
+| provisioning_status | PENDING_CREATE                       |
+| updated_at          | None                                 |
+| redirect_pool_id    | None                                 |
+| redirect_url        | None                                 |
+| redirect_prefix     | https://whoogle.example.com          |
+| action              | REDIRECT_PREFIX                      |
+| position            | 1                                    |
+| id                  | baafb237-a7fa-4b26-b4f3-a8e5a0e5ec40 |
+| operating_status    | OFFLINE                              |
+| name                | mylb-listener-http-policy            |
+| redirect_http_code  | 302                                  |
+| tags                |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>Make sure the policy is active:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>l7policy<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>name<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------------+---------------------+
+| name                      | provisioning_status |
++---------------------------+---------------------+
+| mylb-listener-http-policy | ACTIVE              |
++---------------------------+---------------------+
+</code></pre></div>
+<p>Then, add a single rule to <code>mylb-listener-http-policy</code>:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>l7rule<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--compare-type<span class="w"> </span>EQUAL_TO<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--type<span class="w"> </span>HOST_NAME<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--value<span class="w"> </span>whoogle.example.com<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mylb-listener-http-policy
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| created_at          | 2023-01-29T16:34:21                  |
+| compare_type        | STARTS_WITH                          |
+| provisioning_status | PENDING_CREATE                       |
+| invert              | False                                |
+| admin_state_up      | True                                 |
+| updated_at          | None                                 |
+| value               | whoogle.example.com                  |
+| key                 | None                                 |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| type                | PATH                                 |
+| id                  | 40ebeef4-9ee2-42c9-8119-c2e478b48a21 |
+| operating_status    | OFFLINE                              |
+| tags                |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>Check the provisioning status of the new rule:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>l7policy<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>name<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------------+---------------------+
+| name                      | provisioning_status |
++---------------------------+---------------------+
+| mylb-listener-http-policy | ACTIVE              |
++---------------------------+---------------------+
+</code></pre></div>
+<p>From now on, all client attempts to reach <code>http://whoogle.example.com</code>
+will end up at <code>https://whoogle.example.com</code>. You may confirm this is
+the case with any web browser or from your terminal, e.g., using <code>curl</code>
+like this:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-IL<span class="w"> </span>http://whoogle.example.com
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>HTTP/1.1 302 Found
+content-length: 0
+location: https://whoogle.example.com/
+cache-control: no-cache
+
+HTTP/2 200
+content-length: 13154
+content-type: text/html; charset=utf-8
+date: Tue, 31 Jan 2023 13:50:59 GMT
+server: waitress
+set-cookie: ...
+</code></pre></div>
+<p>As you can see in the output, the first thing that happens
+when visiting <code>http://whoogle.example.com</code> is a redirection
+(<code>HTTP/1.1 302 Found</code>) to <code>https://whoogle.example.com</code>.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-07</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-29</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-02-17</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-29</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas</span>
 </small>
 </div>
 </article>
@@ -875,7 +1157,7 @@ booking site</a>.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "content.action.edit"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
