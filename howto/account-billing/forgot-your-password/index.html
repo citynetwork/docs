@@ -5,35 +5,34 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="You can use the S3 API to temporarily allow access to individual objects without authentication from a browser, using pre-signed URLs." name="description"/>
-<link href="https://docs.cleura.cloud/howto/object-storage/s3/presign/" rel="canonical"/>
-<link href="../public-bucket/" rel="prev"/>
-<link href="../expiry/" rel="next"/>
-<link href="../../../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.cleura.cloud/howto/account-billing/forgot-your-password/" rel="canonical"/>
+<link href="../change-credit-card/" rel="prev"/>
+<link href="../manage-invoices/" rel="next"/>
+<link href="../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.11" name="generator"/>
-<title>Pre-signed object URLs - Docs (Beta)</title>
-<link href="../../../../assets/stylesheets/main.0d440cfe.min.css" rel="stylesheet"/>
-<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>Resetting your password or reclaiming your username - Docs (Beta)</title>
+<link href="../../../assets/stylesheets/main.0d440cfe.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Pre-signed object URLs - Docs (Beta)" property="og:title"/>
-<meta content="You can use the S3 API to temporarily allow access to individual objects without authentication from a browser, using pre-signed URLs." property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/presign.png" property="og:image"/>
+<meta content="Resetting your password or reclaiming your username - Docs (Beta)" property="og:title"/>
+<meta content="None" property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/account-billing/forgot-your-password.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/howto/object-storage/s3/presign/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/account-billing/forgot-your-password/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Pre-signed object URLs - Docs (Beta)" name="twitter:title"/>
-<meta content="You can use the S3 API to temporarily allow access to individual objects without authentication from a browser, using pre-signed URLs." name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/presign.png" name="twitter:image"/>
-<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="Resetting your password or reclaiming your username - Docs (Beta)" name="twitter:title"/>
+<meta content="None" name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/account-billing/forgot-your-password.png" name="twitter:image"/>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -44,14 +43,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#pre-signed-object-urls">
+<a class="md-skip" href="#resetting-your-password-or-reclaiming-your-username">
           Skip to content
         </a>
 </div>
@@ -59,8 +58,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
-<img alt="logo" src="../../../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -75,7 +74,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Pre-signed object URLs
+              Resetting your password or reclaiming your username
             
           </span>
 </div>
@@ -141,8 +140,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Docs (Beta)">
-<img alt="logo" src="../../../../assets/logo.png"/>
+<a aria-label="Docs (Beta)" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Docs (Beta)">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
     Docs (Beta)
   </label>
@@ -158,14 +157,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../..">
+<a class="md-nav__link" href="../../..">
         Start Here
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../">How-To Guides</a>
+<a href="../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -189,17 +188,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../getting-started/create-account/">
+<a class="md-nav__link" href="../../getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../getting-started/accessing-cc-rest-api/">
+<a class="md-nav__link" href="../../getting-started/accessing-cc-rest-api/">
         Accessing the Cleura Cloud REST API
       </a>
 </li>
@@ -221,7 +220,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../openstack/barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -233,12 +232,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../openstack/barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../openstack/barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -258,22 +257,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/cinder/retype-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/retype-volumes/">
         Changing a volume's type
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/cinder/sync-volumes/">
+<a class="md-nav__link" href="../../openstack/cinder/sync-volumes/">
         Transferring data between volumes
       </a>
 </li>
@@ -293,7 +292,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../openstack/magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -313,27 +312,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../openstack/neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../openstack/neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../openstack/neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../openstack/neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../openstack/neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -353,32 +352,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/new-server/">
+<a class="md-nav__link" href="../../openstack/nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/server-group/">
+<a class="md-nav__link" href="../../openstack/nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../openstack/nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../openstack/nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../openstack/nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../openstack/nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -398,17 +397,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/octavia/lbaas-tcp/">
+<a class="md-nav__link" href="../../openstack/octavia/lbaas-tcp/">
         Setting up a TCP load balancer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../openstack/octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../openstack/octavia/lbaas-l7pol/">
+<a class="md-nav__link" href="../../openstack/octavia/lbaas-l7pol/">
         Using layer 7 redirection
       </a>
 </li>
@@ -418,116 +417,59 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
           Object storage
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
           Object storage
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_4_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">S3 API</a>
+<a href="../../object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_4_1_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_1_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
           S3 API
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../credentials/">
+<a class="md-nav__link" href="../../object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../public-bucket/">
+<a class="md-nav__link" href="../../object-storage/s3/public-bucket/">
         Public buckets
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Pre-signed object URLs
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../object-storage/s3/presign/">
         Pre-signed object URLs
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-    Prerequisites
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-pre-signed-url">
-    Creating a pre-signed URL
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-objects-with-a-pre-signed-url">
-    Accessing objects with a pre-signed URL
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-the-download-filename-on-the-object">
-    Setting the download filename on the object
-  </a>
-<nav aria-label="Setting the download filename on the object" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-content-disposition-on-object-creation">
-    Setting Content-Disposition on object creation
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-content-disposition-on-existing-objects">
-    Setting Content-Disposition on existing objects
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#testing-the-content-disposition-header">
-    Testing the Content-Disposition header
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#caution-do-not-abuse-content-disposition">
-    Caution: do not abuse Content-Disposition
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../expiry/">
+<a class="md-nav__link" href="../../object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../versioning/">
+<a class="md-nav__link" href="../../object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../sse-c/">
+<a class="md-nav__link" href="../../object-storage/s3/sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
@@ -537,7 +479,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../swift/">Swift API</a>
+<a href="../../object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -549,27 +491,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../swift/private-container/">
+<a class="md-nav__link" href="../../object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../swift/public-container/">
+<a class="md-nav__link" href="../../object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../swift/tempurl/">
+<a class="md-nav__link" href="../../object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../swift/expiry/">
+<a class="md-nav__link" href="../../object-storage/swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../swift/versioning/">
+<a class="md-nav__link" href="../../object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -582,7 +524,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/">Kubernetes</a>
+<a href="../../kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -596,7 +538,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/gardener/">Gardener</a>
+<a href="../../kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -608,7 +550,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../kubernetes/gardener/create-shoot-cluster/">
         Creating Kubernetes clusters with Gardener
       </a>
 </li>
@@ -618,7 +560,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/magnum/">Magnum</a>
+<a href="../../kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_5_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -632,40 +574,63 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
           Account &amp; Billing
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_6">
 <span class="md-nav__icon md-icon"></span>
           Account &amp; Billing
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
+<a class="md-nav__link" href="../change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
+<a class="md-nav__link" href="../change-credit-card/">
         Changing your credit card data
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../account-billing/forgot-your-password/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Resetting your password or reclaiming your username
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Resetting your password or reclaiming your username
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reset-lost-password">
+    Reset lost password
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../account-billing/manage-invoices/">
+<a class="md-nav__link" href="#reclaim-your-username">
+    Reclaim your username
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../manage-invoices/">
         Managing invoices
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../account-billing/rest-invoice-data/">
+<a class="md-nav__link" href="../rest-invoice-data/">
         Retrieving invoice data with the Cleura Cloud REST API
       </a>
 </li>
@@ -678,7 +643,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../background/">Background</a>
+<a href="../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -690,7 +655,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../background/gui-vs-api/">
+<a class="md-nav__link" href="../../../background/gui-vs-api/">
         Cleura Cloud Management Panel vs. OpenStack API
       </a>
 </li>
@@ -700,7 +665,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/">Reference</a>
+<a href="../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -714,7 +679,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/features/">Feature Support</a>
+<a href="../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -726,12 +691,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/features/public/">
+<a class="md-nav__link" href="../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/features/compliant/">
+<a class="md-nav__link" href="../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -741,7 +706,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/flavors/">Flavors</a>
+<a href="../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
@@ -755,7 +720,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/versions/">Service Versions</a>
+<a href="../../../reference/versions/">Service Versions</a>
 <label for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -767,12 +732,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/versions/public/">
+<a class="md-nav__link" href="../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -782,7 +747,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/api/">API Reference</a>
+<a href="../../../reference/api/">API Reference</a>
 <label for="__nav_4_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -796,7 +761,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/api/cc/">Cleura Cloud REST API</a>
+<a href="../../../reference/api/cc/">Cleura Cloud REST API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_5_2_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_5_2">
@@ -810,7 +775,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../reference/api/openstack/">OpenStack API</a>
+<a href="../../../reference/api/openstack/">OpenStack API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_5_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_5_3">
@@ -830,7 +795,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../../contrib/">You can help!</a>
+<a href="../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -842,12 +807,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../contrib/modifications/">
+<a class="md-nav__link" href="../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../contrib/quality/">
+<a class="md-nav__link" href="../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -869,48 +834,14 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-    Prerequisites
+<a class="md-nav__link" href="#reset-lost-password">
+    Reset lost password
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-pre-signed-url">
-    Creating a pre-signed URL
+<a class="md-nav__link" href="#reclaim-your-username">
+    Reclaim your username
   </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-objects-with-a-pre-signed-url">
-    Accessing objects with a pre-signed URL
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-the-download-filename-on-the-object">
-    Setting the download filename on the object
-  </a>
-<nav aria-label="Setting the download filename on the object" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-content-disposition-on-object-creation">
-    Setting Content-Disposition on object creation
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-content-disposition-on-existing-objects">
-    Setting Content-Disposition on existing objects
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#testing-the-content-disposition-header">
-    Testing the Content-Disposition header
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#caution-do-not-abuse-content-disposition">
-    Caution: do not abuse Content-Disposition
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -919,168 +850,58 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/presign.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/account-billing/forgot-your-password.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="pre-signed-object-urls">Pre-signed object URLs</h1>
-<p>You can use the S3 API to temporarily allow access to individual objects without authentication from a browser, using pre-signed URLs.</p>
-<p>This approach is distinct from enabling <em>permanent</em> <a href="../public-bucket/">anonymous access to objects in a bucket</a>.
-If you are planning to use pre-signed URLs in a bucket, then that bucket should <em>not</em> have a public read policy.</p>
-<blockquote>
-<p>Pre-signed URLs are typically found in web applications using a Software Development Kit (SDK) to interact with the S3 API.
-An example of such an SDK would be <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html">Boto3</a> for Python applications.</p>
-<p>This how-to guide instead uses command-line utilities to illustrate the concept, and to facilitate testing pre-signed URLs in Cleura Cloud.</p>
-</blockquote>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>The use of pre-signed URLs requires that you configure your environment with <a href="../credentials/">working S3-compatible credentials</a>.</p>
-<h2 id="creating-a-pre-signed-url">Creating a pre-signed URL</h2>
-<p>To create a pre-signed URL for an object, you use the following command (replace <code>&lt;seconds&gt;</code> with the number of seconds you want the pre-signed URL to be valid):</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3<span class="w"> </span>presign<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--expires-in<span class="w"> </span>&lt;seconds&gt;
-<span class="w">  </span>s3://&lt;bucket-name&gt;/&lt;object-name&gt;
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>share<span class="w"> </span>download<span class="w"> </span>--expire<span class="w"> </span>&lt;seconds&gt;s<span class="w"> </span>&lt;region&gt;/&lt;bucket-name&gt;
-</code></pre></div>
-Note the <code>s</code> suffix for the <code>--expire</code> option.
-<code>mc</code> also supports the suffix <code>m</code> for minutes, <code>h</code> for hours, and <code>d</code> for days.</p>
-<p>If you do not set <code>--expire</code>, <code>mc</code> defaults to creating a pre-signed URL that is valid for 7 days.</p>
-</div>
-<div class="tabbed-block">
-<blockquote>
-<p>For pre-signed URLs generated with <code>s3cmd</code> to work correctly in Cleura Cloud, you must use an <code>s3cmd</code> version later than 2.0.1, and set <code>signurl_use_https = True</code> in your configuration file.</p>
-</blockquote>
-<p><div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>signurl<span class="w"> </span>s3://&lt;bucket-name&gt;/&lt;object-name&gt;<span class="w"> </span>+&lt;seconds&gt;
-</code></pre></div>
-Note the <code>+</code> prefix on the expiry.
-<code>s3cmd</code> also supports setting an absolute expiry date, which does not use the <code>+</code> prefix and must be formatted in <a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a>.</p>
-</div>
-</div>
-</input></input></input></div>
-<p>The command will return the valid pre-signed URL.</p>
-<h2 id="accessing-objects-with-a-pre-signed-url">Accessing objects with a pre-signed URL</h2>
-<p>To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like <code>curl</code>, open the URL that the pre-sign command returned:</p>
-<div class="highlight"><pre><span></span><code><span class="go">curl -f -O https://s3-&lt;region&gt;.citycloud.com:8080/&lt;bucket-name&gt;/&lt;object-name&gt;?AWSAccessKeyId=&lt;access-key&gt;&amp;Signature=&lt;signature&gt;&amp;Expires=&lt;expiry&gt;</span>
-</code></pre></div>
-<p>As long as the query parameters are correct and the signature has not yet expired, this command will succeed.
-If the query parameters are incorrect or the pre-signed URL is past its expiry date, it will fail with HTTP 403 (Forbidden) instead.</p>
-<blockquote>
-<p>Pre-signed URLs are valid for HTTP <code>GET</code> requests only.
-Thus, even a valid pre-signed URL will result in HTTP 403 if you force a different HTTP method (such as <code>HEAD</code>, by setting <code>curl -I</code>).</p>
-</blockquote>
-<p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> in the Cleura Cloud Kna1 region via its pre-signed URL, you would run:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-o<span class="w"> </span>bar.pdf<span class="w"> </span>https://s3-kna1.citycloud.com:8080/foo/bar.pdf?AWSAccessKeyId<span class="o">=</span>07576783684248f7b2745e34356c6025<span class="p">&amp;</span><span class="nv">Expires</span><span class="o">=</span><span class="m">1673521496</span><span class="p">&amp;</span><span class="nv">Signature</span><span class="o">=</span>%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D
-<span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
-<span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
-<span class="go">100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k</span>
-</code></pre></div>
-<h2 id="setting-the-download-filename-on-the-object">Setting the download filename on the object</h2>
-<p>When you use <code>curl</code> (and potentially other browsers or HTTP/HTTPS clients) to download an object from a pre-signed URL, the default behavior is to set its filename to the name of the downloaded object <em>including</em> the query parameters.
-This can lead to rather unwieldly filenames.</p>
-<p>To ensure that an object named <code>bar.pdf</code> in a bucket named <code>foo</code> is always downloaded and stored with <code>bar.pdf</code> as its filename, you can set its <code>Content-Disposition</code> header.</p>
-<h3 id="setting-content-disposition-on-object-creation">Setting <code>Content-Disposition</code> on object creation</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label><label for="__tabbed_2_3">s3cmd</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>put-object<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--content-disposition<span class="w"> </span><span class="s1">'attachment;filename="bar.pdf"'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>The <code>mc</code> client does not correctly support this feature.</p>
-<p>You can set the attribute on object creation:
- <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>cp<span class="w"> </span>--attr<span class="w"> </span>Content-Disposition<span class="o">=</span><span class="s1">'attachment;filename="bar.pdf"'</span><span class="w"> </span>bar.pdf<span class="w"> </span>kna1/foo/
-</code></pre></div>
- However, <code>mc</code> cuts off the <code>Content-Disposition</code> header at the semicolon, rendering it useless:
- <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mc<span class="w"> </span>stat<span class="w"> </span>kna1/foo/bar.pdf
-<span class="go">Name      : bar.pdf</span>
-<span class="go">Date      : 2023-01-12 12:53:52 CET</span>
-<span class="go">Size      : 57 KiB</span>
-<span class="go">ETag      : 630f6e1bf441a0eee63f9cb06804dc79</span>
-<span class="go">Type      : file</span>
-<span class="go">Metadata  :</span>
-<span class="go">  Content-Type       : application/pdf</span>
-<span class="go">  X-Amz-Meta-Filename: bar.pdf</span>
-<span class="go">  Content-Disposition: attachment</span>
-</code></pre></div>
- You should thus set the <code>Content-Disposition</code> header with a different client.</p>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>modify<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--add-header<span class="w"> </span><span class="s1">'Content-Disposition: attachment; filename="bar.pdf"'</span>
-<span class="w">  </span>s3://foo/bar.pdf
-</code></pre></div>
-</div>
-</div>
-</input></input></input></div>
-<h3 id="setting-content-disposition-on-existing-objects">Setting <code>Content-Disposition</code> on existing objects</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">aws</label><label for="__tabbed_3_2">mc</label><label for="__tabbed_3_3">s3cmd</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>To modify the <code>Content-Disposition</code> header of an existing object without downloading and re-uploading its contents, you must use <code>s3api copy-object</code>, with the object being its own copy source, and the metadata directive set to <code>replace</code>:
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>copy-object<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--copy-source<span class="w"> </span>&lt;bucket-name&gt;/&lt;object-name&gt;
-<span class="w">  </span>--content-disposition<span class="w"> </span><span class="s1">'attachment;filename="bar.pdf"'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metadata-directive<span class="w"> </span>replace
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;
-</code></pre></div></p>
-</div>
-<div class="tabbed-block">
-<p>The <code>mc</code> client does not support modifying object metadata in-place.</p>
-</div>
-<div class="tabbed-block">
-<p><code>s3cmd</code> comes with a handy <code>modify --add-header</code> subcommand for updating object metadata in-place:
-<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>modify<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--add-header<span class="w"> </span><span class="s1">'Content-Disposition: attachment; filename="bar.pdf"'</span>
-<span class="w">  </span>s3://foo/bar.pdf
-</code></pre></div></p>
-</div>
-</div>
-</input></input></input></div>
-<h3 id="testing-the-content-disposition-header">Testing the <code>Content-Disposition</code> header</h3>
-<p>Once you have set the <code>Content-Disposition</code> header on an object and created a pre-signed URL for it, you can test its functionality with the <code>curl -OJ</code> command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-f<span class="w"> </span>-OJ<span class="w"> </span><span class="s1">'https://s3-kna1.citycloud.com:8080/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&amp;Expires=1673521496&amp;Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D'</span>
-<span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
-<span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
-<span class="go">100 58503  100 58503    0     0   178k      0 --:--:-- --:--:-- --:--:--  178k</span>
-<span class="go">curl: Saved to filename 'bar.pdf'</span>
-</code></pre></div>
-<h3 id="caution-do-not-abuse-content-disposition">Caution: do not abuse <code>Content-Disposition</code></h3>
-<p>Please keep in mind that there is nothing that keeps you from having two objects in the same bucket, with <code>Content-Disposition</code> on one object matching the object name of the other.</p>
-<p>For example, in the <code>foo</code> bucket, you may have</p>
-<ul>
-<li>an object named <code>spam.pdf</code> with no <code>Content-Disposition</code> header, and</li>
-<li>another object named <code>eggs.pdf</code>, with <code>Content-Disposition</code> set to include <code>filename="spam.pdf"</code>.</li>
-</ul>
-<p>If you were now to generate a pre-signed URL on <code>eggs.pdf</code> and downloaded it with <code>curl -OJ</code>, you would end up with a local file <em>named</em> <code>spam.pdf</code>, with the <em>contents</em> of <code>eggs.pdf</code>.
-This is obviously <strong>not a good idea,</strong> and you should avoid setting a <code>Content-Disposition</code> header that does not agree with the object name.</p>
+<h1 id="resetting-your-password-or-reclaiming-your-username">Resetting your password or reclaiming your username</h1>
+<p>Whether you have to reset a forgotten password or remember the usernames associated with your Cleura Cloud account, you can do so via the Cleura Cloud Management Panel.</p>
+<h2 id="reset-lost-password">Reset lost password</h2>
+<p>Begin by navigating to the Cleura Cloud Management Panel.
+At the bottom left-hand side of the page, click on the “Forgot your password?” button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/Forgot-your-password.png"><img alt="Forgot your password button" src="../assets/Forgot-your-password.png"/></a></p>
+<p>A pop-up window titled “Reclaim lost password!”, appears.
+Type in your username, then click on the “Reclaim password!” button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/Reclaim-lost-password.png"><img alt="Reclaim password button" src="../assets/Reclaim-lost-password.png"/></a></p>
+<p>The content of the pop-up window changes, informing you that an email has been sent to you with instructions on how to reset your password.</p>
+<p>Click the “Ok!” button, then go ahead and check your inbox (or spam/junk folder) for an email with the subject <strong><em>Cleura Account password reset request</em></strong>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/OK-reclaim-lost-password.png"><img alt="Reset your password email has been sent" src="../assets/OK-reclaim-lost-password.png"/></a></p>
+<p>The email will look like the one shown below.
+Just click the link to create a new password.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/Reset-password-link.png"><img alt="Reset your password email" src="../assets/Reset-password-link.png"/></a></p>
+<p>After clicking the link you are landed on a new page, where you are asked to set a new password.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/Choose-new-password.png"><img alt="Type in new password" src="../assets/Choose-new-password.png"/></a></p>
+<p>Come up with a strong password and type it in twice, for security reasons.
+Click the “Set new password” button when you are done.
+You will be informed that the password has been reset, so click the “Go back to login page” button to login.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/Reset-completed.png"><img alt="Password succesfully changed" src="../assets/Reset-completed.png"/></a></p>
+<h2 id="reclaim-your-username">Reclaim your username</h2>
+<p>Navigate to the Cleura Cloud Management Panel, and at the bottom left-hand side of the page click the “Forgot your password?” button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/Forgot-your-password.png"><img alt="Reclaim lost password pop-up" src="../assets/Forgot-your-password.png"/></a></p>
+<p>A pop-up window titled “Reclaim lost password!” appears.
+Ignore the “Reclaim password!” button, and follow the link “I don’t know my username” instead.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/Reclaim-my-username.png"><img alt="Forgotten username link" src="../assets/Reclaim-my-username.png"/></a></p>
+<p>The pop-up window title changes to “Reclaim lost username”.
+Type in your account email address, then click the “Reclaim username” button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/Reclaim-lost-username.png"><img alt="Reclaim username button" src="../assets/Reclaim-lost-username.png"/></a></p>
+<p>Now, the same pop-up window informs you that, provided the email address you just typed exists in the system, you will shortly receive a new email with your username.</p>
+<p>Click the “Ok!” button, then go ahead and check your inbox (or spam/junk folder) for an email with the subject <strong><em>List of usernames for Cleura Cloud</em></strong>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/OK-reclaim-lost-username.png"><img alt="Reclaim username email has been sent" src="../assets/OK-reclaim-lost-username.png"/></a></p>
+<p>Open the email and find all the usernames associated with your Cleura Cloud account.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/List-of-username.png"><img alt="Usernames associated with account" src="../assets/List-of-username.png"/></a></p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-12</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-27</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-12</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-27</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Anders Christenson</span>
 </small>
 </div>
 </article>
@@ -1092,7 +913,7 @@ This is obviously <strong>not a good idea,</strong> and you should avoid setting
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
 <div class="md-copyright__highlight">
-<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </img></a>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
 </div>
   
   
@@ -1108,7 +929,7 @@ This is obviously <strong>not a good idea,</strong> and you should avoid setting
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../../assets/javascripts/bundle.6df46069.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.6df46069.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
