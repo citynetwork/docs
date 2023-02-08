@@ -45,7 +45,7 @@ on how to propose changes to another user’s repository.
 
 ## Modifying content using Git
 
-The Git repository for this site lives at <{{ config.repo_url }}>. You
+The Git repository for this site lives [on GitHub]({{config.repo_url}}). You
 can [fork that
 repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo),
 make the proposed changes in your fork, and then send us a standard
@@ -58,7 +58,7 @@ interface, or the `gh` command-line interface (CLI).
 First, create a fork of the documentation repository:
 
 === "`git` client and web browser"
-    Open <{{ config.repo_url }}> and click the *Fork* button.
+    Open [our GitHub repo]({{config.repo_url}}) and click the *Fork* button.
     When you create your new fork, it's fine to leave the
     *Copy the `main` branch only* option enabled.
 
