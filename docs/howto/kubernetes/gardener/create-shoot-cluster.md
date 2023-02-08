@@ -1,12 +1,12 @@
-# Creating Kubernetes clusters with Gardener
+# Creating Kubernetes clusters
 
 If you want to create a Kubernetes cluster, you can do it via
-{{gui}} using Gardener. This how-to shows you how to do
+{{gui}} using {{k8s_management_service}}. This how-to shows you how to do
 that, and how to deploy a sample application on such a cluster.
 
 ## Prerequisites
 
-* To access Gardener functionality from {{gui}}, you need to enroll in
+* To access {{k8s_management_service}} functionality from {{gui}}, you need to enroll in
   our closed beta. For access to the closed beta, contact our
   [{{support}}](https://{{support_domain}}/servicedesk).
 * To access the Kubernetes cluster from your computer, you will need
@@ -18,15 +18,15 @@ that, and how to deploy a sample application on such a cluster.
 To get started, navigate to <https://{{gui_domain}}>, and
 in the side panel choose Kubernetes → [Managed
 Kubernetes](https://{{gui_domain}}/containers/gardener).
-You will see a Gardener page, in which you can create and manage your
+You will see a {{k8s_management_service}} page, in which you can create and manage your
 clusters. Click `Create Kubernetes cluster`.
 
-![Gardener page in {{gui}}](assets/gardener_page.png)
+![{{k8s_management_service}} page in {{gui}}](assets/gardener_page.png)
 
-> In Gardener's terminology, a Kubernetes cluster is referred as a
+> In {{k8s_management_service}}'s terminology, a Kubernetes cluster is referred as a
 > **Shoot cluster**. You can see the name "Shoot" in various places
 > throughout the panel's UI, so it is good to know what it means. To
-> learn more, check out [Gardener
+> learn more, check out [{{k8s_management_service}}
 > architecture](https://gardener.cloud/docs/gardener/concepts/architecture/).
 
 In the opened form, fill in the name of the cluster and a region to
@@ -38,7 +38,7 @@ bottom.
 > In the form you can see a section about worker groups. This name
 > refers to Kubernetes worker nodes.
 
-In the list of clusters, you will see your new Gardener shoot
+In the list of clusters, you will see your new {{k8s_management_service}} shoot
 bootstrapping. The icon on the left marks the progress. Creating the
 cluster can take up to several minutes.
 
@@ -50,7 +50,7 @@ When the Shoot cluster is up and running, you need to get a kubeconfig
 file to be able to access it. To do that, click on the cluster to
 expand its properties, and open `Kubeconfig`.
 
-![Kubeconfig in Gardener Shoot view](assets/shoot_kubeconfig.png)
+![Kubeconfig in {{k8s_management_service}} Shoot view](assets/shoot_kubeconfig.png)
 
 You should now see the file's contents. You have the option to `Copy
 Config` or `Rotate Kubeconfig` if your credentials got compromised.
@@ -99,7 +99,7 @@ Check your available nodes by running:
 kubectl get nodes
 ```
 
-You should see Gardener's worker node that is available:
+You should see {{k8s_management_service}}'s worker node that is available:
 
 ```console
 NAME                                                STATUS   ROLES    AGE    VERSION

@@ -48,7 +48,7 @@
 
 
 ## Kubernetes management
-|                   | Kna1                  | Sto2                  | Fra1                  | Dx1              | Tky1             |
-| ----------------- | ----------------      | ----------------      | ----------------      | ---------------- | ---------------- |
-| OpenStack Magnum  | :material-check:      | :material-check:      | :material-check:      | :material-check: | :material-check: |
-| Gardener          | :material-timer-sand: | :material-timer-sand: | :material-timer-sand: | :material-close: | :material-close: |
+|                            | Kna1                  | Sto2                  | Fra1                  | Dx1              | Tky1             |
+| -----------------          | ----------------      | ----------------      | ----------------      | ---------------- | ---------------- |
+| OpenStack Magnum           | :material-check:      | :material-check:      | :material-check:      | :material-check: | :material-check: |
+| {{k8s_management_service}} | :material-timer-sand: | :material-timer-sand: | :material-timer-sand: | :material-close: | :material-close: |
