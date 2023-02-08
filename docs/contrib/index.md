@@ -55,9 +55,8 @@ really pretty straightforward.
 
 With the sole exception of trademarks like “{{company}}” and the
 {{company}} logo, the content on this site is available under the
-[Creative Commons Attribution-ShareAlike 4.0 International
-license](https://creativecommons.org/licenses/by-sa/4.0/), as you can
-see from the ![CC
-BY-SA](https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg)
+[{{legal_docs.cc_by_sa.name}}]({{legal_docs.cc_by_sa.url}}) license,
+as you can see from the
+![{{legal_docs.cc_by_sa.short_name}}](https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg)
 icon at the bottom of each page. Please keep in mind that you are
 making your contribution under those terms.

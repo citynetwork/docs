@@ -17,6 +17,10 @@ extra:
   gui: "Cleura Cloud Management Panel"
   gui_domain: "cleura.cloud"
   legal_docs:
+    cc_by_sa:
+      name: "Creative Commons Attribution-ShareAlike 4.0 International"
+      short_name: "CC BY-SA"
+      url: "https://creativecommons.org/licenses/by-sa/4.0/"
     cdpa:
       name: "Data Processing Agreement"
       # yamllint disable-line rule:line-length
