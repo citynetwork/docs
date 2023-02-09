@@ -16,7 +16,6 @@ jobs:
           pip install tox
       - env:
           DOCS_ENABLE_HTMLPROOFER: false
-          DOCS_ENABLE_PDF_EXPORT: 0
         name: Deploy to gh-pages
         run: tox -e deploy-github
 
