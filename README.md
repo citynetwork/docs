@@ -1,12 +1,8 @@
-# Cleura Docs Beta Repository
+# Cleura Docs
 
-Here’s where the content of the <https://docs.cleura.cloud>
-documentation web site lives.
+Here’s where the content of the <https://docs.cleura.cloud> documentation web site lives.
+It is the authoritative source for technical information about Cleura Cloud. 
 
-This site is currently in a Beta state: we do know and understand that
-there is a lot of content that's still missing (in fact, we're just
-getting started) — but the content which is already there should be
-usable.
+This documentation is licensed under [the CC BY-SA 4.0 license](LICENSE.txt).
 
-If you’d like to help us build this, please take a look at the
-[Contribution Guide](https://docs.cleura.cloud/contrib/)!
+If you’d like to add some documentation or fix an issue, please take a look at the [Contribution Guide](https://docs.cleura.cloud/contrib/)!

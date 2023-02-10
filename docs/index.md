@@ -7,7 +7,7 @@ The content you find here constitutes authoritative documentation for {{company}
 
 All content on this site is licensed under the [{{legal_docs.cc_by_sa.short_name}}]({{legal_docs.cc_by_sa.url}}) license.
 
-We host our site content [on GitHub]({{config.repo_url}}), and if you would like to help by contributing a patch, [here’s how](contrib/index.md)!
+We host our site content [on GitHub]({{config.repo_url}}), and if you would like to help by contributing a patch, [here’s how you do that](contrib/index.md)!
 
 ## Reporting issues
 
