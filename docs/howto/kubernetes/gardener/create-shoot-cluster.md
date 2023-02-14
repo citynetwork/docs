@@ -1,25 +1,25 @@
 # Creating Kubernetes clusters
 
-If you want to create a Kubernetes cluster, you can do it via
+If you want to create a Kubernetes cluster, you can do it via the
 {{gui}} using {{k8s_management_service}}. This how-to shows you how to do
 that, and how to deploy a sample application on such a cluster.
 
 ## Prerequisites
 
-* To access {{k8s_management_service}} functionality from {{gui}}, you need to enroll in
-  our closed beta. For access to the closed beta, contact our
-  [{{support}}](https://{{support_domain}}/servicedesk).
+* If this is your first time using {{k8s_management_service}} in
+  {{brand}}, you need to [activate the service](index.md) from the
+  {{gui}}.
 * To access the Kubernetes cluster from your computer, you will need
   [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) installed
   on your machine.
 
 ## Creating a Kubernetes cluster in {{gui}}
 
-To get started, navigate to <https://{{gui_domain}}>, and
-in the side panel choose Kubernetes → [Managed
-Kubernetes](https://{{gui_domain}}/containers/gardener).
-You will see a {{k8s_management_service}} page, in which you can create and manage your
-clusters. Click `Create Kubernetes cluster`.
+To get started, navigate to <https://{{gui_domain}}>, and in the side
+panel choose Containers →
+[{{k8s_management_service}}](https://{{gui_domain}}/containers/gardener).
+You will see a {{k8s_management_service}} page, in which you can
+create and manage your clusters. Click `Create Kubernetes cluster`.
 
 ![{{k8s_management_service}} page in {{gui}}](assets/gardener_page.png)
 
