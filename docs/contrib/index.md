@@ -21,10 +21,7 @@ technical writing. Here are a few:
   Guide](https://github.com/StyleGuides/WritingStyleGuide)
 * [Gareth Dwyer](https://dwyer.co.za/)’s [Technical
   Writing](https://github.com/sixhobbits/technical-writing) repository
-* [Bolaji Ayodeji](https://www.bolajiayodeji.com/)’s [Awesome
-  Technical
-  Writing](https://github.com/BolajiAyodeji/awesome-technical-writing)
-  collection
+* Bolaji Ayodeji’s [Awesome Technical Writing](https://github.com/BolajiAyodeji/awesome-technical-writing) collection
 
 
 ## Markdown
