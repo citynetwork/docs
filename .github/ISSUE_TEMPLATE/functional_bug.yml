@@ -1,0 +1,89 @@
+# yamllint disable rule:line-length
+---
+body:
+  - attributes:
+      description: >-
+        Insert a short summary — one sentence or a short
+        paragraph — of the issue you are describing. You can use
+        [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+        here (and in any other text input field on this page).
+      label: Summary
+    id: summary
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >
+        Paste the URL where you found inaccurate information. You
+        can use a URL from
+        [the rendered site](https://docs.cleura.cloud) or from
+        [the sources on GitHub](https://github.com/citynetwork/docs),
+        either is fine.
+      label: URL path
+    id: url
+    type: input
+    validations:
+      required: true
+  - attributes:
+      description: >
+        Explain the steps you undertook that produced results that are
+        inconsistent with the documentation, or that led to errors
+        when you followed the documentation.
+
+        It’s OK to remove or mask credentials, but otherwise try to
+        err on the side of sharing more rather than less information.
+      label: What I did
+    id: steps_taken
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >
+        Explain how you expected a service to behave, based on the
+        documentation you used.
+      label: What I expected to observe
+    id: expected
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >
+        Explain how the service behaved differently.
+      label: What I actually observed
+    id: actual
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >-
+        Please add some information about the environment that you’re
+        working in. At a minimum, include these items:
+
+        * Browser: Insert the web browser name and version you are using to browse the documentation.
+
+        * Operating system: Insert the operating system and version you are using.
+
+        * CLI version: Insert the output of `openstack --version`,`s3cmd --version`, or the version number of whatever other command-line interface you are using.
+
+
+        Make sure to redact any sensitive information regarding your
+        own users and products.
+      label: My environment
+    id: environment
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >-
+        If there’s any other context you’d like to share, please add
+        it here. Otherwise, you can leave this blank.
+      label: Additional context
+    id: context
+    type: textarea
+    validations:
+      required: false
+description: >
+  Use this template to report functionally incorrect or misleading
+  documentation.
+labels: functional-bug
+name: Functional bug

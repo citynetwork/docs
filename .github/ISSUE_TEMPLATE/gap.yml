@@ -57,4 +57,5 @@ body:
 description: >
   Use this template to report documentation gaps: information that is
   missing altogether, or that is incomplete.
+labels: gap
 name: Missing or incomplete documentation

@@ -1,0 +1,56 @@
+# yamllint disable rule:line-length
+---
+body:
+  - attributes:
+      description: >-
+        Insert a short summary — one sentence or a short
+        paragraph — of the issue you are describing. You can use
+        [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+        here (and in any other text input field on this page).
+      label: Summary
+    id: summary
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >
+        Paste the URL where you found a problem. You
+        can use a URL from
+        [the rendered site](https://docs.cleura.cloud) or from
+        [the sources on GitHub](https://github.com/citynetwork/docs),
+        either is fine.
+      label: URL path
+    id: url
+    type: input
+    validations:
+      required: true
+  - attributes:
+      description: >
+        Quote the passage that you believe needs improvement.
+      label: What the documentation says
+    id: actual
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >
+        Make a suggestion on how to improve the passage and to make it
+        more understandable, more accessible, or simply more correct.
+      label: What the documentation should say
+    id: expected
+    type: textarea
+    validations:
+      required: true
+  - attributes:
+      description: >-
+        If there’s any other context you’d like to share, please add
+        it here. Otherwise, you can leave this blank.
+      label: Additional context
+    id: context
+    type: textarea
+    validations:
+      required: false
+description: >
+  Use this template to report grammar glitches, syntax errors, and typos.
+labels: textual-bug
+name: Textual bug
