@@ -3,5 +3,6 @@ nav:
   - index.md
   - features
   - flavors
+  - quotas
   - versions
   - api
