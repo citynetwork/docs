@@ -19,6 +19,6 @@
 
 |                               | Kna1      | Sto2             | Fra1    | Dx1     | Tky1             |
 | --------------------------    | --------- | ------           | -----   | -----   | ------           |
-| Block storage (for OpenStack) | Pacific   | Pacific          | Pacific | Pacific | Pacific          |
-| Object storage (Swift API)    | Pacific   | :material-close: | Pacific | Pacific | :material-close: |
-| Object storage (S3 API)       | Pacific   | :material-close: | Pacific | Pacific | :material-close: |
+| Block storage (for OpenStack) | Pacific   | Pacific          | Quincy  | Quincy  | Quincy           |
+| Object storage (Swift API)    | Pacific   | :material-close: | Quincy  | Quincy  | :material-close: |
+| Object storage (S3 API)       | Pacific   | :material-close: | Quincy  | Quincy  | :material-close: |
