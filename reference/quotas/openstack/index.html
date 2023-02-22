@@ -5,34 +5,35 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/background/project-deletion/" rel="canonical"/>
-<link href="../gui-vs-api/" rel="prev"/>
-<link href="../../reference/" rel="next"/>
-<link href="../../assets/favicon.ico" rel="icon"/>
+<meta content="Resource limits (quotas) for OpenStack resources" name="description"/>
+<link href="https://docs.cleura.cloud/reference/quotas/openstack/" rel="canonical"/>
+<link href="../../flavors/" rel="prev"/>
+<link href="../../versions/" rel="next"/>
+<link href="../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.13" name="generator"/>
-<title>Why you should not attempt to delete projects - Cleura Docs</title>
-<link href="../../assets/stylesheets/main.ffa9267a.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<title>OpenStack Quotas - Cleura Docs</title>
+<link href="../../../assets/stylesheets/main.ffa9267a.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Why you should not attempt to delete projects - Cleura Docs" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/background/project-deletion.png" property="og:image"/>
+<meta content="OpenStack Quotas - Cleura Docs" property="og:title"/>
+<meta content="Resource limits (quotas) for OpenStack resources" property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/reference/quotas/openstack.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/background/project-deletion/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/reference/quotas/openstack/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Why you should not attempt to delete projects - Cleura Docs" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/background/project-deletion.png" name="twitter:image"/>
-<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="OpenStack Quotas - Cleura Docs" name="twitter:title"/>
+<meta content="Resource limits (quotas) for OpenStack resources" name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/reference/quotas/openstack.png" name="twitter:image"/>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -43,14 +44,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#why-you-should-not-attempt-to-delete-projects">
+<a class="md-skip" href="#openstack-quotas">
           Skip to content
         </a>
 </div>
@@ -58,8 +59,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Cleura Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Cleura Docs">
-<img alt="logo" src="../../assets/logo.png"/>
+<a aria-label="Cleura Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Cleura Docs">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Why you should not attempt to delete projects
+              OpenStack Quotas
             
           </span>
 </div>
@@ -140,8 +141,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Cleura Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Cleura Docs">
-<img alt="logo" src="../../assets/logo.png"/>
+<a aria-label="Cleura Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Cleura Docs">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
     Cleura Docs
   </label>
@@ -157,14 +158,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../..">
         Start Here
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/">How-To Guides</a>
+<a href="../../../howto/">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -188,17 +189,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/create-account/">
+<a class="md-nav__link" href="../../../howto/getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../../howto/getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/getting-started/accessing-cc-rest-api/">
+<a class="md-nav__link" href="../../../howto/getting-started/accessing-cc-rest-api/">
         Accessing the Cleura Cloud REST API
       </a>
 </li>
@@ -220,7 +221,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../../howto/openstack/barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -232,12 +233,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../../howto/openstack/barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../../howto/openstack/barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -257,22 +258,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../../../howto/openstack/cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../../howto/openstack/cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/retype-volumes/">
+<a class="md-nav__link" href="../../../howto/openstack/cinder/retype-volumes/">
         Changing a volume's type
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/cinder/sync-volumes/">
+<a class="md-nav__link" href="../../../howto/openstack/cinder/sync-volumes/">
         Transferring data between volumes
       </a>
 </li>
@@ -292,7 +293,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../../howto/openstack/magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -312,27 +313,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../../howto/openstack/neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../../howto/openstack/neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../../howto/openstack/neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../../howto/openstack/neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../../howto/openstack/neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -352,32 +353,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/new-server/">
+<a class="md-nav__link" href="../../../howto/openstack/nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/server-group/">
+<a class="md-nav__link" href="../../../howto/openstack/nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../../howto/openstack/nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../../howto/openstack/nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../../howto/openstack/nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../../howto/openstack/nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -397,17 +398,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/octavia/lbaas-tcp/">
+<a class="md-nav__link" href="../../../howto/openstack/octavia/lbaas-tcp/">
         Setting up a TCP load balancer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../../howto/openstack/octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/openstack/octavia/lbaas-l7pol/">
+<a class="md-nav__link" href="../../../howto/openstack/octavia/lbaas-l7pol/">
         Using layer 7 redirection
       </a>
 </li>
@@ -432,7 +433,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/object-storage/s3/">S3 API</a>
+<a href="../../../howto/object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -444,32 +445,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/credentials/">
+<a class="md-nav__link" href="../../../howto/object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/public-bucket/">
+<a class="md-nav__link" href="../../../howto/object-storage/s3/public-bucket/">
         Public buckets
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/presign/">
+<a class="md-nav__link" href="../../../howto/object-storage/s3/presign/">
         Pre-signed object URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/expiry/">
+<a class="md-nav__link" href="../../../howto/object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/versioning/">
+<a class="md-nav__link" href="../../../howto/object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../../../howto/object-storage/s3/sse-c/">
         Client-side encryption (SSE-C)
       </a>
 </li>
@@ -479,7 +480,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/object-storage/swift/">Swift API</a>
+<a href="../../../howto/object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -491,27 +492,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/private-container/">
+<a class="md-nav__link" href="../../../howto/object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/public-container/">
+<a class="md-nav__link" href="../../../howto/object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/tempurl/">
+<a class="md-nav__link" href="../../../howto/object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/expiry/">
+<a class="md-nav__link" href="../../../howto/object-storage/swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/object-storage/swift/versioning/">
+<a class="md-nav__link" href="../../../howto/object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -524,7 +525,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/">Kubernetes</a>
+<a href="../../../howto/kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -538,7 +539,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/gardener/">Gardener</a>
+<a href="../../../howto/kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -550,7 +551,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../../howto/kubernetes/gardener/create-shoot-cluster/">
         Creating Kubernetes clusters
       </a>
 </li>
@@ -560,7 +561,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../howto/kubernetes/magnum/">Magnum</a>
+<a href="../../../howto/kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_5_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -587,27 +588,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/change-billing-data/">
+<a class="md-nav__link" href="../../../howto/account-billing/change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/change-credit-card/">
+<a class="md-nav__link" href="../../../howto/account-billing/change-credit-card/">
         Changing your credit card data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/forgot-your-password/">
+<a class="md-nav__link" href="../../../howto/account-billing/forgot-your-password/">
         Resetting your password or reclaiming your username
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/manage-invoices/">
+<a class="md-nav__link" href="../../../howto/account-billing/manage-invoices/">
         Managing invoices
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../howto/account-billing/rest-invoice-data/">
+<a class="md-nav__link" href="../../../howto/account-billing/rest-invoice-data/">
         Retrieving invoice data with the Cleura Cloud REST API
       </a>
 </li>
@@ -617,70 +618,42 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Background</a>
+<a href="../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
           Background
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../gui-vs-api/">
+<a class="md-nav__link" href="../../../background/gui-vs-api/">
         Cleura Cloud Management Panel vs. OpenStack API
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Why you should not attempt to delete projects
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../background/project-deletion/">
         Why you should not attempt to delete projects
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#purging-a-projects-resources-is-not-possible">
-    Purging a project's resources is not possible
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#a-way-of-deleting-a-project">
-    A way of deleting a project
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#disabling-a-project-is-possible">
-    Disabling a project is possible
-  </a>
 </li>
 </ul>
 </nav>
 </li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/">Reference</a>
+<a href="../../">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Reference
@@ -689,7 +662,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/features/">Feature Support</a>
+<a href="../../features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -701,12 +674,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/features/public/">
+<a class="md-nav__link" href="../../features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/features/compliant/">
+<a class="md-nav__link" href="../../features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -716,7 +689,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/flavors/">Flavors</a>
+<a href="../../flavors/">Flavors</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
@@ -727,22 +700,45 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
           Quotas
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
           Quotas
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/quotas/openstack/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          OpenStack Quotas
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         OpenStack Quotas
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reviewing-your-quota">
+    Reviewing your quota
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requesting-a-quota-increase">
+    Requesting a quota increase
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -750,7 +746,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/versions/">Service Versions</a>
+<a href="../../versions/">Service Versions</a>
 <label for="__nav_4_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -762,12 +758,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/versions/public/">
+<a class="md-nav__link" href="../../versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/versions/compliant/">
+<a class="md-nav__link" href="../../versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -777,7 +773,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/api/">API Reference</a>
+<a href="../../api/">API Reference</a>
 <label for="__nav_4_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -791,7 +787,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/api/cc/">Cleura Cloud REST API</a>
+<a href="../../api/cc/">Cleura Cloud REST API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_6_2_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_6_2">
@@ -805,7 +801,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../reference/api/openstack/">OpenStack API</a>
+<a href="../../api/openstack/">OpenStack API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_6_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_6_3">
@@ -825,7 +821,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../contrib/">You can help!</a>
+<a href="../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -837,17 +833,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../contrib/issues/">
+<a class="md-nav__link" href="../../../contrib/issues/">
         Reporting issues
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../contrib/modifications/">
+<a class="md-nav__link" href="../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../contrib/quality/">
+<a class="md-nav__link" href="../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -869,18 +865,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#purging-a-projects-resources-is-not-possible">
-    Purging a project's resources is not possible
+<a class="md-nav__link" href="#reviewing-your-quota">
+    Reviewing your quota
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#a-way-of-deleting-a-project">
-    A way of deleting a project
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#disabling-a-project-is-possible">
-    Disabling a project is possible
+<a class="md-nav__link" href="#requesting-a-quota-increase">
+    Requesting a quota increase
   </a>
 </li>
 </ul>
@@ -890,51 +881,142 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/background/project-deletion.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/reference/quotas/openstack.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="why-you-should-not-attempt-to-delete-projects">Why you should not attempt to delete projects</h1>
-<p>You may have noticed that the Cleura Cloud Management Panel does not provide a mechanism
-for completely wiping out projects, also known as <em>tenants</em>. In other
-words, you cannot simply delete a project and <strong>all</strong> of its resources
-in one go. Also, you cannot delete a project even after you have
-meticulously deleted all of its resources.</p>
-<p>Following is a list of facts explaining our policy <strong>against</strong> wiping
-out or deleting projects.</p>
-<h2 id="purging-a-projects-resources-is-not-possible">Purging a project’s resources is not possible</h2>
-<p>There is simply no support for deleting all resources belonging to
-a project in one fell swoop, not even at the OpenStack API level.
-That is why you can also <strong>not</strong> wipe out projects even from the
-command line.</p>
-<h2 id="a-way-of-deleting-a-project">A way of deleting a project</h2>
-<p>Once all of its associated resources have been removed, deleting
-a project is <em>technically</em> feasible. To delete a project with no
-associated resources, a user with domain admin privileges may
-utilize the OpenStack CLI. The <code>openstack</code> client understands the
-command <code>project</code>, and that command understands the <code>delete</code>
-subcommand. But to successfully run
-<code>openstack project delete &lt;project&gt;</code>, domain admin privileges are
-required, and those are <strong>not</strong> available for Cleura Cloud users.</p>
-<h2 id="disabling-a-project-is-possible">Disabling a project is possible</h2>
-<p>If you wish to disable a project, you can do so via the Cleura Cloud REST API.
-Make sure
-<a href="/howto/getting-started/accessing-cc-rest-api">you have access</a>
-to it, and then consult the documentation to actually
-<a href="https://apidoc.cleura.cloud/#api-AccessControl_Openstack-OSEditOpenstackProject">disable a project</a>.</p>
+<h1 id="openstack-quotas">OpenStack Quotas</h1>
+<p>Most of the OpenStack resources you create in Cleura Cloud are subject to quotas.
+Once you hit a quota limit, the creation of new resources of that type will fail, until you either reduce your resource utilization or your quota is raised.</p>
+<p>Cleura Cloud applies most quotas on a per-project basis. Your Cleura Cloud <em>account</em> can manage up to 3 projects.</p>
+<p>The following quotas apply in any of your Cleura Cloud projects by default:</p>
+<table>
+<thead>
+<tr>
+<th>Quota name</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cores</code></td>
+<td>20</td>
+<td>Maximum number of virtual CPU cores allocatable across all servers (“instances”).</td>
+</tr>
+<tr>
+<td><code>floating_ips</code></td>
+<td>50</td>
+<td>Maximum number of public (“floating”) IPv4 addresses <em>allocated</em> in your project. The limit on floating IP addresses applies regardless of how many are “in use” (that is, <em>associated</em> with a port) at any given time.</td>
+</tr>
+<tr>
+<td><code>gigabytes</code></td>
+<td>1000</td>
+<td>Maximum total amount of persistent storage used by all volumes (in GiB).</td>
+</tr>
+<tr>
+<td><code>instances</code></td>
+<td>10</td>
+<td>Maximum number of servers in your project. This limit applies irrespective of whether the server is running, suspended, or shut down.</td>
+</tr>
+<tr>
+<td><code>networks</code></td>
+<td>100</td>
+<td>Maximum number of <a href="../../../howto/openstack/neutron/new-network/">networks</a>.</td>
+</tr>
+<tr>
+<td><code>ports</code></td>
+<td>500</td>
+<td>Maximum total number of ports (virtual network interfaces) across all servers, routers, and load balancers.</td>
+</tr>
+<tr>
+<td><code>ram</code></td>
+<td>51200</td>
+<td>Maximum total amount of RAM used by all servers (in MiB).</td>
+</tr>
+<tr>
+<td><code>rbac_policies</code></td>
+<td>10</td>
+<td>Maximum number of Role-Based Access Control (RBAC) rules defined for your networks. (Rarely used.)</td>
+</tr>
+<tr>
+<td><code>routers</code></td>
+<td>10</td>
+<td>Maximum number of virtual routers.</td>
+</tr>
+<tr>
+<td><code>secgroup_rules</code></td>
+<td>100</td>
+<td>Maximum number of security group rules (across all <a href="../../../howto/openstack/neutron/create-security-groups/">security groups</a>).</td>
+</tr>
+<tr>
+<td><code>secgroups</code></td>
+<td>10</td>
+<td>Maximum number of <a href="../../../howto/openstack/neutron/create-security-groups/">security groups</a>.</td>
+</tr>
+<tr>
+<td><code>server_group_members</code></td>
+<td>10</td>
+<td>Maximum number of servers allocated to one <a href="../../../howto/openstack/nova/server-group/">server group</a>.</td>
+</tr>
+<tr>
+<td><code>server_groups</code></td>
+<td>10</td>
+<td>Maximum number of <a href="../../../howto/openstack/nova/server-group/">server groups</a>.</td>
+</tr>
+<tr>
+<td><code>snapshots</code></td>
+<td>10</td>
+<td>Maximum number of volume snapshots.</td>
+</tr>
+<tr>
+<td><code>subnets</code></td>
+<td>100</td>
+<td>Maximum number of subnets. Note that subnets are either for IPv4 or IPv6, so in a dual-stack environment every <em>network</em> corresponds to two <em>subnets</em>.</td>
+</tr>
+<tr>
+<td><code>volumes</code></td>
+<td>50</td>
+<td>Maximum total number of persistent volumes.</td>
+</tr>
+</tbody>
+</table>
+<p>There is one other quota that applies per OpenStack API <em>user</em>, not per project:</p>
+<table>
+<thead>
+<tr>
+<th>Quota name</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key_pairs</code></td>
+<td>100</td>
+<td>Maximum number of secure shell key pairs.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reviewing-your-quota">Reviewing your quota</h2>
+<p>Using the <a href="../../../howto/getting-started/enable-openstack-cli/"><code>openstack</code> CLI</a>, you can always review the applicable quota settings for your project with the following command:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>quota<span class="w"> </span>show
+</code></pre></div>
+<h2 id="requesting-a-quota-increase">Requesting a quota increase</h2>
+<p>If you find that you need to deploy more resources in one project than the default quota allows, or if you need to manage more than 3 projects in your account, please file a support request with our <a href="https://servicecenter.citynetwork.eu">Service Center</a>.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-02</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-22</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-02</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-22</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christos Varelas</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
 </small>
 </div>
 </article>
@@ -962,7 +1044,7 @@ to it, and then consult the documentation to actually
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
