@@ -28,11 +28,11 @@
 
 ## Object storage
 
-|                                                         | Sto1HS           | Sto2HS           |
-| ------------------------------                          | ---------------- | ---------------- |
-| S3 API                                                  | :material-check: | :material-check: |
-| S3 [SSE-C](S3 [SSE-C](/howto/object-storage/s3/sse-c/)) | :material-check: | :material-check: |
-| Swift API                                               | :material-check: | :material-check: |
+|                                             | Sto1HS           | Sto2HS           |
+| ------------------------------              | ---------------- | ---------------- |
+| S3 API                                      | :material-check: | :material-check: |
+| S3 [SSE-C](/howto/object-storage/s3/sse-c/) | :material-check: | :material-check: |
+| Swift API                                   | :material-check: | :material-check: |
 
 
 ## Networking (Layer 2/3)
