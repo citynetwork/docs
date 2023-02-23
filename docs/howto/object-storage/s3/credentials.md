@@ -59,6 +59,20 @@ How exactly you do that depends on your preferred client:
     profile. As such, you must add the
     `--endpoint-url=https://s3-<region>.{{brand_domain}}:8080`
     option to each `aws s3api` call.
+    
+    Optionally you can install [awscli-plugin-endpoint](https://pypi.org/project/awscli-plugin-endpoint/) and 
+    interact with profile containing endpoint definition.
+    You need to modify `~/.aws/config` file with proper profile endpoint definition and call the plugin.
+    "
+    [plugins]
+    endpoint = awscli_plugin_endpoint
+    [profile <region>]
+    s3 =
+      endpoint_url = https://s3-<region>.{{brand_domain}}:8080
+    s3api =
+      endpoint_url = https://s3-<region>.{{brand_domain}}:8080
+    "
+    Since that moment you can use `aws s3` / `aws s3api` commands specifiying just the --profile <region>
 === "mc"
     Create a new alias, named after your {{brand}} region:
     ```bash
