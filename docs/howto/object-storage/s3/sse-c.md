@@ -1,6 +1,6 @@
 # Client-side encryption (SSE-C)
 
-You can use objects encryption via S3 API, according to the[Amazon
+You can use objects encryption via S3 API, according to the [Amazon
 SSE-C](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html)
 specification. This means that you need to provide an encryption/decryption key
 with each request to the object.
@@ -8,7 +8,6 @@ with each request to the object.
 You can store the encryption key in Barbican, and provide it to the S3
 client at runtime. Below we will provide more detailed explanation
 regarding how to use this in your workloads.
-
 
 ## Requirements
 
@@ -89,3 +88,49 @@ rclone versions won't work here.
 
 For more examples on how to use rclone, please use its reference
 documentation: <https://rclone.org/docs/#subcommands>
+
+## Managing encrypted objects in S3 (with `aws` cli command tool)
+
+Generic AWS cli command line tool can be used to upload, download and manipulate encrypted (SSE-C) objects as well.
+
+Workflow in that case is very similiar to non encrypted one, just object related operations need to have encryption/decryption key supplied.
+
+### Prerequisites
+
+The use of SSE-C encrypted objects requires that you configure your environment with [working S3-compatible credentials](credentials.md).
+
+Also valid SSE-C key needs to be generated
+
+        secret_key=$(pwgen 32 1)
+
+### Uploading an object
+
+In an example below common /etc/hosts text file object will be used.
+
+Upload uses S3 API method put-object, please note bucket (sse-test in the example) needs to be created before.
+
+```bash
+    aws --profile <region> \
+      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
+      s3api put-object \
+      --body /etc/hosts \
+      --bucket sse-test \
+      --key encryptedhosts \
+      --sse-customer-algorithm AES256 \
+      --sse-customer-key $secret_key
+```
+
+### Downloading an object
+
+```bash
+    aws --profile <region> \
+      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
+      s3api get-object \
+      --bucket sse-test \
+      --key encryptedhosts \
+      --sse-customer-algorithm AES256 \
+      --sse-customer-key $secret_key \
+      hosts.txt
+```
+
+Will download file using the key to decrypt.
