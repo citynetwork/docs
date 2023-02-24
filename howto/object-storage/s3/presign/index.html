@@ -969,7 +969,6 @@ An example of such an SDK would be <a href="https://boto3.amazonaws.com/v1/docum
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3<span class="w"> </span>presign<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--expires-in<span class="w"> </span>&lt;seconds&gt;
 <span class="w">  </span>s3://&lt;bucket-name&gt;/&lt;object-name&gt;
@@ -1019,7 +1018,6 @@ This can lead to rather unwieldly filenames.</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>put-object<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--content-disposition<span class="w"> </span><span class="s1">'attachment;filename="bar.pdf"'</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
@@ -1059,7 +1057,6 @@ This can lead to rather unwieldly filenames.</p>
 <div class="tabbed-block">
 <p>To modify the <code>Content-Disposition</code> header of an existing object without downloading and re-uploading its contents, you must use <code>s3api copy-object</code>, with the object being its own copy source, and the metadata directive set to <code>replace</code>:
 <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>copy-object<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--copy-source<span class="w"> </span>&lt;bucket-name&gt;/&lt;object-name&gt;
 <span class="w">  </span>--content-disposition<span class="w"> </span><span class="s1">'attachment;filename="bar.pdf"'</span><span class="w"> </span><span class="se">\</span>
@@ -1102,7 +1099,7 @@ This is obviously <strong>not a good idea,</strong> and you should avoid setting
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-12</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-24</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-12</span>

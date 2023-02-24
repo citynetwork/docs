@@ -911,7 +911,6 @@ the following commands:</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>put-bucket-lifecycle-configuration<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--lifecycle-configuration<span class="w"> </span>file://lifecycle.json<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
@@ -937,7 +936,6 @@ longer auto-delete after a period.</p>
 <p>With the <code>aws s3api</code> command, you can remove the lifecycle
 configuration from a bucket:
 <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--endpoint-url<span class="o">=</span>https://s3-&lt;region&gt;.citycloud.com:8080<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>delete-bucket-lifecycle<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
 </code></pre></div></p>
@@ -962,7 +960,7 @@ bucket:
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-24</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-11</span>
