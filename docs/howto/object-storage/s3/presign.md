@@ -24,7 +24,6 @@ To create a pre-signed URL for an object, you use the following command (replace
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3 presign \
       --expires-in <seconds>
       s3://<bucket-name>/<object-name>
@@ -83,7 +82,6 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api put-object \
       --content-disposition 'attachment;filename="bar.pdf"' \
       --bucket <bucket-name> \
@@ -123,7 +121,6 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
     To modify the `Content-Disposition` header of an existing object without downloading and re-uploading its contents, you must use `s3api copy-object`, with the object being its own copy source, and the metadata directive set to `replace`:
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api copy-object \
       --copy-source <bucket-name>/<object-name>
       --content-disposition 'attachment;filename="bar.pdf"' \

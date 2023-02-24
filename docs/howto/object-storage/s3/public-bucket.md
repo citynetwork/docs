@@ -35,7 +35,6 @@ To apply this policy to a bucket such that read-only access is permitted for eve
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api put-bucket-policy \
       --policy file://policy.json \
       --bucket <bucket-name>
@@ -123,7 +122,6 @@ If you want to remove a previously-set public read policy from a bucket, and rev
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api delete-bucket-policy \
       --bucket <bucket-name>
     ```

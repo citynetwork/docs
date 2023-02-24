@@ -11,7 +11,6 @@ To enable versioning in a bucket, use one of the following commands:
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api put-bucket-versioning \
       --versioning-configuration Status=Enabled \
       --bucket <bucket-name>
@@ -32,7 +31,6 @@ the following commands:
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api get-bucket-versioning \
       --bucket <bucket-name>
     ```
@@ -58,7 +56,6 @@ that in unversioned buckets:
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api put-object \
       --bucket <bucket-name> \
       --key <object-name> \
@@ -84,7 +81,6 @@ available for an object:
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api list-object-versions \
       --bucket <bucket-name> \
       --key <object-name>
@@ -107,7 +103,6 @@ the following commands:
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api get-object \
       --bucket <bucket-name> \
       --key <object-name> \
@@ -142,7 +137,6 @@ which case object removal does occur.
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api delete-object \
       --bucket <bucket-name> \
       --key <object-name>
@@ -163,7 +157,6 @@ specific object version:
 === "aws"
     ```bash
     aws --profile <region> \
-      --endpoint-url=https://s3-<region>.{{brand_domain}}:8080 \
       s3api delete-object \
       --version-id <versionid> \
       --bucket <bucket-name> \

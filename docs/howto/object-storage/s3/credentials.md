@@ -45,7 +45,18 @@ need to configure your S3 client with it.
 How exactly you do that depends on your preferred client:
 
 === "aws"
-    Create a new profile, named after your {{brand}} region:
+    Install the [`endpoint`](https://pypi.org/project/awscli-plugin-endpoint/) plugin:
+    ```bash
+    pip install awscli-plugin-endpoint
+    ```
+    Then, enable the plugin in your configuration.
+    Open the `aws` configuration file (normally `~/.aws/config`), and add or modify the `[plugins]` section:
+    ```ini
+    [plugins]
+    endpoint = awscli_plugin_endpoint
+    ```
+    Now, create a new profile, named after your {{brand}} region.
+    Set the credentials and endpoint URLs, using the following commands:
     ```bash
     aws configure set \
       --profile <region> \
@@ -53,12 +64,13 @@ How exactly you do that depends on your preferred client:
     aws configure set \
       --profile <region> \
       aws_secret_access_key <secret-key>
+    aws configure set \
+      --profile <region> \
+      s3.endpoint_url https://s3-<region>.{{brand_domain}}:8080
+    aws configure set \
+      --profile <region> \
+      s3api.endpoint_url https://s3-<region>.{{brand_domain}}:8080
     ```
-
-    For the `aws` CLI, you cannot define a region's endpoint in the
-    profile. As such, you must add the
-    `--endpoint-url=https://s3-<region>.{{brand_domain}}:8080`
-    option to each `aws s3api` call.
 === "mc"
     Create a new alias, named after your {{brand}} region:
     ```bash
