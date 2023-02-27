@@ -6,4 +6,4 @@ nav:
   - presign.md
   - expiry.md
   - versioning.md
-  - sse-c.md
+  - "Object encryption (SSE-C)": sse-c.md

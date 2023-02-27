@@ -99,6 +99,19 @@ How exactly you do that depends on your preferred client:
 
     On subsequent invocations of the `s3cmd` CLI, always add the
     `-c ~/.s3cfg-<region>` option.
+=== "rclone"
+    Create or edit the configuration file named `~/.rclone.conf`, and insert a section named after your {{brand}} region.
+    That section should contain the following content:
+    ```ini
+    [<region>]
+    type = s3
+    provider = Ceph
+    env_auth = false
+    access_key_id = <access key id>
+    secret_access_key = <secret key>
+    endpoint = <region>.{{brand_domain}}:8080
+    acl = private
+    ```
 
 ## Deleting credentials
 
