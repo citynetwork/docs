@@ -17,6 +17,9 @@
         "no-multiple-blanks": {
             "maximum": 2
         },
+        "no-duplicate-heading": {
+            "enabled": false
+        },
         "blanks-around-headings": {
             "enabled": false
         }
