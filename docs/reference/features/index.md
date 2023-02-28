@@ -13,3 +13,5 @@ region.
 
 * [Compliant Cloud](compliant.md): features supported in our
   {{company}} Compliant Cloud regions.
+
+Please note that certain support [limitations](../limitations/index.md) apply to some features.

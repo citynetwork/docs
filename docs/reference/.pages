@@ -2,6 +2,7 @@ title: "Reference"
 nav:
   - index.md
   - features
+  - limitations
   - flavors
   - quotas
   - versions

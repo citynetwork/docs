@@ -9,6 +9,8 @@ information about {{brand}} services.
   features and their availability across {{brand}}
   regions.
 
+* The **[Limitations](limitations/index.md)** section lists support limitations for specific {{brand}} services.
+
 * The **[Flavors](flavors/index.md)** reference explains our naming
   convention for pre-defined CPU/RAM/disk configurations ("flavors")
   for server instances, and their availability across

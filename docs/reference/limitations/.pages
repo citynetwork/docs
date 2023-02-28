@@ -1,0 +1,6 @@
+---
+nav:
+  - index.md
+  - "OpenStack": openstack.md
+  - "Object storage": object-storage.md
+  - "Kubernetes": kubernetes.md
