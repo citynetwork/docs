@@ -5,12 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="SSE-C provides server-side S3 object encryption with pre-shared secrets." name="description"/>
 <link href="https://docs.cleura.cloud/howto/object-storage/s3/sse-c/" rel="canonical"/>
 <link href="../versioning/" rel="prev"/>
 <link href="../../swift/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.0.14" name="generator"/>
-<title>Client-side encryption (SSE-C) - Cleura Docs</title>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.15" name="generator"/>
+<title>Object encryption (SSE-C) - Cleura Docs</title>
 <link href="../../../../assets/stylesheets/main.113286f1.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,16 +22,16 @@
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Client-side encryption (SSE-C) - Cleura Docs" property="og:title"/>
-<meta content="None" property="og:description"/>
+<meta content="Object encryption (SSE-C) - Cleura Docs" property="og:title"/>
+<meta content="SSE-C provides server-side S3 object encryption with pre-shared secrets." property="og:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/sse-c.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="https://docs.cleura.cloud/howto/object-storage/s3/sse-c/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Client-side encryption (SSE-C) - Cleura Docs" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
+<meta content="Object encryption (SSE-C) - Cleura Docs" name="twitter:title"/>
+<meta content="SSE-C provides server-side S3 object encryption with pre-shared secrets." name="twitter:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/sse-c.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -50,7 +51,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#client-side-encryption-sse-c">
+<a class="md-skip" href="#server-side-object-encryption-with-customer-provided-keys-sse-c">
           Skip to content
         </a>
 </div>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Client-side encryption (SSE-C)
+              Object encryption (SSE-C)
             
           </span>
 </div>
@@ -471,11 +472,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Client-side encryption (SSE-C)
+          Object encryption (SSE-C)
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Client-side encryption (SSE-C)
+        Object encryption (SSE-C)
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -489,13 +490,18 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#create-encryption-details">
-    Create encryption details
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#managing-encrypted-objects-in-s3-with-rclone">
-    Managing encrypted objects in S3 (with rclone)
+<a class="md-nav__link" href="#creating-encryption-details">
+    Creating encryption details
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#managing-encrypted-objects-in-s3">
+    Managing encrypted objects in S3
   </a>
 </li>
 </ul>
@@ -874,13 +880,18 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#create-encryption-details">
-    Create encryption details
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#managing-encrypted-objects-in-s3-with-rclone">
-    Managing encrypted objects in S3 (with rclone)
+<a class="md-nav__link" href="#creating-encryption-details">
+    Creating encryption details
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#managing-encrypted-objects-in-s3">
+    Managing encrypted objects in S3
   </a>
 </li>
 </ul>
@@ -893,102 +904,150 @@
 <a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/sse-c.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="client-side-encryption-sse-c">Client-side encryption (SSE-C)</h1>
-<p>You can use objects encryption via S3 API, according to the<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Amazon
-SSE-C</a>
-specification. This means that you need to provide an encryption/decryption key
-with each request to the object.</p>
-<p>You can store the encryption key in Barbican, and provide it to the S3
-client at runtime. Below we will provide more detailed explanation
-regarding how to use this in your workloads.</p>
+<h1 id="server-side-object-encryption-with-customer-provided-keys-sse-c">Server-side object encryption with customer-provided keys (SSE-C)</h1>
+<p>You can use object encryption via the S3 API, according to the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Amazon SSE-C</a> specification.
+This means that you need to provide an encryption/decryption key with each request to the object.</p>
+<p>You can store the encryption key in <a href="../../../openstack/barbican/">Barbican</a>, and provide it to the S3 client at runtime.</p>
 <h2 id="requirements">Requirements</h2>
 <p>This guide assumes familiarity with the following tools:</p>
 <ul>
 <li><code>python-openstackclient</code> (with the <code>python-barbicanclient</code> plugin),</li>
 <li><code>pwgen</code>,</li>
-<li><code>rclone</code> version 1.54 or later.</li>
+<li><code>rclone</code> version 1.54 or later, or the <code>aws</code> command-line interface (<code>awscli</code>) version 1.</li>
 </ul>
-<h2 id="create-encryption-details">Create encryption details</h2>
-<p>According to SSE-C specification, in order to use server-side
-encryption, any S3 client needs to provide three pieces of
-information, which it includes in the request headers for each S3
-request being made:</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>In order to manipulate S3 objects using SSE-C, you must</p>
+<ul>
+<li>configure the <a href="../../../getting-started/enable-openstack-cli/">OpenStack CLI</a>,</li>
+<li>obtain <a href="../credentials/">S3-compatible credentials</a>.</li>
+</ul>
+<h2 id="creating-encryption-details">Creating encryption details</h2>
+<p>According to the SSE-C specification, in order to use server-side encryption, any S3 client needs to provide three pieces of information, which it includes in the request headers for each S3 request being made:</p>
 <ul>
 <li>Encryption algorithm: the only valid option here is AES256.</li>
-<li>Encryption key: a generated random key that we will store in
-  Barbican. It should be valid AES key, which means that key length
-  must be 32 bytes.</li>
-<li>Encryption key checksum: MD5 checksum of the encryption key. It’s
-  used for integrity checks.</li>
+<li>Encryption key: a valid AES key, which means that key length must be 32 bytes.</li>
+<li>Encryption key checksum: the MD5 checksum of the encryption key.
+  Your S3 API client uses this for integrity checks, and normally adds it automatically to your request.</li>
 </ul>
-<p>In order to generate encryption key and store it in Barbican, proceed
-as follows.</p>
+<p>In order to generate encryption key and store it in Barbican, proceed as follows.</p>
 <ol>
 <li>
-<p>Generate secret:</p>
-<pre><code>secret_raw=$(pwgen 32 1)
-</code></pre>
+<p>Generate an encryption secret:
+   <div class="highlight"><pre><span></span><code><span class="nv">secret_raw</span><span class="o">=</span><span class="k">$(</span>pwgen<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="m">1</span><span class="k">)</span>
+</code></pre></div></p>
 </li>
 <li>
-<p>Store secret in Barbican:</p>
-<pre><code>barbican_secret_url=$(openstack secret store --name objectSecret --algorithm aes --bit-length 256 --payload ${secret_raw} -f value -c 'Secret href')
-</code></pre>
+<p>Store the secret in Barbican:
+   <div class="highlight"><pre><span></span><code><span class="nv">barbican_secret_url</span><span class="o">=</span><span class="k">$(</span>openstack<span class="w"> </span>secret<span class="w"> </span>store<span class="w"> </span>--name<span class="w"> </span>objectSecret<span class="w"> </span>--algorithm<span class="w"> </span>aes<span class="w"> </span>--bit-length<span class="w"> </span><span class="m">256</span><span class="w"> </span>--payload<span class="w"> </span><span class="si">${</span><span class="nv">secret_raw</span><span class="si">}</span><span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span>-c<span class="w"> </span><span class="s1">'Secret href'</span><span class="k">)</span>
+</code></pre></div></p>
 </li>
 <li>
-<p>Retrieve secret from Barbican:</p>
-<pre><code>secret=$(openstack secret get ${barbican_secret_url} -p -c Payload -f value)
-</code></pre>
+<p>Then, whenever you need to upload or download encrypted objects, retrieve the secret from Barbican:
+   <div class="highlight"><pre><span></span><code><span class="nv">secret</span><span class="o">=</span><span class="k">$(</span>openstack<span class="w"> </span>secret<span class="w"> </span>get<span class="w"> </span><span class="si">${</span><span class="nv">barbican_secret_url</span><span class="si">}</span><span class="w"> </span>-p<span class="w"> </span>-c<span class="w"> </span>Payload<span class="w"> </span>-f<span class="w"> </span>value<span class="k">)</span>
+</code></pre></div></p>
 </li>
 </ol>
-<h2 id="managing-encrypted-objects-in-s3-with-rclone">Managing encrypted objects in S3 (with <code>rclone</code>)</h2>
-<p>SSE-C encryption has been implemented/fixed with version 1.54. Prior
-rclone versions won’t work here.</p>
+<h2 id="managing-encrypted-objects-in-s3">Managing encrypted objects in S3</h2>
+<p>Once you have your encryption secret available, you can create or access enabled objects.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label><label for="__tabbed_1_4">rclone</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
-<li>Download and install the latest rclone for your distribution:
-   <a href="https://rclone.org/downloads/">https://rclone.org/downloads/</a></li>
-<li>Create or retrieve your <a href="../credentials/">access key ID and secret
-   key</a>.</li>
-<li>
-<p>Create a configuration file named <code>~/.rclone.conf</code>, with the
-   following content:</p>
-<pre><code>[cleuracloud]
-type = s3
-provider = Ceph
-env_auth = false
-access_key_id = &lt;access key id&gt;
-secret_access_key = &lt;secret key&gt;
-endpoint = &lt;region&gt;.citycloud.com:8080
-acl = private
-sse_customer_algorithm = AES256
-</code></pre>
-</li>
-<li>
-<p>Create an S3 bucket:</p>
-<pre><code>rclone mkdir cleuracloud:encrypted
-</code></pre>
-</li>
-<li>
-<p>Sync a directory to the S3 bucket, encrypting the files it
-   contains on upload:</p>
-<pre><code>rclone sync ~/media/ cleuracloud:encrypted \
-  --s3-sse-customer-key=${secret}
-</code></pre>
-</li>
-<li>
-<p>Retrieve a file from S3 and decrypt it:</p>
-<pre><code>rclone copy cleuracloud:encrypted/file.png \
-  --s3-sse-customer-key=${secret}
-</code></pre>
-</li>
+<li>Create an S3 bucket:
+   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://cleuracloud-encrypted
+</code></pre></div></li>
+<li>Sync a directory to the S3 bucket, encrypting the files it
+   contains on upload:
+   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3<span class="w"> </span>sync<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>~/media/<span class="w"> </span>s3://cleuracloud-encrypted<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sse-c<span class="w"> </span>AES256<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sse-c-key<span class="w"> </span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
+</code></pre></div></li>
+<li>Retrieve a file from S3 and decrypt it:
+   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3://cleuracloud-encrypted/file.png<span class="w"> </span>.<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sse-c<span class="w"> </span>AES256<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sse-c-key<span class="w"> </span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
+</code></pre></div></li>
 </ol>
-<p>For more examples on how to use rclone, please use its reference
-documentation: <a href="https://rclone.org/docs/#subcommands">https://rclone.org/docs/#subcommands</a></p>
+<p>Note that attempting to download an encrypted file <em>without</em> providing an encryption key results in an immediate HTTP 400 (“Bad Request”) error:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3://cleuracloud-encrypted/file.png<span class="w"> </span>.
+<span class="go">fatal error: An error occurred (400) when calling the HeadObject operation: Bad Request</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Create an S3 bucket:
+   <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>mb<span class="w"> </span>&lt;region&gt;/cleuracloud-encrypted
+</code></pre></div></li>
+<li>Sync a directory to the S3 bucket, encrypting the files it contains on upload.
+   Note that you must specify the encryption secret as the argument to the <code>--encrypt-key</code> option, using a syntax of <code>&lt;minio-alias&gt;/&lt;bucket-name&gt;=&lt;encryption-key&gt;</code>:
+   <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--recursive<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">"&lt;region&gt;/cleuracloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">  </span>~/media/<span class="w"> </span>&lt;region&gt;/cleuracloud-encrypted
+</code></pre></div></li>
+<li>Retrieve a file from S3 and decrypt it.
+   Again, specify the encryption key in the same manner:
+   <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">"&lt;region&gt;/cleuracloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">  </span>&lt;region&gt;/cleuracloud-encrypted/file.png<span class="w"> </span>.
+</code></pre></div></li>
+</ol>
+<p>Note that attempting to download an encrypted file <em>without</em> providing an encryption key results in an immediate HTTP 400 (“Bad Request”) error:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>&lt;region&gt;/cleuracloud-encrypted/file.png<span class="w"> </span>.
+<span class="go">mc: &lt;ERROR&gt; Unable to validate source `&lt;region&gt;/cleuracloud-encrypted/file.png`.</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>You cannot use <code>s3cmd</code> in combination with SSE-C.</p>
+<blockquote>
+<p><code>s3cmd</code> does contain a <em>client</em> side encryption facility, using GnuPG for encryption.
+It also supports SSE-KMS, which is a different SSE flavor that is currently not available in Cleura Cloud.</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<p>SSE-C encryption has been implemented/fixed with version 1.54. Earlier <code>rclone</code> versions won’t work.</p>
+<ol>
+<li>To start with, modify the section in your configuration file that is named after your target region, adding the <code>sse_customer_algorithm</code> option:
+   <div class="highlight"><pre><span></span><code><span class="k">[&lt;region&gt;]</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s3</span>
+<span class="na">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Ceph</span>
+<span class="na">env_auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+<span class="na">access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;access key id&gt;</span>
+<span class="na">secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;secret key&gt;</span>
+<span class="na">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;region&gt;.citycloud.com:8080</span>
+<span class="na">acl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">private</span>
+<span class="na">sse_customer_algorithm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">AES256</span>
+</code></pre></div></li>
+<li>Create an S3 bucket:
+   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>mkdir<span class="w"> </span>cleuracloud-encrypted
+</code></pre></div></li>
+<li>Sync a directory to the S3 bucket, encrypting the files it contains on upload:
+   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>sync<span class="w"> </span>~/media/<span class="w"> </span>cleuracloud-encrypted<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--s3-sse-customer-key<span class="o">=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
+</code></pre></div></li>
+<li>Retrieve a file from S3 and decrypt it:
+   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>copy<span class="w"> </span>cleuracloud-encrypted/file.png<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--s3-sse-customer-key<span class="o">=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
+</code></pre></div></li>
+</ol>
+<p>For more examples on how to use rclone, please use its <a href="https://rclone.org/docs/#subcommands">reference documentation</a>.</p>
+</div>
+</div>
+</input></input></input></input></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-27</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-03-08</span>
@@ -996,7 +1055,7 @@ documentation: <a href="https://rclone.org/docs/#subcommands">https://rclone.org
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Florian Haas, Foad Lind</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
 </small>
 </div>
 </article>
