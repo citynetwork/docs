@@ -464,6 +464,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../howto/object-storage/s3/object-lock/">
+        Object lock
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../howto/object-storage/s3/versioning/">
         Object versioning
       </a>
@@ -755,6 +760,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#object-lock-retention-modes">
+    Object lock retention modes
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#sse-kms">
     SSE-KMS
   </a>
@@ -964,6 +974,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#object-lock-retention-modes">
+    Object lock retention modes
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#sse-kms">
     SSE-KMS
   </a>
@@ -993,6 +1008,9 @@ In Cleura Cloud, there is no support for <code>X-History-Location</code>.</p>
 <p>There is currently no support for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">S3 bucket replication</a> in Cleura Cloud.</p>
 <h3 id="bucket-notifications">Bucket notifications</h3>
 <p>There is currently no support for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html">S3 bucket notifications</a> in Cleura Cloud.</p>
+<h3 id="object-lock-retention-modes">Object lock retention modes</h3>
+<p>For buckets configured with <a href="../../../howto/object-storage/s3/object-lock/">object lock</a>, the only supported retention mode is <code>COMPLIANCE</code>.
+We do not support <code>GOVERNANCE</code> mode.</p>
 <h3 id="sse-kms">SSE-KMS</h3>
 <p>There is currently no support for SSE-KMS in Cleura Cloud. SSE-C, in contrast, <a href="../../../howto/object-storage/s3/sse-c/">is fully supported</a>.</p>
 <hr/>
@@ -1000,7 +1018,7 @@ In Cleura Cloud, there is no support for <code>X-History-Location</code>.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-28</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-28</span>
@@ -1008,7 +1026,7 @@ In Cleura Cloud, there is no support for <code>X-History-Location</code>.</p>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas, Ioannis Karamperis</span>
 </small>
 </div>
 </article>
