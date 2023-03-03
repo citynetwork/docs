@@ -301,6 +301,12 @@ file first](/howto/getting-started/enable-openstack-cli).
     ssh ubuntu@198.51.100.12
     ```
 
+    Alternatively, you may also use the following command, which is more flexible though slightly longer:
+
+    ```bash
+    openstack server ssh --public zug -- -l ubuntu
+    ```
+
 ## Viewing information about the newly created server
 === "{{gui}}"
     From the {{gui}} you may, at any
