@@ -20,6 +20,14 @@ It also means that you cannot use the following `openstack` CLI commands; they a
   > You can use `openstack project list`, but this will only list the project(s) that your user account has access to.
 * `openstack domain <subcommand>`
 
+## Neutron
+
+### Dynamic routing
+
+Neutron in {{brand}} does not support dynamic routing protocols in a customer-accessible manner.
+We currently do not expose the ability to configure [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) speakers or peers.
+
+While {{brand}} does use [BGP dynamic routing](https://docs.openstack.org/neutron/latest/admin/config-bgp-dynamic-routing.html) *internally,* our Neutron configuration restricts the ability to use these features to administrative accounts only.
 
 ## Octavia
 
