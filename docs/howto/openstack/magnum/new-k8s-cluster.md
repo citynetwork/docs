@@ -1,7 +1,7 @@
 # Creating new Kubernetes clusters
 
-By employing OpenStack [Magnum](https://docs.openstack.org/magnum/latest) you can easily create Kubernetes clusters over OpenStack, using either the {{gui}} or the OpenStack CLI.
-Let us demonstrate the creation of a Kubernetes cluster following both approaches.
+By employing OpenStack [Magnum](https://docs.openstack.org/magnum/latest) you can create Kubernetes clusters via OpenStack, using either the {{gui}} or the OpenStack CLI.
+This guide covers the creation of a Kubernetes cluster following both approaches.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ On the other hand, if you prefer to work with the OpenStack CLI, please do not f
 
     ![Template and keypair](assets/new-k8s/shot-03.png)
 
-    For now, you may skip the _Advanced Option_ section.
+    For now, you may skip the _Advanced Options_ section.
 
     Click the green _Create_ button, and Magnum will start creating the new Kubernetes cluster.
     Please note that the whole process may take several minutes to complete.
@@ -61,7 +61,7 @@ On the other hand, if you prefer to work with the OpenStack CLI, please do not f
         $CLUSTER_NAME
     ```
 
-    Let us list all available templates in the region:
+    You can now list all available templates in the region:
 
     ```bash
     openstack coe cluster template list
@@ -146,7 +146,7 @@ After the Kubernetes cluster is ready, you may at any time view it and get detai
 
     ![Cluster details](assets/new-k8s/shot-05.png)
 === "OpenStack CLI"
-    To list all available Kubernetes clusters, just type:
+    To list all available Kubernetes clusters, type:
 
     ```bash
     openstack coe cluster list
@@ -223,19 +223,19 @@ To install `kubectl`, use the package manager of your operating system.
     brew install kubectl
     ```
 
-Before running commands against a specific cluster, you must have the corresponding `config` file on your computer.
+Before running commands against a specific cluster, you must have the corresponding [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file on your computer.
 
 === "{{gui}}"
-    Downloading a `config` file from the {{gui}} is currently not supported.
-    You can still fetch the `config` file of your newly created Kubernetes cluster using the OpenStack CLI.
+    Downloading a kubeconfig file from the {{gui}} is currently not supported.
+    You can still fetch the kubeconfig file for your newly created Kubernetes cluster using the OpenStack CLI.
 === "OpenStack CLI"
-    To download the `config` file for your Kubernetes cluster, type the following:
+    To download the kubeconfig file for your Kubernetes cluster, type the following:
 
     ```bash
     openstack coe cluster config --dir=${PWD} bangor
     ```
 
-After saving the `config` file locally, set the value of variable `KUBECONFIG` to the full path of the file.
+After saving the kubeconfig file locally, set the value of variable `KUBECONFIG` to the full path of the file.
 Type, for example:
 
 ```bash
@@ -243,7 +243,7 @@ export KUBECONFIG=${PWD}/config
 ```
 
 Then, you can use `kubectl` to run commands against your cluster.
-See, for instance, all cluster nodes...
+See, for instance, all cluster nodes ...
 
 ```bash
 kubectl get nodes
@@ -255,7 +255,7 @@ bangor-id6nijycp2wy-master-0   Ready    master   113m   v1.18.6
 bangor-id6nijycp2wy-node-0     Ready    <none>   111m   v1.18.6
 ```
 
-...or all running pods in every namespace:
+... or all running pods in every namespace:
 
 ```bash
 kubectl get pods --all-namespaces
