@@ -941,19 +941,12 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1 id="creating-new-kubernetes-clusters">Creating new Kubernetes clusters</h1>
-<p>By employing OpenStack
-<a href="https://docs.openstack.org/magnum/latest">Magnum</a> you can easily
-create Kubernetes clusters over OpenStack, using either the Cleura Cloud Management Panel or
-the OpenStack CLI. Let us demonstrate the creation of a Kubernetes
-cluster following both approaches.</p>
+<p>By employing OpenStack <a href="https://docs.openstack.org/magnum/latest">Magnum</a> you can create Kubernetes clusters via OpenStack, using the OpenStack CLI.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>First and foremost, you need an <a href="/howto/getting-started/create-account">account in
-Cleura Cloud</a>. If you prefer to
-work with the OpenStack CLI, go ahead and <a href="/howto/getting-started/enable-openstack-cli">enable it
-first</a>. Then, in addition
-to the Python <code>openstackclient</code> module, make sure you also install the
-corresponding plugin module for Magnum. Use either the package manager
-of your operating system or <code>pip</code>:</p>
+<p>First and foremost, you need an <a href="/howto/getting-started/create-account">account in Cleura Cloud</a>.
+You also need to <a href="/howto/getting-started/enable-openstack-cli">enable the OpenStack CLI</a>.</p>
+<p>Then, in addition to the Python <code>openstackclient</code> module, make sure you also install the corresponding plugin module for Magnum.
+Use either the package manager of your operating system or <code>pip</code>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">Mac OS X with Homebrew</label><label for="__tabbed_1_3">Python Package</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -961,8 +954,7 @@ of your operating system or <code>pip</code>:</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>This Python module is unavailable via <code>brew</code>, but you can
-install it via <code>pip</code>.</p>
+<p>This Python module is unavailable via <code>brew</code>, but you can install it via <code>pip</code>.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>python-magnumclient
@@ -971,46 +963,13 @@ install it via <code>pip</code>.</p>
 </div>
 </input></input></input></div>
 <h2 id="creating-a-kubernetes-cluster">Creating a Kubernetes cluster</h2>
-<p>To create a Kubernetes cluster from the Cleura Cloud Management Panel, fire up your favorite
-web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start
-page, and log into your Cleura Cloud account. On the other hand, if you
-prefer to work with the OpenStack CLI, please do not forget to <a href="/howto/getting-started/enable-openstack-cli">source
-the RC file first</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em>
-button. A new pane titled <em>Create</em> will slide into view from the
-right-hand side of the browser window.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-k8s/shot-01.png"><img alt="Create new object" src="../assets/new-k8s/shot-01.png"/></a></p>
-<p>You will notice several rounded boxes on that pane. Go ahead
-and click the one labeled <em>Magnum Cluster</em>. A new pane titled <em>Create a
-Magnum Cluster</em> will slide over. At the top, type in a name for the new
-Kubernetes cluster and select one of the available regions.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-k8s/shot-02.png"><img alt="Name and region" src="../assets/new-k8s/shot-02.png"/></a></p>
-<p>Then, select one of the available templates to base the new
-cluster on. In the example below, we have selected the template named
-<em>Kubernetes 1.18.6 on Fedora-coreos 33 2C-4GB-20GB No Master LB</em>. The
-naming of any template indicates the version of Kubernetes that is
-about to be deployed, the characteristics of the cluster nodes, the
-operating system they run, and the presence or not of a load balancer
-for the control plane. Optionally, select one of the available keypairs
-for secure SSH access to the individual cluster nodes.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-k8s/shot-03.png"><img alt="Template and keypair" src="../assets/new-k8s/shot-03.png"/></a></p>
-<p>For now, you may skip the <em>Advanced Option</em> section. Click the
-green <em>Create</em> button, and Magnum will start creating the new
-Kubernetes cluster. Please note that the whole process may take several
-minutes to complete.</p>
-</div>
-<div class="tabbed-block">
-<p>A simple, general command for creating a new Kubernetes cluster
-with Magnum looks like this:</p>
+<p>A simple, general command for creating a new Kubernetes cluster with Magnum looks like this:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--cluster-template<span class="w"> </span><span class="nv">$CLUSTER_TMPL</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--keypair<span class="w"> </span><span class="nv">$KEYPAIR</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="nv">$CLUSTER_NAME</span>
 </code></pre></div>
-<p>Let us list all available templates in the region:</p>
+<p>You can now list all available templates in the region:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>template<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+----------------------------------------------------------------+------+
@@ -1021,8 +980,7 @@ with Magnum looks like this:</p>
 | f9e1a2ea-b1ff-43e7-8d1e-6dd5861b82cf | Kubernetes 1.18.6 on Fedora-coreos 33 2C-4GB-20GB No Master LB | None |
 +--------------------------------------+----------------------------------------------------------------+------+
 </code></pre></div>
-<p>Select the template you want by setting the corresponding
-<code>uuid</code> value to the  <code>CLUSTER_TMPL</code> variable:</p>
+<p>Select the template you want by setting the corresponding <code>uuid</code> value to the  <code>CLUSTER_TMPL</code> variable:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">CLUSTER_TMPL</span><span class="o">=</span><span class="s2">"f9e1a2ea-b1ff-43e7-8d1e-6dd5861b82cf"</span><span class="w"> </span><span class="c1"># just an example</span>
 </code></pre></div>
 <p>Then, list all available keypairs…</p>
@@ -1034,51 +992,29 @@ with Magnum looks like this:</p>
 | husavik | 34:3b:58:ba:ec:95:f5:17:17:df:04:38:11:89:e6:3d | ssh  |
 +---------+-------------------------------------------------+------+
 </code></pre></div>
-<p>…and set the <code>KEYPAIR</code> variable to the name of the keypair
-you want:</p>
+<p>…and set the <code>KEYPAIR</code> variable to the name of the keypair you want:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">KEYPAIR</span><span class="o">=</span><span class="s2">"husavik"</span><span class="w"> </span><span class="c1"># again, this is just an example</span>
 </code></pre></div>
 <p>Finally, decide on a name for your new Kubernetes cluster:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">CLUSTER_NAME</span><span class="o">=</span><span class="s2">"bangor"</span>
 </code></pre></div>
-<p>With everything in place, go ahead and create your new
-Kubernetes cluster:</p>
+<p>With everything in place, go ahead and create your new Kubernetes cluster:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--cluster-template<span class="w"> </span><span class="nv">$CLUSTER_TMPL</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--keypair<span class="w"> </span>husavik
 <span class="w">    </span>bangor
 </code></pre></div>
-If everything went well with your request for a new cluster,
-on your terminal, you would see a message like the following:</p>
+If everything went well with your request for a new cluster, on your terminal, you would see a message like the following:</p>
 <div class="highlight"><pre><span></span><code>Request to create cluster e0df8c62-c6f6-4c7d-b67e-33e3606e9ab6 accepted
 </code></pre></div>
-<p>The cluster creation process takes some time to complete, and
-while you are waiting, you can check if everything is progressing
-smoothly:</p>
+<p>The cluster creation process takes some time to complete, and while you are waiting, you can check if everything is progressing smoothly:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>status
 </code></pre></div>
-<p>If everything is going well, the message you will get will be
-<code>CREATE_IN_PROGRESS</code>. When Magnum has finished creating the cluster,
-the message will be <code>CREATE_COMPLETE</code>.</p>
-</div>
-</div>
-</input></input></div>
+<p>If everything is going well, the message you will get will be <code>CREATE_IN_PROGRESS</code>.
+When Magnum has finished creating the cluster, the message will be <code>CREATE_COMPLETE</code>.</p>
 <h2 id="viewing-the-kubernetes-cluster">Viewing the Kubernetes cluster</h2>
-<p>After the Kubernetes cluster is ready, you may at any time view it and
-get detailed information about it.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>In the left vertical pane of the Cleura Cloud Management Panel, click through
-<em>Kubernetes</em>, <em>Magnum</em>, and <em>Clusters</em>. In the central pane on the
-right, you will then see all your Kubernetes clusters in every region.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-k8s/shot-04.png"><img alt="All k8s clusters" src="../assets/new-k8s/shot-04.png"/></a></p>
-<p>Click on the three-dot icon on the right of the cluster you
-want to inspect, and select <em>View details</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-k8s/shot-05.png"><img alt="Cluster details" src="../assets/new-k8s/shot-05.png"/></a></p>
-</div>
-<div class="tabbed-block">
-<p>To list all available Kubernetes clusters, just type:</p>
+<p>After the Kubernetes cluster is ready, you may at any time view it and get detailed information about it.</p>
+<p>To list all available Kubernetes clusters, type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------------+--------+---------+------------+--------------+---------------+---------------+
@@ -1089,8 +1025,7 @@ want to inspect, and select <em>View details</em>.</p>
 | e3606e9ab6    |        |         |            |              |               |               |
 +---------------+--------+---------+------------+--------------+---------------+---------------+
 </code></pre></div>
-<p>For many more details on a specific cluster, note its name and
-run a command like this:</p>
+<p>For many more details on a specific cluster, note its name and run a command like this:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>show<span class="w"> </span>bangor
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+----------------------+---------------------------------------------------------------------------+
@@ -1099,7 +1034,7 @@ run a command like this:</p>
 | status               | CREATE_COMPLETE                                                           |
 | health_status        | HEALTHY                                                                   |
 | cluster_template_id  | f9e1a2ea-b1ff-43e7-8d1e-6dd5861b82cf                                      |
-| node_addresses       | ['185.52.156.105']                                                        |
+| node_addresses       | ['192.0.2.105']                                                           |
 | uuid                 | e0df8c62-c6f6-4c7d-b67e-33e3606e9ab6                                      |
 | stack_id             | e3725aed-f665-4e8d-9409-85f5ee5e2f4a                                      |
 | status_reason        | None                                                                      |
@@ -1115,8 +1050,8 @@ run a command like this:</p>
 | floating_ip_enabled  | True                                                                      |
 | faults               |                                                                           |
 | keypair              | husavik                                                                   |
-| api_address          | https://89.46.80.136:6443                                                 |
-| master_addresses     | ['89.46.80.136']                                                          |
+| api_address          | https://192.0.2.136:6443                                                  |
+| master_addresses     | ['192.0.2.136']                                                           |
 | master_lb_enabled    | False                                                                     |
 | create_timeout       | 60                                                                        |
 | node_count           | 1                                                                         |
@@ -1132,14 +1067,10 @@ run a command like this:</p>
 | project_id           | dfc700467396428bacba4376e72cc3e9                                          |
 +----------------------+---------------------------------------------------------------------------+
 </code></pre></div>
-</div>
-</div>
-</input></input></div>
 <h2 id="accessing-the-kubernetes-cluster-with-kubectl">Accessing the Kubernetes cluster with kubectl</h2>
-<p>You may install the Kubernetes command line tool, <code>kubectl</code>, on your
-local computer, and run commands against your cluster. To install
-<code>kubectl</code>, use the package manager of your operating system.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Debian/Ubuntu</label><label for="__tabbed_4_2">Mac OS X with Homebrew</label></div>
+<p>You may install the Kubernetes command line tool, <code>kubectl</code>, on your local computer, and run commands against your cluster.
+To install <code>kubectl</code>, use the package manager of your operating system.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Debian/Ubuntu</label><label for="__tabbed_2_2">Mac OS X with Homebrew</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>kubectl
@@ -1151,36 +1082,23 @@ local computer, and run commands against your cluster. To install
 </div>
 </div>
 </input></input></div>
-<p>Before running commands against a specific cluster, you must have the
-corresponding <code>config</code> file on your computer.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Downloading a <code>config</code> file from the Cleura Cloud Management Panel is currently not
-supported. You can still fetch the <code>config</code> file of your newly
-created Kubernetes cluster using the OpenStack CLI.</p>
-</div>
-<div class="tabbed-block">
-<p>To download the <code>config</code> file for your Kubernetes cluster, type
-the following:</p>
+<p>Before running commands against a specific cluster, you must have the corresponding <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a> file on your computer.</p>
+<p>To download the kubeconfig file for your Kubernetes cluster, type the following:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>config<span class="w"> </span>--dir<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="w"> </span>bangor
 </code></pre></div>
-</div>
-</div>
-</input></input></div>
-<p>After saving the <code>config</code> file locally, set the value of variable
-<code>KUBECONFIG</code> to the full path of the file. Type, for example:</p>
+<p>After saving the kubeconfig file locally, set the value of variable <code>KUBECONFIG</code> to the full path of the file.
+Type, for example:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/config
 </code></pre></div>
-<p>Then, you can use <code>kubectl</code> to run commands against your cluster. See,
-for instance, all cluster nodes…</p>
+<p>Then, you can use <code>kubectl</code> to run commands against your cluster.
+See, for instance, all cluster nodes …</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>NAME                           STATUS   ROLES    AGE    VERSION
 bangor-id6nijycp2wy-master-0   Ready    master   113m   v1.18.6
 bangor-id6nijycp2wy-node-0     Ready    &lt;none&gt;   111m   v1.18.6
 </code></pre></div>
-<p>…or all running pods in every namespace:</p>
+<p>… or all running pods in every namespace:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--all-namespaces
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>NAMESPACE     NAME                                         READY   STATUS    RESTARTS   AGE
@@ -1204,7 +1122,7 @@ kube-system   openstack-cloud-controller-manager-44rz9     1/1     Running   0  
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-09</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-14</span>
@@ -1224,7 +1142,7 @@ kube-system   openstack-cloud-controller-manager-44rz9     1/1     Running   0  
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
 <div class="md-copyright__highlight">
-<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </img></a>
 </div>
   
   
