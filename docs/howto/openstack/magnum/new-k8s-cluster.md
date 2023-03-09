@@ -175,7 +175,7 @@ After the Kubernetes cluster is ready, you may at any time view it and get detai
     | status               | CREATE_COMPLETE                                                           |
     | health_status        | HEALTHY                                                                   |
     | cluster_template_id  | f9e1a2ea-b1ff-43e7-8d1e-6dd5861b82cf                                      |
-    | node_addresses       | ['185.52.156.105']                                                        |
+    | node_addresses       | ['192.0.2.105']                                                           |
     | uuid                 | e0df8c62-c6f6-4c7d-b67e-33e3606e9ab6                                      |
     | stack_id             | e3725aed-f665-4e8d-9409-85f5ee5e2f4a                                      |
     | status_reason        | None                                                                      |
@@ -191,8 +191,8 @@ After the Kubernetes cluster is ready, you may at any time view it and get detai
     | floating_ip_enabled  | True                                                                      |
     | faults               |                                                                           |
     | keypair              | husavik                                                                   |
-    | api_address          | https://89.46.80.136:6443                                                 |
-    | master_addresses     | ['89.46.80.136']                                                          |
+    | api_address          | https://192.0.2.136:6443                                                  |
+    | master_addresses     | ['192.0.2.136']                                                           |
     | master_lb_enabled    | False                                                                     |
     | create_timeout       | 60                                                                        |
     | node_count           | 1                                                                         |
