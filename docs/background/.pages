@@ -2,4 +2,5 @@ title: "Background"
 nav:
   - index.md
   - gui-vs-api.md
+  - "Object storage": object-storage.md
   - project-deletion.md
