@@ -8,8 +8,8 @@ Individual service APIs have their own detailed API reference documentation page
 
 You may also be interested in the [API Quick Start Guide](https://docs.openstack.org/api-quick-start/api-quick-start.html) for information about how to authenticate against the OpenStack API, and send API requests.
 
-> To access the OpenStack API in {{brand}}, you need to have an [account](../../howto/getting-started/create-account), and also download a valid credentials file, as you would for
-[enabling the OpenStack CLI](../../howto/getting-started/enable-openstack-cli).
+> To access the OpenStack API in {{brand}}, you need to have an [account](../../../howto/getting-started/create-account), and also download a valid credentials file, as you would for
+[enabling the OpenStack CLI](../../../howto/getting-started/enable-openstack-cli).
 > All actions exposed via the OpenStack CLI are also available by calling the API directly.
 
 ## OpenStack SDKs
