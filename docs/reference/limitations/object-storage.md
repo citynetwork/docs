@@ -7,6 +7,11 @@
 When using [object versioning](../../howto/object-storage/swift/versioning.md) with the Swift API, only the `X-Versions-Location` header is supported.
 In {{brand}}, there is no support for `X-History-Location`.
 
+### `.rlistings` ACL element
+
+In access control lists (ACLs) set on containers via the Swift API, the `.rlistings` [ACL element](https://docs.openstack.org/swift/latest/overview_acl.html#common-acl-elements) has no effect.
+In a public container (one with one or more `.r:` elements in its ACL), any client that is able to retrieve objects is also able to list them.
+
 ### Container-to-container sync
 
 In {{brand}}, there is no support for [container-to-container synchronization](https://docs.openstack.org/swift/latest/overview_container_sync.html).
