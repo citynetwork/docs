@@ -741,6 +741,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#rlistings-acl-element">
+    .rlistings ACL element
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#container-to-container-sync">
     Container-to-container sync
   </a>
@@ -955,6 +960,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#rlistings-acl-element">
+    .rlistings ACL element
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#container-to-container-sync">
     Container-to-container sync
   </a>
@@ -1006,6 +1016,9 @@
 <h3 id="versioning">Versioning</h3>
 <p>When using <a href="../../../howto/object-storage/swift/versioning/">object versioning</a> with the Swift API, only the <code>X-Versions-Location</code> header is supported.
 In Cleura Cloud, there is no support for <code>X-History-Location</code>.</p>
+<h3 id="rlistings-acl-element"><code>.rlistings</code> ACL element</h3>
+<p>In access control lists (ACLs) set on containers via the Swift API, the <code>.rlistings</code> <a href="https://docs.openstack.org/swift/latest/overview_acl.html#common-acl-elements">ACL element</a> has no effect.
+In a public container (one with one or more <code>.r:</code> elements in its ACL), any client that is able to retrieve objects is also able to list them.</p>
 <h3 id="container-to-container-sync">Container-to-container sync</h3>
 <p>In Cleura Cloud, there is no support for <a href="https://docs.openstack.org/swift/latest/overview_container_sync.html">container-to-container synchronization</a>.</p>
 <h2 id="s3-api">S3 API</h2>
@@ -1023,7 +1036,7 @@ We do not support <code>GOVERNANCE</code> mode.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-13</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-28</span>
