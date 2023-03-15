@@ -24,11 +24,12 @@
 
 
 ## Object storage
-|                                             | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
-| ------------------------------              | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
-| S3 API                                      | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
-| S3 [SSE-C](/howto/object-storage/s3/sse-c/) | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
-| Swift API                                   | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
+|                                                         | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
+| ------------------------------                          | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| S3 API                                                  | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
+| S3 [SSE-C](/howto/object-storage/s3/sse-c/)             | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
+| S3 [object lock](/howto/object-storage/s3/object-lock/) | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
+| Swift API                                               | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
 
 
 ## Networking (Layer 2/3)
