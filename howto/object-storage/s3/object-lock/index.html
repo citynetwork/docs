@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Object lock enables you to keep S3 objects from being deleted or overwritten." name="description"/>
+<meta content="Object lock, available in select regions, enables you to keep S3 objects from being deleted or overwritten." name="description"/>
 <link href="https://docs.cleura.cloud/howto/object-storage/s3/object-lock/" rel="canonical"/>
 <link href="../expiry/" rel="prev"/>
 <link href="../versioning/" rel="next"/>
@@ -23,7 +23,7 @@
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
 <meta content="Object lock - Cleura Docs" property="og:title"/>
-<meta content="Object lock enables you to keep S3 objects from being deleted or overwritten." property="og:description"/>
+<meta content="Object lock, available in select regions, enables you to keep S3 objects from being deleted or overwritten." property="og:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/object-lock.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
@@ -31,7 +31,7 @@
 <meta content="https://docs.cleura.cloud/howto/object-storage/s3/object-lock/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Object lock - Cleura Docs" name="twitter:title"/>
-<meta content="Object lock enables you to keep S3 objects from being deleted or overwritten." name="twitter:description"/>
+<meta content="Object lock, available in select regions, enables you to keep S3 objects from being deleted or overwritten." name="twitter:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/object-lock.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
@@ -479,6 +479,11 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-lock-availability">
+    Object lock availability
+  </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#object-lock-modes">
     Object lock modes
@@ -974,6 +979,11 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#object-lock-availability">
+    Object lock availability
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#object-lock-modes">
     Object lock modes
   </a>
@@ -1065,10 +1075,10 @@
 to prevent them from being deleted or overwritten. This feature can be
 helpful when you want to maintain data integrity, comply with
 regulations, or retain data for a specific period.</p>
-<blockquote>
-<p>Are you looking to set the expiration/retention time for your
-objects? Then you should check our <a href="../expiry/">Object expiry</a> guide.</p>
-</blockquote>
+<p>Note that this feature is distinct from <em>object expiry</em>, which is covered in a <a href="../expiry/">separate guide</a>.</p>
+<h2 id="object-lock-availability">Object lock availability</h2>
+<p>Object lock is only available in select Cleura Cloud regions.
+Please consult the <a href="../../../../reference/features/">feature reference</a> for details.</p>
 <h2 id="object-lock-modes">Object lock modes</h2>
 <p>Object lock offers two methods for managing object retention:
 <strong>Retention periods</strong> and <strong>Legal hold</strong>.</p>
@@ -1321,7 +1331,7 @@ Example output:
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-15</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
@@ -1329,7 +1339,7 @@ Example output:
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Ioannis Karamperis</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas, Ioannis Karamperis</span>
 </small>
 </div>
 </article>
