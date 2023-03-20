@@ -15,6 +15,8 @@ Create the directory and the file if needed.
 
 > By default, `kubectl` searches for its configuration in `~/.kube/config`, but you can [modify this behavior](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) by setting the `KUBECONFIG` environment variable, if needed.
 
+## Verifying your kubeconfig
+
 Check if your `kubectl` uses the proper configuration by running:
 
 ```shell
@@ -43,6 +45,12 @@ users:
     user:
       token: REDACTED
 ```
+
+You will notice that the cluster API endpoint (the `server` entry in your kubeconfig) is a dynamically managed DNS address.
+Gardener in {{brand}} automatically created the DNS record upon shoot cluster creation.
+
+The DNS record will subsequently disappear when you delete the cluster.
+The DNS record *also* disappears when you [hibernate the shoot cluster](hibernate-shoot-cluster.md), and reappears when you wake it from hibernation.
 
 ## Accessing your cluster with `kubectl`
 
