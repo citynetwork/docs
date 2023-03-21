@@ -5,12 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/howto/openstack/neutron/new-network/" rel="canonical"/>
-<link href="../../magnum/new-k8s-cluster/" rel="prev"/>
-<link href="../create-security-groups/" rel="next"/>
+<meta content="How to hibernate a Gardener-based Kubernetes cluster" name="description"/>
+<link href="https://docs.cleura.cloud/howto/kubernetes/gardener/hibernate-shoot-cluster/" rel="canonical"/>
+<link href="../create-shoot-cluster/" rel="prev"/>
+<link href="../../magnum/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
-<title>Creating new networks - Cleura Docs</title>
+<title>Hibernating a Kubernetes cluster - Cleura Docs</title>
 <link href="../../../../assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,17 +22,17 @@
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Creating new networks - Cleura Docs" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/neutron/new-network.png" property="og:image"/>
+<meta content="Hibernating a Kubernetes cluster - Cleura Docs" property="og:title"/>
+<meta content="How to hibernate a Gardener-based Kubernetes cluster" property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/kubernetes/gardener/hibernate-shoot-cluster.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/howto/openstack/neutron/new-network/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/kubernetes/gardener/hibernate-shoot-cluster/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Creating new networks - Cleura Docs" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/neutron/new-network.png" name="twitter:image"/>
+<meta content="Hibernating a Kubernetes cluster - Cleura Docs" name="twitter:title"/>
+<meta content="How to hibernate a Gardener-based Kubernetes cluster" name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/kubernetes/gardener/hibernate-shoot-cluster.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
@@ -50,7 +51,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#creating-new-networks">
+<a class="md-skip" href="#hibernating-a-kubernetes-cluster">
           Skip to content
         </a>
 </div>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Creating new networks
+              Hibernating a Kubernetes cluster
             
           </span>
 </div>
@@ -205,13 +206,13 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
           OpenStack
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
           OpenStack
@@ -220,7 +221,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../barbican/">Barbican (secret storage)</a>
+<a href="../../../openstack/barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -232,12 +233,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../barbican/generic-secret/">
+<a class="md-nav__link" href="../../../openstack/barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../barbican/share-secret/">
+<a class="md-nav__link" href="../../../openstack/barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -257,22 +258,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/resize-volumes/">
+<a class="md-nav__link" href="../../../openstack/cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../../openstack/cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/retype-volumes/">
+<a class="md-nav__link" href="../../../openstack/cinder/retype-volumes/">
         Changing a volume's type
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cinder/sync-volumes/">
+<a class="md-nav__link" href="../../../openstack/cinder/sync-volumes/">
         Transferring data between volumes
       </a>
 </li>
@@ -292,80 +293,47 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../../openstack/magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
           Neutron (networking service)
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_3_4_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_4_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_4">
 <span class="md-nav__icon md-icon"></span>
           Neutron (networking service)
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Creating new networks
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../openstack/neutron/new-network/">
         Creating new networks
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-    Prerequisites
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-network">
-    Creating a network
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#adding-a-subnet-and-a-router">
-    Adding a subnet and a router
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#listing-networks-and-getting-information">
-    Listing networks and getting information
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../create-security-groups/">
+<a class="md-nav__link" href="../../../openstack/neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../multiple-public-ips/">
+<a class="md-nav__link" href="../../../openstack/neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../vpnaas/">
+<a class="md-nav__link" href="../../../openstack/neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../delete-network/">
+<a class="md-nav__link" href="../../../openstack/neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -385,32 +353,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nova/new-server/">
+<a class="md-nav__link" href="../../../openstack/nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nova/server-group/">
+<a class="md-nav__link" href="../../../openstack/nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nova/config-drive/">
+<a class="md-nav__link" href="../../../openstack/nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nova/resize-server/">
+<a class="md-nav__link" href="../../../openstack/nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../../openstack/nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nova/rescue-server/">
+<a class="md-nav__link" href="../../../openstack/nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -430,17 +398,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../octavia/lbaas-tcp/">
+<a class="md-nav__link" href="../../../openstack/octavia/lbaas-tcp/">
         Setting up a TCP load balancer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../octavia/tls-lb/">
+<a class="md-nav__link" href="../../../openstack/octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../octavia/lbaas-l7pol/">
+<a class="md-nav__link" href="../../../openstack/octavia/lbaas-l7pol/">
         Using layer 7 redirection
       </a>
 </li>
@@ -559,43 +527,71 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/">Kubernetes</a>
+<a href="../../">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
           Kubernetes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/gardener/">Gardener</a>
+<a href="../">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="true" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
           Gardener
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../create-shoot-cluster/">
         Creating Kubernetes clusters
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../kubernetes/gardener/hibernate-shoot-cluster/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Hibernating a Kubernetes cluster
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Hibernating a Kubernetes cluster
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hibernating-a-cluster">
+    Hibernating a cluster
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#waking-up-a-cluster-in-hibernation">
+    Waking up a cluster in hibernation
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -603,7 +599,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../kubernetes/magnum/">Magnum</a>
+<a href="../../magnum/">Magnum</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_5_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -926,18 +922,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-network">
-    Creating a network
+<a class="md-nav__link" href="#hibernating-a-cluster">
+    Hibernating a cluster
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#adding-a-subnet-and-a-router">
-    Adding a subnet and a router
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#listing-networks-and-getting-information">
-    Listing networks and getting information
+<a class="md-nav__link" href="#waking-up-a-cluster-in-hibernation">
+    Waking up a cluster in hibernation
   </a>
 </li>
 </ul>
@@ -947,236 +938,70 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/neutron/new-network.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/kubernetes/gardener/hibernate-shoot-cluster.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="creating-new-networks">Creating new networks</h1>
-<p>Before creating a server in Cleura Cloud, you need at least
-one network to make the new server a member of. Since you may have
-more than one network per region, let us now walk through creating
-a new network using the Cleura Cloud Management Panel, or using the OpenStack CLI.</p>
+<h1 id="hibernating-a-kubernetes-cluster">Hibernating a Kubernetes cluster</h1>
+<p>There will be times when you won’t be using your Gardener-based cluster
+much, if at all. To save on costs, you can put the whole cluster in
+hibernation. If you do, then from that time on (and until you wake the
+cluster again), you will be paying <em>less</em> for the cluster.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI,
-you need to <a href="/howto/getting-started/create-account">have an account</a>
-in Cleura Cloud. Additionally, to use the OpenStack CLI make sure to
-<a href="/howto/getting-started/enable-openstack-cli">enable it first</a>.</p>
-<h2 id="creating-a-network">Creating a network</h2>
-<p>To create a network from the Cleura Cloud Management Panel, fire up your favorite web
-browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud</a> start
-page, and login into your Cleura Cloud account. On the other hand, if you
-prefer to work with OpenStack CLI, please do not forget to source the
-RC file first.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em>
-button. A new pane will slide into view from the right-hand side of
-the browser window, titled <em>Create</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-net-panel/shot-01.png"><img alt="Create a new object" src="../assets/new-net-panel/shot-01.png"/></a></p>
-<p>You will notice several rounded boxes prominently displayed on that
-pane, each for defining, configuring, and instantiating a different
-Cleura Cloud object. Go ahead and click the <em>Network</em> box. A
-new pane titled <em>Create Network</em> will slide over. At the top, type
-in a name and select one of the available regions for the new
-network.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-net-panel/shot-02.png"><img alt="New network name and region" src="../assets/new-net-panel/shot-02.png"/></a></p>
-</div>
-<div class="tabbed-block">
-<p>Start by creating a new network, named <code>nordostbahnhof</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>nordostbahnhof
-</code></pre></div>
-<p>By issuing the command above, you immediately get information
-regarding the new network:</p>
-<div class="highlight"><pre><span></span><code>+---------------------------+--------------------------------------+
-| Field                     | Value                                |
-+---------------------------+--------------------------------------+
-| admin_state_up            | UP                                   |
-| availability_zone_hints   |                                      |
-| availability_zones        |                                      |
-| created_at                | 2022-10-30T14:31:49Z                 |
-| description               |                                      |
-| dns_domain                | None                                 |
-| id                        | 201d458b-9b47-4408-9736-980bec77d405 |
-| ipv4_address_scope        | None                                 |
-| ipv6_address_scope        | None                                 |
-| is_default                | False                                |
-| is_vlan_transparent       | None                                 |
-| mtu                       | 1500                                 |
-| name                      | nordostbahnhof                       |
-| port_security_enabled     | True                                 |
-| project_id                | dfc700467396428bacba4376e72cc3e9     |
-| provider:network_type     | None                                 |
-| provider:physical_network | None                                 |
-| provider:segmentation_id  | None                                 |
-| qos_policy_id             | None                                 |
-| revision_number           | 1                                    |
-| router:external           | Internal                             |
-| segments                  | None                                 |
-| shared                    | False                                |
-| status                    | ACTIVE                               |
-| subnets                   |                                      |
-| tags                      |                                      |
-| updated_at                | 2022-10-30T14:31:50Z                 |
-+---------------------------+--------------------------------------+
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-<h2 id="adding-a-subnet-and-a-router">Adding a subnet and a router</h2>
-<p>Creating a new network does not necessarily mean it has all the
-features you most likely would expect. Unless you work from the
-Cleura Cloud Management Panel, where almost every component is activated for you with
-a few clicks here and there, when you use the OpenStack CLI there is
-some extra work you need to do before you get a network you would
-characterize as useful.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Expand the <em>Advanced Options</em> section below, make sure <em>Port Security</em>
-is enabled, and leave the MTU parameter blank.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-net-panel/shot-03.png"><img alt="MTU and port security" src="../assets/new-net-panel/shot-03.png"/></a></p>
-<p>You probably want a full-featured network for your cloud servers, so
-please activate the <em>Create a complete network containing a subnet
-and a router</em> option. You will notice that <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">a network address in
-CIDR notation</a>
-is pre-configured for your network. You also get a couple of DNS
-servers, a Gateway, and a DHCP server.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-net-panel/shot-04.png"><img alt="Complete network" src="../assets/new-net-panel/shot-04.png"/></a></p>
-<p>Scroll down a little bit if you have to. Assuming you want your cloud
-servers to reach hosts on the Internet, for the <em>External network</em>
-parameter make sure you select <em>ext-net</em>. Then, click the green
-<em>Create</em> button to initialize the new network. In a few seconds,
-the new network will be readily available.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-net-panel/shot-05.png"><img alt="Finish creating network" src="../assets/new-net-panel/shot-05.png"/></a></p>
-</div>
-<div class="tabbed-block">
-<p>You now have to create a subnet for the new network. Let us call
-this subnet <code>nordostbahnhof-subnet</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>create<span class="w"> </span>nordostbahnhof-subnet<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--network<span class="w"> </span>nordostbahnhof<span class="w"> </span>--subnet-range<span class="w"> </span><span class="m">10</span>.20.30.0/24
-</code></pre></div>
-<p>Again, you get detailed information regarding the new subnet:</p>
-<div class="highlight"><pre><span></span><code>+----------------------+--------------------------------------+
-| Field                | Value                                |
-+----------------------+--------------------------------------+
-| allocation_pools     | 10.20.30.2-10.20.30.254              |
-| cidr                 | 10.20.30.0/24                        |
-| created_at           | 2022-10-30T14:47:40Z                 |
-| description          |                                      |
-| dns_nameservers      |                                      |
-| dns_publish_fixed_ip | None                                 |
-| enable_dhcp          | True                                 |
-| gateway_ip           | 10.20.30.1                           |
-| host_routes          |                                      |
-| id                   | 1b0822b3-62e8-4b40-92e8-8544c72d4c15 |
-| ip_version           | 4                                    |
-| ipv6_address_mode    | None                                 |
-| ipv6_ra_mode         | None                                 |
-| name                 | nordostbahnhof-subnet                |
-| network_id           | 201d458b-9b47-4408-9736-980bec77d405 |
-| project_id           | dfc700467396428bacba4376e72cc3e9     |
-| revision_number      | 0                                    |
-| segment_id           | None                                 |
-| service_types        |                                      |
-| subnetpool_id        | None                                 |
-| tags                 |                                      |
-| updated_at           | 2022-10-30T14:47:40Z                 |
-+----------------------+--------------------------------------+
-</code></pre></div>
-<p>If you want servers connected to the <code>nordostbahnhof</code> network to have
-Internet access, you need a router in front of the network. Following
-our unofficial naming convention, go ahead and create a new router
-called <code>nordostbahnhof-router</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>create<span class="w"> </span>nordostbahnhof-router<span class="w"> </span>
-</code></pre></div>
-<p>As expected, you will see lots of information regarding the new router:</p>
-<div class="highlight"><pre><span></span><code>+-------------------------+--------------------------------------+
-| Field                   | Value                                |
-+-------------------------+--------------------------------------+
-| admin_state_up          | UP                                   |
-| availability_zone_hints |                                      |
-| availability_zones      |                                      |
-| created_at              | 2022-10-30T15:36:26Z                 |
-| description             |                                      |
-| enable_ndp_proxy        | None                                 |
-| external_gateway_info   | null                                 |
-| flavor_id               | None                                 |
-| ha                      | True                                 |
-| id                      | 566de991-fc0e-4f85-b6c4-5c87694781f7 |
-| name                    | nordostbahnhof-router                |
-| project_id              | dfc700467396428bacba4376e72cc3e9     |
-| revision_number         | 1                                    |
-| routes                  |                                      |
-| status                  | ACTIVE                               |
-| tags                    |                                      |
-| tenant_id               | dfc700467396428bacba4376e72cc3e9     |
-| updated_at              | 2022-10-30T15:36:26Z                 |
-+-------------------------+--------------------------------------+
-</code></pre></div>
-<p>You want the <code>nordostbahnhof-router</code> connected to the external
-network. The name of this network is <code>ext-net</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span><span class="nb">set</span><span class="w"> </span>nordostbahnhof-router<span class="w"> </span>--external-gateway<span class="w"> </span>ext-net
-</code></pre></div>
-<p>Please note that if the command above is successful, you will get
-no output on your terminal. There is one last step to take, and
-that is to connect router <code>nordostbahnhof-router</code> to the subnet
-<code>nordostbahnhof-subnet</code> of network <code>nordostbahnhof</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>add<span class="w"> </span>subnet<span class="w"> </span>nordostbahnhof-router<span class="w"> </span>nordostbahnhof-subnet
-</code></pre></div>
-<p>Again, if the command above is successful, you will get no output.</p>
-</div>
-</div>
-</input></input></div>
-<h2 id="listing-networks-and-getting-information">Listing networks and getting information</h2>
-<p>At any time, you may connect to the Cleura Cloud Management Panel, list all networks
-you have already created, and get detailed information for any of
-these networks. Alternatively, you may get all that information using
-the OpenStack CLI.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>You may see all defined networks, in all supported regions, by
-selecting <em>Networking</em> &gt; <em>Networks</em> (see the left-hand side pane
-on the Cleura Cloud Management Panel).</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-net-panel/shot-06.png"><img alt="All networks in all regions" src="../assets/new-net-panel/shot-06.png"/></a></p>
-<p>For more information regarding a specific network, click the
-corresponding three-dot icon (right-hand side) and select <em>View
-details</em>. Then, you can glance over all the details regarding the
-selected network’s ports, subnets, and routers.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-net-panel/shot-07.png"><img alt="Network details" src="../assets/new-net-panel/shot-07.png"/></a></p>
-</div>
-<div class="tabbed-block">
-<p>To list all available networks in a specific region, just type:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list
-</code></pre></div>
-<p>You can always ask for more specific results. For instance, to see
-all internal networks only, type the following:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
-</code></pre></div>
-<p>You can also get detailed information about a specific network:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>show<span class="w"> </span>nordostbahnhof
-</code></pre></div>
-<p>At any time, type <code>openstack network list --help</code> or
-<code>openstack network show --help</code> to see how to get information
-regarding networks, and what specific pieces of information you
-can have.</p>
-</div>
-</div>
-</input></input></div>
+<p>We assume you have already used Gardener in Cleura Cloud to spin up a
+Kubernetes cluster, which is now humming away. If you’ve never done
+this before, please feel free to <a href="../create-shoot-cluster">follow this
+guide</a>.</p>
+<h2 id="hibernating-a-cluster">Hibernating a cluster</h2>
+<p>Fire up your favorite web browser and navigate to
+<a href="https://cleura.cloud">https://cleura.cloud</a>. Make sure the vertical pane at the left-hand
+side of the page is in full view, then choose
+<em>Containers → <a href="https://cleura.cloud/containers/gardener">Gardener</a></em>.
+In the main pane, you will see your Gardener cluster.  Click anywhere
+on the corresponding row for a detailed view of the various cluster
+characteristics. Go to the <em>Status</em> tab and check if hibernation is
+possible.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/garhiber-01.png"><img alt="Gardener cluster status" src="../assets/garhiber-01.png"/></a></p>
+<p>If hibernation is indeed possible, this will be reflected in the
+<em>Constraints</em> section. To go ahead and actually hibernate the cluster,
+click the orange three-dot icon at the right-hand side of the cluster
+row, and from the pop-up menu that appears, select <em>Hibernate Cluster</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/garhiber-02.png"><img alt="Hibernate cluster" src="../assets/garhiber-02.png"/></a></p>
+<p>A big pop-up window will appear, asking you to confirm the action.
+Click the red button labeled <em>Yes, Hibernate</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/garhiber-03.png"><img alt="Confirm cluster hibernation" src="../assets/garhiber-03.png"/></a></p>
+<p>After a minute or two, the cluster will be in a hibernated state. This
+fact will be indicated by the white-square-in-red-circle icon, at the
+left-hand side of the cluster row.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/garhiber-04.png"><img alt="Cluster in hibernation" src="../assets/garhiber-04.png"/></a></p>
+<p>At this point, and as long as the cluster is in hibernation, any
+attempt to list the cluster nodes, e.g., via <code>kubectl</code>, will fail.</p>
+<h2 id="waking-up-a-cluster-in-hibernation">Waking up a cluster in hibernation</h2>
+<p>To wake up a cluster in hibernation, click the orange three-dot icon
+at the right-hand side of its row. From the pop-up menu that appears,
+select <em>Wake up Cluster</em>.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/garhiber-05.png"><img alt="Wake up cluster" src="../assets/garhiber-05.png"/></a></p>
+<p>A big pop-up window will appear, asking you to confirm that you want
+to wake the cluster. Go ahead and click the red <em>Yes, Wakeup</em> button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/garhiber-06.png"><img alt="Confirm cluster wake-up" src="../assets/garhiber-06.png"/></a></p>
+<p>After a couple of minutes, the cluster will be fully awake. The fact
+will be indicated by the white-tick-in-green-circle icon, at the
+left-hand side of the cluster row.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/garhiber-07.png"><img alt="Cluster awake" src="../assets/garhiber-07.png"/></a></p>
+<p>From that time on, the cluster will be accessible and fully operational again.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-29</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-16</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-10-30</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-16</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christos Varelas, Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas</span>
 </small>
 </div>
 </article>

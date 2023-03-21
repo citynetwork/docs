@@ -592,6 +592,11 @@
         Creating Kubernetes clusters
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../kubernetes/gardener/hibernate-shoot-cluster/">
+        Hibernating a Kubernetes cluster
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -969,20 +974,20 @@ file first</a>.</p>
 <p>On the top right-hand side of the Cleura Cloud Management Panel, click the
 <em>Create</em> button. A new pane titled <em>Create</em> will slide into view from
 the right-hand side of the browser window.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-01.png"><img alt="Create new object" src="../assets/new-server/shot-01.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-01.png"><img alt="Create new object" src="../assets/new-server/shot-01.png"/></a></p>
 <p>You will notice several rounded boxes on that pane, each for
 defining, configuring, and instantiating a different Cleura
 Cloud object. Go ahead and click the <em>Server</em> box. A new pane titled
 <em>Create a Server</em> will slide over. At the top, type in a name for the
 new server and select one of the available regions.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-02.png"><img alt="Create new server" src="../assets/new-server/shot-02.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-02.png"><img alt="Create new server" src="../assets/new-server/shot-02.png"/></a></p>
 <p>In the <em>Boot source</em> section below, click the dropdown menu on
 the left and make sure you select <em>Boot from image</em>, so you can choose
 one of the readily available OS images to boot the new server off of.
 To pick one of the images, click on the dropdown menu on the right. For
 this how-to guide, we have chosen <em>ubuntu</em> in general and
 <em>Ubuntu 22.04 Jammy Jellyfish 20220810</em> in particular.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-03.png"><img alt="Boot source" src="../assets/new-server/shot-03.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-03.png"><img alt="Boot source" src="../assets/new-server/shot-03.png"/></a></p>
 <p>Next, make sure <em>Boot Target</em> is set to <em>Volume (Recommended)</em>.
 Regarding the server’s CPU core count and amount of memory, set the
 <a href="/reference/flavors"><em>Flavor</em></a> accordingly.
@@ -1010,13 +1015,13 @@ you do, then daily server snapshots will be created, and you will have
 the option for easy and fast rollups to previous snapshots. Please be
 aware that enabling this option increases the server’s monthly estimated
 cost (again, it is displayed in the green rectangular area at the top).</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-04.png"><img alt="Server configuration" src="../assets/new-server/shot-04.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-04.png"><img alt="Server configuration" src="../assets/new-server/shot-04.png"/></a></p>
 <p>Regarding networking, select one of the available networks to
 attach the new server to. If you want the server accessible from the
 Internet, do not forget to enable the <em>I want an external IP for my
 server</em> option. In the section below, set <em>Security Groups</em> to
 <em>default</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-05.png"><img alt="Networking and security groups" src="../assets/new-server/shot-05.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-05.png"><img alt="Networking and security groups" src="../assets/new-server/shot-05.png"/></a></p>
 <p>If you already have one or more public keys in your
 Cleura Cloud account, you can now select a key to be included
 in the <code>~/.ssh/authorized_keys</code> file of the server’s default user. That
@@ -1024,17 +1029,17 @@ way, you can securely log into the remote user’s account without typing
 a password. If there are no public keys to choose from, activate the
 <em>Password login enabled</em> option and set a password for a specific user
 (with a username you define).</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-06.png"><img alt="Login and keypairs" src="../assets/new-server/shot-06.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-06.png"><img alt="Login and keypairs" src="../assets/new-server/shot-06.png"/></a></p>
 <p>A configuration script is automatically prepared based on the
 choices you have already made. That script runs during system boot and
 performs housekeeping tasks like user account creation, enabling
 acceptable authentication methods, and configuring remote package
 repositories. Click on <em>Advanced Options</em> to see the default script.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-07.png"><img alt="User-data propagation method" src="../assets/new-server/shot-07.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-07.png"><img alt="User-data propagation method" src="../assets/new-server/shot-07.png"/></a></p>
 <p>It is now time to create your Cleura Cloud server;
 click the green <em>Create</em> button, and the new server will be readily
 available in a few seconds.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-08.png"><img alt="Create new server" src="../assets/new-server/shot-08.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-08.png"><img alt="Create new server" src="../assets/new-server/shot-08.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>An <code>openstack</code> command for creating a server may look like
@@ -1173,7 +1178,7 @@ typing a password:</p>
 time, see all servers and get detailed information regarding each one
 of them; expand the left-hand side vertical pane, click <em>Compute</em>, then
 <em>Servers</em>, and, in the central pane, select the region you want.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-09.png"><img alt="Servers and details" src="../assets/new-server/shot-09.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-09.png"><img alt="Servers and details" src="../assets/new-server/shot-09.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To see all available servers in the region, type:</p>
@@ -1194,11 +1199,11 @@ its public IP  address (e.g., from the <em>Addresses</em> tab) and connect to
 it remotely. Alternatively, you may launch a web console and log in;
 click on the three-dot icon on the right of the server header, and from
 the pop-up menu that appears select <em>Remote Console</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-10.png"><img alt="Launch remote console" src="../assets/new-server/shot-10.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-10.png"><img alt="Launch remote console" src="../assets/new-server/shot-10.png"/></a></p>
 <p>A new window pops up, and that’s your web console to your
 Cleura Cloud server. Please note that this window cannot be
 resized but can be opened on a new browser window or tab.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/new-server/shot-11.png"><img alt="Server console" src="../assets/new-server/shot-11.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/new-server/shot-11.png"><img alt="Server console" src="../assets/new-server/shot-11.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>You may have access to the web console of your server, and you need the

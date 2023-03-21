@@ -607,6 +607,11 @@
         Creating Kubernetes clusters
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../kubernetes/gardener/hibernate-shoot-cluster/">
+        Hibernating a Kubernetes cluster
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1001,7 +1006,7 @@ Cleura Cloud account.</p>
 page, you will see all networks in all regions you have access to. For
 the purposes of this guide, let us assume you no longer need network
 <code>carmacks</code>, so now you want to delete it.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-01.png"><img alt="Listing networks" src="../assets/del-net/shot-01.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-01.png"><img alt="Listing networks" src="../assets/del-net/shot-01.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To list all available networks in the region you are currently in, type
@@ -1039,7 +1044,7 @@ tabs immediately appear below; <em>Details</em>, <em>Ports</em>, <em>Subnets</em
 <code>carmacks</code> has a subnet and is behind a router. You may click on tabs
 <em>Subnets</em> and <em>Routers</em>, to see more information regarding the network
 subnet and the router in front of the network.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-02.png"><img alt="Network details" src="../assets/del-net/shot-02.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-02.png"><img alt="Network details" src="../assets/del-net/shot-02.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>To quickly check whether network <code>carmacks</code> has a subnet or not, type:</p>
@@ -1153,45 +1158,45 @@ that, you can finish up with deleting the router.</p>
 <div class="tabbed-block">
 <p>Go to the <em>Subnets</em> tab of the <code>carmacks</code> network, and click the gray
 notepad-and-pen icon (at the left of the red circle-with-trashcan icon).</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-03.png"><img alt="Network subnets" src="../assets/del-net/shot-03.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-03.png"><img alt="Network subnets" src="../assets/del-net/shot-03.png"/></a></p>
 <p>A vertical pane titled <em>Modify Subnet</em> will slide over from the
 right-hand side of the page. Pay attention to the <em>Router Connections</em>
 section. You will notice an active connection to the router. Click the
 red circle-with-line-over-chainlink icon to deactivate the connection,
 effectively disconnecting the subnet from the router.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-04.png"><img alt="Disconnect subnet" src="../assets/del-net/shot-04.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-04.png"><img alt="Disconnect subnet" src="../assets/del-net/shot-04.png"/></a></p>
 <p>A pop-up window will appear, asking if you really want to go ahead with
 the disconnection. Just click the red <em>Yes, Remove interface</em> button.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-05.png"><img alt="Remove interface" src="../assets/del-net/shot-05.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-05.png"><img alt="Remove interface" src="../assets/del-net/shot-05.png"/></a></p>
 <p>After disconnecting the subnet, click the red circle-and-trashcan icon
 to delete it. Once more, a pop-up will appear asking for confirmation.
 Click the red <em>Yes, Delete</em> button.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-06.png"><img alt="Delete subnet" src="../assets/del-net/shot-06.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-06.png"><img alt="Delete subnet" src="../assets/del-net/shot-06.png"/></a></p>
 <p>As soon as you delete the subnet, in the <em>Subnets</em> tab you will see the
 message <em>No subnets found</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-07.png"><img alt="No subnets" src="../assets/del-net/shot-07.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-07.png"><img alt="No subnets" src="../assets/del-net/shot-07.png"/></a></p>
 <p>You can now delete the network. Click the three-dot icon (right-hand
 side of the network row) and select <em>Delete Network</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-08.png"><img alt="Delete Carmacks" src="../assets/del-net/shot-08.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-08.png"><img alt="Delete Carmacks" src="../assets/del-net/shot-08.png"/></a></p>
 <p>Of course, you will have to confirm this action. Clicking the red <em>Yes,
 Delete</em> button is enough.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-09.png"><img alt="Confirm network delete" src="../assets/del-net/shot-09.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-09.png"><img alt="Confirm network delete" src="../assets/del-net/shot-09.png"/></a></p>
 <p>After deleting the network, it will not be on the list of all available
 networks.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-10.png"><img alt="List of networks" src="../assets/del-net/shot-10.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-10.png"><img alt="List of networks" src="../assets/del-net/shot-10.png"/></a></p>
 <p>There’s still that router lying around, and if you have no use for it,
 go to the <em>Routers</em> page to delete it. In the vertical pane on the
 left, expand the <em>Networking</em> section and click on <em>Routers</em>. In the
 central pane of the page, you will see all routers in all regions you
 have access to.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-11.png"><img alt="All routers" src="../assets/del-net/shot-11.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-11.png"><img alt="All routers" src="../assets/del-net/shot-11.png"/></a></p>
 <p>Click the red three-dot icon of the router you wish to delete and
 select <em>Delete Router</em>. A pop-up will appear asking for confirmation,
 so click the red <em>Yes, Delete</em> button.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-12.png"><img alt="Confirm router delete" src="../assets/del-net/shot-12.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-12.png"><img alt="Confirm router delete" src="../assets/del-net/shot-12.png"/></a></p>
 <p>After successfully deleting the router, there will be no trace of it in
 the list of all routers.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-13.png"><img alt="Router is gone" src="../assets/del-net/shot-13.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-13.png"><img alt="Router is gone" src="../assets/del-net/shot-13.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>First, take a look at all available subnets:</p>
@@ -1303,13 +1308,13 @@ Select a network with a subnet and no router — like <code>teslin</code> in our
 example.</p>
 <p>Looking at the network details, it is immediately apparent that there’s
 no router in front of it.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-14.png"><img alt="No router in sight" src="../assets/del-net/shot-14.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-14.png"><img alt="No router in sight" src="../assets/del-net/shot-14.png"/></a></p>
 <p>Go to the <em>Subnets</em> tab, and click the red circle-with-trashcan icon to
 delete the subnet.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-15.png"><img alt="Delete subnet" src="../assets/del-net/shot-15.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-15.png"><img alt="Delete subnet" src="../assets/del-net/shot-15.png"/></a></p>
 <p>Then, click the red three-dot icon at the right-hand side of the
 <code>teslin</code> row, and select <em>Delete Network</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-16.png"><img alt="Delete Teslin" src="../assets/del-net/shot-16.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-16.png"><img alt="Delete Teslin" src="../assets/del-net/shot-16.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>Let us first take a look at all available networks…</p>
@@ -1378,7 +1383,7 @@ with no subnet and no router in front of it.</p>
 the right-hand side of the <code>mayo</code> row and select <em>Delete Network</em>. You
 will have to confirm the action, and the network will be gone as soon
 as you do.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../assets/del-net/shot-17.png"><img alt="Delete Mayo" src="../assets/del-net/shot-17.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/del-net/shot-17.png"><img alt="Delete Mayo" src="../assets/del-net/shot-17.png"/></a></p>
 </div>
 <div class="tabbed-block">
 <p>Once more, take a look at all remaining networks:</p>
