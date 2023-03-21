@@ -1,6 +1,7 @@
 title: "Background"
 nav:
   - index.md
+  - kubernetes
   - "CCMP vs. OpenStack API": gui-vs-api.md
   - "Deleting projects": project-deletion.md
   - "Object storage": object-storage.md

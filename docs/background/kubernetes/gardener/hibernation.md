@@ -1,0 +1,64 @@
+---
+description: How hibernation of Gardener-based Kubernetes clusters works
+---
+
+# Hibernation
+
+In {{brand}}, you have the option of putting a Gardener-based Kubernetes
+[cluster in
+hibernation](../../../howto/kubernetes/gardener/hibernate-shoot-cluster.md).
+This is something you might want to do whenever you know you won't be
+needing the cluster for some time. Putting it in hibernation makes sense
+because from that time on and before you wake it up, you pay *less* for
+hosting.
+
+You may wonder why you still pay *something* after putting a cluster in
+hibernation, instead of paying nothing at all. To answer this question,
+we have to explain how hibernation works.
+
+## How hibernation works
+
+Learning about the logic of hibernation in Gardener, we immediately get
+a fresh perspective on the whole concept. When we hear about
+hibernation, we usually think of resources that are merely stopped or
+frozen, and their volatile information made persistent. This is **not**
+how Gardener hibernation works --- and here's why.
+
+When you put a Gardener cluster in hibernation, what really happens is
+that all worker nodes are **removed.** So, as long as the cluster is in
+hibernation, you will not be paying for CPU, RAM, and boot volume
+storage utilization incurred by the worker nodes. But there might still
+be resources created by the cluster, for which you will keep getting
+charged even when the cluster is in hibernation. More specifically, you
+will keep paying for any persistent volumes, floating IPs, and load
+balancers associated with the cluster.
+
+In Kubernetes, a persistent volume,
+[*PersistentVolume*](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1)
+or *PV* for short, is a piece of storage in the cluster that has been
+provisioned either dynamically (using [Storage
+Classes](https://kubernetes.io/docs/concepts/storage/storage-classes))
+or by an administrator. When a user makes a request for storage, then we
+have a
+[*PersistentVolumeClaim*](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1)
+or *PVC* for short. Floating IPs, on the other hand, are instantiated to
+be assigned to Kubernetes services that need a public IP. Those services
+have an external load balancer (i.e., a service of `Type:
+LoadBalancer`). When you hibernate a Gardener cluster, objects of any of
+those types are retained.
+
+## Waking up clusters
+
+When you wake a Gardener-based cluster up, it will have to re-fetch any
+images its Pods previously ran on. That is because the image cache of
+newly created worker nodes starts empty. Consequently, please keep in
+mind that a cluster whose resources were perfectly humming along
+*before* the hibernation, might suddenly see Pods failing with
+`ImagePullError` if any image they depend on has been deleted in an
+upstream registry.
+
+Last but not least, the act of waking a cluster up may temporarily fail,
+because while the cluster was hibernating, the tenant came close to its
+volume, RAM, CPU, etc. quota, and attempting to re-instantiate the
+worker nodes and re-activate the cluster would breach the [quota
+limit](/../../../reference/quotas/openstack).
