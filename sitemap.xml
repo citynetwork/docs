@@ -111,6 +111,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.cleura.cloud/howto/kubernetes/gardener/kubectl/</loc>
+         <lastmod>2023-03-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.cleura.cloud/howto/kubernetes/magnum/</loc>
          <lastmod>2023-03-21</lastmod>
          <changefreq>daily</changefreq>

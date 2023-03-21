@@ -8,10 +8,10 @@
 <meta content="How to spin up a Kubernetes cluster with Gardener" name="description"/>
 <link href="https://docs.cleura.cloud/howto/kubernetes/gardener/create-shoot-cluster/" rel="canonical"/>
 <link href="../" rel="prev"/>
-<link href="../hibernate-shoot-cluster/" rel="next"/>
+<link href="../kubectl/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
-<title>Creating Kubernetes clusters - Cleura Docs</title>
+<title>Creating a Kubernetes cluster - Cleura Docs</title>
 <link href="../../../../assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,7 +22,7 @@
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Creating Kubernetes clusters - Cleura Docs" property="og:title"/>
+<meta content="Creating a Kubernetes cluster - Cleura Docs" property="og:title"/>
 <meta content="How to spin up a Kubernetes cluster with Gardener" property="og:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/kubernetes/gardener/create-shoot-cluster.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
@@ -30,7 +30,7 @@
 <meta content="630" property="og:image:height"/>
 <meta content="https://docs.cleura.cloud/howto/kubernetes/gardener/create-shoot-cluster/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Creating Kubernetes clusters - Cleura Docs" name="twitter:title"/>
+<meta content="Creating a Kubernetes cluster - Cleura Docs" name="twitter:title"/>
 <meta content="How to spin up a Kubernetes cluster with Gardener" name="twitter:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/kubernetes/gardener/create-shoot-cluster.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -51,7 +51,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#creating-kubernetes-clusters">
+<a class="md-skip" href="#creating-a-kubernetes-cluster">
           Skip to content
         </a>
 </div>
@@ -75,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Creating Kubernetes clusters
+              Creating a Kubernetes cluster
             
           </span>
 </div>
@@ -558,11 +558,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Creating Kubernetes clusters
+          Creating a Kubernetes cluster
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Creating Kubernetes clusters
+        Creating a Kubernetes cluster
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -590,26 +590,16 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#extracting-the-kubeconfig-file">
-    Extracting the kubeconfig file
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-your-cluster-with-kubectl">
-    Accessing your cluster with kubectl
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-an-application">
-    Deploying an application
+<a class="md-nav__link" href="#interacting-with-your-cluster">
+    Interacting with your cluster
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../hibernate-shoot-cluster/">
-        Hibernating a Kubernetes cluster
+<a class="md-nav__link" href="../kubectl/">
+        Managing a Kubernetes cluster
       </a>
 </li>
 </ul>
@@ -955,18 +945,8 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#extracting-the-kubeconfig-file">
-    Extracting the kubeconfig file
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-your-cluster-with-kubectl">
-    Accessing your cluster with kubectl
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-an-application">
-    Deploying an application
+<a class="md-nav__link" href="#interacting-with-your-cluster">
+    Interacting with your cluster
   </a>
 </li>
 </ul>
@@ -979,7 +959,7 @@
 <a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/kubernetes/gardener/create-shoot-cluster.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="creating-kubernetes-clusters">Creating Kubernetes clusters</h1>
+<h1 id="creating-a-kubernetes-cluster">Creating a Kubernetes cluster</h1>
 <p>If you want to create a Kubernetes cluster, you can do so via the Cleura Cloud Management Panel using Gardener.
 This guide shows you how to do that, and how to deploy a sample application on such a cluster.</p>
 <h2 id="prerequisites">Prerequisites</h2>
@@ -1016,71 +996,14 @@ You should make sure that considering your selection of worker node <a href="../
 <p>For example, if your project is configured with the <a href="../../../../reference/quotas/openstack/">default quotas</a>, and you select the <code>b.4c16gb</code> flavor for your worker nodes, your cluster would be able to run with a maximum of 3 worker nodes (since their total memory footprint would be 3×16=48 GiB, just short of the default 50 GiB limit).
 A 4th node would push your total memory allocation to 64 GiB, violating your quota.</p>
 <p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.citynetwork.eu">Service Center</a>.</p>
-<h2 id="extracting-the-kubeconfig-file">Extracting the kubeconfig file</h2>
-<p>When the Shoot cluster is up and running, you need to create a <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a> file to be able to access it.
-To do that, click on the cluster to expand its properties, and open <em>KubeConfig</em>.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/shoot_kubeconfig.png"><img alt="KubeConfig tab in Gardener Shoot view" src="../assets/shoot_kubeconfig.png"/></a></p>
-<p>Copy the content of the kubeconfig using the <em>Copy Config</em> button, and insert it into <code>~/.kube/config</code>.
-Create the directory and the file if needed.</p>
-<blockquote>
-<p>By default, <code>kubectl</code> searches for its configuration in <code>~/.kube/config</code>, but you can <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">modify this behavior</a> if needed.</p>
-</blockquote>
-<p>Check if your <code>kubectl</code> uses the proper configuration by running:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>config<span class="w"> </span>view
-</code></pre></div>
-<p>You should see something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">clusters</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span>
-<span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.test-cluster.p40698.staging-k8s.cleura.cloud</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span>
-<span class="nt">contexts</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster-token</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span>
-<span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Config</span>
-<span class="nt">preferences</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"> </span><span class="p p-Indicator">}</span>
-<span class="nt">users</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--p40698--test-cluster-token</span>
-<span class="w">    </span><span class="nt">user</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDACTED</span>
-</code></pre></div>
-<h2 id="accessing-your-cluster-with-kubectl">Accessing your cluster with <code>kubectl</code></h2>
-<p>Check your available nodes by running:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
-</code></pre></div>
-<p>Assuming you used the default options when creating the cluster, you should now see the one Gardener worker node that is initially available:</p>
-<div class="highlight"><pre><span></span><code><span class="go">NAME                                                STATUS   ROLES    AGE    VERSION</span>
-<span class="go">shoot--p40698--test-cluster-czg4zf-z1-5d7b5-bfl7p   Ready    &lt;none&gt;   156m   v1.24.3</span>
-</code></pre></div>
-<blockquote>
-<p>Please note that in contrast to an <a href="../../../openstack/magnum/new-k8s-cluster">OpenStack Magnum-managed Kubernetes cluster</a> (where the output of <code>kubectl get nodes</code> includes control plane and worker nodes), in a Gardener cluster the same command <em>only</em> lists the worker nodes.</p>
-</blockquote>
-<h2 id="deploying-an-application">Deploying an application</h2>
-<p>Create a sample deployment with a Hello World application:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>deployment<span class="w"> </span>hello-node<span class="w"> </span>--image<span class="o">=</span>registry.k8s.io/echoserver:1.4
-kubectl<span class="w"> </span>expose<span class="w"> </span>deployment<span class="w"> </span>hello-node<span class="w"> </span>--type<span class="o">=</span>LoadBalancer<span class="w"> </span>--port<span class="o">=</span><span class="m">8080</span>
-</code></pre></div>
-<p>To access the created app, list the available services:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>services
-</code></pre></div>
-<p>You should get the load balancer service with its external IP and port
-number:</p>
-<div class="highlight"><pre><span></span><code><span class="go">NAME         TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)          AGE</span>
-<span class="go">hello-node   LoadBalancer   100.69.16.106   198.51.100.42   8080:32039/TCP   34m</span>
-<span class="go">kubernetes   ClusterIP      100.64.0.1      &lt;none&gt;          443/TCP          3h46m</span>
-</code></pre></div>
-<p>Open a browser to <code>http://198.51.100.42:8080</code> (substituting the correct <code>EXTERNAL-IP</code> listed for your service).
-You should see the page of the Hello World app.</p>
+<h2 id="interacting-with-your-cluster">Interacting with your cluster</h2>
+<p>Once your new shoot cluster is operational, you can <a href="../kubectl/">start interacting with it</a>.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-14</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-08</span>
