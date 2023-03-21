@@ -7,6 +7,9 @@ There will be times when you won't be using your Gardener-based cluster
 much, if at all. To save on costs, you can put the whole cluster in
 hibernation. If you do, then from that time on (and until you wake the
 cluster again), you will be paying *less* for the cluster.
+The reason for not paying anything at all is directly related to [how
+Gardener hibernation
+works](../../../background/kubernetes/gardener/hibernation.md).
 
 ## Prerequisites
 
