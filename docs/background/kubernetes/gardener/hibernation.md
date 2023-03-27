@@ -33,24 +33,32 @@ charged even when the cluster is in hibernation. More specifically, you
 will keep paying for any persistent volumes, floating IPs, and load
 balancers associated with the cluster.
 
-In Kubernetes, a persistent volume,
-[*PersistentVolume*](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1)
-or *PV* for short, is a piece of storage in the cluster that has been
+In Kubernetes, a
+[Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+(or *PV*), is a piece of storage in the cluster that has been
 provisioned either dynamically (using [Storage
 Classes](https://kubernetes.io/docs/concepts/storage/storage-classes))
 or by an administrator. When a user makes a request for storage, then we
 have a
-[*PersistentVolumeClaim*](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1)
-or *PVC* for short. Floating IPs, on the other hand, are instantiated to
-be assigned to Kubernetes services that need a public IP. Those services
+[PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
+(or *PVC*). Floating IPs, on the other hand, are instantiated to
+be assigned to Kubernetes [Services](https://kubernetes.io/docs/concepts/services-networking/) that need a public IP. Those services
 have an external load balancer (i.e., a service of `Type:
 LoadBalancer`). When you hibernate a Gardener cluster, objects of any of
 those types are retained.
 
 ## Waking up clusters
 
-When you wake a Gardener-based cluster up, it will have to re-fetch any
-images its Pods previously ran on. That is because the image cache of
+When you wake a hibernated cluster, the previously removed worker
+nodes reappear. Since all information about cluster resources
+([Pods](https://kubernetes.io/docs/concepts/workloads/pods/),
+[Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/),
+[ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+etc.) are still available on the control plane, these cluster
+resources *also* automatically reappear on the recreated worker nodes.
+
+However, to run your Pods, Gardener will have to re-fetch any
+images they previously ran on. That is because the image cache of
 newly created worker nodes starts empty. Consequently, please keep in
 mind that a cluster whose resources were perfectly humming along
 *before* the hibernation, might suddenly see Pods failing with
