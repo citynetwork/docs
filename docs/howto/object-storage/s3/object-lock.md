@@ -1,5 +1,5 @@
 ---
-description: Object lock, available in select regions, enables you to keep S3 objects from being deleted or overwritten.
+description: Object lock enables you to keep S3 objects from being deleted or overwritten.
 ---
 # Object lock
 
@@ -10,11 +10,6 @@ helpful when you want to maintain data integrity, comply with
 regulations, or retain data for a specific period.
 
 Note that this feature is distinct from *object expiry*, which is covered in a [separate guide](expiry.md).
-
-## Object lock availability
-
-Object lock is only available in select {{brand}} regions.
-Please consult the [feature reference](../../../../reference/features/) for details.
 
 ## Object lock modes
 

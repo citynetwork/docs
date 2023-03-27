@@ -32,7 +32,7 @@
 | ------------------------------                          | ---------------- | ---------------- |
 | S3 API                                                  | :material-check: | :material-check: |
 | S3 [SSE-C](/howto/object-storage/s3/sse-c/)             | :material-check: | :material-check: |
-| S3 [object lock](/howto/object-storage/s3/object-lock/) | :material-close: | :material-close: |
+| S3 [object lock](/howto/object-storage/s3/object-lock/) | :material-check: | :material-check: |
 | Swift API                                               | :material-check: | :material-check: |
 
 
