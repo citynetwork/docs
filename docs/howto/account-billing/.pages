@@ -1,1 +1,8 @@
 title: Account & Billing
+nav:
+  - forgot-your-password.md
+  - change-billing-data.md
+  - change-credit-card.md
+  - manage-invoices.md
+  - rest-invoice-data.md
+  - delete-account.md
