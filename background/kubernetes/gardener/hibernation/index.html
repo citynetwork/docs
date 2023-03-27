@@ -5,34 +5,35 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/reference/versions/public/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../compliant/" rel="next"/>
-<link href="../../../assets/favicon.ico" rel="icon"/>
+<meta content="How hibernation of Gardener-based Kubernetes clusters works" name="description"/>
+<link href="https://docs.cleura.cloud/background/kubernetes/gardener/hibernation/" rel="canonical"/>
+<link href="../autoscaling/" rel="prev"/>
+<link href="../../../../reference/" rel="next"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
-<title>Public Cloud - Cleura Docs</title>
-<link href="../../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<title>Hibernation - Cleura Docs</title>
+<link href="../../../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Public Cloud - Cleura Docs" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/reference/versions/public.png" property="og:image"/>
+<meta content="Hibernation - Cleura Docs" property="og:title"/>
+<meta content="How hibernation of Gardener-based Kubernetes clusters works" property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/background/kubernetes/gardener/hibernation.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/reference/versions/public/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/background/kubernetes/gardener/hibernation/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Public Cloud - Cleura Docs" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/reference/versions/public.png" name="twitter:image"/>
-<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="Hibernation - Cleura Docs" name="twitter:title"/>
+<meta content="How hibernation of Gardener-based Kubernetes clusters works" name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/background/kubernetes/gardener/hibernation.png" name="twitter:image"/>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -43,14 +44,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#public-cloud">
+<a class="md-skip" href="#hibernation">
           Skip to content
         </a>
 </div>
@@ -58,8 +59,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Cleura Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Cleura Docs">
-<img alt="logo" src="../../../assets/logo.png"/>
+<a aria-label="Cleura Docs" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Cleura Docs">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Public Cloud
+              Hibernation
             
           </span>
 </div>
@@ -140,8 +141,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Cleura Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Cleura Docs">
-<img alt="logo" src="../../../assets/logo.png"/>
+<a aria-label="Cleura Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Cleura Docs">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
     Cleura Docs
   </label>
@@ -157,14 +158,14 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../../../..">
         Start Here
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../howto/">How-To Guides</a>
+<a href="../../../../howto/">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -188,17 +189,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/getting-started/create-account/">
+<a class="md-nav__link" href="../../../../howto/getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../../../howto/getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/getting-started/accessing-cc-rest-api/">
+<a class="md-nav__link" href="../../../../howto/getting-started/accessing-cc-rest-api/">
         Accessing the Cleura Cloud REST API
       </a>
 </li>
@@ -220,7 +221,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../howto/openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../../../howto/openstack/barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -232,12 +233,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../../../howto/openstack/barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../../../howto/openstack/barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -257,22 +258,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../../../../howto/openstack/cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../../../howto/openstack/cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/cinder/retype-volumes/">
+<a class="md-nav__link" href="../../../../howto/openstack/cinder/retype-volumes/">
         Changing a volume's type
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/cinder/sync-volumes/">
+<a class="md-nav__link" href="../../../../howto/openstack/cinder/sync-volumes/">
         Transferring data between volumes
       </a>
 </li>
@@ -292,7 +293,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../../../../howto/openstack/magnum/new-k8s-cluster/">
         Creating new Kubernetes clusters
       </a>
 </li>
@@ -312,27 +313,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../../../howto/openstack/neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../../../howto/openstack/neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../../../howto/openstack/neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../../../howto/openstack/neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../../../howto/openstack/neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -352,32 +353,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/nova/new-server/">
+<a class="md-nav__link" href="../../../../howto/openstack/nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/nova/server-group/">
+<a class="md-nav__link" href="../../../../howto/openstack/nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../../../howto/openstack/nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../../../howto/openstack/nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../../../howto/openstack/nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../../../howto/openstack/nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -397,17 +398,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/octavia/lbaas-tcp/">
+<a class="md-nav__link" href="../../../../howto/openstack/octavia/lbaas-tcp/">
         Setting up a TCP load balancer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../../../howto/openstack/octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/openstack/octavia/lbaas-l7pol/">
+<a class="md-nav__link" href="../../../../howto/openstack/octavia/lbaas-l7pol/">
         Using layer 7 redirection
       </a>
 </li>
@@ -432,7 +433,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../howto/object-storage/s3/">S3 API</a>
+<a href="../../../../howto/object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -444,37 +445,37 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/s3/credentials/">
+<a class="md-nav__link" href="../../../../howto/object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/s3/public-bucket/">
+<a class="md-nav__link" href="../../../../howto/object-storage/s3/public-bucket/">
         Public buckets
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/s3/presign/">
+<a class="md-nav__link" href="../../../../howto/object-storage/s3/presign/">
         Pre-signed object URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/s3/expiry/">
+<a class="md-nav__link" href="../../../../howto/object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/s3/object-lock/">
+<a class="md-nav__link" href="../../../../howto/object-storage/s3/object-lock/">
         Object lock
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/s3/versioning/">
+<a class="md-nav__link" href="../../../../howto/object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../../../../howto/object-storage/s3/sse-c/">
         Object encryption (SSE-C)
       </a>
 </li>
@@ -484,7 +485,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../howto/object-storage/swift/">Swift API</a>
+<a href="../../../../howto/object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -496,27 +497,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/swift/private-container/">
+<a class="md-nav__link" href="../../../../howto/object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/swift/public-container/">
+<a class="md-nav__link" href="../../../../howto/object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/swift/tempurl/">
+<a class="md-nav__link" href="../../../../howto/object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/swift/expiry/">
+<a class="md-nav__link" href="../../../../howto/object-storage/swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/object-storage/swift/versioning/">
+<a class="md-nav__link" href="../../../../howto/object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -529,7 +530,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../howto/kubernetes/">Kubernetes</a>
+<a href="../../../../howto/kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -543,7 +544,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../howto/kubernetes/gardener/">Gardener</a>
+<a href="../../../../howto/kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -555,17 +556,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../../../howto/kubernetes/gardener/create-shoot-cluster/">
         Creating a Kubernetes cluster
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/kubernetes/gardener/kubectl/">
+<a class="md-nav__link" href="../../../../howto/kubernetes/gardener/kubectl/">
         Managing a Kubernetes cluster
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/kubernetes/gardener/hibernate-shoot-cluster/">
+<a class="md-nav__link" href="../../../../howto/kubernetes/gardener/hibernate-shoot-cluster/">
         Hibernating a Kubernetes cluster
       </a>
 </li>
@@ -575,7 +576,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../howto/kubernetes/magnum/">Magnum</a>
+<a href="../../../../howto/kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_5_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -602,32 +603,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/account-billing/forgot-your-password/">
+<a class="md-nav__link" href="../../../../howto/account-billing/forgot-your-password/">
         Resetting your password or reclaiming your username
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/account-billing/change-billing-data/">
+<a class="md-nav__link" href="../../../../howto/account-billing/change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/account-billing/change-credit-card/">
+<a class="md-nav__link" href="../../../../howto/account-billing/change-credit-card/">
         Changing your credit card data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/account-billing/manage-invoices/">
+<a class="md-nav__link" href="../../../../howto/account-billing/manage-invoices/">
         Managing invoices
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/account-billing/rest-invoice-data/">
+<a class="md-nav__link" href="../../../../howto/account-billing/rest-invoice-data/">
         Retrieving invoice data with the Cleura Cloud REST API
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../howto/account-billing/delete-account/">
+<a class="md-nav__link" href="../../../../howto/account-billing/delete-account/">
         Deleting your account
       </a>
 </li>
@@ -637,68 +638,88 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../background/">Background</a>
+<a href="../../../">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
           Background
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../background/gui-vs-api/">
+<a class="md-nav__link" href="../../../gui-vs-api/">
         CCMP vs. OpenStack API
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../background/project-deletion/">
+<a class="md-nav__link" href="../../../project-deletion/">
         Deleting projects
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../background/object-storage/">
+<a class="md-nav__link" href="../../../object-storage/">
         Object storage
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
           Kubernetes
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_5">
 <span class="md-nav__icon md-icon"></span>
           Kubernetes
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_5_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_5_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_5_1" id="__nav_3_5_1_label" tabindex="0">
           Gardener
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_5_1_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="true" aria-labelledby="__nav_3_5_1_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_5_1">
 <span class="md-nav__icon md-icon"></span>
           Gardener
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../background/kubernetes/gardener/autoscaling/">
+<a class="md-nav__link" href="../autoscaling/">
         Autoscaling
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../background/kubernetes/gardener/hibernation/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Hibernation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Hibernation
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-hibernation-works">
+    How hibernation works
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#waking-up-clusters">
+    Waking up clusters
+  </a>
 </li>
 </ul>
 </nav>
@@ -709,15 +730,18 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../">Reference</a>
+<a href="../../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
           Reference
@@ -726,7 +750,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../features/">Feature Support</a>
+<a href="../../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -738,12 +762,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../features/public/">
+<a class="md-nav__link" href="../../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../features/compliant/">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -753,7 +777,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../limitations/">Limitations</a>
+<a href="../../../../reference/limitations/">Limitations</a>
 <label for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -765,17 +789,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../limitations/openstack/">
+<a class="md-nav__link" href="../../../../reference/limitations/openstack/">
         OpenStack
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../limitations/object-storage/">
+<a class="md-nav__link" href="../../../../reference/limitations/object-storage/">
         Object storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../limitations/kubernetes/">
+<a class="md-nav__link" href="../../../../reference/limitations/kubernetes/">
         Kubernetes
       </a>
 </li>
@@ -785,7 +809,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../flavors/">Flavors</a>
+<a href="../../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_4">
@@ -809,57 +833,34 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../quotas/openstack/">
+<a class="md-nav__link" href="../../../../reference/quotas/openstack/">
         OpenStack Quotas
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Service Versions</a>
+<a href="../../../../reference/versions/">Service Versions</a>
 <label for="__nav_4_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_6">
 <span class="md-nav__icon md-icon"></span>
           Service Versions
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Public Cloud
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
         Public Cloud
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#openstack-services">
-    OpenStack Services
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ceph-services">
-    Ceph Services
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../compliant/">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -869,7 +870,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../api/">API Reference</a>
+<a href="../../../../reference/api/">API Reference</a>
 <label for="__nav_4_7">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -883,7 +884,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_7_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../api/cc/">Cleura Cloud REST API</a>
+<a href="../../../../reference/api/cc/">Cleura Cloud REST API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_7_2_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_7_2">
@@ -897,7 +898,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_7_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../api/openstack/">OpenStack API</a>
+<a href="../../../../reference/api/openstack/">OpenStack API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_7_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_7_3">
@@ -917,7 +918,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../contrib/">You can help!</a>
+<a href="../../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -929,17 +930,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../contrib/issues/">
+<a class="md-nav__link" href="../../../../contrib/issues/">
         Reporting issues
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../contrib/modifications/">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../contrib/quality/">
+<a class="md-nav__link" href="../../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -961,13 +962,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#openstack-services">
-    OpenStack Services
+<a class="md-nav__link" href="#how-hibernation-works">
+    How hibernation works
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ceph-services">
-    Ceph Services
+<a class="md-nav__link" href="#waking-up-clusters">
+    Waking up clusters
   </a>
 </li>
 </ul>
@@ -977,150 +978,81 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/reference/versions/public.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/background/kubernetes/gardener/hibernation.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="public-cloud">Public Cloud</h1>
-<h2 id="openstack-services">OpenStack Services</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Kna1</th>
-<th>Sto2</th>
-<th>Fra1</th>
-<th>Dx1</th>
-<th>Tky1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Barbican (secret storage)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-<tr>
-<td>Cinder (block storage)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-<tr>
-<td>Glance (image management)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-<tr>
-<td>Heat (orchestration)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-<tr>
-<td>Keystone (identity management)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-<tr>
-<td>Magnum (container management)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-<tr>
-<td>Neutron (networking)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-<tr>
-<td>Nova (server virtualization)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-<tr>
-<td>Octavia (load balancing)</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-<td>Xena</td>
-</tr>
-</tbody>
-</table>
-<h2 id="ceph-services">Ceph Services</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Kna1</th>
-<th>Sto2</th>
-<th>Fra1</th>
-<th>Dx1</th>
-<th>Tky1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Block storage (for OpenStack)</td>
-<td>Pacific</td>
-<td>Quincy</td>
-<td>Quincy</td>
-<td>Quincy</td>
-<td>Quincy</td>
-</tr>
-<tr>
-<td>Object storage (Swift API)</td>
-<td>Pacific</td>
-<td><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg></span></td>
-<td>Quincy</td>
-<td>Quincy</td>
-<td>Quincy</td>
-</tr>
-<tr>
-<td>Object storage (S3 API)</td>
-<td>Pacific</td>
-<td><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg></span></td>
-<td>Quincy</td>
-<td>Quincy</td>
-<td>Quincy</td>
-</tr>
-</tbody>
-</table>
+<h1 id="hibernation">Hibernation</h1>
+<p>In Cleura Cloud, you have the option of putting a Gardener-based Kubernetes
+<a href="../../../../howto/kubernetes/gardener/hibernate-shoot-cluster/">cluster in
+hibernation</a>.
+This is something you might want to do whenever you know you won’t be
+needing the cluster for some time. Putting it in hibernation makes sense
+because from that time on and before you wake it up, you pay <em>less</em> for
+hosting.</p>
+<p>You may wonder why you still pay <em>something</em> after putting a cluster in
+hibernation, instead of paying nothing at all. To answer this question,
+we have to explain how hibernation works.</p>
+<h2 id="how-hibernation-works">How hibernation works</h2>
+<p>Learning about the logic of hibernation in Gardener, we immediately get
+a fresh perspective on the whole concept. When we hear about
+hibernation, we usually think of resources that are merely stopped or
+frozen, and their volatile information made persistent. This is <strong>not</strong>
+how Gardener hibernation works — and here’s why.</p>
+<p>When you put a Gardener cluster in hibernation, what really happens is
+that all worker nodes are <strong>removed.</strong> So, as long as the cluster is in
+hibernation, you will not be paying for CPU, RAM, and boot volume
+storage utilization incurred by the worker nodes. But there might still
+be resources created by the cluster, for which you will keep getting
+charged even when the cluster is in hibernation. More specifically, you
+will keep paying for any persistent volumes, floating IPs, and load
+balancers associated with the cluster.</p>
+<p>In Kubernetes, a
+<a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volume</a>
+(or <em>PV</em>), is a piece of storage in the cluster that has been
+provisioned either dynamically (using <a href="https://kubernetes.io/docs/concepts/storage/storage-classes">Storage
+Classes</a>)
+or by an administrator. When a user makes a request for storage, then we
+have a
+<a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims">PersistentVolumeClaim</a>
+(or <em>PVC</em>). Floating IPs, on the other hand, are instantiated to
+be assigned to Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/">Services</a> that need a public IP. Those services
+have an external load balancer (i.e., a service of <code>Type:
+LoadBalancer</code>). When you hibernate a Gardener cluster, objects of any of
+those types are retained.</p>
+<h2 id="waking-up-clusters">Waking up clusters</h2>
+<p>When you wake a hibernated cluster, the previously removed worker
+nodes reappear. Since all information about cluster resources
+(<a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pods</a>,
+<a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a>,
+<a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSets</a>
+etc.) are still available on the control plane, these cluster
+resources <em>also</em> automatically reappear on the recreated worker nodes.</p>
+<p>However, to run your Pods, Gardener will have to re-fetch any
+images they previously ran on. That is because the image cache of
+newly created worker nodes starts empty. Consequently, please keep in
+mind that a cluster whose resources were perfectly humming along
+<em>before</em> the hibernation, might suddenly see Pods failing with
+<code>ImagePullError</code> if any image they depend on has been deleted in an
+upstream registry.</p>
+<p>Last but not least, the act of waking a cluster up may temporarily fail,
+because while the cluster was hibernating, the tenant came close to its
+volume, RAM, CPU, etc. quota, and attempting to re-instantiate the
+worker nodes and re-activate the cluster would breach the <a href="/../../../reference/quotas/openstack">quota
+limit</a>.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-15</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-27</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-05-04</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-21</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Florian Haas, Ioannis Karamperis</span>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas, Florian Haas</span>
 </small>
 </div>
 </article>
@@ -1148,7 +1080,7 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.19047be9.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.19047be9.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
