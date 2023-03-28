@@ -10,10 +10,27 @@ To do that, click on the cluster to expand its properties, and open *KubeConfig*
 
 ![KubeConfig tab in {{k8s_management_service}} Shoot view](assets/shoot_kubeconfig.png)
 
-Copy the content of the kubeconfig using the *Copy Config* button, and insert it into `~/.kube/config`.
-Create the directory and the file if needed.
+Click the blue button labeled *Download KubeConfig*. Almost
+instantaneously, in the default download folder of your computer, you
+will get a configuration file with a name similar to
+`kubeconfig--<cluster_name>--<region_name>--<project_id>.yaml`. Create a
+directory named `.kube` in your local user's home, then move the YAML
+file you downloaded into it. Rename the YAML to `config`, ending up with
+`~/.kube/config`.
 
-> By default, `kubectl` searches for its configuration in `~/.kube/config`, but you can [modify this behavior](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) by setting the `KUBECONFIG` environment variable, if needed.
+> By default, `kubectl` searches for its configuration in
+> `~/.kube/config`, but you can [modify this
+> behavior](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+> by setting the `KUBECONFIG` environment variable, if needed. For
+> example, if you want to retain the original filename as downloaded,
+> you might use:
+>
+> ```bash
+> export KUBECONFIG=~/.kube/kubeconfig--<cluster_name>--<region_name>--<project_id>.yaml
+> ```
+>
+> You may prefer this approach if you manage multiple Kubernetes
+> clusters.
 
 ## Verifying your kubeconfig
 
