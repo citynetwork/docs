@@ -3,14 +3,14 @@ description: How to hibernate a Gardener-based Kubernetes cluster
 ---
 # Hibernating a Kubernetes cluster
 
-There will be times when you won't be using your Gardener-based cluster
+There will be times when you won't be using your {{k8s_management_service}}-based cluster
 much, if at all. To save on costs, you can put the whole cluster in
 hibernation. If you do, then from that time on (and until you wake the
 cluster again), you will be paying *less* for the cluster.
 
 ## Prerequisites
 
-We assume you have already used Gardener in {{brand}} to spin up a
+We assume you have already used {{k8s_management_service}} in {{brand}} to spin up a
 Kubernetes cluster, which is now humming away. If you've never done
 this before, please feel free to [follow this
 guide](../create-shoot-cluster).
@@ -21,12 +21,12 @@ Fire up your favorite web browser and navigate to
 <https://{{gui_domain}}>. Make sure the vertical pane at the left-hand
 side of the page is in full view, then choose
 *Containers → [{{k8s_management_service}}](https://{{gui_domain}}/containers/gardener)*.
-In the main pane, you will see your Gardener cluster.  Click anywhere
+In the main pane, you will see your {{k8s_management_service}} cluster.  Click anywhere
 on the corresponding row for a detailed view of the various cluster
 characteristics. Go to the *Status* tab and check if hibernation is
 possible.
 
-![Gardener cluster status](assets/garhiber-01.png)
+![{{k8s_management_service}} cluster status](assets/garhiber-01.png)
 
 If hibernation is indeed possible, this will be reflected in the
 *Constraints* section. To go ahead and actually hibernate the cluster,

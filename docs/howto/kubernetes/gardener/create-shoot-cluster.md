@@ -47,7 +47,7 @@ Creating the cluster can take several minutes.
 
 ### A note on quotas
 
-Your Gardener worker nodes are subject to [quotas](../../../reference/quotas/openstack.md) applicable to your {{brand}} project.
+Your {{k8s_management_service}} worker nodes are subject to [quotas](../../../reference/quotas/openstack.md) applicable to your {{brand}} project.
 You should make sure that considering your selection of worker node [*flavor*](../../../reference/flavors/index.md) (which determines the number of virtual cores and virtual RAM allocated to each node), the _volume size_, and the _Autoscaler Max_ value, you are not at risk of violating any quota.
 
 For example, if your project is configured with the [default quotas](../../../reference/quotas/openstack.md), and you select the `b.4c16gb` flavor for your worker nodes, your cluster would be able to run with a maximum of 3 worker nodes (since their total memory footprint would be 3×16=48 GiB, just short of the default 50 GiB limit).

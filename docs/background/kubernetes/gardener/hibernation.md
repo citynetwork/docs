@@ -4,7 +4,7 @@ description: How hibernation of Gardener-based Kubernetes clusters works
 
 # Hibernation
 
-In {{brand}}, you have the option of putting a Gardener-based Kubernetes
+In {{brand}}, you have the option of putting a {{k8s_management_service}}-based Kubernetes
 [cluster in
 hibernation](../../../howto/kubernetes/gardener/hibernate-shoot-cluster.md).
 This is something you might want to do whenever you know you won't be
@@ -18,13 +18,13 @@ we have to explain how hibernation works.
 
 ## How hibernation works
 
-Learning about the logic of hibernation in Gardener, we immediately get
+Learning about the logic of hibernation in {{k8s_management_service}}, we immediately get
 a fresh perspective on the whole concept. When we hear about
 hibernation, we usually think of resources that are merely stopped or
 frozen, and their volatile information made persistent. This is **not**
-how Gardener hibernation works --- and here's why.
+how {{k8s_management_service}} hibernation works --- and here's why.
 
-When you put a Gardener cluster in hibernation, what really happens is
+When you put a {{k8s_management_service}} cluster in hibernation, what really happens is
 that all worker nodes are **removed.** So, as long as the cluster is in
 hibernation, you will not be paying for CPU, RAM, and boot volume
 storage utilization incurred by the worker nodes. But there might still
@@ -44,7 +44,7 @@ have a
 (or *PVC*). Floating IPs, on the other hand, are instantiated to
 be assigned to Kubernetes [Services](https://kubernetes.io/docs/concepts/services-networking/) that need a public IP. Those services
 have an external load balancer (i.e., a service of `Type:
-LoadBalancer`). When you hibernate a Gardener cluster, objects of any of
+LoadBalancer`). When you hibernate a {{k8s_management_service}} cluster, objects of any of
 those types are retained.
 
 ## Waking up clusters
@@ -57,7 +57,7 @@ nodes reappear. Since all information about cluster resources
 etc.) are still available on the control plane, these cluster
 resources *also* automatically reappear on the recreated worker nodes.
 
-However, to run your Pods, Gardener will have to re-fetch any
+However, to run your Pods, {{k8s_management_service}} will have to re-fetch any
 images they previously ran on. That is because the image cache of
 newly created worker nodes starts empty. Consequently, please keep in
 mind that a cluster whose resources were perfectly humming along
