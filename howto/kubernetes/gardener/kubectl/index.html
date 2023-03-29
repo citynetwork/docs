@@ -1006,10 +1006,24 @@
 <p>Once you <a href="create-shoot-cluster">have launched a new shoot cluster</a>, you need to create a <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a> file to be able to access it.
 To do that, click on the cluster to expand its properties, and open <em>KubeConfig</em>.</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/shoot_kubeconfig.png"><img alt="KubeConfig tab in Gardener Shoot view" src="../assets/shoot_kubeconfig.png"/></a></p>
-<p>Copy the content of the kubeconfig using the <em>Copy Config</em> button, and insert it into <code>~/.kube/config</code>.
-Create the directory and the file if needed.</p>
+<p>Click the blue button labeled <em>Download KubeConfig</em>. Almost
+instantaneously, in the default download folder of your computer, you
+will get a configuration file with a name similar to
+<code>kubeconfig--&lt;cluster_name&gt;--&lt;region_name&gt;--&lt;project_id&gt;.yaml</code>. Create a
+directory named <code>.kube</code> in your local user’s home, then move the YAML
+file you downloaded into it. Rename the YAML to <code>config</code>, ending up with
+<code>~/.kube/config</code>.</p>
 <blockquote>
-<p>By default, <code>kubectl</code> searches for its configuration in <code>~/.kube/config</code>, but you can <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">modify this behavior</a> by setting the <code>KUBECONFIG</code> environment variable, if needed.</p>
+<p>By default, <code>kubectl</code> searches for its configuration in
+<code>~/.kube/config</code>, but you can <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">modify this
+behavior</a>
+by setting the <code>KUBECONFIG</code> environment variable, if needed. For
+example, if you want to retain the original filename as downloaded,
+you might use:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span>~/.kube/kubeconfig--&lt;cluster_name&gt;--&lt;region_name&gt;--&lt;project_id&gt;.yaml
+</code></pre></div>
+<p>You may prefer this approach if you manage multiple Kubernetes
+clusters.</p>
 </blockquote>
 <h2 id="verifying-your-kubeconfig">Verifying your kubeconfig</h2>
 <p>Check if your <code>kubectl</code> uses the proper configuration by running:</p>
@@ -1071,7 +1085,7 @@ You should see the page of the Hello World app.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-20</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-28</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-14</span>
@@ -1079,7 +1093,7 @@ You should see the page of the Hello World app.</p>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Christos Varelas, Florian Haas</span>
 </small>
 </div>
 </article>
