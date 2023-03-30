@@ -10,7 +10,7 @@
 <link href="gardener/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.4" name="generator"/>
-<title>Kubernetes in Cleura - Cleura Docs</title>
+<title>Kubernetes in Cleura Cloud - Cleura Docs</title>
 <link href="../../assets/stylesheets/main.240905d7.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Kubernetes in Cleura - Cleura Docs" property="og:title"/>
+<meta content="Kubernetes in Cleura Cloud - Cleura Docs" property="og:title"/>
 <meta content="None" property="og:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/kubernetes/index.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
@@ -29,7 +29,7 @@
 <meta content="630" property="og:image:height"/>
 <meta content="https://docs.cleura.cloud/howto/kubernetes/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Kubernetes in Cleura - Cleura Docs" name="twitter:title"/>
+<meta content="Kubernetes in Cleura Cloud - Cleura Docs" name="twitter:title"/>
 <meta content="None" name="twitter:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/kubernetes/index.png" name="twitter:image"/>
 <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -50,7 +50,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#kubernetes-in-cleura">
+<a class="md-skip" href="#kubernetes-in-cleura-cloud">
           Skip to content
         </a>
 </div>
@@ -74,7 +74,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Kubernetes in Cleura
+              Kubernetes in Cleura Cloud
             
           </span>
 </div>
@@ -668,10 +668,12 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
-          Kubernetes
-          <span class="md-nav__icon md-icon"></span>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../background/kubernetes/">Kubernetes</a>
+<label for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_5">
 <span class="md-nav__icon md-icon"></span>
@@ -679,13 +681,13 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_5_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_5_1" id="__nav_3_5_1_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
           Gardener
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_5_1_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_5_1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_5_2">
 <span class="md-nav__icon md-icon"></span>
           Gardener
         </label>
@@ -941,19 +943,20 @@
 <a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/kubernetes/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="kubernetes-in-cleura">Kubernetes in Cleura</h1>
+<h1 id="kubernetes-in-cleura-cloud">Kubernetes in Cleura Cloud</h1>
 <p>In Cleura Cloud, you have several options for deploying and managing
 Kubernetes clusters.</p>
 <p><a href="https://cleura.cloud">Cleura Cloud Management Panel</a> includes management interfaces for
 <a href="gardener/">Gardener</a> and <a href="magnum/">OpenStack Magnum</a>. To manage
 Magnum clusters, you can also use the <a href="../getting-started/enable-openstack-cli/">OpenStack command-line
 interface</a>.</p>
+<p>To assess which facility is more suitable for your specific deployment scenario and use case, refer to <a href="../../background/kubernetes/">this summary</a>.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-30</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-09-08</span>
