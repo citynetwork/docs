@@ -38,6 +38,7 @@ extra_css:
   - assets/stylesheets/cleura-palette.css
 markdown_extensions:
   - attr_list
+  - footnotes
   - pymdownx.emoji:
       emoji_generator: !!python/name:materialx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
