@@ -294,7 +294,12 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../openstack/magnum/new-k8s-cluster/">
-        Creating new Kubernetes clusters
+        Creating a Kubernetes cluster
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../openstack/magnum/kubectl/">
+        Managing a Kubernetes cluster
       </a>
 </li>
 </ul>
@@ -575,6 +580,11 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#extracting-the-kubeconfig-file">
     Extracting the kubeconfig file
@@ -974,6 +984,11 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#extracting-the-kubeconfig-file">
     Extracting the kubeconfig file
   </a>
@@ -1004,9 +1019,12 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1 id="managing-a-kubernetes-cluster">Managing a Kubernetes cluster</h1>
+<p>Once you <a href="../create-shoot-cluster/">have launched a new cluster</a>, you can interact with it using <code>kubectl</code> and a <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a> file.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You must install the Kubernetes command line tool, <code>kubectl</code>, on your local computer, and run commands against your cluster.
+To install <code>kubectl</code>, follow <a href="https://kubernetes.io/docs/tasks/tools/#kubectl">the relevant Kubernetes documentation</a>.</p>
 <h2 id="extracting-the-kubeconfig-file">Extracting the kubeconfig file</h2>
-<p>Once you <a href="create-shoot-cluster">have launched a new shoot cluster</a>, you need to create a <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a> file to be able to access it.
-To do that, click on the cluster to expand its properties, and open <em>KubeConfig</em>.</p>
+<p>Click on the cluster to expand its properties, and open <em>KubeConfig</em>.</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/shoot_kubeconfig.png"><img alt="KubeConfig tab in Gardener Shoot view" src="../assets/shoot_kubeconfig.png"/></a></p>
 <p>Click the blue button labeled <em>Download KubeConfig</em>. Almost
 instantaneously, in the default download folder of your computer, you
@@ -1087,7 +1105,7 @@ You should see the page of the Hello World app.</p>
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-29</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-03</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-14</span>

@@ -5,34 +5,35 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.cleura.cloud/background/" rel="canonical"/>
-<link href="../howto/account-billing/delete-account/" rel="prev"/>
-<link href="gui-vs-api/" rel="next"/>
-<link href="../assets/favicon.ico" rel="icon"/>
+<meta content="How to fetch, verify, and use your kubeconfig with kubectl in a Magnum-managed Kubernetes cluster." name="description"/>
+<link href="https://docs.cleura.cloud/howto/openstack/magnum/kubectl/" rel="canonical"/>
+<link href="../new-k8s-cluster/" rel="prev"/>
+<link href="../../neutron/new-network/" rel="next"/>
+<link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.5" name="generator"/>
-<title>Background - Cleura Docs</title>
-<link href="../assets/stylesheets/main.7a7fce14.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<title>Managing a Kubernetes cluster - Cleura Docs</title>
+<link href="../../../../assets/stylesheets/main.7a7fce14.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../assets/stylesheets/cleura-palette.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Background - Cleura Docs" property="og:title"/>
-<meta content="None" property="og:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/background/index.png" property="og:image"/>
+<meta content="Managing a Kubernetes cluster - Cleura Docs" property="og:title"/>
+<meta content="How to fetch, verify, and use your kubeconfig with kubectl in a Magnum-managed Kubernetes cluster." property="og:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/magnum/kubectl.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://docs.cleura.cloud/background/" property="og:url"/>
+<meta content="https://docs.cleura.cloud/howto/openstack/magnum/kubectl/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Background - Cleura Docs" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://docs.cleura.cloud/assets/images/social/background/index.png" name="twitter:image"/>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<meta content="Managing a Kubernetes cluster - Cleura Docs" name="twitter:title"/>
+<meta content="How to fetch, verify, and use your kubeconfig with kubectl in a Magnum-managed Kubernetes cluster." name="twitter:description"/>
+<meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/magnum/kubectl.png" name="twitter:image"/>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -43,14 +44,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#background">
+<a class="md-skip" href="#managing-a-kubernetes-cluster">
           Skip to content
         </a>
 </div>
@@ -58,8 +59,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Cleura Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Cleura Docs">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Cleura Docs" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Cleura Docs">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -74,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Background
+              Managing a Kubernetes cluster
             
           </span>
 </div>
@@ -140,8 +141,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Cleura Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Cleura Docs">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Cleura Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Cleura Docs">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
     Cleura Docs
   </label>
@@ -157,19 +158,19 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../../../..">
         Start Here
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/">How-To Guides</a>
+<a href="../../../">How-To Guides</a>
 <label for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
           How-To Guides
@@ -188,30 +189,30 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/getting-started/create-account/">
+<a class="md-nav__link" href="../../../getting-started/create-account/">
         Creating a new account
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/getting-started/enable-openstack-cli/">
+<a class="md-nav__link" href="../../../getting-started/enable-openstack-cli/">
         Enabling the OpenStack CLI
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/getting-started/accessing-cc-rest-api/">
+<a class="md-nav__link" href="../../../getting-started/accessing-cc-rest-api/">
         Accessing the Cleura Cloud REST API
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
           OpenStack
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
           OpenStack
@@ -220,7 +221,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/openstack/barbican/">Barbican (secret storage)</a>
+<a href="../../barbican/">Barbican (secret storage)</a>
 <label for="__nav_2_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -232,12 +233,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/barbican/generic-secret/">
+<a class="md-nav__link" href="../../barbican/generic-secret/">
         Generic secret storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/barbican/share-secret/">
+<a class="md-nav__link" href="../../barbican/share-secret/">
         Sharing secrets via ACLs
       </a>
 </li>
@@ -257,49 +258,77 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/resize-volumes/">
+<a class="md-nav__link" href="../../cinder/resize-volumes/">
         Resizing a volume
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/encrypted-volumes/">
+<a class="md-nav__link" href="../../cinder/encrypted-volumes/">
         Encrypted volumes
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/retype-volumes/">
+<a class="md-nav__link" href="../../cinder/retype-volumes/">
         Changing a volume's type
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/cinder/sync-volumes/">
+<a class="md-nav__link" href="../../cinder/sync-volumes/">
         Transferring data between volumes
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
           Magnum (Kubernetes cluster management)
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_3_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_3">
 <span class="md-nav__icon md-icon"></span>
           Magnum (Kubernetes cluster management)
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/magnum/new-k8s-cluster/">
+<a class="md-nav__link" href="../new-k8s-cluster/">
         Creating a Kubernetes cluster
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/magnum/kubectl/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Managing a Kubernetes cluster
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Managing a Kubernetes cluster
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extracting-the-kubeconfig-file">
+    Extracting the kubeconfig file
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accessing-the-kubernetes-cluster-with-kubectl">
+    Accessing the Kubernetes cluster with kubectl
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -317,27 +346,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/new-network/">
+<a class="md-nav__link" href="../../neutron/new-network/">
         Creating new networks
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/create-security-groups/">
+<a class="md-nav__link" href="../../neutron/create-security-groups/">
         Creating security groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/multiple-public-ips/">
+<a class="md-nav__link" href="../../neutron/multiple-public-ips/">
         Assigning multiple public (floating) IPs to a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/vpnaas/">
+<a class="md-nav__link" href="../../neutron/vpnaas/">
         Creating a VPN connection between regions
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/neutron/delete-network/">
+<a class="md-nav__link" href="../../neutron/delete-network/">
         Deleting networks
       </a>
 </li>
@@ -357,32 +386,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/new-server/">
+<a class="md-nav__link" href="../../nova/new-server/">
         Creating new servers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/server-group/">
+<a class="md-nav__link" href="../../nova/server-group/">
         Using server groups
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/config-drive/">
+<a class="md-nav__link" href="../../nova/config-drive/">
         Launching a server with a configuration drive
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/resize-server/">
+<a class="md-nav__link" href="../../nova/resize-server/">
         Resizing a server
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/move-server-between-regions/">
+<a class="md-nav__link" href="../../nova/move-server-between-regions/">
         Moving a server from one region to another
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/nova/rescue-server/">
+<a class="md-nav__link" href="../../nova/rescue-server/">
         Rescuing a server
       </a>
 </li>
@@ -402,17 +431,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/octavia/lbaas-tcp/">
+<a class="md-nav__link" href="../../octavia/lbaas-tcp/">
         Setting up a TCP load balancer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/octavia/tls-lb/">
+<a class="md-nav__link" href="../../octavia/tls-lb/">
         HTTPS-terminating load balancers
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/openstack/octavia/lbaas-l7pol/">
+<a class="md-nav__link" href="../../octavia/lbaas-l7pol/">
         Using layer 7 redirection
       </a>
 </li>
@@ -437,7 +466,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/object-storage/s3/">S3 API</a>
+<a href="../../../object-storage/s3/">S3 API</a>
 <label for="__nav_2_4_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -449,37 +478,37 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/credentials/">
+<a class="md-nav__link" href="../../../object-storage/s3/credentials/">
         Working with S3-compatible credentials
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/public-bucket/">
+<a class="md-nav__link" href="../../../object-storage/s3/public-bucket/">
         Public buckets
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/presign/">
+<a class="md-nav__link" href="../../../object-storage/s3/presign/">
         Pre-signed object URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/expiry/">
+<a class="md-nav__link" href="../../../object-storage/s3/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/object-lock/">
+<a class="md-nav__link" href="../../../object-storage/s3/object-lock/">
         Object lock
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/versioning/">
+<a class="md-nav__link" href="../../../object-storage/s3/versioning/">
         Object versioning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/s3/sse-c/">
+<a class="md-nav__link" href="../../../object-storage/s3/sse-c/">
         Object encryption (SSE-C)
       </a>
 </li>
@@ -489,7 +518,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/object-storage/swift/">Swift API</a>
+<a href="../../../object-storage/swift/">Swift API</a>
 <label for="__nav_2_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -501,27 +530,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/private-container/">
+<a class="md-nav__link" href="../../../object-storage/swift/private-container/">
         Working with a private Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/public-container/">
+<a class="md-nav__link" href="../../../object-storage/swift/public-container/">
         Working with a public Swift container
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/tempurl/">
+<a class="md-nav__link" href="../../../object-storage/swift/tempurl/">
         Using temporary URLs
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/expiry/">
+<a class="md-nav__link" href="../../../object-storage/swift/expiry/">
         Object expiry
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/object-storage/swift/versioning/">
+<a class="md-nav__link" href="../../../object-storage/swift/versioning/">
         Object versioning
       </a>
 </li>
@@ -534,7 +563,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/">Kubernetes</a>
+<a href="../../../kubernetes/">Kubernetes</a>
 <label for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -548,7 +577,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/gardener/">Gardener</a>
+<a href="../../../kubernetes/gardener/">Gardener</a>
 <label for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -560,17 +589,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/kubernetes/gardener/create-shoot-cluster/">
+<a class="md-nav__link" href="../../../kubernetes/gardener/create-shoot-cluster/">
         Creating a Kubernetes cluster
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/kubernetes/gardener/kubectl/">
+<a class="md-nav__link" href="../../../kubernetes/gardener/kubectl/">
         Managing a Kubernetes cluster
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/kubernetes/gardener/hibernate-shoot-cluster/">
+<a class="md-nav__link" href="../../../kubernetes/gardener/hibernate-shoot-cluster/">
         Hibernating a Kubernetes cluster
       </a>
 </li>
@@ -580,7 +609,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../howto/kubernetes/magnum/">Magnum</a>
+<a href="../../../kubernetes/magnum/">Magnum</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_5_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_3">
@@ -607,32 +636,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/forgot-your-password/">
+<a class="md-nav__link" href="../../../account-billing/forgot-your-password/">
         Resetting your password or reclaiming your username
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/change-billing-data/">
+<a class="md-nav__link" href="../../../account-billing/change-billing-data/">
         Changing your account billing data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/change-credit-card/">
+<a class="md-nav__link" href="../../../account-billing/change-credit-card/">
         Changing your credit card data
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/manage-invoices/">
+<a class="md-nav__link" href="../../../account-billing/manage-invoices/">
         Managing invoices
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/rest-invoice-data/">
+<a class="md-nav__link" href="../../../account-billing/rest-invoice-data/">
         Retrieving invoice data with the Cleura Cloud REST API
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../howto/account-billing/delete-account/">
+<a class="md-nav__link" href="../../../account-billing/delete-account/">
         Deleting your account
       </a>
 </li>
@@ -642,39 +671,39 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index md-nav__link--active">
-<a href="./">Background</a>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../background/">Background</a>
 <label for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
           Background
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="gui-vs-api/">
+<a class="md-nav__link" href="../../../../background/gui-vs-api/">
         CCMP vs. OpenStack API
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="project-deletion/">
+<a class="md-nav__link" href="../../../../background/project-deletion/">
         Deleting projects
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="object-storage/">
+<a class="md-nav__link" href="../../../../background/object-storage/">
         Object storage
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="kubernetes/">Kubernetes</a>
+<a href="../../../../background/kubernetes/">Kubernetes</a>
 <label for="__nav_3_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -698,12 +727,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="kubernetes/gardener/autoscaling/">
+<a class="md-nav__link" href="../../../../background/kubernetes/gardener/autoscaling/">
         Autoscaling
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="kubernetes/gardener/hibernation/">
+<a class="md-nav__link" href="../../../../background/kubernetes/gardener/hibernation/">
         Hibernation
       </a>
 </li>
@@ -719,7 +748,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/">Reference</a>
+<a href="../../../../reference/">Reference</a>
 <label for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -733,7 +762,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/features/">Feature Support</a>
+<a href="../../../../reference/features/">Feature Support</a>
 <label for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -745,12 +774,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/features/public/">
+<a class="md-nav__link" href="../../../../reference/features/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/features/compliant/">
+<a class="md-nav__link" href="../../../../reference/features/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -760,7 +789,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/limitations/">Limitations</a>
+<a href="../../../../reference/limitations/">Limitations</a>
 <label for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -772,17 +801,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/limitations/openstack/">
+<a class="md-nav__link" href="../../../../reference/limitations/openstack/">
         OpenStack
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/limitations/object-storage/">
+<a class="md-nav__link" href="../../../../reference/limitations/object-storage/">
         Object storage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/limitations/kubernetes/">
+<a class="md-nav__link" href="../../../../reference/limitations/kubernetes/">
         Kubernetes
       </a>
 </li>
@@ -792,7 +821,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/flavors/">Flavors</a>
+<a href="../../../../reference/flavors/">Flavors</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_4">
@@ -816,7 +845,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/quotas/openstack/">
+<a class="md-nav__link" href="../../../../reference/quotas/openstack/">
         OpenStack Quotas
       </a>
 </li>
@@ -826,7 +855,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/versions/">Service Versions</a>
+<a href="../../../../reference/versions/">Service Versions</a>
 <label for="__nav_4_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -838,12 +867,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/versions/public/">
+<a class="md-nav__link" href="../../../../reference/versions/public/">
         Public Cloud
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/versions/compliant/">
+<a class="md-nav__link" href="../../../../reference/versions/compliant/">
         Compliant Cloud
       </a>
 </li>
@@ -853,7 +882,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/api/">API Reference</a>
+<a href="../../../../reference/api/">API Reference</a>
 <label for="__nav_4_7">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -867,7 +896,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_7_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/api/cc/">Cleura Cloud REST API</a>
+<a href="../../../../reference/api/cc/">Cleura Cloud REST API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_7_2_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_7_2">
@@ -881,7 +910,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_7_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../reference/api/openstack/">OpenStack API</a>
+<a href="../../../../reference/api/openstack/">OpenStack API</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_7_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_7_3">
@@ -901,7 +930,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../contrib/">You can help!</a>
+<a href="../../../../contrib/">You can help!</a>
 <label for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -913,17 +942,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../contrib/issues/">
+<a class="md-nav__link" href="../../../../contrib/issues/">
         Reporting issues
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../contrib/modifications/">
+<a class="md-nav__link" href="../../../../contrib/modifications/">
         Modifying content on this site
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../contrib/quality/">
+<a class="md-nav__link" href="../../../../contrib/quality/">
         Quality checks
       </a>
 </li>
@@ -939,35 +968,115 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extracting-the-kubeconfig-file">
+    Extracting the kubeconfig file
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accessing-the-kubernetes-cluster-with-kubectl">
+    Accessing the Kubernetes cluster with kubectl
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/background/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/magnum/kubectl.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="background">Background</h1>
-<p>This section contains discussions regarding various features and
-modes of operation Cleura Cloud provides. Those discussions are not
-concerned with how to do specific tasks, but rather with what
-features to take advantage of or how to go about achieving a
-set goal.</p>
+<h1 id="managing-a-kubernetes-cluster">Managing a Kubernetes cluster</h1>
+<p>Once you <a href="../new-k8s-cluster/">have launched a new cluster</a>, you can interact with it using <code>kubectl</code> and a <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a> file.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You must install the Kubernetes command line tool, <code>kubectl</code>, on your local computer, and run commands against your cluster.
+To install <code>kubectl</code>, follow <a href="https://kubernetes.io/docs/tasks/tools/#kubectl">the relevant Kubernetes documentation</a>.</p>
+<h2 id="extracting-the-kubeconfig-file">Extracting the kubeconfig file</h2>
+<p>Due to Magnum’s security policy configuration, you cannot use the OpenStack CLI for downloading the kubeconfig of a cluster that was created with Cleura Cloud Management Panel, or vice versa.</p>
+<p>To fetch your kubeconfig, you must always use the same facility that you used to deploy the cluster.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the left-hand side pane of the Cleura Cloud Management Panel, select <em>Magnum</em> → <em>Clusters</em>.
+Click on the cluster row to expand the details view, then click the
+<em>KubeConfig</em> tab. In a second or two, you will see the contents of the
+kubeconfig file. Click the blue <em>Download KubeConfig</em> button to download
+it locally.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/shot-07.png"><img alt="Kubeconfig view" src="../assets/shot-07.png"/></a></p>
+<p>The kubeconfig file you get has a name similar to this one:</p>
+<div class="highlight"><pre><span></span><code>kubeconfig--&lt;cluster_name&gt;--&lt;region_name&gt;--&lt;alphanum_id&gt;.yaml
+</code></pre></div>
+<p>Feel free to rename it to something simpler, like <code>config</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>To download the kubeconfig file for your Kubernetes cluster, type
+the following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>config<span class="w"> </span>--dir<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="w"> </span>&lt;cluster-name&gt;
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<p>After saving the kubeconfig file locally, set the value of variable
+<code>KUBECONFIG</code> to the full path of the file. Type, for example:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/config
+</code></pre></div>
+<p>If you are currently managing only one cluster, and you already have its
+kubeconfig file stored as <code>~/.kube/config</code>, then you do not need to set
+the <code>KUBECONFIG</code> variable.</p>
+<h2 id="accessing-the-kubernetes-cluster-with-kubectl">Accessing the Kubernetes cluster with kubectl</h2>
+<p>You may now use <code>kubectl</code> to run commands against your cluster. See, for
+instance, all cluster nodes…</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>NAME                           STATUS   ROLES    AGE    VERSION
+bangor-id6nijycp2wy-master-0   Ready    master   113m   v1.18.6
+bangor-id6nijycp2wy-node-0     Ready    &lt;none&gt;   111m   v1.18.6
+</code></pre></div>
+<p>…or all running pods in every namespace:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--all-namespaces
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>NAMESPACE     NAME                                         READY   STATUS    RESTARTS   AGE
+kube-system   coredns-786ffb7797-tw2hg                     1/1     Running   0          167m
+kube-system   coredns-786ffb7797-vbqwn                     1/1     Running   0          167m
+kube-system   csi-cinder-controllerplugin-0                5/5     Running   0          167m
+kube-system   csi-cinder-nodeplugin-4nr69                  2/2     Running   0          166m
+kube-system   csi-cinder-nodeplugin-vtwqf                  2/2     Running   0          167m
+kube-system   dashboard-metrics-scraper-6b4884c9d5-4mlrg   1/1     Running   0          167m
+kube-system   k8s-keystone-auth-wk5v2                      1/1     Running   0          167m
+kube-system   kube-dns-autoscaler-75859754fd-2wsd9         1/1     Running   0          167m
+kube-system   kube-flannel-ds-7z9dp                        1/1     Running   0          167m
+kube-system   kube-flannel-ds-dmvk6                        1/1     Running   0          166m
+kube-system   kubernetes-dashboard-c98496485-stn42         1/1     Running   0          167m
+kube-system   magnum-metrics-server-79556d6999-xdlpm       1/1     Running   0          167m
+kube-system   npd-5p6gk                                    1/1     Running   0          165m
+kube-system   openstack-cloud-controller-manager-44rz9     1/1     Running   0          167m
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-03</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-12-21</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-03</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">Christos Varelas, Florian Haas</span>
+          Authors: <span class="git-page-authors git-authors">Florian Haas</span>
 </small>
 </div>
 </article>
@@ -995,7 +1104,7 @@ set goal.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "content.action.edit"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.407015b8.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../assets/javascripts/bundle.407015b8.min.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

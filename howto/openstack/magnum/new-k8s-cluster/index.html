@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://docs.cleura.cloud/howto/openstack/magnum/new-k8s-cluster/" rel="canonical"/>
 <link href="../../cinder/sync-volumes/" rel="prev"/>
-<link href="../../neutron/new-network/" rel="next"/>
+<link href="../kubectl/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.5" name="generator"/>
-<title>Creating new Kubernetes clusters - Cleura Docs</title>
+<title>Creating a Kubernetes cluster - Cleura Docs</title>
 <link href="../../../../assets/stylesheets/main.7a7fce14.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <script data-domain="docs.cleura.cloud" defer="" src="https://plausible.io/js/plausible.js"></script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 <meta content="website" property="og:type"/>
-<meta content="Creating new Kubernetes clusters - Cleura Docs" property="og:title"/>
+<meta content="Creating a Kubernetes cluster - Cleura Docs" property="og:title"/>
 <meta content="None" property="og:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/magnum/new-k8s-cluster.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
@@ -29,7 +29,7 @@
 <meta content="630" property="og:image:height"/>
 <meta content="https://docs.cleura.cloud/howto/openstack/magnum/new-k8s-cluster/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Creating new Kubernetes clusters - Cleura Docs" name="twitter:title"/>
+<meta content="Creating a Kubernetes cluster - Cleura Docs" name="twitter:title"/>
 <meta content="None" name="twitter:description"/>
 <meta content="https://docs.cleura.cloud/assets/images/social/howto/openstack/magnum/new-k8s-cluster.png" name="twitter:image"/>
 <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -50,7 +50,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#creating-new-kubernetes-clusters">
+<a class="md-skip" href="#creating-a-kubernetes-cluster">
           Skip to content
         </a>
 </div>
@@ -74,7 +74,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Creating new Kubernetes clusters
+              Creating a Kubernetes cluster
             
           </span>
 </div>
@@ -294,11 +294,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Creating new Kubernetes clusters
+          Creating a Kubernetes cluster
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Creating new Kubernetes clusters
+        Creating a Kubernetes cluster
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -312,7 +312,7 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-kubernetes-cluster">
+<a class="md-nav__link" href="#creating-a-kubernetes-cluster_1">
     Creating a Kubernetes cluster
   </a>
 </li>
@@ -322,12 +322,17 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-the-kubernetes-cluster-with-kubectl">
-    Accessing the Kubernetes cluster with kubectl
+<a class="md-nav__link" href="#interacting-with-your-cluster">
+    Interacting with your cluster
   </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kubectl/">
+        Managing a Kubernetes cluster
+      </a>
 </li>
 </ul>
 </nav>
@@ -978,7 +983,7 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-kubernetes-cluster">
+<a class="md-nav__link" href="#creating-a-kubernetes-cluster_1">
     Creating a Kubernetes cluster
   </a>
 </li>
@@ -988,8 +993,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-the-kubernetes-cluster-with-kubectl">
-    Accessing the Kubernetes cluster with kubectl
+<a class="md-nav__link" href="#interacting-with-your-cluster">
+    Interacting with your cluster
   </a>
 </li>
 </ul>
@@ -1002,7 +1007,7 @@
 <a class="md-content__button md-icon" href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/magnum/new-k8s-cluster.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="creating-new-kubernetes-clusters">Creating new Kubernetes clusters</h1>
+<h1 id="creating-a-kubernetes-cluster">Creating a Kubernetes cluster</h1>
 <p>By employing OpenStack
 <a href="https://docs.openstack.org/magnum/latest">Magnum</a> you can create
 Kubernetes clusters via OpenStack, using the Cleura Cloud Management Panel or the OpenStack
@@ -1031,7 +1036,7 @@ via <code>pip</code>.</p>
 </div>
 </div>
 </input></input></input></div>
-<h2 id="creating-a-kubernetes-cluster">Creating a Kubernetes cluster</h2>
+<h2 id="creating-a-kubernetes-cluster_1">Creating a Kubernetes cluster</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1190,88 +1195,14 @@ command like this:</p>
 </div>
 </div>
 </input></input></div>
-<h2 id="accessing-the-kubernetes-cluster-with-kubectl">Accessing the Kubernetes cluster with kubectl</h2>
-<p>You may install the Kubernetes command line tool, <code>kubectl</code>, on your
-local computer, and run commands against your cluster. To install
-<code>kubectl</code>, use the package manager of your operating system.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Debian/Ubuntu</label><label for="__tabbed_4_2">Mac OS X with Homebrew</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>kubectl
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>kubectl
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-<p>Before running commands against a specific cluster, you must have the
-corresponding
-<a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a>
-file on your computer.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>In the left-hand side pane of the Cleura Cloud Management Panel, select <em>Magnum</em> → <em>Clusters</em>.
-Click on the cluster row to expand the details view, then click the
-<em>KubeConfig</em> tab. In a second or two, you will see the contents of the
-kubeconfig file. Click the blue <em>Download KubeConfig</em> button to download
-it locally.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../assets/shot-07.png"><img alt="Kubeconfig view" src="../assets/shot-07.png"/></a></p>
-<p>The kubeconfig file you get has a name similar to this one:</p>
-<div class="highlight"><pre><span></span><code>kubeconfig--&lt;cluster_name&gt;--&lt;region_name&gt;--&lt;alphanum_id&gt;.yaml
-</code></pre></div>
-<p>Feel free to rename it to something simpler, like <code>config</code>.</p>
-</div>
-<div class="tabbed-block">
-<p>To download the kubeconfig file for your Kubernetes cluster, type
-the following:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>config<span class="w"> </span>--dir<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="w"> </span>bangor
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-<p>After saving the kubeconfig file locally, set the value of variable
-<code>KUBECONFIG</code> to the full path of the file. Type, for example:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/config
-</code></pre></div>
-<p>If you are currently managing only one cluster, and you already have its
-kubeconfig file stored as <code>~/.kube/config</code>, then you do not need to set
-the <code>KUBECONFIG</code> variable.</p>
-<p>You may now use <code>kubectl</code> to run commands against your cluster. See, for
-instance, all cluster nodes…</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>NAME                           STATUS   ROLES    AGE    VERSION
-bangor-id6nijycp2wy-master-0   Ready    master   113m   v1.18.6
-bangor-id6nijycp2wy-node-0     Ready    &lt;none&gt;   111m   v1.18.6
-</code></pre></div>
-<p>…or all running pods in every namespace:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--all-namespaces
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>NAMESPACE     NAME                                         READY   STATUS    RESTARTS   AGE
-kube-system   coredns-786ffb7797-tw2hg                     1/1     Running   0          167m
-kube-system   coredns-786ffb7797-vbqwn                     1/1     Running   0          167m
-kube-system   csi-cinder-controllerplugin-0                5/5     Running   0          167m
-kube-system   csi-cinder-nodeplugin-4nr69                  2/2     Running   0          166m
-kube-system   csi-cinder-nodeplugin-vtwqf                  2/2     Running   0          167m
-kube-system   dashboard-metrics-scraper-6b4884c9d5-4mlrg   1/1     Running   0          167m
-kube-system   k8s-keystone-auth-wk5v2                      1/1     Running   0          167m
-kube-system   kube-dns-autoscaler-75859754fd-2wsd9         1/1     Running   0          167m
-kube-system   kube-flannel-ds-7z9dp                        1/1     Running   0          167m
-kube-system   kube-flannel-ds-dmvk6                        1/1     Running   0          166m
-kube-system   kubernetes-dashboard-c98496485-stn42         1/1     Running   0          167m
-kube-system   magnum-metrics-server-79556d6999-xdlpm       1/1     Running   0          167m
-kube-system   npd-5p6gk                                    1/1     Running   0          165m
-kube-system   openstack-cloud-controller-manager-44rz9     1/1     Running   0          167m
-</code></pre></div>
+<h2 id="interacting-with-your-cluster">Interacting with your cluster</h2>
+<p>Once your new Magnum-managed Kubernetes cluster is operational, you can <a href="../kubectl/">start interacting with it</a>.</p>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-02</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-03</span>
 <br/>
         Created:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-14</span>
