@@ -3,10 +3,16 @@ description: How to fetch, verify, and use your kubeconfig with kubectl.
 ---
 # Managing a Kubernetes cluster
 
+Once you [have launched a new cluster](create-shoot-cluster.md), you can interact with it using `kubectl` and a [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file.
+
+## Prerequisites
+
+You must install the Kubernetes command line tool, `kubectl`, on your local computer, and run commands against your cluster.
+To install `kubectl`, follow [the relevant Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
+
 ## Extracting the kubeconfig file
 
-Once you [have launched a new shoot cluster](create-shoot-cluster), you need to create a [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file to be able to access it.
-To do that, click on the cluster to expand its properties, and open *KubeConfig*.
+Click on the cluster to expand its properties, and open *KubeConfig*.
 
 ![KubeConfig tab in {{k8s_management_service}} Shoot view](assets/shoot_kubeconfig.png)
 
