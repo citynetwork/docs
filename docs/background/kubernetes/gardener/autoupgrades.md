@@ -15,6 +15,14 @@ During the upgrade, the API server may briefly be unavailable.
 Both minor and major [Garden Linux](garden-linux.md) release upgrades are allowed and performed automatically.
 Also, version jumps are allowed over minor release upgrades.
 
+Whenever there is a new machine image available, this is indicated in the {{gui}}:
+
+![New machine image indicator](assets/gard_new_img_sign.png)
+
+Before the auto-upgrade kicks in, the version of the new image is displayed in the expanded view of the cluster, in the *Worker Groups* tab.
+
+![New machine image available](assets/gard_new_img_avail.png)
+
 ## Kubernetes upgrades
 
 Due to the Kubernetes versioning scheme, which does not follow the [semantic versioning](https://en.wikipedia.org/wiki/Software_versioning#Semantic_versioning) logic, only patch-level release upgrades and jumps are performed automatically.
