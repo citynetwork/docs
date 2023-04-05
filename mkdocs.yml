@@ -25,7 +25,7 @@ extra:
     cdpa:
       name: "Data Processing Agreement"
       # yamllint disable-line rule:line-length
-      url: "https://s3-kna1.citycloud.com:8080/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/City_Network_General_Terms_And_Conditions_City_Cloud.pdf"
+      url: "https://s3-kna1.citycloud.com:8080/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/City_Network_CDPA.pdf"
     tc:
       name: "General Terms and Conditions"
       # yamllint disable-line rule:line-length
