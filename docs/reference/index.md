@@ -26,3 +26,7 @@ information about {{brand}} services.
   information for accessing Application Programming Interfaces (APIs),
   getting information, and manipulating all sorts of {{brand}}
   objects.
+
+## Legal reference
+
+* The **[Legal reference](legal/index.md)** section contains information about the terms and agreements governing {{brand}} services.
