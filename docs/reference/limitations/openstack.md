@@ -20,6 +20,17 @@ It also means that you cannot use the following `openstack` CLI commands; they a
   > You can use `openstack project list`, but this will only list the project(s) that your user account has access to.
 * `openstack domain <subcommand>`
 
+## Nova
+
+### Nested virtualization
+
+Running nested virtualization is only supported for Nova instances ([servers](../../howto/openstack/nova/new-server.md)) running Linux.
+The server must run a [Linux kernel](https://www.kernel.org/) of version 5.0 or later, and [QEMU/KVM](https://www.qemu.org/) 4.1 or later.
+
+This means that you can run nested virtualization on servers booted from a CentOS 9 (or later), Ubuntu 20.04 (or later), or Debian 11 (or later) base image.
+
+Furthermore, you must ensure that the Nova server [passes the `pcid` CPU feature flag](https://qemu-project.gitlab.io/qemu/system/qemu-cpu-models.html#important-cpu-features-for-intel-x86-hosts) to nested guests.
+
 ## Neutron
 
 ### Dynamic routing
