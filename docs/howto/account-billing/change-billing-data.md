@@ -25,6 +25,5 @@ bottom.
 You cannot change your organization number (for business accounts) or
 personal number (for individual accounts) in {{gui}}.
 
-This requires that you submit a [transfer
-form](assets/Cleura-Form-Transfer-Ownership.pdf) via our
+This requires that you submit a [legal_docs.transfer_form.name]({{legal_docs.transfer_form.url}}) via our
 [{{support}}](https://{{support_domain}}/servicedesk).
