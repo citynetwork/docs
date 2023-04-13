@@ -38,13 +38,12 @@ first](../../getting-started/enable-openstack-cli.md).
     highlighted.](assets/rescue-server/03-menu-list.png)
 
     Once selected, the rescue dialog appears.
+    Leave the default option, _Use System Rescue Image_.
 
-    Click _No_ to cancel or _Yes, Rescue_ to proceed.
+    Click _No_ to cancel or _Rescue_ to proceed.
 
-    ![About to rescue a server, showing details about the Server name,
-    UUID and region with a question to confirm the rescue with "Yes,
-    Rescue" or cancel it with
-    "No".](assets/rescue-server/04-rescue-button.png)
+    ![About to rescue a server, showing details with the default option
+    "Use System Rescue Image".](assets/rescue-server/04-rescue-button.png)
 
     When a server has been switched to rescue mode, its status icon
     appears with an exclamation mark:
