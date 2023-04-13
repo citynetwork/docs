@@ -59,24 +59,24 @@ _Openstack Users_.
 
 ![All available OpenStack users](assets/ostack-cli/shot-06.png)
 
-## Creating and downloading an RC file
+## Downloading an RC file
 
-On the {{gui}} expand the left-hand side pane, click _Users_ and
-then _Openstack Users_. You will then see, listed in the main pane
-titled _Openstack Users_, all available users. Click on the
-three-dotted round icon on the right of the user you want to create an
-RC file for. From the pop-up that appears, select _Generate RC file_.
+On the {{gui}}, expand the left-hand side vertical pane, click _Users_,
+and then _Openstack Users_. You will see, listed in the main pane, all
+available users. Click the three-dot round icon on the right of the user
+their RC file you want. From the drop-down menu that appears, select
+_Download RC-File._
 
-![Generate  RC file](assets/ostack-cli/shot-07.png)
+![Download RC file](assets/ostack-cli/shot-07.png)
 
-The RC file will be generated automatically. Before downloading it onto
-your local computer, you must select one of the available projects to
-relate the RC file to. Do so and then click the blue _Download_ button.
+Before downloading the RC file onto your local computer, you must select
+one of the available projects to relate it to. Do so and then click the
+blue _Download_ button.
 
-![Select project and download](assets/ostack-cli/shot-08.png)
+![Select project](assets/ostack-cli/shot-08.png)
 
-A "Save as" dialog window appears, specific to the operating system you
-are currently using. Select a convenient location and save your RC file.
+A _Save as_ dialog window appears. Select a convenient location and save
+your RC file.
 
 ## Modifying and sourcing the RC file
 
