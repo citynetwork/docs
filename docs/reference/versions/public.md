@@ -17,8 +17,8 @@
 
 ## Ceph Services
 
-|                               | Kna1      | Sto2             | Fra1    | Dx1     | Tky1             |
-| --------------------------    | --------- | ------           | -----   | -----   | ------           |
-| Block storage (for OpenStack) | Pacific   | Quincy           | Quincy  | Quincy  | Quincy           |
-| Object storage (Swift API)    | Pacific   | :material-close: | Quincy  | Quincy  | Quincy           |
-| Object storage (S3 API)       | Pacific   | :material-close: | Quincy  | Quincy  | Quincy           |
+|                               | Kna1   | Sto2             | Fra1   | Dx1    | Tky1   |
+| --------------------------    | ------ | ------           | -----  | -----  | ------ |
+| Block storage (for OpenStack) | Quincy | Quincy           | Quincy | Quincy | Quincy |
+| Object storage (Swift API)    | Quincy | :material-close: | Quincy | Quincy | Quincy |
+| Object storage (S3 API)       | Quincy | :material-close: | Quincy | Quincy | Quincy |
