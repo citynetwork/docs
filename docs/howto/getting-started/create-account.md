@@ -1,11 +1,13 @@
+---
+description: How to create a new Cleura Cloud account
+---
 # Creating a new account
 
-To gain access to the {{gui}}, you first
+To gain access to {{brand}}, you first
 have to create a new account. For that, navigate to
-<https://cleura.cloud>. At the bottom right-hand side of the page,
-click on the _Create account_ button.
+<https://{{gui_domain}}/register>.
 
-![Create new account](assets/01-login-page.png)
+![Type in necessary details](assets/02-type-email-country.png)
 
 Select the new account type (that would be _Company_ or _Private_),
 carefully type in a valid email address, and choose your country.
@@ -15,8 +17,6 @@ and our
 
 Agree to these documents (select _Yes_), check the _I'm not a robot_
 box, and then click on the _Create_ button.
-
-![Type in necessary details](assets/02-type-email-country.png)
 
 This will redirect you to the {{gui}}, and
 since you are logging in from a new account for the first time, you
