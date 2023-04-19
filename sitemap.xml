@@ -146,6 +146,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.cleura.cloud/howto/kubernetes/gardener/rolling-upgrades/</loc>
+         <lastmod>2023-04-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.cleura.cloud/howto/kubernetes/magnum/</loc>
          <lastmod>2023-04-19</lastmod>
          <changefreq>daily</changefreq>
