@@ -32,4 +32,5 @@ releases](https://docs.ceph.com/en/latest/releases/index.html#release-timeline)
 are also named, in alphabetical order, and occur on a roughly annual schedule.
 
 {{brand}} currently runs Ceph
-[Quincy](https://docs.ceph.com/en/latest/releases/quincy).
+[Pacific](https://docs.ceph.com/en/latest/releases/pacific/) and
+[Quincy](https://docs.ceph.com/en/latest/releases/quincy/).
