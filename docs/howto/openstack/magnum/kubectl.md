@@ -89,3 +89,31 @@ kube-system   magnum-metrics-server-79556d6999-xdlpm       1/1     Running   0  
 kube-system   npd-5p6gk                                    1/1     Running   0          165m
 kube-system   openstack-cloud-controller-manager-44rz9     1/1     Running   0          167m
 ```
+
+## Defining a default storage class
+
+An OpenStack Magnum-managed cluster does not automatically define a default [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for [dynamic volume provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/).
+You should define one immediately upon cluster creation.
+
+To do so, create a file named `storageclass.yaml` with the following content:
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: csi-sc-cinderplugin
+  annotations:
+    "storageclass.kubernetes.io/is-default-class": "true"
+provisioner: cinder.csi.openstack.org
+```
+
+You can use an alternate `name` if you prefer.
+
+Then, apply the storage class definition:
+
+```console
+$ kubectl apply -f storageclass.yaml
+storageclass.storage.k8s.io/csi-sc-cinderplugin created
+```
+
+Subsequently, any persistent volume claims will default to using this storage class, unless you choose to [override](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/#using-dynamic-provisioning) the default by setting the `spec.storageClassName` property.
