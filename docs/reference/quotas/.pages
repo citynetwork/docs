@@ -1,0 +1,4 @@
+---
+nav:
+  - "OpenStack": openstack.md
+  - "Object storage": object-storage.md

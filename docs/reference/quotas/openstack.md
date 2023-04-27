@@ -1,7 +1,7 @@
 ---
 description: Resource limits (quotas) for OpenStack resources
 ---
-# OpenStack Quotas
+# OpenStack quotas
 
 Most of the OpenStack resources you create in {{brand}} are subject to quotas.
 Once you hit a quota limit, the creation of new resources of that type will fail, until you either reduce your resource utilization or your quota is raised.
