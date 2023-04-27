@@ -45,4 +45,4 @@ openstack quota show
 
 ## Requesting a quota increase
 
-If you find that you need to deploy more resources in one project than the default quota allows, or if you need to manage more than 3 projects in your account, please file a support request with our [{{support}}](https://{{support_domain}}).
+If you find that you need to deploy more resources in one project than the default quota allows, or if you need to manage more than 3 projects in your account, please file a support request with our [{{support}}](https://{{support_domain}}/servicedesk).

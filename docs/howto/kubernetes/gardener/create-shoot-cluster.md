@@ -53,7 +53,7 @@ You should make sure that considering your selection of worker node [*flavor*](.
 For example, if your project is configured with the [default quotas](../../../reference/quotas/openstack.md), and you select the `b.4c16gb` flavor for your worker nodes, your cluster would be able to run with a maximum of 3 worker nodes (since their total memory footprint would be 3×16=48 GiB, just short of the default 50 GiB limit).
 A 4th node would push your total memory allocation to 64 GiB, violating your quota.
 
-If necessary, be sure to request a quota increase via our [{{support}}](https://{{support_domain}}).
+If necessary, be sure to request a quota increase via our [{{support}}](https://{{support_domain}}/servicedesk).
 
 ## Interacting with your cluster
 

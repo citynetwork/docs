@@ -16,7 +16,7 @@ As such, when you need to retype volumes, you should plan ahead well in advance.
 In order to retype volumes, you must use the OpenStack CLI, so make sure you [have it enabled](../../getting-started/enable-openstack-cli.md).
 
 If you are about to retype a large volume, or one that holds data associated with a critical service, you may be interested in an estimate of how long the retype operation will take.
-In that case, please file a support request with our [{{support}}](https://{{support_domain}}).
+In that case, please file a support request with our [{{support}}](https://{{support_domain}}/servicedesk).
 
 ## Checking the volume's state
 
