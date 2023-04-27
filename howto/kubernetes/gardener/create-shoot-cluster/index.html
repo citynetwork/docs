@@ -2353,6 +2353,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -2374,7 +2376,21 @@
   
     <li class="md-nav__item">
       <a href="../../../../reference/quotas/openstack/" class="md-nav__link">
-        OpenStack Quotas
+        OpenStack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/quotas/object-storage/" class="md-nav__link">
+        Object storage
       </a>
     </li>
   
@@ -2875,7 +2891,7 @@ Creating the cluster can take several minutes.</p>
 You should make sure that considering your selection of worker node <a href="../../../../reference/flavors/"><em>flavor</em></a> (which determines the number of virtual cores and virtual RAM allocated to each node), the <em>volume size</em>, and the <em>Autoscaler Max</em> value, you are not at risk of violating any quota.</p>
 <p>For example, if your project is configured with the <a href="../../../../reference/quotas/openstack/">default quotas</a>, and you select the <code>b.4c16gb</code> flavor for your worker nodes, your cluster would be able to run with a maximum of 3 worker nodes (since their total memory footprint would be 3×16=48 GiB, just short of the default 50 GiB limit).
 A 4th node would push your total memory allocation to 64 GiB, violating your quota.</p>
-<p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.citynetwork.eu">Service Center</a>.</p>
+<p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.citynetwork.eu/servicedesk">Service Center</a>.</p>
 <h2 id="interacting-with-your-cluster">Interacting with your cluster</h2>
 <p>Once your new shoot cluster is operational, you can <a href="../kubectl/">start interacting with it</a>.</p>
 
@@ -2884,7 +2900,7 @@ A 4th node would push your total memory allocation to 64 GiB, violating your qu
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-29</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-27</span>
       
         <br>
         Created:

@@ -6,31 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser.">
+        <meta name="description" content="Resource limits (quotas) for object storage">
       
       
       
-        <link rel="canonical" href="https://docs.cleura.cloud/howto/object-storage/s3/public-bucket/">
+        <link rel="canonical" href="https://docs.cleura.cloud/reference/quotas/object-storage/">
       
       
-        <link rel="prev" href="../credentials/">
+        <link rel="prev" href="../openstack/">
       
       
-        <link rel="next" href="../presign/">
+        <link rel="next" href="../../versions/">
       
-      <link rel="icon" href="../../../../assets/favicon.ico">
+      <link rel="icon" href="../../../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
-        <title>Public buckets - Cleura Docs</title>
+        <title>Object storage - Cleura Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/cleura-palette.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/cleura-palette.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -64,11 +64,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Public buckets - Cleura Docs" >
+        <meta  property="og:title"  content="Object storage - Cleura Docs" >
       
-        <meta  property="og:description"  content="You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser." >
+        <meta  property="og:description"  content="Resource limits (quotas) for object storage" >
       
-        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/public-bucket.png" >
+        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/reference/quotas/object-storage.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -76,19 +76,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://docs.cleura.cloud/howto/object-storage/s3/public-bucket/" >
+        <meta  property="og:url"  content="https://docs.cleura.cloud/reference/quotas/object-storage/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Public buckets - Cleura Docs" >
+        <meta  name="twitter:title"  content="Object storage - Cleura Docs" >
       
-        <meta  name="twitter:description"  content="You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser." >
+        <meta  name="twitter:description"  content="Resource limits (quotas) for object storage" >
       
-        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/public-bucket.png" >
+        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/reference/quotas/object-storage.png" >
       
     
     
-   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -99,7 +99,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -121,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#public-buckets" class="md-skip">
+        <a href="#object-storage-quotas" class="md-skip">
           Skip to content
         </a>
       
@@ -137,9 +137,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
-  <img src="../../../../assets/logo.png" alt="logo">
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -155,7 +155,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Public buckets
+              Object storage
             
           </span>
         </div>
@@ -260,9 +260,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
-  <img src="../../../../assets/logo.png" alt="logo">
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     Cleura Docs
@@ -290,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Start Here
       </a>
     </li>
@@ -303,16 +303,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
         
@@ -335,7 +333,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../">How-To Guides</a>
+          <a href="../../../howto/">How-To Guides</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -343,7 +341,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           How-To Guides
@@ -393,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/create-account/" class="md-nav__link">
+      <a href="../../../howto/getting-started/create-account/" class="md-nav__link">
         Creating a new account
       </a>
     </li>
@@ -407,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/enable-openstack-cli/" class="md-nav__link">
+      <a href="../../../howto/getting-started/enable-openstack-cli/" class="md-nav__link">
         Enabling the OpenStack CLI
       </a>
     </li>
@@ -421,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/accessing-cc-rest-api/" class="md-nav__link">
+      <a href="../../../howto/getting-started/accessing-cc-rest-api/" class="md-nav__link">
         Accessing the Cleura Cloud REST API
       </a>
     </li>
@@ -505,7 +503,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../openstack/barbican/">Barbican (secret storage)</a>
+          <a href="../../../howto/openstack/barbican/">Barbican (secret storage)</a>
           
             <label for="__nav_2_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -528,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/barbican/generic-secret/" class="md-nav__link">
+      <a href="../../../howto/openstack/barbican/generic-secret/" class="md-nav__link">
         Generic secret storage
       </a>
     </li>
@@ -542,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/barbican/share-secret/" class="md-nav__link">
+      <a href="../../../howto/openstack/barbican/share-secret/" class="md-nav__link">
         Sharing secrets via ACLs
       </a>
     </li>
@@ -600,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/resize-volumes/" class="md-nav__link">
+      <a href="../../../howto/openstack/cinder/resize-volumes/" class="md-nav__link">
         Resizing a volume
       </a>
     </li>
@@ -614,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/encrypted-volumes/" class="md-nav__link">
+      <a href="../../../howto/openstack/cinder/encrypted-volumes/" class="md-nav__link">
         Encrypted volumes
       </a>
     </li>
@@ -628,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/retype-volumes/" class="md-nav__link">
+      <a href="../../../howto/openstack/cinder/retype-volumes/" class="md-nav__link">
         Changing a volume's type
       </a>
     </li>
@@ -642,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/sync-volumes/" class="md-nav__link">
+      <a href="../../../howto/openstack/cinder/sync-volumes/" class="md-nav__link">
         Transferring data between volumes
       </a>
     </li>
@@ -696,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/magnum/new-k8s-cluster/" class="md-nav__link">
+      <a href="../../../howto/openstack/magnum/new-k8s-cluster/" class="md-nav__link">
         Creating a Kubernetes cluster
       </a>
     </li>
@@ -710,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/magnum/kubectl/" class="md-nav__link">
+      <a href="../../../howto/openstack/magnum/kubectl/" class="md-nav__link">
         Managing a Kubernetes cluster
       </a>
     </li>
@@ -770,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/new-network/" class="md-nav__link">
+      <a href="../../../howto/openstack/neutron/new-network/" class="md-nav__link">
         Creating new networks
       </a>
     </li>
@@ -784,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/create-security-groups/" class="md-nav__link">
+      <a href="../../../howto/openstack/neutron/create-security-groups/" class="md-nav__link">
         Creating security groups
       </a>
     </li>
@@ -798,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/multiple-public-ips/" class="md-nav__link">
+      <a href="../../../howto/openstack/neutron/multiple-public-ips/" class="md-nav__link">
         Assigning multiple public (floating) IPs to a server
       </a>
     </li>
@@ -812,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/vpnaas/" class="md-nav__link">
+      <a href="../../../howto/openstack/neutron/vpnaas/" class="md-nav__link">
         Creating a VPN connection between regions
       </a>
     </li>
@@ -826,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/delete-network/" class="md-nav__link">
+      <a href="../../../howto/openstack/neutron/delete-network/" class="md-nav__link">
         Deleting networks
       </a>
     </li>
@@ -888,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/new-server/" class="md-nav__link">
+      <a href="../../../howto/openstack/nova/new-server/" class="md-nav__link">
         Creating new servers
       </a>
     </li>
@@ -902,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/server-group/" class="md-nav__link">
+      <a href="../../../howto/openstack/nova/server-group/" class="md-nav__link">
         Using server groups
       </a>
     </li>
@@ -916,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/config-drive/" class="md-nav__link">
+      <a href="../../../howto/openstack/nova/config-drive/" class="md-nav__link">
         Launching a server with a configuration drive
       </a>
     </li>
@@ -930,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/resize-server/" class="md-nav__link">
+      <a href="../../../howto/openstack/nova/resize-server/" class="md-nav__link">
         Resizing a server
       </a>
     </li>
@@ -944,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/move-server-between-regions/" class="md-nav__link">
+      <a href="../../../howto/openstack/nova/move-server-between-regions/" class="md-nav__link">
         Moving a server from one region to another
       </a>
     </li>
@@ -958,7 +956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/rescue-server/" class="md-nav__link">
+      <a href="../../../howto/openstack/nova/rescue-server/" class="md-nav__link">
         Rescuing a server
       </a>
     </li>
@@ -1014,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/lbaas-tcp/" class="md-nav__link">
+      <a href="../../../howto/openstack/octavia/lbaas-tcp/" class="md-nav__link">
         Setting up a TCP load balancer
       </a>
     </li>
@@ -1028,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/tls-lb/" class="md-nav__link">
+      <a href="../../../howto/openstack/octavia/tls-lb/" class="md-nav__link">
         HTTPS-terminating load balancers
       </a>
     </li>
@@ -1042,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/lbaas-l7pol/" class="md-nav__link">
+      <a href="../../../howto/openstack/octavia/lbaas-l7pol/" class="md-nav__link">
         Using layer 7 redirection
       </a>
     </li>
@@ -1068,16 +1066,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
       
       
         
@@ -1092,7 +1088,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           Object storage
@@ -1103,16 +1099,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
       
       
         
@@ -1139,7 +1133,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">S3 API</a>
+          <a href="../../../howto/object-storage/s3/">S3 API</a>
           
             <label for="__nav_2_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1147,7 +1141,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4_1">
           <span class="md-nav__icon md-icon"></span>
           S3 API
@@ -1162,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../credentials/" class="md-nav__link">
+      <a href="../../../howto/object-storage/s3/credentials/" class="md-nav__link">
         Working with S3-compatible credentials
       </a>
     </li>
@@ -1174,93 +1168,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Public buckets
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../howto/object-storage/s3/public-bucket/" class="md-nav__link">
         Public buckets
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-a-public-read-policy-for-a-bucket" class="md-nav__link">
-    Setting a public read policy for a bucket
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#accessing-objects-in-a-public-bucket" class="md-nav__link">
-    Accessing objects in a public bucket
-  </a>
-  
-    <nav class="md-nav" aria-label="Accessing objects in a public bucket">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#public-bucket-accessibility-via-the-swift-api" class="md-nav__link">
-    Public bucket accessibility via the Swift API
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-bucket-listing" class="md-nav__link">
-    Enabling bucket listing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#removing-a-public-read-policy-from-a-bucket" class="md-nav__link">
-    Removing a public read policy from a bucket
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1272,7 +1184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../presign/" class="md-nav__link">
+      <a href="../../../howto/object-storage/s3/presign/" class="md-nav__link">
         Pre-signed object URLs
       </a>
     </li>
@@ -1286,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../expiry/" class="md-nav__link">
+      <a href="../../../howto/object-storage/s3/expiry/" class="md-nav__link">
         Object expiry
       </a>
     </li>
@@ -1300,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../object-lock/" class="md-nav__link">
+      <a href="../../../howto/object-storage/s3/object-lock/" class="md-nav__link">
         Object lock
       </a>
     </li>
@@ -1314,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning/" class="md-nav__link">
+      <a href="../../../howto/object-storage/s3/versioning/" class="md-nav__link">
         Object versioning
       </a>
     </li>
@@ -1328,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sse-c/" class="md-nav__link">
+      <a href="../../../howto/object-storage/s3/sse-c/" class="md-nav__link">
         Object encryption (SSE-C)
       </a>
     </li>
@@ -1377,7 +1289,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../swift/">Swift API</a>
+          <a href="../../../howto/object-storage/swift/">Swift API</a>
           
             <label for="__nav_2_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1400,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/private-container/" class="md-nav__link">
+      <a href="../../../howto/object-storage/swift/private-container/" class="md-nav__link">
         Working with a private Swift container
       </a>
     </li>
@@ -1414,7 +1326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/public-container/" class="md-nav__link">
+      <a href="../../../howto/object-storage/swift/public-container/" class="md-nav__link">
         Working with a public Swift container
       </a>
     </li>
@@ -1428,7 +1340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/tempurl/" class="md-nav__link">
+      <a href="../../../howto/object-storage/swift/tempurl/" class="md-nav__link">
         Using temporary URLs
       </a>
     </li>
@@ -1442,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/expiry/" class="md-nav__link">
+      <a href="../../../howto/object-storage/swift/expiry/" class="md-nav__link">
         Object expiry
       </a>
     </li>
@@ -1456,7 +1368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/versioning/" class="md-nav__link">
+      <a href="../../../howto/object-storage/swift/versioning/" class="md-nav__link">
         Object versioning
       </a>
     </li>
@@ -1506,7 +1418,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../kubernetes/">Kubernetes</a>
+          <a href="../../../howto/kubernetes/">Kubernetes</a>
           
             <label for="__nav_2_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1555,7 +1467,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../kubernetes/gardener/">Gardener</a>
+          <a href="../../../howto/kubernetes/gardener/">Gardener</a>
           
             <label for="__nav_2_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1578,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kubernetes/gardener/create-shoot-cluster/" class="md-nav__link">
+      <a href="../../../howto/kubernetes/gardener/create-shoot-cluster/" class="md-nav__link">
         Creating a Kubernetes cluster
       </a>
     </li>
@@ -1592,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kubernetes/gardener/kubectl/" class="md-nav__link">
+      <a href="../../../howto/kubernetes/gardener/kubectl/" class="md-nav__link">
         Managing a Kubernetes cluster
       </a>
     </li>
@@ -1606,7 +1518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kubernetes/gardener/hibernate-shoot-cluster/" class="md-nav__link">
+      <a href="../../../howto/kubernetes/gardener/hibernate-shoot-cluster/" class="md-nav__link">
         Hibernating a Kubernetes cluster
       </a>
     </li>
@@ -1620,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kubernetes/gardener/rolling-upgrades/" class="md-nav__link">
+      <a href="../../../howto/kubernetes/gardener/rolling-upgrades/" class="md-nav__link">
         Conducting rolling upgrades
       </a>
     </li>
@@ -1659,7 +1571,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../kubernetes/magnum/">Magnum</a>
+          <a href="../../../howto/kubernetes/magnum/">Magnum</a>
           
         </div>
       
@@ -1733,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../account-billing/forgot-your-password/" class="md-nav__link">
+      <a href="../../../howto/account-billing/forgot-your-password/" class="md-nav__link">
         Resetting your password or reclaiming your username
       </a>
     </li>
@@ -1747,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../account-billing/change-billing-data/" class="md-nav__link">
+      <a href="../../../howto/account-billing/change-billing-data/" class="md-nav__link">
         Changing your account billing data
       </a>
     </li>
@@ -1761,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../account-billing/change-credit-card/" class="md-nav__link">
+      <a href="../../../howto/account-billing/change-credit-card/" class="md-nav__link">
         Changing your credit card data
       </a>
     </li>
@@ -1775,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../account-billing/manage-invoices/" class="md-nav__link">
+      <a href="../../../howto/account-billing/manage-invoices/" class="md-nav__link">
         Managing invoices
       </a>
     </li>
@@ -1789,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../account-billing/rest-invoice-data/" class="md-nav__link">
+      <a href="../../../howto/account-billing/rest-invoice-data/" class="md-nav__link">
         Retrieving invoice data with the Cleura Cloud REST API
       </a>
     </li>
@@ -1803,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../account-billing/delete-account/" class="md-nav__link">
+      <a href="../../../howto/account-billing/delete-account/" class="md-nav__link">
         Deleting your account
       </a>
     </li>
@@ -1858,7 +1770,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../background/">Background</a>
+          <a href="../../../background/">Background</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1881,7 +1793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../background/gui-vs-api/" class="md-nav__link">
+      <a href="../../../background/gui-vs-api/" class="md-nav__link">
         CCMP vs. OpenStack API
       </a>
     </li>
@@ -1895,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../background/project-deletion/" class="md-nav__link">
+      <a href="../../../background/project-deletion/" class="md-nav__link">
         Deleting projects
       </a>
     </li>
@@ -1909,7 +1821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../background/object-storage/" class="md-nav__link">
+      <a href="../../../background/object-storage/" class="md-nav__link">
         Object storage
       </a>
     </li>
@@ -1943,7 +1855,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../background/kubernetes/">Kubernetes</a>
+          <a href="../../../background/kubernetes/">Kubernetes</a>
           
             <label for="__nav_3_5">
               <span class="md-nav__icon md-icon"></span>
@@ -2003,7 +1915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../background/kubernetes/gardener/autoscaling/" class="md-nav__link">
+      <a href="../../../background/kubernetes/gardener/autoscaling/" class="md-nav__link">
         Autoscaling
       </a>
     </li>
@@ -2017,7 +1929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../background/kubernetes/gardener/autoupgrades/" class="md-nav__link">
+      <a href="../../../background/kubernetes/gardener/autoupgrades/" class="md-nav__link">
         Automatic upgrades
       </a>
     </li>
@@ -2031,7 +1943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../background/kubernetes/gardener/garden-linux/" class="md-nav__link">
+      <a href="../../../background/kubernetes/gardener/garden-linux/" class="md-nav__link">
         Garden Linux
       </a>
     </li>
@@ -2045,7 +1957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../background/kubernetes/gardener/hibernation/" class="md-nav__link">
+      <a href="../../../background/kubernetes/gardener/hibernation/" class="md-nav__link">
         Hibernation
       </a>
     </li>
@@ -2079,14 +1991,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
         
@@ -2113,7 +2027,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/">Reference</a>
+          <a href="../../">Reference</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -2121,7 +2035,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Reference
@@ -2158,7 +2072,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/features/">Feature Support</a>
+          <a href="../../features/">Feature Support</a>
           
             <label for="__nav_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -2181,7 +2095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../reference/features/public/" class="md-nav__link">
+      <a href="../../features/public/" class="md-nav__link">
         Public Cloud
       </a>
     </li>
@@ -2195,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../reference/features/compliant/" class="md-nav__link">
+      <a href="../../features/compliant/" class="md-nav__link">
         Compliant Cloud
       </a>
     </li>
@@ -2240,7 +2154,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/limitations/">Limitations</a>
+          <a href="../../limitations/">Limitations</a>
           
             <label for="__nav_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -2263,7 +2177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../reference/limitations/openstack/" class="md-nav__link">
+      <a href="../../limitations/openstack/" class="md-nav__link">
         OpenStack
       </a>
     </li>
@@ -2277,7 +2191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../reference/limitations/object-storage/" class="md-nav__link">
+      <a href="../../limitations/object-storage/" class="md-nav__link">
         Object storage
       </a>
     </li>
@@ -2291,7 +2205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../reference/limitations/kubernetes/" class="md-nav__link">
+      <a href="../../limitations/kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -2330,7 +2244,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/flavors/">Flavors</a>
+          <a href="../../flavors/">Flavors</a>
           
         </div>
       
@@ -2354,14 +2268,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
       
       
         
@@ -2376,7 +2292,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_5">
           <span class="md-nav__icon md-icon"></span>
           Quotas
@@ -2389,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../reference/quotas/openstack/" class="md-nav__link">
+      <a href="../openstack/" class="md-nav__link">
         OpenStack
       </a>
     </li>
@@ -2401,11 +2317,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../reference/quotas/object-storage/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Object storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Object storage
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-a-quota-increase" class="md-nav__link">
+    Requesting a quota increase
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2446,7 +2403,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/versions/">Service Versions</a>
+          <a href="../../versions/">Service Versions</a>
           
             <label for="__nav_4_6">
               <span class="md-nav__icon md-icon"></span>
@@ -2469,7 +2426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../reference/versions/public/" class="md-nav__link">
+      <a href="../../versions/public/" class="md-nav__link">
         Public Cloud
       </a>
     </li>
@@ -2483,7 +2440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../reference/versions/compliant/" class="md-nav__link">
+      <a href="../../versions/compliant/" class="md-nav__link">
         Compliant Cloud
       </a>
     </li>
@@ -2526,7 +2483,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/api/">API Reference</a>
+          <a href="../../api/">API Reference</a>
           
             <label for="__nav_4_7">
               <span class="md-nav__icon md-icon"></span>
@@ -2567,7 +2524,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/api/cc/">Cleura Cloud REST API</a>
+          <a href="../../api/cc/">Cleura Cloud REST API</a>
           
         </div>
       
@@ -2611,7 +2568,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/api/openstack/">OpenStack API</a>
+          <a href="../../api/openstack/">OpenStack API</a>
           
         </div>
       
@@ -2662,7 +2619,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/legal/">Legal</a>
+          <a href="../../legal/">Legal</a>
           
         </div>
       
@@ -2720,7 +2677,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../contrib/">You can help!</a>
+          <a href="../../../contrib/">You can help!</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -2743,7 +2700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../contrib/issues/" class="md-nav__link">
+      <a href="../../../contrib/issues/" class="md-nav__link">
         Reporting issues
       </a>
     </li>
@@ -2757,7 +2714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../contrib/modifications/" class="md-nav__link">
+      <a href="../../../contrib/modifications/" class="md-nav__link">
         Modifying content on this site
       </a>
     </li>
@@ -2771,7 +2728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../contrib/quality/" class="md-nav__link">
+      <a href="../../../contrib/quality/" class="md-nav__link">
         Quality checks
       </a>
     </li>
@@ -2812,49 +2769,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-a-public-read-policy-for-a-bucket" class="md-nav__link">
-    Setting a public read policy for a bucket
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#accessing-objects-in-a-public-bucket" class="md-nav__link">
-    Accessing objects in a public bucket
-  </a>
-  
-    <nav class="md-nav" aria-label="Accessing objects in a public bucket">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#public-bucket-accessibility-via-the-swift-api" class="md-nav__link">
-    Public bucket accessibility via the Swift API
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-bucket-listing" class="md-nav__link">
-    Enabling bucket listing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#removing-a-public-read-policy-from-a-bucket" class="md-nav__link">
-    Removing a public read policy from a bucket
+  <a href="#requesting-a-quota-increase" class="md-nav__link">
+    Requesting a quota increase
   </a>
   
 </li>
@@ -2875,7 +2791,7 @@
                   
 
   
-    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/public-bucket.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/reference/quotas/object-storage.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2883,127 +2799,43 @@
   
 
 
-<h1 id="public-buckets">Public buckets</h1>
-<p>You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser.
-Making a bucket globally readable entails setting a <em>bucket policy</em> that enables read access on all its objects.</p>
-<blockquote>
-<p>Setting a bucket policy affects <strong>all</strong> objects in a bucket.
-To avoid inadvertent disclosure of existing information, consider setting public read policies only on empty buckets.</p>
-</blockquote>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Object versioning requires that you configure your environment with <a href="../credentials/">working S3-compatible credentials</a>.</p>
-<h2 id="setting-a-public-read-policy-for-a-bucket">Setting a public read policy for a bucket</h2>
-<p>First, create a local policy file named <code>policy.json</code>, with the following content (replace <code>&lt;bucket-name&gt;</code> with the name of your bucket):</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span>
-<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::&lt;bucket-name&gt;/*&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>To apply this policy to a bucket such that read-only access is permitted for everyone, run the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>put-bucket-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy<span class="w"> </span>file://policy.json<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>anonymous<span class="w"> </span>set-json<span class="w"> </span>policy.json<span class="w"> </span>&lt;region&gt;/&lt;bucket-name&gt;
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>setpolicy<span class="w"> </span>policy.json<span class="w"> </span>s3://&lt;bucket-name&gt;
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="accessing-objects-in-a-public-bucket">Accessing objects in a public bucket</h2>
-<p>To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like <code>curl</code>, you must construct its URI as follows:</p>
-<div class="highlight"><pre><span></span><code>https://s3-&lt;region&gt;.citycloud.com:8080/&lt;project-uuid&gt;:&lt;bucket-name&gt;/object-name
-</code></pre></div>
-<blockquote>
-<p>Your project UUID is listed as the <code>project_id</code> field in the output of the <code>openstack ec2 credentials create</code> command you used to <a href="../credentials/">create your S3-compatible credentials</a>.</p>
-<p>If you did not note it down at the time of account creation, you can always retrieve it with <code>openstack ec2 credentials &lt;access-key&gt;</code>.</p>
-</blockquote>
-<p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> from the project with the UUID <code>07576783684248f7b2745e34356c6025</code> in the Cleura Cloud Kna1 region, you would run:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-O<span class="w"> </span>https://s3-kna1.citycloud.com:8080/07576783684248f7b2745e34356c6025:foo/bar.pdf
-<span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
-<span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
-<span class="go">100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k</span>
-</code></pre></div>
-<h3 id="public-bucket-accessibility-via-the-swift-api">Public bucket accessibility via the Swift API</h3>
-<p>Once you make a bucket public via the S3 API, its objects also become accessible via <a href="../../swift/public-container/">the corresponding Swift API path</a>.</p>
-<p>Thus, the following URL paths allow you to retrieve the same public object:</p>
-<ul>
-<li><code>https://s3-kna1.citycloud.com:8080/07576783684248f7b2745e34356c6025:foo/bar.pdf</code></li>
-<li><code>https://swift-kna1.citycloud.com:8080/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf</code></li>
-</ul>
-<h2 id="enabling-bucket-listing">Enabling bucket listing</h2>
-<p>The <code>policy.json</code> file above allows anyone to retrieve known objects by name, but does not enable listing the bucket&rsquo;s contents.
-Most of the time, this is what you want.</p>
-<p>However, in case you do need unauthenticated clients to be able to list all objects in a bucket, modify your <code>policy.json</code> file as in the following example:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::&lt;bucket-name&gt;/*&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:ListBucket&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::&lt;bucket-name&gt;&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Note that for the <code>s3:GetObject</code> action, <code>/*</code> follows the bucket name, whereas for the <code>s3:ListBucket</code> action you specify <em>just</em> the bucket name with no suffix.</p>
-<p>Once you have updated your local <code>policy.json</code> file, apply it just as when you created the policy.</p>
-<p>You can then open a bucket path in your browser, to retrieve an XML document containing a list of all objects in the bucket.
-You would construct the URL by the following schema:</p>
-<div class="highlight"><pre><span></span><code>https://s3-&lt;region&gt;.citycloud.com:8080/&lt;project-uuid&gt;:&lt;bucket-name&gt;
-</code></pre></div>
-<h2 id="removing-a-public-read-policy-from-a-bucket">Removing a public read policy from a bucket</h2>
-<p>If you want to remove a previously-set public read policy from a bucket, and revert to its default policy that requires authentication on every object access, run the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label><label for="__tabbed_2_3">s3cmd</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>delete-bucket-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>anonymous<span class="w"> </span><span class="nb">set</span><span class="w"> </span>none<span class="w"> </span>&lt;region&gt;/&lt;bucket-name&gt;
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>delpolicy<span class="w"> </span>s3://&lt;bucket-name&gt;
-</code></pre></div>
-</div>
-</div>
-</div>
+<h1 id="object-storage-quotas">Object storage quotas</h1>
+<p>In Cleura Cloud, the following limits (quotas) apply to our object storage services.
+Quotas generally apply regardless of whether you are using the <a href="../../../howto/object-storage/s3/">S3</a> or the <a href="../../../howto/object-storage/swift/">Swift</a> API to access object storage.</p>
+<table>
+<thead>
+<tr>
+<th>Quota name</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objects per bucket</td>
+<td>1,638,400</td>
+<td>Maximum number of objects per bucket (S3 API) or container (Swift API)</td>
+</tr>
+<tr>
+<td>Data per bucket</td>
+<td>unlimited</td>
+<td>Aggregate amount of data (total size of all objects) per bucket or container</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requesting-a-quota-increase">Requesting a quota increase</h2>
+<p>If you find that you need to deploy more object storage data than the default quota allows, please file a support request with our <a href="https://servicecenter.citynetwork.eu/servicedesk">Service Center</a>.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-24</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-27</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-11</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-27</span>
       
     
   </small>
@@ -3061,10 +2893,10 @@ You would construct the URL by the following schema:</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
