@@ -19,9 +19,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install tox
-      - env:
-          DOCS_ENABLE_HTMLPROOFER: false
-        name: Test with tox
+      - name: Test with tox
         run: |
           tox -e gitlint
           tox
