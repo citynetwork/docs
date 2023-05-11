@@ -5,5 +5,6 @@ nav:
   - config-drive.md
   - resize-server.md
   - move-server-between-regions.md
+  - boot-image-volume.md
   - restore-srv-to-snap.md
   - rescue-server.md
