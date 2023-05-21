@@ -15,7 +15,7 @@ This section lists the cloud API service versions available in each
 
 ## OpenStack Services
 
-[OpenStack releases](https://releases.openstack.org/) are named, in
+[OpenStack releases](https://releases.openstack.org) are named, in
 alphabetical order, and occur on a six-month release schedule. In
 {{company}} Public Cloud we upgrade OpenStack releases annually; this
 means that we deploy every other OpenStack release and skip the
@@ -32,5 +32,4 @@ releases](https://docs.ceph.com/en/latest/releases/index.html#release-timeline)
 are also named, in alphabetical order, and occur on a roughly annual schedule.
 
 {{brand}} currently runs Ceph
-[Pacific](https://docs.ceph.com/en/latest/releases/pacific/) and
-[Quincy](https://docs.ceph.com/en/latest/releases/quincy/).
+[Quincy](https://docs.ceph.com/en/latest/releases/quincy).
