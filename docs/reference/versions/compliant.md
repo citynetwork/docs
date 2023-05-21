@@ -17,8 +17,8 @@
 
 ## Ceph Services
 
-|                               | Sto1HS | Sto2HS  |
-| --------------------------    | ------ | ------  |
-| Block storage (for OpenStack) | Quincy | Pacific |
-| Object storage (Swift API)    | Quincy | Pacific |
-| Object storage (S3 API)       | Quincy | Pacific |
+|                               | Sto1HS | Sto2HS |
+| --------------------------    | ------ | ------ |
+| Block storage (for OpenStack) | Quincy | Quincy |
+| Object storage (Swift API)    | Quincy | Quincy |
+| Object storage (S3 API)       | Quincy | Quincy |
