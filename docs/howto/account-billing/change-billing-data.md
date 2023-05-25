@@ -1,4 +1,4 @@
-# Changing your account billing data
+# Changing your account data
 
 You may at any time change the contact person, address, company name, and purchase order number associated with your {{brand}} account.
 
@@ -46,4 +46,67 @@ If none of the available providers is suitable for your invoicing application, s
 Finally, click the green _Send request_ button.
 
 ![Submit request for new invoicing provider](assets/swe-einv-04.png)
+
+
+## Add or remove email address
+
+At the right-hand side of the dashboard, click the user icon at the top of the page. A pane titled _Account settings_ will slide over.
+
+Click the middle one, _Contact_ and you will see which _Email Address_ you have right now. If there is only one email address, it will have all available roles activated.
+
+![A "Contact" tab with a green "Create new Email" button to complete adding new email address](assets/picture-contact.png)
+
+### Add a new email address
+
+Click on the green button _Create new Email_.
+
+![A picture with a green button "Create new Email"](assets/picture-create.png)
+
+Enter your new email address and click the green _Create_ button.
+
+![A picture with a field where you enter your new email adress](assets/picture-addemail.png)
+
+An email has been sent to you with verification code. Please enter the code to verify your email. Then click green button _Verify_.
+
+![A picture with a field where your enter your verification code](assets/picture-verify.png)
+
+The verification email will look like below and have a subject line _Please confirm your new address - Cleura Account_.
+
+![A picture showing verification email with a verification code](assets/picture-verifyemail.png)
+
+Choose which role your email address shall have and click _Back_.
+
+![A picture where you can choose one or more roles for your email address](assets/picture-emailrole.png)
+
+Now you have add one more email address and selected a role.
+
+![A picture showing your new email address and which role you selected for the email address](assets/picture-emaildone.png)
+
+### Remove an email address
+
+Click on the red _trash_ can next to the email address you wanna remove.
+
+![A picture showing a red trash can. When you click on trash can you remove your email address](assets/picture-trash-role.png)
+
+A pop up windows appears. Click on red button _Yes, Delete_.
+
+![A picture showing which email address you wanna remove](assets/picture-delete.png)
+
+Now you have removed one email address.
+
+![A picture showing which email address you still have activated](assets/picture-left.png)
+
+## Change email role
+
+Click on the _Modify_ button ![A picture showing the modify button](assets/picture-modify.png) next to the email address you wanna change role.
+
+![A picture showing where the modify button is located](assets/picture-trash-role.png)
+
+Change role by clicking one or all of _Billing, Tech or DPO_.
+
+![A picture showing which roles you can choose between](assets/picture-changerole.png)
+
+Now you have change role on your email adress
+
+![A picture showing which roles your email address have right now](assets/picture-changedone.png)
 
