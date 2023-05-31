@@ -41,7 +41,7 @@ extra:
   rest_api: "Cleura Cloud REST API"
   rest_api_domain: "rest.cleura.cloud"
   support: "Service Center"
-  support_domain: "servicecenter.citynetwork.eu"
+  support_domain: "servicecenter.cleura.cloud"
   support_email: "support@cleura.com"
 extra_css:
   - assets/stylesheets/cleura-palette.css
