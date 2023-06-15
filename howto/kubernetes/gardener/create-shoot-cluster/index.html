@@ -19,7 +19,7 @@
         <link rel="next" href="../kubectl/">
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -27,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -2939,7 +2939,7 @@ Creating the cluster can take several minutes.</p>
 You should make sure that considering your selection of worker node <a href="../../../../reference/flavors/"><em>flavor</em></a> (which determines the number of virtual cores and virtual RAM allocated to each node), the <em>volume size</em>, and the <em>Autoscaler Max</em> value, you are not at risk of violating any quota.</p>
 <p>For example, if your project is configured with the <a href="../../../../reference/quotas/openstack/">default quotas</a>, and you select the <code>b.4c16gb</code> flavor for your worker nodes, your cluster would be able to run with a maximum of 3 worker nodes (since their total memory footprint would be 3×16=48 GiB, just short of the default 50 GiB limit).
 A 4th node would push your total memory allocation to 64 GiB, violating your quota.</p>
-<p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.citynetwork.eu/servicedesk">Service Center</a>.</p>
+<p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
 <h2 id="interacting-with-your-cluster">Interacting with your cluster</h2>
 <p>Once your new shoot cluster is operational, you can <a href="../kubectl/">start interacting with it</a>.</p>
 
