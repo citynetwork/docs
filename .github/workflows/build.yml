@@ -19,6 +19,19 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install tox
+      - name: Install packages needed for troubleshooting
+        run: |
+          sudo apt-get install curl bind9-dnsutils iputils-ping iputils-tracepath mtr-tiny tcpdump
+      - name: Run troubleshooting commands
+        run: |
+          mkdir -p troubleshooting-data
+          scripts/collect-troubleshooting-data.sh | \
+            tee troubleshooting-data/collect-troubleshooting-data.sh.txt 2>&1
+      - name: Upload troubleshooting data
+        uses: actions/upload-artifact@v3
+        with:
+          name: troubleshooting-data-${{ matrix.python-version }}-${{ github.sha }}
+          path: troubleshooting-data/
       - name: Test with tox
         run: |
           tox -e gitlint
