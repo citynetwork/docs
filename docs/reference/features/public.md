@@ -12,7 +12,7 @@
 ## Virtualization
 |                                               | Kna1             | Sto2                  | Fra1             | Dx1              | Tky1             |
 | -------------                                 | ---------------- | --------------------- | ---------------- | ---------------- | ---------------- |
-| [Virtual GPU](../../flavors/#compute-tiers)   | :material-close: | :material-close:      | :material-close: | :material-close: | :material-close: |
+| [Virtual GPU](../../flavors/#compute-tiers)   | :material-check: | :material-check:      | :material-close: | :material-close: | :material-close: |
 
 
 ## Block storage
