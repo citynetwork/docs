@@ -11,8 +11,3 @@ checkextern=1
 ignore =
   .*github\.com.*/edit/.*
   .*localhost.*
-
-[output]
-# Create a CSV file containing all checked links, which can be
-# processed as a build artifact.
-fileoutput=csv
