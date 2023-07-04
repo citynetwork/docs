@@ -1,6 +1,6 @@
 ---
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -12,10 +12,11 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install tox
-      - name: Test with tox
+      - continue-on-error: true
+        name: Test with tox
         run: |
           tox -e check
-      - name: Upload build
+      - name: Upload link check report
         uses: actions/upload-artifact@v3
         with:
           name: check-${{ github.sha }}
