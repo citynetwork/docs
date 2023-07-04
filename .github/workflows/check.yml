@@ -26,6 +26,7 @@ name: 'Check links'
 # We want to run this workflow every time we build the site.
 # In addition, we want to run it once a week on a schedule.
 'on':
-  page_build: {}
+  page_build:
   schedule:
     - cron: '0 12 * * 3'
+  workflow_dispatch:
