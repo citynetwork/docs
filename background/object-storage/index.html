@@ -2922,7 +2922,7 @@ This also means that the object&rsquo;s <em>container</em> (accessed via the Swi
 <p>For example, if you <a href="../../howto/object-storage/swift/public-container/">make a container public</a> via the Swift API, it also becomes a <a href="../../howto/object-storage/s3/public-bucket/">public bucket</a> that is accessible via an S3 API path.
 You cannot simultaneously retain mandatory private (authenticated) access to the corresponding bucket via the S3 API.</p>
 <p>Object storage in Cleura Cloud also does <em>not</em> allow you to make competing feature settings on containers/buckets, based on the API used to access them.
-For example, it is not possible to create <a href="../../howto/object-storage/swift/versioning/">a Swift container that enables versioning</a>, while disabling <a href="../howto/object-storage/s3/versioning/">bucket versioning</a> on the corresponding S3 bucket.</p>
+For example, it is not possible to create <a href="../../howto/object-storage/swift/versioning/">a Swift container that enables versioning</a>, while disabling <a href="../../howto/object-storage/s3/versioning/">bucket versioning</a> on the corresponding S3 bucket.</p>
 <p>Sometimes, this creates unavoidable conflicts if a specific feature is only available in one of the supported APIs.
 For example, if you <a href="../../howto/object-storage/s3/public-bucket/">set a public read policy</a> on an S3 bucket, the corresponding Swift container will still show an empty Read ACL, making the Swift container <em>look</em> like it is private, even though its objects are accessible through simple public URLs.
 This is because Swift has no concept of fine-grained bucket policies, as they exist in S3.</p>
@@ -2932,7 +2932,7 @@ This is because Swift has no concept of fine-grained bucket policies, as they ex
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-13</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-04</span>
       
         <br>
         Created:
