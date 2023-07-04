@@ -52,7 +52,7 @@ For example, if you [make a container public](../howto/object-storage/swift/publ
 You cannot simultaneously retain mandatory private (authenticated) access to the corresponding bucket via the S3 API.
 
 Object storage in {{brand}} also does *not* allow you to make competing feature settings on containers/buckets, based on the API used to access them.
-For example, it is not possible to create [a Swift container that enables versioning](../howto/object-storage/swift/versioning.md), while disabling [bucket versioning](../howto/object-storage/s3/versioning/) on the corresponding S3 bucket.
+For example, it is not possible to create [a Swift container that enables versioning](../howto/object-storage/swift/versioning.md), while disabling [bucket versioning](../howto/object-storage/s3/versioning.md) on the corresponding S3 bucket.
 
 Sometimes, this creates unavoidable conflicts if a specific feature is only available in one of the supported APIs.
 For example, if you [set a public read policy](../howto/object-storage/s3/public-bucket.md) on an S3 bucket, the corresponding Swift container will still show an empty Read ACL, making the Swift container *look* like it is private, even though its objects are accessible through simple public URLs.

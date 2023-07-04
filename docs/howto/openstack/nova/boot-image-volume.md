@@ -4,7 +4,7 @@ description: How to modernize old boot-from-image servers
 # Converting a boot-from-image server to boot-from-volume
 
 You can freely move any server [between {{brand}}
-regions](move-server-between-regions), provided it boots from a volume
+regions](move-server-between-regions.md), provided it boots from a volume
 (which we generally recommend, since it affords more flexibility than
 booting from an image). You may still have boot-from-image servers,
 though. To verify that a particular server is of that type, you can go
@@ -348,7 +348,7 @@ the OpenStack CLI.
     The most important parameter in the command above is `--volume`, which
     is used to specify the boot volume of the server. Regarding server
     creation in general, you might want to [check the corresponding
-    guide](new-server).
+    guide](new-server.md).
 
 ## Viewing the new server
 
