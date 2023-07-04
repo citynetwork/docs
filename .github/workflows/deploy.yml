@@ -14,9 +14,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install tox
-      - env:
-          DOCS_ENABLE_HTMLPROOFER: false
-        name: Deploy to gh-pages
+      - name: Deploy to gh-pages
         run: tox -e deploy-github
 
 name: Deploy

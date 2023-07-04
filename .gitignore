@@ -3,3 +3,4 @@
 site/
 .cache/
 .tox/
+linkchecker-out.csv

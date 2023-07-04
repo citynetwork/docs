@@ -69,11 +69,6 @@ plugins:
       timezone: Etc/UTC
       type: iso_date
   - glightbox
-  - htmlproofer:
-      # yamllint disable-line rule:truthy
-      enabled: !ENV [DOCS_ENABLE_HTMLPROOFER, True]
-      raise_error: true
-      validate_external_urls: true
   - macros:
       # yamllint disable-line rule:truthy
       on_error_fail: !ENV [DOCS_FAIL_ON_MACRO_ERROR, True]

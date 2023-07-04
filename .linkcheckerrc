@@ -1,0 +1,18 @@
+[checking]
+recursionlevel=2
+
+[filtering]
+# Check external links (i.e. ones not within the domain given as a
+# command-line argument).
+checkextern=1
+
+# Ignore the GitHub "Edit this page" links, and the pointers to
+# localhost in the contribution guide.
+ignore =
+  .*github\.com.*/edit/.*
+  .*localhost.*
+
+[output]
+# Create a CSV file containing all checked links, which can be
+# processed as a build artifact.
+fileoutput=csv

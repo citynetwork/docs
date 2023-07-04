@@ -1,4 +1,3 @@
 #!/bin/bash
 
-export DOCS_ENABLE_HTMLPROOFER=true
 exec tox
