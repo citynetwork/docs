@@ -14,7 +14,7 @@ jobs:
           pip install tox
       - name: Test with tox
         run: |
-          tox -e check
+          tox -e check-prod
 
 name: 'Check links'
 
