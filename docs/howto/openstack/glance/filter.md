@@ -15,10 +15,11 @@ You can use either the `openstack` command-line interface (CLI), or the {{gui}},
     ## On the Images tab
 
     You can also see the full list of images in the *Images → Public Images* menu item.
-    However, you can only filter by the image name on this page.
-    No other filtering or sorting is available at the moment.
+    On this page you can filter images based on their name, UUID or even tags.
 
     ![A public images panel that uses filtering of images by name to show all Rocky images in all regions.](assets/image-rocky-list-public-images.png)
+    ![A public images panel that uses filtering of images by os_version tag to show all images of version 9 in all regions.](assets/image-os_version-9-list-public-images.png)
+
 === "OpenStack CLI"
 
     Using the `openstack image list` command, the CLI gives you several ways of filtering images.
