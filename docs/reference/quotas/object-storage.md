@@ -10,6 +10,7 @@ Quotas generally apply regardless of whether you are using the [S3](../../howto/
 | -------------      | --------- | ---------------------                                                                                                                     |
 | Objects per bucket | 1,638,400 | Maximum number of objects per bucket (S3 API) or container (Swift API)                                                                    |
 | Data per bucket    | unlimited | Aggregate amount of data (total size of all objects) per bucket or container                                                              |
+> Currently this quota limit applies just to KNA1 region object storage service.
 
 ## Requesting a quota increase
 
