@@ -50,3 +50,20 @@ All public images available in {{brand}} support the following image properties:
 
 [Other properties](https://docs.openstack.org/glance/latest/admin/useful-image-properties.html) may also be set on individual images.
 In particular, {{brand}} aims to set image properties according to the [metadata standard](https://docs.scs.community/standards/scs-0102-v1-image-metadata/) defined by the [Sovereign Cloud Stack](https://scs.community/) (SCS) initiative.
+
+## Community images
+
+At {{brand}}, we regularly update and rotate our images to always provide
+secure public images.
+
+During rotation, we change an image's visibility from `public` to `community`,
+while keeping its image name. This enables tools like
+[Heat](https://docs.openstack.org/heat/) or [Terraform](https://www.terraform.io/)
+to pass validation checks without attempting to alter environments.
+
+You can retrieve an image's original build date (for images with both
+`public` and `community` visibility) by checking its `build_date` tag or
+`image_build_date` property.
+
+> Usage of community images is not recommended and is always upon
+> full responsibility of the user.
