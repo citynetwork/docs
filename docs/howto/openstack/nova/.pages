@@ -1,6 +1,7 @@
 title: Nova (compute service)
 nav:
   - new-server.md
+  - new-vgpu-server.md
   - server-group.md
   - config-drive.md
   - resize-server.md
