@@ -11,7 +11,7 @@ the default rules for their group and add new rule sets."_
 Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into
 your {{brand}} account. On the other hand, if you prefer to work with
 the OpenStack CLI, please do not forget
-to [source the RC file first](/howto/getting-started/enable-openstack-cli).
+to [source the RC file first](../../getting-started/enable-openstack-cli.md).
 
 === "{{gui}}"
     To create a security group click on _Security Groups_ in the left-hand
@@ -72,7 +72,7 @@ destination (egress) is allowed by default.
 
 > For accounts created before 2022-11-16, the default security
 > group ingress rules allow all incoming traffic.
-> See [Adjust permissive default security group](/howto/openstack/neutron/create-security-groups/#adjust-permissive-default-security-group),
+> See [Adjust permissive default security group](#adjust-permissive-default-security-group),
 > to learn how to configure this security group according to
 > our recommendations.
 

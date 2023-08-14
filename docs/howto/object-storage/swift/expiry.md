@@ -7,7 +7,7 @@ be deleted, after they have passed an expiry threshold.
 ## Prerequisites
 
 In order to manage object expiry, be sure that you have [installed and
-configured](../) the `swift` command-line interface (CLI). There is
+configured](index.md) the `swift` command-line interface (CLI). There is
 presently no way to set object expiry with the `openstack` CLI.
 
 

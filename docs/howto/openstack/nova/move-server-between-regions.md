@@ -20,7 +20,7 @@ In order to move a server from one region to another, you will need
 ## Finding a volume's ID
 
 To work with the OpenStack CLI, please do not forget to [source the RC
-file first](/howto/getting-started/enable-openstack-cli/).
+file first](../../getting-started/enable-openstack-cli.md).
 
 Use the ID of the server instead of using the server name. This will
 make sure that you are using the correct server.
@@ -345,7 +345,7 @@ openstack volume create --size <GB> --image <new_image_id> <new_volume_name>
 ## Creating a server from a volume
 
 Now you need to create the new server using the system volume. To
-create a new server, follow [this guide](../new-server/).
+create a new server, follow [this guide](new-server.md).
 
 === "{{gui}}"
     If you use the {{gui}}, when choosing a _boot source,_ select

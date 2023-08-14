@@ -4,7 +4,7 @@ description: How to restore a server to a particular snapshot
 # Restoring server to a snapshot
 
 Servers in {{brand}} that have the [disaster
-recovery](/background/disaster-recovery) feature enabled can go back in
+recovery](../../../background/disaster-recovery.md) feature enabled can go back in
 time, meaning you may restore such a server to one of the available
 point-in-time snapshots. Here is how you can do that.
 

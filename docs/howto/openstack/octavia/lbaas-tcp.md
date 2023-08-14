@@ -12,9 +12,9 @@ work using either the {{gui}} or the OpenStack CLI.
 ## Prerequisites
 
 Whether you choose the {{gui}} or the OpenStack CLI, you need to [have
-an account](/howto/getting-started/create-account) in {{brand}}.
+an account](../../getting-started/create-account.md) in {{brand}}.
 Additionally, to use the OpenStack CLI, make sure to [enable
-it](/howto/getting-started/enable-openstack-cli) for the region you
+it](../../getting-started/enable-openstack-cli.md) for the region you
 will be working in. Besides the Python `openstackclient` module, you
 will also have to install the Python `octaviaclient` module. For that,
 use either the package manager of your operating system or `pip`:

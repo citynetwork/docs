@@ -10,6 +10,6 @@ documentation](https://docs.openstack.org/magnum/latest/user/#clustertemplate).
 
 Once you have chosen your Cluster Template, you move on to [create a
 cluster based on that
-template](/howto/openstack/magnum/new-k8s-cluster).  When you create
+template](../../openstack/magnum/new-k8s-cluster.md).  When you create
 the cluster, you can define the number of nodes in your cluster, ask
 for multiple master nodes with a load balancer in front, etc.

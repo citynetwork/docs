@@ -3,7 +3,7 @@ description: What is the Disaster Recovery feature and why you want it
 ---
 # Disaster recovery
 
-When you [create a new server](../../howto/openstack/nova/new-server) in
+When you [create a new server](../howto/openstack/nova/new-server.md) in
 {{brand}} you will notice an option named **Disaster recovery**, which
 is enabled by default.
 
@@ -24,7 +24,7 @@ background, and why you should consider enabling it.
 The *Disaster Recovery* (DR) feature is available via the {{gui}} and
 applies to servers and volumes that use our [Ceph](https://ceph.io/en/)
 backend. That would be **all** servers but the ones of the `s`
-[flavor](../../reference/flavors/#compute-tiers).
+[flavor](../reference/flavors/index.md#compute-tiers).
 
 ## How it works
 
@@ -45,7 +45,7 @@ Provided snapshots are available, you can restore a server or a single
 volume to any of those snapshots. For instance, you may discover that
 due to faulty application logic or simply a bug, you are now
 experiencing data corruption. Then, one of your options would be to [go
-back in time](/howto/openstack/nova/restore-srv-to-snap) by restoring
+back in time](../howto/openstack/nova/restore-srv-to-snap.md) by restoring
 one of the available snapshots and keep going from there.
 
 ## Restoration time

@@ -7,7 +7,7 @@ In {{brand}}, you can use server groups to control the scheduling of a group of 
 
 ## Prerequisites
 
-In order to use server groups you must use the OpenStack CLI. Make sure you have [enabled it](/howto/getting-started/enable-openstack-cli).
+In order to use server groups you must use the OpenStack CLI. Make sure you have [enabled it](../../getting-started/enable-openstack-cli.md).
 
 ## Policies
 

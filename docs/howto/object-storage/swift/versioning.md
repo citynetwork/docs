@@ -6,7 +6,7 @@ of an object, rather than overwriting it in place.
 ## Prerequisites
 
 In order to manage object versioning, be sure that you have [installed
-and configured](../) the `swift` command-line interface (CLI). There
+and configured](index.md) the `swift` command-line interface (CLI). There
 is presently no way to set object expiry with the `openstack` CLI.
 
 Also, ensure that you have configured a [private

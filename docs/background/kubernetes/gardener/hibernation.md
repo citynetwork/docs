@@ -69,4 +69,4 @@ Last but not least, the act of waking a cluster up may temporarily fail,
 because while the cluster was hibernating, the tenant came close to its
 volume, RAM, CPU, etc. quota, and attempting to re-instantiate the
 worker nodes and re-activate the cluster would breach the [quota
-limit](/../../../reference/quotas/openstack).
+limit](../../../reference/quotas/openstack.md).

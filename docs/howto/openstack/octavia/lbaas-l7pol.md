@@ -34,7 +34,7 @@ policy, and set of rules to an existing HTTPS-terminated load balancer.
 
 The {{gui}} does not support defining L7 policies and rules, so you
 will have to work with the OpenStack CLI. [Enable
-it](/howto/getting-started/enable-openstack-cli) for the region you
+it](../../getting-started/enable-openstack-cli.md) for the region you
 will be working in, and make sure you have the Python `octaviaclient`
 module installed. For that, use either the package manager of your
 operating system or `pip`:

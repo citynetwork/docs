@@ -14,7 +14,7 @@
 
 |                                               | Sto1HS                | Sto2HS                |
 | -------------                                 | ----------------      | --------------------- |
-| [Virtual GPU](../../flavors/#compute-tiers)   | :material-timer-sand: | :material-timer-sand: |
+| [Virtual GPU](../flavors/index.md#compute-tiers)   | :material-timer-sand: | :material-timer-sand: |
 
 
 ## Block storage
@@ -22,8 +22,8 @@
 |                                                                 | Sto1HS           | Sto2HS           |
 | ------------------------------                                  | ---------------- | ---------------- |
 | Highly available storage                                        | :material-check: | :material-check: |
-| [High-performance local storage](../../flavors/#compute-tiers)  | :material-close: | :material-close: |
-| [Volume encryption](/howto/openstack/cinder/encrypted-volumes/) | :material-check: | :material-check: |
+| [High-performance local storage](../flavors/index.md#compute-tiers)  | :material-close: | :material-close: |
+| [Volume encryption](../../howto/openstack/cinder/encrypted-volumes.md) | :material-check: | :material-check: |
 
 
 ## Object storage
@@ -31,8 +31,8 @@
 |                                                         | Sto1HS           | Sto2HS           |
 | ------------------------------                          | ---------------- | ---------------- |
 | S3 API                                                  | :material-check: | :material-check: |
-| S3 [SSE-C](/howto/object-storage/s3/sse-c/)             | :material-check: | :material-check: |
-| S3 [object lock](/howto/object-storage/s3/object-lock/) | :material-check: | :material-check: |
+| S3 [SSE-C](../../howto/object-storage/s3/sse-c.md)             | :material-check: | :material-check: |
+| S3 [object lock](../../howto/object-storage/s3/object-lock.md) | :material-check: | :material-check: |
 | Swift API                                               | :material-check: | :material-check: |
 
 
@@ -51,4 +51,4 @@
 | --------------------------------------------------------------------                                        | ---------------- | ---------------- |
 | Transport layer (TCP/UDP)                                                                                   | :material-check: | :material-check: |
 | Application layer (HTTP)                                                                                    | :material-check: | :material-check: |
-| Application layer ([HTTPS, with secrets management for TLS certificates](/howto/openstack/octavia/tls-lb/)) | :material-check: | :material-check: |
+| Application layer ([HTTPS, with secrets management for TLS certificates](../../howto/openstack/octavia/tls-lb.md)) | :material-check: | :material-check: |

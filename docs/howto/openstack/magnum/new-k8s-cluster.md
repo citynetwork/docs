@@ -8,9 +8,9 @@ CLI.
 ## Prerequisites
 
 First and foremost, you need an [account in
-{{brand}}](/howto/getting-started/create-account). Should you choose to
+{{brand}}](../../getting-started/create-account.md). Should you choose to
 work from your terminal, you will also need to [enable the OpenStack
-CLI](/howto/getting-started/enable-openstack-cli). In that case, in
+CLI](../../getting-started/enable-openstack-cli.md). In that case, in
 addition to the Python `openstackclient` module, make sure you also
 install the corresponding plugin module for Magnum. Use either the
 package manager of your operating system or `pip`:

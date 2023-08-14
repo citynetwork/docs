@@ -10,9 +10,9 @@ CLI. Let us demonstrate the process following both approaches.
 ## Prerequisites
 
 Whether you choose to work from the {{gui}} or with the OpenStack CLI,
-you need to [have an account](/howto/getting-started/create-account) in
+you need to [have an account](../../getting-started/create-account.md) in
 {{brand}}. If you prefer to work with the [OpenStack
-CLI](/howto/getting-started/enable-openstack-cli), then in addition to
+CLI](../../getting-started/enable-openstack-cli.md), then in addition to
 the Python `openstackclient` module, you need to install the
 Python `neutronclient` module also. Use either the package manager
 of your operating system or `pip`:
@@ -36,7 +36,7 @@ your favorite web browser, navigate to the
 [{{gui}}](https://{{gui_domain}}) start page, and log into your
 {{brand}} account. Should you decide to follow the OpenStack CLI route
 instead, please make sure you have the appropriate [RC
-file](/howto/getting-started/enable-openstack-cli) for each region
+file](../../getting-started/enable-openstack-cli.md) for each region
 involved.
 
 === "{{gui}}"

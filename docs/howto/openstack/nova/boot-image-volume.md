@@ -28,7 +28,7 @@ the OpenStack CLI.
     account if you have to.
 === "OpenStack CLI"
     To work with the OpenStack CLI, make sure to properly [enable
-    it](/howto/getting-started/enable-openstack-cli) for the region your
+    it](../../getting-started/enable-openstack-cli.md) for the region your
     boot-from-image server resides in.
 
 ## Shutting down the server
@@ -316,7 +316,7 @@ the OpenStack CLI.
     ![Choosing a flavor](assets/bfi-to-bfv/shot12.png)
 
     Consider leaving the [*Disaster
-    recovery*](/background/disaster-recovery) option enabled, and see if you
+    recovery*](../../../background/disaster-recovery.md) option enabled, and see if you
     want an external IP address for the server.
 
     ![Enabling disaster recovery and asking for external IP](assets/bfi-to-bfv/shot13.png)

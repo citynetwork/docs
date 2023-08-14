@@ -6,7 +6,7 @@ description: You can use the Swift API to configure a container with public read
 ## Prerequisites
 
 In order to create a Swift container, be sure that you have
-[installed and configured](../) the required command-line interface
+[installed and configured](index.md) the required command-line interface
 (CLI) tools.
 
 

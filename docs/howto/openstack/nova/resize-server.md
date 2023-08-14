@@ -3,7 +3,7 @@
 This guide will walk you through the required steps to change the
 number of CPU cores and the amount of memory your server has access
 to, this is done by changing the server's
-[flavor](/reference/flavors/).
+[flavor](../../../reference/flavors/index.md).
 
 [Resize](https://docs.openstack.org/nova/latest/admin/configuration/resize.html)
 (or Server resize) is the ability to change the flavor of a server,
@@ -18,7 +18,7 @@ resize operation is a two-step process for the user:
 
 You need to have a server you wish to resize. Additionally, if you
 prefer to work with the OpenStack CLI, then make sure to properly
-[enable it first](/howto/getting-started/enable-openstack-cli/).
+[enable it first](../../getting-started/enable-openstack-cli.md).
 
 ## Listing available flavors
 
@@ -74,7 +74,7 @@ prefer to work with the OpenStack CLI, then make sure to properly
 
 Choose a new flavor that you want your server to use instead.
 
-> A resize is only possible with [flavors](/reference/flavors) using
+> A resize is only possible with [flavors](../../../reference/flavors/index.md) using
 > the same prefix letter. Most commonly you will have a `b.` flavor,
 > thus you must select another `b.` flavor.
 

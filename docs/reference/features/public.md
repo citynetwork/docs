@@ -12,23 +12,23 @@
 ## Virtualization
 |                                               | Kna1             | Sto2                  | Fra1             | Dx1              | Tky1             |
 | -------------                                 | ---------------- | --------------------- | ---------------- | ---------------- | ---------------- |
-| [Virtual GPU](../../flavors/#compute-tiers)   | :material-check: | :material-check:      | :material-close: | :material-close: | :material-close: |
+| [Virtual GPU](../flavors/index.md#compute-tiers)   | :material-check: | :material-check:      | :material-close: | :material-close: | :material-close: |
 
 
 ## Block storage
 |                                                                 | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
 | ------------------------------                                  | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | Highly available storage                                        | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
-| [High-performance local storage](../../flavors/#compute-tiers)  | :material-check: | :material-check: | :material-check: | :material-close: | :material-close: |
-| [Volume encryption](/howto/openstack/cinder/encrypted-volumes/) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
+| [High-performance local storage](../flavors/index.md#compute-tiers)  | :material-check: | :material-check: | :material-check: | :material-close: | :material-close: |
+| [Volume encryption](../../howto/openstack/cinder/encrypted-volumes.md) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
 
 
 ## Object storage
 |                                                         | Kna1             | Sto2             | Fra1             | Dx1              | Tky1             |
 | ------------------------------                          | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | S3 API                                                  | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
-| S3 [SSE-C](/howto/object-storage/s3/sse-c/)             | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
-| S3 [object lock](/howto/object-storage/s3/object-lock/) | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
+| S3 [SSE-C](../../howto/object-storage/s3/sse-c.md)             | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
+| S3 [object lock](../../howto/object-storage/s3/object-lock.md) | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
 | Swift API                                               | :material-check: | :material-close: | :material-check: | :material-check: | :material-check: |
 
 
@@ -45,7 +45,7 @@
 | --------------------------------------------------------------------                                        | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | Transport layer (TCP/UDP)                                                                                   | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
 | Application layer (HTTP)                                                                                    | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
-| Application layer ([HTTPS, with secrets management for TLS certificates](/howto/openstack/octavia/tls-lb/)) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
+| Application layer ([HTTPS, with secrets management for TLS certificates](../../howto/openstack/octavia/tls-lb.md)) | :material-check: | :material-check: | :material-check: | :material-check: | :material-check: |
 
 
 ## Kubernetes management

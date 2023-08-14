@@ -3,7 +3,7 @@
 {{brand}} provides a REST API, which you can take advantage of with a
 tool like `curl`. But before you do, you must create a token for the
 current session. For that, you only need to have an
-[account in {{brand}}](/howto/getting-started/create-account).
+[account in {{brand}}](create-account.md).
 
 ## Creating a token
 

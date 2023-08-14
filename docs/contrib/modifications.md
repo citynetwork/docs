@@ -82,7 +82,7 @@ git add <files-to-add>
 git commit
 ```
 
-Please see our [notes on commit messages](../quality).
+Please see our [notes on commit messages](quality.md).
 
 Finally, create a pull request (PR) from your changes:
 

@@ -90,7 +90,7 @@ NAME                                                STATUS   ROLES    AGE    VER
 shoot--p40698--test-cluster-czg4zf-z1-5d7b5-bfl7p   Ready    <none>   156m   v1.24.3
 ```
 
-> Please note that in contrast to an [OpenStack Magnum-managed Kubernetes cluster](../../../openstack/magnum/new-k8s-cluster) (where the output of `kubectl get nodes` includes control plane and worker nodes), in a {{k8s_management_service}} cluster the same command *only* lists the worker nodes.
+> Please note that in contrast to an [OpenStack Magnum-managed Kubernetes cluster](../../openstack/magnum/new-k8s-cluster.md) (where the output of `kubectl get nodes` includes control plane and worker nodes), in a {{k8s_management_service}} cluster the same command *only* lists the worker nodes.
 
 ## Deploying an application
 

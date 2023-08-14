@@ -13,7 +13,7 @@ cluster again), you will be paying *less* for the cluster.
 We assume you have already used {{k8s_management_service}} in {{brand}} to spin up a
 Kubernetes cluster, which is now humming away. If you've never done
 this before, please feel free to [follow this
-guide](../create-shoot-cluster).
+guide](create-shoot-cluster.md).
 
 ## Hibernating a cluster
 

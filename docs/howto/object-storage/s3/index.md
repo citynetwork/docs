@@ -9,7 +9,7 @@ standard `aws` CLI.
 
 Either way, [in addition to installing and configuring the Python
 `openstackclient`
-module](../../getting-started/enable-openstack-cli/), you need to
+module](../../getting-started/enable-openstack-cli.md), you need to
 install one of the aforementioned utilities.
 
 === "Debian/Ubuntu"
@@ -28,5 +28,5 @@ install one of the aforementioned utilities.
 ## Availability
 
 The S3 API is available in select {{brand}} regions. Refer to [the
-feature support matrix](/reference/features/) for details on S3 API
+feature support matrix](../../../reference/features/index.md) for details on S3 API
 availability.

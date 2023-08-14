@@ -7,7 +7,7 @@ By default, Kubernetes clusters created with {{k8s_management_service}}
 in {{brand}} are upgraded automatically. Those upgrades take place
 during a specified maintenance window, and you may find out more about
 [what they involve and how they
-work](../../../../background/kubernetes/gardener/autoupgrades). Besides
+work](../../../background/kubernetes/gardener/autoupgrades.md). Besides
 the automatic upgrades, you can manually apply any upgrades available
 for your cluster.
 

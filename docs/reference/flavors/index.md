@@ -36,9 +36,9 @@ general-purpose compute instance with 4 cores and 32 GiB RAM.
   storage. This makes them flexible to migrate within the
   {{brand}} infrastructure, without interruption.
   Some
-  [limitations](../../howto/openstack/cinder/encrypted-volumes/#block-device-encryption-caveats)
+  [limitations](../../howto/openstack/cinder/encrypted-volumes.md#block-device-encryption-caveats)
   apply to instances with attached [encrypted
-  volumes](../../howto/openstack/cinder/encrypted-volumes/).
+  volumes](../../howto/openstack/cinder/encrypted-volumes.md).
 * `s`: High-performance local storage. Instances
   launched with matching flavors use local, directly-attached
   storage. This generally provides higher throughput and lower

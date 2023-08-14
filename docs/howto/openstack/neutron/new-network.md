@@ -8,9 +8,9 @@ a new network using the {{gui}}, or using the OpenStack CLI.
 ## Prerequisites
 
 Whether you choose to work from the {{gui}} or with the OpenStack CLI,
-you need to [have an account](/howto/getting-started/create-account)
+you need to [have an account](../../getting-started/create-account.md)
 in {{brand}}. Additionally, to use the OpenStack CLI make sure to
-[enable it first](/howto/getting-started/enable-openstack-cli).
+[enable it first](../../getting-started/enable-openstack-cli.md).
 
 ## Creating a network
 

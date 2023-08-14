@@ -9,9 +9,9 @@ either the {{gui}} or the OpenStack CLI.
 ## Prerequisites
 
 Whether you choose to work from the {{gui}} or with the OpenStack CLI,
-you need to [have an account](/howto/getting-started/create-account) in
+you need to [have an account](../../getting-started/create-account.md) in
 {{brand}}. Additionally, to use the OpenStack CLI, make sure to [enable
-it](/howto/getting-started/enable-openstack-cli) for the region you
+it](../../getting-started/enable-openstack-cli.md) for the region you
 will be working in.
 
 ## Selecting a network

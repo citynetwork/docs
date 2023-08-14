@@ -1,7 +1,7 @@
 # Creating new servers
 
 Once you have an [account in
-{{brand}}](/howto/getting-started/create-account), you can create
+{{brand}}](../../getting-started/create-account.md), you can create
 virtual machines --- henceforth simply _servers_ --- using either the
 {{gui}} or the OpenStack CLI. Let us demonstrate the creation of a new
 server, following both approaches.
@@ -9,10 +9,10 @@ server, following both approaches.
 ## Prerequisites
 
 You need to [have at least one
-network](/howto/openstack/neutron/new-network) in the region you are
+network](../neutron/new-network.md) in the region you are
 interested in. Additionally, if you prefer to work with the OpenStack
 CLI, then make sure to properly [enable it
-first](/howto/getting-started/enable-openstack-cli).
+first](../../getting-started/enable-openstack-cli.md).
 
 ## Creating a server
 
@@ -20,7 +20,7 @@ To create a server from the {{gui}}, fire up your favorite web
 browser, navigate to the [{{gui}}](https://{{gui_domain}}) start page,
 and log into your {{brand}} account. On the other hand, if you prefer
 to work with the OpenStack CLI, please do not forget to [source the RC
-file first](/howto/getting-started/enable-openstack-cli).
+file first](../../getting-started/enable-openstack-cli.md).
 
 === "{{gui}}"
     On the top right-hand side of the {{gui}}, click the
@@ -48,7 +48,7 @@ file first](/howto/getting-started/enable-openstack-cli).
 
     Next, make sure _Boot Target_ is set to _Volume (Recommended)_.
     Regarding the server's CPU core count and amount of memory, set the
-    [_Flavor_](/reference/flavors) accordingly.
+    [_Flavor_](../../../reference/flavors/index.md) accordingly.
     The default flavor specifies a server with 1 CPU core and 1GB of RAM.
     You can start with that or select a different configuration by clicking
     the dropdown menu at the right of _Flavor_. Please note that, depending on
@@ -129,7 +129,7 @@ file first](/howto/getting-started/enable-openstack-cli).
     for or, in the cases of `KEY_NAME` and `SERVER_NAME`, arbitrarily
     define.
 
-    Let us begin with the [_flavors_](/reference/flavors) (`FLAVOR_NAME`), which
+    Let us begin with the [_flavors_](../../../reference/flavors/index.md) (`FLAVOR_NAME`), which
     describe combinations of CPU core count and memory size. Each server has a
     distinct flavor, and to see all available flavors type:
 

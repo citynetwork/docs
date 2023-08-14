@@ -5,7 +5,7 @@ simply be improved? There are multiple ways for you to help make this
 site better, and we welcome all of them.
 
 You can make modifications and contributions [using
-Git](modifications), and we apply certain [checks](quality) to ensure
+Git](modifications.md), and we apply certain [checks](quality.md) to ensure
 consistent documentation quality.
 
 ## Technical Writing Resources

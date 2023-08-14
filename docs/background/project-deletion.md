@@ -31,6 +31,6 @@ required, and those are **not** available for {{brand}} users.
 
 If you wish to disable a project, you can do so via the {{rest_api}}.
 Make sure
-[you have access](/howto/getting-started/accessing-cc-rest-api)
+[you have access](../howto/getting-started/accessing-cc-rest-api.md)
 to it, and then consult the documentation to actually
 [disable a project](https://apidoc.cleura.cloud/#api-AccessControl_Openstack-OSEditOpenstackProject).

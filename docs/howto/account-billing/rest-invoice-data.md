@@ -6,7 +6,7 @@ using the {{rest_api}}.
 ## Prerequisites
 
 Before retrieving any of your invoice data, you need to
-[create a token](/howto/getting-started/accessing-cc-rest-api)
+[create a token](../getting-started/accessing-cc-rest-api.md)
 for the current session.
 
 ## Saving invoice data

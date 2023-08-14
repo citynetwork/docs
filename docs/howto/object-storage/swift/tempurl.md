@@ -7,7 +7,7 @@ to it. This is known as a *temporary* URL, or TempURL.
 ## Prerequisites
 
 In order to manage TempURLs, be sure that you have [installed and
-configured](../) the `swift` command-line interface (CLI). There is
+configured](index.md) the `swift` command-line interface (CLI). There is
 presently no way to create TempURLs with the `openstack` CLI.
 
 Also, ensure that you have configured a [private
