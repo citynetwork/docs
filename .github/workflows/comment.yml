@@ -1,0 +1,20 @@
+# Post a comment back on a PR thread, in case an associated workflow
+# failed. Note that comment-failure-action is a no-op in case the
+# workflow was not invoked in response to a PR. In other words, this
+# action only creates comments for workflows configured with
+# "on: pull_request".
+---
+jobs:
+  comment-failure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: quipper/comment-failure-action@v0.1.1
+
+name: comment
+
+'on':
+  workflow_run:
+    types:
+      - completed
+    workflows:
+      - build

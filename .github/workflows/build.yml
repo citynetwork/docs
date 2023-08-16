@@ -36,7 +36,7 @@ jobs:
           - '3.9'
           - '3.10'
 
-name: Build
+name: build
 
 # We want to run this workflow on each push to a topic branch, and on
 # each pull request. Once we merge to main, we want to run the

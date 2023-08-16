@@ -16,7 +16,7 @@ jobs:
         run: |
           tox -e check-prod
 
-name: 'Check links'
+name: check
 
 # We want to run this workflow every time we build the site.
 # In addition, we want to run it once a week on a schedule.

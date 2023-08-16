@@ -17,7 +17,7 @@ jobs:
       - name: Deploy to gh-pages
         run: tox -e deploy-github
 
-name: Deploy
+name: deploy
 
 'on':
   push:
