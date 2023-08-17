@@ -6,24 +6,22 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Object lock enables you to keep S3 objects from being deleted or overwritten.">
       
       
-      
-        <link rel="canonical" href="https://docs.cleura.cloud/howto/object-storage/s3/object-lock/">
-      
-      
-        <link rel="prev" href="../expiry/">
+        <link rel="canonical" href="https://docs.cleura.cloud/howto/openstack/glance/examine/">
       
       
-        <link rel="next" href="../versioning/">
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../filter/">
       
       <link rel="icon" href="../../../../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Object lock - Cleura Docs</title>
+        <title>Examining images - Cleura Docs</title>
       
     
     
@@ -64,11 +62,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Object lock - Cleura Docs" >
+        <meta  property="og:title"  content="Examining images - Cleura Docs" >
       
-        <meta  property="og:description"  content="Object lock enables you to keep S3 objects from being deleted or overwritten." >
+        <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/object-lock.png" >
+        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/glance/examine.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -76,15 +74,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://docs.cleura.cloud/howto/object-storage/s3/object-lock/" >
+        <meta  property="og:url"  content="https://docs.cleura.cloud/howto/openstack/glance/examine/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Object lock - Cleura Docs" >
+        <meta  name="twitter:title"  content="Examining images - Cleura Docs" >
       
-        <meta  name="twitter:description"  content="Object lock enables you to keep S3 objects from being deleted or overwritten." >
+        <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/object-lock.png" >
+        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/glance/examine.png" >
       
     
     
@@ -121,7 +119,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#object-lock" class="md-skip">
+        <a href="#examining-images" class="md-skip">
           Skip to content
         </a>
       
@@ -155,7 +153,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Object lock
+              Examining images
             
           </span>
         </div>
@@ -440,14 +438,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
       
       
         
@@ -472,7 +472,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           OpenStack
@@ -507,7 +507,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../openstack/barbican/">Barbican (secret storage)</a>
+          <a href="../../barbican/">Barbican (secret storage)</a>
           
             <label for="__nav_2_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -530,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/barbican/generic-secret/" class="md-nav__link">
+      <a href="../../barbican/generic-secret/" class="md-nav__link">
         Generic secret storage
       </a>
     </li>
@@ -544,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/barbican/share-secret/" class="md-nav__link">
+      <a href="../../barbican/share-secret/" class="md-nav__link">
         Sharing secrets via ACLs
       </a>
     </li>
@@ -602,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/resize-volumes/" class="md-nav__link">
+      <a href="../../cinder/resize-volumes/" class="md-nav__link">
         Resizing a volume
       </a>
     </li>
@@ -616,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/encrypted-volumes/" class="md-nav__link">
+      <a href="../../cinder/encrypted-volumes/" class="md-nav__link">
         Encrypted volumes
       </a>
     </li>
@@ -630,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/retype-volumes/" class="md-nav__link">
+      <a href="../../cinder/retype-volumes/" class="md-nav__link">
         Changing a volume's type
       </a>
     </li>
@@ -644,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/sync-volumes/" class="md-nav__link">
+      <a href="../../cinder/sync-volumes/" class="md-nav__link">
         Transferring data between volumes
       </a>
     </li>
@@ -663,14 +663,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" checked>
       
       
         
@@ -687,7 +689,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../openstack/glance/">Glance (image service)</a>
+          <a href="../">Glance (image service)</a>
           
             <label for="__nav_2_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -695,7 +697,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_3_3">
           <span class="md-nav__icon md-icon"></span>
           Glance (image service)
@@ -708,11 +710,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../openstack/glance/examine/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Examining images
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Examining images
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default-user" class="md-nav__link">
+    Default user
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-update-frequency" class="md-nav__link">
+    Image update frequency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-build-date" class="md-nav__link">
+    Image build date
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -724,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/glance/filter/" class="md-nav__link">
+      <a href="../filter/" class="md-nav__link">
         Listing and filtering images
       </a>
     </li>
@@ -778,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/magnum/new-k8s-cluster/" class="md-nav__link">
+      <a href="../../magnum/new-k8s-cluster/" class="md-nav__link">
         Creating a Kubernetes cluster
       </a>
     </li>
@@ -792,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/magnum/kubectl/" class="md-nav__link">
+      <a href="../../magnum/kubectl/" class="md-nav__link">
         Managing a Kubernetes cluster
       </a>
     </li>
@@ -852,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/new-network/" class="md-nav__link">
+      <a href="../../neutron/new-network/" class="md-nav__link">
         Creating new networks
       </a>
     </li>
@@ -866,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/create-security-groups/" class="md-nav__link">
+      <a href="../../neutron/create-security-groups/" class="md-nav__link">
         Creating security groups
       </a>
     </li>
@@ -880,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/multiple-public-ips/" class="md-nav__link">
+      <a href="../../neutron/multiple-public-ips/" class="md-nav__link">
         Assigning multiple public (floating) IPs to a server
       </a>
     </li>
@@ -894,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/vpnaas/" class="md-nav__link">
+      <a href="../../neutron/vpnaas/" class="md-nav__link">
         Creating a VPN connection between regions
       </a>
     </li>
@@ -908,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/delete-network/" class="md-nav__link">
+      <a href="../../neutron/delete-network/" class="md-nav__link">
         Deleting networks
       </a>
     </li>
@@ -974,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/new-server/" class="md-nav__link">
+      <a href="../../nova/new-server/" class="md-nav__link">
         Creating new servers
       </a>
     </li>
@@ -988,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/server-group/" class="md-nav__link">
+      <a href="../../nova/server-group/" class="md-nav__link">
         Using server groups
       </a>
     </li>
@@ -1002,7 +1059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/config-drive/" class="md-nav__link">
+      <a href="../../nova/config-drive/" class="md-nav__link">
         Launching a server with a configuration drive
       </a>
     </li>
@@ -1016,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/resize-server/" class="md-nav__link">
+      <a href="../../nova/resize-server/" class="md-nav__link">
         Resizing a server
       </a>
     </li>
@@ -1030,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/move-server-between-regions/" class="md-nav__link">
+      <a href="../../nova/move-server-between-regions/" class="md-nav__link">
         Moving a server from one region to another
       </a>
     </li>
@@ -1044,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/boot-image-volume/" class="md-nav__link">
+      <a href="../../nova/boot-image-volume/" class="md-nav__link">
         Converting a boot-from-image server to boot-from-volume
       </a>
     </li>
@@ -1058,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/restore-srv-to-snap/" class="md-nav__link">
+      <a href="../../nova/restore-srv-to-snap/" class="md-nav__link">
         Restoring server to a snapshot
       </a>
     </li>
@@ -1072,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/rescue-server/" class="md-nav__link">
+      <a href="../../nova/rescue-server/" class="md-nav__link">
         Rescuing a server
       </a>
     </li>
@@ -1128,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/lbaas-tcp/" class="md-nav__link">
+      <a href="../../octavia/lbaas-tcp/" class="md-nav__link">
         Setting up a TCP load balancer
       </a>
     </li>
@@ -1142,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/tls-lb/" class="md-nav__link">
+      <a href="../../octavia/tls-lb/" class="md-nav__link">
         HTTPS-terminating load balancers
       </a>
     </li>
@@ -1156,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/lbaas-l7pol/" class="md-nav__link">
+      <a href="../../octavia/lbaas-l7pol/" class="md-nav__link">
         Using layer 7 redirection
       </a>
     </li>
@@ -1182,16 +1239,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
       
       
         
@@ -1206,7 +1261,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           Object storage
@@ -1217,16 +1272,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
       
       
         
@@ -1253,7 +1306,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">S3 API</a>
+          <a href="../../../object-storage/s3/">S3 API</a>
           
             <label for="__nav_2_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1261,7 +1314,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4_1">
           <span class="md-nav__icon md-icon"></span>
           S3 API
@@ -1276,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../credentials/" class="md-nav__link">
+      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
         Working with S3-compatible credentials
       </a>
     </li>
@@ -1290,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../public-bucket/" class="md-nav__link">
+      <a href="../../../object-storage/s3/public-bucket/" class="md-nav__link">
         Public buckets
       </a>
     </li>
@@ -1304,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../presign/" class="md-nav__link">
+      <a href="../../../object-storage/s3/presign/" class="md-nav__link">
         Pre-signed object URLs
       </a>
     </li>
@@ -1318,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../expiry/" class="md-nav__link">
+      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
         Object expiry
       </a>
     </li>
@@ -1330,154 +1383,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Object lock
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/object-lock/" class="md-nav__link">
         Object lock
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#object-lock-modes" class="md-nav__link">
-    Object lock modes
-  </a>
-  
-    <nav class="md-nav" aria-label="Object lock modes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#retention-periods" class="md-nav__link">
-    Retention periods
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legal-hold" class="md-nav__link">
-    Legal hold
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-object-lock" class="md-nav__link">
-    Enabling object lock
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-the-default-object-lock-mode-and-retention-period-for-a-bucket" class="md-nav__link">
-    Configure the default object lock mode and retention period for a bucket
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#retrieve-the-object-lock-mode-and-retention-period" class="md-nav__link">
-    Retrieve the object lock mode and retention period
-  </a>
-  
-    <nav class="md-nav" aria-label="Retrieve the object lock mode and retention period">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bucket-level" class="md-nav__link">
-    Bucket-level
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#object-level" class="md-nav__link">
-    Object-level
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-the-object-lock-legal-hold-for-an-object" class="md-nav__link">
-    Configure the object lock legal hold for an object
-  </a>
-  
-    <nav class="md-nav" aria-label="Configure the object lock legal hold for an object">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#per-bucket" class="md-nav__link">
-    Per bucket
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#per-object" class="md-nav__link">
-    Per object
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#retrieve-the-legal-hold-status-for-an-object" class="md-nav__link">
-    Retrieve the legal hold status for an object
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1489,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning/" class="md-nav__link">
+      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
         Object versioning
       </a>
     </li>
@@ -1503,7 +1413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sse-c/" class="md-nav__link">
+      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
         Object encryption (SSE-C)
       </a>
     </li>
@@ -1552,7 +1462,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../swift/">Swift API</a>
+          <a href="../../../object-storage/swift/">Swift API</a>
           
             <label for="__nav_2_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1575,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/private-container/" class="md-nav__link">
+      <a href="../../../object-storage/swift/private-container/" class="md-nav__link">
         Working with a private Swift container
       </a>
     </li>
@@ -1589,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/public-container/" class="md-nav__link">
+      <a href="../../../object-storage/swift/public-container/" class="md-nav__link">
         Working with a public Swift container
       </a>
     </li>
@@ -1603,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/tempurl/" class="md-nav__link">
+      <a href="../../../object-storage/swift/tempurl/" class="md-nav__link">
         Using temporary URLs
       </a>
     </li>
@@ -1617,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/expiry/" class="md-nav__link">
+      <a href="../../../object-storage/swift/expiry/" class="md-nav__link">
         Object expiry
       </a>
     </li>
@@ -1631,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/versioning/" class="md-nav__link">
+      <a href="../../../object-storage/swift/versioning/" class="md-nav__link">
         Object versioning
       </a>
     </li>
@@ -3033,110 +2943,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#object-lock-modes" class="md-nav__link">
-    Object lock modes
-  </a>
-  
-    <nav class="md-nav" aria-label="Object lock modes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#retention-periods" class="md-nav__link">
-    Retention periods
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legal-hold" class="md-nav__link">
-    Legal hold
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#default-user" class="md-nav__link">
+    Default user
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enabling-object-lock" class="md-nav__link">
-    Enabling object lock
+  <a href="#image-update-frequency" class="md-nav__link">
+    Image update frequency
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-the-default-object-lock-mode-and-retention-period-for-a-bucket" class="md-nav__link">
-    Configure the default object lock mode and retention period for a bucket
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#retrieve-the-object-lock-mode-and-retention-period" class="md-nav__link">
-    Retrieve the object lock mode and retention period
-  </a>
-  
-    <nav class="md-nav" aria-label="Retrieve the object lock mode and retention period">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bucket-level" class="md-nav__link">
-    Bucket-level
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#object-level" class="md-nav__link">
-    Object-level
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-the-object-lock-legal-hold-for-an-object" class="md-nav__link">
-    Configure the object lock legal hold for an object
-  </a>
-  
-    <nav class="md-nav" aria-label="Configure the object lock legal hold for an object">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#per-bucket" class="md-nav__link">
-    Per bucket
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#per-object" class="md-nav__link">
-    Per object
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#retrieve-the-legal-hold-status-for-an-object" class="md-nav__link">
-    Retrieve the legal hold status for an object
+  <a href="#image-build-date" class="md-nav__link">
+    Image build date
   </a>
   
 </li>
@@ -3157,7 +2979,7 @@
                   
 
   
-    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/object-lock.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/glance/examine.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -3165,270 +2987,41 @@
   
 
 
-<h1 id="object-lock">Object lock</h1>
-<p>Object lock is a feature in S3 that enables you to lock your objects
-to prevent them from being deleted or overwritten. This feature can be
-helpful when you want to maintain data integrity, comply with
-regulations, or retain data for a specific period.</p>
-<p>Note that this feature is distinct from <em>object expiry</em>, which is covered in a <a href="../expiry/">separate guide</a>.</p>
-<h2 id="object-lock-modes">Object lock modes</h2>
-<p>Object lock offers two methods for managing object retention:
-<strong>Retention periods</strong> and <strong>Legal hold</strong>.</p>
-<h3 id="retention-periods">Retention periods</h3>
-<p>Retention periods specify the length of time that an object
-remains locked and protected from being overwritten or deleted.
-When you set a retention period, the object is safeguarded for
-the specified time period. You can set the retention period in
-either days or years, with a <strong>minimum of one day</strong> and
-no maximum limit.</p>
-<p>In addition to retention periods, you can choose the retention mode
-that applies to your objects (either Governance or Compliance). In
-Cleura Cloud, the only supported retention mode is <strong>Compliance</strong>.</p>
-<p>Compliance mode is recommended when storing compliant data,
-as it prevents objects from being overwritten or deleted
-by any user. If you configure an object with this mode, you
-cannot shorten or change its retention period, ensuring that
-the data remains <strong>secure</strong> and <strong>compliant</strong> with regulatory
-requirements.</p>
-<h3 id="legal-hold">Legal hold</h3>
-<p>Legal hold is a feature designed for situations when you are uncertain
-about the length of time you need to retain an object. It can be
-enabled/disabled for any object in a locked bucket, regardless of the
-lock configuration, object retention, or age.</p>
-<p>This feature provides the same level of protection as a retention period
-but with no fixed expiration date. Instead, a legal hold will remain in
-effect until you remove it explicitly.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>In order to manage object lock, you must install <code>aws</code> or <code>mc</code>, and <a href="../credentials/">configure it with working credentials</a>.</p>
-<p>You cannot (reliably) use <code>s3cmd</code> to manage this functionality.</p>
-<h2 id="enabling-object-lock">Enabling object lock</h2>
-<p>To use the object lock feature, you must first create a new bucket.</p>
-<blockquote>
-<p>Existing buckets cannot have object lock enabled.
-To enable object lock on existing data, you must first create a new bucket with object lock, and then sync your pre-existing objects into that bucket.</p>
-</blockquote>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>create-bucket<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--object-lock-enabled-for-bucket
+<h1 id="examining-images">Examining images</h1>
+<p>You can use the <code>openstack</code> CLI in combination with the <a href="https://jqlang.github.io/jq/"><code>jq</code></a> command-line JSON processor to inspect an image&rsquo;s properties.</p>
+<h2 id="default-user">Default user</h2>
+<p>The <code>image_original_user</code> property reflects the username of the default non-root user of the corresponding operating system &ndash; and that piece of information may come in handy in various automation scenarios.
+So, to find out the username of the default non-root user in the <code>Ubuntu 22.04 Jammy Jellyfish x86_64</code> image, you can type the following:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>-f<span class="w"> </span>json<span class="w"> </span><span class="s2">&quot;Ubuntu 22.04 Jammy Jellyfish x86_64&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.properties.image_original_user&#39;</span>
+<span class="go">&quot;ubuntu&quot;</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>mb<span class="w"> </span>&lt;region&gt;/&lt;bucket&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--with-lock
+<h2 id="image-update-frequency">Image update frequency</h2>
+<p>Images in Cleura Cloud are updated regularly, and that is something you can deduce from the <code>replace_frequency</code> property.
+See, for example, the value of this property in the <code>Ubuntu 22.04 Jammy Jellyfish x86_64</code> image:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>-f<span class="w"> </span>json<span class="w"> </span><span class="s2">&quot;Ubuntu 22.04 Jammy Jellyfish x86_64&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.properties.replace_frequency&#39;</span>
+<span class="go">&quot;monthly&quot;</span>
 </code></pre></div>
-</div>
-</div>
-</div>
-<p>Note that this will enable <a href="../versioning/">bucket versioning</a> as well.</p>
-<h2 id="configure-the-default-object-lock-mode-and-retention-period-for-a-bucket">Configure the default object lock mode and retention period for a bucket</h2>
-<p>To configure your bucket to use the <strong>Compliance</strong> mode,
-use one of the following commands:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>put-object-retention<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--retention<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;{ &quot;Mode&quot;: &quot;COMPLIANCE&quot;, &quot;RetainUntilDate&quot;: &quot;2023-12-31T00:00:00Z&quot; }&#39;</span>
+<p>Per <a href="https://docs.scs.community/standards/scs-0102-v1-image-metadata/#image-updating">the SCS reference</a>, <code>monthly</code> here means that the image is replaced <em>at least once</em> per month.
+Newer images have operating systems with all the latest package updates and security fixes.</p>
+<h2 id="image-build-date">Image build date</h2>
+<p>To find out when a particular image was most recently updated, inspect its <code>image_build_date</code> property:</p>
+<div class="highlight"><pre><span></span><code><span class="go">openstack image show -f json &quot;Ubuntu 22.04 Jammy Jellyfish x86_64&quot; \</span>
+<span class="go">    | jq &#39;.properties.image_build_date&#39;</span>
+<span class="go">&quot;2023-08-11&quot;</span>
 </code></pre></div>
-<blockquote>
-<p>For the value of the <code>RetainUntilDate</code> parameter, use the
-<a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations">ISO 8601 date-time representation</a>
-format.</p>
-</blockquote>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>&lt;region&gt;/&lt;bucket&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--default<span class="w"> </span>compliance<span class="w"> </span><span class="s2">&quot;2d&quot;</span>
-</code></pre></div>
-<blockquote>
-<p><code>--default</code> sets the default object lock settings for new objects and
-is optional.</p>
-<p>To specify a duration, use a string formatted as <code>Nd</code>
-for days or <code>Ny</code> for years.
-For example, use <code>30d</code> to indicate 30 days after
-the object creation, or use <code>1y</code> to indicate 1 year
-after the object creation.</p>
-</blockquote>
-</div>
-</div>
-</div>
-<h2 id="retrieve-the-object-lock-mode-and-retention-period">Retrieve the object lock mode and retention period</h2>
-<h3 id="bucket-level">Bucket-level</h3>
-<p>To view the default object lock mode and retention period set on
-a bucket, use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">aws</label><label for="__tabbed_3_2">mc</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>get-object-lock-configuration<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
-</code></pre></div>
-Example output:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;ObjectLockConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ObjectLockEnabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enabled&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;Rule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;DefaultRetention&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;Mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COMPLIANCE&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;Days&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></p>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span>info<span class="w"> </span>--json<span class="w"> </span>--default<span class="w"> </span>&lt;region&gt;/&lt;bucket&gt;
-</code></pre></div>
-Example output:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;op&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;info&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enabled&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COMPLIANCE&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;validity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2DAYS&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span>
-<span class="p">}</span>
-</code></pre></div></p>
-</div>
-</div>
-</div>
-<h3 id="object-level">Object-level</h3>
-<p>To view the default object lock mode and retention period set on
-an object, use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">aws</label><label for="__tabbed_4_2">mc</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>get-object-retention<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;
-</code></pre></div>
-Example output:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Retention&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COMPLIANCE&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;RetainUntilDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-02-25T20:04:23.383915+00:00&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></p>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span>info<span class="w"> </span>--json<span class="w"> </span>&lt;region&gt;/&lt;bucket&gt;/&lt;object-name&gt;
-</code></pre></div>
-Example output:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COMPLIANCE&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;until&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-02-25T20:04:23.383915502Z&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;urlpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;region/bucket/object&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;versionID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
-<span class="p">}</span>
-</code></pre></div></p>
-</div>
-</div>
-</div>
-<h2 id="configure-the-object-lock-legal-hold-for-an-object">Configure the object lock legal hold for an object</h2>
-<p><strong>Legal hold</strong> requires that the specified bucket
-has object locking enabled.</p>
-<h3 id="per-bucket">Per bucket</h3>
-<p>To configure the legal hold for all objects in a bucket,
-use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">aws</label><label for="__tabbed_5_2">mc</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>In contrast to the <code>mc</code> command, which can recursively set
-the legal hold for all objects in a bucket, the <code>aws</code>
-command <strong>can only set the legal hold for a single object</strong>
-at a time.</p>
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>put-legal-hold<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--legal-hold<span class="w"> </span><span class="nv">Status</span><span class="o">=</span>ON
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>legalhold<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--recursive<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>&lt;region&gt;/&lt;bucket&gt;
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="per-object">Per object</h3>
-<p>To configure the legal hold for a single object,
-use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">aws</label><label for="__tabbed_6_2">mc</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>put-legal-hold<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--legal-hold<span class="w"> </span><span class="nv">Status</span><span class="o">=</span>ON
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>legalhold<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>&lt;region&gt;/&lt;bucket&gt;/&lt;object-name&gt;
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="retrieve-the-legal-hold-status-for-an-object">Retrieve the legal hold status for an object</h2>
-<p>To display the legal hold status for an object, use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">aws</label><label for="__tabbed_7_2">mc</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api<span class="w"> </span>get-object-legal-hold<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;
-</code></pre></div>
-Example output:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;LegalHold&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ON&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></p>
-</div>
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>legalhold<span class="w"> </span>info<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--json<span class="w"> </span>&lt;region&gt;/&lt;bucket&gt;/&lt;object-name&gt;
-</code></pre></div>
-Example output:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;legalhold&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ON&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;urlpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://s3-&lt;region&gt;.citycloud.com:8080/&lt;bucket&gt;/&lt;object-name&gt;&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;object-name&gt;&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;versionID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span>
-<span class="p">}</span>
-</code></pre></div></p>
-</div>
-</div>
-</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-27</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-17</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-23</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-17</span>
       
     
   </small>
@@ -3445,7 +3038,7 @@ Example output:
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>Florian Haas, Ioannis Karamperis</span>
+          Authors: <span class='git-page-authors git-authors'>Florian Haas</span>
       </small>
     </div>
   

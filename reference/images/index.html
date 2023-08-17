@@ -678,6 +678,8 @@
         
           
         
+          
+        
       
       
         
@@ -698,6 +700,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../howto/openstack/glance/examine/" class="md-nav__link">
+        Examining images
+      </a>
+    </li>
+  
+
             
           
             
@@ -2971,7 +2987,8 @@
 </ul>
 <h2 id="tags-and-properties">Tags and properties</h2>
 <p>Each public image is assigned a specific set of tags and properties.
-You can use these tags to <a href="../../howto/openstack/glance/filter/">filter and list</a> images based on certain conditions.</p>
+You can use these tags to <a href="../../howto/openstack/glance/filter/">filter and list</a> images based on certain conditions.
+You may also use them to simply <a href="../../howto/openstack/glance/examine/">examine</a> how an image is configured.</p>
 <h3 id="tags">Tags</h3>
 <p>All public images available in Cleura Cloud support the following image tags:</p>
 <ul>
@@ -2985,14 +3002,15 @@ You can use these tags to <a href="../../howto/openstack/glance/filter/">filter 
 <li><code>os_distro=${NAME}</code>: distribution name, such as <code>os_distro=ubuntu</code></li>
 <li><code>os_version=${VERSION_ID}</code>: operating system version, such as <code>os_version=22.04</code></li>
 </ul>
-<p><a href="https://docs.openstack.org/glance/latest/admin/useful-image-properties.html">Other properties</a> may also be set on individual images.</p>
+<p><a href="https://docs.openstack.org/glance/latest/admin/useful-image-properties.html">Other properties</a> may also be set on individual images.
+In particular, Cleura Cloud aims to set image properties according to the <a href="https://docs.scs.community/standards/scs-0102-v1-image-metadata/">metadata standard</a> defined by the <a href="https://scs.community/">Sovereign Cloud Stack</a> (SCS) initiative.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-06</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-17</span>
       
         <br>
         Created:
