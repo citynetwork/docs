@@ -33,7 +33,7 @@ Newer images have operating systems with all the latest package updates and secu
 To find out when a particular image was most recently updated, inspect its `image_build_date` property:
 
 ```console
-openstack image show -f json "Ubuntu 22.04 Jammy Jellyfish x86_64" \
+$ openstack image show -f json "Ubuntu 22.04 Jammy Jellyfish x86_64" \
     | jq '.properties.image_build_date'
 "2023-08-11"
 ```
