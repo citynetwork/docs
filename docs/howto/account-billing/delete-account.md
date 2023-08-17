@@ -3,7 +3,7 @@
 In case you decide to close your {{brand}} account, you may do so via the [{{gui}}](https://{{gui_domain}}).
 Log into your account and click on the profile button at the top right.
 
-![Orange avatar person with white background.](assets/picture-profile.png)
+![Orange avatar person with white background.](assets/profile.png)
 
 A pane named _Account settings_ will slide over from the right-hand side of the browser window. To delete your account, click the _Settings_ tab.
 
