@@ -48,3 +48,27 @@ All public images available in {{brand}} support the following image properties:
 * `os_version=${VERSION_ID}`: operating system version, such as `os_version=22.04`
 
 [Other properties](https://docs.openstack.org/glance/latest/admin/useful-image-properties.html) may also be set on individual images.
+For instance, the `image_original_user` property reflects the username of the default non-root user of the corresponding operating system -- and that piece of information may come in handy in various automation scenarios.
+So, to find out the username of the default non-root user in the `Ubuntu 22.04 Jammy Jellyfish x86_64` image, you can type the following:
+
+```console
+$ openstack image show -f json "Ubuntu 22.04 Jammy Jellyfish x86_64" \
+    | jq '.properties.image_original_user'
+"ubuntu"
+```
+
+## Image updates and automation
+
+Images in {{brand}} are updated regularly, and that is something you can deduce from the `replace_frequency` property.
+See, for example, the value of this property in the `Ubuntu 22.04 Jammy Jellyfish x86_64` image:
+
+```console
+$ openstack image show -f json "Ubuntu 22.04 Jammy Jellyfish x86_64" \
+    | jq '.properties.replace_frequency'
+"monthly"
+```
+
+Per [the SCS reference](https://docs.scs.community/standards/scs-0102-v1-image-metadata/#image-updating), `monthly` here means that the image is replaced *at least once* per month.
+Newer images have operating systems with all the latest package updates and security fixes.
+Whenever a fresh version of an image is produced and made available, it has the exact same name as the previous version but a *different* UUID.
+That is why in Ansible Playbooks, Heat templates, Terraform configurations, or your automation in general, you should refrain from using UUIDs and refer to images by name instead.
