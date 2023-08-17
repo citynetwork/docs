@@ -3007,8 +3007,8 @@ See, for example, the value of this property in the <code>Ubuntu 22.04 Jammy Jel
 Newer images have operating systems with all the latest package updates and security fixes.</p>
 <h2 id="image-build-date">Image build date</h2>
 <p>To find out when a particular image was most recently updated, inspect its <code>image_build_date</code> property:</p>
-<div class="highlight"><pre><span></span><code><span class="go">openstack image show -f json &quot;Ubuntu 22.04 Jammy Jellyfish x86_64&quot; \</span>
-<span class="go">    | jq &#39;.properties.image_build_date&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>-f<span class="w"> </span>json<span class="w"> </span><span class="s2">&quot;Ubuntu 22.04 Jammy Jellyfish x86_64&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.properties.image_build_date&#39;</span>
 <span class="go">&quot;2023-08-11&quot;</span>
 </code></pre></div>
 
