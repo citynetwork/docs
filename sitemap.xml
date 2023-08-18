@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.cleura.cloud/howto/account-billing/e-invoice/</loc>
+         <lastmod>2023-08-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.cleura.cloud/howto/account-billing/forgot-your-password/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
