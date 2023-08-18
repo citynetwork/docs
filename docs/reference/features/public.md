@@ -10,9 +10,9 @@
 
 
 ## Virtualization
-|                                               | Kna1             | Sto2                  | Fra1             | Dx1              | Tky1             |
-| -------------                                 | ---------------- | --------------------- | ---------------- | ---------------- | ---------------- |
-| [Virtual GPU](../flavors/index.md#compute-tiers)   | :material-check: | :material-check:      | :material-close: | :material-close: | :material-close: |
+|                                                              | Kna1                  | Sto2                  | Fra1             | Dx1              | Tky1             |
+| -------------                                                | ----------------      | --------------------- | ---------------- | ---------------- | ---------------- |
+| [Virtual GPU](../../howto/openstack/nova/new-vgpu-server.md) | :material-timer-sand: | :material-timer-sand: | :material-close: | :material-close: | :material-close: |
 
 
 ## Block storage
