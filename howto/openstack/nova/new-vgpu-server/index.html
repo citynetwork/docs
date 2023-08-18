@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://docs.cleura.cloud/howto/openstack/nova/new-server/">
+        <link rel="canonical" href="https://docs.cleura.cloud/howto/openstack/nova/new-vgpu-server/">
       
       
-        <link rel="prev" href="../../neutron/delete-network/">
+        <link rel="prev" href="../new-server/">
       
       
-        <link rel="next" href="../new-vgpu-server/">
+        <link rel="next" href="../server-group/">
       
       <link rel="icon" href="../../../../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Creating new servers - Cleura Docs</title>
+        <title>Creating new servers with virtual GPU support - Cleura Docs</title>
       
     
     
@@ -62,11 +62,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Creating new servers - Cleura Docs" >
+        <meta  property="og:title"  content="Creating new servers with virtual GPU support - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/nova/new-server.png" >
+        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/nova/new-vgpu-server.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -74,15 +74,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://docs.cleura.cloud/howto/openstack/nova/new-server/" >
+        <meta  property="og:url"  content="https://docs.cleura.cloud/howto/openstack/nova/new-vgpu-server/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Creating new servers - Cleura Docs" >
+        <meta  name="twitter:title"  content="Creating new servers with virtual GPU support - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/nova/new-server.png" >
+        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/nova/new-vgpu-server.png" >
       
     
     
@@ -119,7 +119,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-new-servers" class="md-skip">
+        <a href="#creating-new-servers-with-virtual-gpu-support" class="md-skip">
           Skip to content
         </a>
       
@@ -153,7 +153,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating new servers
+              Creating new servers with virtual GPU support
             
           </span>
         </div>
@@ -976,6 +976,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../new-server/" class="md-nav__link">
+        Creating new servers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -988,12 +1002,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Creating new servers
+          Creating new servers with virtual GPU support
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Creating new servers
+        Creating new servers with virtual GPU support
       </a>
       
         
@@ -1019,22 +1033,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-server" class="md-nav__link">
-    Creating a server
+  <a href="#instantiating-a-vgpu-server" class="md-nav__link">
+    Instantiating a vGPU server
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#viewing-information-about-the-newly-created-server" class="md-nav__link">
-    Viewing information about the newly created server
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connecting-to-the-server-console" class="md-nav__link">
-    Connecting to the server console
+  <a href="#checking-the-status-of-vgpu-support" class="md-nav__link">
+    Checking the status of vGPU support
   </a>
   
 </li>
@@ -1043,20 +1050,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../new-vgpu-server/" class="md-nav__link">
-        Creating new servers with virtual GPU support
-      </a>
     </li>
   
 
@@ -2973,22 +2966,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-server" class="md-nav__link">
-    Creating a server
+  <a href="#instantiating-a-vgpu-server" class="md-nav__link">
+    Instantiating a vGPU server
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#viewing-information-about-the-newly-created-server" class="md-nav__link">
-    Viewing information about the newly created server
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connecting-to-the-server-console" class="md-nav__link">
-    Connecting to the server console
+  <a href="#checking-the-status-of-vgpu-support" class="md-nav__link">
+    Checking the status of vGPU support
   </a>
   
 </li>
@@ -3009,7 +2995,7 @@
                   
 
   
-    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/nova/new-server.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/nova/new-vgpu-server.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -3017,282 +3003,154 @@
   
 
 
-<h1 id="creating-new-servers">Creating new servers</h1>
-<p>Once you have an <a href="../../../getting-started/create-account/">account in
-Cleura Cloud</a>, you can create
-virtual machines &mdash; henceforth simply <em>servers</em> &mdash; using either the
-Cleura Cloud Management Panel or the OpenStack CLI. Let us demonstrate the creation of a new
-server, following both approaches.</p>
+<h1 id="creating-new-servers-with-virtual-gpu-support">Creating new servers with virtual GPU support</h1>
+<p>In Cleura Cloud, you can instantiate virtual machines &mdash; or simply
+<em>servers</em> &mdash; with virtual GPU (vGPU) support. For that, you use the
+<code>openstack</code> CLI utility.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>You need to <a href="../../neutron/new-network/">have at least one
-network</a> in the region you are
-interested in. Additionally, if you prefer to work with the OpenStack
-CLI, then make sure to properly <a href="../../../getting-started/enable-openstack-cli/">enable it
+<p>Although not strictly necessary, it is certainly helpful to have some
+familiarity with <a href="../new-server/">creating servers in Cleura Cloud</a>,
+especially with the OpenStack CLI.</p>
+<h2 id="instantiating-a-vgpu-server">Instantiating a vGPU server</h2>
+<p>Before you begin, please make sure to source <a href="../../../getting-started/enable-openstack-cli/">your <code>openstack</code> RC file
 first</a>.</p>
-<h2 id="creating-a-server">Creating a server</h2>
-<p>To create a server from the Cleura Cloud Management Panel, fire up your favorite web
-browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page,
-and log into your Cleura Cloud account. On the other hand, if you prefer
-to work with the OpenStack CLI, please do not forget to <a href="../../../getting-started/enable-openstack-cli/">source the RC
-file first</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>On the top right-hand side of the Cleura Cloud Management Panel, click the
-<em>Create</em> button. A new pane titled <em>Create</em> will slide into view from
-the right-hand side of the browser window.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/new-server/shot-01.png" /></a></p>
-<p>You will notice several rounded boxes on that pane, each for
-defining, configuring, and instantiating a different Cleura
-Cloud object. Go ahead and click the <em>Server</em> box. A new pane titled
-<em>Create a Server</em> will slide over. At the top, type in a name for the
-new server and select one of the available regions.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-02.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new server" src="../assets/new-server/shot-02.png" /></a></p>
-<p>In the <em>Boot source</em> section below, click the dropdown menu on
-the left and make sure you select <em>Boot from image</em>, so you can choose
-one of the readily available OS images to boot the new server off of.
-To pick one of the images, click on the dropdown menu on the right. For
-this how-to guide, we have chosen <em>ubuntu</em> in general and
-<em>Ubuntu 22.04 Jammy Jellyfish 20220810</em> in particular.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Boot source" src="../assets/new-server/shot-03.png" /></a></p>
-<p>Next, make sure <em>Boot Target</em> is set to <em>Volume (Recommended)</em>.
-Regarding the server&rsquo;s CPU core count and amount of memory, set the
-<a href="../../../../reference/flavors/"><em>Flavor</em></a> accordingly.
-The default flavor specifies a server with 1 CPU core and 1GB of RAM.
-You can start with that or select a different configuration by clicking
-the dropdown menu at the right of <em>Flavor</em>. Please note that, depending on
-the chosen flavor, the estimated monthly cost of the server changes. (While a
-server is shut off you are still getting charged for it, but less so.)
-At any time, this estimated cost is displayed in the green rectangular area
-at the top. Something else that affects the cost is the size of the root
-device. Take a look at the <em>Size</em> parameter below, and notice the
-default (in
-<a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibytes</a>).
-You may leave the root device size unchanged, or modify it to be lower
-or higher than the default.</p>
-<p>When, at a later time, you decide to delete the server, you can
-do so but <strong>keep</strong> its boot volume (you may want, for example, to
-attach the exact same volume to a new server). Just leave the <em>Delete
-on termination</em> option disabled if you want this kind of flexibility.
-On the other hand, if you want your root volume to be automatically
-deleted when the server terminates, enable <em>Delete on termination</em>.
-Use this option with caution.</p>
-<p>Finally, you may enable <em>Disaster recovery</em> for the server. If
-you do, then daily server snapshots will be created, and you will have
-the option for easy and fast rollups to previous snapshots. Please be
-aware that enabling this option increases the server&rsquo;s monthly estimated
-cost (again, it is displayed in the green rectangular area at the top).</p>
-<p><a class="glightbox" href="../assets/new-server/shot-04.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Server configuration" src="../assets/new-server/shot-04.png" /></a></p>
-<p>Regarding networking, select one of the available networks to
-attach the new server to. If you want the server accessible from the
-Internet, do not forget to enable the <em>I want an external IP for my
-server</em> option. In the section below, set <em>Security Groups</em> to
-<em>default</em>.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Networking and security groups" src="../assets/new-server/shot-05.png" /></a></p>
-<p>If you already have one or more public keys in your
-Cleura Cloud account, you can now select a key to be included
-in the <code>~/.ssh/authorized_keys</code> file of the server&rsquo;s default user. That
-way, you can securely log into the remote user&rsquo;s account without typing
-a password. If there are no public keys to choose from, activate the
-<em>Password login enabled</em> option and set a password for a specific user
-(with a username you define).</p>
-<p><a class="glightbox" href="../assets/new-server/shot-06.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login and keypairs" src="../assets/new-server/shot-06.png" /></a></p>
-<p>A configuration script is automatically prepared based on the
-choices you have already made. That script runs during system boot and
-performs housekeeping tasks like user account creation, enabling
-acceptable authentication methods, and configuring remote package
-repositories. Click on <em>Advanced Options</em> to see the default script.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-07.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="User-data propagation method" src="../assets/new-server/shot-07.png" /></a></p>
-<p>It is now time to create your Cleura Cloud server;
-click the green <em>Create</em> button, and the new server will be readily
-available in a few seconds.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-08.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new server" src="../assets/new-server/shot-08.png" /></a></p>
-</div>
-<div class="tabbed-block">
-<p>An <code>openstack</code> command for creating a server may look like
-this:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--flavor<span class="w"> </span><span class="nv">$FLAVOR_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--image<span class="w"> </span><span class="nv">$IMAGE_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--boot-from-volume<span class="w"> </span><span class="nv">$VOL_SIZE</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--network<span class="w"> </span><span class="nv">$NETWORK_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--security-group<span class="w"> </span><span class="nv">$SEC_GROUP_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--key-name<span class="w"> </span><span class="nv">$KEY_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nv">$SERVER_NAME</span>
+<p>As we discuss in the <a href="../new-server/">guide on creating servers</a>, an
+<code>openstack</code> command for instantiating a new server looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="go">openstack server create \</span>
+<span class="go">    --flavor $FLAVOR_NAME \</span>
+<span class="go">    --image $IMAGE_NAME \</span>
+<span class="go">    --boot-from-volume $VOL_SIZE \</span>
+<span class="go">    --network $NETWORK_NAME \</span>
+<span class="go">    --security-group $SEC_GROUP_NAME \</span>
+<span class="go">    --key-name $KEY_NAME \</span>
+<span class="go">    --wait \</span>
+<span class="gp">    $</span>SERVER_NAME
 </code></pre></div>
-<p>Each variable represents a piece of information we have to look
-for or, in the cases of <code>KEY_NAME</code> and <code>SERVER_NAME</code>, arbitrarily
-define.</p>
-<p>Let us begin with the <a href="../../../../reference/flavors/"><em>flavors</em></a> (<code>FLAVOR_NAME</code>), which
-describe combinations of CPU core count and memory size. Each server has a
-distinct flavor, and to see all available flavors type:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>flavor<span class="w"> </span>list
+<p>For servers with vGPU support, the only acceptable value for
+<code>IMAGE_NAME</code> is <code>Ubuntu 22.04 NVGRID x86_64</code>. Additionally, the value
+for <code>FLAVOR_NAME</code> should be a flavor <a href="../../../../reference/flavors/#compute-tiers">prefixed by
+<code>g</code></a>. To see all such
+flavors, you can type something like the following:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>flavor<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^g\.&quot;</span>
+<span class="go">g.8c48gb50</span>
+<span class="go">g.24c120gb50</span>
+<span class="go">g.48c240gb</span>
+<span class="go">g.12c48gb50</span>
+<span class="go">g.16c64gb50</span>
+<span class="go">g.12c64gb50</span>
+<span class="go">g.16c84gb50</span>
+<span class="go">g.8c32gb50</span>
 </code></pre></div>
-<p>You will get a pretty long list of flavors. For our demonstration,
-we suggest you go with <code>b.1c1gb</code>. A server with this particular flavor will
-have one CPU core and one
-<a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibyte</a> of
-RAM. Go ahead and set <code>FLAVOR_NAME</code> accordingly:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">FLAVOR_NAME</span><span class="o">=</span><span class="s2">&quot;b.1c1gb&quot;</span>
+<p>Taking all of the above into account, an <code>openstack</code> command for
+creating a new vGPU server could look like the following:</p>
+<div class="highlight"><pre><span></span><code><span class="go">openstack server create \</span>
+<span class="go">    --flavor &quot;g.8c32gb50&quot; \</span>
+<span class="go">    --image &quot;Ubuntu 22.04 NVGRID x86_64&quot; \</span>
+<span class="go">    --boot-from-volume 32 \</span>
+<span class="go">    --network cc-net \</span>
+<span class="go">    --security-group default \</span>
+<span class="go">    --key-name mykey \</span>
+<span class="go">    --wait \</span>
+<span class="go">    my-vgpu-server</span>
 </code></pre></div>
-<p>Your server should have an image to boot off of (<code>IMAGE_NAME</code>).
-For a list of all available images in Cleura Cloud, type:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list
+<p>Before you check whether the server does have virtual GPU support, we
+recommend assigning a floating IP to it.</p>
+<h2 id="checking-the-status-of-vgpu-support">Checking the status of vGPU support</h2>
+<p>From your local computer, connect to the new remote server via SSH.
+Type, for instance:</p>
+<div class="highlight"><pre><span></span><code><span class="go">ssh ubuntu@&lt;floating_ip_of_new_server&gt;</span>
 </code></pre></div>
-<p>This time you get a shorter list, but you can still filter for
-images with the OS you prefer. For example, filter for Ubuntu:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>--tag<span class="w"> </span><span class="s2">&quot;os:ubuntu&quot;</span>
+<p>Alternatively, connect to it using the <code>openstack</code> utility:</p>
+<div class="highlight"><pre><span></span><code><span class="go">openstack server ssh my-vgpu-server -- -l ubuntu</span>
 </code></pre></div>
-<p>Continue with the <code>Ubuntu 22.04 Jammy Jellyfish 20220810</code> image:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">IMAGE_NAME</span><span class="o">=</span><span class="s2">&quot;Ubuntu 22.04 Jammy Jellyfish 20220810&quot;</span>
+<p>Upon successful connection to the server and logging into the <code>ubuntu</code>
+account, in your terminal window you will see something like this:</p>
+<div class="highlight"><pre><span></span><code>Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-78-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sun Aug 13 06:11:14 UTC 2023
+
+  System load:  0.0                Processes:             159
+  Usage of /:   17.2% of 29.90GB   Users logged in:       0
+  Memory usage: 1%                 IPv4 address for ens3: 10.254.254.216
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+Last login: Sun Aug 13 05:48:57 2023 from 198.51.100.129
 </code></pre></div>
-<p>Before you go on, decide on the capacity (in gibibytes) of the server&rsquo;s
-boot volume (<code>VOL_SIZE</code>). We suggest you start with 20 gibibytes:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">VOL_SIZE</span><span class="o">=</span><span class="s2">&quot;20&quot;</span>
+<p>Your first clue regarding proper vGPU support should be in the output of
+the <code>lspci</code> command:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>lspci
+
+<span class="go">00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)</span>
+<span class="go">00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]</span>
+<span class="go">00:01.1 IDE interface: Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II]</span>
+<span class="go">00:01.2 USB controller: Intel Corporation 82371SB PIIX3 USB [Natoma/Triton II] (rev 01)</span>
+<span class="go">00:01.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 03)</span>
+<span class="go">00:02.0 VGA compatible controller: Cirrus Logic GD 5446</span>
+<span class="go">00:03.0 Ethernet controller: Red Hat, Inc. Virtio network device</span>
+<span class="go">00:04.0 SCSI storage controller: Red Hat, Inc. Virtio SCSI</span>
+<span class="go">00:05.0 Communication controller: Red Hat, Inc. Virtio console</span>
+<span class="go">00:06.0 3D controller: NVIDIA Corporation GA102GL [A10] (rev a1)</span>
+<span class="go">00:07.0 Unclassified device [00ff]: Red Hat, Inc. Virtio memory balloon</span>
+<span class="go">00:08.0 Unclassified device [00ff]: Red Hat, Inc. Virtio RNG</span>
 </code></pre></div>
-<p>You need at least one network in the region you&rsquo;re about to
-create your new server (<code>NETWORK_NAME</code>). To get the names of all
-available (internal) networks, type:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal<span class="w"> </span>-c<span class="w"> </span>Name
+<p>Notice the line that says <code>3D controller: NVIDIA Corporation</code>; that&rsquo;s
+good! To get much more information regarding vGPU support, use the
+NVIDIA system management interface utility. That would be <code>nvidia-smi</code>,
+which is installed by default in the <code>Ubuntu 22.04 NVGRID x86_64</code> image:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>nvidia-smi
+
+<span class="go">+-----------------------------------------------------------------------------+</span>
+<span class="go">| NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.0     |</span>
+<span class="go">|-------------------------------+----------------------+----------------------+</span>
+<span class="go">| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |</span>
+<span class="go">| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |</span>
+<span class="go">|                               |                      |               MIG M. |</span>
+<span class="go">|===============================+======================+======================|</span>
+<span class="go">|   0  NVIDIA A10-12C      On   | 00000000:00:06.0 Off |                    0 |</span>
+<span class="go">| N/A   N/A    P8    N/A /  N/A |      0MiB / 12288MiB |      0%      Default |</span>
+<span class="go">|                               |                      |             Disabled |</span>
+<span class="go">+-------------------------------+----------------------+----------------------+</span>
+
+<span class="go">+-----------------------------------------------------------------------------+</span>
+<span class="go">| Processes:                                                                  |</span>
+<span class="go">|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |</span>
+<span class="go">|        ID   ID                                                   Usage      |</span>
+<span class="go">|=============================================================================|</span>
+<span class="go">|  No running processes found                                                 |</span>
+<span class="go">+-----------------------------------------------------------------------------+</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>+----------------+
-| Name           |
-+----------------+
-| nordostbahnhof |
-+----------------+
-</code></pre></div>
-<p>Set the <code>NETWORK_NAME</code> variable accordingly:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">NETWORK_NAME</span><span class="o">=</span><span class="s2">&quot;nordostbahnhof&quot;</span>
-</code></pre></div>
-<p>Regarding the security group (<code>SEC_GROUP_NAME</code>), unless you
-have already created one yourself, you will find only one per region:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-c<span class="w"> </span>Description
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>+---------+------------------------+
-| Name    | Description            |
-+---------+------------------------+
-| default | Default security group |
-+---------+------------------------+
-</code></pre></div>
-<p>Go ahead and set <code>SEC_GROUP_NAME</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">SEC_GROUP_NAME</span><span class="o">=</span><span class="s2">&quot;default&quot;</span>
-</code></pre></div>
-<p>You most likely want a server you can remotely connect to via
-SSH without typing a password. Upload one of our public keys to your
-Cleura Cloud account:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>create<span class="w"> </span>--public-key<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>bahnhof
-</code></pre></div>
-<p>In the example above, we uploaded the public key
-<code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named
-it <code>bahnhof</code>. Follow our example and do not forget to set the
-<code>KEY_NAME</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">KEY_NAME</span><span class="o">=</span><span class="s2">&quot;bahnhof&quot;</span>
-</code></pre></div>
-<p>By the way, check all uploaded public keys&hellip;</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>list
-</code></pre></div>
-<p>&hellip;and get more information regarding the one you just uploaded:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>show<span class="w"> </span>bahnhof
-</code></pre></div>
-<p>You are almost ready to create your new server. Decide on a
-name&hellip;</p>
-<div class="highlight"><pre><span></span><code><span class="nv">SERVER_NAME</span><span class="o">=</span><span class="s2">&quot;zug&quot;</span><span class="w"> </span><span class="c1"># just an example</span>
-</code></pre></div>
-<p>&hellip;and then go ahead and create it:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--flavor<span class="w"> </span>b.1c1gb<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--image<span class="w"> </span><span class="nv">$IMAGE_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--boot-from-volume<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--network<span class="w"> </span>nordostbahnhof<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--security-group<span class="w"> </span>default<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--key-name<span class="w"> </span>bahnhof<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>zug
-</code></pre></div>
-<p>(For clarity&rsquo;s sake, and with the exception of <code>IMAGE_NAME</code>, we
-used the actual values and not the variables we so meticulously set.)
-The <code>--wait</code> parameter is optional. Whenever you choose to
-use it, you get back control of your terminal only after the server is
-readily available in Cleura Cloud.</p>
-<p>To connect to your server remotely, you need to create a floating IP
-for the external network in the Cleura Cloud, and then assign
-this IP to your server. First, create the floating IP:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>create<span class="w"> </span>ext-net
-</code></pre></div>
-<p>See all floating IPs&hellip;</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>list
-</code></pre></div>
-<p>&hellip;and assign the one you just created to your server:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>zug<span class="w"> </span><span class="m">198</span>.51.100.12
-</code></pre></div>
-<p>The username of the default user account in the Ubuntu image is
-<code>ubuntu</code>, so now you can connect to your remote server via SSH without
-typing a password:</p>
-<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>ubuntu@198.51.100.12
-</code></pre></div>
-<p>Alternatively, you may also use the following command, which is more flexible though slightly longer:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>ssh<span class="w"> </span>--public<span class="w"> </span>zug<span class="w"> </span>--<span class="w"> </span>-l<span class="w"> </span>ubuntu
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="viewing-information-about-the-newly-created-server">Viewing information about the newly created server</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>From the Cleura Cloud Management Panel you may, at any
-time, see all servers and get detailed information regarding each one
-of them; expand the left-hand side vertical pane, click <em>Compute</em>, then
-<em>Servers</em>, and, in the central pane, select the region you want.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-09.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Servers and details" src="../assets/new-server/shot-09.png" /></a></p>
-</div>
-<div class="tabbed-block">
-<p>To see all available servers in the region, type:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>list
-</code></pre></div>
-<p>You can always get specific information on a particular server:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>zug
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="connecting-to-the-server-console">Connecting to the server console</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>While viewing information regarding your server, you may get
-its public IP  address (e.g., from the <em>Addresses</em> tab) and connect to
-it remotely. Alternatively, you may launch a web console and log in;
-click on the three-dot icon on the right of the server header, and from
-the pop-up menu that appears select <em>Remote Console</em>.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Launch remote console" src="../assets/new-server/shot-10.png" /></a></p>
-<p>A new window pops up, and that&rsquo;s your web console to your
-Cleura Cloud server. Please note that this window cannot be
-resized but can be opened on a new browser window or tab.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Server console" src="../assets/new-server/shot-11.png" /></a></p>
-</div>
-<div class="tabbed-block">
-<p>You may have access to the web console of your server, and you need the
-corresponding URL for it:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>console<span class="w"> </span>url<span class="w"> </span>show<span class="w"> </span>zug
-</code></pre></div>
-<p>Usage of the web console is discouraged, though. Instead,
-securely connect to your server via SSH.</p>
-</div>
-</div>
-</div>
+<p>Among other pieces of information, you get the versions of the
+<code>nvidia-smi</code> utility, the NVIDIA driver, and the CUDA API.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-13</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-11-03</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-13</span>
       
     
   </small>
@@ -3309,7 +3167,7 @@ securely connect to your server via SSH.</p>
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>Christos Varelas, Florian Haas</span>
+          Authors: <span class='git-page-authors git-authors'>Christos Varelas</span>
       </small>
     </div>
   
