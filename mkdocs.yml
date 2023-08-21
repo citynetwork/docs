@@ -102,3 +102,7 @@ theme:
       toggle:
         icon: material/lightbulb
         name: "Switch to light mode"
+validation:
+  absolute_links: warn
+  omitted_files: warn
+  unrecognized_links: warn
