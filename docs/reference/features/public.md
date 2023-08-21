@@ -13,7 +13,7 @@
 |                                                              | Kna1                  | Sto2                  | Fra1             | Dx1              | Tky1             |
 | -------------                                                | ----------------      | --------------------- | ---------------- | ---------------- | ---------------- |
 | [Virtual GPU](../../howto/openstack/nova/new-vgpu-server.md) | :material-timer-sand: | :material-timer-sand: | :material-close: | :material-close: | :material-close: |
-| [Physical CPUs](../../flavors/#compute-tiers)                | :material-close:      | :material-timer-sand: | :material-close: | :material-close: | :material-close: |
+| [Physical CPUs](../flavors/index.md#compute-tiers)           | :material-close:      | :material-timer-sand: | :material-close: | :material-close: | :material-close: |
 
 
 ## Block storage
