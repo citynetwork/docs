@@ -1,6 +1,6 @@
 # Modifying content on this site
 
-You have two options for editing content: directly in your browser using GitHub, or using a Git-based workflow from your local work environment.
+You have two options for editing content: directly in your browser using GitHub, or from your local work environment using a Git-based workflow.
 
 ## Notes on content additions
 
@@ -12,14 +12,14 @@ This facilitates the review of your change, and it also helps you notice long ru
 
 **Headings:** Keep headings concise, under 80 characters.
 
-**Screenshots:** If you are contributing a change that contains screenshots from {{gui}}, they should use a resolution of 1920×1080 pixels (1080p).
-If your screen uses a larger resolution, use [Firefox Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/)
+**Screenshots:** If you are contributing a change that contains screenshots from {{gui}}, they should have a resolution of 1920×1080 pixels (1080p).
+If your screen has a larger resolution, use [Firefox Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/)
 or [Chrome/Chromium Device Mode](https://developer.chrome.com/docs/devtools/device-mode/) to configure your browser with 1080p.
 
 Screenshots should be added to a directory named `assets`, located in the same directory as the Markdown file you are adding or editing.
 
 **CLI screen dumps:** If you are contributing a change that contains a screen dump from the `openstack` command-line client, please limit its width to 100 characters.
-You can do this by setting the following environment variable in your terminal, before you start work on your change.
+You can do this by setting the following environment variable in your terminal, before you start working on your change.
 
 ``` bash
 export CLIFF_MAX_TERM_WIDTH=100
@@ -28,7 +28,7 @@ export CLIFF_MAX_TERM_WIDTH=100
 ## Modifying content from your browser
 
 Every page on this site has an Edit button ([:{{config.theme.icon.edit | replace('/','-')}}:]({{page.edit_url}})).
-If you click it, it’ll take you straight to its [corresponding source page]({{page.edit_url}}) in GitHub.
+If you click it, it’ll take you straight to the [corresponding source page]({{page.edit_url}}) in GitHub.
 Then, you can follow [GitHub’s documentation](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository) on how to propose changes to another user’s repository.
 
 ## Modifying content using Git
@@ -92,7 +92,7 @@ tox -e serve
 
 A local copy of the documentation will then run on your local machine and be accessible from <http://localhost:8000> in your browser.
 
-When you are planning to make several changes in rapid succession, you may want to speed up rendering the site after each change.
+When planning to make several changes in rapid succession, you may want to speed up site rendering after each change.
 You may do so by disabling a plugin that checks all links (including external links) for accessibility:
 
 ```bash

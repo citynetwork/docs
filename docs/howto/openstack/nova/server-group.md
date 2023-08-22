@@ -72,7 +72,7 @@ $ openstack server show -c fault -c status <server_id>
 +--------+--------------------------------------------------+
 ```
 
-This is normal as {{brand}} cannot schedule the server on a different physical compute node because there already is a server in the server group on every node.
+This is normal as {{brand}} cannot schedule the server on a different physical compute node because there is already a server in the server group on every node.
 The same scheduling error and "fault" message will occur when using a server group with a policy of `affinity` as well, when you create more servers than a physical compute node can host.
 
 However when using a soft affinity policy, such as `soft-affinity` or `soft-anti-affinity`, the scheduler is allowed to break the server group's policy if it is unable to uphold it.
