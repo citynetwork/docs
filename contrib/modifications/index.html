@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.1">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
     
     
       
@@ -3786,54 +3786,35 @@
 
 
 <h1 id="modifying-content-on-this-site">Modifying content on this site</h1>
-<p>You have two options for editing content: directly in your browser
-using GitHub, or using a Git-based workflow from your local work
-environment.</p>
+<p>You have two options for editing content: directly in your browser using GitHub, or from your local work environment using a Git-based workflow.</p>
 <h2 id="notes-on-content-additions">Notes on content additions</h2>
-<p><strong>Sections:</strong> Generally, content additions should fit somewhere within
-the existing top-level and second-level sections. Try not to introduce
-a new top-level or second-level section.</p>
-<p><strong>Screenshots:</strong> If you are contributing a change that contains
-screenshots from Cleura Cloud Management Panel, they should use a resolution of
-1920×1080 pixels (1080p). If your screen uses a larger resolution, use
-<a href="https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/">Firefox Responsive Design
-Mode</a>
-or <a href="https://developer.chrome.com/docs/devtools/device-mode/">Chrome/Chromium Device
-Mode</a> to
-configure your browser with 1080p.
-Screenshots should be added to a directory named <code>assets</code>, located in
-the same directory as the Markdown file you are adding or editing.</p>
-<p><strong>CLI screen dumps:</strong> If you are contributing a change that contains a
-screen dump from the <code>openstack</code> command-line client, please limit its
-width to 100 characters. You can do this by setting the following
-environment variable in your terminal, before you start work on your
-change.</p>
+<p><strong>Sections:</strong> Generally, content additions should fit somewhere within the existing top-level and second-level sections (like <a href="../../background/"><em>Background</em></a>, or <a href="../../howto/kubernetes/"><em>Kubernetes</em></a>).
+Try not to introduce a new top-level or second-level section.</p>
+<p><strong>Text:</strong> Write your Markdown text in such a way that each sentence in a paragraph has its own line, and is followed immediately by a newline character with no spaces in between.
+This facilitates the review of your change, and it also helps you notice long run-on sentences as you write.</p>
+<p><strong>Headings:</strong> Keep headings concise, under 80 characters.</p>
+<p><strong>Screenshots:</strong> If you are contributing a change that contains screenshots from Cleura Cloud Management Panel, they should have a resolution of 1920×1080 pixels (1080p).
+If your screen has a larger resolution, use <a href="https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/">Firefox Responsive Design Mode</a>
+or <a href="https://developer.chrome.com/docs/devtools/device-mode/">Chrome/Chromium Device Mode</a> to configure your browser with 1080p.</p>
+<p>Screenshots should be added to a directory named <code>assets</code>, located in the same directory as the Markdown file you are adding or editing.</p>
+<p><strong>CLI screen dumps:</strong> If you are contributing a change that contains a screen dump from the <code>openstack</code> command-line client, please limit its width to 100 characters.
+You can do this by setting the following environment variable in your terminal, before you start working on your change.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CLIFF_MAX_TERM_WIDTH</span><span class="o">=</span><span class="m">100</span>
 </code></pre></div>
 <h2 id="modifying-content-from-your-browser">Modifying content from your browser</h2>
-<p>Every page on this site has an Edit button
-(<a href="https://github.com/citynetwork/docs/edit/main/docs/contrib/modifications.md"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg></span></a>).
-If you click it, it’ll
-take you straight to its <a href="https://github.com/citynetwork/docs/edit/main/docs/contrib/modifications.md">corresponding source page</a> in GitHub. Then,
-you can follow <a href="https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository">GitHub’s
-documentation</a>
-on how to propose changes to another user’s repository.</p>
+<p>Every page on this site has an Edit button (<a href="https://github.com/citynetwork/docs/edit/main/docs/contrib/modifications.md"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg></span></a>).
+If you click it, it’ll take you straight to the <a href="https://github.com/citynetwork/docs/edit/main/docs/contrib/modifications.md">corresponding source page</a> in GitHub.
+Then, you can follow <a href="https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files#editing-files-in-another-users-repository">GitHub’s documentation</a> on how to propose changes to another user’s repository.</p>
 <h2 id="modifying-content-using-git">Modifying content using Git</h2>
-<p>The Git repository for this site lives <a href="https://github.com/citynetwork/docs">on GitHub</a>. You
-can <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork that
-repository</a>,
-make the proposed changes in your fork, and then send us a standard
-<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">GitHub pull
-request</a>.</p>
-<p>For this purpose, use <code>git</code> in combination with either GitHub&rsquo;s web
-interface, or the <code>gh</code> command-line interface (CLI).</p>
+<p>The Git repository for this site lives <a href="https://github.com/citynetwork/docs">on GitHub</a>.
+You can <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork that repository</a>, make the proposed changes in your fork, and then send us a standard <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">GitHub pull request</a>.</p>
+<p>For this purpose, use <code>git</code> in combination with either GitHub&rsquo;s web interface, or the <code>gh</code> command-line interface (CLI).</p>
 <p>First, create a fork of the documentation repository:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><code>git</code> client and web browser</label><label for="__tabbed_1_2"><code>gh</code> client</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Open <a href="https://github.com/citynetwork/docs">our GitHub repo</a> and click the <em>Fork</em> button.
-When you create your new fork, it&rsquo;s fine to leave the
-<em>Copy the <code>main</code> branch only</em> option enabled.</p>
+When you create your new fork, it&rsquo;s fine to leave the <em>Copy the <code>main</code> branch only</em> option enabled.</p>
 <p>Then, proceed to create a new local checkout of your fork:
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;yourusername&gt;/&lt;your-repo-fork&gt;<span class="w"> </span>cleura<span class="w"> </span>cloud-docs
 <span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
@@ -3857,12 +3838,10 @@ git<span class="w"> </span>commit
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><code>git</code> client and web browser</label><label for="__tabbed_2_2"><code>gh</code> client</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Run the following <code>git</code> command (assuming <code>origin</code> is the
-remote that points to your fork):
+<p>Run the following <code>git</code> command (assuming <code>origin</code> is the remote that points to your fork):
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;your-topic-branch-name&gt;
 </code></pre></div>
-Then, open your browser to the URL suggested by the <code>git push</code>
-command, and proceed to create a pull request.</p>
+Then, open your browser to the URL suggested by the <code>git push</code> command, and proceed to create a pull request.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--fill
@@ -3871,48 +3850,30 @@ command, and proceed to create a pull request.</p>
 </div>
 </div>
 <h2 id="monitoring-changes-as-you-edit">Monitoring changes as you edit</h2>
-<p>To see your changes as you work on them, you can use
-<a href="https://tox.wiki/en/latest/">tox</a>. Having created a topic branch with
-your modifications, run:</p>
+<p>To see your changes as you work on them, you can use <a href="https://tox.wiki/en/latest/">tox</a>.
+Having created a topic branch with your modifications, run:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
 git<span class="w"> </span>checkout<span class="w"> </span>&lt;your-topic-branch-name&gt;
 tox<span class="w"> </span>-e<span class="w"> </span>serve
 </code></pre></div>
-<p>A local copy of the documentation will then run on your local machine
-and be accessible from <a href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
-<p>When you are planning to make several changes in rapid succession, you
-may want to speed up rendering the site after each change. You may do
-so by disabling a plugin that checks all links (including external
-links) for accessibility:</p>
+<p>A local copy of the documentation will then run on your local machine and be accessible from <a href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
+<p>When planning to make several changes in rapid succession, you may want to speed up site rendering after each change.
+You may do so by disabling a plugin that checks all links (including external links) for accessibility:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>cleura<span class="w"> </span>cloud-docs
 <span class="nb">export</span><span class="w"> </span><span class="nv">DOCS_ENABLE_HTMLPROOFER</span><span class="o">=</span><span class="nb">false</span>
 tox<span class="w"> </span>-e<span class="w"> </span>serve
 </code></pre></div>
 <h2 id="commit-messages">Commit messages</h2>
-<p>When you submit a change, you will need to provide a commit message,
-which is very nearly as important as the change itself. Excellent
-guides on what constitutes a good commit message are available from
-<a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim
-Pope</a>
-and <a href="http://www.gazlene.net/getting-work-done-in-open-source.html">Colleen
-Murphy</a>.</p>
-<p>In addition, we have adopted the <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional
-Commits</a> style for
-commit message subjects. Please make sure that your commit message
-starts with one of the following prefixes:</p>
+<p>When you submit a change, you will need to provide a commit message, which is very nearly as important as the change itself.
+Excellent guides on what constitutes a good commit message are available from <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope</a> and <a href="http://www.gazlene.net/getting-work-done-in-open-source.html">Colleen Murphy</a>.</p>
+<p>In addition, we have adopted the <a href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> style for commit message subjects.
+Please make sure that your commit message starts with one of the following prefixes:</p>
 <ul>
-<li><code>feat:</code> denotes a content addition, such as adding documentation for
-  some Cleura Cloud functionality that was not included in
-  the documentation before.</li>
-<li><code>fix:</code> denotes a content correction, such as fixing a
-  documentation bug.</li>
-<li><code>build:</code> denotes a change to the build process, such as an
-  improvement to a CI check.</li>
-<li><code>chore:</code> denotes a minor change that is neither a feature, nor a
-  fix, nor a build improvement, such as when you edit the <code>.mailmap</code>
-  file.</li>
-<li><code>docs:</code> denotes a change to the documention <em>for</em> this site, such as
-  an update to the <code>README.md</code> file.</li>
+<li><code>feat:</code> denotes a content addition, such as adding documentation for some Cleura Cloud functionality that was not included in the documentation before.</li>
+<li><code>fix:</code> denotes a content correction, such as fixing a documentation bug.</li>
+<li><code>build:</code> denotes a change to the build process, such as an improvement to a CI check.</li>
+<li><code>chore:</code> denotes a minor change that is neither a feature, nor a fix, nor a build improvement, such as when you edit the <code>.mailmap</code> file.</li>
+<li><code>docs:</code> denotes a change to the documention <em>for</em> this site, such as an update to the <code>README.md</code> file.</li>
 </ul>
 
   <hr>
@@ -3920,7 +3881,7 @@ starts with one of the following prefixes:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-22</span>
       
         <br>
         Created:

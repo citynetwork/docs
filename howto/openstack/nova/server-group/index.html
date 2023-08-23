@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.1">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
     
     
       
@@ -3879,14 +3879,18 @@
 <span class="w">  </span>--policy<span class="w"> </span><span class="o">[</span>affinity<span class="p">|</span>soft-affinity<span class="p">|</span>anti-affinity<span class="p">|</span>soft-anti-affinity<span class="o">]</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>&lt;server_group_name&gt;
 </code></pre></div>
-<p>With an <code>anti-affinity</code> or <code>soft-anti-affinity</code> policy, you may also configure how many servers you want to allow on the same physical compute node. To do this, use the option <code>--rule max_server_per_host=&lt;number&gt;</code>, where <code>&lt;number&gt;</code> is the amount of servers to allow on the same physical compute node.</p>
+<p>With an <code>anti-affinity</code> or <code>soft-anti-affinity</code> policy, you may also configure how many servers you want to allow on the same physical compute node.
+To do this, use the option <code>--rule max_server_per_host=&lt;number&gt;</code>, where <code>&lt;number&gt;</code> is the amount of servers to allow on the same physical compute node.</p>
 <h2 id="creating-servers-using-server-groups">Creating servers using server groups</h2>
-<p>To apply a server group policy, you must specify the group when creating a server, as a <em>scheduling hint.</em> To do that, use the <code>--hint</code> parameter in the following command:</p>
+<p>To apply a server group policy, you must specify the group when creating a server, as a <em>scheduling hint.</em>
+To do that, use the <code>--hint</code> parameter in the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span>--hint<span class="w"> </span><span class="nv">group</span><span class="o">=</span>&lt;server_group_id&gt;<span class="w"> </span><span class="o">[</span>...<span class="o">]</span><span class="w"> </span>&lt;server_name&gt;
 </code></pre></div>
 <p>If you subsequently launch more servers referencing the same server group, Cleura Cloud concentrates or distributes them according to the server group&rsquo;s policy.</p>
 <h2 id="troubleshooting-common-issues">Troubleshooting common issues</h2>
-<p>If you keep creating servers within a server group with a policy of <code>anti-affinity</code>, you will eventually exceed the total amount of physical compute nodes in the region. The command will still succeed, but the server will subsequently fail to be scheduled to a compute node. Instead, it will assume the <code>ERROR</code> status with the following <code>fault</code> message: <em>No valid host was found. There are not enough hosts available.</em></p>
+<p>If you keep creating servers within a server group with a policy of <code>anti-affinity</code>, you will eventually exceed the total amount of physical compute nodes in the region.
+The command will still succeed, but the server will subsequently fail to be scheduled to a compute node.
+Instead, it will assume the <code>ERROR</code> status with the following <code>fault</code> message: <em>No valid host was found. There are not enough hosts available.</em></p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>fault<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>&lt;server_id&gt;
 <span class="go">+--------+--------------------------------------------------+</span>
 <span class="go">| Field  | Value                                            |</span>
@@ -3897,8 +3901,10 @@
 <span class="go">| status | ERROR                                            |</span>
 <span class="go">+--------+--------------------------------------------------+</span>
 </code></pre></div>
-<p>This is normal as Cleura Cloud cannot schedule the server on a different physical compute node because there already is a server in the server group on every node. The same scheduling error and &ldquo;fault&rdquo; message will occur when using a server group with a policy of <code>affinity</code> as well, when you create more servers than a physical compute node can host.</p>
-<p>However when using a soft affinity policy, such as <code>soft-affinity</code> or <code>soft-anti-affinity</code>, the scheduler is allowed to break the server group&rsquo;s policy if it is unable to uphold it. This means you may want to verify that your servers are on the same or on different physical compute nodes by looking at the <em>hostId</em> value of your servers.</p>
+<p>This is normal as Cleura Cloud cannot schedule the server on a different physical compute node because there is already a server in the server group on every node.
+The same scheduling error and &ldquo;fault&rdquo; message will occur when using a server group with a policy of <code>affinity</code> as well, when you create more servers than a physical compute node can host.</p>
+<p>However when using a soft affinity policy, such as <code>soft-affinity</code> or <code>soft-anti-affinity</code>, the scheduler is allowed to break the server group&rsquo;s policy if it is unable to uphold it.
+This means you may want to verify that your servers are on the same or on different physical compute nodes by looking at the <em>hostId</em> value of your servers.</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>hostId<span class="w"> </span>&lt;server_id&gt;
 <span class="go">+--------+----------------------------------------------------------+</span>
 <span class="go">| hostId | 8fae028139411e9e125d5f39895bef79f916aefce6003a7888de105d |</span>
@@ -3914,7 +3920,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-22</span>
       
         <br>
         Created:
