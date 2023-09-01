@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Object storage - Cleura Docs</title>
+        <title>Object storage - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Object storage - Cleura Docs" >
+        <meta  property="og:title"  content="Object storage - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Object storage - Cleura Docs" >
+        <meta  name="twitter:title"  content="Object storage - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -2531,7 +2531,7 @@
       
         <li class="md-nav__item">
   <a href="#object-identity-in-cleura-cloud" class="md-nav__link">
-    Object identity in Cleura Cloud
+    Object identity in Cleura Cloud
   </a>
   
 </li>
@@ -3735,7 +3735,7 @@
       
         <li class="md-nav__item">
   <a href="#object-identity-in-cleura-cloud" class="md-nav__link">
-    Object identity in Cleura Cloud
+    Object identity in Cleura Cloud
   </a>
   
 </li>
@@ -3771,28 +3771,28 @@
   
 
 
-<h1 id="object-storage-in-cleura-cloud">Object storage in Cleura Cloud</h1>
-<p>Object storage in Cleura Cloud is implemented via the <a href="https://docs.ceph.com/en/latest/radosgw/index.html">Ceph Object Gateway</a>, also known as <code>radosgw</code> (commonly pronounced &ldquo;<a href="https://ceph.io/assets/pdfs/weil-rados-pdsw07.pdf">rados</a> gateway&rdquo;).</p>
+<h1 id="object-storage-in-cleura-cloud">Object storage in Cleura Cloud</h1>
+<p>Object storage in Cleura Cloud is implemented via the <a href="https://docs.ceph.com/en/latest/radosgw/index.html">Ceph Object Gateway</a>, also known as <code>radosgw</code> (commonly pronounced &ldquo;<a href="https://ceph.io/assets/pdfs/weil-rados-pdsw07.pdf">rados</a> gateway&rdquo;).</p>
 <p>This facility exposes access to objects via two RESTful APIs: the <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/APIRest.html">Amazon S3 API</a>, and the <a href="https://docs.openstack.org/api-ref/object-store/">OpenStack Swift API</a>.
 It is, however, important to understand that radosgw shares no code with Amazon S3, nor with OpenStack Swift.</p>
-<p>As such, object storage in Cleura Cloud is not expected to behave <em>exactly</em> as Amazon S3 or OpenStack Swift, although it tracks their behavior very closely.
+<p>As such, object storage in Cleura Cloud is not expected to behave <em>exactly</em> as Amazon S3 or OpenStack Swift, although it tracks their behavior very closely.
 The Ceph upstream documentation lists API deviations from the respective reference implementations, for both the <a href="https://docs.ceph.com/en/latest/radosgw/s3/">S3</a> and the <a href="https://docs.ceph.com/en/latest/radosgw/swift/">Swift</a> API.
-Our <a href="../../reference/">reference section</a> lists additional <a href="../../reference/limitations/object-storage/">limitations</a> specific to Cleura Cloud.</p>
+Our <a href="../../reference/">reference section</a> lists additional <a href="../../reference/limitations/object-storage/">limitations</a> specific to Cleura Cloud.</p>
 <h2 id="object-storage-integration-with-openstack-authentication">Object storage integration with OpenStack authentication</h2>
-<p>In Cleura Cloud, the OpenStack <code>object‑store</code> service endpoints point not to native OpenStack Swift proxy servers, but to radosgw endpoints.
+<p>In Cleura Cloud, the OpenStack <code>object‑store</code> service endpoints point not to native OpenStack Swift proxy servers, but to radosgw endpoints.
 This is to say that radosgw acts as a &ldquo;drop-in&rdquo; replacement for OpenStack Swift.</p>
 <p>As such, it is fully integrated with OpenStack&rsquo;s authentication facility, OpenStack Keystone.
 This means that once you have configured the <a href="../../howto/getting-started/enable-openstack-cli/">OpenStack CLI</a> correctly, you can interact with the <code>object‑store</code> endpoint as with any other OpenStack service, using the Swift API.</p>
 <p>The S3 API, however, does not natively &ldquo;know&rdquo; about OpenStack authentication.
-The radosgw endpoints in Cleura Cloud <em>still</em> authenticate via Keystone, albeit taking a little detour:
+The radosgw endpoints in Cleura Cloud <em>still</em> authenticate via Keystone, albeit taking a little detour:
 you must first <a href="../../howto/object-storage/s3/credentials/">create AWS-style credentials</a> and configure your S3 client with them, which it can then use to make properly authenticated S3 API calls.</p>
 <h2 id="multi-tenancy">Multi-tenancy</h2>
 <p>OpenStack Swift has the concept of multi-tenancy built-in.
-Thus, if you use the Swift API with credentials for an <a href="../../howto/getting-started/enable-openstack-cli/">OpenStack user</a> that authenticates against a specific Cleura Cloud <em>region</em> and uses a specific <em>project</em>, it can only interact with objects stored in containers belonging to that project by default.</p>
-<p>In Cleura Cloud, you also get multi-tenancy for S3 objects, even though this concept is not intrinsic to S3 itself.
+Thus, if you use the Swift API with credentials for an <a href="../../howto/getting-started/enable-openstack-cli/">OpenStack user</a> that authenticates against a specific Cleura Cloud <em>region</em> and uses a specific <em>project</em>, it can only interact with objects stored in containers belonging to that project by default.</p>
+<p>In Cleura Cloud, you also get multi-tenancy for S3 objects, even though this concept is not intrinsic to S3 itself.
 Here, again, a slight conceptual detour applies: when you <a href="../../howto/object-storage/s3/credentials/">create AWS-style credentials</a>, then those are linked to a specific OpenStack user, region, and project.
 When you subsequently use those credentials for S3 interactions, any buckets and objects thus created belong to the project to which the credentials are linked.</p>
-<h2 id="object-identity-in-cleura-cloud">Object identity in Cleura Cloud</h2>
+<h2 id="object-identity-in-cleura-cloud">Object identity in Cleura Cloud</h2>
 <p>Whether you access a specific object via the Swift API or the S3 API, <em>it is the same object.</em>
 This also means that the object&rsquo;s <em>container</em> (accessed via the Swift API) is identical to its containing <em>bucket</em> (accessed via the S3 API).</p>
 <p>Thus, if you</p>
@@ -3807,7 +3807,7 @@ This also means that the object&rsquo;s <em>container</em> (accessed via the Swi
 <p>The fact that objects are identical when accessed via Swift and S3 also entails that bucket and object permissions, set via one API, also apply to object access using the other API.</p>
 <p>For example, if you <a href="../../howto/object-storage/swift/public-container/">make a container public</a> via the Swift API, it also becomes a <a href="../../howto/object-storage/s3/public-bucket/">public bucket</a> that is accessible via an S3 API path.
 You cannot simultaneously retain mandatory private (authenticated) access to the corresponding bucket via the S3 API.</p>
-<p>Object storage in Cleura Cloud also does <em>not</em> allow you to make competing feature settings on containers/buckets, based on the API used to access them.
+<p>Object storage in Cleura Cloud also does <em>not</em> allow you to make competing feature settings on containers/buckets, based on the API used to access them.
 For example, it is not possible to create <a href="../../howto/object-storage/swift/versioning/">a Swift container that enables versioning</a>, while disabling <a href="../../howto/object-storage/s3/versioning/">bucket versioning</a> on the corresponding S3 bucket.</p>
 <p>Sometimes, this creates unavoidable conflicts if a specific feature is only available in one of the supported APIs.
 For example, if you <a href="../../howto/object-storage/s3/public-bucket/">set a public read policy</a> on an S3 bucket, the corresponding Swift container will still show an empty Read ACL, making the Swift container <em>look</em> like it is private, even though its objects are accessible through simple public URLs.

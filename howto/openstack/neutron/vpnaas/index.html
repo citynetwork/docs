@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Creating a VPN connection between regions - Cleura Docs</title>
+        <title>Creating a VPN connection between regions - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Creating a VPN connection between regions - Cleura Docs" >
+        <meta  property="og:title"  content="Creating a VPN connection between regions - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Creating a VPN connection between regions - Cleura Docs" >
+        <meta  name="twitter:title"  content="Creating a VPN connection between regions - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3890,12 +3890,12 @@
 can bridge two different regions via a site-to-site IPSec VPN
 connection. This is made possible without setting up and configuring a
 virtual machine in any one of the regions. On the contrary, you can
-quickly establish such a connection using the Cleura Cloud Management Panel or the OpenStack
+quickly establish such a connection using the Cleura Cloud Management Panel or the OpenStack
 CLI. Let us demonstrate the process following both approaches.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI,
+<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI,
 you need to <a href="../../../getting-started/create-account/">have an account</a> in
-Cleura Cloud. If you prefer to work with the <a href="../../../getting-started/enable-openstack-cli/">OpenStack
+Cleura Cloud. If you prefer to work with the <a href="../../../getting-started/enable-openstack-cli/">OpenStack
 CLI</a>, then in addition to
 the Python <code>openstackclient</code> module, you need to install the
 Python <code>neutronclient</code> module also. Use either the package manager
@@ -3917,21 +3917,21 @@ install it via <code>pip</code>.</p>
 </div>
 </div>
 <h2 id="creating-a-vpn-connection-between-two-regions">Creating a VPN connection between two regions</h2>
-<p>To create and establish such a connection from the Cleura Cloud Management Panel, fire up
+<p>To create and establish such a connection from the Cleura Cloud Management Panel, fire up
 your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
-Cleura Cloud account. Should you decide to follow the OpenStack CLI route
+<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
+Cleura Cloud account. Should you decide to follow the OpenStack CLI route
 instead, please make sure you have the appropriate <a href="../../../getting-started/enable-openstack-cli/">RC
 file</a> for each region
 involved.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em>
+<p>On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em>
 button. A vertical pane titled <em>Create</em> will slide into view from the
 right-hand side of the browser window. You will notice several rounded
 boxes, each one for defining, configuring, and instantiating a
-different Cleura Cloud object. Go ahead and click the <em>VPN</em> box.</p>
+different Cleura Cloud object. Go ahead and click the <em>VPN</em> box.</p>
 <p><a class="glightbox" href="../assets/vpnaas/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/vpnaas/shot-01.png" /></a></p>
 <p>A new pane titled <em>Create a VPN Service</em> will slide over. Between
 the two boxes, click the one titled <em>Quick (Guided) Connect</em>.</p>
@@ -4272,12 +4272,12 @@ from region <code>kna1</code> to region <code>fra1</code>, issue the following c
 </div>
 </div>
 <h2 id="viewing-vpn-connections-and-getting-details">Viewing VPN connections and getting details</h2>
-<p>No matter if you use the Cleura Cloud Management Panel or the OpenStack CLI, you may at any
+<p>No matter if you use the Cleura Cloud Management Panel or the OpenStack CLI, you may at any
 time list all VPN connections and get relevant details.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In the vertical pane on the left-hand side of the Cleura Cloud Management Panel, expand
+<p>In the vertical pane on the left-hand side of the Cleura Cloud Management Panel, expand
 the <em>Networking</em> section and then the <em>VPN Services</em> subsection. From
 the available options, click <em>VPN Services</em> again. You will see two VPN
 connections in the main pane, each from one region to the other.</p>
@@ -4376,11 +4376,11 @@ regions, pinging should be all possible:</p>
 </code></pre></div>
 <h2 id="disabling-an-active-connection">Disabling an active connection</h2>
 <p>You may, at any time, disable an active site-to-site VPN connection.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Currently, there is no way to disable an active connection from the
-Cleura Cloud Management Panel. If you want to disable an active connection, please use the
+Cleura Cloud Management Panel. If you want to disable an active connection, please use the
 OpenStack CLI.</p>
 </div>
 <div class="tabbed-block">
@@ -4455,11 +4455,11 @@ now disabled, pinging should not be possible:</p>
 </code></pre></div>
 <h2 id="enabling-an-inactive-connection">Enabling an inactive connection</h2>
 <p>You can easily enable an inactive site-to-site VPN connection.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Currently, there is no way to enable an inactive connection from
-the Cleura Cloud Management Panel. If you want to re-enable an inactive connection,
+the Cleura Cloud Management Panel. If you want to re-enable an inactive connection,
 please use the OpenStack CLI.</p>
 </div>
 <div class="tabbed-block">

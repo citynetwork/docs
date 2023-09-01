@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Kubernetes - Cleura Docs</title>
+        <title>Kubernetes - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Kubernetes - Cleura Docs" >
+        <meta  property="og:title"  content="Kubernetes - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Kubernetes - Cleura Docs" >
+        <meta  name="twitter:title"  content="Kubernetes - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3912,25 +3912,25 @@
 <h1 id="kubernetes-service-limitations">Kubernetes service limitations</h1>
 <h2 id="openstack-magnum">OpenStack Magnum</h2>
 <h3 id="container-orchestration-engines">Container Orchestration Engines</h3>
-<p>In Cleura Cloud, Magnum only supports the <code>kubernetes</code> Container Orchestration Engine (COE).
+<p>In Cleura Cloud, Magnum only supports the <code>kubernetes</code> Container Orchestration Engine (COE).
 The legacy <code>swarm</code> and <code>mesos</code> COEs are not supported.</p>
 <h3 id="kubernetes-version">Kubernetes version</h3>
-<p>The latest Kubernetes version you can install in Cleura Cloud with OpenStack Magnum is 1.21.14.</p>
+<p>The latest Kubernetes version you can install in Cleura Cloud with OpenStack Magnum is 1.21.14.</p>
 <h3 id="ip-version">IP version</h3>
-<p>In Cleura Cloud, you can use OpenStack Magnum to deploy Kubernetes clusters that use either IPv4 or IPv6.
+<p>In Cleura Cloud, you can use OpenStack Magnum to deploy Kubernetes clusters that use either IPv4 or IPv6.
 Dual-stack clusters or services are not supported.</p>
 <h3 id="cluster-networking">Cluster networking</h3>
-<p>The only supported Magnum network driver in Cleura Cloud is <code>calico</code>.
+<p>The only supported Magnum network driver in Cleura Cloud is <code>calico</code>.
 We do not support the <code>flannel</code> network driver.</p>
 <h3 id="persistent-volumes-pvs">Persistent volumes (PVs)</h3>
-<p>In Magnum-managed Kubernetes clusters in Cleura Cloud, the only supported PV <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes">access mode</a> is <code>ReadWriteOnce</code> (<code>RWO</code>).
+<p>In Magnum-managed Kubernetes clusters in Cleura Cloud, the only supported PV <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes">access mode</a> is <code>ReadWriteOnce</code> (<code>RWO</code>).
 Note that this still enables multiple Pods to access the same volume, as long as they are <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/">configured to run on the same node</a>.</p>
 <p>You cannot use <code>ReadWriteOncePod</code> (<code>RWOP</code>), <code>ReadWriteMany</code> (<code>RWX</code>), or <code>ReadOnlyMany</code> (<code>ROX</code>) PVs.</p>
 <h2 id="gardener">Gardener</h2>
 <h3 id="kubernetes-version_1">Kubernetes version</h3>
-<p>The latest Kubernetes version you can install in Cleura Cloud with Gardener is 1.26.5.</p>
+<p>The latest Kubernetes version you can install in Cleura Cloud with Gardener is 1.26.5.</p>
 <h3 id="ip-version_1">IP version</h3>
-<p>In Cleura Cloud, you can use Gardener to deploy Kubernetes clusters that use IPv4.
+<p>In Cleura Cloud, you can use Gardener to deploy Kubernetes clusters that use IPv4.
 IPv6 clusters or services (whether single-stack or dual-stack) are not supported.</p>
 <h3 id="service-annotations">Service annotations</h3>
 <p>In Gardener-managed clusters, we do not support <code>loadbalancer.openstack.org</code> <a href="https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/openstack-cloud-controller-manager/expose-applications-using-loadbalancer-type-service.md">annotations</a> for Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/service/">services</a> of the <a href="https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer"><code>LoadBalancer</code></a> type.</p>
@@ -3939,7 +3939,7 @@ IPv6 clusters or services (whether single-stack or dual-stack) are not supported
 Note that <code>RWO</code> enables multiple Pods to access the same volume, as long as they are <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/">configured to run on the same node</a>. Use <code>RWOP</code> to restrict the volume to one pod only.</p>
 <p>You cannot use <code>ReadWriteMany</code> (<code>RWX</code>) or <code>ReadOnlyMany</code> (<code>ROX</code>) PVs.</p>
 <h3 id="dynamic-volume-provisioning-storage-classes">Dynamic volume provisioning storage classes</h3>
-<p>In Cleura Cloud, Gardener-managed clusters contain a single <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">storage class</a> named <code>default</code>, which is the supported storage class you should use for all dynamically-provisioned persistent volumes.
+<p>In Cleura Cloud, Gardener-managed clusters contain a single <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">storage class</a> named <code>default</code>, which is the supported storage class you should use for all dynamically-provisioned persistent volumes.
 We do not provide support for any user-defined storage classes.</p>
 
   <hr>

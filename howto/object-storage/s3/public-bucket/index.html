@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Public buckets - Cleura Docs</title>
+        <title>Public buckets - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Public buckets - Cleura Docs" >
+        <meta  property="og:title"  content="Public buckets - Cleura Docs" >
       
         <meta  property="og:description"  content="You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser." >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Public buckets - Cleura Docs" >
+        <meta  name="twitter:title"  content="Public buckets - Cleura Docs" >
       
         <meta  name="twitter:description"  content="You can use the S3 API to configure a bucket with public read access, so that anyone can download its objects with a web browser." >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3867,7 +3867,7 @@ To avoid inadvertent disclosure of existing information, consider setting public
 <p>Your project UUID is listed as the <code>project_id</code> field in the output of the <code>openstack ec2 credentials create</code> command you used to <a href="../credentials/">create your S3-compatible credentials</a>.</p>
 <p>If you did not note it down at the time of account creation, you can always retrieve it with <code>openstack ec2 credentials &lt;access-key&gt;</code>.</p>
 </blockquote>
-<p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> from the project with the UUID <code>07576783684248f7b2745e34356c6025</code> in the Cleura Cloud Kna1 region, you would run:</p>
+<p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> from the project with the UUID <code>07576783684248f7b2745e34356c6025</code> in the Cleura Cloud Kna1 region, you would run:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-O<span class="w"> </span>https://s3-kna1.citycloud.com:8080/07576783684248f7b2745e34356c6025:foo/bar.pdf
 <span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
 <span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>

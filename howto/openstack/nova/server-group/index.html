@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Using server groups - Cleura Docs</title>
+        <title>Using server groups - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Using server groups - Cleura Docs" >
+        <meta  property="og:title"  content="Using server groups - Cleura Docs" >
       
         <meta  property="og:description"  content="Server groups provide a mechanism to group servers according to a certain policy." >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Using server groups - Cleura Docs" >
+        <meta  name="twitter:title"  content="Using server groups - Cleura Docs" >
       
         <meta  name="twitter:description"  content="Server groups provide a mechanism to group servers according to a certain policy." >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3860,7 +3860,7 @@
 
 
 <h1 id="using-server-groups">Using server groups</h1>
-<p>In Cleura Cloud, you can use server groups to control the scheduling of a group of servers.</p>
+<p>In Cleura Cloud, you can use server groups to control the scheduling of a group of servers.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>In order to use server groups you must use the OpenStack CLI. Make sure you have <a href="../../../getting-started/enable-openstack-cli/">enabled it</a>.</p>
 <h2 id="policies">Policies</h2>
@@ -3886,7 +3886,7 @@ To do this, use the option <code>--rule max_server_per_host=&lt;number&gt;</cod
 To do that, use the <code>--hint</code> parameter in the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span>--hint<span class="w"> </span><span class="nv">group</span><span class="o">=</span>&lt;server_group_id&gt;<span class="w"> </span><span class="o">[</span>...<span class="o">]</span><span class="w"> </span>&lt;server_name&gt;
 </code></pre></div>
-<p>If you subsequently launch more servers referencing the same server group, Cleura Cloud concentrates or distributes them according to the server group&rsquo;s policy.</p>
+<p>If you subsequently launch more servers referencing the same server group, Cleura Cloud concentrates or distributes them according to the server group&rsquo;s policy.</p>
 <h2 id="troubleshooting-common-issues">Troubleshooting common issues</h2>
 <p>If you keep creating servers within a server group with a policy of <code>anti-affinity</code>, you will eventually exceed the total amount of physical compute nodes in the region.
 The command will still succeed, but the server will subsequently fail to be scheduled to a compute node.
@@ -3901,7 +3901,7 @@ Instead, it will assume the <code>ERROR</code> status with the following <code>f
 <span class="go">| status | ERROR                                            |</span>
 <span class="go">+--------+--------------------------------------------------+</span>
 </code></pre></div>
-<p>This is normal as Cleura Cloud cannot schedule the server on a different physical compute node because there is already a server in the server group on every node.
+<p>This is normal as Cleura Cloud cannot schedule the server on a different physical compute node because there is already a server in the server group on every node.
 The same scheduling error and &ldquo;fault&rdquo; message will occur when using a server group with a policy of <code>affinity</code> as well, when you create more servers than a physical compute node can host.</p>
 <p>However when using a soft affinity policy, such as <code>soft-affinity</code> or <code>soft-anti-affinity</code>, the scheduler is allowed to break the server group&rsquo;s policy if it is unable to uphold it.
 This means you may want to verify that your servers are on the same or on different physical compute nodes by looking at the <em>hostId</em> value of your servers.</p>

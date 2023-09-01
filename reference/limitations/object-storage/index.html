@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Object storage - Cleura Docs</title>
+        <title>Object storage - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Object storage - Cleura Docs" >
+        <meta  property="og:title"  content="Object storage - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Object storage - Cleura Docs" >
+        <meta  name="twitter:title"  content="Object storage - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3871,22 +3871,22 @@
 <h2 id="swift-api">Swift API</h2>
 <h3 id="versioning">Versioning</h3>
 <p>When using <a href="../../../howto/object-storage/swift/versioning/">object versioning</a> with the Swift API, only the <code>X-Versions-Location</code> header is supported.
-In Cleura Cloud, there is no support for <code>X-History-Location</code>.</p>
+In Cleura Cloud, there is no support for <code>X-History-Location</code>.</p>
 <h3 id="rlistings-acl-element"><code>.rlistings</code> ACL element</h3>
 <p>In access control lists (ACLs) set on containers via the Swift API, the <code>.rlistings</code> <a href="https://docs.openstack.org/swift/latest/overview_acl.html#common-acl-elements">ACL element</a> has no effect.
 In a public container (one with one or more <code>.r:</code> elements in its ACL), any client that is able to retrieve objects is also able to list them.</p>
 <h3 id="container-to-container-sync">Container-to-container sync</h3>
-<p>In Cleura Cloud, there is no support for <a href="https://docs.openstack.org/swift/latest/overview_container_sync.html">container-to-container synchronization</a>.</p>
+<p>In Cleura Cloud, there is no support for <a href="https://docs.openstack.org/swift/latest/overview_container_sync.html">container-to-container synchronization</a>.</p>
 <h2 id="s3-api">S3 API</h2>
 <h3 id="bucket-replication">Bucket replication</h3>
-<p>There is currently no support for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">S3 bucket replication</a> in Cleura Cloud.</p>
+<p>There is currently no support for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">S3 bucket replication</a> in Cleura Cloud.</p>
 <h3 id="bucket-notifications">Bucket notifications</h3>
-<p>There is currently no support for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html">S3 bucket notifications</a> in Cleura Cloud.</p>
+<p>There is currently no support for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html">S3 bucket notifications</a> in Cleura Cloud.</p>
 <h3 id="object-lock-retention-modes">Object lock retention modes</h3>
 <p>For buckets configured with <a href="../../../howto/object-storage/s3/object-lock/">object lock</a>, the only supported retention mode is <code>COMPLIANCE</code>.
 We do not support <code>GOVERNANCE</code> mode.</p>
 <h3 id="sse-kms">SSE-KMS</h3>
-<p>There is currently no support for SSE-KMS in Cleura Cloud. SSE-C, in contrast, <a href="../../../howto/object-storage/s3/sse-c/">is fully supported</a>.</p>
+<p>There is currently no support for SSE-KMS in Cleura Cloud. SSE-C, in contrast, <a href="../../../howto/object-storage/s3/sse-c/">is fully supported</a>.</p>
 
   <hr>
 <div class="md-source-file">

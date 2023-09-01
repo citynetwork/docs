@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Accessing the Cleura Cloud REST API - Cleura Docs</title>
+        <title>Accessing the Cleura Cloud REST API - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Accessing the Cleura Cloud REST API - Cleura Docs" >
+        <meta  property="og:title"  content="Accessing the Cleura Cloud REST API - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Accessing the Cleura Cloud REST API - Cleura Docs" >
+        <meta  name="twitter:title"  content="Accessing the Cleura Cloud REST API - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3746,12 +3746,12 @@
 
 
 <h1 id="accessing-the-cleura-cloud-rest-api">Accessing the Cleura Cloud REST API</h1>
-<p>Cleura Cloud provides a REST API, which you can take advantage of with a
+<p>Cleura Cloud provides a REST API, which you can take advantage of with a
 tool like <code>curl</code>. But before you do, you must create a token for the
 current session. For that, you only need to have an
-<a href="../create-account/">account in Cleura Cloud</a>.</p>
+<a href="../create-account/">account in Cleura Cloud</a>.</p>
 <h2 id="creating-a-token">Creating a token</h2>
-<p>Cleura Cloud REST API calls use token authentication. The process of
+<p>Cleura Cloud REST API calls use token authentication. The process of
 obtaining a valid token works slightly differently, based on whether
 your account has two-factor authentication (2FA) enabled or not.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Without 2FA</label><label for="__tabbed_1_2">With 2FA</label></div>
@@ -3759,7 +3759,7 @@ your account has two-factor authentication (2FA) enabled or not.</p>
 <div class="tabbed-block">
 <p>If you do not have 2FA enabled for your account, to create a token,
 have your username (<code>your_cc_username</code>) and password
-(<code>your_cc_password</code>) to the Cleura Cloud handy and type:</p>
+(<code>your_cc_password</code>) to the Cleura Cloud handy and type:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;auth&quot;: {&quot;login&quot;: &quot;your_cc_username&quot;, &quot;password&quot;: &quot;your_cc_password&quot;}}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens
 </code></pre></div>
@@ -3773,10 +3773,10 @@ object with a string (<code>token</code>) that holds your session token:</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>If your Cleura Cloud account has 2FA enabled, you <strong>must</strong> configure
+<p>If your Cleura Cloud account has 2FA enabled, you <strong>must</strong> configure
 it with SMS as a second-factor option. Accounts with only WebAuthn
-as their second factor cannot be used for Cleura Cloud REST API operations.</p>
-<p>First, initiate a token request giving your Cleura Cloud username and
+as their second factor cannot be used for Cleura Cloud REST API operations.</p>
+<p>First, initiate a token request giving your Cleura Cloud username and
 password, and setting the <code>twofa_method</code> option to <code>sms</code>:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;auth&quot;: {&quot;login&quot;: &quot;your_cc_username&quot;, &quot;password&quot;: &quot;your_cc_password&quot;, &quot;twofa_method&quot;: &quot;sms&quot;}}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>https://rest.cleura.cloud/auth/v1/tokens
@@ -3810,7 +3810,7 @@ assignment to <code>code</code>. You will get a JSON object with your token:</p>
 </div>
 </div>
 <p>Now that you have obtained a valid token, you can proceed with making
-Cleura Cloud REST API calls.</p>
+Cleura Cloud REST API calls.</p>
 <h2 id="testing-the-token">Testing the token</h2>
 <p>One way to make sure the token is valid is by getting a list of all
 supported regions. All you have to do is use <code>curl</code> to provide your

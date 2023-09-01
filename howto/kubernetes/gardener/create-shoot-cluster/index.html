@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Creating a Kubernetes cluster - Cleura Docs</title>
+        <title>Creating a Kubernetes cluster - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Creating a Kubernetes cluster - Cleura Docs" >
+        <meta  property="og:title"  content="Creating a Kubernetes cluster - Cleura Docs" >
       
         <meta  property="og:description"  content="How to spin up a Kubernetes cluster with Gardener" >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Creating a Kubernetes cluster - Cleura Docs" >
+        <meta  name="twitter:title"  content="Creating a Kubernetes cluster - Cleura Docs" >
       
         <meta  name="twitter:description"  content="How to spin up a Kubernetes cluster with Gardener" >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -2075,7 +2075,7 @@
       
         <li class="md-nav__item">
   <a href="#creating-a-kubernetes-cluster-in-cleura-cloud-management-panel" class="md-nav__link">
-    Creating a Kubernetes cluster in Cleura Cloud Management Panel
+    Creating a Kubernetes cluster in Cleura Cloud Management Panel
   </a>
   
     <nav class="md-nav" aria-label="Creating a Kubernetes cluster in Cleura Cloud Management Panel">
@@ -3740,7 +3740,7 @@
       
         <li class="md-nav__item">
   <a href="#creating-a-kubernetes-cluster-in-cleura-cloud-management-panel" class="md-nav__link">
-    Creating a Kubernetes cluster in Cleura Cloud Management Panel
+    Creating a Kubernetes cluster in Cleura Cloud Management Panel
   </a>
   
     <nav class="md-nav" aria-label="Creating a Kubernetes cluster in Cleura Cloud Management Panel">
@@ -3790,17 +3790,17 @@
 
 
 <h1 id="creating-a-kubernetes-cluster">Creating a Kubernetes cluster</h1>
-<p>If you want to create a Kubernetes cluster, you can do so via the Cleura Cloud Management Panel using Gardener.
+<p>If you want to create a Kubernetes cluster, you can do so via the Cleura Cloud Management Panel using Gardener.
 This guide shows you how to do that, and how to deploy a sample application on such a cluster.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>If this is your first time using Gardener in Cleura Cloud, you need to <a href="../">activate the service</a> from the Cleura Cloud Management Panel.</li>
+<li>If this is your first time using Gardener in Cleura Cloud, you need to <a href="../">activate the service</a> from the Cleura Cloud Management Panel.</li>
 <li>To access the Kubernetes cluster from your computer, you will need to <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">install <code>kubectl</code></a> on your machine.</li>
 </ul>
-<h2 id="creating-a-kubernetes-cluster-in-cleura-cloud-management-panel">Creating a Kubernetes cluster in Cleura Cloud Management Panel</h2>
+<h2 id="creating-a-kubernetes-cluster-in-cleura-cloud-management-panel">Creating a Kubernetes cluster in Cleura Cloud Management Panel</h2>
 <p>To get started, navigate to <a href="https://cleura.cloud">https://cleura.cloud</a>, and in the side panel choose <em>Containers → <a href="https://cleura.cloud/containers/gardener">Gardener</a></em>.
 You will see a Gardener page, in which you can create and manage your clusters. Click <em>Create Kubernetes cluster</em>.</p>
-<p><a class="glightbox" href="../assets/gardener_page.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Gardener page in Cleura Cloud Management Panel" src="../assets/gardener_page.png" /></a></p>
+<p><a class="glightbox" href="../assets/gardener_page.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Gardener page in Cleura Cloud Management Panel" src="../assets/gardener_page.png" /></a></p>
 <p>In Gardener terminology, a Kubernetes cluster is referred as a <strong>Shoot</strong> (as in, <a href="https://en.wikipedia.org/wiki/Shoot">new plant growth</a>).</p>
 <p>In the opened form, fill in the name of the new shoot cluster and select a region to see the rest of the options.</p>
 <p><a class="glightbox" href="../assets/create-shoot-1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel showing options to set a cluster name and region, and select a Kubernetes version" src="../assets/create-shoot-1.png" /></a></p>
@@ -3821,11 +3821,11 @@ The icon on the left marks the progress.
 Creating the cluster can take several minutes.</p>
 <p><a class="glightbox" href="../assets/shoot_bootstrapping.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Shoot cluster bootstrapping" src="../assets/shoot_bootstrapping.png" /></a></p>
 <h3 id="a-note-on-quotas">A note on quotas</h3>
-<p>Your Gardener worker nodes are subject to <a href="../../../../reference/quotas/openstack/">quotas</a> applicable to your Cleura Cloud project.
+<p>Your Gardener worker nodes are subject to <a href="../../../../reference/quotas/openstack/">quotas</a> applicable to your Cleura Cloud project.
 You should make sure that considering your selection of worker node <a href="../../../../reference/flavors/"><em>flavor</em></a> (which determines the number of virtual cores and virtual RAM allocated to each node), the <em>volume size</em>, and the <em>Autoscaler Max</em> value, you are not at risk of violating any quota.</p>
 <p>For example, if your project is configured with the <a href="../../../../reference/quotas/openstack/">default quotas</a>, and you select the <code>b.4c16gb</code> flavor for your worker nodes, your cluster would be able to run with a maximum of 3 worker nodes (since their total memory footprint would be 3×16=48 GiB, just short of the default 50 GiB limit).
 A 4th node would push your total memory allocation to 64 GiB, violating your quota.</p>
-<p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
+<p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
 <h2 id="interacting-with-your-cluster">Interacting with your cluster</h2>
 <p>Once your new shoot cluster is operational, you can <a href="../kubectl/">start interacting with it</a>.</p>
 

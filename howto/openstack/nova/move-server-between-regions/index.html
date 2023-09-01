@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Moving a server from one region to another - Cleura Docs</title>
+        <title>Moving a server from one region to another - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Moving a server from one region to another - Cleura Docs" >
+        <meta  property="og:title"  content="Moving a server from one region to another - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Moving a server from one region to another - Cleura Docs" >
+        <meta  name="twitter:title"  content="Moving a server from one region to another - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3847,7 +3847,7 @@
 
 <h1 id="moving-a-server-from-one-region-to-another">Moving a server from one region to another</h1>
 <p>This guide will show you how to move a server to a different region in
-Cleura Cloud.</p>
+Cleura Cloud.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>In order to move a server from one region to another, you will need</p>
 <ul>
@@ -4056,7 +4056,7 @@ printout displaying information about your image.</p>
 | visibility       | shared                                                                        |
 +------------------+-------------------------------------------------------------------------------+
 </code></pre></div>
-<p>But your image is not yet ready to use, Cleura Cloud still needs to
+<p>But your image is not yet ready to use, Cleura Cloud still needs to
 process the file, which shouldn&rsquo;t take long. To check the status of
 the image, use the ID of the new image with the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>&lt;new_image_id&gt;
@@ -4113,10 +4113,10 @@ be.</p>
 <h2 id="creating-a-server-from-a-volume">Creating a server from a volume</h2>
 <p>Now you need to create the new server using the system volume. To
 create a new server, follow <a href="../new-server/">this guide</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>If you use the Cleura Cloud Management Panel, when choosing a <em>boot source,</em> select
+<p>If you use the Cleura Cloud Management Panel, when choosing a <em>boot source,</em> select
 <em>Boot from volume</em> and then your server&rsquo;s system volume.</p>
 </div>
 <div class="tabbed-block">

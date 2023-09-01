@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Creating a Kubernetes cluster - Cleura Docs</title>
+        <title>Creating a Kubernetes cluster - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Creating a Kubernetes cluster - Cleura Docs" >
+        <meta  property="og:title"  content="Creating a Kubernetes cluster - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Creating a Kubernetes cluster - Cleura Docs" >
+        <meta  name="twitter:title"  content="Creating a Kubernetes cluster - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3778,11 +3778,11 @@
 <h1 id="creating-a-kubernetes-cluster">Creating a Kubernetes cluster</h1>
 <p>By employing OpenStack
 <a href="https://docs.openstack.org/magnum/latest">Magnum</a> you can create
-Kubernetes clusters via OpenStack, using the Cleura Cloud Management Panel or the OpenStack
+Kubernetes clusters via OpenStack, using the Cleura Cloud Management Panel or the OpenStack
 CLI.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>First and foremost, you need an <a href="../../../getting-started/create-account/">account in
-Cleura Cloud</a>. Should you choose to
+Cleura Cloud</a>. Should you choose to
 work from your terminal, you will also need to <a href="../../../getting-started/enable-openstack-cli/">enable the OpenStack
 CLI</a>. In that case, in
 addition to the Python <code>openstackclient</code> module, make sure you also
@@ -3805,16 +3805,16 @@ via <code>pip</code>.</p>
 </div>
 </div>
 <h2 id="creating-a-kubernetes-cluster_1">Creating a Kubernetes cluster</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Fire up your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
-Cleura Cloud account. On the top right-hand side of the Cleura Cloud Management Panel, click the
+<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
+Cleura Cloud account. On the top right-hand side of the Cleura Cloud Management Panel, click the
 <em>Create</em> button. A new pane titled <em>Create</em> slides into view.</p>
 <p><a class="glightbox" href="../assets/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/shot-01.png" /></a></p>
 <p>You will notice several rounded boxes on that pane, each for defining,
-configuring, and instantiating a different Cleura Cloud object. Go ahead
+configuring, and instantiating a different Cleura Cloud object. Go ahead
 and click the <em>Magnum Cluster</em> box. A new vertical pane titled <em>Create a
 Magnum Cluster</em> slides over. At the top, type in a name for the new
 cluster and select one of the available regions.</p>
@@ -3824,7 +3824,7 @@ keypair for the cluster nodes. Then, click the green <em>Create</em> button.</p>
 <p><a class="glightbox" href="../assets/shot-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Select template and keypair" src="../assets/shot-03.png" /></a></p>
 <p>The cluster creation process begins and takes some time to complete.
 While waiting, bring the vertical pane on the left-hand side of the
-Cleura Cloud Management Panel in full view, select <em>Magnum</em> → <em>Clusters</em>, and in the main
+Cleura Cloud Management Panel in full view, select <em>Magnum</em> → <em>Clusters</em>, and in the main
 pane, take a look at the creation progress. You can tell when the whole
 process is complete by the icon at the left of the cluster row, or by
 the text in the <em>Status</em> column.</p>
@@ -3893,10 +3893,10 @@ message will be <code>CREATE_COMPLETE</code>.</p>
 <h2 id="viewing-the-kubernetes-cluster">Viewing the Kubernetes cluster</h2>
 <p>After the Kubernetes cluster is ready, you may at any time view it and
 get detailed information about it.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Bring the vertical pane on the left-hand side of the Cleura Cloud Management Panel in full
+<p>Bring the vertical pane on the left-hand side of the Cleura Cloud Management Panel in full
 view, then select <em>Magnum</em> → <em>Clusters</em>. In the main pane, take a look
 at the row of the cluster you are interested in. In our example, there
 is only one cluster, hence only one row.</p>

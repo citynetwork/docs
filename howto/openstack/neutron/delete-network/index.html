@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Deleting networks - Cleura Docs</title>
+        <title>Deleting networks - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Deleting networks - Cleura Docs" >
+        <meta  property="og:title"  content="Deleting networks - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Deleting networks - Cleura Docs" >
+        <meta  name="twitter:title"  content="Deleting networks - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3818,26 +3818,26 @@
 
 
 <h1 id="deleting-networks">Deleting networks</h1>
-<p>Deleting a network in Cleura Cloud may sound like a pretty straightforward
+<p>Deleting a network in Cleura Cloud may sound like a pretty straightforward
 task &mdash; and it is. It&rsquo;s just that before deleting a network, there are
 some steps we almost always need to take. In what follows we show, step
 by step and through specific examples, how we delete networks using
-either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
+either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI,
+<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI,
 you need to <a href="../../../getting-started/create-account/">have an account</a> in
-Cleura Cloud. Additionally, to use the OpenStack CLI, make sure to <a href="../../../getting-started/enable-openstack-cli/">enable
+Cleura Cloud. Additionally, to use the OpenStack CLI, make sure to <a href="../../../getting-started/enable-openstack-cli/">enable
 it</a> for the region you
 will be working in.</p>
 <h2 id="selecting-a-network">Selecting a network</h2>
 <p>Unless you already have the ID or know the name of the network you wish
 to delete, you may first list all available networks.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Fire up your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
-Cleura Cloud account.</p>
+<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
+Cleura Cloud account.</p>
 <p>In the vertical pane on the left-hand side of the dashboard, expand the
 <em>Networking</em> section and click <em>Networks</em>. In the central pane of the
 page, you will see all networks in all regions you have access to. For
@@ -3871,7 +3871,7 @@ deleting the network. If, in addition, the network is behind a router
 to disconnect it from the router. Finally, you will have the option to
 delete the router also. Let us see what the situation is with network
 <code>carmacks</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>For more information on <code>carmacks</code>, click the three-dot icon
@@ -3990,7 +3990,7 @@ Checking router router-kna1
 router, you start by disconnecting the subnet from the router. Then,
 you will move on to deleting the subnet and the network, and after
 that, you can finish up with deleting the router.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Go to the <em>Subnets</em> tab of the <code>carmacks</code> network, and click the gray
@@ -4135,7 +4135,7 @@ delete the network:</p>
 <p>These are faster to delete, for there is no router to disconnect the
 subnet from. For our demonstration, we created network <code>teslin</code>, with
 subnet <code>teslin-subnet</code> and no router in front of it.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In the vertical pane on the left-hand side of the dashboard, expand the
@@ -4213,7 +4213,7 @@ yourself:</p>
 <p>You may directly, without the slightest preparation, delete networks
 like these. For our demonstration, we created a network named <code>mayo</code>,
 with no subnet and no router in front of it.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>While viewing all available networks, click the red three-dot icon at
@@ -4252,7 +4252,7 @@ as you do.</p>
 <p>Depending on the features of a Neutron network, deleting it may require
 some preparation work. For the purposes of this guide, we created three
 different networks with different characteristics; <code>carmacks</code>, <code>teslin</code>,
-and <code>mayo</code>. Then, either from the Cleura Cloud Management Panel or with the help of OpenStack
+and <code>mayo</code>. Then, either from the Cleura Cloud Management Panel or with the help of OpenStack
 CLI, we showed how we discover any component dependencies and how we
 work towards deletion. Eventually, all three test networks were gone.
 We should point out, though, that all three namesake towns in Yukon are

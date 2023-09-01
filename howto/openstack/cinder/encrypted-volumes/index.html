@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Encrypted volumes - Cleura Docs</title>
+        <title>Encrypted volumes - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Encrypted volumes - Cleura Docs" >
+        <meta  property="og:title"  content="Encrypted volumes - Cleura Docs" >
       
         <meta  property="og:description"  content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion." >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Encrypted volumes - Cleura Docs" >
+        <meta  name="twitter:title"  content="Encrypted volumes - Cleura Docs" >
       
         <meta  name="twitter:description"  content="Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion." >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3795,7 +3795,7 @@ types with the following command:</p>
 <span class="go">+--------------------------------------+-----------------------+-----------+</span>
 </code></pre></div>
 <blockquote>
-<p>In Cleura Cloud, all volume types that support encryption use the
+<p>In Cleura Cloud, all volume types that support encryption use the
 suffix <code>_encrypted</code>.</p>
 </blockquote>
 <p>To create a volume with encryption, you need to explicitly specify the
@@ -3873,7 +3873,7 @@ fail.</p>
 </ol>
 <h2 id="block-device-encryption-caveats">Block device encryption caveats</h2>
 <p>Once a volume is configured to use encryption and is also attached to
-an instance in Cleura Cloud, some caveats apply that you might want
+an instance in Cleura Cloud, some caveats apply that you might want
 to keep in mind.</p>
 <p>Sometimes, automatically or through administrator intervention, we
 move one of your instances to another physical machine. This process
@@ -3881,7 +3881,7 @@ is known as <em>live migration,</em> and it normally does not interrupt the
 instance’s functionality at all — typically, neither you nor the
 application users notice that live migration has even happened. This
 is a very common occurrence when we do routine upgrades of the
-Cleura Cloud platform, during our pre-announced maintenance windows.</p>
+Cleura Cloud platform, during our pre-announced maintenance windows.</p>
 <p>The same considerations apply to physical node failure. If the
 physical machine running your instance fails, we can automatically
 recover it onto another machine — an action known as <em>evacuation.</em></p>

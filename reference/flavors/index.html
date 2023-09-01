@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Flavors - Cleura Docs</title>
+        <title>Flavors - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Flavors - Cleura Docs" >
+        <meta  property="og:title"  content="Flavors - Cleura Docs" >
       
         <meta  property="og:description"  content="Using flavors, you define a server’s performance characteristics and supported features." >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Flavors - Cleura Docs" >
+        <meta  name="twitter:title"  content="Flavors - Cleura Docs" >
       
         <meta  name="twitter:description"  content="Using flavors, you define a server’s performance characteristics and supported features." >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3694,12 +3694,12 @@
 
 
 <h1 id="flavors">Flavors</h1>
-<p>Any server instance running in Cleura Cloud has a <strong>flavor</strong>,
+<p>Any server instance running in Cleura Cloud has a <strong>flavor</strong>,
 which defines the number of virtual CPU cores, the amount of virtual
 RAM, and other performance-related factors.</p>
 <p>Using flavors, you define a server’s performance characteristics and supported features.</p>
 <h2 id="naming-convention">Naming convention</h2>
-<p>Flavor names in Cleura Cloud follow a convention, which can be
+<p>Flavor names in Cleura Cloud follow a convention, which can be
 summarized as <code>X.YcZgb</code>:</p>
 <ul>
 <li><code>X</code> stands for a lowercase letter identifying the <a href="#compute-tiers">compute
@@ -3714,12 +3714,12 @@ summarized as <code>X.YcZgb</code>:</p>
 <p>For example, the flavor named <code>b.4c32gb</code> would be used for a
 general-purpose compute instance with 4 cores and 32 GiB RAM.</p>
 <h2 id="compute-tiers">Compute tiers</h2>
-<p>Cleura Cloud defines the following compute tiers:</p>
+<p>Cleura Cloud defines the following compute tiers:</p>
 <ul>
 <li><code>b</code>: General purpose. This is the default compute tier. Instances
   launched with matching flavors use highly available network-attached
   storage. This makes them flexible to migrate within the
-  Cleura Cloud infrastructure, without interruption.
+  Cleura Cloud infrastructure, without interruption.
   Some
   <a href="../../howto/openstack/cinder/encrypted-volumes/#block-device-encryption-caveats">limitations</a>
   apply to instances with attached <a href="../../howto/openstack/cinder/encrypted-volumes/">encrypted
@@ -3738,12 +3738,12 @@ general-purpose compute instance with 4 cores and 32 GiB RAM.</p>
   are recommended for CPU-intensive workloads, or when there is a
   requirement for guaranteed CPU resources.</li>
 </ul>
-<p>Some tiers are only available in select Cleura Cloud
+<p>Some tiers are only available in select Cleura Cloud
 regions. For details on tier availability, see the <a href="../features/">Feature support
 matrix</a>.</p>
-<p>The general-purpose tier is always available to all Cleura Cloud
+<p>The general-purpose tier is always available to all Cleura Cloud
 customers. For access to other tiers, contact our
-<a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
+<a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
 
   <hr>
 <div class="md-source-file">

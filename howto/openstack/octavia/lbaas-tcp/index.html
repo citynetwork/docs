@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Setting up a TCP load balancer - Cleura Docs</title>
+        <title>Setting up a TCP load balancer - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Setting up a TCP load balancer - Cleura Docs" >
+        <meta  property="og:title"  content="Setting up a TCP load balancer - Cleura Docs" >
       
         <meta  property="og:description"  content="A walk-through of creating a TCP load balancer" >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Setting up a TCP load balancer - Cleura Docs" >
+        <meta  name="twitter:title"  content="Setting up a TCP load balancer - Cleura Docs" >
       
         <meta  name="twitter:description"  content="A walk-through of creating a TCP load balancer" >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3864,12 +3864,12 @@
 <h1 id="setting-up-a-tcp-load-balancer">Setting up a TCP load balancer</h1>
 <p>Octavia is a Load Balancer as a Service (LBaaS) solution designed to
 work with OpenStack. In this guide, we show how to instantiate and
-configure a simple TCP load balancer in Cleura Cloud. All intermediate
+configure a simple TCP load balancer in Cleura Cloud. All intermediate
 steps are presented and explained through a specific scenario, and we
-work using either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
+work using either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Whether you choose the Cleura Cloud Management Panel or the OpenStack CLI, you need to <a href="../../../getting-started/create-account/">have
-an account</a> in Cleura Cloud.
+<p>Whether you choose the Cleura Cloud Management Panel or the OpenStack CLI, you need to <a href="../../../getting-started/create-account/">have
+an account</a> in Cleura Cloud.
 Additionally, to use the OpenStack CLI, make sure to <a href="../../../getting-started/enable-openstack-cli/">enable
 it</a> for the region you
 will be working in. Besides the Python <code>openstackclient</code> module, you
@@ -3893,7 +3893,7 @@ can install it via <code>pip</code>.</p>
 </div>
 <h2 id="scenario-and-terminology">Scenario and terminology</h2>
 <p>To configure and test our basic TCP load balancer, we have two servers
-in the same Cleura Cloud region, both having <code>ncat</code> listening on port
+in the same Cleura Cloud region, both having <code>ncat</code> listening on port
 61234/TCP and returning a greeting to clients asking to connect to that
 port. Both servers are in the same internal network, and our load
 balancer will be responsible for redirecting client connections to them
@@ -3910,16 +3910,16 @@ introduces those terms not beforehand but exactly when needed.</p>
 <p>That is only the first step towards our goal, which is to have a fully
 functional TCP load balancer. We will also need a listener and a pool,
 but first things first.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Fire up your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
-Cleura Cloud account. On the top right-hand side of the Cleura Cloud Management Panel, click the
+<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
+Cleura Cloud account. On the top right-hand side of the Cleura Cloud Management Panel, click the
 <em>Create</em> button. A new pane titled <em>Create</em> will slide into view from
 the right-hand side of the browser window. You will notice several
 rounded boxes on that pane, each for defining, configuring, and
-instantiating a different Cleura Cloud object. Go ahead and click the
+instantiating a different Cleura Cloud object. Go ahead and click the
 <em>Load Balancer</em> box.</p>
 <p><a class="glightbox" href="../assets/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/shot-01.png" /></a></p>
 <p>A new pane titled <em>Create a Load Balancer</em> will slide over. At the top,
@@ -3936,10 +3936,10 @@ instantiate the new load balancer.</p>
 <p><a class="glightbox" href="../assets/shot-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Select a subnet for the new LB" src="../assets/shot-03.png" /></a></p>
 <p>The creation of the new load balancer starts and, unless something goes
 wrong, finishes successfully in a minute or so. For a view of the load
-balancer, make sure the left-hand side vertical pane of the Cleura Cloud Management Panel is
+balancer, make sure the left-hand side vertical pane of the Cleura Cloud Management Panel is
 fully visible, click on the <em>Networking</em> category to expand it, and then
 click once more on the <em>Load Balancers</em> option. In the main area of the
-Cleura Cloud Management Panel, select the new load balancer, click the three-dot icon on the
+Cleura Cloud Management Panel, select the new load balancer, click the three-dot icon on the
 right, and select <em>View details</em> from the pop-up menu that appears.</p>
 <p><a class="glightbox" href="../assets/shot-04.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="View the newly created LB" src="../assets/shot-04.png" /></a></p>
 </div>
@@ -3996,7 +3996,7 @@ created, try this command a couple of times:</p>
 requests. The <em>listener</em> allows a load balancer to do just that. The
 load balancer you instantiated has no listener, so let us see how you
 can equip it with one.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Looking at the detailed view of the new load balancer, you see three
@@ -4004,7 +4004,7 @@ tabs: <em>Details</em>, <em>Listeners</em>, and <em>Pools</em>. Click the <em>Li
 and notice the message: &ldquo;No Listeners for this LoadBalancer&rdquo;. Time to
 create one, so click the green button labeled <em>Create a Listener</em>.</p>
 <p><a class="glightbox" href="../assets/shot-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create a listener" src="../assets/shot-05.png" /></a></p>
-<p>From the right-hand side of the Cleura Cloud Management Panel, a pane named <em>Create a
+<p>From the right-hand side of the Cleura Cloud Management Panel, a pane named <em>Create a
 Listener</em> slides over. Type in a name for the new listener &mdash; and
 optionally a description.</p>
 <p><a class="glightbox" href="../assets/shot-06.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Set name and description for the new listener" src="../assets/shot-06.png" /></a></p>
@@ -4085,7 +4085,7 @@ listening port to 61234 (see the <code>--protocol-port</code> parameter).</p>
 <p>Any server accepting connections from the listener is said to be a
 <em>member</em> of a <em>pool</em>. For our load balancer to work, we must create a
 pool and explicitly list its members.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>With the detailed view of the load balancer expanded, click the <em>Pools</em>
@@ -4161,7 +4161,7 @@ following:</p>
 </div>
 <h2 id="adding-members-to-the-pool">Adding members to the pool</h2>
 <p>The pool you created has no members, so it is time to populate it.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In the detailed view of your load balancer, go to the <em>Pools</em> tab and
@@ -4264,7 +4264,7 @@ indicated earlier. This makes it reachable from other servers in the
 same subnet but not from the Internet. You probably want the load
 balancer to be reachable from anywhere, meaning you have to equip it
 with a floating IP.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Cleura Cloud Management Panel</label><label for="__tabbed_6_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Cleura Cloud Management Panel</label><label for="__tabbed_6_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>While viewing your load balancer, click the three-dot icon on the
@@ -4382,7 +4382,7 @@ won&rsquo;t even bother trying to redirect client requests to them. Of
 course, whenever an inaccessible service gets accessible again,
 the load balancer will take notice and start treating the
 corresponding pool member as a fully functional server.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Cleura Cloud Management Panel</label><label for="__tabbed_7_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Cleura Cloud Management Panel</label><label for="__tabbed_7_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In the detailed view of your load balancer, pull up the
@@ -4487,8 +4487,8 @@ and until the same service gets accessible again, the load
 balancer does not even try to redirect client connections to
 the affected member. During our testing, we killed <code>ncat</code>
 running on <code>srv-lbaas-1</code>, and then took a look at the health
-monitor from the Cleura Cloud Management Panel &mdash; and also from a local terminal.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Cleura Cloud Management Panel</label><label for="__tabbed_8_2">OpenStack CLI</label></div>
+monitor from the Cleura Cloud Management Panel &mdash; and also from a local terminal.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Cleura Cloud Management Panel</label><label for="__tabbed_8_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In the detailed view of your load balancer, pull up the

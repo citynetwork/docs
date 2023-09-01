@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Changing a volume's type - Cleura Docs</title>
+        <title>Changing a volume's type - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Changing a volume's type - Cleura Docs" >
+        <meta  property="og:title"  content="Changing a volume's type - Cleura Docs" >
       
         <meta  property="og:description"  content="Changing the type of a volume ("retyping") is an offline operation that requires detaching the volume from its server, and setting its new type." >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Changing a volume's type - Cleura Docs" >
+        <meta  name="twitter:title"  content="Changing a volume's type - Cleura Docs" >
       
         <meta  name="twitter:description"  content="Changing the type of a volume ("retyping") is an offline operation that requires detaching the volume from its server, and setting its new type." >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3793,7 +3793,7 @@
 
 <h1 id="changing-a-volumes-type">Changing a volume&rsquo;s type</h1>
 <p>You may occasionally need to change the type of a volume.
-This may be due to a volume type being phased out on Cleura Cloud&rsquo;s part, necessitating data migration.
+This may be due to a volume type being phased out on Cleura Cloud&rsquo;s part, necessitating data migration.
 Or you might want to enable or disable <a href="../encrypted-volumes/">volume-level encryption</a>.</p>
 <p>Changing the type of a volume (&ldquo;retyping&rdquo;) is an offline operation that requires detaching the volume from its server, and setting its new type.
 The resulting downtime may be quite substantial, particularly for large volumes.
@@ -3801,7 +3801,7 @@ As such, when you need to retype volumes, you should plan ahead well in advance.
 <h2 id="prerequisites">Prerequisites</h2>
 <p>In order to retype volumes, you must use the OpenStack CLI, so make sure you <a href="../../../getting-started/enable-openstack-cli/">have it enabled</a>.</p>
 <p>If you are about to retype a large volume, or one that holds data associated with a critical service, you may be interested in an estimate of how long the retype operation will take.
-In that case, please file a support request with our <a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
+In that case, please file a support request with our <a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
 <h2 id="checking-the-volumes-state">Checking the volume&rsquo;s state</h2>
 <p>Assume you have a volume named <code>testvol</code> that is currently attached to a server named <code>testsrv</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>list<span class="w"> </span>--long

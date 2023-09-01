@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Object encryption (SSE-C) - Cleura Docs</title>
+        <title>Object encryption (SSE-C) - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Object encryption (SSE-C) - Cleura Docs" >
+        <meta  property="og:title"  content="Object encryption (SSE-C) - Cleura Docs" >
       
         <meta  property="og:description"  content="SSE-C provides server-side S3 object encryption with pre-shared secrets." >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Object encryption (SSE-C) - Cleura Docs" >
+        <meta  name="twitter:title"  content="Object encryption (SSE-C) - Cleura Docs" >
       
         <meta  name="twitter:description"  content="SSE-C provides server-side S3 object encryption with pre-shared secrets." >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3828,20 +3828,20 @@ This means that you need to provide an encryption/decryption key with each reque
 <ol>
 <li>Create an S3 bucket:
    <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://cleuracloud-encrypted
+<span class="w">  </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://cleura<span class="w"> </span>cloud-encrypted
 </code></pre></div></li>
 <li>Sync a directory to the S3 bucket, encrypting the files it
    contains on upload:
    <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3<span class="w"> </span>sync<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>~/media/<span class="w"> </span>s3://cleuracloud-encrypted<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>~/media/<span class="w"> </span>s3://cleura<span class="w"> </span>cloud-encrypted<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sse-c<span class="w"> </span>AES256<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sse-c-key<span class="w"> </span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
 </code></pre></div></li>
 <li>Retrieve a file from S3 and decrypt it:
    <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3://cleuracloud-encrypted/file.png<span class="w"> </span>.<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>s3://cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sse-c<span class="w"> </span>AES256<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sse-c-key<span class="w"> </span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
 </code></pre></div></li>
@@ -3849,40 +3849,40 @@ This means that you need to provide an encryption/decryption key with each reque
 <p>Note that attempting to download an encrypted file <em>without</em> providing an encryption key results in an immediate HTTP 400 (&ldquo;Bad Request&rdquo;) error:
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3://cleuracloud-encrypted/file.png<span class="w"> </span>.
+<span class="w">  </span>s3://cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.
 <span class="go">fatal error: An error occurred (400) when calling the HeadObject operation: Bad Request</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>Create an S3 bucket:
-   <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>mb<span class="w"> </span>&lt;region&gt;/cleuracloud-encrypted
+   <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>mb<span class="w"> </span>&lt;region&gt;/cleura<span class="w"> </span>cloud-encrypted
 </code></pre></div></li>
 <li>Sync a directory to the S3 bucket, encrypting the files it contains on upload.
    Note that you must specify the encryption secret as the argument to the <code>--encrypt-key</code> option, using a syntax of <code>&lt;minio-alias&gt;/&lt;bucket-name&gt;=&lt;encryption-key&gt;</code>:
    <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--recursive<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">&quot;&lt;region&gt;/cleuracloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">  </span>~/media/<span class="w"> </span>&lt;region&gt;/cleuracloud-encrypted
+<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">&quot;&lt;region&gt;/cleura cloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span>~/media/<span class="w"> </span>&lt;region&gt;/cleura<span class="w"> </span>cloud-encrypted
 </code></pre></div></li>
 <li>Retrieve a file from S3 and decrypt it.
    Again, specify the encryption key in the same manner:
    <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">&quot;&lt;region&gt;/cleuracloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">  </span>&lt;region&gt;/cleuracloud-encrypted/file.png<span class="w"> </span>.
+<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">&quot;&lt;region&gt;/cleura cloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span>&lt;region&gt;/cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.
 </code></pre></div></li>
 </ol>
 <p>Note that attempting to download an encrypted file <em>without</em> providing an encryption key results in an immediate HTTP 400 (&ldquo;Bad Request&rdquo;) error:
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>&lt;region&gt;/cleuracloud-encrypted/file.png<span class="w"> </span>.
-<span class="go">mc: &lt;ERROR&gt; Unable to validate source `&lt;region&gt;/cleuracloud-encrypted/file.png`.</span>
+<span class="w">  </span>&lt;region&gt;/cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.
+<span class="go">mc: &lt;ERROR&gt; Unable to validate source `&lt;region&gt;/cleura cloud-encrypted/file.png`.</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>You cannot use <code>s3cmd</code> in combination with SSE-C.</p>
 <blockquote>
 <p><code>s3cmd</code> does contain a <em>client</em> side encryption facility, using GnuPG for encryption.
-It also supports SSE-KMS, which is a different SSE flavor that is currently not available in Cleura Cloud.</p>
+It also supports SSE-KMS, which is a different SSE flavor that is currently not available in Cleura Cloud.</p>
 </blockquote>
 </div>
 <div class="tabbed-block">
@@ -3900,14 +3900,14 @@ It also supports SSE-KMS, which is a different SSE flavor that is currently not 
 <span class="na">sse_customer_algorithm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">AES256</span>
 </code></pre></div></li>
 <li>Create an S3 bucket:
-   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>mkdir<span class="w"> </span>cleuracloud-encrypted
+   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>mkdir<span class="w"> </span>cleura<span class="w"> </span>cloud-encrypted
 </code></pre></div></li>
 <li>Sync a directory to the S3 bucket, encrypting the files it contains on upload:
-   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>sync<span class="w"> </span>~/media/<span class="w"> </span>cleuracloud-encrypted<span class="w"> </span><span class="se">\</span>
+   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>sync<span class="w"> </span>~/media/<span class="w"> </span>cleura<span class="w"> </span>cloud-encrypted<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--s3-sse-customer-key<span class="o">=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
 </code></pre></div></li>
 <li>Retrieve a file from S3 and decrypt it:
-   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>copy<span class="w"> </span>cleuracloud-encrypted/file.png<span class="w"> </span><span class="se">\</span>
+   <div class="highlight"><pre><span></span><code>rclone<span class="w"> </span>copy<span class="w"> </span>cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--s3-sse-customer-key<span class="o">=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
 </code></pre></div></li>
 </ol>

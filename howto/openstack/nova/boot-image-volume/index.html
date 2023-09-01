@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Converting a boot-from-image server to boot-from-volume - Cleura Docs</title>
+        <title>Converting a boot-from-image server to boot-from-volume - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Converting a boot-from-image server to boot-from-volume - Cleura Docs" >
+        <meta  property="og:title"  content="Converting a boot-from-image server to boot-from-volume - Cleura Docs" >
       
         <meta  property="og:description"  content="How to modernize old boot-from-image servers" >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Converting a boot-from-image server to boot-from-volume - Cleura Docs" >
+        <meta  name="twitter:title"  content="Converting a boot-from-image server to boot-from-volume - Cleura Docs" >
       
         <meta  name="twitter:description"  content="How to modernize old boot-from-image servers" >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3834,26 +3834,26 @@
 
 
 <h1 id="converting-a-boot-from-image-server-to-boot-from-volume">Converting a boot-from-image server to boot-from-volume</h1>
-<p>You can freely move any server <a href="../move-server-between-regions/">between Cleura Cloud
+<p>You can freely move any server <a href="../move-server-between-regions/">between Cleura Cloud
 regions</a>, provided it boots from a volume
 (which we generally recommend, since it affords more flexibility than
 booting from an image). You may still have boot-from-image servers,
 though. To verify that a particular server is of that type, you can go
-to the Cleura Cloud Management Panel, locate the server, and expand its detailed view. Go to
+to the Cleura Cloud Management Panel, locate the server, and expand its detailed view. Go to
 the <em>Details</em> tab and pay attention to the <em>Boot Target</em> field. If this
 is a boot-from-image server, it says <em>Ephemeral Disk</em>.</p>
 <p><a class="glightbox" href="../assets/bfi-to-bfv/ephemeral.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Checking the boot target of a server" src="../assets/bfi-to-bfv/ephemeral.png" /></a></p>
 <p>Whenever you decide to move a boot-from-image server between regions,
 you will discover that you cannot do so. The solution is first to
 convert it to a boot-from-volume server and then move it. In the
-following, we show how to perform the conversion using the Cleura Cloud Management Panel or
+following, we show how to perform the conversion using the Cleura Cloud Management Panel or
 the OpenStack CLI.</p>
 <h2 id="preparation">Preparation</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Fire up your favorite web browser and navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page. Log into your Cleura Cloud
+<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page. Log into your Cleura Cloud
 account if you have to.</p>
 </div>
 <div class="tabbed-block">
@@ -3864,12 +3864,12 @@ boot-from-image server resides in.</p>
 </div>
 </div>
 <h2 id="shutting-down-the-server">Shutting down the server</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Make sure the left-hand side vertical pane is in full view, then select
 <em>Compute</em> → <a href="https://cleura.cloud/compute/servers"><em>Servers</em></a>. You will
-see all supported Cleura Cloud regions in the main pane. Expand the one
+see all supported Cleura Cloud regions in the main pane. Expand the one
 with the boot-from-image server you want to convert to boot-from-volume.
 Click the orange three-dots-in-a-circle icon at the right of the
 server row, and from the pop-up menu that appears, select <em>Stop Server</em>.</p>
@@ -3894,7 +3894,7 @@ favorite terminal application, shut it down by typing the following:</p>
 </div>
 </div>
 <h2 id="taking-a-snapshot">Taking a snapshot</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When the server is shut off, click on its row to get the detailed view
@@ -3948,7 +3948,7 @@ snapshot has been successfully created, type:</p>
 </div>
 </div>
 <h2 id="creating-a-volume-from-the-snapshot">Creating a volume from the snapshot</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>After a few seconds, the snapshot will be created and listed in the
@@ -3957,7 +3957,7 @@ right-hand side of the snapshot row, click the <span class="twemoji"><svg xmlns=
 icon to create a new volume off of the snapshot you just created.</p>
 <p><a class="glightbox" href="../assets/bfi-to-bfv/shot04.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Creating volume from snapshot" src="../assets/bfi-to-bfv/shot04.png" /></a></p>
 <p>A new vertical pane will slide over from the right-hand side of the
-Cleura Cloud Management Panel. Type in a name for the new volume, and choose a volume size
+Cleura Cloud Management Panel. Type in a name for the new volume, and choose a volume size
 <strong>bigger</strong> than the snapshot size. Then, you need to type in a
 description regarding the new volume.</p>
 <p><a class="glightbox" href="../assets/bfi-to-bfv/shot05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Typing in name, size, and description" src="../assets/bfi-to-bfv/shot05.png" /></a></p>
@@ -4009,7 +4009,7 @@ the progress of this operation by typing this:</p>
 </div>
 </div>
 <h2 id="viewing-the-new-volume">Viewing the new volume</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In the left-hand side vertical pane, select <em>Storage</em> →
@@ -4067,7 +4067,7 @@ boot-from-image server snapshot, type the following:</p>
 </div>
 </div>
 <h2 id="deleting-the-boot-from-image-server">Deleting the boot-from-image server</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Cleura Cloud Management Panel</label><label for="__tabbed_6_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Cleura Cloud Management Panel</label><label for="__tabbed_6_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Go to the servers view by selecting <em>Compute</em> →
@@ -4091,7 +4091,7 @@ delete it:</p>
 </div>
 </div>
 <h2 id="creating-a-new-boot-from-volume-server">Creating a new boot-from-volume server</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Cleura Cloud Management Panel</label><label for="__tabbed_7_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Cleura Cloud Management Panel</label><label for="__tabbed_7_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Now, go back to your volumes by selecting <em>Storage</em> →
@@ -4099,7 +4099,7 @@ delete it:</p>
 created a bit earlier, click the orange three-dots-in-a-circle
 icon at the right of the volume row, and from the pop-up menu that
 appears, select <em>Create Server</em>. A vertical pane will slide over from
-the right-hand side of the Cleura Cloud Management Panel, titled <em>Create a Server</em>.</p>
+the right-hand side of the Cleura Cloud Management Panel, titled <em>Create a Server</em>.</p>
 <p><a class="glightbox" href="../assets/bfi-to-bfv/shot10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Creating new server" src="../assets/bfi-to-bfv/shot10.png" /></a></p>
 <p>Type in a name for the new server. That could as well be the name your
 boot-from-image server had. Notice that the server region is
@@ -4142,12 +4142,12 @@ guide</a>.</p>
 </div>
 </div>
 <h2 id="viewing-the-new-server">Viewing the new server</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Cleura Cloud Management Panel</label><label for="__tabbed_8_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Cleura Cloud Management Panel</label><label for="__tabbed_8_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In the left-hand side vertical pane, select <em>Compute</em> →
 <a href="https://cleura.cloud/compute/servers"><em>Servers</em></a>. In the main pane of
-the Cleura Cloud Management Panel, go to the region the new server resides, select it and
+the Cleura Cloud Management Panel, go to the region the new server resides, select it and
 click on its row to see all its characteristics. In the <em>Details</em> tab,
 you will notice, among other things, that it has one attached volume;
 that would be the one you created from the snapshot you created from the

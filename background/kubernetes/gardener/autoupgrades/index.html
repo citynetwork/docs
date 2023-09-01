@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Automatic upgrades - Cleura Docs</title>
+        <title>Automatic upgrades - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Automatic upgrades - Cleura Docs" >
+        <meta  property="og:title"  content="Automatic upgrades - Cleura Docs" >
       
         <meta  property="og:description"  content="How auto-upgrading works in Gardener-managed Kubernetes clusters" >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Automatic upgrades - Cleura Docs" >
+        <meta  name="twitter:title"  content="Automatic upgrades - Cleura Docs" >
       
         <meta  name="twitter:description"  content="How auto-upgrading works in Gardener-managed Kubernetes clusters" >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3764,14 +3764,14 @@
 
 
 <h1 id="automatic-upgrades">Automatic upgrades</h1>
-<p>By default, Kubernetes clusters created with Gardener in Cleura Cloud are upgraded automatically.</p>
+<p>By default, Kubernetes clusters created with Gardener in Cleura Cloud are upgraded automatically.</p>
 <p>More specifically, during the specified maintenance window, Gardener checks for a new Kubernetes version, and a new version of the base image that runs on the control plane and worker nodes.
 If there is a new version of any of those, the cluster starts upgrading automatically.</p>
 <p>During the upgrade, the API server may briefly be unavailable.</p>
 <h2 id="machine-image-upgrades">Machine image upgrades</h2>
 <p>Both minor and major <a href="../garden-linux/">Garden Linux</a> release upgrades are allowed and performed automatically.
 Also, version jumps are allowed over minor release upgrades.</p>
-<p>Whenever there is a new machine image available, this is indicated in the Cleura Cloud Management Panel:</p>
+<p>Whenever there is a new machine image available, this is indicated in the Cleura Cloud Management Panel:</p>
 <p><a class="glightbox" href="../assets/gard_new_img_sign.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="New machine image indicator" src="../assets/gard_new_img_sign.png" /></a></p>
 <p>Before the auto-upgrade kicks in, the version of the new image is displayed in the expanded view of the cluster, in the <em>Worker Groups</em> tab.</p>
 <p><a class="glightbox" href="../assets/gard_new_img_avail.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="New machine image available" src="../assets/gard_new_img_avail.png" /></a></p>
@@ -3779,7 +3779,7 @@ Also, version jumps are allowed over minor release upgrades.</p>
 <p>Due to the Kubernetes versioning scheme, which does not follow the <a href="https://en.wikipedia.org/wiki/Software_versioning#Semantic_versioning">semantic versioning</a> logic, only patch-level release upgrades and jumps are performed automatically.
 For instance, an upgrade from 1.24.9 to 1.24.10 is allowed, and so is an upgrade from 1.24.9 to 1.24.11.</p>
 <p>Minor release upgrades, such as from 1.24 to 1.25, do not happen automatically.
-You must always initiate them from the Cleura Cloud Management Panel.</p>
+You must always initiate them from the Cleura Cloud Management Panel.</p>
 <h2 id="hibernated-clusters">Hibernated clusters</h2>
 <p>Whenever a Gardener cluster is <a href="../hibernation/">hibernated</a>, all of its worker nodes are removed.</p>
 <p>If automatic upgrades are enabled on a hibernated cluster, then waking the cluster will initiate an immediate automated upgrade.

@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Enabling the OpenStack CLI - Cleura Docs</title>
+        <title>Enabling the OpenStack CLI - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Enabling the OpenStack CLI - Cleura Docs" >
+        <meta  property="og:title"  content="Enabling the OpenStack CLI - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Enabling the OpenStack CLI - Cleura Docs" >
+        <meta  name="twitter:title"  content="Enabling the OpenStack CLI - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3808,19 +3808,19 @@ various OpenStack APIs. Using the OpenStack CLI tool, you can remotely
 create and manage the lifecycle of objects related, for example, to
 Compute, Networking, or Storage.</p>
 <p>Before installing <code>openstack</code> to your local laptop or workstation, you
-first need to have an OpenStack user in your Cleura Cloud account.
+first need to have an OpenStack user in your Cleura Cloud account.
 Next, you create and download a special RC file onto your computer,
 modify it to reflect your OpenStack user&rsquo;s credentials, and source it.
 Only then will you be able to use any installed <code>openstack</code> client.</p>
 <h2 id="creating-an-openstack-user">Creating an OpenStack user</h2>
 <p>From your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and login into your
-Cleura Cloud account.</p>
-<p>Please make sure the left-hand side pane on the Cleura Cloud Management Panel is fully
+<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and login into your
+Cleura Cloud account.</p>
+<p>Please make sure the left-hand side pane on the Cleura Cloud Management Panel is fully
 visible, click the <em>Users</em> category to expand it, and click on
 <em>Openstack Users</em>.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Add a new OpenStack user" src="../assets/ostack-cli/shot-01.png" /></a></p>
-<p>Then, at the top right-hand side of the Cleura Cloud Management Panel, click once more
+<p>Then, at the top right-hand side of the Cleura Cloud Management Panel, click once more
 the <em>Add new Openstack user</em> option. A new pane will slide into view,
 titled <em>Create Openstack User</em>.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-02.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new OpenStack user" src="../assets/ostack-cli/shot-02.png" /></a></p>
@@ -3842,11 +3842,11 @@ create the user by clicking the green <em>Create</em> button below the
 <p><a class="glightbox" href="../assets/ostack-cli/shot-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="User description and creation" src="../assets/ostack-cli/shot-05.png" /></a></p>
 <p>The new OpenStack user will be ready in just a few seconds. At any
 time, you can view all available OpenStack users by going to the
-left-hand side pane on the Cleura Cloud Management Panel and selecting <em>Users</em> &gt;
+left-hand side pane on the Cleura Cloud Management Panel and selecting <em>Users</em> &gt;
 <em>Openstack Users</em>.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-06.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="All available OpenStack users" src="../assets/ostack-cli/shot-06.png" /></a></p>
 <h2 id="downloading-an-rc-file">Downloading an RC file</h2>
-<p>On the Cleura Cloud Management Panel, expand the left-hand side vertical pane, click <em>Users</em>,
+<p>On the Cleura Cloud Management Panel, expand the left-hand side vertical pane, click <em>Users</em>,
 and then <em>Openstack Users</em>. You will see, listed in the main pane, all
 available users. Click the three-dot round icon on the right of the user
 their RC file you want. From the drop-down menu that appears, select
@@ -3912,12 +3912,12 @@ examples follow.</p>
 <h2 id="testing-access">Testing access</h2>
 <p>Provided you have already sourced your RC file, you can now use the
 <code>openstack</code> command line tool to access various OpenStack APIs on the
-Cleura Cloud.</p>
+Cleura Cloud.</p>
 <p>To make sure your local installation of <code>openstack</code> works as expected,
 type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>token<span class="w"> </span>issue
 </code></pre></div>
-<p>If <code>openstack</code> can indeed connect to the Cleura Cloud
+<p>If <code>openstack</code> can indeed connect to the Cleura Cloud
 OpenStack APIs, then you will get information, in tabular format,
 regarding the issuance of a new token.</p>
 <p>To get general help regarding <code>openstack</code>, type:</p>

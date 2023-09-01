@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>OpenStack - Cleura Docs</title>
+        <title>OpenStack - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="OpenStack - Cleura Docs" >
+        <meta  property="og:title"  content="OpenStack - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="OpenStack - Cleura Docs" >
+        <meta  name="twitter:title"  content="OpenStack - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3910,7 +3910,7 @@
 <h3 id="administrative-privileges">Administrative privileges</h3>
 <p>No OpenStack user that you create while <a href="../../../howto/getting-started/enable-openstack-cli/">enabling the OpenStack CLI</a> ever gets privileges exceeding administrative rights bound to a project.</p>
 <p>This means that you cannot use an OpenStack user to <em>create</em> a new project.
-You must do so via the Cleura Cloud Management Panel, or the <a href="../../api/cc/">Cleura Cloud REST API</a>.</p>
+You must do so via the Cleura Cloud Management Panel, or the <a href="../../api/cc/">Cleura Cloud REST API</a>.</p>
 <p>It also means that you cannot use the following <code>openstack</code> CLI commands; they all return <code>Unauthorized</code> (HTTP 403):</p>
 <ul>
 <li><code>openstack user [create|delete|list|set]</code>.<blockquote>
@@ -3933,18 +3933,18 @@ The server must run a <a href="https://www.kernel.org/">Linux kernel</a> of vers
 <p>Furthermore, you must ensure that the Nova server <a href="https://qemu-project.gitlab.io/qemu/system/qemu-cpu-models.html#important-cpu-features-for-intel-x86-hosts">passes the <code>pcid</code> CPU feature flag</a> to nested guests.</p>
 <h2 id="neutron">Neutron</h2>
 <h3 id="dynamic-routing">Dynamic routing</h3>
-<p>Neutron in Cleura Cloud does not support dynamic routing protocols in a customer-accessible manner.
+<p>Neutron in Cleura Cloud does not support dynamic routing protocols in a customer-accessible manner.
 We currently do not expose the ability to configure <a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">BGP</a> speakers or peers.</p>
-<p>While Cleura Cloud does use <a href="https://docs.openstack.org/neutron/latest/admin/config-bgp-dynamic-routing.html">BGP dynamic routing</a> <em>internally,</em> our Neutron configuration restricts the ability to use these features to administrative accounts only.</p>
+<p>While Cleura Cloud does use <a href="https://docs.openstack.org/neutron/latest/admin/config-bgp-dynamic-routing.html">BGP dynamic routing</a> <em>internally,</em> our Neutron configuration restricts the ability to use these features to administrative accounts only.</p>
 <h2 id="octavia">Octavia</h2>
 <h3 id="dual-stack-support">Dual-stack support</h3>
 <p>A single load balancer managed by OpenStack Octavia can support IPv4 <em>or</em> IPv6, but not both.
 To expose a service via IPv4 <em>and</em> IPv6, you must set up two separate load balancers pointing to the same backend.</p>
 <h2 id="designate">Designate</h2>
-<p>The <a href="https://docs.openstack.org/designate/">OpenStack Designate</a> DNS-as-a-service (DNSaaS) facility is currently not available in Cleura Cloud.
+<p>The <a href="https://docs.openstack.org/designate/">OpenStack Designate</a> DNS-as-a-service (DNSaaS) facility is currently not available in Cleura Cloud.
 You must manage your own DNS records for public IP addresses.</p>
 <h2 id="manila">Manila</h2>
-<p>The <a href="https://docs.openstack.org/designate/">OpenStack Manila</a> filesystem-as-a-service (FSaaS) facility is currently not available in Cleura Cloud.
+<p>The <a href="https://docs.openstack.org/designate/">OpenStack Manila</a> filesystem-as-a-service (FSaaS) facility is currently not available in Cleura Cloud.
 If you require multiple servers to be able to access the same files, <a href="../../../howto/openstack/nova/new-server/">create a server</a> that exposes an internal NFS or CIFS service, backed by a Cinder volume.</p>
 
   <hr>

@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Creating new servers - Cleura Docs</title>
+        <title>Creating new servers - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Creating new servers - Cleura Docs" >
+        <meta  property="og:title"  content="Creating new servers - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Creating new servers - Cleura Docs" >
+        <meta  name="twitter:title"  content="Creating new servers - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -139,7 +139,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
@@ -152,7 +152,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -268,12 +268,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3777,9 +3777,9 @@
 
 <h1 id="creating-new-servers">Creating new servers</h1>
 <p>Once you have an <a href="../../../getting-started/create-account/">account in
-Cleura Cloud</a>, you can create
+Cleura Cloud</a>, you can create
 virtual machines &mdash; henceforth simply <em>servers</em> &mdash; using either the
-Cleura Cloud Management Panel or the OpenStack CLI. Let us demonstrate the creation of a new
+Cleura Cloud Management Panel or the OpenStack CLI. Let us demonstrate the creation of a new
 server, following both approaches.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>You need to <a href="../../neutron/new-network/">have at least one
@@ -3788,15 +3788,15 @@ interested in. Additionally, if you prefer to work with the OpenStack
 CLI, then make sure to properly <a href="../../../getting-started/enable-openstack-cli/">enable it
 first</a>.</p>
 <h2 id="creating-a-server">Creating a server</h2>
-<p>To create a server from the Cleura Cloud Management Panel, fire up your favorite web
-browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page,
-and log into your Cleura Cloud account. On the other hand, if you prefer
+<p>To create a server from the Cleura Cloud Management Panel, fire up your favorite web
+browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page,
+and log into your Cleura Cloud account. On the other hand, if you prefer
 to work with the OpenStack CLI, please do not forget to <a href="../../../getting-started/enable-openstack-cli/">source the RC
 file first</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>On the top right-hand side of the Cleura Cloud Management Panel, click the
+<p>On the top right-hand side of the Cleura Cloud Management Panel, click the
 <em>Create</em> button. A new pane titled <em>Create</em> will slide into view from
 the right-hand side of the browser window.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/new-server/shot-01.png" /></a></p>
@@ -3848,7 +3848,7 @@ server</em> option. In the section below, set <em>Security Groups</em> to
 <em>default</em>.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Networking and security groups" src="../assets/new-server/shot-05.png" /></a></p>
 <p>If you already have one or more public keys in your
-Cleura Cloud account, you can now select a key to be included
+Cleura Cloud account, you can now select a key to be included
 in the <code>~/.ssh/authorized_keys</code> file of the server&rsquo;s default user. That
 way, you can securely log into the remote user&rsquo;s account without typing
 a password. If there are no public keys to choose from, activate the
@@ -3861,7 +3861,7 @@ performs housekeeping tasks like user account creation, enabling
 acceptable authentication methods, and configuring remote package
 repositories. Click on <em>Advanced Options</em> to see the default script.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-07.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="User-data propagation method" src="../assets/new-server/shot-07.png" /></a></p>
-<p>It is now time to create your Cleura Cloud server;
+<p>It is now time to create your Cleura Cloud server;
 click the green <em>Create</em> button, and the new server will be readily
 available in a few seconds.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-08.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new server" src="../assets/new-server/shot-08.png" /></a></p>
@@ -3895,7 +3895,7 @@ RAM. Go ahead and set <code>FLAVOR_NAME</code> accordingly:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">FLAVOR_NAME</span><span class="o">=</span><span class="s2">&quot;b.1c1gb&quot;</span>
 </code></pre></div>
 <p>Your server should have an image to boot off of (<code>IMAGE_NAME</code>).
-For a list of all available images in Cleura Cloud, type:</p>
+For a list of all available images in Cleura Cloud, type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list
 </code></pre></div>
 <p>This time you get a shorter list, but you can still filter for
@@ -3938,11 +3938,11 @@ have already created one yourself, you will find only one per region:</p>
 </code></pre></div>
 <p>You most likely want a server you can remotely connect to via
 SSH without typing a password. Upload one of our public keys to your
-Cleura Cloud account:</p>
+Cleura Cloud account:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>create<span class="w"> </span>--public-key<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>bahnhof
 </code></pre></div>
 <p>In the example above, we uploaded the public key
-<code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named
+<code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named
 it <code>bahnhof</code>. Follow our example and do not forget to set the
 <code>KEY_NAME</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">KEY_NAME</span><span class="o">=</span><span class="s2">&quot;bahnhof&quot;</span>
@@ -3972,9 +3972,9 @@ name&hellip;</p>
 used the actual values and not the variables we so meticulously set.)
 The <code>--wait</code> parameter is optional. Whenever you choose to
 use it, you get back control of your terminal only after the server is
-readily available in Cleura Cloud.</p>
+readily available in Cleura Cloud.</p>
 <p>To connect to your server remotely, you need to create a floating IP
-for the external network in the Cleura Cloud, and then assign
+for the external network in the Cleura Cloud, and then assign
 this IP to your server. First, create the floating IP:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>create<span class="w"> </span>ext-net
 </code></pre></div>
@@ -3996,10 +3996,10 @@ typing a password:</p>
 </div>
 </div>
 <h2 id="viewing-information-about-the-newly-created-server">Viewing information about the newly created server</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>From the Cleura Cloud Management Panel you may, at any
+<p>From the Cleura Cloud Management Panel you may, at any
 time, see all servers and get detailed information regarding each one
 of them; expand the left-hand side vertical pane, click <em>Compute</em>, then
 <em>Servers</em>, and, in the central pane, select the region you want.</p>
@@ -4016,7 +4016,7 @@ of them; expand the left-hand side vertical pane, click <em>Compute</em>, then
 </div>
 </div>
 <h2 id="connecting-to-the-server-console">Connecting to the server console</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>While viewing information regarding your server, you may get
@@ -4026,7 +4026,7 @@ click on the three-dot icon on the right of the server header, and from
 the pop-up menu that appears select <em>Remote Console</em>.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Launch remote console" src="../assets/new-server/shot-10.png" /></a></p>
 <p>A new window pops up, and that&rsquo;s your web console to your
-Cleura Cloud server. Please note that this window cannot be
+Cleura Cloud server. Please note that this window cannot be
 resized but can be opened on a new browser window or tab.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Server console" src="../assets/new-server/shot-11.png" /></a></p>
 </div>

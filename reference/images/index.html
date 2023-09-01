@@ -20,11 +20,11 @@
       
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
     
     
       
-        <title>Images - Cleura Docs</title>
+        <title>Images - Cleura Docs</title>
       
     
     
@@ -68,7 +68,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Images - Cleura Docs" >
+        <meta  property="og:title"  content="Images - Cleura Docs" >
       
         <meta  property="og:description"  content="Images provide an operating system for your server." >
       
@@ -84,7 +84,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Images - Cleura Docs" >
+        <meta  name="twitter:title"  content="Images - Cleura Docs" >
       
         <meta  name="twitter:description"  content="Images provide an operating system for your server." >
       
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
@@ -154,7 +154,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Cleura Docs
+            Cleura Docs
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -270,12 +270,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+    <a href="../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
     </a>
-    Cleura Docs
+    Cleura Docs
   </label>
   
     <div class="md-nav__source">
@@ -3741,11 +3741,11 @@
 
 
 <h1 id="images">Images</h1>
-<p>Public <a href="../../howto/openstack/glance/">Glance images</a> in Cleura Cloud contain regularly updated minimal versions of server operating systems.</p>
+<p>Public <a href="../../howto/openstack/glance/">Glance images</a> in Cleura Cloud contain regularly updated minimal versions of server operating systems.</p>
 <p>These images also contain the <a href="https://cloudinit.readthedocs.io">cloud-init</a> package applicable to the operating system, to support the injection of SSH public keys and other user data.</p>
 <h2 id="naming-conventions">Naming conventions</h2>
 <h3 id="image-names">Image names</h3>
-<p>Image names in Cleura Cloud follow a convention, which can be summarized as <code>${NAME} ${VERSION_ID} ${CODENAME} ${ARCH}</code>:</p>
+<p>Image names in Cleura Cloud follow a convention, which can be summarized as <code>${NAME} ${VERSION_ID} ${CODENAME} ${ARCH}</code>:</p>
 <ul>
 <li><code>NAME</code>: Operating system name, such as <code>Ubuntu</code>, <code>Debian</code>, <code>Rocky</code>, etc.</li>
 <li><code>VERSION_ID</code>: Operating system version, as in <code>22.04</code>, <code>11</code>, <code>9</code>, etc.</li>
@@ -3765,22 +3765,22 @@
 You can use these tags to <a href="../../howto/openstack/glance/filter/">filter and list</a> images based on certain conditions.
 You may also use them to simply <a href="../../howto/openstack/glance/examine/">examine</a> how an image is configured.</p>
 <h3 id="tags">Tags</h3>
-<p>All public images available in Cleura Cloud support the following image tags:</p>
+<p>All public images available in Cleura Cloud support the following image tags:</p>
 <ul>
 <li><code>os:${NAME}</code>: a short identifier for the operating system, such as <code>os:ubuntu</code>, <code>os:debian</code>, <code>os:rocky</code>, etc.</li>
 <li><code>os_version:${VERSION_ID}</code>: the operating system version, such as <code>os_version:22.04</code>, <code>os_version:11</code>, <code>os_version:9</code>, etc.</li>
 </ul>
 <h3 id="properties">Properties</h3>
-<p>All public images available in Cleura Cloud support the following image properties:</p>
+<p>All public images available in Cleura Cloud support the following image properties:</p>
 <ul>
 <li><code>architecture=${ARCH}</code>: Platform architecture, such as <code>architecture=x86_64</code></li>
 <li><code>os_distro=${NAME}</code>: distribution name, such as <code>os_distro=ubuntu</code></li>
 <li><code>os_version=${VERSION_ID}</code>: operating system version, such as <code>os_version=22.04</code></li>
 </ul>
 <p><a href="https://docs.openstack.org/glance/latest/admin/useful-image-properties.html">Other properties</a> may also be set on individual images.
-In particular, Cleura Cloud aims to set image properties according to the <a href="https://docs.scs.community/standards/scs-0102-v1-image-metadata/">metadata standard</a> defined by the <a href="https://scs.community/">Sovereign Cloud Stack</a> (SCS) initiative.</p>
+In particular, Cleura Cloud aims to set image properties according to the <a href="https://docs.scs.community/standards/scs-0102-v1-image-metadata/">metadata standard</a> defined by the <a href="https://scs.community/">Sovereign Cloud Stack</a> (SCS) initiative.</p>
 <h2 id="community-images">Community images</h2>
-<p>At Cleura Cloud, we regularly update and rotate our images to always provide
+<p>At Cleura Cloud, we regularly update and rotate our images to always provide
 secure public images.</p>
 <p>During rotation, we change an image&rsquo;s visibility from <code>public</code> to <code>community</code>,
 while keeping its image name. This enables tools like
