@@ -31,6 +31,11 @@ This means that you can run nested virtualization on servers booted from a CentO
 
 Furthermore, you must ensure that the Nova server [passes the `pcid` CPU feature flag](https://qemu-project.gitlab.io/qemu/system/qemu-cpu-models.html#important-cpu-features-for-intel-x86-hosts) to nested guests.
 
+### Maximum attached volumes per server
+
+A Nova [server](../../howto/openstack/nova/new-server.md) in {{brand}} can concurrently attach a maximum of 25 persistent volumes.
+This is a limitation of the `virtio-blk` storage driver that ships as part of the guest operating system's kernel.
+
 ## Neutron
 
 ### Dynamic routing
