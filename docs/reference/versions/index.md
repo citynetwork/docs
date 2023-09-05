@@ -15,14 +15,12 @@ This section lists the cloud API service versions available in each
 
 ## OpenStack Services
 
-[OpenStack releases](https://releases.openstack.org) are named, in
-alphabetical order, and occur on a six-month release schedule. In
-{{company}} Public Cloud we upgrade OpenStack releases annually; this
-means that we deploy every other OpenStack release and skip the
-intervening one.
+[OpenStack releases](https://releases.openstack.org) are named in alphabetical order, and occur on a six-month release schedule.
+In {{company}} Public Cloud we upgrade OpenStack releases annually; this means that we normally deploy every other OpenStack release and skip the intervening one.
 
-{{brand}} currently runs OpenStack
-[Xena](https://releases.openstack.org/xena).
+{{brand}} currently runs OpenStack [Xena](https://releases.openstack.org/xena) and [Antelope](https://releases.openstack.org/antelope).
+The fact that {{brand}} has skipped the [Zed](https://releases.openstack.org/zed) release (in addition to [Yoga](https://releases.openstack.org/antelope), as we normally would have) is due to a one-time upstream release policy change.
+We return to the prior deployment schedule after the Antelope upgrade, and expect the next deployed release to be [Caracal](https://releases.openstack.org/caracal).
 
 
 ## Ceph Services
