@@ -1,16 +1,12 @@
 # Service version matrix
 
-Services in {{brand}} are updated on a regular basis and
-on a rolling schedule.
+Services in {{brand}} are updated on a regular basis and on a rolling schedule.
 
-This section lists the cloud API service versions available in each
-{{brand}} region.
+This section lists the cloud API service versions available in each {{brand}} region.
 
-* [Public Cloud](public.md): versions running in our {{company}}
-  Public Cloud regions.
+* [Public Cloud](public.md): versions running in our {{company}} Public Cloud regions.
 
-* [Compliant Cloud](compliant.md): versions running in our
-  {{company}} Compliant Cloud regions.
+* [Compliant Cloud](compliant.md): versions running in our {{company}} Compliant Cloud regions.
 
 
 ## OpenStack Services
@@ -25,9 +21,6 @@ We return to the prior deployment schedule after the Antelope upgrade, and expec
 
 ## Ceph Services
 
-[Ceph major
-releases](https://docs.ceph.com/en/latest/releases/index.html#release-timeline)
-are also named, in alphabetical order, and occur on a roughly annual schedule.
+[Ceph major releases](https://docs.ceph.com/en/latest/releases/index.html#release-timeline) are also named in alphabetical order, and occur on a roughly annual schedule.
 
-{{brand}} currently runs Ceph
-[Quincy](https://docs.ceph.com/en/latest/releases/quincy).
+{{brand}} currently runs Ceph [Quincy](https://docs.ceph.com/en/latest/releases/quincy).
