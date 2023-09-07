@@ -3015,6 +3015,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#maximum-attached-volumes-per-server" class="md-nav__link">
+    Maximum attached volumes per server
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3822,6 +3829,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#maximum-attached-volumes-per-server" class="md-nav__link">
+    Maximum attached volumes per server
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3931,6 +3945,9 @@ You must do so via the Cleura Cloud Management Panel, or the <a href="../../ap
 The server must run a <a href="https://www.kernel.org/">Linux kernel</a> of version 5.0 or later, and <a href="https://www.qemu.org/">QEMU/KVM</a> 4.1 or later.</p>
 <p>This means that you can run nested virtualization on servers booted from a CentOS 9 (or later), Ubuntu 20.04 (or later), or Debian 11 (or later) base image.</p>
 <p>Furthermore, you must ensure that the Nova server <a href="https://qemu-project.gitlab.io/qemu/system/qemu-cpu-models.html#important-cpu-features-for-intel-x86-hosts">passes the <code>pcid</code> CPU feature flag</a> to nested guests.</p>
+<h3 id="maximum-attached-volumes-per-server">Maximum attached volumes per server</h3>
+<p>A Nova <a href="../../../howto/openstack/nova/new-server/">server</a> in Cleura Cloud can concurrently attach a maximum of 25 persistent volumes.
+This is a limitation of the <code>virtio-blk</code> storage driver that ships as part of the guest operating system&rsquo;s kernel.</p>
 <h2 id="neutron">Neutron</h2>
 <h3 id="dynamic-routing">Dynamic routing</h3>
 <p>Neutron in Cleura Cloud does not support dynamic routing protocols in a customer-accessible manner.
@@ -3952,7 +3969,7 @@ If you require multiple servers to be able to access the same files, <a href="..
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-04</span>
       
         <br>
         Created:
