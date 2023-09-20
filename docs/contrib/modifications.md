@@ -25,6 +25,9 @@ You can do this by setting the following environment variable in your terminal, 
 export CLIFF_MAX_TERM_WIDTH=100
 ```
 
+**Renamed sources:** If you rename an existing Markdown source, the path of the rendered page's [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) will change.
+In this case, be sure to define a [redirect](https://github.com/mkdocs/mkdocs-redirects) from the old URI to the new one, by adding an entry to the `plugins.redirect.redirect_maps` dictionary in the `mkdocs.yml` configuration file.
+
 ## Modifying content from your browser
 
 Every page on this site has an Edit button ([:{{config.theme.icon.edit | replace('/','-')}}:]({{page.edit_url}})).
