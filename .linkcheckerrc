@@ -1,0 +1,10 @@
+[checking]
+recursionlevel=2
+
+[filtering]
+# Check external links (i.e. ones not within the domain given as a
+# command-line argument).
+checkextern=1
+
+# Don't fail on links that result in HTTP 301 or 302, rather than 200.
+ignorewarnings=http-redirected

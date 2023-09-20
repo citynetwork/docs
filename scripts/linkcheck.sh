@@ -44,8 +44,7 @@ fi
 
 # Actually run the link check
 linkchecker \
-  --check-extern \
-  --recursion-level 2 \
+  --config .linkcheckerrc \
   $linkchecker_ignore_options \
   $* \
   $DOCS_SITE_URL/sitemap.xml 
