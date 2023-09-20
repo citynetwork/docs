@@ -1,6 +1,7 @@
 # Configuration settings in this file should be ordered
 # alphabetically.
 ---
+# yamllint disable rule:line-length
 copyright: >
   <a href="https://creativecommons.org/licenses/by-sa/4.0/">
   <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/>
@@ -24,19 +25,15 @@ extra:
       url: "https://creativecommons.org/licenses/by-sa/4.0/"
     cdpa:
       name: "Data Processing Agreement"
-      # yamllint disable-line rule:line-length
       url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/City_Network_CDPA.pdf"
     termination_form:
       name: "Termination of Subscription Form"
-      # yamllint disable-line rule:line-length
       url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura-Form-Termination-Of-Subscription.pdf"
     tos:
       name: "Terms of Service"
-      # yamllint disable-line rule:line-length
       url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura_Terms_of_Service-Public_Cloud_v2023.4.5.pdf"
     transfer_form:
       name: "Transfer Form"
-      # yamllint disable-line rule:line-length
       url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura-Form-Transfer-Ownership.pdf"
   rest_api: "Cleura Cloud REST API"
   rest_api_domain: "rest.cleura.cloud"
@@ -79,7 +76,6 @@ plugins:
       cards: !ENV [DOCS_ENABLE_SOCIAL_CARDS, True]
   - redirects:
       redirect_maps:
-        # yamllint disable-line rule:line-length
         'howto/account-billing/change-billing-data.md': 'howto/account-billing/change-account-data.md'
 repo_url: https://github.com/citynetwork/docs
 site_name: "Cleura Docs"
