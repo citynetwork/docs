@@ -2,7 +2,7 @@
 
 Object storage in {{brand}} is implemented via the [Ceph Object Gateway](https://docs.ceph.com/en/latest/radosgw/index.html), also known as `radosgw` (commonly pronounced "[rados](https://ceph.io/assets/pdfs/weil-rados-pdsw07.pdf) gateway").
 
-This facility exposes access to objects via two RESTful APIs: the [Amazon S3 API](http://docs.aws.amazon.com/AmazonS3/latest/API/APIRest.html), and the [OpenStack Swift API](https://docs.openstack.org/api-ref/object-store/).
+This facility exposes access to objects via two RESTful APIs: the [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/), and the [OpenStack Swift API](https://docs.openstack.org/api-ref/object-store/).
 It is, however, important to understand that radosgw shares no code with Amazon S3, nor with OpenStack Swift.
 
 As such, object storage in {{brand}} is not expected to behave *exactly* as Amazon S3 or OpenStack Swift, although it tracks their behavior very closely.

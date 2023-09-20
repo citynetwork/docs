@@ -115,7 +115,7 @@ hello world
 
 If you (or someone else) were to attempt to fetch the same URL *after*
 its lifetime expired, they would be met with an [HTTP
-401](http://http.cat/401) error:
+401](https://http.cat/401) error:
 
 ```console
 $ curl -i 'https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'

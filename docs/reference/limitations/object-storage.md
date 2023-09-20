@@ -24,7 +24,7 @@ There is currently no support for [S3 bucket replication](https://docs.aws.amazo
 
 ### Bucket notifications
 
-There is currently no support for [S3 bucket notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html) in {{brand}}.
+There is currently no support for [S3 bucket notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html) in {{brand}}.
 
 ### Object lock retention modes
 

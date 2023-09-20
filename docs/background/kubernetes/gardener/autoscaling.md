@@ -35,7 +35,7 @@ This is by design: if the dip in resource utilization is only temporary, suffici
 
 Autoscaling may sometimes not occur when you expect it to, including the following situations:
 
-* If a Pod [spec](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#object-spec-and-status) contains a [request](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits) that is impossible to meet even *with* scale-out, no autoscaling occurs.
+* If a Pod [spec](https://kubernetes.io/docs/concepts/overview/working-with-objects/#object-spec-and-status) contains a [request](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits) that is impossible to meet even *with* scale-out, no autoscaling occurs.
   For example, if a Pod were to request 1TiB of memory, and the configured worker node [flavor](../../../reference/flavors/index.md) has less than that, then scale-out would not help:
   to run such a Pod, you would instead have to add a new worker group (with a larger flavor) to the cluster.
 

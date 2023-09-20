@@ -37,7 +37,7 @@ In Kubernetes, a
 [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 (or *PV*), is a piece of storage in the cluster that has been
 provisioned either dynamically (using [Storage
-Classes](https://kubernetes.io/docs/concepts/storage/storage-classes))
+Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/))
 or by an administrator. When a user makes a request for storage, then we
 have a
 [PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)

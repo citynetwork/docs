@@ -3,7 +3,7 @@ description: SSE-C provides server-side S3 object encryption with pre-shared sec
 ---
 # Server-side object encryption with customer-provided keys (SSE-C)
 
-You can use object encryption via the S3 API, according to the [Amazon SSE-C](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html) specification.
+You can use object encryption via the S3 API, according to the [Amazon SSE-C](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) specification.
 This means that you need to provide an encryption/decryption key with each request to the object.
 
 You can store the encryption key in [Barbican](../../openstack/barbican/index.md), and provide it to the S3 client at runtime.

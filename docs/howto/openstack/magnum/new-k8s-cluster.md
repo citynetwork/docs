@@ -1,7 +1,7 @@
 # Creating a Kubernetes cluster
 
 By employing OpenStack
-[Magnum](https://docs.openstack.org/magnum/latest) you can create
+[Magnum](https://docs.openstack.org/magnum) you can create
 Kubernetes clusters via OpenStack, using the {{gui}} or the OpenStack
 CLI.
 
