@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.30068a00.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -3773,7 +3773,7 @@
 
 <h1 id="object-storage-in-cleura-cloud">Object storage in Cleura Cloud</h1>
 <p>Object storage in Cleura Cloud is implemented via the <a href="https://docs.ceph.com/en/latest/radosgw/index.html">Ceph Object Gateway</a>, also known as <code>radosgw</code> (commonly pronounced &ldquo;<a href="https://ceph.io/assets/pdfs/weil-rados-pdsw07.pdf">rados</a> gateway&rdquo;).</p>
-<p>This facility exposes access to objects via two RESTful APIs: the <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/APIRest.html">Amazon S3 API</a>, and the <a href="https://docs.openstack.org/api-ref/object-store/">OpenStack Swift API</a>.
+<p>This facility exposes access to objects via two RESTful APIs: the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/">Amazon S3 API</a>, and the <a href="https://docs.openstack.org/api-ref/object-store/">OpenStack Swift API</a>.
 It is, however, important to understand that radosgw shares no code with Amazon S3, nor with OpenStack Swift.</p>
 <p>As such, object storage in Cleura Cloud is not expected to behave <em>exactly</em> as Amazon S3 or OpenStack Swift, although it tracks their behavior very closely.
 The Ceph upstream documentation lists API deviations from the respective reference implementations, for both the <a href="https://docs.ceph.com/en/latest/radosgw/s3/">S3</a> and the <a href="https://docs.ceph.com/en/latest/radosgw/swift/">Swift</a> API.
@@ -3818,7 +3818,7 @@ This is because Swift has no concept of fine-grained bucket policies, as they ex
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-04</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-20</span>
       
         <br>
         Created:
