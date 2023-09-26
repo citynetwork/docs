@@ -52,3 +52,4 @@
 | Transport layer (TCP/UDP)                                                                                   | :material-check: | :material-check: |
 | Application layer (HTTP)                                                                                    | :material-check: | :material-check: |
 | Application layer ([HTTPS, with secrets management for TLS certificates](../../howto/openstack/octavia/tls-lb.md)) | :material-check: | :material-check: |
+| [Metrics endpoint](../../howto/openstack/octavia/metrics.md)                                                | :material-close: | :material-close: |
