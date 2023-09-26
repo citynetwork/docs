@@ -2,17 +2,17 @@
 
 ## OpenStack Services
 
-|                                | Kna1  | Sto2   | Fra1  | Dx1   | Tky1     |
-| ------------------------------ | ----- | ------ | ----- | ----- | ------   |
-| Barbican (secret storage)      | Xena  | Xena   | Xena  | Xena  | Antelope |
-| Cinder (block storage)         | Xena  | Xena   | Xena  | Xena  | Antelope |
-| Glance (image management)      | Xena  | Xena   | Xena  | Xena  | Antelope |
-| Heat (orchestration)           | Xena  | Xena   | Xena  | Xena  | Antelope |
-| Keystone (identity management) | Xena  | Xena   | Xena  | Xena  | Antelope |
-| Magnum (container management)  | Xena  | Xena   | Xena  | Xena  | Antelope |
-| Neutron (networking)           | Xena  | Xena   | Xena  | Xena  | Antelope |
-| Nova (server virtualization)   | Xena  | Xena   | Xena  | Xena  | Antelope |
-| Octavia (load balancing)       | Xena  | Xena   | Xena  | Xena  | Antelope |
+|                                | Kna1     | Sto2   | Fra1  | Dx1   | Tky1     |
+| ------------------------------ | -----    | ------ | ----- | ----- | ------   |
+| Barbican (secret storage)      | Antelope | Xena   | Xena  | Xena  | Antelope |
+| Cinder (block storage)         | Antelope | Xena   | Xena  | Xena  | Antelope |
+| Glance (image management)      | Antelope | Xena   | Xena  | Xena  | Antelope |
+| Heat (orchestration)           | Antelope | Xena   | Xena  | Xena  | Antelope |
+| Keystone (identity management) | Antelope | Xena   | Xena  | Xena  | Antelope |
+| Magnum (container management)  | Antelope | Xena   | Xena  | Xena  | Antelope |
+| Neutron (networking)           | Antelope | Xena   | Xena  | Xena  | Antelope |
+| Nova (server virtualization)   | Antelope | Xena   | Xena  | Xena  | Antelope |
+| Octavia (load balancing)       | Antelope | Xena   | Xena  | Xena  | Antelope |
 
 
 ## Ceph Services
