@@ -52,7 +52,7 @@ $ openstack loadbalancer list
 You may now add `mylb-listener-metrics`, a new Prometheus-based listener for `mylb`.
 
 Most likely, you will want to restrict access to this endpoint to just the IP address of your Prometheus server, which presumably lives on a different network and accesses the load balancer via its public (floating) IP address.
-You can use the `allowed_cidrs` property for that purpose.
+You can use the `--allowed-cidr` command-line option for that purpose.
 The example below[^octavia-client-version] assumes that your Prometheus server's outgoing IP address is `203.0.113.132`:
 
 [^octavia-client-version]: If your `openstack` CLI does not support the `--protocol PROMETHEUS` option, you may have to upgrade your installed `python-octaviaclient` package.
@@ -62,7 +62,7 @@ $ openstack loadbalancer listener create \
     --name mylb-listener-metrics \
     --protocol PROMETHEUS \
     --protocol-port 8088 \
-    --allowed-cidrs "203.0.113.132/32" \
+    --allowed-cidr "203.0.113.132/32" \
     mylb
 +-----------------------------+--------------------------------------+
 | Field                       | Value                                |
