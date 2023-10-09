@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
     
     
       
@@ -28,10 +28,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.79e020e9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.bd3936ea.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a5377069.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -3916,13 +3916,13 @@ In our test scenario, the load balancer was accepting HTTPS requests for <code>w
 </code></pre></div>
 <p>You may now add <code>mylb-listener-metrics</code>, a new Prometheus-based listener for <code>mylb</code>.</p>
 <p>Most likely, you will want to restrict access to this endpoint to just the IP address of your Prometheus server, which presumably lives on a different network and accesses the load balancer via its public (floating) IP address.
-You can use the <code>allowed_cidrs</code> property for that purpose.
+You can use the <code>--allowed-cidr</code> command-line option for that purpose.
 The example below<sup id="fnref:octavia-client-version"><a class="footnote-ref" href="#fn:octavia-client-version">1</a></sup> assumes that your Prometheus server&rsquo;s outgoing IP address is <code>203.0.113.132</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--name<span class="w"> </span>mylb-listener-metrics<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--protocol<span class="w"> </span>PROMETHEUS<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--protocol-port<span class="w"> </span><span class="m">8088</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--allowed-cidrs<span class="w"> </span><span class="s2">&quot;203.0.113.132/32&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--allowed-cidr<span class="w"> </span><span class="s2">&quot;203.0.113.132/32&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>mylb
 <span class="go">+-----------------------------+--------------------------------------+</span>
 <span class="go">| Field                       | Value                                |</span>
@@ -4009,7 +4009,7 @@ All exported metrics use the prefix <code>octavia_</code>.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-26</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-09</span>
       
         <br>
         Created:
@@ -4072,10 +4072,10 @@ All exported metrics use the prefix <code>octavia_</code>.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.6eac0284.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.94c44541.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
