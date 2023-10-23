@@ -4,15 +4,15 @@
 
 |                                | Sto1HS    | Sto2HS |
 | ------------------------------ | --------- | ------ |
-| Barbican (secret storage)      | Xena      | Xena   |
-| Cinder (block storage)         | Xena      | Xena   |
-| Glance (image management)      | Xena      | Xena   |
-| Heat (orchestration)           | Xena      | Xena   |
-| Keystone (identity management) | Xena      | Xena   |
-| Magnum (container management)  | Xena      | Xena   |
-| Neutron (networking)           | Xena      | Xena   |
-| Nova (server virtualization)   | Xena      | Xena   |
-| Octavia (load balancing)       | Xena      | Xena   |
+| Barbican (secret storage)      | Antelope  | Xena   |
+| Cinder (block storage)         | Antelope  | Xena   |
+| Glance (image management)      | Antelope  | Xena   |
+| Heat (orchestration)           | Antelope  | Xena   |
+| Keystone (identity management) | Antelope  | Xena   |
+| Magnum (container management)  | Antelope  | Xena   |
+| Neutron (networking)           | Antelope  | Xena   |
+| Nova (server virtualization)   | Antelope  | Xena   |
+| Octavia (load balancing)       | Antelope  | Xena   |
 
 
 ## Ceph Services
