@@ -8,10 +8,10 @@ description: Our services constantly evolve, and we gradually add features to re
 This page lists the cloud features available in each {{brand}}
 region.
 
-* [Public Cloud](public.md): features supported in our {{company}}
-  Public Cloud regions.
+* [Public Cloud](public.md): features supported in our
+  {{brand_public}} regions.
 
 * [Compliant Cloud](compliant.md): features supported in our
-  {{company}} Compliant Cloud regions.
+  {{brand_compliant}} regions.
 
 Please note that certain support [limitations](../limitations/index.md) apply to some features.

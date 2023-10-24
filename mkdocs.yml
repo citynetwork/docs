@@ -12,7 +12,9 @@ extra:
     domain: docs.cleura.cloud
     provider: plausible
   brand: "Cleura Cloud"
+  brand_compliant: "Cleura Compliant Cloud"
   brand_domain: "citycloud.com"
+  brand_public: "Cleura Public Cloud"
   company: "Cleura"
   company_domain: "cleura.com"
   gui: "Cleura Cloud Management Panel"

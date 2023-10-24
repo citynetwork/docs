@@ -1,9 +1,9 @@
 # Creating new servers with virtual GPU support
 
-In select {{brand}}
-[Public Cloud](../../../reference/features/public.md#virtualization)
+In select
+[{{brand_public}}](../../../reference/features/public.md#virtualization)
 and
-[Compliant Cloud](../../../reference/features/compliant.md#virtualization)
+[{{brand_compliant}}](../../../reference/features/compliant.md#virtualization)
 regions, you can instantiate virtual machines --- or simply _servers_
 --- with virtual GPU (vGPU) support. For that, you use the `openstack`
 CLI utility.
