@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-DOCS_LINKCHECK_IGNORE='.*apidoc\.cleura\.cloud .*s3-kna1\.citycloud\.com.* .*github\.com.*/edit/.*'
+DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.*'
 
 if test `basename $0` = "linkcheck-local.sh"; then
     DOCS_SITE_URL="http://localhost:8000"
