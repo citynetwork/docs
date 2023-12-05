@@ -14,7 +14,7 @@ This section lists the cloud API service versions available in each {{brand}} re
 [OpenStack releases](https://releases.openstack.org) are named in alphabetical order, and occur on a six-month release schedule.
 In {{brand_public}} we upgrade OpenStack releases annually; this means that we normally deploy every other OpenStack release and skip the intervening one.
 
-{{brand}} currently runs OpenStack [Xena](https://releases.openstack.org/xena/) and [Antelope](https://releases.openstack.org/antelope/).
+{{brand}} currently runs OpenStack [Antelope](https://releases.openstack.org/antelope/) in all regions.
 The fact that {{brand}} has skipped the [Zed](https://releases.openstack.org/zed/) release (in addition to [Yoga](https://releases.openstack.org/yoga/), as we normally would have) is due to a one-time upstream release policy change.
 We return to the prior deployment schedule after the Antelope upgrade, and expect the next deployed release to be [Caracal](https://releases.openstack.org/caracal/).
 
