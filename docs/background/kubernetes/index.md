@@ -2,7 +2,7 @@
 
 {{brand}} has two management facilities for Kubernetes clusters:
 
-* [{{k8s_management_service}} in {{brand}}](../../howto/kubernetes/gardener/index.md),
+* [{{brand_container_orchestration}}](../../howto/kubernetes/gardener/index.md),
 * [OpenStack Magnum](../../howto/kubernetes/magnum/index.md).
 
 In most scenarios, {{k8s_management_service}} is the preferred option, since it supports more recent Kubernetes versions and offers you a greater degree of "hands-off" management.

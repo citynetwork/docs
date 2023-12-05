@@ -8,7 +8,7 @@ This guide shows you how to do that, and how to deploy a sample application on s
 
 ## Prerequisites
 
-* If this is your first time using {{k8s_management_service}} in {{brand}}, you need to [activate the service](index.md) from the {{gui}}.
+* If this is your first time using {{brand_container_orchestration}}, you need to [activate the service](index.md) from the {{gui}}.
 * To access the Kubernetes cluster from your computer, you will need to [install `kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) on your machine.
 
 ## Creating a Kubernetes cluster in {{gui}}

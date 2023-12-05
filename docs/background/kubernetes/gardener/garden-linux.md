@@ -1,5 +1,5 @@
 ---
-description: Gardener in Cleura Cloud runs its worker and control plane nodes on Garden Linux.
+description: Gardener runs its worker and control plane nodes on Garden Linux.
 ---
 # Garden Linux
 

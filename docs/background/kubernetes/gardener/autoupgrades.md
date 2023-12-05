@@ -3,7 +3,7 @@ description: How auto-upgrading works in Gardener-managed Kubernetes clusters
 ---
 # Automatic upgrades
 
-By default, Kubernetes clusters created with {{k8s_management_service}} in {{brand}} are upgraded automatically.
+By default, Kubernetes clusters created with {{brand_container_orchestration}} are upgraded automatically.
 
 More specifically, during the specified maintenance window, {{k8s_management_service}} checks for a new Kubernetes version, and a new version of the base image that runs on the control plane and worker nodes.
 If there is a new version of any of those, the cluster starts upgrading automatically.
