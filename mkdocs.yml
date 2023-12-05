@@ -13,7 +13,7 @@ extra:
     provider: plausible
   brand: "Cleura Cloud"
   brand_compliant: "Cleura Compliant Cloud"
-  brand_container_orchestration: "Gardener in Cleura Cloud"
+  brand_container_orchestration: "Cleura Container Orchestration Engine"
   brand_domain: "citycloud.com"
   brand_public: "Cleura Public Cloud"
   company: "Cleura"
