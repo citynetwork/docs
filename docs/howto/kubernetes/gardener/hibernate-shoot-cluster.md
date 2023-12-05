@@ -10,7 +10,7 @@ cluster again), you will be paying *less* for the cluster.
 
 ## Prerequisites
 
-We assume you have already used {{k8s_management_service}} in {{brand}} to spin up a
+We assume you have already used {{brand_container_orchestration}} to spin up a
 Kubernetes cluster, which is now humming away. If you've never done
 this before, please feel free to [follow this
 guide](create-shoot-cluster.md).

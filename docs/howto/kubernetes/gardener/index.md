@@ -1,13 +1,13 @@
 # Gardener
 
-{{k8s_management_service}} in {{brand}} is a Kubernetes-native system that provides automated management and operation of Kubernetes clusters as a service.
+{{brand_container_orchestration}} is a Kubernetes-native system that provides automated management and operation of Kubernetes clusters as a service.
 It allows you to create clusters and automatically handle their lifecycle operations, including configurable maintenance windows, hibernation schedules, and automatic updates to Kubernetes control plane and worker nodes.
 
 You can read more about {{k8s_management_service}} and its capabilities on its [documentation website](https://gardener.cloud/docs/gardener/).
 
 ## Activating the {{k8s_management_service}} service
 
-To use {{k8s_management_service}} in {{brand}}, you first need to *activate* the service. You can conveniently do this via the {{gui}}.
+To use {{brand_container_orchestration}}, you first need to *activate* the service. You can conveniently do this via the {{gui}}.
 
 To activate {{k8s_management_service}}, select Containers → [{{k8s_management_service}}](https://{{gui_domain}}/containers/gardener) in the side panel.
 Then, click the _Activate {{k8s_management_service}} Service_ button:

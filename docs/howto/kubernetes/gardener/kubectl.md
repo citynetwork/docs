@@ -70,7 +70,7 @@ users:
 ```
 
 You will notice that the cluster API endpoint (the `server` entry in your kubeconfig) is a dynamically managed DNS address.
-{{k8s_management_service}} in {{brand}} automatically created the DNS record upon shoot cluster creation.
+{{brand_container_orchestration}} automatically created the DNS record upon shoot cluster creation.
 
 The DNS record will subsequently disappear when you delete the cluster.
 The DNS record *also* disappears when you [hibernate the shoot cluster](hibernate-shoot-cluster.md), and reappears when you wake it from hibernation.
