@@ -35,6 +35,7 @@ These tutorials cover the management of complex virtual resource assemblies ("st
 These tutorials cover the deployment of virtual resources in {{brand}} using [Terraform](https://www.terraform.io/) configurations.
 
 * [Using Terraform to manage {{brand}} resources](https://{{academy_domain}}/ct114): Use Terraform to create and manage {{brand}} server and network resources.
+* [Using Virtual GPUs in {{brand}}](https://{{academy_domain}}/ct116): Use a Terraform configuration to create servers with a virtual GPU, and see how this benefits AI/ML applications such as speech recognition.
 
 ## Container tutorials
 
