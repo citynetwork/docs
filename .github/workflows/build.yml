@@ -1,6 +1,9 @@
 ---
 jobs:
   build:
+    env:
+      DOCS_ENABLE_COMMITTERS_PLUGIN: true
+      MKDOCS_GIT_COMMITTERS_APIKEY: "${{ secrets.GITHUB_TOKEN }}"
     runs-on: ubuntu-latest
     steps:
       - name: Check out code

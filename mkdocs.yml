@@ -62,9 +62,10 @@ markdown_extensions:
   - tables
 plugins:
   - awesome-pages
-  - git-authors:
-      enabled: true
-      show_email_address: false
+  - git-committers:
+      branch: main
+      enabled: !ENV [DOCS_ENABLE_COMMITTERS_PLUGIN, false]
+      repository: citynetwork/docs
   - git-revision-date-localized:
       enable_creation_date: true
       enabled: true
