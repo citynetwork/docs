@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Our tutorials enable you to interactively explore specific cloud workloads in detail.">
+      
       
       
         <link rel="canonical" href="https://docs.cleura.cloud/tutorials/">
@@ -66,7 +68,7 @@
       
         <meta  property="og:title"  content="About our tutorials - Cleura Docs" >
       
-        <meta  property="og:description"  content="None" >
+        <meta  property="og:description"  content="Our tutorials enable you to interactively explore specific cloud workloads in detail." >
       
         <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/tutorials/index.png" >
       
@@ -82,7 +84,7 @@
       
         <meta  name="twitter:title"  content="About our tutorials - Cleura Docs" >
       
-        <meta  name="twitter:description"  content="None" >
+        <meta  name="twitter:description"  content="Our tutorials enable you to interactively explore specific cloud workloads in detail." >
       
         <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/tutorials/index.png" >
       
@@ -3899,6 +3901,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ansible tutorials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openstack-heat-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenStack Heat tutorials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform tutorials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container tutorials
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3922,38 +3968,42 @@
 
 
 <h1 id="about-our-tutorials">About our tutorials</h1>
-<p>Our tutorials are gentle introductions to Cleura Cloud. They
-generally require very little prior knowledge and assume only that you
-have access to a browser, or to a terminal.</p>
-<p>We group these into two major categories:</p>
-<ul>
-<li>
-<p><strong>Browser-based tutorials</strong> get you started on
-  Cleura Cloud using the
-  <a href="https://cleura.cloud/">Cleura Cloud Management Panel</a>.</p>
-</li>
-<li>
-<p><strong>Terminal-based tutorials</strong> introduce you to command-line
-  interfaces (CLIs) and their interaction with
-  Cleura Cloud’s web-based Application Programming
-  Interfaces (APIs).</p>
-</li>
-</ul>
-<p>This section does <em>not</em> include detailed walkthroughs of specific
-technical tasks. For those, please see our <a href="../howto/">How-To
-Guides</a> section.</p>
+<p>Our tutorials cover specific use cases in Cleura Cloud.
+We host them on our learning platform, <a href="https://academy.cleura.cloud/">Cleura Cloud Academy</a>.</p>
+<p>Our tutorials generally require that you <a href="../howto/getting-started/create-account/">have a Cleura Cloud account</a>, and that you are <a href="https://academy.cleura.cloud/register">registered</a> on Cleura Cloud Academy.
+Access to our tutorials is free of charge, however any resources you create in a tutorial will be charged at <a href="https://cleura.com/pricing/">our normal rates</a>.
+You may of course use your <a href="https://cleura.com/free-trial/">free trial credit</a> to run a tutorial.</p>
 <blockquote>
-<p>If you find our tutorials helpful, you might also be interested in
-our self-paced online training courses, available from <a href="https://shop.cleura.com">our course
-booking site</a>.</p>
+<p>If you find our tutorials helpful, you might also be interested in our self-paced online training courses, available from <a href="https://shop.cleura.com">our course booking site</a>.</p>
 </blockquote>
+<p>Our tutorials are grouped by general topics.</p>
+<h2 id="ansible-tutorials">Ansible tutorials</h2>
+<p>These tutorials cover how you can best automate virtual resources in Cleura Cloud using <a href="https://www.ansible.com/">Ansible</a>.</p>
+<ul>
+<li><a href="https://academy.cleura.cloud/ct111">Managing Cleura Cloud resources with Ansible</a>: Use the <code>openstack.cloud</code> Ansible collection to create networks, routers, and servers in Cleura Cloud.</li>
+<li><a href="https://academy.cleura.cloud/ct112">Using an Ansible dynamic inventory to discover and manage Cleura Cloud servers</a>: Use an Ansible dynamic inventory plugin to automate the discovery of your cloud resources, enabling the management of massively scalable virtual data centers in Cleura Cloud.</li>
+</ul>
+<h2 id="openstack-heat-tutorials">OpenStack Heat tutorials</h2>
+<p>These tutorials cover the management of complex virtual resource assemblies (&ldquo;stacks&rdquo;) in Cleura Cloud using the <a href="https://docs.openstack.org/heat/latest/">OpenStack Heat</a> orchestration framework.</p>
+<ul>
+<li><a href="https://academy.cleura.cloud/ct113">Using OpenStack Heat to manage Cleura Cloud resources</a>: Use OpenStack Heat to automate the creation, update, and configuration of Cleura Cloud resources.</li>
+</ul>
+<h2 id="terraform-tutorials">Terraform tutorials</h2>
+<p>These tutorials cover the deployment of virtual resources in Cleura Cloud using <a href="https://www.terraform.io/">Terraform</a> configurations.</p>
+<ul>
+<li><a href="https://academy.cleura.cloud/ct114">Using Terraform to manage Cleura Cloud resources</a>: Use Terraform to create and manage Cleura Cloud server and network resources.</li>
+</ul>
+<h2 id="container-tutorials">Container tutorials</h2>
+<ul>
+<li><a href="https://academy.cleura.cloud/ct115">Managing containerized workloads in Cleura Cloud</a>: Deploy and manage Kubernetes clusters in Cleura Cloud with Gardener.</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-13</span>
       
         <br>
         Created:
