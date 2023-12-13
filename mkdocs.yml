@@ -8,6 +8,8 @@ copyright: >
   </a>
 edit_uri: ./edit/main/docs
 extra:
+  academy: "Cleura Cloud Academy"
+  academy_domain: "academy.cleura.cloud"
   analytics:
     domain: docs.cleura.cloud
     provider: plausible

@@ -3,7 +3,7 @@
 nav:
   - index.md
   - howto
-#  - tutorials
+# - tutorials
   - background
   - reference
   - contrib
