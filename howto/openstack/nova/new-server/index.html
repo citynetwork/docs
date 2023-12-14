@@ -4070,74 +4070,108 @@ file first</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>On the top right-hand side of the Cleura Cloud Management Panel, click the
-<em>Create</em> button. A new pane titled <em>Create</em> will slide into view from
-the right-hand side of the browser window.</p>
+<p>On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em> button. A
+new pane titled <em>Create</em> will slide into view from the right-hand side
+of the browser window.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/new-server/shot-01.png" /></a></p>
-<p>You will notice several rounded boxes on that pane, each for
-defining, configuring, and instantiating a different Cleura
-Cloud object. Go ahead and click the <em>Server</em> box. A new pane titled
-<em>Create a Server</em> will slide over. At the top, type in a name for the
-new server and select one of the available regions.</p>
+<p>You will notice several rounded boxes on that pane, each for defining,
+configuring, and instantiating a different Cleura Cloud object. Go ahead
+and click the <em>Server</em> box. A new pane titled <em>Create a Server</em> will
+slide over. At the top, type in a name for the new server and select one
+of the available regions.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-02.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new server" src="../assets/new-server/shot-02.png" /></a></p>
-<p>In the <em>Boot source</em> section below, click the dropdown menu on
-the left and make sure you select <em>Boot from image</em>, so you can choose
-one of the readily available OS images to boot the new server off of.
-To pick one of the images, click on the dropdown menu on the right. For
-this how-to guide, we have chosen <em>ubuntu</em> in general and
-<em>Ubuntu 22.04 Jammy Jellyfish 20220810</em> in particular.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Boot source" src="../assets/new-server/shot-03.png" /></a></p>
-<p>Next, make sure <em>Boot Target</em> is set to <em>Volume (Recommended)</em>.
-Regarding the server&rsquo;s CPU core count and amount of memory, set the
-<a href="../../../../reference/flavors/"><em>Flavor</em></a> accordingly.
-The default flavor specifies a server with 1 CPU core and 1GB of RAM.
-You can start with that or select a different configuration by clicking
-the dropdown menu at the right of <em>Flavor</em>. Please note that, depending on
-the chosen flavor, the estimated monthly cost of the server changes. (While a
-server is shut off you are still getting charged for it, but less so.)
-At any time, this estimated cost is displayed in the green rectangular area
-at the top. Something else that affects the cost is the size of the root
-device. Take a look at the <em>Size</em> parameter below, and notice the
-default (in
+<p>Below the region selection is a drop-down menu where you must select a
+<em>server profile</em>. Currently, four profiles are available:</p>
+<ul>
+<li><em>Generic</em>,</li>
+<li><em>High CPU</em>,</li>
+<li><em>Low Latency Disk</em>, and</li>
+<li><em>GPU</em>.</li>
+</ul>
+<p>Selecting one of those gives you access to a subset of all available
+<a href="../../../../reference/flavors/"><em>flavors</em></a>.</p>
+<p>As the profile names suggest, each profile but the <em>Generic</em> points to a
+set of flavors suitable for servers intended to run specific types of
+applications:</p>
+<ul>
+<li>The <em>Generic</em> profile is for general-purpose cloud servers.</li>
+<li>The <em>CPU</em> profile is for servers designed to host CPU-intensive
+  applications.</li>
+<li>The <em>Low Latency Disk</em> profile is for servers that boot off of a local
+  low-latency disk.</li>
+<li>The <em>GPU</em> profile is for servers that boot off of a local SSD disk
+  and, most importantly, have direct access to an NVIDIA vGPU.</li>
+</ul>
+<p>We should point out that not <em>all</em> profiles may be available in any
+region. Choose the <em>Generic</em> profile for now, which is available in any
+of the regions.</p>
+<p><a class="glightbox" href="../assets/new-server/shot-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new server" src="../assets/new-server/shot-03.png" /></a></p>
+<p>In the <em>Boot source</em> section below, click the dropdown menu on the left
+and make sure you select <em>Image</em>, so you can choose one of the readily
+available OS images to boot the new server off of. To pick one of the
+images, click on the dropdown menu on the right. For this how-to guide,
+we have chosen <em>ubuntu</em> in general and <em>Ubuntu 22.04 Jammy Jellyfish</em> in
+particular.</p>
+<p><a class="glightbox" href="../assets/new-server/shot-04.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Boot source" src="../assets/new-server/shot-04.png" /></a></p>
+<p>Next up, notice that the <em>Boot Target</em> is preselected for you. Depending
+on the server profile you have already selected, the boot target will be
+either <em>Volume</em> or <em>Ephemeral</em>. More specifically&hellip;</p>
+<ul>
+<li>for the <em>Generic</em>, <em>High CPU</em>, and <em>GPU</em> profiles the boot target is
+  <em>Volume</em>, and</li>
+<li>for the <em>Low Latency Disk</em> profile the boot target is <em>Ephemeral</em>.</li>
+</ul>
+<p>Regarding the server&rsquo;s CPU core count and amount of memory, set the
+<a href="../../../../reference/flavors/"><em>Flavor</em></a> accordingly. We suggest
+selecting a flavor that specifies a server with 1 CPU core and 1GiB of
+RAM.</p>
+<p>Please note that, depending on the chosen flavor, the estimated monthly
+cost of the server changes. (While a server is shut off you are still
+getting charged for it, but less so.) At any time, this estimated cost
+is displayed in the green rectangular area at the top.</p>
+<p>Something else that affects the cost is the size of the root device.
+Take a look at the <em>Volume</em> parameter below, and notice the default (in
 <a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibytes</a>).
-You may leave the root device size unchanged, or modify it to be lower
-or higher than the default.</p>
-<p>When, at a later time, you decide to delete the server, you can
-do so but <strong>keep</strong> its boot volume (you may want, for example, to
-attach the exact same volume to a new server). Just leave the <em>Delete
-on termination</em> option disabled if you want this kind of flexibility.
-On the other hand, if you want your root volume to be automatically
-deleted when the server terminates, enable <em>Delete on termination</em>.
-Use this option with caution.</p>
-<p>Finally, you may enable <em>Disaster recovery</em> for the server. If
-you do, then daily server snapshots will be created, and you will have
-the option for easy and fast rollups to previous snapshots. Please be
-aware that enabling this option increases the server&rsquo;s monthly estimated
+You may leave the root device size unchanged or modify it to be a bit
+lower or higher than the default.</p>
+<p>When, at a later time, you decide to delete the server, you can do so
+but <strong>keep</strong> its boot volume (you may want, for example, to attach the
+exact same volume to a new server). Just disable the <em>Delete on
+termination</em> option if you want this kind of flexibility. On the other
+hand, if you want your root volume to be automatically deleted when the
+server terminates, the <em>Delete on termination</em> option is already enabled
+for you. In any case, use this option with caution.</p>
+<p>Finally, you may leave the <em>Disaster recovery</em> enabled. If you do, then
+daily server snapshots will be created, and you will have the option for
+easy and fast rollups to previous snapshots. Please be aware that
+leaving this option enabled increases the server&rsquo;s monthly estimated
 cost (again, it is displayed in the green rectangular area at the top).</p>
-<p><a class="glightbox" href="../assets/new-server/shot-04.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Server configuration" src="../assets/new-server/shot-04.png" /></a></p>
-<p>Regarding networking, select one of the available networks to
-attach the new server to. If you want the server accessible from the
-Internet, do not forget to enable the <em>I want an external IP for my
-server</em> option. In the section below, set <em>Security Groups</em> to
-<em>default</em>.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Networking and security groups" src="../assets/new-server/shot-05.png" /></a></p>
-<p>If you already have one or more public keys in your
-Cleura Cloud account, you can now select a key to be included
-in the <code>~/.ssh/authorized_keys</code> file of the server&rsquo;s default user. That
-way, you can securely log into the remote user&rsquo;s account without typing
-a password. If there are no public keys to choose from, activate the
-<em>Password login enabled</em> option and set a password for a specific user
-(with a username you define).</p>
-<p><a class="glightbox" href="../assets/new-server/shot-06.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login and keypairs" src="../assets/new-server/shot-06.png" /></a></p>
-<p>A configuration script is automatically prepared based on the
-choices you have already made. That script runs during system boot and
-performs housekeeping tasks like user account creation, enabling
-acceptable authentication methods, and configuring remote package
-repositories. Click on <em>Advanced Options</em> to see the default script.</p>
-<p><a class="glightbox" href="../assets/new-server/shot-07.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="User-data propagation method" src="../assets/new-server/shot-07.png" /></a></p>
-<p>It is now time to create your Cleura Cloud server;
-click the green <em>Create</em> button, and the new server will be readily
-available in a few seconds.</p>
+<p><a class="glightbox" href="../assets/new-server/shot-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Server configuration" src="../assets/new-server/shot-05.png" /></a></p>
+<p>Regarding networking, select at least one of the available (local)
+networks to attach the new server to. If you want the server to be
+accessible from the Internet, enable the <em>Connect a floating IP to the
+server</em> option. Then, from the <em>Create External IP on</em> drop-down menu,
+select one of the networks the server is attached to. A typical scenario
+is that the server is connected to just one local network, thus the
+external IP will be associated with that same network. In the section
+below, set <em>Security Groups</em> to <em>default</em> or to a security group you
+have already created.</p>
+<p><a class="glightbox" href="../assets/new-server/shot-06.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Networking and security groups" src="../assets/new-server/shot-06.png" /></a></p>
+<p>If you already have one or more key pairs in your Cleura Cloud account, you
+can now select a public key to be included in the
+<code>~/.ssh/authorized_keys</code> file of the server&rsquo;s default user (for the
+image you have selected, that user would be <code>ubuntu</code>). That way, you can
+securely log into the remote user&rsquo;s account via SSH without typing a
+password. If there are no key pairs to choose from, activate the <em>Set
+password</em> option and set a password for the default user account.</p>
+<p><a class="glightbox" href="../assets/new-server/shot-07.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login and keypairs" src="../assets/new-server/shot-07.png" /></a></p>
+<p>A configuration script is automatically prepared based on the choices
+you have already made. That script runs during system boot and performs
+housekeeping tasks like user account creation, enabling acceptable
+authentication methods, and configuring remote package repositories.
+Click on <em>Advanced Options</em> to see the default script. It is now time to
+create your Cleura Cloud server; click the green <em>Create</em> button, and the
+new server will be readily available in a few seconds.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-08.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new server" src="../assets/new-server/shot-08.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -4217,7 +4251,7 @@ Cleura Cloud account:</p>
 </code></pre></div>
 <p>In the example above, we uploaded the public key
 <code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named
-it <code>bahnhof</code>. Follow our example and do not forget to set the
+it <code>bahnhof</code>. Follow our example, and do not forget to set the
 <code>KEY_NAME</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">KEY_NAME</span><span class="o">=</span><span class="s2">&quot;bahnhof&quot;</span>
 </code></pre></div>
@@ -4273,10 +4307,10 @@ typing a password:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>From the Cleura Cloud Management Panel you may, at any
-time, see all servers and get detailed information regarding each one
-of them; expand the left-hand side vertical pane, click <em>Compute</em>, then
-<em>Servers</em>, and, in the central pane, select the region you want.</p>
+<p>At any time, from the Cleura Cloud Management Panel you may see all servers, and get detailed
+information regarding each one of them; expand the left-hand side
+vertical pane, click <em>Compute</em>, then <em>Servers</em>, and, in the central
+pane, select the region you want.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-09.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Servers and details" src="../assets/new-server/shot-09.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -4293,15 +4327,15 @@ of them; expand the left-hand side vertical pane, click <em>Compute</em>, then
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>While viewing information regarding your server, you may get
-its public IP  address (e.g., from the <em>Addresses</em> tab) and connect to
-it remotely. Alternatively, you may launch a web console and log in;
-click on the three-dot icon on the right of the server header, and from
-the pop-up menu that appears select <em>Remote Console</em>.</p>
+<p>While viewing information regarding your server, you may get its public
+IP  address (e.g., from the <em>Addresses</em> tab) and connect to it remotely
+via SSH. Alternatively, you may launch a web console and log in; click
+on the three-dot icon on the right of the server header, and from the
+pop-up menu that appears select <em>Remote Console</em>.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Launch remote console" src="../assets/new-server/shot-10.png" /></a></p>
-<p>A new window pops up, and that&rsquo;s your web console to your
-Cleura Cloud server. Please note that this window cannot be
-resized but can be opened on a new browser window or tab.</p>
+<p>A new window pops up, and that&rsquo;s your web console to your Cleura Cloud
+server. Please note that this window cannot be resized but can be opened
+in a new browser window or tab.</p>
 <p><a class="glightbox" href="../assets/new-server/shot-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Server console" src="../assets/new-server/shot-11.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -4320,7 +4354,7 @@ securely connect to your server via SSH.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-13</span>
       
         <br>
         Created:
