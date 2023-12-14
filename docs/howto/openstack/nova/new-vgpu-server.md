@@ -8,70 +8,99 @@ In select
 and
 [{{brand_compliant}}](../../../reference/features/compliant.md#virtualization)
 regions, you can instantiate virtual machines --- or simply _servers_
---- with virtual GPU (vGPU) support. For that, you use the `openstack`
-CLI utility.
+--- with virtual GPU (vGPU) support. For that, you may either use the
+{{gui}} or the `openstack` CLI utility.
 
 ## Prerequisites
 
 Although not strictly necessary, it is certainly helpful to have some
-familiarity with [creating servers in {{brand}}](new-server.md),
-especially with the OpenStack CLI.
+familiarity with [creating servers in {{brand}}](new-server.md).
 
 ## Instantiating a vGPU server
 
-Before you begin, please make sure to source [your `openstack` RC file
-first](../../getting-started/enable-openstack-cli.md).
+=== "{{gui}}"
+    Following the instructions in the [guide on creating
+    servers](new-server.md), go ahead and instantiate a new cloud server.
 
-As we discuss in the [guide on creating servers](new-server.md), an
-`openstack` command for instantiating a new server looks like this:
+    While you're at it, choose a region where you can have vGPU servers. One
+    such region would be `Stockholm/Sweden`.
 
-```console
-openstack server create \
-    --flavor $FLAVOR_NAME \
-    --image $IMAGE_NAME \
-    --boot-from-volume $VOL_SIZE \
-    --network $NETWORK_NAME \
-    --security-group $SEC_GROUP_NAME \
-    --key-name $KEY_NAME \
-    --wait \
-    $SERVER_NAME
-```
+    ![Create new object](assets/new-vgpu-server/shot-01.png)
 
-For servers with vGPU support, the only acceptable value for
-`IMAGE_NAME` is `Ubuntu 22.04 NVGRID x86_64`. Additionally, the value
-for `FLAVOR_NAME` should be a flavor [prefixed by
-`g`](../../../reference/flavors/index.md#compute-tiers). To see all such
-flavors, you can type something like the following:
+    Also, when selecting a server profile, make sure you indicate the one
+    named _GPU_.
 
-```console
-$ openstack flavor list -c Name -f value | grep "^g\."
-g.8c48gb50
-g.24c120gb50
-g.48c240gb
-g.12c48gb50
-g.16c64gb50
-g.12c64gb50
-g.16c84gb50
-g.8c32gb50
-```
+    ![Create new object](assets/new-vgpu-server/shot-02.png)
 
-Taking all of the above into account, an `openstack` command for
-creating a new vGPU server could look like the following:
+    Regarding the image your new vGPU server will be based on, your only
+    option is `Ubuntu 22.04 NVGRID x86_64`.
 
-```console
-openstack server create \
-    --flavor "g.8c32gb50" \
-    --image "Ubuntu 22.04 NVGRID x86_64" \
-    --boot-from-volume 32 \
-    --network cc-net \
-    --security-group default \
-    --key-name mykey \
-    --wait \
-    my-vgpu-server
-```
+    ![Create new object](assets/new-vgpu-server/shot-03.png)
 
-Before you check whether the server does have virtual GPU support, we
-recommend assigning a floating IP to it.
+    Notice that the disaster recovery mechanism is _not_ available for this
+    type of server. You will not be able to [restore the server to a
+    snapshot](restore-srv-to-snap.md).
+
+    ![Create new object](assets/new-vgpu-server/shot-04.png)
+
+    Before finalizing your choices and creating the new server, we recommend
+    assigning a floating IP to it.
+
+    ![Create new object](assets/new-vgpu-server/shot-05.png)
+=== "OpenStack CLI"
+    Before you begin, please make sure to source [your `openstack` RC file
+    first](../../getting-started/enable-openstack-cli.md).
+
+    As we discuss in the [guide on creating servers](new-server.md), an
+    `openstack` command for instantiating a new server looks like this:
+
+    ```console
+    openstack server create \
+        --flavor $FLAVOR_NAME \
+        --image $IMAGE_NAME \
+        --boot-from-volume $VOL_SIZE \
+        --network $NETWORK_NAME \
+        --security-group $SEC_GROUP_NAME \
+        --key-name $KEY_NAME \
+        --wait \
+        $SERVER_NAME
+    ```
+
+    For servers with vGPU support, the only acceptable value for
+    `IMAGE_NAME` is `Ubuntu 22.04 NVGRID x86_64`. Additionally, the value
+    for `FLAVOR_NAME` should be a flavor [prefixed by
+    `g`](../../../reference/flavors/index.md#compute-tiers). To see all such
+    flavors, you can type something like the following:
+
+    ```console
+    $ openstack flavor list -c Name -f value | grep "^g\."
+    g.8c48gb50
+    g.24c120gb50
+    g.48c240gb
+    g.12c48gb50
+    g.16c64gb50
+    g.12c64gb50
+    g.16c84gb50
+    g.8c32gb50
+    ```
+
+    Taking all of the above into account, an `openstack` command for
+    creating a new vGPU server could look like the following:
+
+    ```console
+    openstack server create \
+        --flavor "g.8c32gb50" \
+        --image "Ubuntu 22.04 NVGRID x86_64" \
+        --boot-from-volume 32 \
+        --network cc-net \
+        --security-group default \
+        --key-name mykey \
+        --wait \
+        my-vgpu-server
+    ```
+
+    Before you check whether the server does have virtual GPU support, we
+    recommend assigning a floating IP to it.
 
 ## Checking the status of vGPU support
 
@@ -80,12 +109,6 @@ Type, for instance:
 
 ```console
 ssh ubuntu@<floating_ip_of_new_server>
-```
-
-Alternatively, connect to it using the `openstack` utility:
-
-```console
-openstack server ssh my-vgpu-server -- -l ubuntu
 ```
 
 Upon successful connection to the server and logging into the `ubuntu`
