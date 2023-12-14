@@ -4039,13 +4039,35 @@
 and
 <a href="../../../../reference/features/compliant/#virtualization">Cleura Compliant Cloud</a>
 regions, you can instantiate virtual machines &mdash; or simply <em>servers</em>
-&mdash; with virtual GPU (vGPU) support. For that, you use the <code>openstack</code>
-CLI utility.</p>
+&mdash; with virtual GPU (vGPU) support. For that, you may either use the
+Cleura Cloud Management Panel or the <code>openstack</code> CLI utility.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Although not strictly necessary, it is certainly helpful to have some
-familiarity with <a href="../new-server/">creating servers in Cleura Cloud</a>,
-especially with the OpenStack CLI.</p>
+familiarity with <a href="../new-server/">creating servers in Cleura Cloud</a>.</p>
 <h2 id="instantiating-a-vgpu-server">Instantiating a vGPU server</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Following the instructions in the <a href="../new-server/">guide on creating
+servers</a>, go ahead and instantiate a new cloud server.</p>
+<p>While you&rsquo;re at it, choose a region where you can have vGPU servers. One
+such region would be <code>Stockholm/Sweden</code>.</p>
+<p><a class="glightbox" href="../assets/new-vgpu-server/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/new-vgpu-server/shot-01.png" /></a></p>
+<p>Also, when selecting a server profile, make sure you indicate the one
+named <em>GPU</em>.</p>
+<p><a class="glightbox" href="../assets/new-vgpu-server/shot-02.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/new-vgpu-server/shot-02.png" /></a></p>
+<p>Regarding the image your new vGPU server will be based on, your only
+option is <code>Ubuntu 22.04 NVGRID x86_64</code>.</p>
+<p><a class="glightbox" href="../assets/new-vgpu-server/shot-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/new-vgpu-server/shot-03.png" /></a></p>
+<p>Notice that the disaster recovery mechanism is <em>not</em> available for this
+type of server. You will not be able to <a href="../restore-srv-to-snap/">restore the server to a
+snapshot</a>.</p>
+<p><a class="glightbox" href="../assets/new-vgpu-server/shot-04.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/new-vgpu-server/shot-04.png" /></a></p>
+<p>Before finalizing your choices and creating the new server, we recommend
+assigning a floating IP to it.</p>
+<p><a class="glightbox" href="../assets/new-vgpu-server/shot-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/new-vgpu-server/shot-05.png" /></a></p>
+</div>
+<div class="tabbed-block">
 <p>Before you begin, please make sure to source <a href="../../../getting-started/enable-openstack-cli/">your <code>openstack</code> RC file
 first</a>.</p>
 <p>As we discuss in the <a href="../new-server/">guide on creating servers</a>, an
@@ -4089,13 +4111,13 @@ creating a new vGPU server could look like the following:</p>
 </code></pre></div>
 <p>Before you check whether the server does have virtual GPU support, we
 recommend assigning a floating IP to it.</p>
+</div>
+</div>
+</div>
 <h2 id="checking-the-status-of-vgpu-support">Checking the status of vGPU support</h2>
 <p>From your local computer, connect to the new remote server via SSH.
 Type, for instance:</p>
 <div class="highlight"><pre><span></span><code><span class="go">ssh ubuntu@&lt;floating_ip_of_new_server&gt;</span>
-</code></pre></div>
-<p>Alternatively, connect to it using the <code>openstack</code> utility:</p>
-<div class="highlight"><pre><span></span><code><span class="go">openstack server ssh my-vgpu-server -- -l ubuntu</span>
 </code></pre></div>
 <p>Upon successful connection to the server and logging into the <code>ubuntu</code>
 account, in your terminal window you will see something like this:</p>
