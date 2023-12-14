@@ -1,3 +1,6 @@
+---
+description: How to create a new virtual server in Cleura Cloud
+---
 # Creating new servers
 
 Once you have an [account in

@@ -1,3 +1,6 @@
+---
+description: How to launch a virtual server with config drive support
+---
 # Launching a server with a configuration drive
 
 

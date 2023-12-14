@@ -1,3 +1,6 @@
+---
+description: How to adjust the number of CPU cores and amount of memory for a virtual server
+---
 # Resizing a server
 
 This guide will walk you through the required steps to change the

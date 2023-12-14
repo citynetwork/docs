@@ -1,3 +1,6 @@
+---
+description: How to create a virtual server with graphics processing unit (GPU) support in Cleura Cloud
+---
 # Creating new servers with virtual GPU support
 
 In select

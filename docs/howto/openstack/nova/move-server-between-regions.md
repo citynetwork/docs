@@ -1,3 +1,6 @@
+---
+description: How to transfer a virtual server between Cleura Cloud regions
+---
 # Moving a server from one region to another
 
 This guide will show you how to move a server to a different region in

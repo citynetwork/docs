@@ -1,3 +1,6 @@
+---
+description: How to access a virtual server in rescue mode
+---
 # Rescuing a server
 
 This guide will walk you through the required steps to access a server
