@@ -144,11 +144,18 @@ file first](../../getting-started/enable-openstack-cli.md).
     you have already made. That script runs during system boot and performs
     housekeeping tasks like user account creation, enabling acceptable
     authentication methods, and configuring remote package repositories.
-    Click on _Advanced Options_ to see the default script. It is now time to
-    create your {{brand}} server; click the green _Create_ button, and the
-    new server will be readily available in a few seconds.
+    Click on _Advanced Options_ to see the default script.
+
+    It is now time to create your {{brand}} server; click the green _Create_
+    button, and the new server will be readily available in a few seconds.
 
     ![Create new server](assets/new-server/shot-08.png)
+
+    Regarding the _User-data propagation method_ above, notice that the _Use
+    metadata service_ is pre-selected for you. For more on what this is and
+    why you might want to select the _Use configuration drive_ method,
+    please read our guide on [launching a server with a configuration
+    drive](config-drive.md).
 === "OpenStack CLI"
     An `openstack` command for creating a server may look like
     this:
