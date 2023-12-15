@@ -25,28 +25,28 @@ familiarity with [creating servers in {{brand}}](new-server.md).
     While you're at it, choose a region where you can have vGPU servers. One
     such region would be `Stockholm/Sweden`.
 
-    ![Create new object](assets/new-vgpu-server/shot-01.png)
+    ![Select a region that supports vGPU servers](assets/new-vgpu-server/shot-01.png)
 
     Also, when selecting a server profile, make sure you indicate the one
     named _GPU_.
 
-    ![Create new object](assets/new-vgpu-server/shot-02.png)
+    ![Select the GPU server profile](assets/new-vgpu-server/shot-02.png)
 
     Regarding the image your new vGPU server will be based on, your only
     option is `Ubuntu 22.04 NVGRID x86_64`.
 
-    ![Create new object](assets/new-vgpu-server/shot-03.png)
+    ![Select an image suitable for a vGPU server](assets/new-vgpu-server/shot-03.png)
 
     Notice that the disaster recovery mechanism is _not_ available for this
     type of server. You will not be able to [restore the server to a
     snapshot](restore-srv-to-snap.md).
 
-    ![Create new object](assets/new-vgpu-server/shot-04.png)
+    ![The disaster recovery mechanism is not available for vGPU servers](assets/new-vgpu-server/shot-04.png)
 
     Before finalizing your choices and creating the new server, we recommend
     assigning a floating IP to it.
 
-    ![Create new object](assets/new-vgpu-server/shot-05.png)
+    ![Connect a floating IP to the new server](assets/new-vgpu-server/shot-05.png)
 === "OpenStack CLI"
     Before you begin, please make sure to source [your `openstack` RC file
     first](../../getting-started/enable-openstack-cli.md).

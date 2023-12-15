@@ -30,7 +30,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     new pane titled _Create_ will slide into view from the right-hand side
     of the browser window.
 
-    ![Create new object](assets/new-server/shot-01.png)
+    ![Create new {{brand}} object](assets/new-server/shot-01.png)
 
     You will notice several rounded boxes on that pane, each for defining,
     configuring, and instantiating a different {{brand}} object. Go ahead
@@ -38,7 +38,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     slide over. At the top, type in a name for the new server and select one
     of the available regions.
 
-    ![Create new server](assets/new-server/shot-02.png)
+    ![Type in server name and select region](assets/new-server/shot-02.png)
 
     Below the region selection is a drop-down menu where you must select a
     _server profile_. Currently, four profiles are available:
@@ -67,7 +67,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     region. Choose the _Generic_ profile for now, which is available in any
     of the regions.
 
-    ![Create new server](assets/new-server/shot-03.png)
+    ![Select server profile](assets/new-server/shot-03.png)
 
     In the _Boot source_ section below, click the dropdown menu on the left
     and make sure you select _Image_, so you can choose one of the readily
@@ -76,7 +76,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     we have chosen _ubuntu_ in general and _Ubuntu 22.04 Jammy Jellyfish_ in
     particular.
 
-    ![Boot source](assets/new-server/shot-04.png)
+    ![Select image for the new server](assets/new-server/shot-04.png)
 
     Next up, notice that the _Boot Target_ is preselected for you. Depending
     on the server profile you have already selected, the boot target will be
@@ -116,7 +116,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     leaving this option enabled increases the server's monthly estimated
     cost (again, it is displayed in the green rectangular area at the top).
 
-    ![Server configuration](assets/new-server/shot-05.png)
+    ![Select server flavor and set volume size](assets/new-server/shot-05.png)
 
     Regarding networking, select at least one of the available (local)
     networks to attach the new server to. If you want the server to be
@@ -128,7 +128,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     below, set _Security Groups_ to _default_ or to a security group you
     have already created.
 
-    ![Networking and security groups](assets/new-server/shot-06.png)
+    ![Connect floating IP, select network and security group](assets/new-server/shot-06.png)
 
     If you already have one or more key pairs in your {{brand}} account, you
     can now select a public key to be included in the
@@ -138,7 +138,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     password. If there are no key pairs to choose from, activate the _Set
     password_ option and set a password for the default user account.
 
-    ![Login and keypairs](assets/new-server/shot-07.png)
+    ![Select keypair or set default user password](assets/new-server/shot-07.png)
 
     A configuration script is automatically prepared based on the choices
     you have already made. That script runs during system boot and performs
@@ -149,7 +149,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     It is now time to create your {{brand}} server; click the green _Create_
     button, and the new server will be readily available in a few seconds.
 
-    ![Create new server](assets/new-server/shot-08.png)
+    ![Initiate server creation process](assets/new-server/shot-08.png)
 
     Regarding the _User-data propagation method_ above, notice that the _Use
     metadata service_ is pre-selected for you. For more on what this is and
@@ -361,7 +361,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     vertical pane, click _Compute_, then _Servers_, and, in the central
     pane, select the region you want.
 
-    ![Servers and details](assets/new-server/shot-09.png)
+    ![View server details](assets/new-server/shot-09.png)
 === "OpenStack CLI"
     To see all available servers in the region, type:
 
@@ -388,7 +388,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     server. Please note that this window cannot be resized but can be opened
     in a new browser window or tab.
 
-    ![Server console](assets/new-server/shot-11.png)
+    ![View and use server console](assets/new-server/shot-11.png)
 === "OpenStack CLI"
     You may have access to the web console of your server, and you need the
     corresponding URL for it:
