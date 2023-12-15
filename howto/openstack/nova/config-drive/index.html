@@ -1351,9 +1351,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable-the-configuration-drive-on-server-creation-openstack-cli" class="md-nav__link">
+  <a href="#enable-the-configuration-drive-on-server-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      Enable the configuration drive on server creation (openstack CLI)
+      Enable the configuration drive on server creation
     </span>
   </a>
   
@@ -4001,9 +4001,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable-the-configuration-drive-on-server-creation-openstack-cli" class="md-nav__link">
+  <a href="#enable-the-configuration-drive-on-server-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      Enable the configuration drive on server creation (openstack CLI)
+      Enable the configuration drive on server creation
     </span>
   </a>
   
@@ -4039,17 +4039,43 @@
 servers on boot. You can add custom scripts, install packages, and
 add SSH keys to the servers using metadata.</p>
 <p>By default, metadata discovery in Cleura Cloud uses an HTTP
-data source that booting servers connect to. Sometimes this is
+data source that booting servers connect to. Sometimes, this is
 undesirable or — for specific server/networking configurations —
 unreliable. Under those circumstances, you can use an alternate
 configuration source.</p>
 <h2 id="store-metadata-on-a-configuration-drive">Store metadata on a configuration drive</h2>
 <p>A <strong>configuration drive</strong> (config drive) is a read-only virtual drive
-that is attached to a server during boot. The server can then
+that gets attached to a server during boot. The server can then
 mount the drive and read files from it. Configuration drives are used
 as a data source for
 <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a>.</p>
-<h2 id="enable-the-configuration-drive-on-server-creation-openstack-cli">Enable the configuration drive on server creation (<code>openstack</code> CLI)</h2>
+<h2 id="enable-the-configuration-drive-on-server-creation">Enable the configuration drive on server creation</h2>
+<p>Follow our <a href="../new-server/">How-To guide</a> to create your new cloud server
+using either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>When you are done configuring the server, right before creating it
+notice the icon on the left-hand side of <em>Advanced Options</em>. Click on it
+to expand all related options.</p>
+<p><a class="glightbox" href="../assets/config-drive/shot-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Expand advanced configuration options" src="../assets/config-drive/shot-01.png" /></a></p>
+<p>In the <em>User-Data</em> area, you see everything that will be executed upon
+server boot.</p>
+<p>Right below, in the <em>User-data propagation method</em> area, the <em>Use
+metadata service (Default)</em> option is preselected for you. To opt for
+the alternative metadata discovery method, select <em>Use configuration
+drive</em>.</p>
+<p><a class="glightbox" href="../assets/config-drive/shot-02.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Select the configuration drive method" src="../assets/config-drive/shot-02.png" /></a></p>
+<p>Then, instantiate the server by clicking the green <em>Create</em> button.</p>
+<p>Once the server is ready, you may see what happened during configuration
+by examining the console log. In the Cleura Cloud Management Panel, click on the server line
+to get an extended view of its characteristics, and then click once more
+on the <em>Console Output</em> tab.</p>
+<p><a class="glightbox" href="../assets/config-drive/shot-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Watch the server console" src="../assets/config-drive/shot-03.png" /></a></p>
+<p>There might be quite a lot of text to sift through, but you can easily
+do so by pressing the <code>Up</code> or <code>Down</code> arrow keys.</p>
+</div>
+<div class="tabbed-block">
 <p>To enable the configuration drive, you need to pass the parameter
 <code>--use-config-drive</code> to the <code>openstack server create</code> command.</p>
 <p>In the following example, replace the image, flavor, keypair, and
@@ -4057,23 +4083,26 @@ network reference, as well as the server name, to match your desired
 configuration.</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--use-config-drive<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image<span class="w"> </span><span class="s2">&quot;Ubuntu 20.04 Focal Fossa&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--image<span class="w"> </span><span class="s2">&quot;Ubuntu 22.04 Jammy Jellyfish x86_64&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--flavor<span class="w"> </span>b.1c2gb<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--keypair<span class="w"> </span>mykey
 <span class="w">  </span>--nic<span class="w"> </span>net-id<span class="o">=</span>3a747038-ee59-404c-973d-5f795e8ebb73<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>myserver
 </code></pre></div>
 <p>Once the server launches, you can monitor its configuration process
-by monitoring the server console log:</p>
+by watching the server console log:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>console<span class="w"> </span>log<span class="w"> </span>show<span class="w"> </span>myserver
 </code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-15</span>
       
         <br>
         Created:
@@ -4094,7 +4123,7 @@ by monitoring the server console log:</p>
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>Florian Haas, Namrata Sitlani</span>
+          Authors: <span class='git-page-authors git-authors'>Christos Varelas, Florian Haas, Namrata Sitlani</span>
       </small>
     </div>
   
