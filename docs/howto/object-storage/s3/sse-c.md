@@ -129,7 +129,7 @@ Once you have your encryption secret available, you can create or access enabled
        env_auth = false
        access_key_id = <access key id>
        secret_access_key = <secret key>
-       endpoint = <region>.{{brand_domain}}:8080
+       endpoint = <region>.{{brand_domain}}
        acl = private
        sse_customer_algorithm = AES256
        ```

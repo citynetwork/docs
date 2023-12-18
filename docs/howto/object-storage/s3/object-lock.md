@@ -264,7 +264,7 @@ To display the legal hold status for an object, use the following command:
     ```json
     {
       "legalhold": "ON",
-      "urlpath": "https://s3-<region>.{{brand_domain}}:8080/<bucket>/<object-name>",
+      "urlpath": "https://s3-<region>.{{brand_domain}}/<bucket>/<object-name>",
       "key": "<object-name>",
       "versionID": "",
       "status": "success"

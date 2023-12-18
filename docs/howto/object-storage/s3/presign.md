@@ -52,7 +52,7 @@ The command will return the valid pre-signed URL.
 To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like `curl`, open the URL that the pre-sign command returned:
 
 ```console
-curl -f -O https://s3-<region>.{{brand_domain}}:8080/<bucket-name>/<object-name>?AWSAccessKeyId=<access-key>&Signature=<signature>&Expires=<expiry>
+curl -f -O https://s3-<region>.{{brand_domain}}/<bucket-name>/<object-name>?AWSAccessKeyId=<access-key>&Signature=<signature>&Expires=<expiry>
 ```
 
 As long as the query parameters are correct and the signature has not yet expired, this command will succeed.
@@ -64,7 +64,7 @@ If the query parameters are incorrect or the pre-signed URL is past its expiry d
 For example, to retrieve an object named `bar.pdf` in a bucket named `foo` in the {{brand}} Kna1 region via its pre-signed URL, you would run:
 
 ```console
-$ curl -o bar.pdf https://s3-kna1.{{brand_domain}}:8080/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D
+$ curl -o bar.pdf https://s3-kna1.{{brand_domain}}/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k
@@ -143,7 +143,7 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
 Once you have set the `Content-Disposition` header on an object and created a pre-signed URL for it, you can test its functionality with the `curl -OJ` command:
 
 ```console
-$ curl -f -OJ 'https://s3-kna1.{{brand_domain}}:8080/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D'
+$ curl -f -OJ 'https://s3-kna1.{{brand_domain}}/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D'
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 58503  100 58503    0     0   178k      0 --:--:-- --:--:-- --:--:--  178k

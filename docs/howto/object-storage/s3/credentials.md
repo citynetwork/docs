@@ -66,16 +66,16 @@ How exactly you do that depends on your preferred client:
       aws_secret_access_key <secret-key>
     aws configure set \
       --profile <region> \
-      s3.endpoint_url https://s3-<region>.{{brand_domain}}:8080
+      s3.endpoint_url https://s3-<region>.{{brand_domain}}
     aws configure set \
       --profile <region> \
-      s3api.endpoint_url https://s3-<region>.{{brand_domain}}:8080
+      s3api.endpoint_url https://s3-<region>.{{brand_domain}}
     ```
 === "mc"
     Create a new alias, named after your {{brand}} region:
     ```bash
     mc alias set <region> \
-      https://s3-<region>.{{brand_domain}}:8080 \
+      https://s3-<region>.{{brand_domain}} \
       <access-key> <secret-key>
     ```
     Once you have configured an alias like this, you are able to
@@ -90,9 +90,9 @@ How exactly you do that depends on your preferred client:
 
     * Set your `Access Key` and `Secret Key` when prompted.
     * Leave `Default Region` unchanged.
-    * Set `S3 Endpoint` to `s3-<region>.{{brand_domain}}:8080`.
+    * Set `S3 Endpoint` to `s3-<region>.{{brand_domain}}`.
     * Set `DNS-style bucket+hostname:port template for accessing a bucket`
-      to `s3-<region>.{{brand_domain}}:8080` as well.
+      to `s3-<region>.{{brand_domain}}` as well.
     * Set `Use HTTPS protocol` to `Yes` (the default).
     * Configure GnuPG encryption and your HTTP proxy server, if needed.
     * Test access with your supplied credentials.
@@ -109,7 +109,7 @@ How exactly you do that depends on your preferred client:
     env_auth = false
     access_key_id = <access key id>
     secret_access_key = <secret key>
-    endpoint = <region>.{{brand_domain}}:8080
+    endpoint = <region>.{{brand_domain}}
     acl = private
     ```
 
