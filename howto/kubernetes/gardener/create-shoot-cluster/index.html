@@ -4064,38 +4064,47 @@
 
 <h1 id="creating-a-kubernetes-cluster">Creating a Kubernetes cluster</h1>
 <p>If you want to create a Kubernetes cluster, you can do so via the Cleura Cloud Management Panel using Gardener.
-This guide shows you how to do that, and how to deploy a sample application on such a cluster.</p>
+This guide shows you how to do that.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>If this is your first time using Gardener in Cleura Cloud, you need to <a href="../">activate the service</a> from the Cleura Cloud Management Panel.</li>
-<li>To access the Kubernetes cluster from your computer, you will need to <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">install <code>kubectl</code></a> on your machine.</li>
+<li>To access the Kubernetes cluster from your computer, you must <a href="https://kubernetes.io/docs/tasks/tools/#kubectl">install <code>kubectl</code></a> on your machine.</li>
 </ul>
 <h2 id="creating-a-kubernetes-cluster-in-cleura-cloud-management-panel">Creating a Kubernetes cluster in Cleura Cloud Management Panel</h2>
-<p>To get started, navigate to <a href="https://cleura.cloud">https://cleura.cloud</a>, and in the side panel choose <em>Containers → <a href="https://cleura.cloud/containers/gardener">Gardener</a></em>.
-You will see a Gardener page, in which you can create and manage your clusters. Click <em>Create Kubernetes cluster</em>.</p>
+<p>To get started, navigate to <a href="https://cleura.cloud">https://cleura.cloud</a> and, in the side panel, choose <em>Containers → <a href="https://cleura.cloud/containers/gardener">Gardener</a></em>.
+You will land on a page named <em>Gardener / Shoot Clusters</em>.
+There, you can create and manage your Gardener-based clusters.
+In Gardener terminology, a Kubernetes cluster is referred as a <strong>Shoot</strong> (as in, <a href="https://en.wikipedia.org/wiki/Shoot">new plant growth</a>).</p>
+<p>At the top right-hand side of the central pane, click on <em>Create Kubernetes cluster</em>.</p>
 <p><a class="glightbox" href="../assets/gardener_page.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Gardener page in Cleura Cloud Management Panel" src="../assets/gardener_page.png" /></a></p>
-<p>In Gardener terminology, a Kubernetes cluster is referred as a <strong>Shoot</strong> (as in, <a href="https://en.wikipedia.org/wiki/Shoot">new plant growth</a>).</p>
-<p>In the opened form, fill in the name of the new shoot cluster and select a region to see the rest of the options.</p>
-<p><a class="glightbox" href="../assets/create-shoot-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel showing options to set a cluster name and region, and select a Kubernetes version" src="../assets/create-shoot-1.png" /></a></p>
-<p>In the <em>Worker Groups</em> section, create at least one worker group.
-Pay attention to the values you set for the following values:</p>
+<p>A new pane named <em>Create Gardener Shoot Cluster</em> slides over from the right-hand side of the browser.
+Type in a name for the new shoot cluster, and select a region.
+Also, select the version of Kubernetes the new cluster will be running.
+In the example below, we have chosen version 1.27.8, which, at the time of writing, was the latest supported in Cleura Cloud.</p>
+<p><a class="glightbox" href="../assets/create-shoot-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel, showing options to type in a cluster name, select region and Kubernetes version" src="../assets/create-shoot-1.png" /></a></p>
+<p>Scroll down a bit until you bring the <em>Worker Groups</em> section into full view.
+Make sure there is at least one worker group defined.
+(By default, you start with one.)
+Pay attention to the values you set for the following parameters:</p>
 <ul>
-<li><em>Machine Type:</em> The <a href="../../../../reference/flavors/">flavor</a> your worker nodes will use; this determines the number of CPU cores and RAM allocated to them.</li>
+<li><em>Flavor:</em> The <a href="../../../../reference/flavors/">flavor</a> your worker nodes will use;
+this determines the number of CPU cores and the amount of RAM allocated to them.</li>
 <li><em>Volume Size:</em> The amount of local storage allocated to each worker node.</li>
 <li><em>Autoscaler Min:</em> The minimum number of worker nodes to run in the cluster at any time.</li>
 <li><em>Autoscaler Max:</em> The maximum number of worker nodes the cluster automatically scales to, in the event that the current number of nodes cannot handle the deployed workload.</li>
 <li><em>Max Surge:</em> The maximum number of additional nodes to deploy in an autoscaling event.</li>
 </ul>
 <p><a class="glightbox" href="../assets/create-shoot-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel" src="../assets/create-shoot-2.png" /></a></p>
-<p>For a test cluster, you can leave all values at their defaults, and click <em>Create</em> at the bottom.</p>
+<p>For a test cluster, you can leave each parameter at its default value.
+Scroll to the bottom of the pane and click the green <em>Create</em> button.</p>
 <p><a class="glightbox" href="../assets/create-shoot-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel" src="../assets/create-shoot-3.png" /></a></p>
 <p>In the list of clusters, you will see your new Gardener shoot bootstrapping.
-The icon on the left marks the progress.
-Creating the cluster can take several minutes.</p>
+The animated icon on the left-hand side of the cluster row marks the progress.
+Creating the cluster may take several minutes.</p>
 <p><a class="glightbox" href="../assets/shoot_bootstrapping.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Shoot cluster bootstrapping" src="../assets/shoot_bootstrapping.png" /></a></p>
 <h3 id="a-note-on-quotas">A note on quotas</h3>
 <p>Your Gardener worker nodes are subject to <a href="../../../../reference/quotas/openstack/">quotas</a> applicable to your Cleura Cloud project.
-You should make sure that considering your selection of worker node <a href="../../../../reference/flavors/"><em>flavor</em></a> (which determines the number of virtual cores and virtual RAM allocated to each node), the <em>volume size</em>, and the <em>Autoscaler Max</em> value, you are not at risk of violating any quota.</p>
+It would be best if you kept that in mind when selecting the worker node <a href="../../../../reference/flavors/"><em>flavor</em></a>, setting the <em>volume size</em> value, and also the <em>Autoscaler Max</em> value, so you will not be at risk of violating any quota.</p>
 <p>For example, if your project is configured with the <a href="../../../../reference/quotas/openstack/">default quotas</a>, and you select the <code>b.4c16gb</code> flavor for your worker nodes, your cluster would be able to run with a maximum of 3 worker nodes (since their total memory footprint would be 3×16=48 GiB, just short of the default 50 GiB limit).
 A 4th node would push your total memory allocation to 64 GiB, violating your quota.</p>
 <p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
@@ -4123,7 +4132,7 @@ A 4th node would push your total memory allocation to 64 GiB, violating your qu
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-08</span>
   </span>
 
     
@@ -4147,7 +4156,7 @@ A 4th node would push your total memory allocation to 64 GiB, violating your qu
       
     </span>
     <nav>
-      Florian Haas, Mateusz Guziak
+      Christos Varelas, Florian Haas, Mateusz Guziak
     </nav>
   </span>
 
