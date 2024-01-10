@@ -4015,60 +4015,45 @@
 
 
 <h1 id="conducting-rolling-upgrades">Conducting rolling upgrades</h1>
-<p>By default, Kubernetes clusters created with Gardener
-in Cleura Cloud are upgraded automatically. Those upgrades take place
-during a specified maintenance window, and you may find out more about
-<a href="../../../../background/kubernetes/gardener/autoupgrades/">what they involve and how they
-work</a>. Besides
-the automatic upgrades, you can manually apply any upgrades available
-for your cluster.</p>
-<p>In the following two examples, we first show how to manually upgrade the
-machine image the cluster nodes are based on and then how to upgrade the
-Kubernetes version the cluster uses.</p>
+<p>By default, Kubernetes clusters created with Gardener in Cleura Cloud are upgraded automatically.
+Those upgrades take place during a specified maintenance window, and you may find out more about <a href="../../../../background/kubernetes/gardener/autoupgrades/">what they involve and how they work</a>.
+Besides the automatic upgrades, you may manually apply any upgrades available for your cluster.</p>
+<p>In the following two examples, we first show how to manually upgrade the machine image the cluster nodes are based on.
+Then, we show how to upgrade the Kubernetes version the cluster uses.</p>
 <h2 id="upgrading-machine-images">Upgrading machine images</h2>
-<p>In the left-hand vertical pane of the Cleura Cloud Management Panel, select Containers →
-<a href="https://cleura.cloud/containers/gardener">Gardener</a>.
-In the central pane, you will see all your Gardener
-clusters, each on its own row. If a Kubernetes upgrade is available, in
-the <em>Version</em> column you will notice a blue <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm129-281c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V193.9l-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 119c9.4-9.4 24.6-9.4 33.9 0L385 231z"/></svg></span> icon, together with
-the new Kubernetes version. Additionally, if there is a new machine
-image version for the cluster nodes, then in the <em>Worker Groups</em> column you
-will also notice a blue <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm129-281c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V193.9l-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 119c9.4-9.4 24.6-9.4 33.9 0L385 231z"/></svg></span> icon but no version number.</p>
+<p>In the left-hand vertical pane of the Cleura Cloud Management Panel, select Containers → <a href="https://cleura.cloud/containers/gardener">Gardener</a>.
+In the central pane, you will see all your Gardener clusters, each on its own row.
+If a Kubernetes upgrade is available for a shoot cluster, in the <em>Version</em> column you will notice a blue <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm129-281c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V193.9l-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 119c9.4-9.4 24.6-9.4 33.9 0L385 231z"/></svg></span> icon, together with the new Kubernetes version.
+Additionally, if there is a new machine image version for the cluster nodes, then in the <em>Worker Groups</em> column you will also notice a blue <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm129-281c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71V376c0 13.3-10.7 24-24 24s-24-10.7-24-24V193.9l-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 119c9.4-9.4 24.6-9.4 33.9 0L385 231z"/></svg></span> icon but no version number.</p>
 <p><a class="glightbox" href="../assets/rollupgr-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Garden Linux and Kubernetes upgrades available" src="../assets/rollupgr-01.png" /></a></p>
-<p>To get more information about the new machine image available, click on
-the cluster row to bring its details up into view, then select the <em>Worker
-Groups</em> tab. There, you will see the version of the new machine image.
-To start the upgrade process, click any of the two
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2l105.4 105.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg></span> icons.</p>
+<p>To get more information about the new machine image available, click on the cluster row to bring its details up into view, then select the <em>Worker Groups</em> tab.
+There, you will see the version of the new machine image.
+To start the upgrade process, click any of the two <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2l105.4 105.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg></span> icons.</p>
 <p><a class="glightbox" href="../assets/rollupgr-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="About to start Garden Linux upgrade" src="../assets/rollupgr-02.png" /></a></p>
-<p>The upgrade process will start immediately and will take some time to
-complete. A little before and after it is done, there will be no icon in the
-<em>Worker Groups</em> column, and the new image version will be displayed in the
-<em>Image</em> row of the <em>Worker Groups</em> tab. Our example still has an icon in the
-<em>Version</em> column. That is because we have not upgraded Kubernetes yet.</p>
+<p>The upgrade process starts immediately and takes some time to complete.
+A little before and after it is done, there is no icon in the <em>Worker Groups</em> column, and the new image version is displayed in the
+<em>Image</em> row of the <em>Worker Groups</em> tab.
+Since we have not upgraded Kubernetes yet, our example still has an icon in the <em>Version</em> column.</p>
 <p><a class="glightbox" href="../assets/rollupgr-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Garden Linux upgraded" src="../assets/rollupgr-03.png" /></a></p>
 <h2 id="upgrading-kubernetes">Upgrading Kubernetes</h2>
-<p>To get the Kubernetes upgrade process going, click the orange
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5Z"/></svg></span> icon on the right of the cluster row.
-In the pop-up menu that appears, you will notice an option named
-<em>Kubernetes Patch Available</em>. That one is not always there, but now it
-is and acts as another indicator of an available Kubernetes upgrade.
+<p>To get the Kubernetes upgrade process going, click the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5Z"/></svg></span> icon on the right of the cluster row.
+In the following example, we go from Kubernetes 1.26 to Kubernetes 1.27; that is the latest version supported at the time of this writing.
+In the pop-up menu that appears, there is an option named <em>Kubernetes Patch Available</em>.
+That one is not always there, and when it is acts as yet another indicator of an available Kubernetes upgrade.
 Please select the option by clicking on it.</p>
 <p><a class="glightbox" href="../assets/rollupgr-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Kubernetes patch available" src="../assets/rollupgr-04.png" /></a></p>
-<p>A new pop-up window named <em>Upgrade Kubernetes Version for:
-&lt;cluster_name&gt;</em> appears. From the <em>Version</em> drop-down menu, you
-may select the new Kubernetes version you want your cluster to upgrade
-to.  When ready, click the blue <em>Upgrade</em> button to start the process.</p>
+<p>A new pop-up window named <em>Upgrade Kubernetes Version for: &lt;cluster_name&gt;</em> appears.
+From the <em>Version</em> drop-down menu, you may select the new Kubernetes version you want your cluster to upgrade to.
+When ready, click the blue <em>Upgrade</em> button to start the process.</p>
 <p><a class="glightbox" href="../assets/rollupgr-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="About to start a Kubernetes upgrade" src="../assets/rollupgr-05.png" /></a></p>
-<p>You will realize that the upgrade doesn&rsquo;t start right away. Instead, you
-are informed that the cluster is indeed ready for it, but there are some
-notes you might want to read up on before the whole process begins. If
-you do, copy and paste the provided URL into a separate browser tab or
-window. In any case, to actually get the upgrade going, click the
-<em>Upgrade</em> button which is now green.</p>
+<p>You will realize that the upgrade doesn&rsquo;t start right away.
+Instead, you are informed that the cluster is indeed ready for it, but there are some notes you might want to read up on before the whole process begins.
+The gist of it is that any existing static kubeconfig will stop working after the upgrade to Kubernetes 1.27, and you will not be able to create a new static kubeconfig.
+You will, however, be able to create <a href="../kubectl/">a new certificate-based kubeconfig</a>.
+To get the upgrade going, click the <em>Upgrade</em> button which is now green.</p>
 <p><a class="glightbox" href="../assets/rollupgr-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Upgrade notes are available" src="../assets/rollupgr-06.png" /></a></p>
-<p>After some minutes, the upgrade will be over. The new Kubernetes version
-will be visible in the <em>Version</em> column of the cluster row.</p>
+<p>After some minutes, the upgrade will be over.
+The new Kubernetes version will be visible in the <em>Version</em> column of the cluster row.</p>
 <p><a class="glightbox" href="../assets/rollupgr-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Kubernetes successfully upgraded" src="../assets/rollupgr-07.png" /></a></p>
 
 
@@ -4092,7 +4077,7 @@ will be visible in the <em>Version</em> column of the cluster row.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-09</span>
   </span>
 
     
@@ -4112,11 +4097,11 @@ will be visible in the <em>Version</em> column of the cluster row.</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas
     </nav>
   </span>
 
