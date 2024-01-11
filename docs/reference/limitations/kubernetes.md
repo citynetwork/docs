@@ -33,7 +33,7 @@ You cannot use `ReadWriteOncePod` (`RWOP`), `ReadWriteMany` (`RWX`), or `ReadOnl
 
 ### Kubernetes version
 
-The latest Kubernetes version you can install in {{brand}} with {{k8s_management_service}} is 1.26.5.
+The latest Kubernetes version you can install in {{brand}} with {{k8s_management_service}} is 1.27.8.
 
 ### IP version
 
