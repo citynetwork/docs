@@ -1,5 +1,13 @@
 # Public Cloud
 
+> ## Sunset dates
+>
+> Please note that sunset dates have been set for the following {{brand}} regions:
+>
+> * The **Tky1** region will no longer be available after 2024-04-30.
+>
+> * The **Dx1** region will no longer be available after 2024-06-30.
+
 ## OpenStack Services
 
 |                                | Kna1     | Sto2     | Fra1      | Dx1       | Tky1     |
