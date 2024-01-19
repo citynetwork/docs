@@ -4,6 +4,7 @@ nav:
   - features
   - limitations
   - flavors
+  - volumes
   - images
   - quotas
   - versions
