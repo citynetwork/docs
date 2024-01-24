@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="How auto-upgrading works in Gardener-managed Kubernetes clusters">
+        <meta name="description" content="A walk-through of creating and managing application credentials">
       
       
       
-        <link rel="canonical" href="https://docs.cleura.cloud/background/kubernetes/gardener/autoupgrades/">
+        <link rel="canonical" href="https://docs.cleura.cloud/howto/openstack/keystone/app-creds/">
       
       
-        <link rel="prev" href="../autoscaling/">
+        <link rel="prev" href="../../glance/filter/">
       
       
-        <link rel="next" href="../garden-linux/">
+        <link rel="next" href="../../magnum/new-k8s-cluster/">
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Automatic upgrades - Cleura Docs</title>
+        <title>Application credentials - Cleura Docs</title>
       
     
     
@@ -68,11 +68,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Automatic upgrades - Cleura Docs" >
+        <meta  property="og:title"  content="Application credentials - Cleura Docs" >
       
-        <meta  property="og:description"  content="How auto-upgrading works in Gardener-managed Kubernetes clusters" >
+        <meta  property="og:description"  content="A walk-through of creating and managing application credentials" >
       
-        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/background/kubernetes/gardener/autoupgrades.png" >
+        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/keystone/app-creds.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -80,15 +80,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://docs.cleura.cloud/background/kubernetes/gardener/autoupgrades/" >
+        <meta  property="og:url"  content="https://docs.cleura.cloud/howto/openstack/keystone/app-creds/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Automatic upgrades - Cleura Docs" >
+        <meta  name="twitter:title"  content="Application credentials - Cleura Docs" >
       
-        <meta  name="twitter:description"  content="How auto-upgrading works in Gardener-managed Kubernetes clusters" >
+        <meta  name="twitter:description"  content="A walk-through of creating and managing application credentials" >
       
-        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/background/kubernetes/gardener/autoupgrades.png" >
+        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/keystone/app-creds.png" >
       
     
     
@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#automatic-upgrades" class="md-skip">
+        <a href="#application-credentials" class="md-skip">
           Skip to content
         </a>
       
@@ -157,7 +157,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Automatic upgrades
+              Application credentials
             
           </span>
         </div>
@@ -316,6 +316,8 @@
       
   
   
+    
+  
   
   
     
@@ -341,17 +343,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../howto/" class="md-nav__link ">
+            <a href="../../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -368,7 +370,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             How-To Guides
@@ -429,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/getting-started/create-account/" class="md-nav__link">
+      <a href="../../../getting-started/create-account/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -450,7 +452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/getting-started/enable-openstack-cli/" class="md-nav__link">
+      <a href="../../../getting-started/enable-openstack-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/getting-started/accessing-cc-rest-api/" class="md-nav__link">
+      <a href="../../../getting-started/accessing-cc-rest-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -497,8 +499,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -522,12 +526,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -541,7 +545,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             OpenStack
@@ -579,7 +583,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../howto/openstack/barbican/" class="md-nav__link ">
+            <a href="../../barbican/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -612,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/barbican/generic-secret/" class="md-nav__link">
+      <a href="../../barbican/generic-secret/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/barbican/share-secret/" class="md-nav__link">
+      <a href="../../barbican/share-secret/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -709,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/cinder/resize-volumes/" class="md-nav__link">
+      <a href="../../cinder/resize-volumes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -730,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/cinder/encrypted-volumes/" class="md-nav__link">
+      <a href="../../cinder/encrypted-volumes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -751,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/cinder/retype-volumes/" class="md-nav__link">
+      <a href="../../cinder/retype-volumes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -772,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/cinder/sync-volumes/" class="md-nav__link">
+      <a href="../../cinder/sync-volumes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -825,7 +829,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../howto/openstack/glance/" class="md-nav__link ">
+            <a href="../../glance/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -858,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/glance/examine/" class="md-nav__link">
+      <a href="../../glance/examine/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -879,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/glance/filter/" class="md-nav__link">
+      <a href="../../glance/filter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,8 +909,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -916,12 +922,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
@@ -935,7 +941,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3_4">
             <span class="md-nav__icon md-icon"></span>
             Keystone (identity service)
@@ -946,10 +952,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../howto/openstack/keystone/app-creds/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Application credentials
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -958,6 +984,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-application-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating application credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-and-viewing-application-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listing and viewing application credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restricted-vs-unrestricted-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restricted vs unrestricted credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-application-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using application credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-application-credentials-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting application credentials usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-application-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting application credentials
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1021,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/magnum/new-k8s-cluster/" class="md-nav__link">
+      <a href="../../magnum/new-k8s-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1042,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/magnum/kubectl/" class="md-nav__link">
+      <a href="../../magnum/kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1120,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/neutron/new-network/" class="md-nav__link">
+      <a href="../../neutron/new-network/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1141,7 +1250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/neutron/create-security-groups/" class="md-nav__link">
+      <a href="../../neutron/create-security-groups/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1162,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/neutron/multiple-public-ips/" class="md-nav__link">
+      <a href="../../neutron/multiple-public-ips/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1183,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/neutron/vpnaas/" class="md-nav__link">
+      <a href="../../neutron/vpnaas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1204,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/neutron/delete-network/" class="md-nav__link">
+      <a href="../../neutron/delete-network/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1290,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/new-server/" class="md-nav__link">
+      <a href="../../nova/new-server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1311,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/new-vgpu-server/" class="md-nav__link">
+      <a href="../../nova/new-vgpu-server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1332,7 +1441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/server-group/" class="md-nav__link">
+      <a href="../../nova/server-group/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1353,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/config-drive/" class="md-nav__link">
+      <a href="../../nova/config-drive/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1374,7 +1483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/resize-server/" class="md-nav__link">
+      <a href="../../nova/resize-server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1395,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/move-server-between-regions/" class="md-nav__link">
+      <a href="../../nova/move-server-between-regions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1416,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/boot-image-volume/" class="md-nav__link">
+      <a href="../../nova/boot-image-volume/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1437,7 +1546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/restore-srv-to-snap/" class="md-nav__link">
+      <a href="../../nova/restore-srv-to-snap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1458,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/nova/rescue-server/" class="md-nav__link">
+      <a href="../../nova/rescue-server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1534,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/octavia/lbaas-tcp/" class="md-nav__link">
+      <a href="../../octavia/lbaas-tcp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1555,7 +1664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/octavia/tls-lb/" class="md-nav__link">
+      <a href="../../octavia/tls-lb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1576,7 +1685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/octavia/lbaas-l7pol/" class="md-nav__link">
+      <a href="../../octavia/lbaas-l7pol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1597,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/openstack/octavia/metrics/" class="md-nav__link">
+      <a href="../../octavia/metrics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1711,7 +1820,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../howto/object-storage/s3/" class="md-nav__link ">
+            <a href="../../../object-storage/s3/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1744,7 +1853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/s3/credentials/" class="md-nav__link">
+      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1765,7 +1874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/s3/public-bucket/" class="md-nav__link">
+      <a href="../../../object-storage/s3/public-bucket/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1786,7 +1895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/s3/presign/" class="md-nav__link">
+      <a href="../../../object-storage/s3/presign/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1807,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/s3/expiry/" class="md-nav__link">
+      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1828,7 +1937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/s3/object-lock/" class="md-nav__link">
+      <a href="../../../object-storage/s3/object-lock/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1849,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/s3/versioning/" class="md-nav__link">
+      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1870,7 +1979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/s3/sse-c/" class="md-nav__link">
+      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1929,7 +2038,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../howto/object-storage/swift/" class="md-nav__link ">
+            <a href="../../../object-storage/swift/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1962,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/swift/private-container/" class="md-nav__link">
+      <a href="../../../object-storage/swift/private-container/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1983,7 +2092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/swift/public-container/" class="md-nav__link">
+      <a href="../../../object-storage/swift/public-container/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2004,7 +2113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/swift/tempurl/" class="md-nav__link">
+      <a href="../../../object-storage/swift/tempurl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2025,7 +2134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/swift/expiry/" class="md-nav__link">
+      <a href="../../../object-storage/swift/expiry/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2046,7 +2155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/object-storage/swift/versioning/" class="md-nav__link">
+      <a href="../../../object-storage/swift/versioning/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2107,7 +2216,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../howto/kubernetes/" class="md-nav__link ">
+            <a href="../../../kubernetes/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2168,7 +2277,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../howto/kubernetes/gardener/" class="md-nav__link ">
+            <a href="../../../kubernetes/gardener/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2201,7 +2310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/kubernetes/gardener/create-shoot-cluster/" class="md-nav__link">
+      <a href="../../../kubernetes/gardener/create-shoot-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2222,7 +2331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/kubernetes/gardener/kubectl/" class="md-nav__link">
+      <a href="../../../kubernetes/gardener/kubectl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2243,7 +2352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/kubernetes/gardener/hibernate-shoot-cluster/" class="md-nav__link">
+      <a href="../../../kubernetes/gardener/hibernate-shoot-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2264,7 +2373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/kubernetes/gardener/rolling-upgrades/" class="md-nav__link">
+      <a href="../../../kubernetes/gardener/rolling-upgrades/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2313,7 +2422,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../howto/kubernetes/magnum/" class="md-nav__link ">
+            <a href="../../../kubernetes/magnum/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2410,7 +2519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/account-billing/forgot-your-password/" class="md-nav__link">
+      <a href="../../../account-billing/forgot-your-password/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2431,7 +2540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/account-billing/change-account-data/" class="md-nav__link">
+      <a href="../../../account-billing/change-account-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2452,7 +2561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/account-billing/change-credit-card/" class="md-nav__link">
+      <a href="../../../account-billing/change-credit-card/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2473,7 +2582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/account-billing/manage-invoices/" class="md-nav__link">
+      <a href="../../../account-billing/manage-invoices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2494,7 +2603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/account-billing/e-invoice/" class="md-nav__link">
+      <a href="../../../account-billing/e-invoice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2515,7 +2624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/account-billing/rest-invoice-data/" class="md-nav__link">
+      <a href="../../../account-billing/rest-invoice-data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2536,7 +2645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/account-billing/delete-account/" class="md-nav__link">
+      <a href="../../../account-billing/delete-account/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2606,7 +2715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../howto/support/raise-issues/" class="md-nav__link">
+      <a href="../../../support/raise-issues/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2639,8 +2748,6 @@
       
   
   
-    
-  
   
   
     
@@ -2664,17 +2771,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../../background/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2691,7 +2798,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Background
@@ -2707,7 +2814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gui-vs-api/" class="md-nav__link">
+      <a href="../../../../background/gui-vs-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2728,7 +2835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../project-deletion/" class="md-nav__link">
+      <a href="../../../../background/project-deletion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2749,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../object-storage/" class="md-nav__link">
+      <a href="../../../../background/object-storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2770,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../disaster-recovery/" class="md-nav__link">
+      <a href="../../../../background/disaster-recovery/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2788,8 +2895,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2805,17 +2910,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../background/kubernetes/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2832,7 +2937,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -2845,10 +2950,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2864,12 +2967,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_2" >
         
           
           <label class="md-nav__link" for="__nav_3_6_2" id="__nav_3_6_2_label" tabindex="0">
@@ -2883,7 +2986,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_6_2">
             <span class="md-nav__icon md-icon"></span>
             Gardener
@@ -2897,7 +3000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../autoscaling/" class="md-nav__link">
+      <a href="../../../../background/kubernetes/gardener/autoscaling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2915,30 +3018,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Automatic upgrades
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../background/kubernetes/gardener/autoupgrades/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2947,53 +3030,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#machine-image-upgrades" class="md-nav__link">
-    <span class="md-ellipsis">
-      Machine image upgrades
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kubernetes-upgrades" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kubernetes upgrades
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hibernated-clusters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hibernated clusters
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3006,7 +3042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../garden-linux/" class="md-nav__link">
+      <a href="../../../../background/kubernetes/gardener/garden-linux/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3027,7 +3063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hibernation/" class="md-nav__link">
+      <a href="../../../../background/kubernetes/gardener/hibernation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4055,27 +4091,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#machine-image-upgrades" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Machine image upgrades
+      Prerequisites
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kubernetes-upgrades" class="md-nav__link">
+  <a href="#creating-application-credentials" class="md-nav__link">
     <span class="md-ellipsis">
-      Kubernetes upgrades
+      Creating application credentials
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hibernated-clusters" class="md-nav__link">
+  <a href="#listing-and-viewing-application-credentials" class="md-nav__link">
     <span class="md-ellipsis">
-      Hibernated clusters
+      Listing and viewing application credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restricted-vs-unrestricted-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restricted vs unrestricted credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-application-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using application credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-application-credentials-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting application credentials usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-application-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting application credentials
     </span>
   </a>
   
@@ -4096,7 +4168,7 @@
                   
 
   
-    <a href="https://github.com/citynetwork/docs/edit/main/docs/background/kubernetes/gardener/autoupgrades.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/keystone/app-creds.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -4104,27 +4176,252 @@
   
 
 
-<h1 id="automatic-upgrades">Automatic upgrades</h1>
-<p>By default, Kubernetes clusters created with Gardener in Cleura Cloud are upgraded automatically.</p>
-<p>More specifically, during the specified maintenance window, Gardener checks for a new Kubernetes version, and a new version of the base image that runs on the control plane and worker nodes.
-If there is a new version of any of those, the cluster starts upgrading automatically.</p>
-<p>During the upgrade, the API server may briefly be unavailable.</p>
-<h2 id="machine-image-upgrades">Machine image upgrades</h2>
-<p>Both minor and major <a href="../garden-linux/">Garden Linux</a> release upgrades are allowed and performed automatically.
-Also, version jumps are allowed over minor release upgrades.</p>
-<p>Whenever there is a new machine image available, this is indicated in the Cleura Cloud Management Panel:</p>
-<p><a class="glightbox" href="../assets/gard_new_img_sign.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New machine image indicator" src="../assets/gard_new_img_sign.png" /></a></p>
-<p>Before the auto-upgrade kicks in, the version of the new image is displayed in the expanded view of the cluster, in the <em>Worker Groups</em> tab.</p>
-<p><a class="glightbox" href="../assets/gard_new_img_avail.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New machine image available" src="../assets/gard_new_img_avail.png" /></a></p>
-<h2 id="kubernetes-upgrades">Kubernetes upgrades</h2>
-<p>Due to the Kubernetes versioning scheme, which does not follow the <a href="https://en.wikipedia.org/wiki/Software_versioning#Semantic_versioning">semantic versioning</a> logic, only patch-level release upgrades and jumps are performed automatically.
-For instance, an upgrade from 1.24.9 to 1.24.10 is allowed, and so is an upgrade from 1.24.9 to 1.24.11.</p>
-<p>Minor release upgrades, such as from 1.24 to 1.25, do not happen automatically.
-You must always initiate them from the Cleura Cloud Management Panel.</p>
-<h2 id="hibernated-clusters">Hibernated clusters</h2>
-<p>Whenever a Gardener cluster is <a href="../hibernation/">hibernated</a>, all of its worker nodes are removed.</p>
-<p>If automatic upgrades are enabled on a hibernated cluster, then waking the cluster will initiate an immediate automated upgrade.
-That is to say that, rather than recreating them with the old versions and waiting for the next maintenance window, Gardener recreates the worker nodes using current (updated) Garden Linux and Kubernetes versions.</p>
+<h1 id="application-credentials">Application credentials</h1>
+<p>You can create application credentials and thus enable your applications to use them to authenticate against OpenStack Keystone.
+Thanks to this type of credentials, you do not have to resort to your user credentials.
+Applications can still authenticate using the application credentials ID along with a secret string, which has <strong>nothing</strong> to do with your user password.
+That way, this sensitive piece of information does not have to be embedded in any particular application configuration.</p>
+<p>One major security feature of application credentials is their capacity for expiration.
+More often than not, application credentials are made to automatically expire after a certain date and time.
+Passwords, on the other hand, persist essentially forever &mdash; unless they are invalidated manually.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>In Cleura Cloud, you manage application credentials with the OpenStack CLI, so make sure to <a href="../../../getting-started/enable-openstack-cli/">enable it</a> for the region you are interested in.</p>
+<h2 id="creating-application-credentials">Creating application credentials</h2>
+<p>To create new application credentials with an expiration date, decide on a name and then use the <code>openstack</code> client like so:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>create<span class="w"> </span>--expiration<span class="w"> </span><span class="s1">&#39;2024-04-30T12:00:00&#39;</span><span class="w"> </span>angry_lamarr
+
+<span class="go">+--------------+-----------------------------------------------------------------------------------+</span>
+<span class="go">| Field        | Value                                                                             |</span>
+<span class="go">+--------------+-----------------------------------------------------------------------------------+</span>
+<span class="go">| description  | None                                                                              |</span>
+<span class="go">| expires_at   | 2024-04-30T12:00:00.000000                                                        |</span>
+<span class="go">| id           | 98a2804b2d294b6784ae30ec67697382                                                  |</span>
+<span class="go">| name         | angry_lamarr                                                                      |</span>
+<span class="go">| project_id   | dfc700467396428bacba4376e72cc3e9                                                  |</span>
+<span class="go">| roles        | creator reader swiftoperator load-balancer_member member                          |</span>
+<span class="go">| secret       | BGXRFpTtEeh6Wi2MsohpFajz5V6ZVGMELjzH8gn53M1SD0voaOEYKlZsmtgO346FqONCHb0bEyt1wnUcv |</span>
+<span class="go">|              | PYYzA                                                                             |</span>
+<span class="go">| system       | None                                                                              |</span>
+<span class="go">| unrestricted | False                                                                             |</span>
+<span class="go">| user_id      | e50719d594f84f16ad13f88da540f762                                                  |</span>
+<span class="go">+--------------+-----------------------------------------------------------------------------------+</span>
+</code></pre></div>
+<blockquote>
+<p>The <code>--expiration</code> parameter accepts <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> strings, used for specifying date and time-related data.</p>
+</blockquote>
+<p>In the example above, we chose the name <code>angry_lamarr</code>.
+Also, a secret has been automatically generated for us.
+Keep in mind that secrets are displayed only once, upon creation of the application credentials.</p>
+<p>You may instead create a secret yourself and indicate it to the <code>openstack application credential create</code> command, like in the example below:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">PRETTY_GOOD_SECRET</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>pwgen<span class="w"> </span>-Bcns<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>create<span class="w"> </span>--expiration<span class="w"> </span><span class="s1">&#39;2024-05-31T18:30:00&#39;</span><span class="w"> </span>--secret<span class="w"> </span><span class="nv">$PRETTY_GOOD_SECRET</span><span class="w"> </span>elated_jones
+
+<span class="go">+--------------+----------------------------------------------------------+</span>
+<span class="go">| Field        | Value                                                    |</span>
+<span class="go">+--------------+----------------------------------------------------------+</span>
+<span class="go">| description  | None                                                     |</span>
+<span class="go">| expires_at   | 2024-05-31T18:30:00.000000                               |</span>
+<span class="go">| id           | a39676b7b0bd4c0c84fa06bdde44b090                         |</span>
+<span class="go">| name         | elated_jones                                             |</span>
+<span class="go">| project_id   | dfc700467396428bacba4376e72cc3e9                         |</span>
+<span class="go">| roles        | creator reader swiftoperator load-balancer_member member |</span>
+<span class="go">| secret       | afduKgbMoqvf4UXyvYJAsWXN                                 |</span>
+<span class="go">| system       | None                                                     |</span>
+<span class="go">| unrestricted | False                                                    |</span>
+<span class="go">| user_id      | e50719d594f84f16ad13f88da540f762                         |</span>
+<span class="go">+--------------+----------------------------------------------------------+</span>
+</code></pre></div>
+<p>When creating new application credentials, you may optionally provide a description.
+You can do that using the <code>--description</code> parameter, like in the example below:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span><span class="s1">&#39;Seasonal route between GOH, YFB&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--expiration<span class="w"> </span><span class="s1">&#39;2024-08-31T23:59:59&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-f<span class="w"> </span>yaml<span class="w"> </span>goofy_dijkstra
+
+<span class="go">description: Seasonal route between GOH, YFB</span>
+<span class="go">expires_at: &#39;2024-08-31T23:59:59.000000&#39;</span>
+<span class="go">id: 43649f148bbe46ab8f1d745eea095db9</span>
+<span class="go">name: goofy_dijkstra</span>
+<span class="go">project_id: dfc700467396428bacba4376e72cc3e9</span>
+<span class="go">roles: swiftoperator load-balancer_member reader creator member</span>
+<span class="go">secret: XS7YUGrH_FGZG9cEjT75tEYB7ciu-3YHgCWOoguTV3sezww8n8xcq67ae_4phzoL_vLY2ryp6avcy6eG8ihiMA</span>
+<span class="go">system: null</span>
+<span class="go">unrestricted: false</span>
+<span class="go">user_id: e50719d594f84f16ad13f88da540f762</span>
+</code></pre></div>
+<p>Note that we opted for a YAML-formatted output, for this format makes it very easy to select the secret and copy it.</p>
+<h2 id="listing-and-viewing-application-credentials">Listing and viewing application credentials</h2>
+<p>To list all application credentials you have created, type the following:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>list
+
+<span class="go">+-------------------+----------------+-------------------+-------------------+---------------------+</span>
+<span class="go">| ID                | Name           | Project ID        | Description       | Expires At          |</span>
+<span class="go">+-------------------+----------------+-------------------+-------------------+---------------------+</span>
+<span class="go">| 98a2804b2d294b678 | angry_lamarr   | dfc700467396428ba | None              | 2024-04-            |</span>
+<span class="go">| 4ae30ec67697382   |                | cba4376e72cc3e9   |                   | 30T12:00:00.000000  |</span>
+<span class="go">| a39676b7b0bd4c0c8 | elated_jones   | dfc700467396428ba | None              | 2024-05-            |</span>
+<span class="go">| 4fa06bdde44b090   |                | cba4376e72cc3e9   |                   | 31T18:30:00.000000  |</span>
+<span class="go">| 43649f148bbe46ab8 | goofy_dijkstra | dfc700467396428ba | Seasonal route    | 2024-08-            |</span>
+<span class="go">| f1d745eea095db9   |                | cba4376e72cc3e9   | between GOH, YFB  | 31T23:59:59.000000  |</span>
+<span class="go">+-------------------+----------------+-------------------+-------------------+---------------------+</span>
+</code></pre></div>
+<p>You may select specific columns&hellip;</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>ID<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Expires At&quot;</span>
+
+<span class="go">+----------------------------------+----------------+----------------------------+</span>
+<span class="go">| ID                               | Name           | Expires At                 |</span>
+<span class="go">+----------------------------------+----------------+----------------------------+</span>
+<span class="go">| 98a2804b2d294b6784ae30ec67697382 | angry_lamarr   | 2024-04-30T12:00:00.000000 |</span>
+<span class="go">| a39676b7b0bd4c0c84fa06bdde44b090 | elated_jones   | 2024-05-31T18:30:00.000000 |</span>
+<span class="go">| 43649f148bbe46ab8f1d745eea095db9 | goofy_dijkstra | 2024-08-31T23:59:59.000000 |</span>
+<span class="go">+----------------------------------+----------------+----------------------------+</span>
+</code></pre></div>
+<p>&hellip;or choose a different output format, like JSON:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>list<span class="w"> </span>-f<span class="w"> </span>json
+
+<span class="go">[</span>
+<span class="go">  {</span>
+<span class="go">    &quot;ID&quot;: &quot;98a2804b2d294b6784ae30ec67697382&quot;,</span>
+<span class="go">    &quot;Name&quot;: &quot;angry_lamarr&quot;,</span>
+<span class="go">    &quot;Project ID&quot;: &quot;dfc700467396428bacba4376e72cc3e9&quot;,</span>
+<span class="go">    &quot;Description&quot;: null,</span>
+<span class="go">    &quot;Expires At&quot;: &quot;2024-04-30T12:00:00.000000&quot;</span>
+<span class="go">  },</span>
+<span class="go">  {</span>
+<span class="go">    &quot;ID&quot;: &quot;a39676b7b0bd4c0c84fa06bdde44b090&quot;,</span>
+<span class="go">    &quot;Name&quot;: &quot;elated_jones&quot;,</span>
+<span class="go">    &quot;Project ID&quot;: &quot;dfc700467396428bacba4376e72cc3e9&quot;,</span>
+<span class="go">    &quot;Description&quot;: null,</span>
+<span class="go">    &quot;Expires At&quot;: &quot;2024-05-31T18:30:00.000000&quot;</span>
+<span class="go">  },</span>
+<span class="go">  {</span>
+<span class="go">    &quot;ID&quot;: &quot;43649f148bbe46ab8f1d745eea095db9&quot;,</span>
+<span class="go">    &quot;Name&quot;: &quot;goofy_dijkstra&quot;,</span>
+<span class="go">    &quot;Project ID&quot;: &quot;dfc700467396428bacba4376e72cc3e9&quot;,</span>
+<span class="go">    &quot;Description&quot;: &quot;Seasonal route between GOH, YFB&quot;,</span>
+<span class="go">    &quot;Expires At&quot;: &quot;2024-08-31T23:59:59.000000&quot;</span>
+<span class="go">  }</span>
+<span class="go">]</span>
+</code></pre></div>
+<p>You can view specific application credentials like so:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>show<span class="w"> </span>goofy_dijkstra
+
+<span class="go">+--------------+----------------------------------------------------------+</span>
+<span class="go">| Field        | Value                                                    |</span>
+<span class="go">+--------------+----------------------------------------------------------+</span>
+<span class="go">| description  | Seasonal route between GOH, YFB                          |</span>
+<span class="go">| expires_at   | 2024-08-31T23:59:59.000000                               |</span>
+<span class="go">| id           | 43649f148bbe46ab8f1d745eea095db9                         |</span>
+<span class="go">| name         | goofy_dijkstra                                           |</span>
+<span class="go">| project_id   | dfc700467396428bacba4376e72cc3e9                         |</span>
+<span class="go">| roles        | swiftoperator reader member creator load-balancer_member |</span>
+<span class="go">| system       | None                                                     |</span>
+<span class="go">| unrestricted | False                                                    |</span>
+<span class="go">| user_id      | e50719d594f84f16ad13f88da540f762                         |</span>
+<span class="go">+--------------+----------------------------------------------------------+</span>
+</code></pre></div>
+<p>No matter how you choose to list or view application credentials, secrets are never displayed.</p>
+<h2 id="restricted-vs-unrestricted-credentials">Restricted vs unrestricted credentials</h2>
+<p>By default, application credentials are created as being <em>restricted</em>.
+That is why, in the <code>openstack application credential show</code> output above, the <code>unrestricted</code> parameter is set to <code>False</code>.
+You cannot use restricted application credentials for Heat or Magnum, or for managing other application credentials or <a href="https://docs.openstack.org/keystone/latest/user/trusts.html">trusts</a>.
+This restricted-by-default policy acts as a safeguard, so compromised application credentials cannot be used for creating other sets of application credentials.
+If your application <strong>has</strong> to be able to perform such actions, and you accept the risks involved, you may create <em>unrestricted</em> application credentials like this:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>create<span class="w"> </span>--expiration<span class="w"> </span><span class="s1">&#39;2024-02-15T23:59:59&#39;</span><span class="w"> </span>modest_mccarthy<span class="w"> </span>--unrestricted
+
+<span class="go">+--------------+---------------------------------------------------------------+</span>
+<span class="go">| Field        | Value                                                         |</span>
+<span class="go">+--------------+---------------------------------------------------------------+</span>
+<span class="go">| description  | None                                                          |</span>
+<span class="go">| expires_at   | 2024-02-15T23:59:59.000000                                    |</span>
+<span class="go">| id           | c3505060e42542a29ce1b77435112590                              |</span>
+<span class="go">| name         | modest_mccarthy                                               |</span>
+<span class="go">| project_id   | dfc700467396428bacba4376e72cc3e9                              |</span>
+<span class="go">| roles        | creator reader swiftoperator load-balancer_member member      |</span>
+<span class="go">| secret       | qsV9G-qklvbZ8Fz5m7arghW7hHYDRCYWE3vim5dm3-EcXgQn-             |</span>
+<span class="go">|              | pkvrDAOAW5nR7vfj32_HwtQbLjq0TyWM-gETg                         |</span>
+<span class="go">| system       | None                                                          |</span>
+<span class="go">| unrestricted | True                                                          |</span>
+<span class="go">| user_id      | e50719d594f84f16ad13f88da540f762                              |</span>
+<span class="go">+--------------+---------------------------------------------------------------+</span>
+</code></pre></div>
+<p>In the example output above, the <code>unrestricted</code> parameter is set to <code>True</code>.</p>
+<h2 id="using-application-credentials">Using application credentials</h2>
+<p>One way to use application credentials is by instantiating certain <code>OS_</code> variables.
+Then, you may work with the OpenStack CLI as you typically do.
+Let us see how you can go about this, by first creating a new set of application credentials:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">PRETTY_GOOD_SECRET</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>pwgen<span class="w"> </span>-Bcns<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>create<span class="w"> </span>--expiration<span class="w"> </span><span class="s1">&#39;2024-02-29T23:59:59&#39;</span><span class="w"> </span>practical_swanson<span class="w"> </span>--secret<span class="w"> </span><span class="nv">$PRETTY_GOOD_SECRET</span>
+<span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>show<span class="w"> </span>practical_swanson
+
+<span class="go">+--------------+----------------------------------------------------------+</span>
+<span class="go">| Field        | Value                                                    |</span>
+<span class="go">+--------------+----------------------------------------------------------+</span>
+<span class="go">| description  | None                                                     |</span>
+<span class="go">| expires_at   | 2024-02-29T23:59:59.000000                               |</span>
+<span class="go">| id           | 3e04d504d754445e8b8d503e0e7af3c5                         |</span>
+<span class="go">| name         | practical_swanson                                        |</span>
+<span class="go">| project_id   | dfc700467396428bacba4376e72cc3e9                         |</span>
+<span class="go">| roles        | swiftoperator reader member creator load-balancer_member |</span>
+<span class="go">| system       | None                                                     |</span>
+<span class="go">| unrestricted | False                                                    |</span>
+<span class="go">| user_id      | e50719d594f84f16ad13f88da540f762                         |</span>
+<span class="go">+--------------+----------------------------------------------------------+</span>
+</code></pre></div>
+<p>You need to instantiate four <code>OS_</code> variables:</p>
+<ul>
+<li><code>OS_AUTH_URL</code>, which, in our example, is set to <code>https://fra1.citycloud.com:5000</code>,</li>
+<li><code>OS_AUTH_TYPE</code>, which should be set to <code>v3applicationcredential</code>,</li>
+<li><code>OS_APPLICATION_CREDENTIAL_ID</code>, which should be set to the value of <code>id</code> (as displayed in the table above),</li>
+<li><code>OS_APPLICATION_CREDENTIAL_SECRET</code>, which should be set to <code>$PRETTY_GOOD_SECRET</code>.</li>
+</ul>
+<blockquote>
+<p>Instead of <code>OS_APPLICATION_CREDENTIAL_ID</code>, you may instead initialize <code>OS_APPLICATION_CREDENTIAL_NAME</code> by simply setting it to the name of the application credentials.
+That way, you will not have to bother with the application credentials ID.</p>
+</blockquote>
+<p>Create a new file named <code>acRC</code>, with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_URL</span><span class="o">=</span>https://fra1.citycloud.com:5000
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_TYPE</span><span class="o">=</span>v3applicationcredential
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_APPLICATION_CREDENTIAL_ID</span><span class="o">=</span>3e04d504d754445e8b8d503e0e7af3c5
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_APPLICATION_CREDENTIAL_SECRET</span><span class="o">=</span>&lt;value_of_PRETTY_GOOD_SECRET&gt;
+</code></pre></div>
+<p>In your setup, replace the values of <code>OS_AUTH_URL</code>, <code>OS_APPLICATION_CREDENTIAL_ID</code>, and <code>OS_APPLICATION_CREDENTIAL_SECRET</code> accordingly.</p>
+<p>Next, switch to a new local environment (e.g., start a new shell), where <strong>none</strong> of the variables in your OpenStack RC file is initialized.
+There, source the <code>acRC</code> file you just created:</p>
+<div class="highlight"><pre><span></span><code><span class="go">source acRC</span>
+</code></pre></div>
+<p>You can now use the <code>openstack</code> client as usual.
+One example:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>token<span class="w"> </span>issue<span class="w"> </span>-f<span class="w"> </span>yaml
+
+<span class="go">expires: 2024-01-23T22:40:49+0000</span>
+<span class="go">id: vgAAAAABlr5exIHPqjgksbMfmbdg24xN7uqLHLm4...</span>
+<span class="go">project_id: dfc700467396428bacba4376e72cc3e9</span>
+<span class="go">user_id: e50719d594f84f16ad13f88da540f762</span>
+</code></pre></div>
+<h2 id="troubleshooting-application-credentials-usage">Troubleshooting application credentials usage</h2>
+<p>Having created a fresh set of application credentials to use with OpenStack CLI, you may find out that the <code>openstack</code> client starts behaving like its privileges are suddenly limited.
+Any command you might try will fail, returning an error like in the following example:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>token<span class="w"> </span>issue
+
+<span class="go">Error authenticating with application credential: Application credentials cannot request a scope. (HTTP 401) (Request-ID: req-d59edba0-2cb5-450b-83c7-f094bd8e5654)</span>
+</code></pre></div>
+<p>This happens because either of the <code>OS_PROJECT_NAME</code> or <code>OS_TENANT_NAME</code> variables is initialized, causing the <code>openstack</code> client to request a project scope for your token &mdash; and that is not allowed.</p>
+<p>This is why we advised making sure no pre-existing <code>OS_</code> variable is set <em>before</em> initializing the four <code>OS_</code> variables <code>openstack</code> needs, in order to use your application credentials.</p>
+<p>You might want to add this function to your <code>.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>unset_os_vars<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">unset</span><span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;^OS_[^=]*&quot;</span><span class="sb">`</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>From then on, you can unset all <code>OS_</code> variables by simply typing <code>unset_os_vars</code>.</p>
+<h2 id="deleting-application-credentials">Deleting application credentials</h2>
+<p>If there are application credentials you suspect are compromised or simply do not need anymore, you may go ahead and delete them by specifying the corresponding ID or name, like so:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>delete<span class="w"> </span>goofy_dijkstra
+<span class="gp">$ </span>openstack<span class="w"> </span>application<span class="w"> </span>credential<span class="w"> </span>show<span class="w"> </span>goofy_dijkstra
+
+<span class="go">No applicationcredential with a name or ID of &#39;goofy_dijkstra&#39; exists.</span>
+</code></pre></div>
+<p>Even though expired application credentials can no longer be used for authentication, they stay around until you explicitly delete them.</p>
 
 
 
@@ -4147,7 +4444,7 @@ That is to say that, rather than recreating them with the old versions and waiti
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-23</span>
   </span>
 
     
@@ -4157,7 +4454,7 @@ That is to say that, rather than recreating them with the old versions and waiti
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-23</span>
   </span>
 
     
@@ -4167,11 +4464,11 @@ That is to say that, rather than recreating them with the old versions and waiti
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas
     </nav>
   </span>
 
