@@ -1,5 +1,5 @@
 ---
-description: How to fetch, verify, and use your kubeconfig with kubectl.
+description: How to fetch, verify, and use your kubeconfig with kubectl
 ---
 # Managing a Kubernetes cluster
 
@@ -17,16 +17,27 @@ With the advent of Kubernetes 1.27, you can access your shoot cluster using a *c
 You may also be familiar with *static* kubeconfig files.
 
 * A **static** kubeconfig contains a [static token](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#static-token-file), provides `cluster-admin` privileges to the corresponding shoot cluster, and never expires.
-In {{brand}}, up until and including Kubernetes 1.26, you could access your shoot cluster by generating a static kubeconfig.
+In {{brand}}, for existing --- not new --- clusters with Kubernetes 1.26, you can access your shoot by generating a static kubeconfig.
 
 * A **certificate-based** kubeconfig is valid for a predefined amount of time, during which it can be used for accessing the corresponding shoot cluster with `cluster-admin` privileges.
 The credentials associated with this type of kubeconfig are client certificates with time-limited validity.
-Beginning with Kubernetes version 1.27, for new clusters you are able to issue certificate-based kubeconfig files only.
+With the advent of Kubernetes version 1.27, for any *new* shoot cluster with Kubernetes 1.26 or any shoot cluster with Kubernetes 1.27 and higher, you can issue certificate-based kubeconfig files only.
+
+> For *existing* clusters with Kubernetes version 1.26, you can issue a static *or* certificate-based kubeconfig. For *new* clusters with Kubernetes 1.26, you can only issue certificate-based kubeconfig files.
 
 To get a kubeconfig file for a shoot cluster, in the {{gui}} click on the cluster row to expand its properties and go to the *KubeConfig* tab.
 
 === "Static kubeconfig"
-    ![KubeConfig tab in {{k8s_management_service}} Shoot view](assets/shoot_kubeconfig.png)
+    To download your static kubeconfig, click the red button labeled *Download static KubeConfig*.
+
+    ![KubeConfig tab in {{k8s_management_service}} Shoot view](assets/shoot_kubeconfig_static_01.png)
+
+    A pop-up window appears, offering a reminder and a recommendation.
+    The reminder is about static kubeconfig files, available only for *existing* clusters with Kubernetes 1.26.
+    The recommendation pertains to certificate-based kubeconfig files, available for *new* clusters with Kubernetes 1.26 or for clusters with Kubernetes 1.27 and above.
+    To get the static kubeconfig, click the red button labeled *Download static kubeconfig*.
+    
+    ![Download a static kubeconfig file](assets/shoot_kubeconfig_static_02.png)
 === "Certificate-based kubeconfig"
     Notice that you may set the duration of the kubeconfig file validity.
 
@@ -41,10 +52,10 @@ To get a kubeconfig file for a shoot cluster, in the {{gui}} click on the cluste
     ![Generate a certificate-based kubeconfig](assets/shoot_kubeconfig_cert_03.png)
 
     Right below, you will see the contents of your dynamically generated kubeconfig.
+    To get the certificate-based kubeconfig, click the blue button labeled *Download KubeConfig*.
 
     ![Download the newly generated kubeconfig](assets/shoot_kubeconfig_cert_04.png)
 
-To download your kubeconfig, click the blue button labeled *Download KubeConfig*.
 In the default download folder of your local user account, you will get a configuration file named like so:
 
 ```plain
@@ -77,22 +88,22 @@ You should see something like this:
     ```yaml
     apiVersion: v1
     clusters:
-      - cluster:
-          certificate-authority-data: DATA+OMITTED
-          server: https://api.test-cluster.pabxyz.staging-k8s.{{gui_domain}}
-        name: shoot--pabxyz--test-cluster
+    - cluster:
+        certificate-authority-data: DATA+OMITTED
+        server: https://api.norberg.pxyz.staging-k8s.{{gui_domain}}
+      name: shoot--pxyz--norberg
     contexts:
-      - context:
-          cluster: shoot--pabxyz--test-cluster
-          user: shoot--pabxyz--test-cluster-token
-        name: shoot--pabxyz--test-cluster
-    current-context: shoot--pabxyz--test-cluster
+    - context:
+        cluster: shoot--pxyz--norberg
+        user: shoot--pxyz--norberg
+      name: shoot--pxyz--norberg
+    current-context: shoot--pxyz--norberg
     kind: Config
-    preferences: { }
+    preferences: {}
     users:
-      - name: shoot--pabxyz--test-cluster-token
-        user:
-          token: REDACTED
+    - name: shoot--pxyz--norberg
+      user:
+        token: REDACTED
     ```
 === "Certificate-based kubeconfig"
     ```yaml
@@ -100,26 +111,26 @@ You should see something like this:
     clusters:
     - cluster:
         certificate-authority-data: DATA+OMITTED
-        server: https://api.ghar.pabxyz.k8s.{{gui_domain}}
-      name: garden-pabxyz--ghar-external
+        server: https://api.norberg.pxyz.staging-k8s.{{gui_domain}}
+      name: garden-pxyz--norberg-external
     - cluster:
         certificate-authority-data: DATA+OMITTED
-        server: https://api.ghar.pabxyz.internal.k8s.{{gui_domain}}
-      name: garden-pabxyz--ghar-internal
+        server: https://api.norberg.pxyz.internal.staging-k8s.{{gui_domain}}
+      name: garden-pxyz--norberg-internal
     contexts:
     - context:
-        cluster: garden-pabxyz--ghar-external
-        user: garden-pabxyz--ghar-external
-      name: garden-pabxyz--ghar-external
+        cluster: garden-pxyz--norberg-external
+        user: garden-pxyz--norberg-external
+      name: garden-pxyz--norberg-external
     - context:
-        cluster: garden-pabxyz--ghar-internal
-        user: garden-pabxyz--ghar-external
-      name: garden-pabxyz--ghar-internal
-    current-context: garden-pabxyz--ghar-external
+        cluster: garden-pxyz--norberg-internal
+        user: garden-pxyz--norberg-external
+      name: garden-pxyz--norberg-internal
+    current-context: garden-pxyz--norberg-external
     kind: Config
     preferences: {}
     users:
-    - name: garden-pabxyz--ghar-external
+    - name: garden-pxyz--norberg-external
       user:
         client-certificate-data: DATA+OMITTED
         client-key-data: DATA+OMITTED
@@ -142,10 +153,10 @@ kubectl get nodes
 Assuming you used the default options when creating the cluster, you should now see the one {{k8s_management_service}} worker node that is initially available:
 
 ```console
-NAME                                        STATUS   ROLES    AGE   VERSION
-shoot--pabxyz--ghar-knnv4s-z1-6bb46-fg84s   Ready    <none>   27h   v1.26.12
-shoot--pabxyz--ghar-knnv4s-z1-6bb46-gbv6x   Ready    <none>   27h   v1.26.12
-shoot--pabxyz--ghar-knnv4s-z1-6bb46-p5vsk   Ready    <none>   27h   v1.26.12
+NAME                                         STATUS   ROLES    AGE     VERSION
+shoot--pxyz--norberg-cva66a-z1-79687-n2ts4   Ready    <none>   3h52m   v1.26.12
+shoot--pxyz--norberg-cva66a-z1-79687-wkk5z   Ready    <none>   3h52m   v1.26.12
+shoot--pxyz--norberg-cva66a-z1-79687-zv68c   Ready    <none>   3h52m   v1.26.12
 ```
 
 > Please note that in contrast to an [OpenStack Magnum-managed Kubernetes cluster](../../openstack/magnum/new-k8s-cluster.md) (where the output of `kubectl get nodes` includes control plane and worker nodes), in a {{k8s_management_service}} cluster the same command *only* lists the worker nodes.
@@ -169,9 +180,9 @@ You should get the load balancer service with its external IP and port
 number:
 
 ```console
-NAME         TYPE           CLUSTER-IP       EXTERNAL-IP    PORT(S)          AGE
-hello-node   LoadBalancer   100.66.245.131   198.51.100.42  8080:32481/TCP   73s
-kubernetes   ClusterIP      100.64.0.1       <none>         443/TCP          27h
+NAME         TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)          AGE
+hello-node   LoadBalancer   100.66.245.131   198.51.100.42   8080:32049/TCP   83s
+kubernetes   ClusterIP      100.64.0.1       <none>          443/TCP          3h58m
 ```
 
 Open a browser to `http://198.51.100.42:8080` (substituting the correct `EXTERNAL-IP` listed for your service).
@@ -189,33 +200,40 @@ even though they never expire, this very fact makes them less secure than certif
 In any case, you can rotate an existing kubeconfig using the {{gui}}.
 
 === "Static kubeconfig"
-    Go to the shoot cluster you want.
-    Click the orange circular :fontawesome-solid-ellipsis: icon at the right-hand side of the cluster row.
+    Locate the shoot cluster you are interested in.
+    Click on its row to bring all relevant details into view, and go to the *KubeConfig* tab.
+    Notice the three red buttons and click the middle one, labeled *Rotate static KubeConfig*.
 
-    ![KubeConfig tab in {{k8s_management_service}} Shoot view](assets/kubeconfig_static_rotate_01.png)
+    ![Click the red button, labeled "Rotate static KubeConfig"](assets/kubeconfig_static_rotate_01.png)
 
-    Select the *Rotate Kubeconfig* option from the menu that immediately appears.
+    A window with a warning appears, making clear that after you create a new kubeconfig the old one will stop working.
+    If you are sure you want a new kubeconfig, click the red button labeled *Yes, Rotate kubeconfig*.
 
-    ![Select the option for rotating the kubeconfig](assets/kubeconfig_static_rotate_02.png)
+    ![Click the red button, labeled "Yes, Rotate kubeconfig"](assets/kubeconfig_static_rotate_02.png)
 
-    A window pops up notifying you that the new kubeconfig will have a fresh authentication token, and during the creation of the new kubeconfig, the existing one you might still be using will stop working.
-    When ready, click the red *Yes, Rotate kubeconfig* button.
+    The creation of a new static kubeconfig begins.
+    The whole process takes a minute or two to complete.
+    You can see how much it has progressed by looking at the green animated icon, on the left-hand side of the cluster row.
 
-    ![Start the static kubeconfig rotation process](assets/kubeconfig_static_rotate_03.png)
+    ![New static kubeconfig creation in progress](assets/kubeconfig_static_rotate_03.png)
 
-    The creation of the new kubeconfig begins, and the whole process might take a minute or two to complete.
-    During that time, you will notice an animated red circular progress indicator at the left-hand side of the cluster row.
+    As soon as the new static kubeconfig is ready, you will notice a green check mark on the left-hand side of the cluster row.
+    To get the fresh kubeconfig, click the red button labeled *Download static KubeConfig*.
 
-    ![Static kubeconfig rotation in progress](assets/kubeconfig_static_rotate_04.png)
+    ![Click the red button labeled "Download static KubeConfig" to get the new kubeconfig](assets/kubeconfig_static_rotate_04.png)
 
-    When the new kubeconfig is ready, click the blue *Download KubeConfig* button.
+    Another window appears, pointing out that static kubeconfig files are deprecated for Gardener-based clusters with Kubernetes 1.27 and higher.
+    To download the static kubeconfig you just created, click the red button labeled *Download static kubeconfig*.
 
-    ![Download the new static kubeconfig](assets/kubeconfig_static_rotate_05.png)
+    ![click the red button labeled "Download static kubeconfig"](assets/kubeconfig_static_rotate_05.png)
 === "Certificate-based kubeconfig"
-    Go to the shoot cluster you want, and then to the *KubeConfig* tab.
-    Click the red *Rotate CA Bundle* button.
+    Locate the shoot cluster you are interested in.
+    Click on its row to bring all relevant details into view, and go to the *KubeConfig* tab.
+    If your cluster is not new and is based on Kubernetes 1.26, you will see three red buttons.
+    If, on the other hand, it is based on Kubernetes 1.27 or newer, you will see one red button only.
+    In any case, click the red button labeled *Rotate CA Bundle*.
 
-    ![KubeConfig tab in {{k8s_management_service}} Shoot view](assets/kubeconfig_cert_rotate_01.png)
+    ![Click the red button labeled "Rotate CA Bundle"](assets/kubeconfig_cert_rotate_01.png)
 
     A new window pops up, informing you in detail about the 3-step process that is about to take place.
     Please notice that it may take up to twenty minutes to complete.
@@ -231,11 +249,12 @@ In any case, you can rotate an existing kubeconfig using the {{gui}}.
 
     When the new CA bundle is ready, you should remove the existing one by clicking the red *Remove old CA bundle* button.
     When you click that button, the existing kubeconfig will stop working.
+    The old CA bundle removal process may take up to ten minutes.
 
     ![Removing the old CA bundle](assets/kubeconfig_cert_rotate_04.png)
 
     It is now time to create a new certificate-based kubeconfig, which will be based on the new CA bundle.
-    This time click the *Back* button, or the CA bundle creation process will start over.
+    This time, click the *Back* button, or the CA bundle creation process will start over.
 
     ![Time to create a fresh certificate-based kubeconfig file](assets/kubeconfig_cert_rotate_05.png)
 
