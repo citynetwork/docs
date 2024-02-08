@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="How to fetch, verify, and use your kubeconfig with kubectl.">
+        <meta name="description" content="How to fetch, verify, and use your kubeconfig with kubectl">
       
       
       
@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.5">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.8">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f2e4d321.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -70,7 +70,7 @@
       
         <meta  property="og:title"  content="Managing a Kubernetes cluster - Cleura Docs" >
       
-        <meta  property="og:description"  content="How to fetch, verify, and use your kubeconfig with kubectl." >
+        <meta  property="og:description"  content="How to fetch, verify, and use your kubeconfig with kubectl" >
       
         <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/kubernetes/gardener/kubectl.png" >
       
@@ -86,24 +86,22 @@
       
         <meta  name="twitter:title"  content="Managing a Kubernetes cluster - Cleura Docs" >
       
-        <meta  name="twitter:description"  content="How to fetch, verify, and use your kubeconfig with kubectl." >
+        <meta  name="twitter:description"  content="How to fetch, verify, and use your kubeconfig with kubectl" >
       
         <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/kubernetes/gardener/kubectl.png" >
       
     
     
    <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -4170,19 +4168,28 @@ You may also be familiar with <em>static</em> kubeconfig files.</p>
 <ul>
 <li>
 <p>A <strong>static</strong> kubeconfig contains a <a href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#static-token-file">static token</a>, provides <code>cluster-admin</code> privileges to the corresponding shoot cluster, and never expires.
-In Cleura Cloud, up until and including Kubernetes 1.26, you could access your shoot cluster by generating a static kubeconfig.</p>
+In Cleura Cloud, for existing &mdash; not new &mdash; clusters with Kubernetes 1.26, you can access your shoot by generating a static kubeconfig.</p>
 </li>
 <li>
 <p>A <strong>certificate-based</strong> kubeconfig is valid for a predefined amount of time, during which it can be used for accessing the corresponding shoot cluster with <code>cluster-admin</code> privileges.
 The credentials associated with this type of kubeconfig are client certificates with time-limited validity.
-Beginning with Kubernetes version 1.27, for new clusters you are able to issue certificate-based kubeconfig files only.</p>
+With the advent of Kubernetes version 1.27, for any <em>new</em> shoot cluster with Kubernetes 1.26 or any shoot cluster with Kubernetes 1.27 and higher, you can issue certificate-based kubeconfig files only.</p>
 </li>
 </ul>
+<blockquote>
+<p>For <em>existing</em> clusters with Kubernetes version 1.26, you can issue a static <em>or</em> certificate-based kubeconfig. For <em>new</em> clusters with Kubernetes 1.26, you can only issue certificate-based kubeconfig files.</p>
+</blockquote>
 <p>To get a kubeconfig file for a shoot cluster, in the Cleura Cloud Management Panel click on the cluster row to expand its properties and go to the <em>KubeConfig</em> tab.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Static kubeconfig</label><label for="__tabbed_1_2">Certificate-based kubeconfig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a class="glightbox" href="../assets/shoot_kubeconfig.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="KubeConfig tab in Gardener Shoot view" src="../assets/shoot_kubeconfig.png" /></a></p>
+<p>To download your static kubeconfig, click the red button labeled <em>Download static KubeConfig</em>.</p>
+<p><a class="glightbox" href="../assets/shoot_kubeconfig_static_01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="KubeConfig tab in Gardener Shoot view" src="../assets/shoot_kubeconfig_static_01.png" /></a></p>
+<p>A pop-up window appears, offering a reminder and a recommendation.
+The reminder is about static kubeconfig files, available only for <em>existing</em> clusters with Kubernetes 1.26.
+The recommendation pertains to certificate-based kubeconfig files, available for <em>new</em> clusters with Kubernetes 1.26 or for clusters with Kubernetes 1.27 and above.
+To get the static kubeconfig, click the red button labeled <em>Download static kubeconfig</em>.</p>
+<p><a class="glightbox" href="../assets/shoot_kubeconfig_static_02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Download a static kubeconfig file" src="../assets/shoot_kubeconfig_static_02.png" /></a></p>
 </div>
 <div class="tabbed-block">
 <p>Notice that you may set the duration of the kubeconfig file validity.</p>
@@ -4191,13 +4198,13 @@ Beginning with Kubernetes version 1.27, for new clusters you are able to issue c
 <p><a class="glightbox" href="../assets/shoot_kubeconfig_cert_02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select a validity period for kubeconfig" src="../assets/shoot_kubeconfig_cert_02.png" /></a></p>
 <p>When satisfied with the duration, click the green button labeled <em>Generate config</em>.</p>
 <p><a class="glightbox" href="../assets/shoot_kubeconfig_cert_03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Generate a certificate-based kubeconfig" src="../assets/shoot_kubeconfig_cert_03.png" /></a></p>
-<p>Right below, you will see the contents of your dynamically generated kubeconfig.</p>
+<p>Right below, you will see the contents of your dynamically generated kubeconfig.
+To get the certificate-based kubeconfig, click the blue button labeled <em>Download KubeConfig</em>.</p>
 <p><a class="glightbox" href="../assets/shoot_kubeconfig_cert_04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Download the newly generated kubeconfig" src="../assets/shoot_kubeconfig_cert_04.png" /></a></p>
 </div>
 </div>
 </div>
-<p>To download your kubeconfig, click the blue button labeled <em>Download KubeConfig</em>.
-In the default download folder of your local user account, you will get a configuration file named like so:</p>
+<p>In the default download folder of your local user account, you will get a configuration file named like so:</p>
 <div class="highlight"><pre><span></span><code>kubeconfig--&lt;cluster_name&gt;--&lt;region_name&gt;--&lt;project_id&gt;.yaml
 </code></pre></div>
 <p>Create a directory named <code>.kube</code> in your local user&rsquo;s home, then move the YAML file you downloaded into it.
@@ -4218,22 +4225,22 @@ For example, if you want to retain the original filename exactly as downloaded, 
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">clusters</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span>
-<span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.test-cluster.pabxyz.staging-k8s.cleura.cloud</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pabxyz--test-cluster</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.norberg.pxyz.staging-k8s.cleura.cloud</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pxyz--norberg</span>
 <span class="nt">contexts</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pabxyz--test-cluster</span>
-<span class="w">      </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pabxyz--test-cluster-token</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pabxyz--test-cluster</span>
-<span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pabxyz--test-cluster</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pxyz--norberg</span>
+<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pxyz--norberg</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pxyz--norberg</span>
+<span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pxyz--norberg</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Config</span>
-<span class="nt">preferences</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="nt">preferences</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 <span class="nt">users</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pabxyz--test-cluster-token</span>
-<span class="w">    </span><span class="nt">user</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDACTED</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shoot--pxyz--norberg</span>
+<span class="w">  </span><span class="nt">user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDACTED</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4241,26 +4248,26 @@ For example, if you want to retain the original filename exactly as downloaded, 
 <span class="nt">clusters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span>
-<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.ghar.pabxyz.k8s.cleura.cloud</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-external</span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.norberg.pxyz.staging-k8s.cleura.cloud</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-external</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cluster</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span>
-<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.ghar.pabxyz.internal.k8s.cleura.cloud</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-internal</span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.norberg.pxyz.internal.staging-k8s.cleura.cloud</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-internal</span>
 <span class="nt">contexts</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-external</span>
-<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-external</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-external</span>
+<span class="w">    </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-external</span>
+<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-external</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-external</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">context</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-internal</span>
-<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-external</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-internal</span>
-<span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-external</span>
+<span class="w">    </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-internal</span>
+<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-external</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-internal</span>
+<span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-external</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Config</span>
 <span class="nt">preferences</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 <span class="nt">users</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pabxyz--ghar-external</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garden-pxyz--norberg-external</span>
 <span class="w">  </span><span class="nt">user</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">client-certificate-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span>
 <span class="w">    </span><span class="nt">client-key-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATA+OMITTED</span>
@@ -4277,10 +4284,10 @@ They <em>also</em> disappear when you <a href="../hibernate-shoot-cluster/">hibe
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
 </code></pre></div>
 <p>Assuming you used the default options when creating the cluster, you should now see the one Gardener worker node that is initially available:</p>
-<div class="highlight"><pre><span></span><code><span class="go">NAME                                        STATUS   ROLES    AGE   VERSION</span>
-<span class="go">shoot--pabxyz--ghar-knnv4s-z1-6bb46-fg84s   Ready    &lt;none&gt;   27h   v1.26.12</span>
-<span class="go">shoot--pabxyz--ghar-knnv4s-z1-6bb46-gbv6x   Ready    &lt;none&gt;   27h   v1.26.12</span>
-<span class="go">shoot--pabxyz--ghar-knnv4s-z1-6bb46-p5vsk   Ready    &lt;none&gt;   27h   v1.26.12</span>
+<div class="highlight"><pre><span></span><code><span class="go">NAME                                         STATUS   ROLES    AGE     VERSION</span>
+<span class="go">shoot--pxyz--norberg-cva66a-z1-79687-n2ts4   Ready    &lt;none&gt;   3h52m   v1.26.12</span>
+<span class="go">shoot--pxyz--norberg-cva66a-z1-79687-wkk5z   Ready    &lt;none&gt;   3h52m   v1.26.12</span>
+<span class="go">shoot--pxyz--norberg-cva66a-z1-79687-zv68c   Ready    &lt;none&gt;   3h52m   v1.26.12</span>
 </code></pre></div>
 <blockquote>
 <p>Please note that in contrast to an <a href="../../../openstack/magnum/new-k8s-cluster/">OpenStack Magnum-managed Kubernetes cluster</a> (where the output of <code>kubectl get nodes</code> includes control plane and worker nodes), in a Gardener cluster the same command <em>only</em> lists the worker nodes.</p>
@@ -4295,9 +4302,9 @@ kubectl<span class="w"> </span>expose<span class="w"> </span>deployment<span cla
 </code></pre></div>
 <p>You should get the load balancer service with its external IP and port
 number:</p>
-<div class="highlight"><pre><span></span><code><span class="go">NAME         TYPE           CLUSTER-IP       EXTERNAL-IP    PORT(S)          AGE</span>
-<span class="go">hello-node   LoadBalancer   100.66.245.131   198.51.100.42  8080:32481/TCP   73s</span>
-<span class="go">kubernetes   ClusterIP      100.64.0.1       &lt;none&gt;         443/TCP          27h</span>
+<div class="highlight"><pre><span></span><code><span class="go">NAME         TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)          AGE</span>
+<span class="go">hello-node   LoadBalancer   100.66.245.131   198.51.100.42   8080:32049/TCP   83s</span>
+<span class="go">kubernetes   ClusterIP      100.64.0.1       &lt;none&gt;          443/TCP          3h58m</span>
 </code></pre></div>
 <p>Open a browser to <code>http://198.51.100.42:8080</code> (substituting the correct <code>EXTERNAL-IP</code> listed for your service).
 You should see the page of the Hello World app.</p>
@@ -4311,24 +4318,31 @@ even though they never expire, this very fact makes them less secure than certif
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Static kubeconfig</label><label for="__tabbed_3_2">Certificate-based kubeconfig</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Go to the shoot cluster you want.
-Click the orange circular <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M8 256a56 56 0 1 1 112 0 56 56 0 1 1-112 0zm160 0a56 56 0 1 1 112 0 56 56 0 1 1-112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg></span> icon at the right-hand side of the cluster row.</p>
-<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="KubeConfig tab in Gardener Shoot view" src="../assets/kubeconfig_static_rotate_01.png" /></a></p>
-<p>Select the <em>Rotate Kubeconfig</em> option from the menu that immediately appears.</p>
-<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select the option for rotating the kubeconfig" src="../assets/kubeconfig_static_rotate_02.png" /></a></p>
-<p>A window pops up notifying you that the new kubeconfig will have a fresh authentication token, and during the creation of the new kubeconfig, the existing one you might still be using will stop working.
-When ready, click the red <em>Yes, Rotate kubeconfig</em> button.</p>
-<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start the static kubeconfig rotation process" src="../assets/kubeconfig_static_rotate_03.png" /></a></p>
-<p>The creation of the new kubeconfig begins, and the whole process might take a minute or two to complete.
-During that time, you will notice an animated red circular progress indicator at the left-hand side of the cluster row.</p>
-<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Static kubeconfig rotation in progress" src="../assets/kubeconfig_static_rotate_04.png" /></a></p>
-<p>When the new kubeconfig is ready, click the blue <em>Download KubeConfig</em> button.</p>
-<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Download the new static kubeconfig" src="../assets/kubeconfig_static_rotate_05.png" /></a></p>
+<p>Locate the shoot cluster you are interested in.
+Click on its row to bring all relevant details into view, and go to the <em>KubeConfig</em> tab.
+Notice the three red buttons and click the middle one, labeled <em>Rotate static KubeConfig</em>.</p>
+<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Click the red button, labeled &quot;Rotate static KubeConfig&quot;" src="../assets/kubeconfig_static_rotate_01.png" /></a></p>
+<p>A window with a warning appears, making clear that after you create a new kubeconfig the old one will stop working.
+If you are sure you want a new kubeconfig, click the red button labeled <em>Yes, Rotate kubeconfig</em>.</p>
+<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Click the red button, labeled &quot;Yes, Rotate kubeconfig&quot;" src="../assets/kubeconfig_static_rotate_02.png" /></a></p>
+<p>The creation of a new static kubeconfig begins.
+The whole process takes a minute or two to complete.
+You can see how much it has progressed by looking at the green animated icon, on the left-hand side of the cluster row.</p>
+<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New static kubeconfig creation in progress" src="../assets/kubeconfig_static_rotate_03.png" /></a></p>
+<p>As soon as the new static kubeconfig is ready, you will notice a green check mark on the left-hand side of the cluster row.
+To get the fresh kubeconfig, click the red button labeled <em>Download static KubeConfig</em>.</p>
+<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Click the red button labeled &quot;Download static KubeConfig&quot; to get the new kubeconfig" src="../assets/kubeconfig_static_rotate_04.png" /></a></p>
+<p>Another window appears, pointing out that static kubeconfig files are deprecated for Gardener-based clusters with Kubernetes 1.27 and higher.
+To download the static kubeconfig you just created, click the red button labeled <em>Download static kubeconfig</em>.</p>
+<p><a class="glightbox" href="../assets/kubeconfig_static_rotate_05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="click the red button labeled &quot;Download static kubeconfig&quot;" src="../assets/kubeconfig_static_rotate_05.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>Go to the shoot cluster you want, and then to the <em>KubeConfig</em> tab.
-Click the red <em>Rotate CA Bundle</em> button.</p>
-<p><a class="glightbox" href="../assets/kubeconfig_cert_rotate_01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="KubeConfig tab in Gardener Shoot view" src="../assets/kubeconfig_cert_rotate_01.png" /></a></p>
+<p>Locate the shoot cluster you are interested in.
+Click on its row to bring all relevant details into view, and go to the <em>KubeConfig</em> tab.
+If your cluster is not new and is based on Kubernetes 1.26, you will see three red buttons.
+If, on the other hand, it is based on Kubernetes 1.27 or newer, you will see one red button only.
+In any case, click the red button labeled <em>Rotate CA Bundle</em>.</p>
+<p><a class="glightbox" href="../assets/kubeconfig_cert_rotate_01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Click the red button labeled &quot;Rotate CA Bundle&quot;" src="../assets/kubeconfig_cert_rotate_01.png" /></a></p>
 <p>A new window pops up, informing you in detail about the 3-step process that is about to take place.
 Please notice that it may take up to twenty minutes to complete.
 When ready, click the red <em>Start CA rotation</em> button.</p>
@@ -4338,10 +4352,11 @@ This may take up to ten minutes to complete.
 During that time, the existing kubeconfig file still works.</p>
 <p><a class="glightbox" href="../assets/kubeconfig_cert_rotate_03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Generating a new CA bundle" src="../assets/kubeconfig_cert_rotate_03.png" /></a></p>
 <p>When the new CA bundle is ready, you should remove the existing one by clicking the red <em>Remove old CA bundle</em> button.
-When you click that button, the existing kubeconfig will stop working.</p>
+When you click that button, the existing kubeconfig will stop working.
+The old CA bundle removal process may take up to ten minutes.</p>
 <p><a class="glightbox" href="../assets/kubeconfig_cert_rotate_04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Removing the old CA bundle" src="../assets/kubeconfig_cert_rotate_04.png" /></a></p>
 <p>It is now time to create a new certificate-based kubeconfig, which will be based on the new CA bundle.
-This time click the <em>Back</em> button, or the CA bundle creation process will start over.</p>
+This time, click the <em>Back</em> button, or the CA bundle creation process will start over.</p>
 <p><a class="glightbox" href="../assets/kubeconfig_cert_rotate_05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Time to create a fresh certificate-based kubeconfig file" src="../assets/kubeconfig_cert_rotate_05.png" /></a></p>
 <p>Choose a duration for the new kubeconfig, then click the green <em>Generate config</em> button.</p>
 <p><a class="glightbox" href="../assets/kubeconfig_cert_rotate_06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Set duration for the new kubeconfig and generate it" src="../assets/kubeconfig_cert_rotate_06.png" /></a></p>
@@ -4372,7 +4387,7 @@ This time click the <em>Back</em> button, or the CA bundle creation process will
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-02-08</span>
   </span>
 
     
@@ -4452,7 +4467,7 @@ This time click the <em>Back</em> button, or the CA bundle creation process will
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
