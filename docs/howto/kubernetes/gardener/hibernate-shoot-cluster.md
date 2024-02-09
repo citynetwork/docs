@@ -19,7 +19,7 @@ Make sure the vertical pane at the left-hand side of the page is in full view, t
 In the main pane, you will see your {{k8s_management_service}} cluster.
 Click anywhere on its row for a detailed view of the various cluster characteristics.
 Bring up the *Status* tab and, in the *Constraints* section, check whether hibernation is possible.
-In the example below we have a shoot cluster based on Kubernetes 1.27, the latest supported at the time of this writing, and hibernation is indeed possible.
+In the example below we have a shoot cluster based on Kubernetes 1.28, the latest supported at the time of this writing, and hibernation is indeed possible.
 
 ![{{k8s_management_service}} cluster status](assets/garhiber-01.png)
 
