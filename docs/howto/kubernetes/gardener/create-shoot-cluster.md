@@ -25,11 +25,30 @@ At the top right-hand side of the central pane, click on *Create Kubernetes cl
 A new pane named *Create {{k8s_management_service}} Shoot Cluster* slides over from the right-hand side of the browser.
 Type in a name for the new shoot cluster, and select a region.
 Also, select the version of Kubernetes the new cluster will be running.
-In the example below, we have chosen version 1.28.6, which, at the time of writing, was the latest supported in {{brand}}.
+In the example below, we have chosen version 1.28.7, which, at the time of writing, was the latest supported in {{brand}}.
 
 !["Create {{k8s_management_service}} Shoot Cluster" panel, showing options to type in a cluster name, select region and Kubernetes version](assets/create-shoot-1.png)
 
-Scroll down a bit until you bring the *Worker Groups* section into full view.
+Next, you may accept the proposed network address (in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)) for the worker nodes, or type in the one you prefer.
+
+![Accept the proposed CIDR network address for the worker nodes or type in the CIDR network address you prefer](assets/create-shoot-1.1.png)
+
+Alternatively, click on the drop-down menu at the right-hand side of "Network for worker nodes".
+From the available menu items, choose a pre-existing network.
+Be sure to select one that has an assigned subnet, and is connected to a router.
+
+![Select a pre-existing network](assets/create-shoot-1.2.png)
+
+Then, define a new subnet for the worker nodes by typing in a CIDR network address.
+If the new subnet overlaps with one of the subnets of the network you just selected, you will see an error message in red.
+
+![Select a pre-existing network](assets/create-shoot-1.3.png)
+
+Instead, you should define a subnet that does not overlap with any of the subnets of your selected network.
+
+![New, valid subnet for the worker nodes](assets/create-shoot-1.4.png)
+
+Now, scroll down a bit until you bring the *Worker Groups* section into full view.
 Make sure there is at least one worker group defined.
 (By default, you start with one.)
 Pay attention to the values you set for the following parameters:
