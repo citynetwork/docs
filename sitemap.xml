@@ -346,11 +346,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.cleura.cloud/howto/openstack/nova/new-vgpu-server/</loc>
-         <lastmod>2024-03-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.cleura.cloud/howto/openstack/nova/rescue-server/</loc>
          <lastmod>2024-03-08</lastmod>
          <changefreq>daily</changefreq>

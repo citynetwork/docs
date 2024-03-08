@@ -16,7 +16,7 @@
         <link rel="prev" href="../../neutron/delete-network/">
       
       
-        <link rel="next" href="../new-vgpu-server/">
+        <link rel="next" href="../server-group/">
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
@@ -1237,8 +1237,6 @@
       
         
       
-        
-      
     
     
     
@@ -1359,27 +1357,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../new-vgpu-server/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Creating new servers with virtual GPU support
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -4087,9 +4064,8 @@ of the available regions.</p>
 <em>server profile</em>. Currently, four profiles are available:</p>
 <ul>
 <li><em>Generic</em>,</li>
-<li><em>High CPU</em>,</li>
-<li><em>Low Latency Disk</em>, and</li>
-<li><em>GPU</em>.</li>
+<li><em>High CPU</em>, and</li>
+<li><em>Low Latency Disk</em>.</li>
 </ul>
 <p>Selecting one of those gives you access to a subset of all available
 <a href="../../../../reference/flavors/"><em>flavors</em></a>.</p>
@@ -4102,8 +4078,6 @@ applications:</p>
   applications.</li>
 <li>The <em>Low Latency Disk</em> profile is for servers that boot off of a local
   low-latency disk.</li>
-<li>The <em>GPU</em> profile is for servers that boot off of a local SSD disk
-  and, most importantly, have direct access to an NVIDIA vGPU.</li>
 </ul>
 <p>We should point out that not <em>all</em> profiles may be available in any
 region. Choose the <em>Generic</em> profile for now, which is available in any
@@ -4120,7 +4094,7 @@ particular.</p>
 on the server profile you have already selected, the boot target will be
 either <em>Volume</em> or <em>Ephemeral</em>. More specifically&hellip;</p>
 <ul>
-<li>for the <em>Generic</em>, <em>High CPU</em>, and <em>GPU</em> profiles the boot target is
+<li>for the <em>Generic</em> and <em>High CPU</em> profiles the boot target is
   <em>Volume</em>, and</li>
 <li>for the <em>Low Latency Disk</em> profile the boot target is <em>Ephemeral</em>.</li>
 </ul>
@@ -4378,7 +4352,7 @@ securely connect to your server via SSH.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-03-08</span>
   </span>
 
     
