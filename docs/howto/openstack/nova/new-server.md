@@ -44,9 +44,8 @@ file first](../../getting-started/enable-openstack-cli.md).
     _server profile_. Currently, four profiles are available:
 
     *  _Generic_,
-    * _High CPU_,
-    * _Low Latency Disk_, and
-    *  _GPU_.
+    * _High CPU_, and
+    * _Low Latency Disk_.
 
     Selecting one of those gives you access to a subset of all available
     [_flavors_](../../../reference/flavors/index.md).
@@ -60,8 +59,6 @@ file first](../../getting-started/enable-openstack-cli.md).
       applications.
     * The _Low Latency Disk_ profile is for servers that boot off of a local
       low-latency disk.
-    * The _GPU_ profile is for servers that boot off of a local SSD disk
-      and, most importantly, have direct access to an NVIDIA vGPU.
 
     We should point out that not _all_ profiles may be available in any
     region. Choose the _Generic_ profile for now, which is available in any
@@ -82,7 +79,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     on the server profile you have already selected, the boot target will be
     either _Volume_ or _Ephemeral_. More specifically...
 
-    * for the _Generic_, _High CPU_, and _GPU_ profiles the boot target is
+    * for the _Generic_ and _High CPU_ profiles the boot target is
       _Volume_, and
     * for the _Low Latency Disk_ profile the boot target is _Ephemeral_.
 

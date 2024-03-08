@@ -10,13 +10,6 @@
 > :material-close: Feature is not available
 
 
-## Virtualization
-
-|                                               | Sto1HS                | Sto2HS                |
-| -------------                                 | ----------------      | --------------------- |
-| [Virtual GPU](../flavors/index.md#compute-tiers)   | :material-timer-sand: | :material-timer-sand: |
-
-
 ## Block storage
 
 |                                                                 | Sto1HS           | Sto2HS           |

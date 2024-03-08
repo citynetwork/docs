@@ -17,15 +17,7 @@ Image names in {{brand}} follow a convention, which can be summarized as `${NAME
 * `NAME`: Operating system name, such as `Ubuntu`, `Debian`, `Rocky`, etc.
 * `VERSION_ID`: Operating system version, as in `22.04`, `11`, `9`, etc.
 * `CODENAME`: Operating system codename, if present, like `Jammy Jellyfish`, `Bullseye`, etc.
-   Modified codenames may reflect that some images serve special purposes, such as vGPU support.
-   See below for details.
 * `ARCH`: Platform architecture for which the operating system was built, for example: `x86_64`, `aarch64`, etc.
-
-### Special codenames
-
-* `NVGRID`: Images with `NVGRID` in the codename include pre-installed Nvidia GRID drivers and license files.
-  These images allow you to use [CUDA](https://en.wikipedia.org/wiki/CUDA), and enable other computational features of vGPUs.
-  You should use these images together with [flavors](../flavors/index.md) using the `g` [compute tier](../flavors/index.md#Compute_tiers).
 
 ## Tags and properties
 

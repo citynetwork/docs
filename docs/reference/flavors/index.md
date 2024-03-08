@@ -45,9 +45,6 @@ general-purpose compute instance with 4 cores and 32 GiB RAM.
   latency for I/O intensive applications, but instances launched with
   these flavors must configure their own high availability and data
   replication.
-* `g`: Virtual GPU. Instances launched with matching flavors have
-  access to a
-  [GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit).
 * `c`: Physical CPUs. Instances launched with matching flavors will be
   assigned physical CPU cores, rather then virtual ones. These flavors
   are recommended for CPU-intensive workloads, or when there is a
