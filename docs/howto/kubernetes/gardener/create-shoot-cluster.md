@@ -20,33 +20,33 @@ In {{k8s_management_service}} terminology, a Kubernetes cluster is referred as a
 
 At the top right-hand side of the central pane, click on *Create Kubernetes cluster*.
 
-![{{k8s_management_service}} page in {{gui}}](assets/gardener_page.png)
+![{{k8s_management_service}} page in {{gui}}](assets/create-shoot-00.png)
 
 A new pane named *Create {{k8s_management_service}} Shoot Cluster* slides over from the right-hand side of the browser.
 Type in a name for the new shoot cluster, and select a region.
 Also, select the version of Kubernetes the new cluster will be running.
 In the example below, we have chosen version 1.28.7, which, at the time of writing, was the latest supported in {{brand}}.
 
-!["Create {{k8s_management_service}} Shoot Cluster" panel, showing options to type in a cluster name, select region and Kubernetes version](assets/create-shoot-1.png)
+!["Create {{k8s_management_service}} Shoot Cluster" panel, showing options to type in a cluster name, select region and Kubernetes version](assets/create-shoot-01.png)
 
 Next, you may accept the proposed network address (in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)) for the worker nodes, or type in the one you prefer.
 
-![Accept the proposed CIDR network address for the worker nodes or type in the CIDR network address you prefer](assets/create-shoot-1.1.png)
+![Accept the proposed CIDR network address for the worker nodes or type in the CIDR network address you prefer](assets/create-shoot-02.png)
 
 Alternatively, click on the drop-down menu at the right-hand side of "Network for worker nodes".
 From the available menu items, choose a pre-existing network.
 Be sure to select one that has an assigned subnet, and is connected to a router.
 
-![Select a pre-existing network](assets/create-shoot-1.2.png)
+![Select a pre-existing network](assets/create-shoot-03.png)
 
 Then, define a new subnet for the worker nodes by typing in a CIDR network address.
 If the new subnet overlaps with one of the subnets of the network you just selected, you will see an error message in red.
 
-![Select a pre-existing network](assets/create-shoot-1.3.png)
+![Select a pre-existing network](assets/create-shoot-04.png)
 
 Instead, you should define a subnet that does not overlap with any of the subnets of your selected network.
 
-![New, valid subnet for the worker nodes](assets/create-shoot-1.4.png)
+![New, valid subnet for the worker nodes](assets/create-shoot-05.png)
 
 Now, scroll down a bit until you bring the *Worker Groups* section into full view.
 Make sure there is at least one worker group defined.
@@ -60,18 +60,18 @@ this determines the number of CPU cores and the amount of RAM allocated to them.
 * *Autoscaler Max:* The maximum number of worker nodes the cluster automatically scales to, in the event that the current number of nodes cannot handle the deployed workload.
 * *Max Surge:* The maximum number of additional nodes to deploy in an autoscaling event.
 
-!["Create {{k8s_management_service}} Shoot Cluster" panel](assets/create-shoot-2.png)
+!["Create {{k8s_management_service}} Shoot Cluster" panel](assets/create-shoot-06.png)
 
 For a test cluster, you can leave each parameter at its default value.
 Scroll to the bottom of the pane and click the green *Create* button.
 
-!["Create {{k8s_management_service}} Shoot Cluster" panel](assets/create-shoot-3.png)
+!["Create {{k8s_management_service}} Shoot Cluster" panel](assets/create-shoot-07.png)
 
 In the list of clusters, you will see your new {{k8s_management_service}} shoot bootstrapping.
 The animated icon on the left-hand side of the cluster row marks the progress.
 Creating the cluster may take several minutes.
 
-![Shoot cluster bootstrapping](assets/shoot_bootstrapping.png)
+![Shoot cluster bootstrapping](assets/create-shoot-08.png)
 
 ### A note on quotas
 
@@ -82,6 +82,32 @@ For example, if your project is configured with the [default quotas](../../../re
 A 4th node would push your total memory allocation to 64 GiB, violating your quota.
 
 If necessary, be sure to request a quota increase via our [{{support}}](https://{{support_domain}}/servicedesk).
+
+## Viewing details and monitoring
+
+After the new shoot cluster finishes bootstrapping, you may click on its row to bring all relevant details into view.
+For instance, click the *Details* tab to get networking information about the worker nodes.
+
+![Networking information about the worker nodes](assets/create-shoot-09.png)
+
+Next, go to the *Monitoring* tab.
+There, you will notice two orange buttons: one for launching [Prometheus](https://prometheus.io), and one for launching [Plutono](https://github.com/credativ/plutono).
+
+![Monitoring tab for launching Prometheus or Plutono](assets/create-shoot-10.png)
+
+As an example, we have clicked the button for Plutono.
+Prior to launching the dashboard, a pop-up window appears.
+This shows the default username (`admin`), and the masked generated password.
+You get this pop-up every time you click on either of the orange buttons.
+In any case, to copy the password into the clipboard, click the related button shown below.
+Then, click the orange button labeled *Open Dashboard*.
+
+![Copy the Plutono password](assets/create-shoot-11.png)
+
+After typing in the default username and pasting the password, you get access to the Prometheus or Plutono dashboard for your shoot cluster.
+In the example below, we have the Plutono dashboard displaying graphical information regarding the cluster nodes.
+
+![Plutono dashboard displaying information about the worker nodes](assets/create-shoot-12.png)
 
 ## Interacting with your cluster
 
