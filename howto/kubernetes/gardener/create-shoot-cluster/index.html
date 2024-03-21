@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -2207,7 +2207,7 @@
         <li class="md-nav__item">
   <a href="#creating-a-kubernetes-cluster-in-cleura-cloud-management-panel" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a Kubernetes cluster in Cleura Cloud Management Panel
+      Creating a Kubernetes cluster in Cleura Cloud Management Panel
     </span>
   </a>
   
@@ -2225,6 +2225,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-details-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing details and monitoring
+    </span>
+  </a>
   
 </li>
       
@@ -3988,7 +3997,7 @@
         <li class="md-nav__item">
   <a href="#creating-a-kubernetes-cluster-in-cleura-cloud-management-panel" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a Kubernetes cluster in Cleura Cloud Management Panel
+      Creating a Kubernetes cluster in Cleura Cloud Management Panel
     </span>
   </a>
   
@@ -4006,6 +4015,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-details-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing details and monitoring
+    </span>
+  </a>
   
 </li>
       
@@ -4055,23 +4073,23 @@ You will land on a page named <em>Gardener / Shoot Clusters</em>.
 There, you can create and manage your Gardener-based clusters.
 In Gardener terminology, a Kubernetes cluster is referred as a <strong>Shoot</strong> (as in, <a href="https://en.wikipedia.org/wiki/Shoot">new plant growth</a>).</p>
 <p>At the top right-hand side of the central pane, click on <em>Create Kubernetes cluster</em>.</p>
-<p><a class="glightbox" href="../assets/gardener_page.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Gardener page in Cleura Cloud Management Panel" src="../assets/gardener_page.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-00.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Gardener page in Cleura Cloud Management Panel" src="../assets/create-shoot-00.png" /></a></p>
 <p>A new pane named <em>Create Gardener Shoot Cluster</em> slides over from the right-hand side of the browser.
 Type in a name for the new shoot cluster, and select a region.
 Also, select the version of Kubernetes the new cluster will be running.
 In the example below, we have chosen version 1.28.7, which, at the time of writing, was the latest supported in Cleura Cloud.</p>
-<p><a class="glightbox" href="../assets/create-shoot-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel, showing options to type in a cluster name, select region and Kubernetes version" src="../assets/create-shoot-1.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel, showing options to type in a cluster name, select region and Kubernetes version" src="../assets/create-shoot-01.png" /></a></p>
 <p>Next, you may accept the proposed network address (in <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>) for the worker nodes, or type in the one you prefer.</p>
-<p><a class="glightbox" href="../assets/create-shoot-1.1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Accept the proposed CIDR network address for the worker nodes or type in the CIDR network address you prefer" src="../assets/create-shoot-1.1.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Accept the proposed CIDR network address for the worker nodes or type in the CIDR network address you prefer" src="../assets/create-shoot-02.png" /></a></p>
 <p>Alternatively, click on the drop-down menu at the right-hand side of &ldquo;Network for worker nodes&rdquo;.
 From the available menu items, choose a pre-existing network.
 Be sure to select one that has an assigned subnet, and is connected to a router.</p>
-<p><a class="glightbox" href="../assets/create-shoot-1.2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select a pre-existing network" src="../assets/create-shoot-1.2.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select a pre-existing network" src="../assets/create-shoot-03.png" /></a></p>
 <p>Then, define a new subnet for the worker nodes by typing in a CIDR network address.
 If the new subnet overlaps with one of the subnets of the network you just selected, you will see an error message in red.</p>
-<p><a class="glightbox" href="../assets/create-shoot-1.3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select a pre-existing network" src="../assets/create-shoot-1.3.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select a pre-existing network" src="../assets/create-shoot-04.png" /></a></p>
 <p>Instead, you should define a subnet that does not overlap with any of the subnets of your selected network.</p>
-<p><a class="glightbox" href="../assets/create-shoot-1.4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New, valid subnet for the worker nodes" src="../assets/create-shoot-1.4.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New, valid subnet for the worker nodes" src="../assets/create-shoot-05.png" /></a></p>
 <p>Now, scroll down a bit until you bring the <em>Worker Groups</em> section into full view.
 Make sure there is at least one worker group defined.
 (By default, you start with one.)
@@ -4084,20 +4102,37 @@ this determines the number of CPU cores and the amount of RAM allocated to them.
 <li><em>Autoscaler Max:</em> The maximum number of worker nodes the cluster automatically scales to, in the event that the current number of nodes cannot handle the deployed workload.</li>
 <li><em>Max Surge:</em> The maximum number of additional nodes to deploy in an autoscaling event.</li>
 </ul>
-<p><a class="glightbox" href="../assets/create-shoot-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel" src="../assets/create-shoot-2.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel" src="../assets/create-shoot-06.png" /></a></p>
 <p>For a test cluster, you can leave each parameter at its default value.
 Scroll to the bottom of the pane and click the green <em>Create</em> button.</p>
-<p><a class="glightbox" href="../assets/create-shoot-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel" src="../assets/create-shoot-3.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="&quot;Create Gardener Shoot Cluster&quot; panel" src="../assets/create-shoot-07.png" /></a></p>
 <p>In the list of clusters, you will see your new Gardener shoot bootstrapping.
 The animated icon on the left-hand side of the cluster row marks the progress.
 Creating the cluster may take several minutes.</p>
-<p><a class="glightbox" href="../assets/shoot_bootstrapping.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Shoot cluster bootstrapping" src="../assets/shoot_bootstrapping.png" /></a></p>
+<p><a class="glightbox" href="../assets/create-shoot-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Shoot cluster bootstrapping" src="../assets/create-shoot-08.png" /></a></p>
 <h3 id="a-note-on-quotas">A note on quotas</h3>
 <p>Your Gardener worker nodes are subject to <a href="../../../../reference/quotas/openstack/">quotas</a> applicable to your Cleura Cloud project.
 It would be best if you kept that in mind when selecting the worker node <a href="../../../../reference/flavors/"><em>flavor</em></a>, setting the <em>volume size</em> value, and also the <em>Autoscaler Max</em> value, so you will not be at risk of violating any quota.</p>
 <p>For example, if your project is configured with the <a href="../../../../reference/quotas/openstack/">default quotas</a>, and you select the <code>b.4c16gb</code> flavor for your worker nodes, your cluster would be able to run with a maximum of 3 worker nodes (since their total memory footprint would be 3×16=48 GiB, just short of the default 50 GiB limit).
 A 4th node would push your total memory allocation to 64 GiB, violating your quota.</p>
 <p>If necessary, be sure to request a quota increase via our <a href="https://servicecenter.cleura.cloud/servicedesk">Service Center</a>.</p>
+<h2 id="viewing-details-and-monitoring">Viewing details and monitoring</h2>
+<p>After the new shoot cluster finishes bootstrapping, you may click on its row to bring all relevant details into view.
+For instance, click the <em>Details</em> tab to get networking information about the worker nodes.</p>
+<p><a class="glightbox" href="../assets/create-shoot-09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Networking information about the worker nodes" src="../assets/create-shoot-09.png" /></a></p>
+<p>Next, go to the <em>Monitoring</em> tab.
+There, you will notice two orange buttons: one for launching <a href="https://prometheus.io">Prometheus</a>, and one for launching <a href="https://github.com/credativ/plutono">Plutono</a>.</p>
+<p><a class="glightbox" href="../assets/create-shoot-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Monitoring tab for launching Prometheus or Plutono" src="../assets/create-shoot-10.png" /></a></p>
+<p>As an example, we have clicked the button for Plutono.
+Prior to launching the dashboard, a pop-up window appears.
+This shows the default username (<code>admin</code>), and the masked generated password.
+You get this pop-up every time you click on either of the orange buttons.
+In any case, to copy the password into the clipboard, click the related button shown below.
+Then, click the orange button labeled <em>Open Dashboard</em>.</p>
+<p><a class="glightbox" href="../assets/create-shoot-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Copy the Plutono password" src="../assets/create-shoot-11.png" /></a></p>
+<p>After typing in the default username and pasting the password, you get access to the Prometheus or Plutono dashboard for your shoot cluster.
+In the example below, we have the Plutono dashboard displaying graphical information regarding the cluster nodes.</p>
+<p><a class="glightbox" href="../assets/create-shoot-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Plutono dashboard displaying information about the worker nodes" src="../assets/create-shoot-12.png" /></a></p>
 <h2 id="interacting-with-your-cluster">Interacting with your cluster</h2>
 <p>Once your new shoot cluster is operational, you can <a href="../kubectl/">start interacting with it</a>.</p>
 
@@ -4122,7 +4157,7 @@ A 4th node would push your total memory allocation to 64 GiB, violating your qu
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-03-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-03-19</span>
   </span>
 
     
@@ -4202,7 +4237,7 @@ A 4th node would push your total memory allocation to 64 GiB, violating your qu
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.bd41221c.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
