@@ -21,22 +21,27 @@ Click anywhere on its row for a detailed view of the various cluster characteris
 Bring up the *Status* tab and, in the *Constraints* section, check whether hibernation is possible.
 In the example below we have a shoot cluster based on Kubernetes 1.28, the latest supported at the time of this writing, and hibernation is indeed possible.
 
-![{{k8s_management_service}} cluster status](assets/garhiber-01.png)
+![{{k8s_management_service}} cluster status](assets/shoot-hiber-01.png)
 
 To go ahead and actually hibernate the cluster, click the orange :material-dots-horizontal-circle: icon at the right-hand side of the cluster row.
 From the pop-up menu that appears, select *Hibernate Cluster*.
 
-![Hibernate cluster](assets/garhiber-02.png)
+![Hibernate cluster](assets/shoot-hiber-02.png)
 
 A big pop-up window labeled *About to hibernate a gardener shoot* appears, asking you to confirm the action.
 Click the red button labeled *Yes, Hibernate*.
 
-![Confirm cluster hibernation](assets/garhiber-03.png)
+![Confirm cluster hibernation](assets/shoot-hiber-03.png)
+
+The cluster will begin hibernating.
+The animated icon at the left-hand side of the cluster row marks the progress.
+
+![Hibernation in progress](assets/shoot-hiber-04.png)
 
 After a minute or two, the cluster will be in a hibernated state.
-This fact will be indicated by the red :material-stop-circle: icon, at the left-hand side of the cluster row.
+This fact will be indicated by the red :material-stop-circle: icon, again at the left-hand side of the cluster row.
 
-![Cluster in hibernation](assets/garhiber-04.png)
+![Cluster in hibernation](assets/shoot-hiber-05.png)
 
 From this point on, and as long as the cluster is in hibernation, any attempt to list the cluster nodes, e.g., via `kubectl`, will fail.
 
@@ -45,16 +50,21 @@ From this point on, and as long as the cluster is in hibernation, any attempt to
 To wake up a cluster in hibernation, click the orange :material-dots-horizontal-circle: icon at the right-hand side of its row.
 From the pop-up menu that appears, select *Wake up Cluster*.
 
-![Wake up cluster](assets/garhiber-05.png)
+![Wake up cluster](assets/shoot-hiber-06.png)
 
 A big pop-up window labeled *About to wakeup a gardener shoot* appears, asking you to confirm that you want to wake the cluster.
 Go ahead and click the red *Yes, Wakeup* button.
 
-![Confirm cluster wake-up](assets/garhiber-06.png)
+![Confirm cluster wake-up](assets/shoot-hiber-07.png)
+
+The cluster will start waking up.
+Again, the animated icon at the left-hand side of the cluster row marks the progress.
+
+![Cluster is awaking](assets/shoot-hiber-08.png)
 
 After a couple of minutes, the cluster will be fully awake.
 The fact will be indicated by the green :material-check-circle: icon, at the left-hand side of the cluster row.
 
-![Cluster awake](assets/garhiber-07.png)
+![Cluster awake](assets/shoot-hiber-09.png)
 
 From that time on, the cluster will be fully operational and accessible again.
