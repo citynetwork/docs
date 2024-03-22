@@ -4025,27 +4025,33 @@ In the main pane, you will see your Gardener cluster.
 Click anywhere on its row for a detailed view of the various cluster characteristics.
 Bring up the <em>Status</em> tab and, in the <em>Constraints</em> section, check whether hibernation is possible.
 In the example below we have a shoot cluster based on Kubernetes 1.28, the latest supported at the time of this writing, and hibernation is indeed possible.</p>
-<p><a class="glightbox" href="../assets/garhiber-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Gardener cluster status" src="../assets/garhiber-01.png" /></a></p>
+<p><a class="glightbox" href="../assets/shoot-hiber-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Gardener cluster status" src="../assets/shoot-hiber-01.png" /></a></p>
 <p>To go ahead and actually hibernate the cluster, click the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5Z"/></svg></span> icon at the right-hand side of the cluster row.
 From the pop-up menu that appears, select <em>Hibernate Cluster</em>.</p>
-<p><a class="glightbox" href="../assets/garhiber-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernate cluster" src="../assets/garhiber-02.png" /></a></p>
+<p><a class="glightbox" href="../assets/shoot-hiber-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernate cluster" src="../assets/shoot-hiber-02.png" /></a></p>
 <p>A big pop-up window labeled <em>About to hibernate a gardener shoot</em> appears, asking you to confirm the action.
 Click the red button labeled <em>Yes, Hibernate</em>.</p>
-<p><a class="glightbox" href="../assets/garhiber-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm cluster hibernation" src="../assets/garhiber-03.png" /></a></p>
+<p><a class="glightbox" href="../assets/shoot-hiber-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm cluster hibernation" src="../assets/shoot-hiber-03.png" /></a></p>
+<p>The cluster will begin hibernating.
+The animated icon at the left-hand side of the cluster row marks the progress.</p>
+<p><a class="glightbox" href="../assets/shoot-hiber-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernation in progress" src="../assets/shoot-hiber-04.png" /></a></p>
 <p>After a minute or two, the cluster will be in a hibernated state.
-This fact will be indicated by the red <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2M9 9h6v6H9"/></svg></span> icon, at the left-hand side of the cluster row.</p>
-<p><a class="glightbox" href="../assets/garhiber-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster in hibernation" src="../assets/garhiber-04.png" /></a></p>
+This fact will be indicated by the red <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2M9 9h6v6H9"/></svg></span> icon, again at the left-hand side of the cluster row.</p>
+<p><a class="glightbox" href="../assets/shoot-hiber-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster in hibernation" src="../assets/shoot-hiber-05.png" /></a></p>
 <p>From this point on, and as long as the cluster is in hibernation, any attempt to list the cluster nodes, e.g., via <code>kubectl</code>, will fail.</p>
 <h2 id="waking-up-a-cluster-in-hibernation">Waking up a cluster in hibernation</h2>
 <p>To wake up a cluster in hibernation, click the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5Z"/></svg></span> icon at the right-hand side of its row.
 From the pop-up menu that appears, select <em>Wake up Cluster</em>.</p>
-<p><a class="glightbox" href="../assets/garhiber-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wake up cluster" src="../assets/garhiber-05.png" /></a></p>
+<p><a class="glightbox" href="../assets/shoot-hiber-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wake up cluster" src="../assets/shoot-hiber-06.png" /></a></p>
 <p>A big pop-up window labeled <em>About to wakeup a gardener shoot</em> appears, asking you to confirm that you want to wake the cluster.
 Go ahead and click the red <em>Yes, Wakeup</em> button.</p>
-<p><a class="glightbox" href="../assets/garhiber-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm cluster wake-up" src="../assets/garhiber-06.png" /></a></p>
+<p><a class="glightbox" href="../assets/shoot-hiber-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm cluster wake-up" src="../assets/shoot-hiber-07.png" /></a></p>
+<p>The cluster will start waking up.
+Again, the animated icon at the left-hand side of the cluster row marks the progress.</p>
+<p><a class="glightbox" href="../assets/shoot-hiber-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster is awaking" src="../assets/shoot-hiber-08.png" /></a></p>
 <p>After a couple of minutes, the cluster will be fully awake.
 The fact will be indicated by the green <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9Z"/></svg></span> icon, at the left-hand side of the cluster row.</p>
-<p><a class="glightbox" href="../assets/garhiber-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster awake" src="../assets/garhiber-07.png" /></a></p>
+<p><a class="glightbox" href="../assets/shoot-hiber-09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster awake" src="../assets/shoot-hiber-09.png" /></a></p>
 <p>From that time on, the cluster will be fully operational and accessible again.</p>
 
 
@@ -4069,7 +4075,7 @@ The fact will be indicated by the green <span class="twemoji"><svg xmlns="http:/
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-02-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-03-21</span>
   </span>
 
     
@@ -4089,11 +4095,11 @@ The fact will be indicated by the green <span class="twemoji"><svg xmlns="http:/
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas
     </nav>
   </span>
 
