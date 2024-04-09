@@ -25,7 +25,7 @@ At the top right-hand side of the central pane, click on *Create Kubernetes cl
 A new pane named *Create {{k8s_management_service}} Shoot Cluster* slides over from the right-hand side of the browser.
 Type in a name for the new shoot cluster, and select a region.
 Also, select the version of Kubernetes the new cluster will be running.
-In the example below, we have chosen version 1.28.7, which, at the time of writing, was the latest supported in {{brand}}.
+In the example below, we have chosen version 1.29.3, which, at the time of writing, was the latest supported in {{brand}}.
 
 !["Create {{k8s_management_service}} Shoot Cluster" panel, showing options to type in a cluster name, select region and Kubernetes version](assets/create-shoot-01.png)
 
