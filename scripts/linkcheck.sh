@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.*'
+DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.* .*conventionalcommits.org.*'
 
 if test `basename $0` = "linkcheck-local.sh"; then
     DOCS_SITE_URL="http://localhost:8000"
