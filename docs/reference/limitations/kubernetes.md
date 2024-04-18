@@ -10,7 +10,7 @@ The legacy `swarm` and `mesos` COEs are not supported.
 
 ### Kubernetes version
 
-The latest Kubernetes version you can install in {{brand}} with OpenStack Magnum is 1.21.14.
+The latest Kubernetes version you can install in {{brand}} with OpenStack Magnum is 1.24.16.
 
 ### IP version
 
