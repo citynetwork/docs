@@ -20,9 +20,9 @@ $ openstack volume type list
 +--------------------------------------+-----------------------+-----------+
 | ID                                   | Name                  | Is Public |
 +--------------------------------------+-----------------------+-----------+
-| a479a6b0-b283-41a5-b38b-5b08e7f902ca | volumes_hdd_encrypted | True      |
+| a479a6b0-b283-41a5-b38b-5b08e7f902ca | cbs-encrypted         | True      |
 | d9dfa98a-238d-4ca0-9abf-701fceb05623 | __DEFAULT__           | True      |
-| 86796611-fb12-4628-b6b1-e09469e301d7 | volumes_hdd           | True      |
+| 86796611-fb12-4628-b6b1-e09469e301d7 | cbs                   | True      |
 +--------------------------------------+-----------------------+-----------+
 ```
 
@@ -31,12 +31,12 @@ $ openstack volume type list
 
 To create a volume with encryption, you need to explicitly specify the
 `--type` option to the `openstack volume create` command. The
-following example creates a volume using the `volumes_hdd_encrypted`
+following example creates a volume using the `cbs-encrypted`
 type, naming it `enc_drive` and setting its size to 10 GiB:
 
 ```console
 $ openstack volume create \
-  --type volumes_hdd_encrypted \
+  --type cbs-encrypted \
   --size 10 \
   enc_drive
 +---------------------+--------------------------------------+
@@ -58,7 +58,7 @@ $ openstack volume create \
 | snapshot_id         | None                                 |
 | source_volid        | None                                 |
 | status              | creating                             |
-| type                | volumes_hdd_encrypted                |
+| type                | cbs-encrypted                        |
 | updated_at          | None                                 |
 | user_id             | 966ad341f4e14920b5f589f900246ccc     |
 +---------------------+--------------------------------------+

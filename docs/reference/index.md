@@ -11,6 +11,8 @@ It serves to provide general reference information about {{brand}} services.
 
 * The **[Flavors](flavors/index.md)** reference explains our naming convention for pre-defined CPU/RAM/disk configurations ("flavors") for server instances, and their availability across {{brand}} regions.
 
+* The **[Volume Types](volumes/index.md)** reference lists the available persistent block storage ("volume") types.
+
 * Our **[Service Version Matrix](versions/index.md)** lists the open source software versions running in our {{brand}} regions.
 
 ## API reference
