@@ -204,7 +204,7 @@ use the following command:
 
     ```bash
     aws --profile <region> \
-      s3api put-legal-hold \
+      s3api put-object-legal-hold \
       --bucket <bucket-name> \
       --key <object-name> \
       --legal-hold Status=ON
@@ -224,7 +224,7 @@ use the following command:
 === "aws"
     ```bash
     aws --profile <region> \
-      s3api put-legal-hold \
+      s3api put-object-legal-hold \
       --bucket <bucket-name> \
       --key <object-name> \
       --legal-hold Status=ON
