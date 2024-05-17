@@ -83,15 +83,11 @@ use one of the following commands:
 === "aws"
     ```bash
     aws --profile <region> \
-      s3api put-object-retention \
+      s3api put-object-lock-configuration \
       --bucket <bucket-name> \
-      --key <object-name> \
-      --retention \
-      '{ "Mode": "COMPLIANCE", "RetainUntilDate": "2023-12-31T00:00:00Z" }'
+      --object-lock-configuration \
+      '{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 30 }}}'
     ```
-    > For the value of the `RetainUntilDate` parameter, use the
-    > [ISO 8601 date-time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)
-    > format.
 === "mc"
     ```bash
     mc retention set \
@@ -170,6 +166,9 @@ an object, use the following command:
       }
     }
     ```
+    > For the value of the `RetainUntilDate` parameter, use the
+    > [ISO 8601 date-time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)
+    > format.
 === "mc"
     ```bash
     mc retention info --json <region>/<bucket>/<object-name>
