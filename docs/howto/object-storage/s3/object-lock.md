@@ -91,11 +91,10 @@ use one of the following commands:
 === "mc"
     ```bash
     mc retention set \
-      <region>/<bucket> \
-      --default compliance "2d"
+      --default compliance 30d \
+      <region>/<bucket>
     ```
-    > `--default` sets the default object lock settings for new objects and
-    > is optional.
+    > The `--default` parameter sets the default object lock settings for new objects, and is optional.
 
     > To specify a duration, use a string formatted as `Nd`
     > for days or `Ny` for years.
@@ -265,6 +264,7 @@ use the following command:
     mc legalhold set \
       <region>/<bucket>/<object-name>
     ```
+    > To remove the legal hold, use the `clear` command instead of `set`.
 
 ## Retrieve the legal hold status for an object
 
