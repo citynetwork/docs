@@ -103,6 +103,36 @@ use one of the following commands:
     > the object creation, or use `1y` to indicate 1 year
     > after the object creation.
 
+## Configure the object lock mode and retention period for a single object
+
+If you want to set a specific retention period for an object,
+instead of using the default retention period, use one of the
+following commands. You can also use these commands to update
+the retention period for an object:
+
+=== "aws"
+    ```bash
+    aws --profile <region> \
+      s3api put-object-retention \
+      --bucket <bucket-name> \
+      --key <object-name> \
+      --retention '{ "Mode": "COMPLIANCE", "RetainUntilDate": "2023-01-01T12:00:00.00Z" }'
+    ```
+    > For the value of the `RetainUntilDate` parameter, use the
+    > [ISO 8601 date-time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)
+    > format.
+=== "mc"
+    ```bash
+    mc retention set \
+      COMPLIANCE 30d \
+      <region>/<bucket>/<object-name>
+    ```
+    > To specify a duration, use a string formatted as `Nd`
+    > for days or `Ny` for years.
+    > For example, use `30d` to indicate 30 days after
+    > the object creation, or use `1y` to indicate 1 year
+    > after the object creation.
+
 ## Retrieve the object lock mode and retention period
 
 ### Bucket-level
@@ -197,17 +227,18 @@ To configure the legal hold for all objects in a bucket,
 use the following command:
 
 === "aws"
-    In contrast to the `mc` command, which can recursively set
-    the legal hold for all objects in a bucket, the `aws`
+    The `aws s3api`
     command **can only set the legal hold for a single object**
-    at a time.
+    at a time. However, you can use the `ls` command along with
+    `--recursive` to list all objects in a bucket, and then
+    set the legal hold for each object in your bucket.
 
     ```bash
     aws --profile <region> \
-      s3api put-object-legal-hold \
-      --bucket <bucket-name> \
-      --key <object-name> \
-      --legal-hold Status=ON
+      s3api list-objects \
+      --bucket <bucket-name \
+      | jq .Contents[].Key \
+      | xargs -n1 aws --profile <region> s3api put-object-legal-hold --legal-hold Status=ON --bucket <bucket-name> --key
     ```
 === "mc"
     ```bash
