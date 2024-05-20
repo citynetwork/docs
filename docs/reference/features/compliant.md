@@ -15,7 +15,7 @@
 |                                                                 | Sto1HS           | Sto2HS           |
 | ------------------------------                                  | ---------------- | ---------------- |
 | Highly available storage                                        | :material-check: | :material-check: |
-| [High-performance local storage](../flavors/index.md#compute-tiers)  | :material-close: | :material-close: |
+| [High-performance local storage](../flavors/index.md#compute-tiers)  | :material-check: | :material-check: |
 | [Volume encryption](../../howto/openstack/cinder/encrypted-volumes.md) | :material-check: | :material-check: |
 
 
