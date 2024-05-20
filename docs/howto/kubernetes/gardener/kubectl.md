@@ -192,7 +192,7 @@ You should see the page of the Hello World app.
 
 Whether using a certificate-based kubeconfig file or not, you can rotate it for a fresh one.
 Since certificate-based kubeconfig files have time-bound validity anyway, issuing fresh kubeconfig files of this type is standard practice.
-In addition to issuing new certificate-based kubeconfig files, it is highly recommended to rotate the [CA bundle](https://www.ssldragon.com/blog/what-is-a-ca-bundle) used for creating the kubeconfig files in the first place.
+In addition to issuing new certificate-based kubeconfig files, it is highly recommended to rotate the CA bundle used for creating the kubeconfig files in the first place.
 
 It is also recommended to periodically rotate static kubeconfig files;
 even though they never expire, this very fact makes them less secure than certificate-based ones.
