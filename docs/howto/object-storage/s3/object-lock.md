@@ -257,8 +257,11 @@ use the following command:
       s3api put-object-legal-hold \
       --bucket <bucket-name> \
       --key <object-name> \
+      --version-id <version-id> \
       --legal-hold Status=ON
     ```
+    > Note that if you don't specify a version ID, the legal hold
+    > will be applied to the latest version of the object.
 === "mc"
     ```bash
     mc legalhold set \
