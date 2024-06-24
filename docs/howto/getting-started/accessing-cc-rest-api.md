@@ -125,22 +125,6 @@ All supported regions should be returned as objects in a JSON array:
   },
   {
     "area": {
-      "id": "3",
-      "name": "Japan",
-      "tag": "JP",
-      "regions": [
-        {
-          "zone_id": "7",
-          "name": "Tokyo \/ Japan",
-          "status": "active",
-          "region": "tky1"
-        }
-      ]
-    },
-    "status": "available"
-  },
-  {
-    "area": {
       "id": "7",
       "name": "Germany \/ Frankfurt",
       "tag": "DE",
