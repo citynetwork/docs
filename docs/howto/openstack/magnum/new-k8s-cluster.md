@@ -45,17 +45,31 @@ package manager of your operating system or `pip`:
 
     ![Name and region](assets/shot-02.png)
 
-    A bit further below, use the drop-down menus to select a template and a
-    keypair for the cluster nodes. Then, click the green *Create* button.
+    A bit further below, use the drop-down menus to select a template and a keypair for the cluster nodes.
+    Notice the *Docker volume size* option which, by default, is set to 50 GiB.
+    This pertains to the size of the extra block device each cluster node will have.
+    That whole storage capacity will be used for saving persistent data.
+    If you believe the default size is too much or too little, change it accordingly.
+    Unless you want to define the number of master nodes or the number of worker nodes, click the green *Create* button now.
 
     ![Select template and keypair](assets/shot-03.png)
 
-    The cluster creation process begins and takes some time to complete.
-    While waiting, bring the vertical pane on the left-hand side of the
-    {{gui}} in full view, select *Magnum* → *Clusters*, and in the main
-    pane, take a look at the creation progress. You can tell when the whole
-    process is complete by the icon at the left of the cluster row, or by
-    the text in the *Status* column.
+    If you do want to play with the aforementioned parameters, then before
+    clicking the *Create* button go ahead and expand the *Advanced Options*
+    section. Since the new cluster templates come with the master load
+    balancer enabled by default, you might want to equip your new cluster
+    with 3 master nodes. Optionally, increase the number of worker nodes
+    from 1 (the default) to, say, 3. Contrary to the number of master nodes,
+    you may change the number of worker nodes *after* the cluster is created.
+
+    ![Cluster creation in progress](assets/shot-03.1.png)
+
+    When the cluster creation process begins, please keep in mind that it
+    takes some time to complete. While waiting, bring the vertical pane on
+    the left-hand side of the {{gui}} in full view, select
+    *Magnum* → *Clusters*, and in the main pane, take a look at the creation
+    progress. You can tell when the whole process is complete by the animated
+    icon at the left of the cluster row.
 
     ![Magnum cluster ready](assets/shot-04.png)
 === "OpenStack CLI"
@@ -66,86 +80,128 @@ package manager of your operating system or `pip`:
     openstack coe cluster create \
         --cluster-template $CLUSTER_TMPL \
         --keypair $KEYPAIR \
+        --docker-volume-size $PERSIST_VOL_SIZE \
         $CLUSTER_NAME
     ```
 
-    You can now list all available templates in the region:
+    First, list all available templates in the region:
 
-    ```bash
-    openstack coe cluster template list
+    ```console
+    $ openstack coe cluster template list
+    +--------------------------------------+---------------------------------------------+------+
+    | uuid                                 | name                                        | tags |
+    +--------------------------------------+---------------------------------------------+------+
+    | 3f476f01-b3de-4687-a188-6829ed947db0 | Kubernetes 1.15.5 on Fedora-atomic 29       | None |
+    |                                      | 4C-8GB-20GB No Master LB                    |      |
+    | c458f02d-54b0-4ef8-abbc-e1c25b61165a | Kubernetes 1.15.5 on Fedora-atomic 29       | None |
+    |                                      | 2C-4GB-20GB No Master LB                    |      |
+    | f9e1a2ea-b1ff-43e7-8d1e-6dd5861b82cf | Kubernetes 1.18.6 on Fedora-coreos 33       | None |
+    |                                      | 2C-4GB-20GB No Master LB                    |      |
+    | 59bd894b-0f5f-4a6e-98d3-a3eb7040faab | Kubernetes v1.23.3 on Fedora-coreos 35      | None |
+    | 9ca03308-996e-4eaa-b507-5730dcc19fcc | Kubernetes v1.24.16 on Fedora-coreos 37     | None |
+    +--------------------------------------+---------------------------------------------+------+
     ```
 
-    ```plain
-    +--------------------------------------+----------------------------------------------------------------+------+
-    | uuid                                 | name                                                           | tags |
-    +--------------------------------------+----------------------------------------------------------------+------+
-    | 3f476f01-b3de-4687-a188-6829ed947db0 | Kubernetes 1.15.5 on Fedora-atomic 29 4C-8GB-20GB No Master LB | None |
-    | c458f02d-54b0-4ef8-abbc-e1c25b61165a | Kubernetes 1.15.5 on Fedora-atomic 29 2C-4GB-20GB No Master LB | None |
-    | f9e1a2ea-b1ff-43e7-8d1e-6dd5861b82cf | Kubernetes 1.18.6 on Fedora-coreos 33 2C-4GB-20GB No Master LB | None |
-    +--------------------------------------+----------------------------------------------------------------+------+
-    ```
+    Select the template you want by setting the corresponding `name`
+    value to the `CLUSTER_TMPL` variable:
 
-    Select the template you want by setting the corresponding `uuid`
-    value to the  `CLUSTER_TMPL` variable:
-
-    ```bash
-    CLUSTER_TMPL="f9e1a2ea-b1ff-43e7-8d1e-6dd5861b82cf" # just an example
+    ```console
+    $ CLUSTER_TMPL="Kubernetes v1.24.16 on Fedora-coreos 37"
     ```
 
     Then, list all available keypairs...
 
-    ```bash
-    openstack keypair list
+    ```console
+    $ openstack keypair list
+    +----------+-------------------------------------------------+------+
+    | Name     | Fingerprint                                     | Type |
+    +----------+-------------------------------------------------+------+
+    | lefkanti | e7:e9:c5:95:ee:7b:72:37:3c:89:c5:fc:6e:8c:a1:72 | ssh  |
+    +----------+-------------------------------------------------+------+
     ```
 
-    ```plain
-    +---------+-------------------------------------------------+------+
-    | Name    | Fingerprint                                     | Type |
-    +---------+-------------------------------------------------+------+
-    | husavik | 34:3b:58:ba:ec:95:f5:17:17:df:04:38:11:89:e6:3d | ssh  |
-    +---------+-------------------------------------------------+------+
-    ```
-
-    ...and set the `KEYPAIR` variable to the name of the keypair you
+    ...and set the `KEYPAIR` variable to the `Name` of the keypair you
     want:
 
-    ```bash
-    KEYPAIR="husavik" # again, this is just an example
+    ```console
+    $ KEYPAIR="lefkanti" # this is just an example
     ```
 
+    Besides the OS disk, all cluster nodes have an extra disk for permanently storing application data.
+    The size of this extra disk is specified during cluster creation via the `--docker-volume-size` parameter.
+    Staying loyal to the theme of setting parameters via shell variables, decide on the size of this extra volume like so:
+
+    ```console
+    $ PERSIST_VOL_SIZE=50
+    ```
+
+    The size is expressed in Gibibytes, and in the example above, we decided to go with a 50GiB extra volume.
     Finally, decide on a name for your new Kubernetes cluster:
 
-    ```bash
-    CLUSTER_NAME="bangor"
+    ```console
+    $ CLUSTER_NAME="bangor"
     ```
 
     With everything in place, go ahead and create your new Kubernetes
-    cluster:
+    cluster like so:
 
-    ```bash
-    openstack coe cluster create \
-        --cluster-template $CLUSTER_TMPL \
-        --keypair husavik
-        bangor
+    ```console
+    $ openstack coe cluster create \
+        --cluster-template "$CLUSTER_TMPL" \
+        --keypair $KEYPAIR \
+        --docker-volume-size $PERSIST_VOL_SIZE \
+        $CLUSTER_NAME
     ```
 
-    If everything went well with your request for a new cluster, on your
-    terminal, you would see a message like the following:
+    New Magnum clusters start with 1 master node and 1 worker node by default.
+    Since the new cluster templates have the master load balancer enabled,
+    you might want to give your cluster 3 master nodes from the get-go.
+    Optionally, you can increase the number of worker nodes from 1 to 3 or to 5.
+    Contrary to the number of master nodes, you can always change the number of
+    worker nodes *after* the cluster is created. So, to start the new cluster
+    with 3 master nodes and 5 worker nodes, type the following:
+
+    ```console
+    $ openstack coe cluster create \
+        --cluster-template "$CLUSTER_TMPL" \
+        --keypair $KEYPAIR \
+        --docker-volume-size $PERSIST_VOL_SIZE \
+        --master-count 3 \
+        --node-count 3 \
+        $CLUSTER_NAME
+    ```
+
+    In any case, if everything went well with your request for a new cluster,
+    on the terminal, you will see a message like the following:
 
     ```plain
-    Request to create cluster e0df8c62-c6f6-4c7d-b67e-33e3606e9ab6 accepted
+    Request to create cluster 7ca7838a-aa33-4259-8784-02e5941a2cf0 accepted
     ```
 
     The cluster creation process takes some time to complete, and while
     you are waiting, you can check if everything is progressing smoothly:
 
-    ```bash
-    openstack coe cluster list -c status
+    ```console
+    $ openstack coe cluster list -c status
+    +--------------------+
+    | status             |
+    +--------------------+
+    | CREATE_IN_PROGRESS |
+    +--------------------+
     ```
 
     If everything is going well, the message you will get will be
     `CREATE_IN_PROGRESS`. When Magnum has finished creating the cluster, the
     message will be `CREATE_COMPLETE`.
+
+    ```console
+    $ openstack coe cluster list -c status
+    +-----------------+
+    | status          |
+    +-----------------+
+    | CREATE_COMPLETE |
+    +-----------------+
+    ```
 
 ## Viewing the Kubernetes cluster
 
@@ -160,49 +216,45 @@ get detailed information about it.
 
     ![Cluster row](assets/shot-05.png)
 
-    To get more information on the cluster, just click on its row.
-    Then, all relative information is displayed below the row.
+    To see more of the cluster, just click on its row.
+    Then, all relative information will appear below.
 
     ![Cluster info](assets/shot-06.png)
 === "OpenStack CLI"
     To list all available Kubernetes clusters, type:
 
-    ```bash
-    openstack coe cluster list
+    ```console
+    $ openstack coe cluster list
+    +---------------+--------+----------+------------+--------------+---------------+---------------+
+    | uuid          | name   | keypair  | node_count | master_count | status        | health_status |
+    +---------------+--------+----------+------------+--------------+---------------+---------------+
+    | 7ca7838a-     | bangor | lefkanti |          1 |            1 | CREATE_COMPLE | HEALTHY       |
+    | aa33-4259-    |        |          |            |              | TE            |               |
+    | 8784-         |        |          |            |              |               |               |
+    | 02e5941a2cf0  |        |          |            |              |               |               |
+    +---------------+--------+----------+------------+--------------+---------------+---------------+
     ```
 
-    ```plain
-    +---------------+--------+---------+------------+--------------+---------------+---------------+
-    | uuid          | name   | keypair | node_count | master_count | status        | health_status |
-    +---------------+--------+---------+------------+--------------+---------------+---------------+
-    | e0df8c62-c6f6 | bangor | husavik |          1 |            1 | CREATE_COMPLE | HEALTHY       |
-    | -4c7d-b67e-33 |        |         |            |              | TE            |               |
-    | e3606e9ab6    |        |         |            |              |               |               |
-    +---------------+--------+---------+------------+--------------+---------------+---------------+
-    ```
+    For many more details on a specific cluster, issue a command like this:
 
-    For many more details on a specific cluster, note its name and run a
-    command like this:
-
-    ```bash
-    openstack coe cluster show bangor
-    ```
-
-    ```plain
+    ```console
+    $ openstack coe cluster show $CLUSTER_NAME
     +----------------------+---------------------------------------------------------------------------+
     | Field                | Value                                                                     |
     +----------------------+---------------------------------------------------------------------------+
     | status               | CREATE_COMPLETE                                                           |
     | health_status        | HEALTHY                                                                   |
-    | cluster_template_id  | f9e1a2ea-b1ff-43e7-8d1e-6dd5861b82cf                                      |
-    | node_addresses       | ['192.0.2.105']                                                           |
-    | uuid                 | e0df8c62-c6f6-4c7d-b67e-33e3606e9ab6                                      |
-    | stack_id             | e3725aed-f665-4e8d-9409-85f5ee5e2f4a                                      |
+    | cluster_template_id  | 9ca03308-996e-4eaa-b507-5730dcc19fcc                                      |
+    | node_addresses       | ['198.51.100.5']                                                          |
+    | uuid                 | 7ca7838a-aa33-4259-8784-02e5941a2cf0                                      |
+    | stack_id             | 923c938a-81cd-4a0d-b645-0681ff507bc5                                      |
     | status_reason        | None                                                                      |
-    | created_at           | 2022-11-14T07:32:02+00:00                                                 |
-    | updated_at           | 2022-11-14T07:37:26+00:00                                                 |
-    | coe_version          | v1.18.6                                                                   |
-    | labels               | {'kube_tag': 'v1.18.6', 'heat_container_agent_tag': 'train-stable'}       |
+    | created_at           | 2024-07-05T12:00:41+00:00                                                 |
+    | updated_at           | 2024-07-05T12:08:52+00:00                                                 |
+    | coe_version          | v1.24.16-rancher1                                                         |
+    | labels               | {'container_runtime': 'containerd', 'cinder_csi_enabled': 'True',         |
+    |                      | 'cloud_provider_enabled': 'True', 'docker_volume_size': '20', 'kube_tag': |
+    |                      | 'v1.24.16-rancher1', 'hyperkube_prefix': 'docker.io/rancher/'}            |
     | labels_overridden    | {}                                                                        |
     | labels_skipped       | {}                                                                        |
     | labels_added         | {}                                                                        |
@@ -210,20 +262,20 @@ get detailed information about it.
     | fixed_subnet         | None                                                                      |
     | floating_ip_enabled  | True                                                                      |
     | faults               |                                                                           |
-    | keypair              | husavik                                                                   |
-    | api_address          | https://192.0.2.136:6443                                                  |
-    | master_addresses     | ['192.0.2.136']                                                           |
-    | master_lb_enabled    | False                                                                     |
+    | keypair              | lefkanti                                                                  |
+    | api_address          | https://203.0.113.129:6443                                                |
+    | master_addresses     | ['203.0.113.144']                                                         |
+    | master_lb_enabled    | True                                                                      |
     | create_timeout       | 60                                                                        |
     | node_count           | 1                                                                         |
-    | discovery_url        | https://discovery.etcd.io/23af721dc3ee773d2674db4881ff70cb                |
+    | discovery_url        | https://discovery.etcd.io/f1473529bd109bea2fb02ac936497b95                |
     | docker_volume_size   | 50                                                                        |
     | master_count         | 1                                                                         |
     | container_version    | 1.12.6                                                                    |
     | name                 | bangor                                                                    |
-    | master_flavor_id     | 2C-4GB-20GB                                                               |
-    | flavor_id            | 2C-4GB-20GB                                                               |
-    | health_status_reason | {'bangor-id6nijycp2wy-master-0.Ready': 'True', 'bangor-id6nijycp2wy-      |
+    | master_flavor_id     | b.2c4gb                                                                   |
+    | flavor_id            | b.4c24gb                                                                  |
+    | health_status_reason | {'bangor-xh3fuqin3arw-master-0.Ready': 'True', 'bangor-xh3fuqin3arw-      |
     |                      | node-0.Ready': 'True', 'api': 'ok'}                                       |
     | project_id           | dfc700467396428bacba4376e72cc3e9                                          |
     +----------------------+---------------------------------------------------------------------------+
