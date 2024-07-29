@@ -144,22 +144,6 @@ All supported regions should be returned as objects in a JSON array:
   },
   {
     "area": {
-      "id": "2",
-      "name": "United Arab Emirates",
-      "tag": "AE",
-      "regions": [
-        {
-          "zone_id": "8",
-          "name": "Dubai \/ UAE",
-          "status": "active",
-          "region": "dx1"
-        }
-      ]
-    },
-    "status": "available"
-  },
-  {
-    "area": {
       "id": "1",
       "name": "Europe",
       "tag": "EU",

@@ -7,52 +7,49 @@
 > :material-logout: Feature is deprecated, being phased out
 >
 > :material-close: Feature is not available
-> ## Sunset dates
->
-> Please note that the **Dx1** region will no longer be available after 2024-07-21.
 
 ## Virtualization
-|                                                              | Kna1                  | Sto2                  | Fra1             | Dx1              |
-| -------------                                                | ----------------      | --------------------- | ---------------- | ---------------- |
-| [Physical CPUs](../flavors/index.md#compute-tiers)           | :material-close:      | :material-timer-sand: | :material-close: | :material-close: |
+|                                                              | Kna1                  | Sto2                  | Fra1             |
+| -------------                                                | ----------------      | --------------------- | ---------------- |
+| [Physical CPUs](../flavors/index.md#compute-tiers)           | :material-close:      | :material-timer-sand: | :material-close: |
 
 
 ## Block storage
-|                                                                        | Kna1             | Sto2             | Fra1             | Dx1              |
-| ------------------------------                                         | ---------------- | ---------------- | ---------------- | ---------------- |
-| Highly available storage                                               | :material-check: | :material-check: | :material-check: | :material-check: |
-| [High-performance local storage](../flavors/index.md#compute-tiers)    | :material-check: | :material-check: | :material-check: | :material-close: |
-| [Volume encryption](../../howto/openstack/cinder/encrypted-volumes.md) | :material-check: | :material-check: | :material-check: | :material-check: |
+|                                                                        | Kna1             | Sto2             | Fra1             |
+| ------------------------------                                         | ---------------- | ---------------- | ---------------- |
+| Highly available storage                                               | :material-check: | :material-check: | :material-check: |
+| [High-performance local storage](../flavors/index.md#compute-tiers)    | :material-check: | :material-check: | :material-check: |
+| [Volume encryption](../../howto/openstack/cinder/encrypted-volumes.md) | :material-check: | :material-check: | :material-check: |
 
 
 ## Object storage
-|                                                                | Kna1             | Sto2             | Fra1             | Dx1              |
-| ------------------------------                                 | ---------------- | ---------------- | ---------------- | ---------------- |
-| S3 API                                                         | :material-check: | :material-close: | :material-check: | :material-check: |
-| S3 [SSE-C](../../howto/object-storage/s3/sse-c.md)             | :material-check: | :material-close: | :material-check: | :material-check: |
-| S3 [object lock](../../howto/object-storage/s3/object-lock.md) | :material-check: | :material-close: | :material-check: | :material-check: |
-| Swift API                                                      | :material-check: | :material-close: | :material-check: | :material-check: |
+|                                                                | Kna1             | Sto2             | Fra1             |
+| ------------------------------                                 | ---------------- | ---------------- | ---------------- |
+| S3 API                                                         | :material-check: | :material-close: | :material-check: |
+| S3 [SSE-C](../../howto/object-storage/s3/sse-c.md)             | :material-check: | :material-close: | :material-check: |
+| S3 [object lock](../../howto/object-storage/s3/object-lock.md) | :material-check: | :material-close: | :material-check: |
+| Swift API                                                      | :material-check: | :material-close: | :material-check: |
 
 
 ## Networking (Layer 2/3)
-|                      | Kna1             | Sto2             | Fra1             | Dx1              |
-| -------------------- | ---------------- | ---------------- | ---------------- | ---------------- |
-| IPv4 (with NAT)      | :material-check: | :material-check: | :material-check: | :material-check: |
-| IPv6                 | :material-check: | :material-check: | :material-check: | :material-check: |
-| VPN (IPsec with PSK) | :material-check: | :material-check: | :material-check: | :material-check: |
+|                      | Kna1             | Sto2             | Fra1             |
+| -------------------- | ---------------- | ---------------- | ---------------- |
+| IPv4 (with NAT)      | :material-check: | :material-check: | :material-check: |
+| IPv6                 | :material-check: | :material-check: | :material-check: |
+| VPN (IPsec with PSK) | :material-check: | :material-check: | :material-check: |
 
 
 ## Load Balancers
-|                                                                                                                    | Kna1             | Sto2             | Fra1             | Dx1              |
-| --------------------------------------------------------------------                                               | ---------------- | ---------------- | ---------------- | ---------------- |
-| Transport layer (TCP/UDP)                                                                                          | :material-check: | :material-check: | :material-check: | :material-check: |
-| Application layer (HTTP)                                                                                           | :material-check: | :material-check: | :material-check: | :material-check: |
-| Application layer ([HTTPS, with secrets management for TLS certificates](../../howto/openstack/octavia/tls-lb.md)) | :material-check: | :material-check: | :material-check: | :material-check: |
-| [Metrics endpoint](../../howto/openstack/octavia/metrics.md)                                                       | :material-check: | :material-check: | :material-check: | :material-check: |
+|                                                                                                                    | Kna1             | Sto2             | Fra1             |
+| --------------------------------------------------------------------                                               | ---------------- | ---------------- | ---------------- |
+| Transport layer (TCP/UDP)                                                                                          | :material-check: | :material-check: | :material-check: |
+| Application layer (HTTP)                                                                                           | :material-check: | :material-check: | :material-check: |
+| Application layer ([HTTPS, with secrets management for TLS certificates](../../howto/openstack/octavia/tls-lb.md)) | :material-check: | :material-check: | :material-check: |
+| [Metrics endpoint](../../howto/openstack/octavia/metrics.md)                                                       | :material-check: | :material-check: | :material-check: |
 
 
 ## Kubernetes management
-|                            | Kna1                  | Sto2                  | Fra1                  | Dx1              |
-| -----------------          | ----------------      | ----------------      | ----------------      | ---------------- |
-| OpenStack Magnum           | :material-check:      | :material-check:      | :material-check:      | :material-check: |
-| {{k8s_management_service}} | :material-timer-sand: | :material-timer-sand: | :material-timer-sand: | :material-close: |
+|                            | Kna1                  | Sto2                  | Fra1                  |
+| -----------------          | ----------------      | ----------------      | ----------------      |
+| OpenStack Magnum           | :material-check:      | :material-check:      | :material-check:      |
+| {{k8s_management_service}} | :material-timer-sand: | :material-timer-sand: | :material-timer-sand: |
