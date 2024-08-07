@@ -37,8 +37,8 @@ now have to take three simple steps.
   for example, a username for the account user, and make sure you
   define a strong password for them. (A password manager may come in
   handy.) Please note that all fields are mandatory, so take a little
-  time and fill them in accordingly. Should you have a rebate code, do
-  not forget to click on _I have a rebate code_ and type it in
+  time and fill them in accordingly. Should you have a voucher code, do
+  not forget to click on _I have a voucher code_ and type it in
   below. When you are done, click on the _Save_ button.
 
 ![Confirm account information](assets/05-step-2.png)

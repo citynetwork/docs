@@ -1,22 +1,21 @@
 # Deleting your account
 
 In case you decide to close your {{brand}} account, you may do so via the [{{gui}}](https://{{gui_domain}}).
-Log into your account and click on the profile button at the top right.
+From the vertical pane on the left, select _Settings_ and then _Manage Account_.
 
-![Orange avatar person with white background.](assets/profile.png)
+In the central _Account Settings_ pane, click the red _Delete Account_ tab on the right.
 
-A pane named _Account settings_ will slide over from the right-hand side of the browser window. To delete your account, click the _Settings_ tab.
+![Delete account tab](assets/delete-account-button.png)
 
-![A Settings tab with a red box around it](assets/accountsettings.png)
+At the bottom of the tab, click the red button named _Delete Account_.
 
-Scroll to the bottom of the pane, and click the red button named _Delete Account_.
+![Delete account tab](assets/proceed-to-deletion.png)
 
-![Black text on white background with info what will happen when you click on the delete button](assets/delete-account.png)
+Choose a reason for leaving and type in your current password.
+Click the red button named _Delete Account_ one more time.
+That will trigger a request for account deletion.
 
-Choose a reason for leaving and type in your current password. Click the red button named _Delete Account_ one more time. That will create a request for account deletion.
-
-![Picture where you choose a option why you leave us. A field where you type your current password with a red delete button.](assets/reasonforleaving.png)
-
+![Picture where you choose a reason for leaving us. A field where you type your current password with a red delete button.](assets/reasonforleaving.png)
 
 ## Using the {{legal_docs.termination_form.name}}
 

@@ -2,21 +2,19 @@
 
 You may at any time change the contact person, address, company name, and purchase order number associated with your {{brand}} account.
 
-To get started, navigate to the [{{gui}}](https://{{gui_domain}}).
-Log in and click the _Profile_ button at the top right.
+To get started, navigate to the [{{gui}}](https://{{gui_domain}}) and log into your account.
+Expand the vertical pane on the left, click on _Settings_, and then on _Manage Account_.
 
-![Orange avatar person with white background.](assets/profile.png)
+In the central pane, named _Account Settings_, click on the _Customer Info_ tab.
+There, you can change and manage your customer information.
 
-There, you will see the _Account settings_ page.
-Choose the _Customer Info_ tab, in which you can change and manage your customer information.
-
-![The 'Customer Info' tab with a green 'Update' button to complete the changes](assets/changecustomerinfo2.png)
+![Customer Info tab](assets/changecustomerinfo2.png)
 
 Finalize your changes by clicking the green _Update_ button at the bottom.
 
 ## Adding or removing email addresses
 
-In the _Account settings_ pane, click the middle tab, labeled _Contact_.
+In the _Account Settings_ pane, click the tab labeled _Contact_.
 This will show your currently configured email addresses.
 If there is only one email address, it will have all available roles enabled.
 
@@ -24,28 +22,27 @@ If there is only one email address, it will have all available roles enabled.
 
 ### Adding a new email address
 
-Click on the green button labeled _Create new Email_.
+Click on the green button labeled _Create new Email_ (see above).
 
-![A table of email addresses with a green button 'Create new Email'](assets/create.png)
+![A table of email addresses with a green 'Create new Email' button](assets/create.png)
 
+A new vertical pane will slide over from the right-hand side of the {{gui}}.
 Enter your new email address and click the green _Create_ button.
-
-![An 'add email' dialog](assets/addemail.png)
 
 The system will then send an automated email containing a verification code.
 The verification email looks like the example below, with the subject line _Please confirm your new address - Cleura Account_.
 
-![Screenshot of a verification email with a verification code](assets/verifyemail.png)
+![An example of a verification email with a verification code](assets/verifyemail.png)
 
 Please enter this code to verify your email address. Then click the green button labeled _Verify_.
 
 ![A 'Modify Email' dialog with a text box where you enter your verification code](assets/verify.png)
 
-Choose a role association for the new email address, and click _Back_.
+Choose a role association for the new email address, and click the _Back_ button.
 
 ![A 'Modify Email' dialog where you can choose one or more roles for your email address, showing the 'DPO' role enabled](assets/emailrole.png)
 
-You have now added one more email address, and selected a role.
+You have now added one more email address and selected a role.
 
 ![A 'Contact' tab showing a newly added email address for the 'DPO' role](assets/emaildone.png)
 
@@ -61,13 +58,13 @@ A pop-up window appears. Click on the red button labeled _Yes, Delete_.
 
 You have now removed one email address.
 
-![The 'Email Address' table, showing just one remaining email address](assets/left.png)
+![The 'Email Address' table, showing two remaining email addresses](assets/left.png)
 
 ### Assigning an email address to a new role
 
 Click on the _Modify_ button :material-square-edit-outline: next to the email address you want to assign to a different role.
 
-![The 'Email Address' table with Modify buttons](assets/trash-role.png)
+![The 'Email Address' table with Modify buttons](assets/change-role-button.png)
 
 Change the role by clicking one or all of _Billing_, _Tech_, or _DPO_.
 
