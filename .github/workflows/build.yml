@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Retrieve the full commit history, so that
           # mkdocs-git-authors-plugin can do its job.
