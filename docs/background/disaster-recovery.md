@@ -22,7 +22,7 @@ background, and why you should consider enabling it.
 ## What it is
 
 The *Disaster Recovery* (DR) feature is available via the {{gui}} and
-applies to servers and volumes that use our [Ceph](https://ceph.io/en/)
+applies to servers and volumes that use our [Ceph](https://docs.ceph.com/)
 backend. That would be **all** servers but the ones of the `s`
 [flavor](../reference/flavors/index.md#compute-tiers).
 
