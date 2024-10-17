@@ -31,3 +31,14 @@ There is also the _Pay this invoice_ option.
 Choose it for an outstanding invoice, and you will get a pop-up with a detailed rundown of the dues, together with available payment methods.
 
 ![Payment options](assets/mgmnt-inv/shot-04.png)
+
+## Activate automatic payments
+
+You may activate automatic payments for pending invoices.
+
+From the left-hand side vertical pane, click on *Settings* and then on *Manage Invoice Settings*.
+In the central pane, make sure you are in the *Settings* tab.
+Use the radio button on the right of *Automatic Payment* to enable automatic payments, and then click the green *Update* button.
+If the automatic payments are already enabled, you may disable them by using the same radio button.
+
+![Enable or disable automatic payments](assets/mgmnt-inv/shot-05.png)
