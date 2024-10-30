@@ -21,7 +21,7 @@ These SDKs are available for many languages:
 * Go: [Gophercloud](http://gophercloud.io/) (see also its [reference documentation](https://pkg.go.dev/github.com/gophercloud/gophercloud))
 * .NET: [OpenStack.NET](https://www.openstacknetsdk.org/)
 * PHP: [php-opencloud](https://php-openstack-sdk.readthedocs.io/en/latest/)
-* Ruby: [fog](https://fog.io/) (see also its [OpenStack provider documentation](https://github.com/fog/fog-openstack/blob/master/docs/getting_started.md))
+* Ruby: [fog](https://fog.github.io/) (see also its [OpenStack provider documentation](https://github.com/fog/fog-openstack/blob/master/docs/getting_started.md))
 * Java: [OpenStack4j](https://openstack4j.github.io/)
 * JavaScript/Node.js: [pkgcloud](https://github.com/pkgcloud/pkgcloud)
 
