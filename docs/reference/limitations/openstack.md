@@ -20,6 +20,13 @@ It also means that you cannot use the following `openstack` CLI commands; they a
   > You can use `openstack project list`, but this will only list the project(s) that your user account has access to.
 * `openstack domain <subcommand>`
 
+## Cinder
+
+### Volume backup service
+
+The volume backup service is not yet configured in any of the {{brand}} regions.
+As a result, volume backups created using the OpenStack CLI *cannot* be deleted.
+
 ## Nova
 
 ### Nested virtualization
