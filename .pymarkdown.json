@@ -25,6 +25,9 @@
         },
         "blanks-around-headings": {
             "enabled": false
+        },
+        "ul-indent": {
+            "enabled": false
         }
     }
 }
