@@ -23,6 +23,8 @@ focused on a specific cloud technology.
   credentials, the `openstack` client, and/or the native OpenStack
   APIs.
 
+* **{{brand}} Marketplace** How-Tos cover deploying applications or services available in the {{brand}} Marketplace.
+
 <!-- TODO: we’ll enable these as we migrate content.
 * **Terraform** How-Tos deal with Terraform configurations and how you
   can apply them in {{brand}}. They build on the
