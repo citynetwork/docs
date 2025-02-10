@@ -43,6 +43,9 @@ extra:
   support: "Service Center"
   support_domain: "servicecenter.cleura.cloud"
   support_email: "support@cleura.com"
+  version:
+    default: "main"
+    provider: mike
 extra_css:
   - assets/stylesheets/cleura-palette.css
 markdown_extensions:
@@ -73,6 +76,10 @@ plugins:
       # yamllint disable-line rule:truthy
       on_error_fail: !ENV [DOCS_FAIL_ON_MACRO_ERROR, True]
       on_undefined: strict
+  - mike:
+      alias_type: symlink
+      canonical_version: main
+      version_selector: true
   - search
   - social:
       # yamllint disable-line rule:truthy
