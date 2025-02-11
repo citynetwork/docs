@@ -18,15 +18,12 @@ From your favorite web browser, navigate to the
 [{{gui}}](https://{{gui_domain}}) start page, and login into your
 {{brand}} account.
 
-Please make sure the left-hand side pane on the {{gui}} is fully
-visible, click the _Users_ category to expand it, and click on
-_Openstack Users_.
+Make sure the left-hand side pane on the {{gui}} is fully visible, and click the _OpenStack Users_ category to expand it.
+Then, at the top right-hand side of the {{gui}}, click the _Add new Openstack user_ option.
 
 ![Add a new OpenStack user](assets/ostack-cli/shot-01.png)
 
-Then, at the top right-hand side of the {{gui}}, click once more
-the _Add new Openstack user_ option. A new pane will slide into view,
-titled _Create Openstack User_.
+A new pane will slide into view, titled _Create Openstack User_.
 
 ![Create new OpenStack user](assets/ostack-cli/shot-02.png)
 
@@ -37,14 +34,11 @@ come in handy.
 
 ![Set username and password](assets/ostack-cli/shot-03.png)
 
-Scroll down a bit, so the _Regions_ section is in full view. Expand one
-or more of the available regions you want your new user to have access
-to. For each one of the expanded regions, select one or more
-_Projects_. For each project, activate one or more _Roles_. (Hint: For
-an overview of the rights that roles provide, hover the mouse pointer
-over the exclamation mark icon by the _Roles_.)
+Scroll down a bit, until the next section is in full view.
+Select any combination of projects and roles for the pre-selected region.
+In case you want every combination selected, just click the _Check all projects/roles_ option.
 
-![Regions, projects, and roles](assets/ostack-cli/shot-04.png)
+![Projects and roles](assets/ostack-cli/shot-04.png)
 
 Optionally, type in a description for the new OpenStack user. Then,
 create the user by clicking the green _Create_ button below the
@@ -54,18 +48,17 @@ _Description_ box.
 
 The new OpenStack user will be ready in just a few seconds. At any
 time, you can view all available OpenStack users by going to the
-left-hand side pane on the {{gui}} and selecting _Users_ >
-_Openstack Users_.
+left-hand side pane on the {{gui}} and selecting _Openstack Users_.
+You can also select a specific user and get more details about them.
 
-![All available OpenStack users](assets/ostack-cli/shot-06.png)
+![Available OpenStack users and details about a specific user](assets/ostack-cli/shot-06.png)
 
 ## Downloading an RC file
 
-On the {{gui}}, expand the left-hand side vertical pane, click _Users_,
-and then _Openstack Users_. You will see, listed in the main pane, all
-available users. Click the three-dot round icon on the right of the user
-their RC file you want. From the drop-down menu that appears, select
-_Download RC-File._
+On the {{gui}}, expand the left-hand side vertical pane, and click _Openstack Users_.
+You will see, listed in the main pane, all available users.
+Click the orange :material-dots-horizontal-circle: icon at the right of the user row their RC file you want.
+From the drop-down menu that appears, select _Download RC-File._
 
 ![Download RC file](assets/ostack-cli/shot-07.png)
 
@@ -87,11 +80,11 @@ your_username--region_name--project_name--rc
 ```
 
 So, assuming your username is `olafsdottir`, and the RC file has been
-created for the `fra1` region and the `katla` project, your RC file
+created for the `sto-com` region and the `katla` project, your RC file
 name should be this:
 
 ```plain
-olafsdottir--fra1--katla--rc
+olafsdottir--sto-com--katla--rc
 ```
 
 Take a look at the contents of this file --- they should be like this:
@@ -99,10 +92,10 @@ Take a look at the contents of this file --- they should be like this:
 ```bash
 export OS_USERNAME=olafsdottir
 export OS_PASSWORD=<your password goes here>
-export OS_AUTH_URL=https://fra1.citycloud.com:5000
+export OS_AUTH_URL=https://identity.sto-com.cleura.cloud
 export OS_USER_DOMAIN_NAME=...
 export OS_PROJECT_DOMAIN_NAME=...
-export OS_REGION_NAME=Fra1
+export OS_REGION_NAME=sto-com
 export OS_PROJECT_NAME="katla"
 export OS_TENANT_NAME="katla"
 export OS_AUTH_VERSION=3
@@ -116,13 +109,13 @@ permissions of the file, so it is readable and writable by your local
 user only:
 
 ```bash
-chmod 600 olafsdottir--fra1--katla--rc
+chmod 600 olafsdottir--sto-com--katla--rc
 ```
 
 Then, go ahead and source it:
 
 ```bash
-source olafsdottir--fra1--katla--rc
+source olafsdottir--sto-com--katla--rc
 ```
 
 ## Installing the OpenStack CLI

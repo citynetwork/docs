@@ -16,27 +16,27 @@ openstack secret store \
   -n mysecret
 ```
 
-> The example output below uses {{brand}}'s `Fra1` region. In
+> The example output below uses {{brand}}'s `sto-com` region. In
 > other regions, the secret
 > [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
 > will differ.
 
 
 ```console
-+---------------+--------------------------------------------------------------------------------+
-| Field         | Value                                                                          |
-+---------------+--------------------------------------------------------------------------------+
-| Secret href   | https://fra1.{{brand_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba |
-| Name          | mysecret                                                                       |
-| Created       | None                                                                           |
-| Status        | None                                                                           |
-| Content types | None                                                                           |
-| Algorithm     | aes                                                                            |
-| Bit length    | 256                                                                            |
-| Secret type   | passphrase                                                                     |
-| Mode          | cbc                                                                            |
-| Expiration    | None                                                                           |
-+---------------+--------------------------------------------------------------------------------+
++---------------+------------------------------------------------------------------------------------------+
+| Field         | Value                                                                                    |
++---------------+------------------------------------------------------------------------------------------+
+| Secret href   | https://key-manager.sto-com.{{brand_domain}}/v1/secrets/6bab1703-3e6f-4f19-9380-9d5f7c8edd14 |
+| Name          | mysecret                                                                                 |
+| Created       | None                                                                                     |
+| Status        | None                                                                                     |
+| Content types | None                                                                                     |
+| Algorithm     | aes                                                                                      |
+| Bit length    | 256                                                                                      |
+| Secret type   | passphrase                                                                               |
+| Mode          | cbc                                                                                      |
+| Expiration    | None                                                                                     |
++---------------+------------------------------------------------------------------------------------------+
 ```
 
 Note that `passphrase` type secrets are symmetrically encrypted, using
@@ -52,12 +52,28 @@ a list of secrets created for your user with the following command:
 
 ```console
 $ openstack secret list
-+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
-| Secret href                                                                    | Name     | Created                   | Status | Content types                           | Algorithm | Bit length | Secret type | Mode | Expiration |
-+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
-| https://fra1.{{brand_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba | mysecret | 2021-04-29T10:33:18+00:00 | ACTIVE | {'default': 'application/octet-stream'} | aes       |        256 | passphrase  | cbc  | None       |
-| https://fra1.{{brand_domain}}:9311/v1/secrets/ad628532-53b8-4d2f-91e5-0097b51da4e | None     | 2021-04-27T13:52:10+00:00 | ACTIVE | {'default': 'application/octet-stream'} | aes       |        256 | symmetric   | None | None       |
-+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
++-------------+----------+------------+--------+---------------+-----------+------------+-------------+------+------------+
+| Secret href | Name     | Created    | Status | Content types | Algorithm | Bit length | Secret type | Mode | Expiration |
++-------------+----------+------------+--------+---------------+-----------+------------+-------------+------+------------+
+| https://key | mysecret | 2025-02-   | ACTIVE | {'default': ' | aes       |        256 | passphrase  | cbc  | None       |
+| -manager.st |          | 12T13:08:3 |        | application/o |           |            |             |      |            |
+| o-com.cleur |          | 1+00:00    |        | ctet-stream'} |           |            |             |      |            |
+| a.cloud/v1/ |          |            |        |               |           |            |             |      |            |
+| secrets/2ba |          |            |        |               |           |            |             |      |            |
+| 2bebf-2a21- |          |            |        |               |           |            |             |      |            |
+| 4e77-813b-  |          |            |        |               |           |            |             |      |            |
+| 817a1d04b51 |          |            |        |               |           |            |             |      |            |
+| a           |          |            |        |               |           |            |             |      |            |
+| https://key | mysecret | 2025-02-   | ACTIVE | {'default': ' | aes       |        256 | passphrase  | cbc  | None       |
+| -manager.st |          | 12T13:07:5 |        | application/o |           |            |             |      |            |
+| o-com.cleur |          | 9+00:00    |        | ctet-stream'} |           |            |             |      |            |
+| a.cloud/v1/ |          |            |        |               |           |            |             |      |            |
+| secrets/6ba |          |            |        |               |           |            |             |      |            |
+| b1703-3e6f- |          |            |        |               |           |            |             |      |            |
+| 4f19-9380-  |          |            |        |               |           |            |             |      |            |
+| 9d5f7c8edd1 |          |            |        |               |           |            |             |      |            |
+| 4           |          |            |        |               |           |            |             |      |            |
++-------------+----------+------------+--------+---------------+-----------+------------+-------------+------+------------+
 ```
 
 You can retrieve the decrypted secret with the `openstack secret get`
@@ -65,7 +81,7 @@ command, adding the `-p` (or `--payload`) option:
 
 ```console
 $ openstack secret get -p \
-  https://fra1.{{brand_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba
+  https://key-manager.sto-com.{{brand_domain}}/v1/secrets/6bab1703-3e6f-4f19-9380-9d5f7c8edd14
 +---------+---------------------------+
 | Field   | Value                     |
 +---------+---------------------------+
@@ -78,4 +94,4 @@ $ openstack secret get -p \
 > secrets by their full
 > [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier).
 > That URI must include the
-> `https://<region>.{{brand_domain}}:9311/v1/secrets/` prefix.
+> `https://key-manager.sto-com.{{brand_domain}}/v1/secrets/` prefix.

@@ -16,8 +16,7 @@ the OpenStack API. Provided you have an [account in
 {{brand}}](../howto/getting-started/create-account.md), you can simply
 log in and then follow step-by-step guides to create entities such as
 [networks](../howto/openstack/neutron/new-network.md),
-[servers](../howto/openstack/nova/new-server.md), or even
-[Kubernetes clusters](../howto/openstack/magnum/new-k8s-cluster.md).
+or [servers](../howto/openstack/nova/new-server.md).
 You can just as easily perform administrative tasks like creating
 [security
 groups](../howto/openstack/neutron/create-security-groups.md), setting

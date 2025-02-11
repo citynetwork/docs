@@ -5,9 +5,6 @@ description: "You can transfer your data between volumes in the same region, wit
 
 From time to time, you may want to transfer data from one persistent storage volume to another, while keeping your data within the same {{brand}} region.
 
-For example, you might prefer to select a volume type that has become newly available in that region, but find the downtime associated with [retyping a single volume](retype-volumes.md) prohibitive.
-In this case, you can choose an on-line synchronization approach, which comes with much reduced downtime.
-
 The process described here assumes that the volume whose contents you are about to transfer is *not* a boot volume --- in other words, that the volume is normally attached as `/dev/vdb` or `/dev/sdc` or similar, but *not* as `/dev/vda` or `/dev/sda`.
 If the volume you need to retype *is* a boot volume, you should plan system downtime and opt for an [offline retype](retype-volumes.md) instead.
 
@@ -21,16 +18,17 @@ Assume you have a volume named `sourcevol` that is currently attached to a serve
 
 ```console
 $ openstack volume list --long
-+---------------+-----------+--------+------+---------+----------+---------------+------------+
-| ID            | Name      | Status | Size | Type    | Bootable | Attached to   | Properties |
-+---------------+-----------+--------+------+---------+----------+---------------+------------+
-| 526f7741-2c44 | sourcevol | in-use |   50 | default | false    | Attached to   |            |
-| -4d04-a0c8-86 |           |        |      |         |          | testsrv on    |            |
-| b8d039e674    |           |        |      |         |          | /dev/vdb      |            |
-+---------------+-----------+--------+------+---------+----------+---------------+------------+
++--------------+-----------+--------+------+--------------+----------+--------------+------------+
+| ID           | Name      | Status | Size | Type         | Bootable | Attached to  | Properties |
++--------------+-----------+--------+------+--------------+----------+--------------+------------+
+| 300e778a-    | sourcevol | in-use |   50 | cbs-standard | false    | Attached to  |            |
+| fc56-490b-   |           |        |      |              |          | testsrv on   |            |
+| b76c-        |           |        |      |              |          | /dev/vdb     |            |
+| 235ae4f16004 |           |        |      |              |          |              |            |
++--------------+-----------+--------+------+--------------+----------+--------------+------------+
 ```
 
-In this example, the volume status is `in-use` (meaning the volume is currently attached to a server), and the volume type is `default`.
+In this example, the volume status is `in-use` (meaning the volume is currently attached to a server), and the volume type is `cbs-standard`.
 
 ## Taking a snapshot of the source volume
 
@@ -42,15 +40,15 @@ $ openstack volume snapshot create --force --volume sourcevol sourcevol-snap
 +-------------+--------------------------------------+
 | Field       | Value                                |
 +-------------+--------------------------------------+
-| created_at  | 2023-01-05T14:34:46.409705           |
+| created_at  | 2025-02-18T18:10:20.242505           |
 | description | None                                 |
-| id          | 05ece580-4fb0-45dd-96e8-06a46399c38e |
+| id          | 172ebf59-8930-4879-851d-ee6a61f032ff |
 | name        | sourcevol-snap                       |
 | properties  |                                      |
 | size        | 50                                   |
 | status      | creating                             |
 | updated_at  | None                                 |
-| volume_id   | 526f7741-2c44-4d04-a0c8-86b8d039e674 |
+| volume_id   | 300e778a-fc56-490b-b76c-235ae4f16004 |
 +-------------+--------------------------------------+
 ```
 
@@ -62,15 +60,17 @@ $ openstack volume snapshot show sourcevol-snap
 +--------------------------------------------+--------------------------------------+
 | Field                                      | Value                                |
 +--------------------------------------------+--------------------------------------+
-| created_at                                 | 2023-01-05T14:34:46.000000           |
+| created_at                                 | 2025-02-18T18:10:20.000000           |
 | description                                | None                                 |
-| id                                         | 05ece580-4fb0-45dd-96e8-06a46399c38e |
+| id                                         | 172ebf59-8930-4879-851d-ee6a61f032ff |
 | name                                       | sourcevol-snap                       |
+| os-extended-snapshot-attributes:progress   | 100%                                 |
+| os-extended-snapshot-attributes:project_id | d42230ea21674515ab9197af89fa5192     |
 | properties                                 |                                      |
 | size                                       | 50                                   |
 | status                                     | available                            |
-| updated_at                                 | 2023-01-05T14:34:49.000000           |
-| volume_id                                  | 526f7741-2c44-4d04-a0c8-86b8d039e674 |
+| updated_at                                 | 2025-02-18T18:10:21.000000           |
+| volume_id                                  | 300e778a-fc56-490b-b76c-235ae4f16004 |
 +--------------------------------------------+--------------------------------------+
 ```
 
@@ -84,24 +84,24 @@ $ openstack volume create --snapshot sourcevol-snap targetvol
 | Field               | Value                                |
 +---------------------+--------------------------------------+
 | attachments         | []                                   |
-| availability_zone   | nova                                 |
+| availability_zone   | az1                                  |
 | bootable            | false                                |
 | consistencygroup_id | None                                 |
-| created_at          | 2023-01-05T14:44:10.132096           |
+| created_at          | 2025-02-18T18:13:21.406584           |
 | description         | None                                 |
 | encrypted           | False                                |
-| id                  | c8e0ff43-f837-478b-ad42-1bdb20dbbdb3 |
+| id                  | 1bd806c0-70ab-4a1a-827a-20921186c9c8 |
 | multiattach         | False                                |
 | name                | targetvol                            |
 | properties          |                                      |
 | replication_status  | None                                 |
 | size                | 50                                   |
-| snapshot_id         | 05ece580-4fb0-45dd-96e8-06a46399c38e |
+| snapshot_id         | 172ebf59-8930-4879-851d-ee6a61f032ff |
 | source_volid        | None                                 |
 | status              | creating                             |
-| type                | default                              |
+| type                | cbs-standard                         |
 | updated_at          | None                                 |
-| user_id             | 51ce99c11f9e4ed08e92acca176c33ca     |
+| user_id             | cc19369079c6457fb04a1c9ac1d023d1     |
 +---------------------+--------------------------------------+
 ```
 
@@ -119,15 +119,7 @@ done
 If you want to retain the current type of your target volume, you can safely skip this step.
 
 If you do need to select a different volume type for your target volume (see [the relevant how-to guide](retype-volumes.md) for details on retyping), now is the time to do so.
-Set the new volume type, and then wait for the retype operation to complete.
 
-```console
-$ openstack volume set --type <new-type> --retype-policy on-demand targetvol
-
-$ until [ `openstack volume show -f value -c status targetvol` = "available" ]; do
-  sleep 5
-done
-```
 
 ## Attaching the target volume
 
@@ -138,9 +130,9 @@ $ openstack server add volume testsrv targetvol
 +-----------------------+--------------------------------------+
 | Field                 | Value                                |
 +-----------------------+--------------------------------------+
-| ID                    | d2a22868-a133-40a1-b1a6-0cbae3feaf8d |
-| Server ID             | 23a391f7-57ba-4c7f-bdd1-d1b89d6e39b2 |
-| Volume ID             | e233e7f3-f33b-4d7a-8f5b-785b34f670bf |
+| ID                    | 1bd806c0-70ab-4a1a-827a-20921186c9c8 |
+| Server ID             | 42049bba-3a48-4bc3-9940-bcaca120ec74 |
+| Volume ID             | 1bd806c0-70ab-4a1a-827a-20921186c9c8 |
 | Device                | /dev/vdc                             |
 | Tag                   | None                                 |
 | Delete On Termination | False                                |
@@ -210,23 +202,24 @@ $ openstack volume show sourcevol
 | Field                        | Value                                |
 +------------------------------+--------------------------------------+
 | attachments                  | []                                   |
-| availability_zone            | nova                                 |
+| availability_zone            | az1                                  |
 | bootable                     | false                                |
 | consistencygroup_id          | None                                 |
-| created_at                   | 2023-01-05T14:00:40.000000           |
-| description                  | None                                 |
+| created_at                   | 2025-02-18T17:10:19.000000           |
+| description                  |                                      |
 | encrypted                    | False                                |
-| id                           | 526f7741-2c44-4d04-a0c8-86b8d039e674 |
+| id                           | 300e778a-fc56-490b-b76c-235ae4f16004 |
 | multiattach                  | False                                |
 | name                         | sourcevol                            |
+| os-vol-tenant-attr:tenant_id | d42230ea21674515ab9197af89fa5192     |
 | properties                   | readonly='True'                      |
 | replication_status           | None                                 |
 | size                         | 50                                   |
 | snapshot_id                  | None                                 |
 | source_volid                 | None                                 |
 | status                       | available                            |
-| type                         | default                              |
-| updated_at                   | 2023-01-05T16:03:55.000000           |
-| user_id                      | 51ce99c11f9e4ed08e92acca176c33ca     |
+| type                         | cbs-standard                         |
+| updated_at                   | 2025-02-18T18:20:19.000000           |
+| user_id                      | 1b09c42fad9a4b92ad294cccb2adc3c3     |
 +------------------------------+--------------------------------------+
 ```

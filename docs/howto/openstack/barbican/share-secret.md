@@ -24,7 +24,7 @@ Once you have assembled this information, you can proceed with the
 openstack acl user add \
   --user <user_id> \
   --operation-type read \
-  https://region.{{brand_domain}}:9311/v1/secrets/<secret_id>
+  https://key-manager.sto-com.{{brand_domain}}/v1/secrets/<secret_id>
 ```
 
 If you want to unshare the secret again, you simply use the
@@ -34,5 +34,5 @@ corresponding `openstack acl user remove` command:
 openstack acl user remove \
   --user <user_id> \
   --operation-type read \
-  https://region.{{brand_domain}}:9311/v1/secrets/<secret_id>
+  https://key-manager.sto-com.{{brand_domain}}/v1/secrets/<secret_id>
 ```

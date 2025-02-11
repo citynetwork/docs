@@ -45,21 +45,22 @@ to [source the RC file first](../../getting-started/enable-openstack-cli.md).
     +-----------------+--------------------------------------------------------------------------------+
     | Field           | Value                                                                          |
     +-----------------+--------------------------------------------------------------------------------+
-    | created_at      | 2022-11-14T09:15:14Z                                                           |
+    | created_at      | 2025-02-19T17:58:05Z                                                           |
     | description     | <name>                                                                         |
-    | id              | 736da1d1-aa98-4da4-9ba4-2ab9aeea6a57                                           |
+    | id              | a463b1de-7b12-43a0-b080-189f0fb09fd8                                           |
     | name            | <name>                                                                         |
-    | project_id      | cb43f189f7904fb88f3bbcfa22653ab8                                               |
+    | project_id      | d42230ea21674515ab9197af89fa5192                                               |
     | revision_number | 1                                                                              |
-    | rules           | created_at='2022-11-14T09:15:14Z', direction='egress', ethertype='IPv4',       |
-    |                 | id='1f4c57cb-8e34-420c-a7e3-3b5625c79481', standard_attr_id='10579829',        |
-    |                 | updated_at='2022-11-14T09:15:14Z'                                              |
-    |                 | created_at='2022-11-14T09:15:14Z', direction='egress', ethertype='IPv6',       |
-    |                 | id='7c2c287e-9596-42ef-a5a8-0b09e38b206a', standard_attr_id='10579832',        |
-    |                 | updated_at='2022-11-14T09:15:14Z'                                              |
+    | rules           | created_at='2025-02-19T17:58:05Z', direction='egress', ethertype='IPv4',       |
+    |                 | id='45dee5b4-2d3b-4ac0-9304-02e3ca6229fe', standard_attr_id='305189',          |
+    |                 | updated_at='2025-02-19T17:58:05Z'                                              |
+    |                 | created_at='2025-02-19T17:58:05Z', direction='egress', ethertype='IPv6',       |
+    |                 | id='a48fbf92-a608-4518-97a4-24e6c9fa8caf', standard_attr_id='305192',          |
+    |                 | updated_at='2025-02-19T17:58:05Z'                                              |
+    | shared          | False                                                                          |
     | stateful        | True                                                                           |
     | tags            | []                                                                             |
-    | updated_at      | 2022-11-14T09:15:14Z                                                           |
+    | updated_at      | 2025-02-19T17:58:05Z                                                           |
     +-----------------+--------------------------------------------------------------------------------+
     ```
 
@@ -69,12 +70,6 @@ By default, a security group named `default` has been already created
 for you, blocking all traffic from any source (ingress), except from
 servers and ports being in the same security group. All traffic to any
 destination (egress) is allowed by default.
-
-> For accounts created before 2022-11-16, the default security
-> group ingress rules allow all incoming traffic.
-> See [Adjust permissive default security group](#adjust-permissive-default-security-group),
-> to learn how to configure this security group according to
-> our recommendations.
 
 === "{{gui}}"
     Navigate to the security groups page, click on `default` security
@@ -96,29 +91,34 @@ destination (egress) is allowed by default.
     +-----------------+--------------------------------------------------------------------------------+
     | Field           | Value                                                                          |
     +-----------------+--------------------------------------------------------------------------------+
-    | created_at      | 2022-09-12T15:00:57Z                                                           |
+    | created_at      | 2024-04-11T07:02:49Z                                                           |
     | description     | Default security group                                                         |
-    | id              | 935b1317-a0c0-42e9-b68d-7cf16637df14                                           |
+    | id              | 5b6a6004-d40e-41ed-938e-48fc09f950f2                                           |
     | name            | default                                                                        |
-    | project_id      | cb43f189f7904fb88f3bbcfa22653ab8                                               |
-    | revision_number | 5                                                                              |
-    | rules           | created_at='2022-09-12T15:00:59Z', direction='ingress', ethertype='IPv4',      |
-    |                 | id='5e5e9f4d-1faa-492d-91f1-c105b464072b', protocol='0',                       |
-    |                 | remote_group_id='60776d43-a78c-4eb4-8998-cea7a04c5f9b',                        |
-    |                 | standard_attr_id='10422245', updated_at='2022-09-12T15:00:59Z'                 |
-    |                 | created_at='2022-09-12T15:00:59Z', direction='ingress', ethertype='IPv6',      |
-    |                 | id='86b9413a-ad23-46c4-a35e-9306945dc63c', protocol='0',                       |
-    |                 | remote_group_id='60776d43-a78c-4eb4-8998-cea7a04c5f9b',                        |
-    |                 | standard_attr_id='10422248', updated_at='2022-09-12T15:00:59Z'                 |
-    |                 | created_at='2022-09-12T15:00:57Z', direction='egress', ethertype='IPv6',       |
-    |                 | id='ad4a19ef-7fab-4eba-9982-e5b109be121c', standard_attr_id='10422242',        |
-    |                 | updated_at='2022-09-12T15:00:57Z'                                              |
-    |                 | created_at='2022-09-12T15:00:57Z', direction='egress', ethertype='IPv4',       |
-    |                 | id='f53b1a12-edbb-480b-910b-a71c4836346f', standard_attr_id='10422236',        |
-    |                 | updated_at='2022-09-12T15:00:57Z'                                              |
+    | project_id      | d42230ea21674515ab9197af89fa5192                                               |
+    | revision_number | 1                                                                              |
+    | rules           | belongs_to_default_sg='True', created_at='2024-04-11T07:02:49Z',               |
+    |                 | direction='egress', ethertype='IPv6',                                          |
+    |                 | id='486f7d60-a486-46e6-ab70-7d91ce65cdc7', standard_attr_id='73',              |
+    |                 | updated_at='2024-04-11T07:02:49Z'                                              |
+    |                 | belongs_to_default_sg='True', created_at='2024-04-11T07:02:49Z',               |
+    |                 | direction='ingress', ethertype='IPv4',                                         |
+    |                 | id='58785232-3635-49ca-a9d9-5f762c26c92a',                                     |
+    |                 | remote_group_id='5b6a6004-d40e-41ed-938e-48fc09f950f2', standard_attr_id='67', |
+    |                 | updated_at='2024-04-11T07:02:49Z'                                              |
+    |                 | belongs_to_default_sg='True', created_at='2024-04-11T07:02:49Z',               |
+    |                 | direction='egress', ethertype='IPv4',                                          |
+    |                 | id='5a7fca17-f02a-4c72-a4a3-19ce4618a0cc', standard_attr_id='64',              |
+    |                 | updated_at='2024-04-11T07:02:49Z'                                              |
+    |                 | belongs_to_default_sg='True', created_at='2024-04-11T07:02:49Z',               |
+    |                 | direction='ingress', ethertype='IPv6',                                         |
+    |                 | id='baf7d080-32b0-49e3-aa04-b91a20358fd5',                                     |
+    |                 | remote_group_id='5b6a6004-d40e-41ed-938e-48fc09f950f2', standard_attr_id='70', |
+    |                 | updated_at='2024-04-11T07:02:49Z'                                              |
+    | shared          | False                                                                          |
     | stateful        | True                                                                           |
     | tags            | []                                                                             |
-    | updated_at      | 2022-09-12T15:00:59Z                                                           |
+    | updated_at      | 2024-04-11T07:02:49Z                                                           |
     +-----------------+--------------------------------------------------------------------------------+
     ```
 
@@ -148,42 +148,42 @@ other servers and ports in the group, you need to
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    | 5e5e9f4d- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | 60776d43-a78c-4eb4-   | None                 |
-    | 1faa-     |             |           |           |            |           | 8998-cea7a04c5f9b     |                      |
-    | 492d-     |             |           |           |            |           |                       |                      |
-    | 91f1-     |             |           |           |            |           |                       |                      |
-    | c105b4640 |             |           |           |            |           |                       |                      |
-    | 72b       |             |           |           |            |           |                       |                      |
-    | 86b9413a- | None        | IPv6      | ::/0      |            | ingress   | 60776d43-a78c-4eb4-   | None                 |
-    | ad23-     |             |           |           |            |           | 8998-cea7a04c5f9b     |                      |
-    | 46c4-     |             |           |           |            |           |                       |                      |
-    | a35e-     |             |           |           |            |           |                       |                      |
-    | 9306945dc |             |           |           |            |           |                       |                      |
-    | 63c       |             |           |           |            |           |                       |                      |
-    | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
-    | 7fab-     |             |           |           |            |           |                       |                      |
-    | 4eba-     |             |           |           |            |           |                       |                      |
-    | 9982-     |             |           |           |            |           |                       |                      |
-    | e5b109be1 |             |           |           |            |           |                       |                      |
-    | 21c       |             |           |           |            |           |                       |                      |
-    | f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
-    | edbb-     |             |           |           |            |           |                       |                      |
-    | 480b-     |             |           |           |            |           |                       |                      |
-    | 910b-     |             |           |           |            |           |                       |                      |
-    | a71c48363 |             |           |           |            |           |                       |                      |
-    | 46f       |             |           |           |            |           |                       |                      |
+    | 486f7d60- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
+    | a486-     |             |           |           |            |           |                       |                      |
+    | 46e6-     |             |           |           |            |           |                       |                      |
+    | ab70-     |             |           |           |            |           |                       |                      |
+    | 7d91ce65c |             |           |           |            |           |                       |                      |
+    | dc7       |             |           |           |            |           |                       |                      |
+    | 58785232- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | 5b6a6004-d40e-41ed-   | None                 |
+    | 3635-     |             |           |           |            |           | 938e-48fc09f950f2     |                      |
+    | 49ca-     |             |           |           |            |           |                       |                      |
+    | a9d9-     |             |           |           |            |           |                       |                      |
+    | 5f762c26c |             |           |           |            |           |                       |                      |
+    | 92a       |             |           |           |            |           |                       |                      |
+    | 5a7fca17- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
+    | f02a-     |             |           |           |            |           |                       |                      |
+    | 4c72-     |             |           |           |            |           |                       |                      |
+    | a4a3-     |             |           |           |            |           |                       |                      |
+    | 19ce4618a |             |           |           |            |           |                       |                      |
+    | 0cc       |             |           |           |            |           |                       |                      |
+    | baf7d080- | None        | IPv6      | ::/0      |            | ingress   | 5b6a6004-d40e-41ed-   | None                 |
+    | 32b0-     |             |           |           |            |           | 938e-48fc09f950f2     |                      |
+    | 49e3-     |             |           |           |            |           |                       |                      |
+    | aa04-     |             |           |           |            |           |                       |                      |
+    | b91a20358 |             |           |           |            |           |                       |                      |
+    | fd5       |             |           |           |            |           |                       |                      |
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     ```
 
     The IDs of the two ingress rules, one for IPv4 traffic and one for
-    IPv6, in this case are: `5e5e9f4d-1faa-492d-91f1-c105b464072b` and
-    `86b9413a-ad23-46c4-a35e-9306945dc63c`
+    IPv6, in this case are: `58785232-3635-49ca-a9d9-5f762c26c92a` and
+    `baf7d080-32b0-49e3-aa04-b91a20358fd5`.
 
     Delete them by using the following command:
 
     ```bash
     openstack security group rule delete \
-      5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
+      58785232-3635-49ca-a9d9-5f762c26c92a baf7d080-32b0-49e3-aa04-b91a20358fd5
     ```
 
     Print the rules again:
@@ -198,18 +198,18 @@ other servers and ports in the group, you need to
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
-    | 7fab-     |             |           |           |            |           |                       |                      |
-    | 4eba-     |             |           |           |            |           |                       |                      |
-    | 9982-     |             |           |           |            |           |                       |                      |
-    | e5b109be1 |             |           |           |            |           |                       |                      |
-    | 21c       |             |           |           |            |           |                       |                      |
-    | f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
-    | edbb-     |             |           |           |            |           |                       |                      |
-    | 480b-     |             |           |           |            |           |                       |                      |
-    | 910b-     |             |           |           |            |           |                       |                      |
-    | a71c48363 |             |           |           |            |           |                       |                      |
-    | 46f       |             |           |           |            |           |                       |                      |
+    | 486f7d60- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
+    | a486-     |             |           |           |            |           |                       |                      |
+    | 46e6-     |             |           |           |            |           |                       |                      |
+    | ab70-     |             |           |           |            |           |                       |                      |
+    | 7d91ce65c |             |           |           |            |           |                       |                      |
+    | dc7       |             |           |           |            |           |                       |                      |
+    | 5a7fca17- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
+    | f02a-     |             |           |           |            |           |                       |                      |
+    | 4c72-     |             |           |           |            |           |                       |                      |
+    | a4a3-     |             |           |           |            |           |                       |                      |
+    | 19ce4618a |             |           |           |            |           |                       |                      |
+    | 0cc       |             |           |           |            |           |                       |                      |
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     ```
 
@@ -279,36 +279,36 @@ Next create the rules that allow anyone to access the server on **port
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    | 742bcc46- | tcp         | IPv4      | 0.0.0.0/0 | 80:80      | ingress   | None                  | None                 |
-    | beb5-     |             |           |           |            |           |                       |                      |
-    | 47a5-     |             |           |           |            |           |                       |                      |
-    | 8eb1-     |             |           |           |            |           |                       |                      |
-    | eb35da800 |             |           |           |            |           |                       |                      |
-    | 6ed       |             |           |           |            |           |                       |                      |
-    | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
-    | 7fab-     |             |           |           |            |           |                       |                      |
-    | 4eba-     |             |           |           |            |           |                       |                      |
-    | 9982-     |             |           |           |            |           |                       |                      |
-    | e5b109be1 |             |           |           |            |           |                       |                      |
-    | 21c       |             |           |           |            |           |                       |                      |
-    | cef0cd36- | tcp         | IPv4      | 203.0.113 | 22:22      | ingress   | None                  | None                 |
-    | ad78-     |             |           | .58/32    |            |           |                       |                      |
-    | 4dbd-     |             |           |           |            |           |                       |                      |
-    | b806-     |             |           |           |            |           |                       |                      |
-    | 597300fd9 |             |           |           |            |           |                       |                      |
-    | e6a       |             |           |           |            |           |                       |                      |
-    | f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
-    | edbb-     |             |           |           |            |           |                       |                      |
-    | 480b-     |             |           |           |            |           |                       |                      |
-    | 910b-     |             |           |           |            |           |                       |                      |
-    | a71c48363 |             |           |           |            |           |                       |                      |
-    | 46f       |             |           |           |            |           |                       |                      |
-    | f90c598c- | tcp         | IPv4      | 0.0.0.0/0 | 443:443    | ingress   | None                  | None                 |
-    | 3a5e-     |             |           |           |            |           |                       |                      |
-    | 459f-     |             |           |           |            |           |                       |                      |
-    | 8ed3-     |             |           |           |            |           |                       |                      |
-    | 3c2538e7a |             |           |           |            |           |                       |                      |
-    | 24f       |             |           |           |            |           |                       |                      |
+    | 486f7d60- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
+    | a486-     |             |           |           |            |           |                       |                      |
+    | 46e6-     |             |           |           |            |           |                       |                      |
+    | ab70-     |             |           |           |            |           |                       |                      |
+    | 7d91ce65c |             |           |           |            |           |                       |                      |
+    | dc7       |             |           |           |            |           |                       |                      |
+    | 5a7fca17- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
+    | f02a-     |             |           |           |            |           |                       |                      |
+    | 4c72-     |             |           |           |            |           |                       |                      |
+    | a4a3-     |             |           |           |            |           |                       |                      |
+    | 19ce4618a |             |           |           |            |           |                       |                      |
+    | 0cc       |             |           |           |            |           |                       |                      |
+    | 8f73d70a- | tcp         | IPv4      | 0.0.0.0/0 | 443:443    | ingress   | None                  | None                 |
+    | d4c0-     |             |           |           |            |           |                       |                      |
+    | 4a9a-     |             |           |           |            |           |                       |                      |
+    | 8206-     |             |           |           |            |           |                       |                      |
+    | 5e5feef8b |             |           |           |            |           |                       |                      |
+    | 458       |             |           |           |            |           |                       |                      |
+    | 9fc7ff29- | tcp         | IPv4      | 203.0.113 | 22:22      | ingress   | None                  | None                 |
+    | c2d8-     |             |           | .58/32    |            |           |                       |                      |
+    | 4e7a-     |             |           |           |            |           |                       |                      |
+    | 853c-     |             |           |           |            |           |                       |                      |
+    | 488d1e6fc |             |           |           |            |           |                       |                      |
+    | 9ec       |             |           |           |            |           |                       |                      |
+    | db332763- | tcp         | IPv4      | 0.0.0.0/0 | 80:80      | ingress   | None                  | None                 |
+    | 19ce-     |             |           |           |            |           |                       |                      |
+    | 4a09-     |             |           |           |            |           |                       |                      |
+    | 8d7b-     |             |           |           |            |           |                       |                      |
+    | c2659a1c9 |             |           |           |            |           |                       |                      |
+    | e2f       |             |           |           |            |           |                       |                      |
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     ```
 
@@ -316,112 +316,3 @@ All the rules for a simple web server are now in place.
 
 For any additional protocol or ingress rule, simply follow the same
 procedure as above.
-
-## Adjust permissive default security group
-
-If your account was created before 2022-11-16, and you didn't
-configure the `default` security group, it is most likely permissive for
-all incoming traffic. We recommend to either create and use a new
-security group, other than the default one, or restrict ingress traffic
-to specific ports and sources.
-
-=== "{{gui}}"
-    To check how your `default` security group is configured, click on it
-    and select the Rules tab to view its rules. If you have old,
-    permissive `default` group, the rules should look like this:
-
-    ![default-ingress-rules](assets/create-security-groups/10-default-permissive-rules.png)
-
-    The top two ingress rules, having `::/0` and `0.0.0.0/0` values
-    for remote access filters, mean that incoming traffic from all
-    sources is allowed.
-    
-    If you want to use the default group, remove the two ingress rules
-    that allow all incoming traffic. Click on the trashcan action
-    button on the right-hand side for **both ingress** rules.
-
-    Your `default` or newly created security group rules will now
-    look like this:
-
-    ![default-ingress-rules](assets/create-security-groups/05-default-egress-rules.png)
-
-=== "OpenStack CLI"
-    To view the rules use the following command:
-
-    ```bash
-    openstack security group rule list default
-    ```
-
-    The printout will be similar to this:
-
-    ```plain
-    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
-    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    | 5e5e9f4d- | None        | IPv4      | 0.0.0.0/0 |            | ingress   | None                  | None                 |
-    | 1faa-     |             |           |           |            |           |                       |                      |
-    | 492d-     |             |           |           |            |           |                       |                      |
-    | 91f1-     |             |           |           |            |           |                       |                      |
-    | c105b4640 |             |           |           |            |           |                       |                      |
-    | 72b       |             |           |           |            |           |                       |                      |
-    | 86b9413a- | None        | IPv6      | ::/0      |            | ingress   | None                  | None                 |
-    | ad23-     |             |           |           |            |           |                       |                      |
-    | 46c4-     |             |           |           |            |           |                       |                      |
-    | a35e-     |             |           |           |            |           |                       |                      |
-    | 9306945dc |             |           |           |            |           |                       |                      |
-    | 63c       |             |           |           |            |           |                       |                      |
-    | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
-    | 7fab-     |             |           |           |            |           |                       |                      |
-    | 4eba-     |             |           |           |            |           |                       |                      |
-    | 9982-     |             |           |           |            |           |                       |                      |
-    | e5b109be1 |             |           |           |            |           |                       |                      |
-    | 21c       |             |           |           |            |           |                       |                      |
-    | f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
-    | edbb-     |             |           |           |            |           |                       |                      |
-    | 480b-     |             |           |           |            |           |                       |                      |
-    | 910b-     |             |           |           |            |           |                       |                      |
-    | a71c48363 |             |           |           |            |           |                       |                      |
-    | 46f       |             |           |           |            |           |                       |                      |
-    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    ```
-
-    If the ingress rules have `::/0` and `0.0.0.0/0` values
-    in `IP Range` column, and `None` in the `Remote Security Group`,
-    then incoming traffic from any source is allowed.
-
-    The IDs of the two ingress rules, one for IPv4 traffic and one for
-    IPv6, are: `5e5e9f4d-1faa-492d-91f1-c105b464072b` and
-    `86b9413a-ad23-46c4-a35e-9306945dc63c` respectively.
-
-    Delete them by using the following command:
-
-    ```bash
-    openstack security group rule delete \
-      5e5e9f4d-1faa-492d-91f1-c105b464072b 86b9413a-ad23-46c4-a35e-9306945dc63c
-    ```
-    Print the rules again:
-
-    ```bash
-    openstack security group rule list default
-    ```
-
-    Now the remaining rules are only the egress ones.
-
-    ```plain
-    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
-    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
-    | 7fab-     |             |           |           |            |           |                       |                      |
-    | 4eba-     |             |           |           |            |           |                       |                      |
-    | 9982-     |             |           |           |            |           |                       |                      |
-    | e5b109be1 |             |           |           |            |           |                       |                      |
-    | 21c       |             |           |           |            |           |                       |                      |
-    | f53b1a12- | None        | IPv4      | 0.0.0.0/0 |            | egress    | None                  | None                 |
-    | edbb-     |             |           |           |            |           |                       |                      |
-    | 480b-     |             |           |           |            |           |                       |                      |
-    | 910b-     |             |           |           |            |           |                       |                      |
-    | a71c48363 |             |           |           |            |           |                       |                      |
-    | 46f       |             |           |           |            |           |                       |                      |
-    +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
-    ```

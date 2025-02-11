@@ -39,14 +39,14 @@ Here is `mylb`, the load balancer we used during testing:
 ```console
 $ openstack loadbalancer list
 
-+---------------+------+---------------+--------------+---------------------+------------------+----------+
-| id            | name | project_id    | vip_address  | provisioning_status | operating_status | provider |
-+---------------+------+---------------+--------------+---------------------+------------------+----------+
-| eaf6d4f3-     | mylb | dfc7004673964 | 10.15.25.155 | ACTIVE              | ONLINE           | amphora  |
-| 8d73-4b77-    |      | 28bacba4376e7 |              |                     |                  |          |
-| 8bc4-         |      | 2cc3e9        |              |                     |                  |          |
-| 788a3b4e3916  |      |               |              |                     |                  |          |
-+---------------+------+---------------+--------------+---------------------+------------------+----------+
++---------------+------+---------------+--------------+---------------------+------------------+-----------+
+| id            | name | project_id    | vip_address  | provisioning_status | operating_status | provider  |
++---------------+------+---------------+--------------+---------------------+------------------+-----------+
+| c544f838-     | mylb | d42230ea21674 | 10.15.25.125 | ACTIVE              | ONLINE           | amphorav2 |
+| dbd6-44af-    |      | 515ab9197af89 |              |                     |                  |           |
+| b8af-         |      | fa5192        |              |                     |                  |           |
+| 16e2871b5195  |      |               |              |                     |                  |           |
++---------------+------+---------------+--------------+---------------------+------------------+-----------+
 ```
 
 You may now add `mylb-listener-metrics`, a new Prometheus-based listener for `mylb`.
@@ -69,17 +69,17 @@ $ openstack loadbalancer listener create \
 +-----------------------------+--------------------------------------+
 | admin_state_up              | True                                 |
 | connection_limit            | -1                                   |
-| created_at                  | 2023-01-29T16:12:24                  |
+| created_at                  | 2025-02-26T20:05:06                  |
 | default_pool_id             | None                                 |
 | default_tls_container_ref   | None                                 |
 | description                 |                                      |
-| id                          | c1bba40d-3b45-4b17-86fd-81d98909822e |
+| id                          | 10fbd165-04e3-4d94-a514-bf9865755df0 |
 | insert_headers              | None                                 |
 | l7policies                  |                                      |
-| loadbalancers               | eaf6d4f3-8d73-4b77-8bc4-788a3b4e3916 |
+| loadbalancers               | c544f838-dbd6-44af-b8af-16e2871b5195 |
 | name                        | mylb-listener-metrics                |
 | operating_status            | OFFLINE                              |
-| project_id                  | dfc700467396428bacba4376e72cc3e9     |
+| project_id                  | d42230ea21674515ab9197af89fa5192     |
 | protocol                    | PROMETHEUS                           |
 | protocol_port               | 8088                                 |
 | provisioning_status         | PENDING_CREATE                       |
@@ -92,11 +92,14 @@ $ openstack loadbalancer listener create \
 | client_ca_tls_container_ref | None                                 |
 | client_authentication       | NONE                                 |
 | client_crl_container_ref    | None                                 |
-| allowed_cidrs               | ['203.0.113.132/32']                 |
+| allowed_cidrs               | 203.0.113.132/32                     |
 | tls_ciphers                 | None                                 |
 | tls_versions                | None                                 |
 | alpn_protocols              | None                                 |
 | tags                        |                                      |
+| hsts_max_age                | None                                 |
+| hsts_include_subdomains     | False                                |
+| hsts_preload                | False                                |
 +-----------------------------+--------------------------------------+
 ```
 

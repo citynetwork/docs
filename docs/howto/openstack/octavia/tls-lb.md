@@ -41,20 +41,20 @@ $ openstack secret store \
   -t 'application/octet-stream' \
   -e 'base64' \
   --payload="$(base64 < server.p12)"
-+---------------+---------------------------------------------------------------------------------+
-| Field         | Value                                                                           |
-+---------------+---------------------------------------------------------------------------------+
-| Secret href   | https://kna1.citycloud.com:9311/v1/secrets/69bd82f5-60c9-4764-99ec-7a3dff05d2aa |
-| Name          | tls_secret1                                                                     |
-| Created       | None                                                                            |
-| Status        | None                                                                            |
-| Content types | {'default': 'application/octet-stream'}                                         |
-| Algorithm     | aes                                                                             |
-| Bit length    | 256                                                                             |
-| Secret type   | opaque                                                                          |
-| Mode          | cbc                                                                             |
-| Expiration    | None                                                                            |
-+---------------+---------------------------------------------------------------------------------+
++---------------+------------------------------------------------------------------------------------------+
+| Field         | Value                                                                                    |
++---------------+------------------------------------------------------------------------------------------+
+| Secret href   | https://key-manager.sto-com.cleura.cloud/v1/secrets/69bd82f5-60c9-4764-99ec-7a3dff05d2aa |
+| Name          | tls_secret1                                                                              |
+| Created       | None                                                                                     |
+| Status        | None                                                                                     |
+| Content types | {'default': 'application/octet-stream'}                                                  |
+| Algorithm     | aes                                                                                      |
+| Bit length    | 256                                                                                      |
+| Secret type   | opaque                                                                                   |
+| Mode          | cbc                                                                                      |
+| Expiration    | None                                                                                     |
++---------------+------------------------------------------------------------------------------------------+
 ```
 
 ## Creating HTTPS-enabled load balancer listeners
@@ -76,7 +76,7 @@ $ openstack loadbalancer listener create \
   --protocol-port 443 \
   --protocol TERMINATED_HTTPS \
   --name listener1 \
-  --default-tls-container-ref=https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  \
+  --default-tls-container-ref=https://key-manager.sto-com.cleura.cloud/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae  \
   <loadbalancer-name-or-id>
 +-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Field                       | Value                                                                                                                                                                                                                                                                              |
@@ -85,7 +85,7 @@ $ openstack loadbalancer listener create \
 | connection_limit            | -1                                                                                                                                                                                                                                                                                 |
 | created_at                  | 2021-01-20T11:51:46                                                                                                                                                                                                                                                                |
 | default_pool_id             | None                                                                                                                                                                                                                                                                               |
-| default_tls_container_ref   | https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae                                                                                                                                                                                                    |
+| default_tls_container_ref   | https://key-manager.sto-com.cleura.cloud/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae                                                                                                                                                                                           |
 | description                 |                                                                                                                                                                                                                                                                                    |
 | id                          | 4ec6b23d-d08a-4de0-9e12-54ac690ee1ec                                                                                                                                                                                                                                               |
 | insert_headers              | None                                                                                                                                                                                                                                                                               |
@@ -132,7 +132,7 @@ with no user-noticeable interruption to your service.
    following command:
    ```bash
    openstack loadbalancer listener set \
-     --default-tls-container-ref=https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25  \
+     --default-tls-container-ref=https://key-manager.sto-com.cleura.cloud/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25  \
      <listener-name-or-id>
    ```
 
@@ -141,5 +141,5 @@ may proceed to delete the old, now-unused secret:
 
 ```bash
 openstack secret delete \
-  https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae
+  https://key-manager.sto-com.cleura.cloud/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae
 ```

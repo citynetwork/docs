@@ -17,39 +17,40 @@ types with the following command:
 
 ```console
 $ openstack volume type list
-+--------------------------------------+-----------------------+-----------+
-| ID                                   | Name                  | Is Public |
-+--------------------------------------+-----------------------+-----------+
-| a479a6b0-b283-41a5-b38b-5b08e7f902ca | cbs-encrypted         | True      |
-| d9dfa98a-238d-4ca0-9abf-701fceb05623 | __DEFAULT__           | True      |
-| 86796611-fb12-4628-b6b1-e09469e301d7 | cbs                   | True      |
-+--------------------------------------+-----------------------+-----------+
++--------------------------------------+------------------------+-----------+
+| ID                                   | Name                   | Is Public |
++--------------------------------------+------------------------+-----------+
+| f0887a44-4f43-44d6-b701-164d7a9c4b5b | cbs-premium-encrypted  | True      |
+| b74f129c-1cbf-495e-b569-42ba35c34e22 | cbs-standard-encrypted | True      |
+| 4404cc47-bcf7-4504-a9b2-61ae7610b52d | cbs-premium            | True      |
+| 7838c4e6-0093-4343-8cb5-2a40d1c2e629 | cbs-standard           | True      |
++--------------------------------------+------------------------+-----------+
 ```
 
 > In {{brand}}, all volume types that support encryption use the
-> suffix `_encrypted`.
+> suffix `-encrypted`.
 
 To create a volume with encryption, you need to explicitly specify the
 `--type` option to the `openstack volume create` command. The
-following example creates a volume using the `cbs-encrypted`
+following example creates a volume using the `cbs-standard-encrypted`
 type, naming it `enc_drive` and setting its size to 10 GiB:
 
 ```console
 $ openstack volume create \
-  --type cbs-encrypted \
+  --type cbs-standard-encrypted \
   --size 10 \
   enc_drive
 +---------------------+--------------------------------------+
 | Field               | Value                                |
 +---------------------+--------------------------------------+
 | attachments         | []                                   |
-| availability_zone   | nova                                 |
+| availability_zone   | az1                                  |
 | bootable            | false                                |
 | consistencygroup_id | None                                 |
-| created_at          | 2021-04-27T13:52:10.000000           |
+| created_at          | 2025-02-12T15:00:12.561263           |
 | description         | None                                 |
 | encrypted           | True                                 |
-| id                  | 33211b21-8d4f-48e9-b76f-ec73ffd19def |
+| id                  | ffcbb423-ea86-45bd-8ffd-9993e0c26aa9 |
 | multiattach         | False                                |
 | name                | enc_drive                            |
 | properties          |                                      |
@@ -58,9 +59,9 @@ $ openstack volume create \
 | snapshot_id         | None                                 |
 | source_volid        | None                                 |
 | status              | creating                             |
-| type                | cbs-encrypted                        |
+| type                | cbs-standard-encrypted               |
 | updated_at          | None                                 |
-| user_id             | 966ad341f4e14920b5f589f900246ccc     |
+| user_id             | cc19369079c6457fb04a1c9ac1d023d1     |
 +---------------------+--------------------------------------+
 ```
 
@@ -91,7 +92,7 @@ openstack volume show \
   --os-volume-api-version 3.66 \
   -f value \
   -c encryption_key_id \
-  33211b21-8d4f-48e9-b76f-ec73ffd19def
+  ffcbb423-ea86-45bd-8ffd-9993e0c26aa9
 ```
 
 

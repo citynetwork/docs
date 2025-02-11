@@ -18,11 +18,11 @@ accessed without credentials), use the following command:
 === "OpenStack CLI"
     ```console
     $ openstack container create --public public-container
-    +---------------------------------------+------------------+----------------------------------------------------+
-    | account                               | container        | x-trans-id                                         |
-    +---------------------------------------+------------------+----------------------------------------------------+
-    | AUTH_30a7768a0ffc40359d6110f21a6e7d88 | public-container | tx00000d4f7d958e3e0c9aa-00638dc6ac-300de11-default |
-    +---------------------------------------+------------------+----------------------------------------------------+
+    +---------------------------------------+------------------+------------------------------------------------+
+    | account                               | container        | x-trans-id                                     |
+    +---------------------------------------+------------------+------------------------------------------------+
+    | AUTH_d42230ea21674515ab9197af89fa5192 | public-container | tx00000e577d32d25b6cf84-0067c01964-11148d9-az1 |
+    +---------------------------------------+------------------+------------------------------------------------+
     ```
 === "Swift CLI"
     ```console
@@ -61,11 +61,11 @@ included in the container.
 
 === "OpenStack CLI"
     ```console
-    openstack container show public-container
+    $ openstack container show public-container
     +----------------+---------------------------------------+
     | Field          | Value                                 |
     +----------------+---------------------------------------+
-    | account        | AUTH_30a7768a0ffc40359d6110f21a6e7d88 |
+    | account        | AUTH_d42230ea21674515ab9197af89fa5192 |
     | bytes_used     | 0                                     |
     | container      | public-container                      |
     | object_count   | 0                                     |
@@ -76,23 +76,24 @@ included in the container.
 === "Swift CLI"
     ```console
     $ swift stat public-container
-                          Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88
+                          Account: AUTH_d42230ea21674515ab9197af89fa5192
                         Container: public-container
-                          Objects: 0
-                            Bytes: 0
+                          Objects: 1
+                            Bytes: 12
                          Read ACL: .r:*,.rlistings
                         Write ACL:
-                          Sync To:
+                       Sync To:
                          Sync Key:
-                      X-Timestamp: 1670235997.87682
-    X-Container-Bytes-Used-Actual: 0
+                      X-Timestamp: 1740642660.27611
+    X-Container-Bytes-Used-Actual: 4096
                  X-Storage-Policy: default-placement
                   X-Storage-Class: STANDARD
-                    Last-Modified: Mon, 05 Dec 2022 10:26:37 GMT
-                       X-Trans-Id: tx00000cd9e7c26095ab862-00638dc78a-301ddeb-default
-           X-Openstack-Request-Id: tx00000cd9e7c26095ab862-00638dc78a-301ddeb-default
+                    Last-Modified: Thu, 27 Feb 2025 08:53:38 GMT
+                       X-Trans-Id: tx00000968578224f10c769-0067c0282d-1130eb5-az1
+           X-Openstack-Request-Id: tx00000968578224f10c769-0067c0282d-1130eb5-az1
                     Accept-Ranges: bytes
                      Content-Type: text/plain; charset=utf-8
+                       Connection: close
     ```
 
 ## Uploading data
@@ -119,12 +120,12 @@ read back its metadata:
     +----------------+---------------------------------------+
     | Field          | Value                                 |
     +----------------+---------------------------------------+
-    | account        | AUTH_30a7768a0ffc40359d6110f21a6e7d88 |
+    | account        | AUTH_d42230ea21674515ab9197af89fa5192 |
     | container      | public-container                      |
     | content-length | 12                                    |
     | content-type   | text/plain                            |
     | etag           | 6f5902ac237024bdd0c176cb93063dc4      |
-    | last-modified  | Mon, 05 Dec 2022 10:28:09 GMT         |
+    | last-modified  | Thu, 27 Feb 2025 07:55:16 GMT         |
     | object         | testobj.txt                           |
     +----------------+---------------------------------------+
     ```
@@ -134,17 +135,19 @@ read back its metadata:
     testobj.txt
 
     $ swift stat public-container testobj.txt
-                   Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88
+                   Account: AUTH_d42230ea21674515ab9197af89fa5192
                  Container: public-container
                     Object: testobj.txt
               Content Type: text/plain
             Content Length: 12
-             Last Modified: Mon, 05 Dec 2022 10:28:09 GMT
+             Last Modified: Thu, 27 Feb 2025 08:56:20 GMT
                       ETag: 6f5902ac237024bdd0c176cb93063dc4
+                Meta Mtime: 1740646531.753365
              Accept-Ranges: bytes
-               X-Timestamp: 1670236089.75015
-                X-Trans-Id: tx0000075bca59e9149bc53-00638dc7fa-301ddeb-default
-    X-Openstack-Request-Id: tx0000075bca59e9149bc53-00638dc7fa-301ddeb-default
+               X-Timestamp: 1740646580.91169
+                X-Trans-Id: tx00000f18c8e00bf4f5931-0067c028cb-11148d9-az1
+    X-Openstack-Request-Id: tx00000f18c8e00bf4f5931-0067c028cb-11148d9-az1
+                Connection: close
     ```
 
 ## Downloading data
@@ -154,7 +157,7 @@ the following commands (as with a private container):
 
 === "OpenStack CLI"
     ```console
-    $ openstack object save --file - private-container testobj.txt
+    $ openstack object save --file - public-container testobj.txt
     hello world
     ```
     The `--file -` option prints the file contents to stdout. If
@@ -166,7 +169,7 @@ the following commands (as with a private container):
     downloading (in this case, `testobj.txt`).
 === "Swift CLI"
     ```console
-    $ swift download -o - private-container testobj.txt
+    $ swift download -o - public-container testobj.txt
     hello world
     ```
     The `-o -` option prints the file contents to stdout. If
@@ -182,7 +185,7 @@ object using any regular HTTP/HTTPS client, using a public URL. This
 URL is composed as follows:
 
 1. The Swift API's base URL, which differs by {{brand}} region
-   (`https://swift‑<region>.{{brand_domain}}:<port>/swift/v1/`),
+   (`https://object-store.sto-com.{{brand_domain}}/swift/v1/`),
 2. the container's account string, starting with `AUTH_`,
 3. the container name (in our example, `public-container`),
 4. the object name (in our example, `testobj.txt`).
@@ -194,30 +197,23 @@ it by parsing the CLI's debug output:
     ```console
     $ openstack object show --debug public-container testobj.txt 2>&1 \
       | grep -o "https://.*testobj.txt"
-    https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
-    https://swift-fra1.{{brand_domain}}:8080 "HEAD /swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
-    https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+
+    https://object-store.sto-com.{{brand_domain}}/swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/public-container/testobj.txt
+    https://object-store.sto-com.{{brand_domain}}:443 "HEAD /swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/public-container/testobj.txt
+    https://object-store.sto-com.{{brand_domain}}/swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/public-container/testobj.txt
     ```
 === "Swift CLI"
     ```console
     $ swift stat --debug public-container testobj.txt 2>&1 \
       | grep -o "https://.*testobj.txt"
-    https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+    https://object-store.sto-com.{{brand_domain}}:443 "HEAD /swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/public-container/testobj.txt
+    https://object-store.sto-com.{{brand_domain}}/swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/public-container/testobj.txt
     ```
 
 Once you have retrieved your public URL, you can fetch the object's
 contents using the client of your choice. This example uses `curl`:
 
 ```console
-$ curl https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+$ curl https://object-store.sto-com.{{brand_domain}}/swift/v1/AUTH_d42230ea21674515ab9197af89fa51ntainer/testobj.txt
 hello world
 ```
-
-### Public bucket accessibility via the S3 API
-
-Once you make a container public via the Swift API, its objects also become accessible via [the corresponding S3 API path](../s3/public-bucket.md).
-
-Thus, the following URL paths allow you to retrieve the same public object:
-
-* `https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt`
-* `https://s3-fra1.{{brand_domain}}:8080/30a7768a0ffc40359d6110f21a6e7d88:public-container/testobj.txt`

@@ -8,15 +8,12 @@ This may be due to a volume type being phased out on {{brand}}'s part, necessita
 Or you might want to enable or disable [volume-level encryption](encrypted-volumes.md).
 
 {{page.meta.description}}
-The resulting downtime may be quite substantial, particularly for large volumes.
-As such, when you need to retype volumes, you should plan ahead well in advance.
+The process of volume retyping incurs a short downtime.
+Depending on the kind of application the server hosts, when you need to retype volumes, you should plan ahead well in advance.
 
 ## Prerequisites
 
 In order to retype volumes, you must use the OpenStack CLI, so make sure you [have it enabled](../../getting-started/enable-openstack-cli.md).
-
-If you are about to retype a large volume, or one that holds data associated with a critical service, you may be interested in an estimate of how long the retype operation will take.
-In that case, please file a support request with our [{{support}}](https://{{support_domain}}/servicedesk).
 
 ## Checking the volume's state
 
@@ -24,16 +21,17 @@ Assume you have a volume named `testvol` that is currently attached to a server 
 
 ```console
 $ openstack volume list --long
-+----------------+---------+--------+------+---------+----------+----------------+------------+
-| ID             | Name    | Status | Size | Type    | Bootable | Attached to    | Properties |
-+----------------+---------+--------+------+---------+----------+----------------+------------+
-| e233e7f3-f33b- | testvol | in-use |   50 | default | false    | Attached to    |            |
-| 4d7a-8f5b-785b |         |        |      |         |          | testsrv on     |            |
-| 34f670bf       |         |        |      |         |          | /dev/vdb       |            |
-+----------------+---------+--------+------+---------+----------+----------------+------------+
++--------------+---------+--------+------+-------------+----------+--------------+------------+
+| ID           | Name    | Status | Size | Type        | Bootable | Attached to  | Properties |
++--------------+---------+--------+------+-------------+----------+--------------+------------+
+| 0e6f15f8-    | testvol | in-use |   75 | cbs-premium | false    | Attached to  |            |
+| 8105-4043-   |         |        |      |             |          | testsrv on   |            |
+| beb1-        |         |        |      |             |          | /dev/vdb     |            |
+| 43f2364460f2 |         |        |      |             |          |              |            |
++--------------+---------+--------+------+-------------+----------+--------------+------------+
 ```
 
-In this example, this volume status is `in-use`, meaning it is currently attached to a server, and the volume type is `default`.
+In this example, this volume status is `in-use`, meaning it is currently attached to a server, and the volume type is `cbs-premium`.
 
 ## Detaching the volume
 
@@ -62,65 +60,50 @@ $ openstack volume list
 +--------------------------------------+---------+-----------+------+-------------+
 | ID                                   | Name    | Status    | Size | Attached to |
 +--------------------------------------+---------+-----------+------+-------------+
-| e233e7f3-f33b-4d7a-8f5b-785b34f670bf | testvol | available |   50 |             |
+| 0e6f15f8-8105-4043-beb1-43f2364460f2 | testvol | available |   75 |             |
 +--------------------------------------+---------+-----------+------+-------------+
 ```
 
 ## Retyping the volume
 
 With the volume safely detached, you can now change its volume type.
-If you were to change the volume type from `default` to `ceph_hdd`, you would proceed as follows:
+If you were to change the volume type from `cbs-premium` to `cbs-standard`, you would proceed as follows:
 
 ```console
-$ openstack volume set --type ceph_hdd --retype-policy on-demand testvol
+$ openstack volume set --type cbs-standard --migration-policy on-demand testvol
 
 $ openstack volume list --long
-+---------------+---------+----------+------+---------+----------+-------------+------------+
-| ID            | Name    | Status   | Size | Type    | Bootable | Attached to | Properties |
-+---------------+---------+----------+------+---------+----------+-------------+------------+
-| e233e7f3-f33b | testvol | retyping |   50 | default | false    |             |            |
-| -4d7a-8f5b-78 |         |          |      |         |          |             |            |
-| 5b34f670bf    |         |          |      |         |          |             |            |
-+---------------+---------+----------+------+---------+----------+-------------+------------+
++-------------+---------+-----------+------+-------------+----------+-------------+------------+
+| ID          | Name    | Status    | Size | Type        | Bootable | Attached to | Properties |
++-------------+---------+-----------+------+-------------+----------+-------------+------------+
+| 0e6f15f8-   | testvol | available |   75 | cbs-        | false    |             |            |
+| 8105-4043-  |         |           |      | standard    |          |             |            |
+| beb1-       |         |           |      |             |          |             |            |
+| 43f2364460f |         |           |      |             |          |             |            |
+| 2           |         |           |      |             |          |             |            |
++-------------+---------+-----------+------+-------------+----------+-------------+------------+
 ```
-
-Note that the volume status changes from `available` to `retyping`: this status change kicks off the actual data migration, which might take a significant amount of time.
 
 ## Re-attaching the volume
 
-If you attempt to re-attach the volume while it is still retyping, you will receive an error:
+Once retyping is complete and the volume is in the `available` status, you can re-attach it to the server:
 
 ```console
 $ openstack server add volume testsrv testvol
-BadRequestException: 400: Client Error for url: https://sto2.{{brand_domain}}:8774/v2.1/servers/b6a26b0e-f911-4ea2-8e45-51f16442da03/os-volume_attachments, Invalid input received: Invalid volume: Volume e233e7f3-f33b-4d7a-8f5b-785b34f670bf status must be available or downloading to reserve, but the current status is retyping. (HTTP 400) (Request-ID: req-36c4f2e5-ef2f-4ff4-b912-0baed2594f4d)
-```
 
-You must now wait until the volume status changes back from `retyping` to `available`.
-One way to do this is with a bash `until` loop:
-
-```bash
-until [ `openstack volume show -f value -c status testvol` = "available" ]; do
-  sleep 5
-done
-```
-
-Once the volume has returned to the `available` status, you can re-attach it to the server:
-
-```console
-$ openstack server add volume testsrv testvol
 +-----------------------+--------------------------------------+
 | Field                 | Value                                |
 +-----------------------+--------------------------------------+
-| ID                    | d2a22868-a133-40a1-b1a6-0cbae3feaf8d |
-| Server ID             | 23a391f7-57ba-4c7f-bdd1-d1b89d6e39b2 |
-| Volume ID             | e233e7f3-f33b-4d7a-8f5b-785b34f670bf |
+| ID                    | 0e6f15f8-8105-4043-beb1-43f2364460f2 |
+| Server ID             | 42049bba-3a48-4bc3-9940-bcaca120ec74 |
+| Volume ID             | 0e6f15f8-8105-4043-beb1-43f2364460f2 |
 | Device                | /dev/vdb                             |
 | Tag                   | None                                 |
 | Delete On Termination | False                                |
 +-----------------------+--------------------------------------+
 ```
 
-Finally, restart the server:
+Finally, start the server:
 
 ```console
 $ openstack server start testsrv

@@ -6,7 +6,7 @@ copyright: >
   <a href="https://creativecommons.org/licenses/by-sa/4.0/">
   <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/>
   </a>
-edit_uri: ./edit/main/docs
+edit_uri: ./edit/v2/docs
 extra:
   academy: "Cleura Cloud Academy"
   academy_domain: "academy.cleura.cloud"
@@ -16,7 +16,7 @@ extra:
   brand: "Cleura Cloud"
   brand_compliant: "Cleura Compliant Cloud"
   brand_container_orchestration: "Gardener in Cleura Cloud"
-  brand_domain: "citycloud.com"
+  brand_domain: "cleura.cloud"
   brand_public: "Cleura Public Cloud"
   company: "Cleura"
   company_domain: "cleura.com"
@@ -89,7 +89,7 @@ plugins:
         'howto/account-billing/change-billing-data.md': 'howto/account-billing/change-account-data.md'
 repo_url: https://github.com/citynetwork/docs
 site_name: "Cleura Docs"
-site_url: !ENV [DOCS_SITE_URL, "https://docs.cleura.cloud"]
+site_url: !ENV [DOCS_SITE_URL, "https://v2.docs.cleura.cloud"]
 theme:
   custom_dir: theme
   favicon: assets/favicon.ico

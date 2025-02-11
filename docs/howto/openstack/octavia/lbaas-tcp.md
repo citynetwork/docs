@@ -55,7 +55,7 @@ but first things first.
 
 === "{{gui}}"
     Fire up your favorite web browser, navigate to the
-    [{{gui}}](https://{{gui_domain}}) start page, and log into your
+    [{{gui}}](https://compliant.{{brand_domain}}) start page, and log into your
     {{brand}} account. On the top right-hand side of the {{gui}}, click the
     _Create_ button. A new pane titled _Create_ will slide into view from
     the right-hand side of the browser window. You will notice several
@@ -75,7 +75,7 @@ but first things first.
     _Subnet_ radio button. Then, from the _Subnet_ dropdown menu below,
     select an appropriate subnet for the new load balancer to move in front
     of. In our example, the two test servers we have are members of the
-    `network-fra1` internal network, and `subnet-fra1` is the name of the
+    `network-stocom` internal network, and `subnet-stocom` is the name of the
     corresponding subnet. Click the green _Create_ button below to
     instantiate the new load balancer.
 
@@ -95,7 +95,7 @@ but first things first.
 
     ```bash
     openstack loadbalancer create \
-        --name mylb --vip-subnet-id subnet-fra1
+        --name mylb --vip-subnet-id subnet-stocom
     ```
 
     ```text
@@ -104,30 +104,31 @@ but first things first.
     +---------------------+--------------------------------------+
     | admin_state_up      | True                                 |
     | availability_zone   | None                                 |
-    | created_at          | 2023-01-16T19:20:01                  |
+    | created_at          | 2025-03-07T11:34:42                  |
     | description         |                                      |
     | flavor_id           | None                                 |
-    | id                  | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+    | id                  | 1ab11475-4700-4047-858c-34bbf2fe1f3e |
     | listeners           |                                      |
     | name                | mylb                                 |
     | operating_status    | OFFLINE                              |
     | pools               |                                      |
-    | project_id          | dfc700467396428bacba4376e72cc3e9     |
-    | provider            | amphora                              |
+    | project_id          | d42230ea21674515ab9197af89fa5192     |
+    | provider            | amphorav2                            |
     | provisioning_status | PENDING_CREATE                       |
     | updated_at          | None                                 |
-    | vip_address         | 10.15.25.169                         |
-    | vip_network_id      | 6c340d2b-e2cf-478a-9074-37e6770decf8 |
-    | vip_port_id         | c5b49ecb-3631-4e1c-99f0-04b3fba314e2 |
+    | vip_address         | 10.15.25.178                         |
+    | vip_network_id      | 07db0af5-b8e9-47d6-9c50-7e411e7e7712 |
+    | vip_port_id         | 6b642cfc-14f2-4854-b068-a14b7919ae33 |
     | vip_qos_policy_id   | None                                 |
-    | vip_subnet_id       | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+    | vip_subnet_id       | f3437683-88a3-40a3-89c4-021bed3a2ccf |
+    | vip_vnic_type       | normal                               |
     | tags                |                                      |
-    | additional_vips     |                                      |
+    | additional_vips     | []                                   |
     +---------------------+--------------------------------------+
     ```
 
     In the example above, the name of the load balancer is `mylb`, and the
-    subnet it will be in front of is named `subnet-fra1` (this is the
+    subnet it will be in front of is named `subnet-stocom` (this is the
     subnet our two test servers are members of). You will notice in the
     command output that, at first, the `provisioning_status` is
     `PENDING_CREATE`. To make sure the load balancer has been successfully
@@ -198,17 +199,17 @@ can equip it with one.
     +-----------------------------+--------------------------------------+
     | admin_state_up              | True                                 |
     | connection_limit            | -1                                   |
-    | created_at                  | 2023-01-16T19:32:59                  |
+    | created_at                  | 2025-03-07T11:40:14                  |
     | default_pool_id             | None                                 |
     | default_tls_container_ref   | None                                 |
     | description                 |                                      |
-    | id                          | 8b4e3309-c460-44a8-a0af-8dd2868138f9 |
+    | id                          | 0322a0a7-1b5a-4aac-8174-cb7cbb6d13e1 |
     | insert_headers              | None                                 |
     | l7policies                  |                                      |
-    | loadbalancers               | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+    | loadbalancers               | 1ab11475-4700-4047-858c-34bbf2fe1f3e |
     | name                        | mylb-listener                        |
     | operating_status            | OFFLINE                              |
-    | project_id                  | dfc700467396428bacba4376e72cc3e9     |
+    | project_id                  | d42230ea21674515ab9197af89fa5192     |
     | protocol                    | TCP                                  |
     | protocol_port               | 61234                                |
     | provisioning_status         | PENDING_CREATE                       |
@@ -226,6 +227,9 @@ can equip it with one.
     | tls_versions                | None                                 |
     | alpn_protocols              | None                                 |
     | tags                        |                                      |
+    | hsts_max_age                | None                                 |
+    | hsts_include_subdomains     | False                                |
+    | hsts_preload                | False                                |
     +-----------------------------+--------------------------------------+
     ```
 
@@ -301,17 +305,17 @@ pool and explicitly list its members.
     | Field                | Value                                |
     +----------------------+--------------------------------------+
     | admin_state_up       | True                                 |
-    | created_at           | 2023-01-16T19:52:02                  |
+    | created_at           | 2025-03-07T11:41:51                  |
     | description          |                                      |
     | healthmonitor_id     |                                      |
-    | id                   | e5b9c18d-7c0b-4b95-9dc8-7a778aeb039c |
+    | id                   | 71ce0713-3bf4-4373-bc93-ea4a04f01754 |
     | lb_algorithm         | ROUND_ROBIN                          |
-    | listeners            | 8b4e3309-c460-44a8-a0af-8dd2868138f9 |
-    | loadbalancers        | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+    | listeners            | 0322a0a7-1b5a-4aac-8174-cb7cbb6d13e1 |
+    | loadbalancers        | 1ab11475-4700-4047-858c-34bbf2fe1f3e |
     | members              |                                      |
     | name                 | mylb-pool                            |
     | operating_status     | OFFLINE                              |
-    | project_id           | dfc700467396428bacba4376e72cc3e9     |
+    | project_id           | d42230ea21674515ab9197af89fa5192     |
     | protocol             | TCP                                  |
     | provisioning_status  | PENDING_CREATE                       |
     | session_persistence  | None                                 |
@@ -381,7 +385,7 @@ The pool you created has no members, so it is time to populate it.
 
     ```bash
     openstack loadbalancer member create \
-        --subnet-id subnet-fra1 --address 10.15.25.105 \
+        --subnet-id subnet-stocom --address 10.15.25.149 \
         --protocol-port 61234 mylb-pool
     ```
 
@@ -389,28 +393,29 @@ The pool you created has no members, so it is time to populate it.
     +---------------------+--------------------------------------+
     | Field               | Value                                |
     +---------------------+--------------------------------------+
-    | address             | 10.15.25.105                         |
+    | address             | 10.15.25.149                         |
     | admin_state_up      | True                                 |
-    | created_at          | 2023-01-16T20:11:08                  |
-    | id                  | 93aed0c8-b425-40b5-b166-f3e44ad9a986 |
+    | created_at          | 2025-03-07T11:44:14                  |
+    | id                  | 0d6b1284-67af-4b3b-91c1-0e46bc3cc4c1 |
     | name                |                                      |
     | operating_status    | NO_MONITOR                           |
-    | project_id          | dfc700467396428bacba4376e72cc3e9     |
+    | project_id          | d42230ea21674515ab9197af89fa5192     |
     | protocol_port       | 61234                                |
     | provisioning_status | PENDING_CREATE                       |
-    | subnet_id           | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+    | subnet_id           | f3437683-88a3-40a3-89c4-021bed3a2ccf |
     | updated_at          | None                                 |
     | weight              | 1                                    |
     | monitor_port        | None                                 |
     | monitor_address     | None                                 |
     | backup              | False                                |
     | tags                |                                      |
+    | vnic_type           | normal                               |
     +---------------------+--------------------------------------+
     ```
 
     ```bash
     openstack loadbalancer member create \
-        --subnet-id subnet-fra1 --address 10.15.25.236 \
+        --subnet-id subnet-stocom --address 10.15.25.155 \
         --protocol-port 61234 mylb-pool
     ```
 
@@ -418,22 +423,23 @@ The pool you created has no members, so it is time to populate it.
     +---------------------+--------------------------------------+
     | Field               | Value                                |
     +---------------------+--------------------------------------+
-    | address             | 10.15.25.236                         |
+    | address             | 10.15.25.155                         |
     | admin_state_up      | True                                 |
-    | created_at          | 2023-01-16T20:11:46                  |
-    | id                  | d15527ce-a293-4184-9da5-dcc5f7352a0c |
+    | created_at          | 2025-03-07T11:45:40                  |
+    | id                  | 1d43123f-cb7a-48f3-982b-52d39f4616d0 |
     | name                |                                      |
     | operating_status    | NO_MONITOR                           |
-    | project_id          | dfc700467396428bacba4376e72cc3e9     |
+    | project_id          | d42230ea21674515ab9197af89fa5192     |
     | protocol_port       | 61234                                |
     | provisioning_status | PENDING_CREATE                       |
-    | subnet_id           | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+    | subnet_id           | f3437683-88a3-40a3-89c4-021bed3a2ccf |
     | updated_at          | None                                 |
     | weight              | 1                                    |
     | monitor_port        | None                                 |
     | monitor_address     | None                                 |
     | backup              | False                                |
     | tags                |                                      |
+    | vnic_type           | normal                               |
     +---------------------+--------------------------------------+
     ```
 
@@ -444,20 +450,16 @@ The pool you created has no members, so it is time to populate it.
     ```
 
     ```text
-    +------------+------+------------+---------------------+------------+---------------+------------------+--------+
-    | id         | name | project_id | provisioning_status | address    | protocol_port | operating_status | weight |
-    +------------+------+------------+---------------------+------------+---------------+------------------+--------+
-    | 93aed0c8-  |      | dfc7004673 | ACTIVE              | 10.15.25.1 |         61234 | NO_MONITOR       |      1 |
-    | b425-40b5- |      | 96428bacba |                     | 05         |               |                  |        |
-    | b166-      |      | 4376e72cc3 |                     |            |               |                  |        |
-    | f3e44ad9a9 |      | e9         |                     |            |               |                  |        |
-    | 86         |      |            |                     |            |               |                  |        |
-    | d15527ce-  |      | dfc7004673 | ACTIVE              | 10.15.25.2 |         61234 | NO_MONITOR       |      1 |
-    | a293-4184- |      | 96428bacba |                     | 36         |               |                  |        |
-    | 9da5-      |      | 4376e72cc3 |                     |            |               |                  |        |
-    | dcc5f7352a |      | e9         |                     |            |               |                  |        |
-    | 0c         |      |            |                     |            |               |                  |        |
-    +------------+------+------------+---------------------+------------+---------------+------------------+--------+
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
+    | id             | name | project_id     | provisioning_status | address      | protocol_port | operating_status | weight |
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
+    | 0d6b1284-67af- |      | d42230ea216745 | ACTIVE              | 10.15.25.149 |         61234 | NO_MONITOR       |      1 |
+    | 4b3b-91c1-     |      | 15ab9197af89fa |                     |              |               |                  |        |
+    | 0e46bc3cc4c1   |      | 5192           |                     |              |               |                  |        |
+    | 1d43123f-cb7a- |      | d42230ea216745 | ACTIVE              | 10.15.25.155 |         61234 | NO_MONITOR       |      1 |
+    | 48f3-982b-     |      | 15ab9197af89fa |                     |              |               |                  |        |
+    | 52d39f4616d0   |      | 5192           |                     |              |               |                  |        |
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
     ```
 
 ## Assigning a floating IP
@@ -475,16 +477,16 @@ with a floating IP.
     ![Modify load balancer](assets/shot-19.png)
 
     The _Modify Load Balancer_ pane appears. For the _Floating IP_ option,
-    select _Create and attach IP_.
+    select _Choose a floating ip_ and then _Create and attach IP_.
 
     ![Create and attach floating IP](assets/shot-20.png)
 
-    A new pane slides over, named _Create a Floating IP_. For the _Region_
-    parameter, select the one the load balancer resides in. For the _Assign
-    to_ parameter, make sure you choose _Load Balancer_. In our example,
-    there's only one load balancer in the region we are working in, so the
-    parameter _Assign To_ is already set for us. To finalize the
-    assignment, click the green _Create and Assign_ button.
+    A new pane slides over, named _Create a Floating IP_.
+    For the _Region_ parameter, select the one the load balancer resides in.
+    Select an external network for the _External Network_ parameter.
+    For the _Assign to_ parameter, make sure you choose _Load Balancer_.
+    In our example, there's only one load balancer in the region we are working in, so the parameter _LoadBalancer_ below is automaticlally set for us.
+    To finalize the assignment, click the green _Create and Assign_ button.
 
     ![Configure attachment](assets/shot-21.png)
 
@@ -503,25 +505,25 @@ with a floating IP.
     +---------------------+--------------------------------------+
     | Field               | Value                                |
     +---------------------+--------------------------------------+
-    | created_at          | 2023-01-16T20:25:25Z                 |
+    | created_at          | 2025-03-07T11:48:38Z                 |
     | description         |                                      |
-    | dns_domain          | None                                 |
-    | dns_name            | None                                 |
+    | dns_domain          |                                      |
+    | dns_name            |                                      |
     | fixed_ip_address    | None                                 |
     | floating_ip_address | 198.51.100.129                       |
-    | floating_network_id | 2aec7a99-3783-4e2a-bd2b-bbe4fef97d1c |
-    | id                  | 69457661-197e-444a-b9ce-54394263dafa |
-    | name                | 198.51.100.129                       |
+    | floating_network_id | efb30531-a65a-4890-8b3c-56a503b51637 |
+    | id                  | 7bd382d0-dfb1-4eaa-b235-a13ba4cecd12 |
+    | name                | 185.16.85.55                         |
     | port_details        | None                                 |
     | port_id             | None                                 |
-    | project_id          | dfc700467396428bacba4376e72cc3e9     |
+    | project_id          | d42230ea21674515ab9197af89fa5192     |
     | qos_policy_id       | None                                 |
     | revision_number     | 0                                    |
     | router_id           | None                                 |
     | status              | DOWN                                 |
     | subnet_id           | None                                 |
     | tags                | []                                   |
-    | updated_at          | 2023-01-16T20:25:25Z                 |
+    | updated_at          | 2025-03-07T11:48:38Z                 |
     +---------------------+--------------------------------------+
     ```
 
@@ -674,11 +676,11 @@ corresponding pool member as a fully functional server.
     +---------------------+--------------------------------------+
     | Field               | Value                                |
     +---------------------+--------------------------------------+
-    | project_id          | dfc700467396428bacba4376e72cc3e9     |
+    | project_id          | d42230ea21674515ab9197af89fa5192     |
     | name                | mylb-pool-healthmon                  |
     | admin_state_up      | True                                 |
-    | pools               | e5b9c18d-7c0b-4b95-9dc8-7a778aeb039c |
-    | created_at          | 2023-01-22T20:22:05                  |
+    | pools               | 71ce0713-3bf4-4373-bc93-ea4a04f01754 |
+    | created_at          | 2025-03-07T11:54:10                  |
     | provisioning_status | PENDING_CREATE                       |
     | updated_at          | None                                 |
     | delay               | 10                                   |
@@ -689,7 +691,7 @@ corresponding pool member as a fully functional server.
     | max_retries_down    | 3                                    |
     | url_path            | None                                 |
     | type                | TCP                                  |
-    | id                  | 8e720877-969d-4653-9e7e-1ae2df66a0b6 |
+    | id                  | df9aeb33-6ff7-4610-b3ce-8ce925c611f7 |
     | operating_status    | OFFLINE                              |
     | http_version        | None                                 |
     | domain_name         | None                                 |
@@ -723,22 +725,16 @@ corresponding pool member as a fully functional server.
     ```
 
     ```plain
-    +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
-    | id        | name      | project_id | provisioning_status | address   | protocol_port | operating_status | weight |
-    +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
-    | c4351167- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |
-    | fcfa-     | lbaas-1   | 96428bacba |                     | 105       |               |                  |        |
-    | 48fb-     |           | 4376e72cc3 |                     |           |               |                  |        |
-    | 82ac-     |           | e9         |                     |           |               |                  |        |
-    | 76ddfdc73 |           |            |                     |           |               |                  |        |
-    | ca2       |           |            |                     |           |               |                  |        |
-    | 04a32731- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |
-    | f3a6-     | lbaas-2   | 96428bacba |                     | 236       |               |                  |        |
-    | 41ca-     |           | 4376e72cc3 |                     |           |               |                  |        |
-    | a638-     |           | e9         |                     |           |               |                  |        |
-    | 6f8767437 |           |            |                     |           |               |                  |        |
-    | 50c       |           |            |                     |           |               |                  |        |
-    +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
+    | id             | name | project_id     | provisioning_status | address      | protocol_port | operating_status | weight |
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
+    | 0d6b1284-67af- |      | d42230ea216745 | ACTIVE              | 10.15.25.149 |         61234 | ONLINE           |      1 |
+    | 4b3b-91c1-     |      | 15ab9197af89fa |                     |              |               |                  |        |
+    | 0e46bc3cc4c1   |      | 5192           |                     |              |               |                  |        |
+    | 1d43123f-cb7a- |      | d42230ea216745 | ACTIVE              | 10.15.25.155 |         61234 | ONLINE           |      1 |
+    | 48f3-982b-     |      | 15ab9197af89fa |                     |              |               |                  |        |
+    | 52d39f4616d0   |      | 5192           |                     |              |               |                  |        |
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
     ```
 
 ## Observing and testing the monitor
@@ -771,41 +767,35 @@ monitor from the {{gui}} --- and also from a local terminal.
     ```
 
     ```plain
-    +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
-    | id        | name      | project_id | provisioning_status | address   | protocol_port | operating_status | weight |
-    +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
-    | c4351167- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ERROR            |      1 |
-    | fcfa-     | lbaas-1   | 96428bacba |                     | 105       |               |                  |        |
-    | 48fb-     |           | 4376e72cc3 |                     |           |               |                  |        |
-    | 82ac-     |           | e9         |                     |           |               |                  |        |
-    | 76ddfdc73 |           |            |                     |           |               |                  |        |
-    | ca2       |           |            |                     |           |               |                  |        |
-    | 04a32731- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |
-    | f3a6-     | lbaas-2   | 96428bacba |                     | 236       |               |                  |        |
-    | 41ca-     |           | 4376e72cc3 |                     |           |               |                  |        |
-    | a638-     |           | e9         |                     |           |               |                  |        |
-    | 6f8767437 |           |            |                     |           |               |                  |        |
-    | 50c       |           |            |                     |           |               |                  |        |
-    +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
+    | id             | name | project_id     | provisioning_status | address      | protocol_port | operating_status | weight |
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
+    | 0d6b1284-67af- |      | d42230ea216745 | ACTIVE              | 10.15.25.149 |         61234 | ERROR            |      1 |
+    | 4b3b-91c1-     |      | 15ab9197af89fa |                     |              |               |                  |        |
+    | 0e46bc3cc4c1   |      | 5192           |                     |              |               |                  |        |
+    | 1d43123f-cb7a- |      | d42230ea216745 | ACTIVE              | 10.15.25.155 |         61234 | ONLINE           |      1 |
+    | 48f3-982b-     |      | 15ab9197af89fa |                     |              |               |                  |        |
+    | 52d39f4616d0   |      | 5192           |                     |              |               |                  |        |
+    +----------------+------+----------------+---------------------+--------------+---------------+------------------+--------+
     ```
 
     In the example above, see the `operating_status` column,
-    specifically the status of server `srv-lbaas-1`. Regarding
+    specifically the status of server with the IP of `10.15.25.149` (that's `srv-lbaas-1`). Regarding
     the operating status of all pool members, you can always
     limit the scope of your query like so:
 
     ```bash
     openstack loadbalancer member list mylb-pool \
-        -c name -c operating_status
+        -c id -c address -c operating_status
     ```
 
     ```plain
-    +-------------+------------------+
-    | name        | operating_status |
-    +-------------+------------------+
-    | srv-lbaas-1 | ERROR            |
-    | srv-lbaas-2 | ONLINE           |
-    +-------------+------------------+
+    +--------------------------------------+--------------+------------------+
+    | id                                   | address      | operating_status |
+    +--------------------------------------+--------------+------------------+
+    | 0d6b1284-67af-4b3b-91c1-0e46bc3cc4c1 | 10.15.25.149 | ERROR            |
+    | 1d43123f-cb7a-48f3-982b-52d39f4616d0 | 10.15.25.155 | ONLINE           |
+    +--------------------------------------+--------------+------------------+
     ```
 
 Finally, let us see what happens when we repeatedly try to
