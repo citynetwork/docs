@@ -8,3 +8,4 @@ nav:
   - object-lock.md
   - versioning.md
   - "Object encryption (SSE-C)": sse-c.md
+  - utilization.md
