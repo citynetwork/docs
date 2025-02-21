@@ -19,6 +19,6 @@
 
 |                               | Sto1HS | Sto2HS |
 | --------------------------    | ------ | ------ |
-| Block storage (for OpenStack) | Quincy | Quincy |
-| Object storage (Swift API)    | Quincy | Quincy |
-| Object storage (S3 API)       | Quincy | Quincy |
+| Block storage (for OpenStack) | Reef   | Reef   |
+| Object storage (Swift API)    | Reef   | Reef   |
+| Object storage (S3 API)       | Reef   | Reef   |
