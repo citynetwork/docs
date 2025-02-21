@@ -2,17 +2,17 @@
 
 ## OpenStack Services
 
-|                                | Kna1     | Sto2     | Fra1      |
-| ------------------------------ | -----    | ------   | -----     |
-| Barbican (secret storage)      | Antelope | Antelope | Antelope  |
-| Cinder (block storage)         | Antelope | Antelope | Antelope  |
-| Glance (image management)      | Antelope | Antelope | Antelope  |
-| Heat (orchestration)           | Antelope | Antelope | Antelope  |
-| Keystone (identity management) | Antelope | Antelope | Antelope  |
-| Magnum (container management)  | Antelope | Antelope | Antelope  |
-| Neutron (networking)           | Antelope | Antelope | Antelope  |
-| Nova (server virtualization)   | Antelope | Antelope | Antelope  |
-| Octavia (load balancing)       | Antelope | Antelope | Antelope  |
+|                                | Kna1    | Sto2    | Fra1    |
+| ------------------------------ | ------- | ------  | ------- |
+| Barbican (secret storage)      | Caracal | Caracal | Caracal |
+| Cinder (block storage)         | Caracal | Caracal | Caracal |
+| Glance (image management)      | Caracal | Caracal | Caracal |
+| Heat (orchestration)           | Caracal | Caracal | Caracal |
+| Keystone (identity management) | Caracal | Caracal | Caracal |
+| Magnum (container management)  | Caracal | Caracal | Caracal |
+| Neutron (networking)           | Caracal | Caracal | Caracal |
+| Nova (server virtualization)   | Caracal | Caracal | Caracal |
+| Octavia (load balancing)       | Caracal | Caracal | Caracal |
 
 
 ## Ceph Services
