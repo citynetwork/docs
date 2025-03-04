@@ -14,7 +14,7 @@ For more details on the relative merits of both options, refer to the sections b
 | -------------                                                   | ----------------             | ----------------                      |
 | Kubernetes Cloud Provider                                       | OpenStack                    | OpenStack                             |
 | Base operating system for nodes                                 | Garden Linux                 | Fedora CoreOS                         |
-| Latest installable Kubernetes minor release                     | 1.29                         | 1.24                                  |
+| Latest installable Kubernetes minor release                     | 1.31                         | 1.27                                  |
 
 
 ## API and CLI support
