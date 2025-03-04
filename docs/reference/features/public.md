@@ -49,7 +49,7 @@
 
 
 ## Kubernetes management
-|                            | Kna1                  | Sto2                  | Fra1                  |
-| -----------------          | ----------------      | ----------------      | ----------------      |
-| OpenStack Magnum           | :material-check:      | :material-check:      | :material-check:      |
-| {{k8s_management_service}} | :material-timer-sand: | :material-timer-sand: | :material-timer-sand: |
+|                            | Kna1             | Sto2             | Fra1             |
+| -----------------          | ---------------- | ---------------- | ---------------- |
+| OpenStack Magnum           | :material-check: | :material-check: | :material-check: |
+| {{k8s_management_service}} | :material-check: | :material-check: | :material-check: |
