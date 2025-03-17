@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 # Creating a VPN connection between regions
 
 Thanks to the Openstack Neutron VPN as a Service (VPNaaS) feature, you
