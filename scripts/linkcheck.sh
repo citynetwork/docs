@@ -1,11 +1,11 @@
 #!/bin/bash -ex
 
-DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.*'
+DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.* .*sto-com.cleura.cloud.*'
 
 if test `basename $0` = "linkcheck-local.sh"; then
     DOCS_SITE_URL="http://localhost:8000"
 elif test `basename $0` = "linkcheck-production.sh"; then
-    DOCS_SITE_URL="https://docs.cleura.cloud"
+    DOCS_SITE_URL="https://docs-v2.cleura.cloud"
     DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*localhost.*"
 fi
 
