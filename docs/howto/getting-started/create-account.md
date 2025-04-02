@@ -11,9 +11,7 @@ have to create a new account. For that, navigate to
 
 Select the new account type (that would be _Company_ or _Private_),
 carefully type in a valid email address, and choose your country.
-At your leisure, please read the [{{ legal_docs.tos.name}}]({{ legal_docs.tos.url}})
-and our
-[{{ legal_docs.cdpa.name}}]({{ legal_docs.cdpa.url}}).
+Please be sure to read the {{ legal_docs.tos.name}} and our {{ legal_docs.cdpa.name}}.
 
 Agree to these documents (select _Yes_), check the _I'm not a robot_
 box, and then click on the _Create_ button.
