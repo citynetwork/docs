@@ -29,18 +29,12 @@ extra:
       short_name: "CC BY-SA"
       url: "https://creativecommons.org/licenses/by-sa/4.0/"
     cdpa:
-      last_updated: 2024-03-22
       name: "Data Processing Agreement"
-      url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura_Data_Processing_Agreement_for_Public_Cloud-V24.03.25.pdf"
-      valid_from: 2024-03-25
     termination_form:
       name: "Termination of Subscription Form"
       url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura-Form-Termination-Of-Subscription.pdf"
     tos:
-      last_updated: 2023-09-08
       name: "Terms of Service"
-      url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura_Terms_of_Service-Public_Cloud_v2023.9.8.pdf"
-      valid_from: 2023-10-03
     transfer_form:
       name: "Transfer Form"
       url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura-Form-Transfer-Ownership.pdf"
