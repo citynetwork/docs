@@ -37,7 +37,7 @@ This will redirect you to the {{gui}}, and since you are logging in from a new a
   To make your account fully operational, you have to take one more verification step.
   You do that either by entering valid credit card information, or by placing a phone call.
   Verifying by credit card does *not* incur charges.
-  If you prefer to verify by phone, you may do so during business hours (08:00 – 17:00 CET/CEST UTC+1/UTC+2).
+  If you prefer to verify by phone (available only for *Company* accounts), you may do so during business hours (08:00 – 17:00 CET/CEST UTC+1/UTC+2).
   During the verification call, you will be asked for the username of the new account.
 
 ![Account verification](assets/06-step-3.png)
