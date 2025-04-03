@@ -117,5 +117,5 @@ Live migration or evacuation *including encrypted volumes* does, however, requir
 
 This means that you have two options:
 
-1. If you *do* trust us to include your instances in live migrations and evacuations, even if they attach encrypted volumes, then you can [add our administrative account to the Access Control List (ACL) for your secrets](../barbican/share-secret.md).
+1. If you *do* trust us to include your instances in live migrations and evacuations, even if they attach encrypted volumes, then you can [add](../barbican/share-secret.md) our [administrative account](../../../reference/volumes/index.md) to the Access Control List (ACL) for your secrets.
 2. If you *don’t* want to share your secrets but you still want to use encrypted volumes, you should build your own mechanism or process (preferably automated) so that your instances recover in case they become non-functional.
