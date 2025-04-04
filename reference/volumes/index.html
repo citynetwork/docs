@@ -22,7 +22,7 @@
     
     
       
-        <title>Volume types - Cleura Docs</title>
+        <title>Volume service reference - Cleura Docs</title>
       
     
     
@@ -66,7 +66,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Volume types - Cleura Docs" >
+        <meta  property="og:title"  content="Volume service reference - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
@@ -82,7 +82,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Volume types - Cleura Docs" >
+        <meta  name="twitter:title"  content="Volume service reference - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -118,7 +118,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#volume-types" class="md-skip">
+        <a href="#volume-service-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -153,7 +153,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Volume types
+              Volume service reference
             
           </span>
         </div>
@@ -4226,6 +4226,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#volume-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volume types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administrative-access-to-volume-encryption-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administrative access to volume encryption secrets
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4248,7 +4274,8 @@
   
 
 
-<h1 id="volume-types">Volume types</h1>
+<h1 id="volume-service-reference">Volume service reference</h1>
+<h2 id="volume-types">Volume types</h2>
 <p>The following volume types are available in Cleura Cloud for persistent block storage devices (&ldquo;volumes&rdquo;) managed by OpenStack Cinder.</p>
 <p>If you create a volume without specifying a volume type, then the default volume type applies.</p>
 <table>
@@ -4276,6 +4303,38 @@
 </tbody>
 </table>
 <p>It is possible &mdash; though somewhat involved &mdash; to <a href="../../howto/openstack/cinder/retype-volumes/">change the type of an existing volume</a> (also known as retyping).</p>
+<h2 id="administrative-access-to-volume-encryption-secrets">Administrative access to volume encryption secrets</h2>
+<p>If you want to enable Cleura Cloud support to administratively migrate virtual machines with attached <a href="../../howto/openstack/cinder/encrypted-volumes/">encrypted volumes</a>, please <a href="../../howto/openstack/barbican/share-secret/">share your encryption secrets</a> with the following user IDs:</p>
+<table>
+<thead>
+<tr>
+<th>Cleura Cloud region</th>
+<th>Administrative user UUID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fra1</td>
+<td><code>a3bee416cf67420995855d602d2bccd3</code></td>
+</tr>
+<tr>
+<td>Kna1</td>
+<td><code>a3bee416cf67420995855d602d2bccd3</code></td>
+</tr>
+<tr>
+<td>Sto2</td>
+<td><code>a3bee416cf67420995855d602d2bccd3</code></td>
+</tr>
+<tr>
+<td>Sto1HS</td>
+<td><code>ac35ff3bedf440fe8062a5ba7e17d590</code></td>
+</tr>
+<tr>
+<td>Sto2HS</td>
+<td><code>17c689c90f9549a3b30ac8ecbef9abb1</code></td>
+</tr>
+</tbody>
+</table>
 <div class="footnote">
 <hr />
 <ol>
@@ -4306,7 +4365,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 18, 2024 14:42:36">2024-06-18</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 3, 2025 10:36:12">2025-04-03</span>
   </span>
 
     

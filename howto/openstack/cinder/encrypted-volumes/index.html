@@ -4376,12 +4376,10 @@
 
 <h1 id="encrypted-volumes">Encrypted volumes</h1>
 <p>Using Barbican secrets for block storage encryption, you can store data in persistent storage volumes in an encrypted fashion.</p>
-<p>That encryption is transparent to virtual machines (instances) that
-you attach the volume to.</p>
+<p>That encryption is transparent to virtual machines (instances) that you attach the volume to.</p>
 <h2 id="creating-an-encrypted-volume">Creating an encrypted volume</h2>
-<p>For the creation of an encrypted volume, you need to provide a
-specific <em>volume type.</em> You can retrieve the list of available volume
-types with the following command:</p>
+<p>For the creation of an encrypted volume, you need to provide a specific <em>volume type.</em>
+You can retrieve the list of available volume types with the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span><span class="nb">type</span><span class="w"> </span>list
 <span class="go">+--------------------------------------+-----------------------+-----------+</span>
 <span class="go">| ID                                   | Name                  | Is Public |</span>
@@ -4392,13 +4390,10 @@ types with the following command:</p>
 <span class="go">+--------------------------------------+-----------------------+-----------+</span>
 </code></pre></div>
 <blockquote>
-<p>In Cleura Cloud, all volume types that support encryption use the
-suffix <code>_encrypted</code>.</p>
+<p>In Cleura Cloud, all volume types that support encryption use the suffix <code>_encrypted</code>.</p>
 </blockquote>
-<p>To create a volume with encryption, you need to explicitly specify the
-<code>--type</code> option to the <code>openstack volume create</code> command. The
-following example creates a volume using the <code>cbs-encrypted</code>
-type, naming it <code>enc_drive</code> and setting its size to 10 GiB:</p>
+<p>To create a volume with encryption, you need to explicitly specify the <code>--type</code> option to the <code>openstack volume create</code> command.
+The following example creates a volume using the <code>cbs-encrypted</code> type, naming it <code>enc_drive</code> and setting its size to 10 GiB:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--type<span class="w"> </span>cbs-encrypted<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--size<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
@@ -4427,14 +4422,11 @@ type, naming it <code>enc_drive</code> and setting its size to 10 GiB:</p>
 <span class="go">| user_id             | 966ad341f4e14920b5f589f900246ccc     |</span>
 <span class="go">+---------------------+--------------------------------------+</span>
 </code></pre></div>
-<p>Upon volume creation, this will create a one-off encryption key, which
-is stored in Barbican and applies to this one volume only. In other
-words, the key created for this volume will be unable to decrypt any
-other volumes except the one it was created for.</p>
+<p>Upon volume creation, this will create a one-off encryption key, which is stored in Barbican and applies to this one volume only.
+In other words, the key created for this volume will be unable to decrypt any other volumes except the one it was created for.</p>
 <h2 id="retrieving-a-volumes-encryption-key">Retrieving a volume’s encryption key</h2>
-<p>Once you have created an encrypted volume, you may retrieve a
-reference to the Barbican secret that represents its encryption
-key. You do this with the following command:</p>
+<p>Once you have created an encrypted volume, you may retrieve a reference to the Barbican secret that represents its encryption key.
+You do this with the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>volume<span class="w"> </span>show<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--os-volume-api-version<span class="w"> </span><span class="m">3</span>.66<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-f<span class="w"> </span>value<span class="w"> </span><span class="se">\</span>
@@ -4449,52 +4441,28 @@ key. You do this with the following command:</p>
 <span class="w">  </span>33211b21-8d4f-48e9-b76f-ec73ffd19def
 </code></pre></div>
 <h2 id="deleting-an-encrypted-volume">Deleting an encrypted volume</h2>
-<p>When you decide you no longer need an encrypted volume and want to
-delete it, you can do so with the <code>openstack volume delete</code>
-command. As long as you do this with the same user account as the one
-that created the volume, this will succeed without further
-intervention.</p>
-<p>However, if you are trying to delete a volume that was created by a
-different user, you’ll run into the limitation that the <em>secret</em>
-associated with the volume is owned by that user. As a result, the
-deletion of the encrypted volume using your own user credentials will
-fail.</p>
+<p>When you decide you no longer need an encrypted volume and want to delete it, you can do so with the <code>openstack volume delete</code> command.
+As long as you do this with the same user account as the one that created the volume, this will succeed without further intervention.</p>
+<p>However, if you are trying to delete a volume that was created by a different user, you’ll run into the limitation that the <em>secret</em> associated with the volume is owned by that user.
+As a result, the deletion of the encrypted volume using your own user credentials will fail.</p>
 <p>There are two options to work around this limitation:</p>
 <ol>
-<li>You can switch to the user credentials of the user that created the
-   volume (if you have access to them), and proceed with the deletion.</li>
-<li>You can ask the user that created the volume to <a href="../../barbican/share-secret/">add you to the
-   Access Control List (ACL) for the
-   secret</a>. This will enable you to read
-   the secret, and to delete the volume using your own credentials.</li>
+<li>You can switch to the user credentials of the user that created the volume (if you have access to them), and proceed with the deletion.</li>
+<li>You can ask the user that created the volume to <a href="../../barbican/share-secret/">add you to the Access Control List (ACL) for the secret</a>.
+   This will enable you to read the secret, and to delete the volume using your own credentials.</li>
 </ol>
 <h2 id="block-device-encryption-caveats">Block device encryption caveats</h2>
-<p>Once a volume is configured to use encryption and is also attached to
-an instance in Cleura Cloud, some caveats apply that you might want
-to keep in mind.</p>
-<p>Sometimes, automatically or through administrator intervention, we
-move one of your instances to another physical machine. This process
-is known as <em>live migration,</em> and it normally does not interrupt the
-instance’s functionality at all — typically, neither you nor the
-application users notice that live migration has even happened. This
-is a very common occurrence when we do routine upgrades of the
-Cleura Cloud platform, during our pre-announced maintenance windows.</p>
-<p>The same considerations apply to physical node failure. If the
-physical machine running your instance fails, we can automatically
-recover it onto another machine — an action known as <em>evacuation.</em></p>
-<p>Live migration or evacuation <em>including encrypted volumes</em> does,
-however, require that whoever does the migration also has at least
-read access to the volume’s encryption secret.</p>
+<p>Once a volume is configured to use encryption and is also attached to an instance in Cleura Cloud, some caveats apply that you might want to keep in mind.</p>
+<p>Sometimes, automatically or through administrator intervention, we move one of your instances to another physical machine.
+This process is known as <em>live migration,</em> and it normally does not interrupt the instance’s functionality at all — typically, neither you nor the application users notice that live migration has even happened.
+This is a very common occurrence when we do routine upgrades of the Cleura Cloud platform, during our pre-announced maintenance windows.</p>
+<p>The same considerations apply to physical node failure.
+If the physical machine running your instance fails, we can automatically recover it onto another machine — an action known as <em>evacuation.</em></p>
+<p>Live migration or evacuation <em>including encrypted volumes</em> does, however, require that whoever does the migration also has at least read access to the volume’s encryption secret.</p>
 <p>This means that you have two options:</p>
 <ol>
-<li>If you <em>do</em> trust us to include your instances in live migrations
-   and evacuations, even if they attach encrypted volumes, then you
-   can <a href="../../barbican/share-secret/">add our administrative account to the Access Control List
-   (ACL) for your secrets</a>.</li>
-<li>If you <em>don’t</em> want to share your secrets but you still want to use
-   encrypted volumes, you should build your own mechanism or process
-   (preferably automated) so that your instances recover in case they
-   become non-functional.</li>
+<li>If you <em>do</em> trust us to include your instances in live migrations and evacuations, even if they attach encrypted volumes, then you can <a href="../../barbican/share-secret/">add</a> our <a href="../../../../reference/volumes/">administrative account</a> to the Access Control List (ACL) for your secrets.</li>
+<li>If you <em>don’t</em> want to share your secrets but you still want to use encrypted volumes, you should build your own mechanism or process (preferably automated) so that your instances recover in case they become non-functional.</li>
 </ol>
 
 
@@ -4518,7 +4486,7 @@ read access to the volume’s encryption secret.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 2, 2024 09:11:57">2024-05-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 3, 2025 10:36:12">2025-04-03</span>
   </span>
 
     
