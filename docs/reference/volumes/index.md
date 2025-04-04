@@ -1,4 +1,6 @@
-# Volume types
+# Volume service reference
+
+## Volume types
 
 The following volume types are available in {{brand}} for persistent block storage devices ("volumes") managed by OpenStack Cinder.
 
@@ -21,3 +23,15 @@ In Sto-Com, Quality of Service for Cinder is as follows:
 | Local Storage  | 40000    | N/A                   | 40000           | 1000                  | N/A                                | 1000                  |
 
 [^iops]: The maximum IOPS specification is essentially a cap, which creates an upper bound for individual device performance under *ideal* conditions. Actual IOPS may vary based on system load and utilization.
+
+## Administrative access to volume encryption secrets
+
+If you want to enable {{brand}} support to administratively migrate virtual machines with attached [encrypted volumes](../../howto/openstack/cinder/encrypted-volumes.md), please [share your encryption secrets](../../howto/openstack/barbican/share-secret.md) with the following user IDs:
+
+| {{brand}} region | Administrative user UUID           |
+| ---------------- | ---------------------------------  |
+| Fra1             | `a3bee416cf67420995855d602d2bccd3` |
+| Kna1             | `a3bee416cf67420995855d602d2bccd3` |
+| Sto2             | `a3bee416cf67420995855d602d2bccd3` |
+| Sto1HS           | `ac35ff3bedf440fe8062a5ba7e17d590` |
+| Sto2HS           | `17c689c90f9549a3b30ac8ecbef9abb1` |
