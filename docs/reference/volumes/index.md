@@ -35,3 +35,4 @@ If you want to enable {{brand}} support to administratively migrate virtual mach
 | Sto2             | `a3bee416cf67420995855d602d2bccd3` |
 | Sto1HS           | `ac35ff3bedf440fe8062a5ba7e17d590` |
 | Sto2HS           | `17c689c90f9549a3b30ac8ecbef9abb1` |
+| Sto-Com          | `9df720317c964e399d5bf6bc1e49e6a8` |
