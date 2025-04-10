@@ -4,7 +4,7 @@ description: How to deploy a Taiga instance in Cleura Cloud
 
 # Creating a Taiga instance
 
-This guide covers the deployment of a self-hosted Taiga service.
+This guide covers the deployment of a self-hosted [Taiga](https://taiga.io/) service.
 
 To proceed, make sure you have an [account in {{brand}}](../../getting-started/create-account.md), and you are logged in to the [{{gui}}](https://{{gui_domain}}).
 

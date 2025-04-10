@@ -4,7 +4,7 @@ description: How to deploy a Harbor instance in Cleura Cloud
 
 # Creating a Harbor instance
 
-This guide covers the deployment of a self-hosted Harbor service.
+This guide covers the deployment of a self-hosted [Harbor](https://goharbor.io/) service.
 
 To proceed, make sure you have an [account in {{brand}}](../../getting-started/create-account.md), and you are logged in to the [{{gui}}](https://{{gui_domain}}).
 

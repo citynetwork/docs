@@ -4,7 +4,7 @@ description: How to deploy a Bareos instance in Cleura Cloud
 
 # Creating a Bareos instance
 
-This guide covers the deployment of a self-hosted Bareos service.
+This guide covers the deployment of a self-hosted [Bareos](https://www.bareos.com/) service.
 
 To proceed, make sure you have an [account in {{brand}}](../../getting-started/create-account.md), and you are logged in to the [{{gui}}](https://{{gui_domain}}).
 
@@ -24,6 +24,7 @@ Click the orange *Deploy this App* button to start the deployment process.
 The Bareos application is hosted on a [Nova VM](../../openstack/nova/new-server.md), so now you may select a region, a name, a flavor, a public network, a keypair, and a security group for it.
 Regarding the security group, [make sure it includes a rule](../../openstack/neutron/create-security-groups.md) allowing incoming TCP connections to port 80.
 
+Read and agree to the *Terms and Conditions.*
 When you are ready, click the green *Create* button.
 
 ![Specify the characteristics of the particular Bareos deployment](assets/new-bareos/bareos-03.png)

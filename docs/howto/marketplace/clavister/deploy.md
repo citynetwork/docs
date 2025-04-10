@@ -4,7 +4,7 @@ description: How to deploy a Clavister NetWall instance in Cleura Cloud
 
 # Creating a Clavister NetWall instance
 
-This guide covers the deployment of a Clavister NetWall application firewall.
+This guide covers the deployment of a [Clavister NetWall](https://www.clavister.com/products/ngfw/) application firewall.
 To proceed, make sure you have an [account in {{brand}}](../../getting-started/create-account.md), and you are logged in to the [{{gui}}](https://{{gui_domain}}).
 
 ## Step-by-step deployment

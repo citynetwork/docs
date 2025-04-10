@@ -4,7 +4,7 @@ description: How to deploy a Matomo instance in Cleura Cloud
 
 # Creating a Matomo instance
 
-This guide covers the deployment of a self-hosted Matomo service.
+This guide covers the deployment of a self-hosted [Matomo](https://matomo.org/) service.
 
 To proceed, make sure you have an [account in {{brand}}](../../getting-started/create-account.md), and you are logged in to the [{{gui}}](https://{{gui_domain}}).
 

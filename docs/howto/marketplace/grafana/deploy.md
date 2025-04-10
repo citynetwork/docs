@@ -4,7 +4,7 @@ description: How to deploy a Grafana instance in Cleura Cloud
 
 # Creating a Grafana instance
 
-This guide covers the deployment of a self-hosted Grafana service.
+This guide covers the deployment of a self-hosted [Grafana](https://grafana.com/) service.
 
 To proceed, make sure you have an [account in {{brand}}](../../getting-started/create-account.md), and you are logged in to the [{{gui}}](https://{{gui_domain}}).
 

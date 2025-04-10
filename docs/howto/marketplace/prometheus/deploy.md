@@ -4,7 +4,7 @@ description: How to deploy a Prometheus instance in Cleura Cloud
 
 # Creating a Prometheus instance
 
-This guide covers the deployment of a self-hosted Prometheus service.
+This guide covers the deployment of a self-hosted [Prometheus](https://prometheus.io/) service.
 
 To proceed, make sure you have an [account in {{brand}}](../../getting-started/create-account.md), and you are logged in to the [{{gui}}](https://{{gui_domain}}).
 
