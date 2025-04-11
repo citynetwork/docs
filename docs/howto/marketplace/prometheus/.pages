@@ -1,3 +1,4 @@
 title: Prometheus
 nav:
   - deploy.md
+  - delete.md
