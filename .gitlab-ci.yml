@@ -1,0 +1,43 @@
+---
+default:
+  image: 'python:3'
+  before_script:
+    - pip install tox
+
+stages:
+  - build
+  - test
+  - deploy
+
+lint:
+  stage: build
+  script:
+    - tox -e gitlint
+    - tox
+
+test:
+  stage: test
+  script:
+    - tox -e build
+    - tox -e check
+
+.pages:
+  stage: deploy
+  script:
+    - tox -e build
+    - mv site public
+  artifacts:
+    paths:
+      - public
+
+pages-main:
+  extends: .pages
+  only:
+    - main
+
+pages:
+  extends: .pages
+  pages:
+    path_prefix: "$CI_COMMIT_BRANCH"
+  except:
+    - main
