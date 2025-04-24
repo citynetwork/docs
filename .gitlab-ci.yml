@@ -21,7 +21,7 @@ test:
     - tox -e build
     - tox -e check
 
-pages:
+.pages:
   stage: deploy
   script:
     - tox -e build
@@ -29,3 +29,15 @@ pages:
   artifacts:
     paths:
       - public
+
+pages-main:
+  extends: .pages
+  only:
+    - main
+
+pages:
+  extends: .pages
+  pages:
+    path_prefix: "$CI_COMMIT_BRANCH"
+  except:
+    - main
