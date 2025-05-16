@@ -39,5 +39,6 @@ pages:
   extends: .pages
   pages:
     path_prefix: "$CI_COMMIT_BRANCH"
+    expire_in: 4 weeks
   except:
     - main

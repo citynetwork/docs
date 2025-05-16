@@ -1,40 +1,45 @@
-# Changing your credit card data
+# Managing your credit card information
 
-You can only change your credit card when you _pay a new invoice_ via
-the [{{gui}}](https://{{gui_domain}}).
+You may add or change credit card information via the [{{gui}}](https://{{gui_domain}}).
 
 ## Prerequisites
 
-You must be logged in to your [Cleura Cloud](https://{{gui_domain}})
-account to switch credit cards.
+You must be logged in to your [Cleura Cloud](https://{{gui_domain}}) account to manage credit card information.
 
-## Change credit card
+## Adding a credit card
 
 In the {{gui}}, make sure the vertical pane on the left is visible.
-Click on _Settings_, and from the drop-down menu that appears select _Manage Invoice Settings_.
+Click on _Settings_, and then on _Manage Invoice Settings._
+In the central pane, named _Invoice Settings,_ notice the three tabs at the top.
+Click on the one labeled _Credit Cards,_ and then on the green _Add New Card_ button below.
 
-Your invoice specifications are in the _Settings_ tab.
-To pay an invoice, click on the orange :material-dots-horizontal-circle: icon beside it.
+![Locating the button for adding a new credit card](assets/add-new-cc.png)
 
-![Three white dots in circle on orange background beside invoice specifications.](assets/circlewithdots.png)
+You are redirected to a PayEx Sverige AB page, where you enter your credit card information.
+When you are done, click the black _Confirm_ button.
 
-You may want to check if you have a voucher code before paying; just click on the _Voucher Code_ tab on the right.
+![Entering credit card information](assets/add-new-cc-info.png)
 
-![The voucher code tab](assets/voucher-code.png)
+To confirm the new card, {{brand}} charges you zero (0) units of your card's currency.
+Depending on your bank, you might have to use whatever mechanism is provided to authorize that zero charge.
 
-Back in the _Settings_ tab, choose _$ Pay this Invoice_ at the bottom.
+![Authorize zero-charge](assets/accept-zero-charge.png)
 
-![Four lines of invoice options, at the bottom is the line with the option to pay this invoice.](assets/paythisinvoice.png)
+Once the new credit card is added, it will be visible in the _Credit Cards_ tab.
 
-You will now see two payment methods. Click on _Card Payment
-(Debit/Credit)_.
+![New credit card successfully added](assets/new-cc-added.png)
 
-![Image with invoice specification and box with image of credit card suppliers where options are available to choose payment methods.](assets/choosepaymentmethod.png)
+## Changing a credit card
 
-You are now redirected to the bank's website. Add your information
-that applies to your _new credit card_ and click _Pay_.
+If you want to use another credit card, click the green _Add New Card_ button below the existing card.
 
-![Image where it is possible to add a new card with the card's specific information and make the invoice payment.](assets/addnewcard.png)
+![Change an existing credit card](assets/change-cc.png)
 
-Your _new credit card_ is now valid on your
-[Cleura Cloud](https://{{gui_domain}}) account.
+Configure the new card as you did when adding the existing card.
+When you are done adding the new one, you will realize that the old one is no longer listed under _Credit Cards._
+In addition to the old card not being visible, please keep in mind that it is also __removed__ from the system.
+
+## Removing a credit card
+
+To remove a credit card you have already added to your account, you need to send an email to [{{support_email}}](mailto:{{support_email}}).
+This email should come either from the technical contact address or the billing contact address of [your account](change-account-data.md).
