@@ -34,3 +34,49 @@ We do not support `GOVERNANCE` mode.
 ### SSE-KMS
 
 There is currently no support for SSE-KMS in {{brand}}. SSE-C, in contrast, [is fully supported](../../howto/object-storage/s3/sse-c.md).
+
+### Request checksum calculation
+
+Due to changes in AWS SDKs in early 2025, uploading objects to {{brand}} object storage services may fail when using tools that depend on those SDKs.
+Calls using the previously optional checksum requirement will fail because our backend storage doesn't recognize these requests.
+
+This can be resolved by setting the environment variable `AWS_REQUEST_CHECKSUM_CALCULATION` to `WHEN_REQUIRED` or by changing the AWS CLI defaults.
+Other tools can have similar options that can be changed to retain compatibility.
+
+=== "aws"
+    ```sh
+    export AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED
+    ```
+
+    or
+
+    ```ini
+    [default]
+    request_checksum_calculation = WHEN_REQUIRED
+    ```
+    For better compatibility, ensure you're using a current version (>=2.23.5) of the AWS CLI that should accept `AWS_REQUEST_CHECKSUM_CALCULATION` environment variable and config options.
+
+=== "Terraform/OpenTofu"
+    Please disable checksums.
+    ```terraform
+    terraform {
+      required_version = ">= 1.6.3"
+
+      backend "s3" {
+        endpoints = {
+          s3 = "https://s3-<region>.{{brand_domain}}"
+        }
+
+      bucket = "<your_bucket_name>"
+      key    = "<state_file_name>"
+
+      # Deactivate a few AWS-specific checks
+      skip_credentials_validation = true
+      skip_requesting_account_id  = true
+      skip_metadata_api_check     = true
+      skip_region_validation      = true
+      skip_s3_checksum            = true
+      region                      = "us-east-1"
+      }
+    }
+    ```
