@@ -58,9 +58,39 @@ Sometimes, this creates unavoidable conflicts if a specific feature is only avai
 For example, if you [set a public read policy](../howto/object-storage/s3/public-bucket.md) on an S3 bucket, the corresponding Swift container will still show an empty Read ACL, making the Swift container *look* like it is private, even though its objects are accessible through simple public URLs.
 This is because Swift has no concept of fine-grained bucket policies, as they exist in S3.
 
+## Object versioning
+
+In regular default buckets, each object has just one representation, and all operations (like removal or upload) operate on this one entity.
+With versioned buckets, modifications like uploading an object with the same name only modify a view of the bucket.
+In this mode of operation, each object receives a unique version ID, and modifications retain prior versions.
+This allows you to restore an earlier version of an object.
+
+| Operation                    | Default bucket                | Versioned bucket                                                      |
+| ---------------------------- | ----------------------------  | -------------------------------------                                 |
+| Uploading a new object       | New object is stored          | New object is stored                                                  |
+| Overwrite of existing object | New object overwrites old one | New object version becomes current                                    |
+| Delete object                | Object is deleted             | Delete marker is placed, subsequent object access returns "Not found" |
+
+Once you [enable versioning on a bucket](../howto/object-storage/s3/versioning.md#enabling-bucket-versioning), you cannot turn it off.
+You can, however, suspend it.
+When versioning is suspended, new objects are created with a version ID of `null`, overwriting any existing `null` version.
+All previously versioned objects remain unchanged and accessible.
+
+### Delete markers
+
+When you delete an object in a versioned bucket, the object isn't actually removed.
+Instead, a special placeholder called a delete marker acts as the current version of the object.
+This marker has a unique version ID, causing the object service to return a 404 "Not found" error whenever you attempt to retrieve the object.
+
+However, trying to access any older version of the object works as expected.
+Delete markers themselves can also be deleted.
+When you delete a delete marker, the previous version becomes current again, effectively "undeleting" the object.
+To permanently remove an object version, you must delete it by specifying its version ID.
+
+
 ## Object lock
 
-Object lock is a feature in S3 that enables you to lock your objects to prevent them from being deleted or overwritten.
+Object lock is a feature in S3 that essentially allows you to protect objects from being deleted or overwritten.
 There are two methods for managing object retention: **Retention periods** and **Legal hold**.
 
 ### Retention periods
