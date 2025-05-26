@@ -5,7 +5,6 @@ tools that support an Amazon S3 compatible API (such as `s3cmd`,
 `rclone`, the `aws` CLI, or the Python `boto3` library), you need an
 S3-compatible access key ID and secret key.
 
-
 ## Creating credentials
 
 You can create a set of S3-compatible credentials with the following
@@ -28,7 +27,6 @@ application requires).
 > they use the same *format* as AWS S3 does. They are never valid against
 > AWS S3 itself.
 
-
 ## Listing credentials
 
 You can list any previously-created credentials with:
@@ -45,6 +43,10 @@ need to configure your S3 client with it.
 How exactly you do that depends on your preferred client:
 
 === "aws"
+    The AWS CLI comes in two major versions with different features and configuration methods.
+
+    **Configuring AWS CLI v1**
+
     Install the [`endpoint`](https://pypi.org/project/awscli-plugin-endpoint/) plugin:
     ```bash
     pip install awscli-plugin-endpoint
@@ -70,6 +72,31 @@ How exactly you do that depends on your preferred client:
     aws configure set \
       --profile <region> \
       s3api.endpoint_url https://s3-<region>.{{brand_domain}}
+    ```
+
+    **Configuring AWS CLI v2**
+
+    AWS CLI v2 supports custom endpoints natively without plugins.
+    You can configure it using command-line options and configuration file.
+    Create a new profile with credentials:
+    ```bash
+    aws configure set \
+      --profile <region> \
+      aws_access_key_id <access-key>
+    aws configure set \
+      --profile <region> \
+      aws_secret_access_key <secret-key>
+    ```
+    Then configure the endpoint URL using configuration file.
+    Edit `~/.aws/config` and add:
+    ```ini
+    [profile <region>]
+    services = <region>-services
+    [services <region>-services]
+    s3 = 
+      endpoint_url = https://s3-<region>.{{brand_domain}}
+    s3api = 
+      endpoint_url = https://s3-<region>.{{brand_domain}}
     ```
 === "mc"
     Create a new alias, named after your {{brand}} region:
