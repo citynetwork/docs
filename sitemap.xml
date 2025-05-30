@@ -400,4 +400,20 @@
          <loc>https://docs.cleura.cloud/tutorials/</loc>
          <lastmod>2025-05-30</lastmod>
     </url>
+    <url>
+         <loc>https://docs.cleura.cloud/tutorials/ansible/</loc>
+         <lastmod>2025-05-30</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/tutorials/containers/</loc>
+         <lastmod>2025-05-30</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/tutorials/heat/</loc>
+         <lastmod>2025-05-30</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/tutorials/tf/</loc>
+         <lastmod>2025-05-30</lastmod>
+    </url>
 </urlset>
