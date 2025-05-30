@@ -57,3 +57,27 @@ For example, it is not possible to create [a Swift container that enables versio
 Sometimes, this creates unavoidable conflicts if a specific feature is only available in one of the supported APIs.
 For example, if you [set a public read policy](../howto/object-storage/s3/public-bucket.md) on an S3 bucket, the corresponding Swift container will still show an empty Read ACL, making the Swift container *look* like it is private, even though its objects are accessible through simple public URLs.
 This is because Swift has no concept of fine-grained bucket policies, as they exist in S3.
+
+## Object lock
+
+Object lock is a feature in S3 that enables you to lock your objects to prevent them from being deleted or overwritten.
+There are two methods for managing object retention: **Retention periods** and **Legal hold**.
+
+### Retention periods
+
+Retention periods specify the length of time that an object remains locked and protected from being overwritten or deleted.
+When you set a retention period, the object is safeguarded for the specified time.
+You can set the retention period in either days or years, with a **minimum of one day** and no maximum limit.
+
+In addition to retention periods, you can choose the retention mode that applies to your objects (either Governance or Compliance).
+In {{brand}}, the only supported retention mode is **Compliance**.
+
+Compliance mode is recommended when storing compliant data, as it prevents objects from being overwritten or deleted by any user.
+If you configure an object with this mode, you cannot shorten or change its retention period, ensuring that the data remains **secure** and **compliant** with regulatory requirements.
+
+### Legal hold
+
+Legal hold is a feature designed for situations when you are uncertain about the length of time you need to retain an object.
+It can be enabled/disabled for any object in a locked bucket, regardless of the lock configuration, object retention, or age.
+
+This feature provides the same level of protection as a retention period but with no fixed expiration date. Instead, a legal hold will remain in effect until you remove it explicitly.

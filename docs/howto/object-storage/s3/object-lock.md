@@ -11,41 +11,7 @@ regulations, or retain data for a specific period.
 
 Note that this feature is distinct from *object expiry*, which is covered in a [separate guide](expiry.md).
 
-## Object lock modes
-
-Object lock offers two methods for managing object retention:
-**Retention periods** and **Legal hold**.
-
-### Retention periods
-
-Retention periods specify the length of time that an object
-remains locked and protected from being overwritten or deleted.
-When you set a retention period, the object is safeguarded for
-the specified time period. You can set the retention period in
-either days or years, with a **minimum of one day** and
-no maximum limit.
-
-In addition to retention periods, you can choose the retention mode
-that applies to your objects (either Governance or Compliance). In
-{{brand}}, the only supported retention mode is **Compliance**.
-
-Compliance mode is recommended when storing compliant data,
-as it prevents objects from being overwritten or deleted
-by any user. If you configure an object with this mode, you
-cannot shorten or change its retention period, ensuring that
-the data remains **secure** and **compliant** with regulatory
-requirements.
-
-### Legal hold
-
-Legal hold is a feature designed for situations when you are uncertain
-about the length of time you need to retain an object. It can be
-enabled/disabled for any object in a locked bucket, regardless of the
-lock configuration, object retention, or age.
-
-This feature provides the same level of protection as a retention period
-but with no fixed expiration date. Instead, a legal hold will remain in
-effect until you remove it explicitly.
+You should also keep in mind that object lock offers two methods for managing object retention: [Retention periods and Legal hold](../../../background/object-storage.md#object-lock).
 
 ## Prerequisites
 
