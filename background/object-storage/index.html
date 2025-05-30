@@ -2987,6 +2987,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#object-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object lock
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Object lock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retention-periods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retention periods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legal-hold" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legal hold
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4344,6 +4377,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#object-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object lock
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Object lock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retention-periods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retention periods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legal-hold" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legal hold
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4409,6 +4475,21 @@ For example, it is not possible to create <a href="../../howto/object-storage/sw
 <p>Sometimes, this creates unavoidable conflicts if a specific feature is only available in one of the supported APIs.
 For example, if you <a href="../../howto/object-storage/s3/public-bucket/">set a public read policy</a> on an S3 bucket, the corresponding Swift container will still show an empty Read ACL, making the Swift container <em>look</em> like it is private, even though its objects are accessible through simple public URLs.
 This is because Swift has no concept of fine-grained bucket policies, as they exist in S3.</p>
+<h2 id="object-lock">Object lock</h2>
+<p>Object lock is a feature in S3 that enables you to lock your objects to prevent them from being deleted or overwritten.
+There are two methods for managing object retention: <strong>Retention periods</strong> and <strong>Legal hold</strong>.</p>
+<h3 id="retention-periods">Retention periods</h3>
+<p>Retention periods specify the length of time that an object remains locked and protected from being overwritten or deleted.
+When you set a retention period, the object is safeguarded for the specified time.
+You can set the retention period in either days or years, with a <strong>minimum of one day</strong> and no maximum limit.</p>
+<p>In addition to retention periods, you can choose the retention mode that applies to your objects (either Governance or Compliance).
+In Cleura Cloud, the only supported retention mode is <strong>Compliance</strong>.</p>
+<p>Compliance mode is recommended when storing compliant data, as it prevents objects from being overwritten or deleted by any user.
+If you configure an object with this mode, you cannot shorten or change its retention period, ensuring that the data remains <strong>secure</strong> and <strong>compliant</strong> with regulatory requirements.</p>
+<h3 id="legal-hold">Legal hold</h3>
+<p>Legal hold is a feature designed for situations when you are uncertain about the length of time you need to retain an object.
+It can be enabled/disabled for any object in a locked bucket, regardless of the lock configuration, object retention, or age.</p>
+<p>This feature provides the same level of protection as a retention period but with no fixed expiration date. Instead, a legal hold will remain in effect until you remove it explicitly.</p>
 
 
 
@@ -4431,7 +4512,7 @@ This is because Swift has no concept of fine-grained bucket policies, as they ex
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 8, 2024 15:48:35">2024-10-08</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 29, 2025 18:55:32 UTC">2025-05-29</span>
   </span>
 
     
@@ -4441,7 +4522,7 @@ This is because Swift has no concept of fine-grained bucket policies, as they ex
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 13, 2023 12:02:22">2023-03-13</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 13, 2023 12:02:22 UTC">2023-03-13</span>
   </span>
 
     
@@ -4451,11 +4532,11 @@ This is because Swift has no concept of fine-grained bucket policies, as they ex
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
-      Florian Haas
+      Christos Varelas, Florian Haas
     </nav>
   </span>
 
