@@ -4536,7 +4536,7 @@
 <p>Before creating a server in Cleura Cloud, you need at least
 one network to make the new server a member of. Since you may have
 more than one network per region, let us now walk through creating
-a new network using the Cleura Cloud Management Panel, or using the OpenStack CLI.</p>
+a new network using the Cleura Cloud Management Panel or the OpenStack CLI.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI,
 you need to <a href="../../../getting-started/create-account/">have an account</a>
@@ -4564,42 +4564,48 @@ network.</p>
 <p><a class="glightbox" href="../assets/new-net-panel/shot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New network name and region" src="../assets/new-net-panel/shot-02.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>Start by creating a new network, named <code>nordostbahnhof</code>:</p>
+<p>Start by creating a new network.
+In our example, let&rsquo;s name it <code>nordostbahnhof</code>:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>nordostbahnhof
 </code></pre></div>
-<p>By issuing the command above, you immediately get information
+<p>After issuing the command above, you immediately get information
 regarding the new network:</p>
-<div class="highlight"><pre><span></span><code>+---------------------------+--------------------------------------+
-| Field                     | Value                                |
-+---------------------------+--------------------------------------+
-| admin_state_up            | UP                                   |
-| availability_zone_hints   |                                      |
-| availability_zones        |                                      |
-| created_at                | 2022-10-30T14:31:49Z                 |
-| description               |                                      |
-| dns_domain                | None                                 |
-| id                        | 201d458b-9b47-4408-9736-980bec77d405 |
-| ipv4_address_scope        | None                                 |
-| ipv6_address_scope        | None                                 |
-| is_default                | False                                |
-| is_vlan_transparent       | None                                 |
-| mtu                       | 1500                                 |
-| name                      | nordostbahnhof                       |
-| port_security_enabled     | True                                 |
-| project_id                | dfc700467396428bacba4376e72cc3e9     |
-| provider:network_type     | None                                 |
-| provider:physical_network | None                                 |
-| provider:segmentation_id  | None                                 |
-| qos_policy_id             | None                                 |
-| revision_number           | 1                                    |
-| router:external           | Internal                             |
-| segments                  | None                                 |
-| shared                    | False                                |
-| status                    | ACTIVE                               |
-| subnets                   |                                      |
-| tags                      |                                      |
-| updated_at                | 2022-10-30T14:31:50Z                 |
-+---------------------------+--------------------------------------+
+<div class="highlight"><pre><span></span><code>+---------------------------+------------------------------------------------------------+
+| Field                     | Value                                                      |
++---------------------------+------------------------------------------------------------+
+| admin_state_up            | UP                                                         |
+| availability_zone_hints   |                                                            |
+| availability_zones        |                                                            |
+| created_at                | 2025-05-07T17:38:31Z                                       |
+| description               |                                                            |
+| dns_domain                |                                                            |
+| id                        | f1f1b1f6-2b65-11f0-9769-080027af5a23                       |
+| ipv4_address_scope        | None                                                       |
+| ipv6_address_scope        | None                                                       |
+| is_default                | False                                                      |
+| is_vlan_transparent       | None                                                       |
+| location                  | cloud=&#39;&#39;, project.domain_id=,                              |
+|                           | project.domain_name=&#39;CCP_Domain_pqrxy&#39;,                    |
+|                           | project.id=&#39;hdzqyxmxnixcdtgldkhhwdewfacyjdbub&#39;,            |
+|                           | project.name=&#39;Nuuk-to-Iqaluit&#39;, region_name=&#39;Fra1&#39;,        |
+|                           | zone=                                                      |
+| mtu                       | 1500                                                       |
+| name                      | nordostbahnhof                                             |
+| port_security_enabled     | True                                                       |
+| project_id                | hdzqyxmxnixcdtgldkhhwdewfacyjdbub                          |
+| provider:network_type     | None                                                       |
+| provider:physical_network | None                                                       |
+| provider:segmentation_id  | None                                                       |
+| qos_policy_id             | None                                                       |
+| revision_number           | 1                                                          |
+| router:external           | Internal                                                   |
+| segments                  | None                                                       |
+| shared                    | False                                                      |
+| status                    | ACTIVE                                                     |
+| subnets                   |                                                            |
+| tags                      |                                                            |
+| updated_at                | 2025-05-07T17:38:31Z                                       |
++---------------------------+------------------------------------------------------------+
 </code></pre></div>
 </div>
 </div>
@@ -4617,53 +4623,115 @@ characterize as useful.</p>
 <p>Expand the <em>Advanced Options</em> section below, make sure <em>Port Security</em>
 is enabled, and leave the MTU parameter blank.</p>
 <p><a class="glightbox" href="../assets/new-net-panel/shot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MTU and port security" src="../assets/new-net-panel/shot-03.png" /></a></p>
-<p>You probably want a full-featured network for your cloud servers, so
-please activate the <em>Create a complete network containing a subnet
-and a router</em> option. You will notice that <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">a network address in
-CIDR notation</a>
-is pre-configured for your network. You also get a couple of DNS
-servers, a Gateway, and a DHCP server.</p>
-<p><a class="glightbox" href="../assets/new-net-panel/shot-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Complete network" src="../assets/new-net-panel/shot-04.png" /></a></p>
-<p>Scroll down a little bit if you have to. Assuming you want your cloud
+<p>Assuming you are going for a full-featured network, activate the <em>Create a complete network, containing a subnet and a router</em> option.</p>
+<p>Notice that, by default, this sets things up for the the creation of an IPv4-based subnet.
+In particular, by looking at the new <em>Subnet Name (#1)</em> section, it is immediately apparent that you get the following:</p>
+<ul>
+<li>A subnet expressed in <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">CIDR notation</a>,</li>
+<li>two DNS servers,</li>
+<li>a Gateway, and</li>
+<li>a DHCP server.</li>
+</ul>
+<p>For the <em>Gateway IP</em>, accept the suggested address, or type in one chosen from the subnet above.
+As for the DHCP, either accept the defaults or type in <em>Start</em> and <em>End</em> addresses &ndash; again chosen from the subnet above.</p>
+<p><a class="glightbox" href="../assets/new-net-panel/shot-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IPv4-based network parameters" src="../assets/new-net-panel/shot-04.png" /></a></p>
+<p>Alongside your IPv4-based subnet, you may also have an IPv6-based subnet;
+both subnets will be members of the network you are now creating.</p>
+<p>To create a second, IPv6-based subnet, click the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m-24-168v-64h-64c-13.3 0-24-10.7-24-24s10.7-24 24-24h64v-64c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24h-64v64c0 13.3-10.7 24-24 24s-24-10.7-24-24"/></svg></span> icon at the top of the <em>Subnet Name (#1)</em> section.
+In the new <em>Subnet Name (#2)</em> section that appears, be sure to set <em>IP Version</em> to <em>IPv6</em> abd you will get the following:</p>
+<ul>
+<li>One 64bit-prefixed subnet with</li>
+<li>SLAAC addressing, and</li>
+<li>two DNS servers with IPv6 addresses.</li>
+</ul>
+<p><a class="glightbox" href="../assets/new-net-panel/shot-04-toronto.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="IPv6-based network parameters" src="../assets/new-net-panel/shot-04-toronto.png" /></a></p>
+<p>Scroll down a bit if you have to. Assuming you want your cloud
 servers to reach hosts on the Internet, for the <em>External network</em>
 parameter make sure you select <em>ext-net</em>. Then, click the green
-<em>Create</em> button to initialize the new network. In a few seconds,
-the new network will be readily available.</p>
+<em>Create</em> button.
+In a few seconds, the new network will be readily available.</p>
 <p><a class="glightbox" href="../assets/new-net-panel/shot-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Finish creating network" src="../assets/new-net-panel/shot-05.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>You now have to create a subnet for the new network. Let us call
-this subnet <code>nordostbahnhof-subnet</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>create<span class="w"> </span>nordostbahnhof-subnet<span class="w"> </span><span class="se">\</span>
+<p>You now have to create a subnet for the new network.
+Since Neutron networks can have more than one subnets, and subnets can be either IPv4-based or IPv6-based, let us now create two;
+one IPv4-based (<code>nordostbahnhof-subnet-ipv4</code>), and one IPv4-based (<code>nordostbahnhof-subnet-ipv6</code>).</p>
+<p>For the IPv4-based subnet, type the following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>create<span class="w"> </span>nordostbahnhof-subnet-ipv4<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--network<span class="w"> </span>nordostbahnhof<span class="w"> </span>--subnet-range<span class="w"> </span><span class="m">10</span>.20.30.0/24
 </code></pre></div>
-<p>Again, you get detailed information regarding the new subnet:</p>
-<div class="highlight"><pre><span></span><code>+----------------------+--------------------------------------+
-| Field                | Value                                |
-+----------------------+--------------------------------------+
-| allocation_pools     | 10.20.30.2-10.20.30.254              |
-| cidr                 | 10.20.30.0/24                        |
-| created_at           | 2022-10-30T14:47:40Z                 |
-| description          |                                      |
-| dns_nameservers      |                                      |
-| dns_publish_fixed_ip | None                                 |
-| enable_dhcp          | True                                 |
-| gateway_ip           | 10.20.30.1                           |
-| host_routes          |                                      |
-| id                   | 1b0822b3-62e8-4b40-92e8-8544c72d4c15 |
-| ip_version           | 4                                    |
-| ipv6_address_mode    | None                                 |
-| ipv6_ra_mode         | None                                 |
-| name                 | nordostbahnhof-subnet                |
-| network_id           | 201d458b-9b47-4408-9736-980bec77d405 |
-| project_id           | dfc700467396428bacba4376e72cc3e9     |
-| revision_number      | 0                                    |
-| segment_id           | None                                 |
-| service_types        |                                      |
-| subnetpool_id        | None                                 |
-| tags                 |                                      |
-| updated_at           | 2022-10-30T14:47:40Z                 |
-+----------------------+--------------------------------------+
+<p>You will get detailed information regarding subnet <code>nordostbahnhof-subnet-ipv4</code>:</p>
+<div class="highlight"><pre><span></span><code>+----------------------+-----------------------------------------------------------------+
+| Field                | Value                                                           |
++----------------------+-----------------------------------------------------------------+
+| allocation_pools     | 10.20.30.2-10.20.30.254                                         |
+| cidr                 | 10.20.30.0/24                                                   |
+| created_at           | 2025-05-07T17:45:06Z                                            |
+| description          |                                                                 |
+| dns_nameservers      |                                                                 |
+| dns_publish_fixed_ip | None                                                            |
+| enable_dhcp          | True                                                            |
+| gateway_ip           | 10.20.30.1                                                      |
+| host_routes          |                                                                 |
+| id                   | 4231daa6-a619-468e-9283-520054810eca                            |
+| ip_version           | 4                                                               |
+| ipv6_address_mode    | None                                                            |
+| ipv6_ra_mode         | None                                                            |
+| location             | cloud=&#39;&#39;, project.domain_id=,                                   |
+|                      | project.domain_name=&#39;CCP_Domain_pqrxy&#39;,                         |
+|                      | project.id=&#39;hdzqyxmxnixcdtgldkhhwdewfacyjdbub&#39;,                 |
+|                      | project.name=&#39;Nuuk-to-Iqaluit&#39;, region_name=&#39;Fra1&#39;, zone=       |
+| name                 | nordostbahnhof-subnet-ipv4                                      |
+| network_id           | f1f1b1f6-2b65-11f0-9769-080027af5a23                            |
+| prefix_length        | None                                                            |
+| project_id           | hdzqyxmxnixcdtgldkhhwdewfacyjdbub                               |
+| revision_number      | 0                                                               |
+| segment_id           | None                                                            |
+| service_types        |                                                                 |
+| subnetpool_id        | None                                                            |
+| tags                 |                                                                 |
+| updated_at           | 2025-05-07T17:45:06Z                                            |
++----------------------+-----------------------------------------------------------------+
+</code></pre></div>
+<p>For the IPv6-based subnet, type the following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>create<span class="w"> </span>nordostbahnhof-subnet-ipv6<span class="w"> </span>--network<span class="w"> </span>nordostbahnhof<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ip-version<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ipv6-ra-mode<span class="w"> </span>slaac<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ipv6-address-mode<span class="w"> </span>slaac<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--use-default-subnet-pool
+</code></pre></div>
+<p>Again, you will get detailed information regarding subnet <code>nordostbahnhof-subnet-ipv6</code>:</p>
+<div class="highlight"><pre><span></span><code>+----------------------+-----------------------------------------------------------------+
+| Field                | Value                                                           |
++----------------------+-----------------------------------------------------------------+
+| allocation_pools     | 2a03:b000:702:13::2-2a03:b000:702:13:ffff:ffff:ffff:ffff        |
+| cidr                 | 2a03:b000:702:13::/64                                           |
+| created_at           | 2025-05-07T17:48:33Z                                            |
+| description          |                                                                 |
+| dns_nameservers      |                                                                 |
+| dns_publish_fixed_ip | None                                                            |
+| enable_dhcp          | True                                                            |
+| gateway_ip           | 2a03:b000:702:13::1                                             |
+| host_routes          |                                                                 |
+| id                   | c787c7fc-9405-443c-99bf-fefd8df0ec7f                            |
+| ip_version           | 6                                                               |
+| ipv6_address_mode    | slaac                                                           |
+| ipv6_ra_mode         | slaac                                                           |
+| location             | cloud=&#39;&#39;, project.domain_id=,                                   |
+|                      | project.domain_name=&#39;CCP_Domain_pqrxy&#39;,                         |
+|                      | project.id=&#39;hdzqyxmxnixcdtgldkhhwdewfacyjdbub&#39;,                 |
+|                      | project.name=&#39;Nuuk-to-Iqaluit&#39;, region_name=&#39;Fra1&#39;, zone=       |
+| name                 | nordostbahnhof-subnet-ipv6                                      |
+| network_id           | f1f1b1f6-2b65-11f0-9769-080027af5a23                            |
+| prefix_length        | None                                                            |
+| project_id           | hdzqyxmxnixcdtgldkhhwdewfacyjdbub                               |
+| revision_number      | 0                                                               |
+| segment_id           | None                                                            |
+| service_types        |                                                                 |
+| subnetpool_id        | d21fa4e4-2b67-11f0-b570-080027af5a23                            |
+| tags                 |                                                                 |
+| updated_at           | 2025-05-07T17:48:33Z                                            |
++----------------------+-----------------------------------------------------------------+
 </code></pre></div>
 <p>If you want servers connected to the <code>nordostbahnhof</code> network to have
 Internet access, you need a router in front of the network. Following
@@ -4672,28 +4740,30 @@ called <code>nordostbahnhof-router</code>:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>create<span class="w"> </span>nordostbahnhof-router<span class="w"> </span>
 </code></pre></div>
 <p>As expected, you will see lots of information regarding the new router:</p>
-<div class="highlight"><pre><span></span><code>+-------------------------+--------------------------------------+
-| Field                   | Value                                |
-+-------------------------+--------------------------------------+
-| admin_state_up          | UP                                   |
-| availability_zone_hints |                                      |
-| availability_zones      |                                      |
-| created_at              | 2022-10-30T15:36:26Z                 |
-| description             |                                      |
-| enable_ndp_proxy        | None                                 |
-| external_gateway_info   | null                                 |
-| flavor_id               | None                                 |
-| ha                      | True                                 |
-| id                      | 566de991-fc0e-4f85-b6c4-5c87694781f7 |
-| name                    | nordostbahnhof-router                |
-| project_id              | dfc700467396428bacba4376e72cc3e9     |
-| revision_number         | 1                                    |
-| routes                  |                                      |
-| status                  | ACTIVE                               |
-| tags                    |                                      |
-| tenant_id               | dfc700467396428bacba4376e72cc3e9     |
-| updated_at              | 2022-10-30T15:36:26Z                 |
-+-------------------------+--------------------------------------+
+<div class="highlight"><pre><span></span><code>+-------------------------+--------------------------------------------------------------+
+| Field                   | Value                                                        |
++-------------------------+--------------------------------------------------------------+
+| admin_state_up          | UP                                                           |
+| availability_zone_hints |                                                              |
+| availability_zones      |                                                              |
+| created_at              | 2025-05-07T17:52:39Z                                         |
+| description             |                                                              |
+| external_gateway_info   | null                                                         |
+| flavor_id               | None                                                         |
+| ha                      | True                                                         |
+| id                      | 1ca6aaf8-2b68-11f0-833a-080027af5a23                         |
+| location                | cloud=&#39;&#39;, project.domain_id=,                                |
+|                         | project.domain_name=&#39;CCP_Domain_pqrxy&#39;,                      |
+|                         | project.id=&#39;hdzqyxmxnixcdtgldkhhwdewfacyjdbub&#39;,              |
+|                         | project.name=&#39;Nuuk-to-Iqaluit&#39;, region_name=&#39;Fra1&#39;, zone=    |
+| name                    | nordostbahnhof-router                                        |
+| project_id              | hdzqyxmxnixcdtgldkhhwdewfacyjdbub                            |
+| revision_number         | 1                                                            |
+| routes                  |                                                              |
+| status                  | ACTIVE                                                       |
+| tags                    |                                                              |
+| updated_at              | 2025-05-07T17:52:39Z                                         |
++-------------------------+--------------------------------------------------------------+
 </code></pre></div>
 <p>You want the <code>nordostbahnhof-router</code> connected to the external
 network. The name of this network is <code>ext-net</code>:</p>
@@ -4702,10 +4772,13 @@ network. The name of this network is <code>ext-net</code>:</p>
 <p>Please note that if the command above is successful, you will get
 no output on your terminal. There is one last step to take, and
 that is to connect router <code>nordostbahnhof-router</code> to the subnet
-<code>nordostbahnhof-subnet</code> of network <code>nordostbahnhof</code>:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>add<span class="w"> </span>subnet<span class="w"> </span>nordostbahnhof-router<span class="w"> </span>nordostbahnhof-subnet
+<code>nordostbahnhof-subnet-ipv4</code>&hellip;</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>add<span class="w"> </span>subnet<span class="w"> </span>nordostbahnhof-router<span class="w"> </span>nordostbahnhof-subnet-ipv4
 </code></pre></div>
-<p>Again, if the command above is successful, you will get no output.</p>
+<p>&hellip;and to the subnet <code>nordostbahnhof-subnet-ipv6</code> of network <code>nordostbahnhof</code>:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>add<span class="w"> </span>subnet<span class="w"> </span>nordostbahnhof-router<span class="w"> </span>nordostbahnhof-subnet-ipv6
+</code></pre></div>
+<p>Again, if the commands above are successful, you will get no output.</p>
 </div>
 </div>
 </div>
@@ -4721,10 +4794,9 @@ the OpenStack CLI.</p>
 selecting <em>Networking</em> &gt; <em>Networks</em> (see the left-hand side pane
 on the Cleura Cloud Management Panel).</p>
 <p><a class="glightbox" href="../assets/new-net-panel/shot-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All networks in all regions" src="../assets/new-net-panel/shot-06.png" /></a></p>
-<p>For more information regarding a specific network, click the
-corresponding three-dot icon (right-hand side) and select <em>View
-details</em>. Then, you can glance over all the details regarding the
-selected network&rsquo;s ports, subnets, and routers.</p>
+<p>For more information regarding a specific network, select <em>View details</em>.
+Then, you can glance over all the details regarding the selected network&rsquo;s ports, subnets, and routers.
+For more information on the network subnets specifically, in the left-hand side pane on the Cleura Cloud Management Panel select <em>Networking</em> &gt; <em>Subnets</em>.</p>
 <p><a class="glightbox" href="../assets/new-net-panel/shot-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Network details" src="../assets/new-net-panel/shot-07.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -4767,7 +4839,7 @@ can have.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2023 10:47:52 UTC">2023-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 7, 2025 13:49:55 UTC">2025-05-07</span>
   </span>
 
     
