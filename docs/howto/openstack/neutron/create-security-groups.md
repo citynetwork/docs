@@ -14,25 +14,20 @@ the OpenStack CLI, please do not forget
 to [source the RC file first](../../getting-started/enable-openstack-cli.md).
 
 === "{{gui}}"
-    To create a security group click on _Security Groups_ in the left-hand
-    side navigation menu:
+    To create a security group, first make sure the left-hand side vertical pane is fully visible.
+    Click on _Security&nbsp;Groups_, and then on the top-right corner of the central pane, click on _Create new Security Group_.
 
-    ![navigation-panel](assets/create-security-groups/01-navigation-panel.png)
+    ![Initiating the creation of a new security group](assets/create-security-groups/create-secgroup-01.png)
 
-    and then click on _Create new Security Group_ in the top-right corner:
+    > An alternative way to create a Security&nbsp;Group is by clicking on the round-cornered _Create_ button, in the top bar.
 
-    ![create-button](assets/create-security-groups/02-create-button.png)
+    Type in a _Name_ for the new security group, and choose a _Region_ to create it in.
+    You may optionally type in a _Description_ for the security group.
+    Click on the green _Create_ button when you are ready.
 
-    > An alternative way to create a Security Group is by clicking on
-    _Create ..._ button in the top bar.
-
-    Now give the security group a name and description, and choose in
-    which region to create it, then click _create_:
-
-    ![create-panel](assets/create-security-groups/03-name-creation.png)
-
+    ![Setting parameters for the new security group](assets/create-security-groups/create-secgroup-02.png)
 === "OpenStack CLI"
-    To create a security group use the following command:
+    To create a security group, use the following command:
 
     ```bash
     openstack security group create <name>
@@ -65,22 +60,21 @@ to [source the RC file first](../../getting-started/enable-openstack-cli.md).
 
 ## Removing default ingress rules
 
-By default, a security group named `default` has been already created
-for you, blocking all traffic from any source (ingress), except from
-servers and ports being in the same security group. All traffic to any
-destination (egress) is allowed by default.
+By default, a security group named `default` has already been created for you.
+Its rules block all traffic from any source (ingress), except from servers and ports in the same security group.
+All traffic to any destination (egress) is allowed by default.
 
 > For accounts created before 2022-11-16, the default security
 > group ingress rules allow all incoming traffic.
-> See [Adjust permissive default security group](#adjust-permissive-default-security-group),
+> See [Adjusting a permissive default security group](#adjusting-a-permissive-default-security-group),
 > to learn how to configure this security group according to
 > our recommendations.
 
 === "{{gui}}"
-    Navigate to the security groups page, click on `default` security
-    group and select the _Rules_ tab to view its rules:
+    Navigate to the _Security&nbsp;Groups_ page.
+    Click on the `default` security group and select the _Rules_ tab to view its rules.
 
-    ![default-rules](assets/create-security-groups/04-default-rules.png)
+    ![List of rules in the default security group](assets/create-security-groups/default-rules.png)
 
 === "OpenStack CLI"
     View the details of the `default` security group using the
@@ -90,7 +84,7 @@ destination (egress) is allowed by default.
     openstack security group show default
     ```
 
-    you will get a printout similar to this:
+    You will get a printout similar to this:
 
     ```plain
     +-----------------+--------------------------------------------------------------------------------+
@@ -127,16 +121,14 @@ other servers and ports in the group, you need to
 **remove the default two ingress rules.**
 
 === "{{gui}}"
-    Click on the trashcan action button on the right-hand side for
-    **both ingress** rules.
+    Click each of the red :material-delete-circle: buttons on the right-hand side of the **IPv4 ingress** and also of the **IPv6 ingress** rows.
 
-    Your `default` or newly created security group rules will now
-    look like this:
+    Your `default` or newly created security group rules will now look like the following example.
 
-    ![default-ingress-rules](assets/create-security-groups/05-default-egress-rules.png)
+    ![List of default ingress rules](assets/create-security-groups/default-rules-egress.png)
 
 === "OpenStack CLI"
-    To view the rules use the following command:
+    To view the rules, use the following command:
 
     ```bash
     openstack security group rule list default
@@ -175,9 +167,8 @@ other servers and ports in the group, you need to
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     ```
 
-    The IDs of the two ingress rules, one for IPv4 traffic and one for
-    IPv6, in this case are: `5e5e9f4d-1faa-492d-91f1-c105b464072b` and
-    `86b9413a-ad23-46c4-a35e-9306945dc63c`
+    The IDs of the two ingress rules, one for IPv4 traffic and one for IPv6, in this case, are:
+    `5e5e9f4d-1faa-492d-91f1-c105b464072b` and `86b9413a-ad23-46c4-a35e-9306945dc63c`.
 
     Delete them by using the following command:
 
@@ -192,7 +183,7 @@ other servers and ports in the group, you need to
     openstack security group rule list default
     ```
 
-    Now the remaining rules are only the egress ones.
+    Now, the remaining rules are only the egress ones.
 
     ```plain
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
@@ -215,61 +206,106 @@ other servers and ports in the group, you need to
 
 ## Allowing SSH access
 
-The next thing to do, is to allow SSH access on **port 22** to the
-server, only from specific networks.
+The next thing to do is allow SSH access on **port 22** for IPv4 and IPv6 client connections -- but _only_ from specific addresses or subnets.
 
 === "{{gui}}"
-    To do this, click on the _Create new rule_ button.
-    ![create-rule-panel](assets/create-security-groups/06-create-security-group-rule.png)
+    To do this, while on the _Rules_ tab, click on the green _Create new rule_ button.
+    A pane named _Create a Security Group Rule_ will slide over from the right-hand side of the browser window.
 
+    For the IPv4 ingress SSH rule, make sure you set _Protocol_ to _TCP_, _Direction_ to _Ingress_, and _Ether&nbsp;Type_ to _IPv4_.
+    Then, set _From_ to _Network/IP_ and, in the _Custom&nbsp;CIDR_ text box below, type in either the IPv4 address of your client host or the CIDR of your client subnet.
+
+    To create the new rule, click the green _Create_ button.
+
+    ![Create ingress rule for IPv4 SSH connections](assets/create-security-groups/default-rules-ingress-ssh-ipv4.png)
+
+    You may work similarly for the IPv6 ingress SSH rule;
+    just be sure to set _Ether&nbsp;Type_ to _IPv6_.
+
+    ![Create ingress rule for IPv6 SSH connections](assets/create-security-groups/default-rules-ingress-ssh-ipv6.png)
+
+    When you are done creating the two ingress rules for SSH, you see them listed in the _Rules_ tab of the security group.
+
+    ![New ingress rules for SSH connections](assets/create-security-groups/default-rules-ingress-ssh.png)
 === "OpenStack CLI"
-    To create this rule use the following command:
+    To create this rule for IPv4 client connections, use the following command:
 
     ```bash
     openstack security group rule create \
-      --protocol tcp --dst-port 22 --remote-ip 203.0.113.58/32 default
+      --protocol tcp --dst-port 22 \
+      --remote-ip 203.0.113.0/24 \
+      default
+    ```
+    
+    To create the same rule but this time for IPv6 client connections, use a command like the following:
+    
+    ```bash
+    openstack security group rule create \
+      --protocol tcp --dst-port 22 --ethertype IPv6 \
+      --remote-ip 2001:db8::/32 \
+      default
     ```
 
-> If you don't know your IP, simply visit
-> [icanhazip.com](https://ipv4.icanhazip.com/). In this example your
-> IP is 203.0.113.58, and if you want to allow SSH access from this IP
-> address only, enter `203.0.113.58/32` as CIDR. If you want to allow
-> SSH access from any address in that [Class C
-> subnet](https://en.wikipedia.org/wiki/Classful_network), instead
-> enter `203.0.113.0/24` as CIDR.
+> If you don't know your IPv4 or IPv6 address, visit [icanhazip.com](https://icanhazip.com/).
+
+In this example, your IPv4 address is 203.0.113.58, and if you want to allow SSH access from this address only, enter `203.0.113.58/32` as CIDR.
+If you want to allow SSH access from _any_ address in that [Class C subnet](https://en.wikipedia.org/wiki/Classful_network), instead enter `203.0.113.0/24` as CIDR.
+Regarding the IPv6 address, in the example we use the `2001:db8::/32` address block.
+Alternatively, you may use a single IPv6 address, like `2001:db8:ffff:ffff:ffff:ffff:ffff:ffff/128`.
 
 ## Allowing Web Traffic
 
-Next create the rules that allow anyone to access the server on **port
-80** and **port 443**.
+Next, create the rules that allow anyone to access a server on **port 80** and **port 443**.
 
 === "{{gui}}"
-    Using the same logic as before, click on _Create new rule_. Select
-    TCP Protocol and port 80 as both min and max range value. This
-    time, _CIDR_ is left empty, allowing incoming traffic from any
-    IP/source.
+    Following a similar routine as before, begin by clicking on the green _Create new rule_ button.
+    To create an ingress rule for IPv4 connections to 80/TCP, set _Protocol_, _Direction_, and _Ether&nbsp;Type_ accordingly.
+    Then, in each of the two _Port range_ text boxes, type in `80`.
+    This time, leave _CIDR_ empty, essentially allowing incoming traffic from any IPv4 client.
+    Click the green _Create_ button to instantiate the new rule.
 
-    ![http-rule](assets/create-security-groups/07-http-rule.png)
+    ![Create new ingress rule for IPv4 connections to 80/TCP](assets/create-security-groups/default-rules-ingress-http-ipv4.png)
 
-    The same applies to port 443.
+    The same for the ingress rule for IPv4 connections to 443/TCP.
+    The only difference is in the _Port range_ text boxes;
+    in each of the two, you should now type `443`.
 
-    ![https-rule](assets/create-security-groups/08-https-rule.png)
+    ![Create new ingress rule for IPv4 connections to 443/TCP](assets/create-security-groups/default-rules-ingress-https-ipv4.png)
 
-    ![rules](assets/create-security-groups/09-rules-now.png)
+    Just like you did for incoming IPv4 connections, create a new ingress rule for IPv6 clients connecting to 80/TCP...
+    
+    ![Create new ingress rule for IPv6 connections to 80/TCP](assets/create-security-groups/default-rules-ingress-http-ipv6.png)
+
+    ...and a new ingress rule for IPv6 clients connecting to 443/TCP.
+    
+    ![Create new ingress rule for IPv6 connections to 443/TCP](assets/create-security-groups/default-rules-ingress-https-ipv6.png)
+
+    When you are done creating the new ingress rules, you will see them all listed in the _Rules_ tab of the `default` security group.
+    
+    ![All new rules regarding incoming connections to 80/TCP and 443/TCP](assets/create-security-groups/default-rules-ingress-new.png)
+
 === "OpenStack CLI"
-    This time don't specify _--remote-ip_ to allow traffic from all
-    sources, using the following command:
+    This time don't specify `--remote-ip`, to allow traffic from _all_ IPv4 and IPv6 sources:
 
     ```bash
     openstack security group rule create --protocol tcp --dst-port 80 default
     ```
+    
+    ```bash
+    openstack security group rule create --protocol tcp --dst-port 80 --ethertype IPv6 default
+    ```
+
     One more time for port 443:
 
     ```bash
     openstack security group rule create --protocol tcp --dst-port 443 default
     ```
 
-    To view the updated rules, print the them again:
+    ```bash
+    openstack security group rule create --protocol tcp --dst-port 443 --ethertype IPv6 default
+    ```
+
+    To view the updated rules, print them again:
 
     ```bash
     openstack security group rule list default
@@ -285,6 +321,12 @@ Next create the rules that allow anyone to access the server on **port
     | 8eb1-     |             |           |           |            |           |                       |                      |
     | eb35da800 |             |           |           |            |           |                       |                      |
     | 6ed       |             |           |           |            |           |                       |                      |
+    | 86ab9224- | tcp         | IPv6      | ::/0      | 80:80      | ingress   | None                  | None                 |
+    | 4120-     |             |           |           |            |           |                       |                      |
+    | 11f0-     |             |           |           |            |           |                       |                      |
+    | af79-     |             |           |           |            |           |                       |                      |
+    | 5f799899a |             |           |           |            |           |                       |                      |
+    | 9cb       |             |           |           |            |           |                       |                      |
     | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
     | 7fab-     |             |           |           |            |           |                       |                      |
     | 4eba-     |             |           |           |            |           |                       |                      |
@@ -309,6 +351,12 @@ Next create the rules that allow anyone to access the server on **port
     | 8ed3-     |             |           |           |            |           |                       |                      |
     | 3c2538e7a |             |           |           |            |           |                       |                      |
     | 24f       |             |           |           |            |           |                       |                      |
+    | dde1a0d8- | tcp         | IPv6      | ::/0      | 443:443    | ingress   | None                  | None                 |
+    | 4120-     |             |           |           |            |           |                       |                      |
+    | 11f0-     |             |           |           |            |           |                       |                      |
+    | acdc-     |             |           |           |            |           |                       |                      |
+    | 93df8d8fa |             |           |           |            |           |                       |                      |
+    | fae       |             |           |           |            |           |                       |                      |
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     ```
 
@@ -317,36 +365,28 @@ All the rules for a simple web server are now in place.
 For any additional protocol or ingress rule, simply follow the same
 procedure as above.
 
-## Adjust permissive default security group
+## Adjusting a permissive default security group
 
-If your account was created before 2022-11-16, and you didn't
-configure the `default` security group, it is most likely permissive for
-all incoming traffic. We recommend to either create and use a new
-security group, other than the default one, or restrict ingress traffic
-to specific ports and sources.
+If your {{brand}} account was created before 2022-11-16, and you didn't configure the `default` security group, it is most likely permissive for all incoming traffic.
+We recommend either creating and using a new security group, other than the `default` one, or restricting ingress traffic to specific ports and sources.
 
 === "{{gui}}"
-    To check how your `default` security group is configured, click on it
-    and select the Rules tab to view its rules. If you have old,
-    permissive `default` group, the rules should look like this:
+    To check how your `default` security group is configured, click on it and select the _Rules_ tab to view its rules.
+    If you have an old, permissive `default` group, the rules should look like this:
 
-    ![default-ingress-rules](assets/create-security-groups/10-default-permissive-rules.png)
+    ![Rules of an old permissive security group](assets/create-security-groups/ruleset-ingress-permissive.png)
 
-    The top two ingress rules, having `::/0` and `0.0.0.0/0` values
-    for remote access filters, mean that incoming traffic from all
-    sources is allowed.
+    The ingress rules with the remote access filters of `::/0` and `0.0.0.0/0`, mean that incoming traffic from _all_ sources is allowed.
     
-    If you want to use the default group, remove the two ingress rules
-    that allow all incoming traffic. Click on the trashcan action
-    button on the right-hand side for **both ingress** rules.
+    If you want to use the `default` group, remove the two ingress rules that allow all incoming traffic.
+    Click on the :material-delete-circle: button on the right-hand side for **both ingress** rule rows.
 
-    Your `default` or newly created security group rules will now
-    look like this:
+    Your `default` or newly created security group rules will now look like the following.
 
-    ![default-ingress-rules](assets/create-security-groups/05-default-egress-rules.png)
+    ![Rules of a permissive security group gone forbidding](assets/create-security-groups/ruleset-ingress-forbidding.png)
 
 === "OpenStack CLI"
-    To view the rules use the following command:
+    To view the rules, use the following command:
 
     ```bash
     openstack security group rule list default
@@ -385,9 +425,7 @@ to specific ports and sources.
     +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
     ```
 
-    If the ingress rules have `::/0` and `0.0.0.0/0` values
-    in `IP Range` column, and `None` in the `Remote Security Group`,
-    then incoming traffic from any source is allowed.
+    If the ingress rules have `::/0` and `0.0.0.0/0` values in the `IP Range` column, and `None` in the `Remote Security Group`, then incoming traffic from _any_ source is allowed.
 
     The IDs of the two ingress rules, one for IPv4 traffic and one for
     IPv6, are: `5e5e9f4d-1faa-492d-91f1-c105b464072b` and
