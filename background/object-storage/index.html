@@ -3148,6 +3148,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#object-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object versioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Object versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete markers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#object-lock" class="md-nav__link">
     <span class="md-ellipsis">
       Object lock
@@ -4538,6 +4562,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#object-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object versioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Object versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete markers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#object-lock" class="md-nav__link">
     <span class="md-ellipsis">
       Object lock
@@ -4635,8 +4683,51 @@ For example, it is not possible to create <a href="../../howto/object-storage/sw
 <p>Sometimes, this creates unavoidable conflicts if a specific feature is only available in one of the supported APIs.
 For example, if you <a href="../../howto/object-storage/s3/public-bucket/">set a public read policy</a> on an S3 bucket, the corresponding Swift container will still show an empty Read ACL, making the Swift container <em>look</em> like it is private, even though its objects are accessible through simple public URLs.
 This is because Swift has no concept of fine-grained bucket policies, as they exist in S3.</p>
+<h2 id="object-versioning">Object versioning</h2>
+<p>In regular default buckets, each object has just one representation, and all operations (like removal or upload) operate on this one entity.
+With versioned buckets, modifications like uploading an object with the same name only modify a view of the bucket.
+In this mode of operation, each object receives a unique version ID, and modifications retain prior versions.
+This allows you to restore an earlier version of an object.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Default bucket</th>
+<th>Versioned bucket</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uploading a new object</td>
+<td>New object is stored</td>
+<td>New object is stored</td>
+</tr>
+<tr>
+<td>Overwrite of existing object</td>
+<td>New object overwrites old one</td>
+<td>New object version becomes current</td>
+</tr>
+<tr>
+<td>Delete object</td>
+<td>Object is deleted</td>
+<td>Delete marker is placed, subsequent object access returns &ldquo;Not found&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<p>Once you <a href="../../howto/object-storage/s3/versioning/#enabling-bucket-versioning">enable versioning on a bucket</a>, you cannot turn it off.
+You can, however, suspend it.
+When versioning is suspended, new objects are created with a version ID of <code>null</code>, overwriting any existing <code>null</code> version.
+All previously versioned objects remain unchanged and accessible.</p>
+<h3 id="delete-markers">Delete markers</h3>
+<p>When you delete an object in a versioned bucket, the object isn&rsquo;t actually removed.
+Instead, a special placeholder called a delete marker acts as the current version of the object.
+This marker has a unique version ID, causing the object service to return a 404 &ldquo;Not found&rdquo; error whenever you attempt to retrieve the object.</p>
+<p>However, trying to access any older version of the object works as expected.
+Delete markers themselves can also be deleted.
+When you delete a delete marker, the previous version becomes current again, effectively &ldquo;undeleting&rdquo; the object.
+To permanently remove an object version, you must delete it by specifying its version ID.</p>
 <h2 id="object-lock">Object lock</h2>
-<p>Object lock is a feature in S3 that enables you to lock your objects to prevent them from being deleted or overwritten.
+<p>Object lock is a feature in S3 that essentially allows you to protect objects from being deleted or overwritten.
 There are two methods for managing object retention: <strong>Retention periods</strong> and <strong>Legal hold</strong>.</p>
 <h3 id="retention-periods">Retention periods</h3>
 <p>Retention periods specify the length of time that an object remains locked and protected from being overwritten or deleted.
@@ -4672,7 +4763,7 @@ It can be enabled/disabled for any object in a locked bucket, regardless of the 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 29, 2025 18:55:32 UTC">2025-05-29</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 23, 2025 10:36:49 UTC">2025-05-23</span>
   </span>
 
     
@@ -4696,7 +4787,7 @@ It can be enabled/disabled for any object in a locked bucket, regardless of the 
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas, Florian Haas, Pawel Stefanski
     </nav>
   </span>
 
