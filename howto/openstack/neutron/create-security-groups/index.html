@@ -1270,9 +1270,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adjust-permissive-default-security-group" class="md-nav__link">
+  <a href="#adjusting-a-permissive-default-security-group" class="md-nav__link">
     <span class="md-ellipsis">
-      Adjust permissive default security group
+      Adjusting a permissive default security group
     </span>
   </a>
   
@@ -4518,9 +4518,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adjust-permissive-default-security-group" class="md-nav__link">
+  <a href="#adjusting-a-permissive-default-security-group" class="md-nav__link">
     <span class="md-ellipsis">
-      Adjust permissive default security group
+      Adjusting a permissive default security group
     </span>
   </a>
   
@@ -4564,21 +4564,19 @@ to <a href="../../../getting-started/enable-openstack-cli/">source the RC file f
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>To create a security group click on <em>Security Groups</em> in the left-hand
-side navigation menu:</p>
-<p><a class="glightbox" href="../assets/create-security-groups/01-navigation-panel.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="navigation-panel" src="../assets/create-security-groups/01-navigation-panel.png" /></a></p>
-<p>and then click on <em>Create new Security Group</em> in the top-right corner:</p>
-<p><a class="glightbox" href="../assets/create-security-groups/02-create-button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="create-button" src="../assets/create-security-groups/02-create-button.png" /></a></p>
+<p>To create a security group, first make sure the left-hand side vertical pane is fully visible.
+Click on <em>Security&nbsp;Groups</em>, and then on the top-right corner of the central pane, click on <em>Create new Security Group</em>.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/create-secgroup-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Initiating the creation of a new security group" src="../assets/create-security-groups/create-secgroup-01.png" /></a></p>
 <blockquote>
-<p>An alternative way to create a Security Group is by clicking on
-<em>Create &hellip;</em> button in the top bar.</p>
+<p>An alternative way to create a Security&nbsp;Group is by clicking on the round-cornered <em>Create</em> button, in the top bar.</p>
 </blockquote>
-<p>Now give the security group a name and description, and choose in
-which region to create it, then click <em>create</em>:</p>
-<p><a class="glightbox" href="../assets/create-security-groups/03-name-creation.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="create-panel" src="../assets/create-security-groups/03-name-creation.png" /></a></p>
+<p>Type in a <em>Name</em> for the new security group, and choose a <em>Region</em> to create it in.
+You may optionally type in a <em>Description</em> for the security group.
+Click on the green <em>Create</em> button when you are ready.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/create-secgroup-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Setting parameters for the new security group" src="../assets/create-security-groups/create-secgroup-02.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>To create a security group use the following command:</p>
+<p>To create a security group, use the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>create<span class="w"> </span>&lt;name&gt;
 </code></pre></div>
 <p>When the command is executed successfully, you will get
@@ -4607,30 +4605,29 @@ information regarding your new security group:</p>
 </div>
 </div>
 <h2 id="removing-default-ingress-rules">Removing default ingress rules</h2>
-<p>By default, a security group named <code>default</code> has been already created
-for you, blocking all traffic from any source (ingress), except from
-servers and ports being in the same security group. All traffic to any
-destination (egress) is allowed by default.</p>
+<p>By default, a security group named <code>default</code> has already been created for you.
+Its rules block all traffic from any source (ingress), except from servers and ports in the same security group.
+All traffic to any destination (egress) is allowed by default.</p>
 <blockquote>
 <p>For accounts created before 2022-11-16, the default security
 group ingress rules allow all incoming traffic.
-See <a href="#adjust-permissive-default-security-group">Adjust permissive default security group</a>,
+See <a href="#adjusting-a-permissive-default-security-group">Adjusting a permissive default security group</a>,
 to learn how to configure this security group according to
 our recommendations.</p>
 </blockquote>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Navigate to the security groups page, click on <code>default</code> security
-group and select the <em>Rules</em> tab to view its rules:</p>
-<p><a class="glightbox" href="../assets/create-security-groups/04-default-rules.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="default-rules" src="../assets/create-security-groups/04-default-rules.png" /></a></p>
+<p>Navigate to the <em>Security&nbsp;Groups</em> page.
+Click on the <code>default</code> security group and select the <em>Rules</em> tab to view its rules.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="List of rules in the default security group" src="../assets/create-security-groups/default-rules.png" /></a></p>
 </div>
 <div class="tabbed-block">
 <p>View the details of the <code>default</code> security group using the
 following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>show<span class="w"> </span>default
 </code></pre></div>
-<p>you will get a printout similar to this:</p>
+<p>You will get a printout similar to this:</p>
 <div class="highlight"><pre><span></span><code>+-----------------+--------------------------------------------------------------------------------+
 | Field           | Value                                                                          |
 +-----------------+--------------------------------------------------------------------------------+
@@ -4668,14 +4665,12 @@ other servers and ports in the group, you need to
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Click on the trashcan action button on the right-hand side for
-<strong>both ingress</strong> rules.</p>
-<p>Your <code>default</code> or newly created security group rules will now
-look like this:</p>
-<p><a class="glightbox" href="../assets/create-security-groups/05-default-egress-rules.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="default-ingress-rules" src="../assets/create-security-groups/05-default-egress-rules.png" /></a></p>
+<p>Click each of the red <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12 6.47 2 12 2m5 5h-2.5l-1-1h-3l-1 1H7v2h10zM9 18h6a1 1 0 0 0 1-1v-7H8v7a1 1 0 0 0 1 1"/></svg></span> buttons on the right-hand side of the <strong>IPv4 ingress</strong> and also of the <strong>IPv6 ingress</strong> rows.</p>
+<p>Your <code>default</code> or newly created security group rules will now look like the following example.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-egress.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="List of default ingress rules" src="../assets/create-security-groups/default-rules-egress.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>To view the rules use the following command:</p>
+<p>To view the rules, use the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
 <p>The printout will be similar to this:</p>
@@ -4708,9 +4703,8 @@ look like this:</p>
 | 46f       |             |           |           |            |           |                       |                      |
 +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
 </code></pre></div>
-<p>The IDs of the two ingress rules, one for IPv4 traffic and one for
-IPv6, in this case are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and
-<code>86b9413a-ad23-46c4-a35e-9306945dc63c</code></p>
+<p>The IDs of the two ingress rules, one for IPv4 traffic and one for IPv6, in this case, are:
+<code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and <code>86b9413a-ad23-46c4-a35e-9306945dc63c</code>.</p>
 <p>Delete them by using the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>delete<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>5e5e9f4d-1faa-492d-91f1-c105b464072b<span class="w"> </span>86b9413a-ad23-46c4-a35e-9306945dc63c
@@ -4718,7 +4712,7 @@ IPv6, in this case are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and
 <p>Print the rules again:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
-<p>Now the remaining rules are only the egress ones.</p>
+<p>Now, the remaining rules are only the egress ones.</p>
 <div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
 | ID        | IP Protocol | Ethertype | IP Range  | Port Range | Direction | Remote Security Group | Remote Address Group |
 +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
@@ -4740,55 +4734,79 @@ IPv6, in this case are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and
 </div>
 </div>
 <h2 id="allowing-ssh-access">Allowing SSH access</h2>
-<p>The next thing to do, is to allow SSH access on <strong>port 22</strong> to the
-server, only from specific networks.</p>
+<p>The next thing to do is allow SSH access on <strong>port 22</strong> for IPv4 and IPv6 client connections &ndash; but <em>only</em> from specific addresses or subnets.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>To do this, click on the <em>Create new rule</em> button.
-<a class="glightbox" href="../assets/create-security-groups/06-create-security-group-rule.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="create-rule-panel" src="../assets/create-security-groups/06-create-security-group-rule.png" /></a></p>
+<p>To do this, while on the <em>Rules</em> tab, click on the green <em>Create new rule</em> button.
+A pane named <em>Create a Security Group Rule</em> will slide over from the right-hand side of the browser window.</p>
+<p>For the IPv4 ingress SSH rule, make sure you set <em>Protocol</em> to <em>TCP</em>, <em>Direction</em> to <em>Ingress</em>, and <em>Ether&nbsp;Type</em> to <em>IPv4</em>.
+Then, set <em>From</em> to <em>Network/IP</em> and, in the <em>Custom&nbsp;CIDR</em> text box below, type in either the IPv4 address of your client host or the CIDR of your client subnet.</p>
+<p>To create the new rule, click the green <em>Create</em> button.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-ingress-ssh-ipv4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create ingress rule for IPv4 SSH connections" src="../assets/create-security-groups/default-rules-ingress-ssh-ipv4.png" /></a></p>
+<p>You may work similarly for the IPv6 ingress SSH rule;
+just be sure to set <em>Ether&nbsp;Type</em> to <em>IPv6</em>.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-ingress-ssh-ipv6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create ingress rule for IPv6 SSH connections" src="../assets/create-security-groups/default-rules-ingress-ssh-ipv6.png" /></a></p>
+<p>When you are done creating the two ingress rules for SSH, you see them listed in the <em>Rules</em> tab of the security group.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-ingress-ssh.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New ingress rules for SSH connections" src="../assets/create-security-groups/default-rules-ingress-ssh.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>To create this rule use the following command:</p>
+<p>To create this rule for IPv4 client connections, use the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">22</span><span class="w"> </span>--remote-ip<span class="w"> </span><span class="m">203</span>.0.113.58/32<span class="w"> </span>default
+<span class="w">  </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--remote-ip<span class="w"> </span><span class="m">203</span>.0.113.0/24<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>default
+</code></pre></div>
+<p>To create the same rule but this time for IPv6 client connections, use a command like the following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">22</span><span class="w"> </span>--ethertype<span class="w"> </span>IPv6<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--remote-ip<span class="w"> </span><span class="m">2001</span>:db8::/32<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>default
 </code></pre></div>
 </div>
 </div>
 </div>
 <blockquote>
-<p>If you don&rsquo;t know your IP, simply visit
-<a href="https://ipv4.icanhazip.com/">icanhazip.com</a>. In this example your
-IP is 203.0.113.58, and if you want to allow SSH access from this IP
-address only, enter <code>203.0.113.58/32</code> as CIDR. If you want to allow
-SSH access from any address in that <a href="https://en.wikipedia.org/wiki/Classful_network">Class C
-subnet</a>, instead
-enter <code>203.0.113.0/24</code> as CIDR.</p>
+<p>If you don&rsquo;t know your IPv4 or IPv6 address, visit <a href="https://icanhazip.com/">icanhazip.com</a>.</p>
 </blockquote>
+<p>In this example, your IPv4 address is 203.0.113.58, and if you want to allow SSH access from this address only, enter <code>203.0.113.58/32</code> as CIDR.
+If you want to allow SSH access from <em>any</em> address in that <a href="https://en.wikipedia.org/wiki/Classful_network">Class C subnet</a>, instead enter <code>203.0.113.0/24</code> as CIDR.
+Regarding the IPv6 address, in the example we use the <code>2001:db8::/32</code> address block.
+Alternatively, you may use a single IPv6 address, like <code>2001:db8:ffff:ffff:ffff:ffff:ffff:ffff/128</code>.</p>
 <h2 id="allowing-web-traffic">Allowing Web Traffic</h2>
-<p>Next create the rules that allow anyone to access the server on <strong>port
-80</strong> and <strong>port 443</strong>.</p>
+<p>Next, create the rules that allow anyone to access a server on <strong>port 80</strong> and <strong>port 443</strong>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Using the same logic as before, click on <em>Create new rule</em>. Select
-TCP Protocol and port 80 as both min and max range value. This
-time, <em>CIDR</em> is left empty, allowing incoming traffic from any
-IP/source.</p>
-<p><a class="glightbox" href="../assets/create-security-groups/07-http-rule.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="http-rule" src="../assets/create-security-groups/07-http-rule.png" /></a></p>
-<p>The same applies to port 443.</p>
-<p><a class="glightbox" href="../assets/create-security-groups/08-https-rule.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="https-rule" src="../assets/create-security-groups/08-https-rule.png" /></a></p>
-<p><a class="glightbox" href="../assets/create-security-groups/09-rules-now.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="rules" src="../assets/create-security-groups/09-rules-now.png" /></a></p>
+<p>Following a similar routine as before, begin by clicking on the green <em>Create new rule</em> button.
+To create an ingress rule for IPv4 connections to 80/TCP, set <em>Protocol</em>, <em>Direction</em>, and <em>Ether&nbsp;Type</em> accordingly.
+Then, in each of the two <em>Port range</em> text boxes, type in <code>80</code>.
+This time, leave <em>CIDR</em> empty, essentially allowing incoming traffic from any IPv4 client.
+Click the green <em>Create</em> button to instantiate the new rule.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-ingress-http-ipv4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new ingress rule for IPv4 connections to 80/TCP" src="../assets/create-security-groups/default-rules-ingress-http-ipv4.png" /></a></p>
+<p>The same for the ingress rule for IPv4 connections to 443/TCP.
+The only difference is in the <em>Port range</em> text boxes;
+in each of the two, you should now type <code>443</code>.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-ingress-https-ipv4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new ingress rule for IPv4 connections to 443/TCP" src="../assets/create-security-groups/default-rules-ingress-https-ipv4.png" /></a></p>
+<p>Just like you did for incoming IPv4 connections, create a new ingress rule for IPv6 clients connecting to 80/TCP&hellip;</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-ingress-http-ipv6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new ingress rule for IPv6 connections to 80/TCP" src="../assets/create-security-groups/default-rules-ingress-http-ipv6.png" /></a></p>
+<p>&hellip;and a new ingress rule for IPv6 clients connecting to 443/TCP.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-ingress-https-ipv6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new ingress rule for IPv6 connections to 443/TCP" src="../assets/create-security-groups/default-rules-ingress-https-ipv6.png" /></a></p>
+<p>When you are done creating the new ingress rules, you will see them all listed in the <em>Rules</em> tab of the <code>default</code> security group.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/default-rules-ingress-new.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All new rules regarding incoming connections to 80/TCP and 443/TCP" src="../assets/create-security-groups/default-rules-ingress-new.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>This time don&rsquo;t specify <em>&ndash;remote-ip</em> to allow traffic from all
-sources, using the following command:</p>
-<p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">80</span><span class="w"> </span>default
+<p>This time don&rsquo;t specify <code>--remote-ip</code>, to allow traffic from <em>all</em> IPv4 and IPv6 sources:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">80</span><span class="w"> </span>default
 </code></pre></div>
-One more time for port 443:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">80</span><span class="w"> </span>--ethertype<span class="w"> </span>IPv6<span class="w"> </span>default
+</code></pre></div>
+<p>One more time for port 443:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">443</span><span class="w"> </span>default
 </code></pre></div>
-<p>To view the updated rules, print the them again:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--dst-port<span class="w"> </span><span class="m">443</span><span class="w"> </span>--ethertype<span class="w"> </span>IPv6<span class="w"> </span>default
+</code></pre></div>
+<p>To view the updated rules, print them again:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
@@ -4800,6 +4818,12 @@ One more time for port 443:</p>
 | 8eb1-     |             |           |           |            |           |                       |                      |
 | eb35da800 |             |           |           |            |           |                       |                      |
 | 6ed       |             |           |           |            |           |                       |                      |
+| 86ab9224- | tcp         | IPv6      | ::/0      | 80:80      | ingress   | None                  | None                 |
+| 4120-     |             |           |           |            |           |                       |                      |
+| 11f0-     |             |           |           |            |           |                       |                      |
+| af79-     |             |           |           |            |           |                       |                      |
+| 5f799899a |             |           |           |            |           |                       |                      |
+| 9cb       |             |           |           |            |           |                       |                      |
 | ad4a19ef- | None        | IPv6      | ::/0      |            | egress    | None                  | None                 |
 | 7fab-     |             |           |           |            |           |                       |                      |
 | 4eba-     |             |           |           |            |           |                       |                      |
@@ -4824,6 +4848,12 @@ One more time for port 443:</p>
 | 8ed3-     |             |           |           |            |           |                       |                      |
 | 3c2538e7a |             |           |           |            |           |                       |                      |
 | 24f       |             |           |           |            |           |                       |                      |
+| dde1a0d8- | tcp         | IPv6      | ::/0      | 443:443    | ingress   | None                  | None                 |
+| 4120-     |             |           |           |            |           |                       |                      |
+| 11f0-     |             |           |           |            |           |                       |                      |
+| acdc-     |             |           |           |            |           |                       |                      |
+| 93df8d8fa |             |           |           |            |           |                       |                      |
+| fae       |             |           |           |            |           |                       |                      |
 +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
 </code></pre></div>
 </div>
@@ -4832,31 +4862,23 @@ One more time for port 443:</p>
 <p>All the rules for a simple web server are now in place.</p>
 <p>For any additional protocol or ingress rule, simply follow the same
 procedure as above.</p>
-<h2 id="adjust-permissive-default-security-group">Adjust permissive default security group</h2>
-<p>If your account was created before 2022-11-16, and you didn&rsquo;t
-configure the <code>default</code> security group, it is most likely permissive for
-all incoming traffic. We recommend to either create and use a new
-security group, other than the default one, or restrict ingress traffic
-to specific ports and sources.</p>
+<h2 id="adjusting-a-permissive-default-security-group">Adjusting a permissive default security group</h2>
+<p>If your Cleura Cloud account was created before 2022-11-16, and you didn&rsquo;t configure the <code>default</code> security group, it is most likely permissive for all incoming traffic.
+We recommend either creating and using a new security group, other than the <code>default</code> one, or restricting ingress traffic to specific ports and sources.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Cleura Cloud Management Panel</label><label for="__tabbed_6_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>To check how your <code>default</code> security group is configured, click on it
-and select the Rules tab to view its rules. If you have old,
-permissive <code>default</code> group, the rules should look like this:</p>
-<p><a class="glightbox" href="../assets/create-security-groups/10-default-permissive-rules.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="default-ingress-rules" src="../assets/create-security-groups/10-default-permissive-rules.png" /></a></p>
-<p>The top two ingress rules, having <code>::/0</code> and <code>0.0.0.0/0</code> values
-for remote access filters, mean that incoming traffic from all
-sources is allowed.</p>
-<p>If you want to use the default group, remove the two ingress rules
-that allow all incoming traffic. Click on the trashcan action
-button on the right-hand side for <strong>both ingress</strong> rules.</p>
-<p>Your <code>default</code> or newly created security group rules will now
-look like this:</p>
-<p><a class="glightbox" href="../assets/create-security-groups/05-default-egress-rules.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="default-ingress-rules" src="../assets/create-security-groups/05-default-egress-rules.png" /></a></p>
+<p>To check how your <code>default</code> security group is configured, click on it and select the <em>Rules</em> tab to view its rules.
+If you have an old, permissive <code>default</code> group, the rules should look like this:</p>
+<p><a class="glightbox" href="../assets/create-security-groups/ruleset-ingress-permissive.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Rules of an old permissive security group" src="../assets/create-security-groups/ruleset-ingress-permissive.png" /></a></p>
+<p>The ingress rules with the remote access filters of <code>::/0</code> and <code>0.0.0.0/0</code>, mean that incoming traffic from <em>all</em> sources is allowed.</p>
+<p>If you want to use the <code>default</code> group, remove the two ingress rules that allow all incoming traffic.
+Click on the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12 6.47 2 12 2m5 5h-2.5l-1-1h-3l-1 1H7v2h10zM9 18h6a1 1 0 0 0 1-1v-7H8v7a1 1 0 0 0 1 1"/></svg></span> button on the right-hand side for <strong>both ingress</strong> rule rows.</p>
+<p>Your <code>default</code> or newly created security group rules will now look like the following.</p>
+<p><a class="glightbox" href="../assets/create-security-groups/ruleset-ingress-forbidding.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Rules of a permissive security group gone forbidding" src="../assets/create-security-groups/ruleset-ingress-forbidding.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>To view the rules use the following command:</p>
+<p>To view the rules, use the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>rule<span class="w"> </span>list<span class="w"> </span>default
 </code></pre></div>
 <p>The printout will be similar to this:</p>
@@ -4889,9 +4911,7 @@ look like this:</p>
 | 46f       |             |           |           |            |           |                       |                      |
 +-----------+-------------+-----------+-----------+------------+-----------+-----------------------+----------------------+
 </code></pre></div>
-<p>If the ingress rules have <code>::/0</code> and <code>0.0.0.0/0</code> values
-in <code>IP Range</code> column, and <code>None</code> in the <code>Remote Security Group</code>,
-then incoming traffic from any source is allowed.</p>
+<p>If the ingress rules have <code>::/0</code> and <code>0.0.0.0/0</code> values in the <code>IP Range</code> column, and <code>None</code> in the <code>Remote Security Group</code>, then incoming traffic from <em>any</em> source is allowed.</p>
 <p>The IDs of the two ingress rules, one for IPv4 traffic and one for
 IPv6, are: <code>5e5e9f4d-1faa-492d-91f1-c105b464072b</code> and
 <code>86b9413a-ad23-46c4-a35e-9306945dc63c</code> respectively.</p>
@@ -4945,7 +4965,7 @@ Print the rules again:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2023 10:47:52 UTC">2023-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 3, 2025 19:24:00 UTC">2025-06-03</span>
   </span>
 
     
@@ -4969,7 +4989,7 @@ Print the rules again:</p>
       
     </span>
     <nav>
-      Christian Mattsson, Florian Haas, Mateusz Guziak
+      Christian Mattsson, Christos Varelas, Florian Haas, Mateusz Guziak
     </nav>
   </span>
 
