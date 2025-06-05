@@ -1,8 +1,8 @@
 # Object versioning
 
-> Object versioning requires that you configure your environment with
-> [working S3-compatible credentials](credentials.md).
+If you are unfamiliar with object versioning, see our brief [explanation](../../../background/object-storage.md#object-versioning) of the concept.
 
+Object versioning requires that you configure your environment with [working S3-compatible credentials](credentials.md).
 
 ## Enabling bucket versioning
 
@@ -22,7 +22,6 @@ To enable versioning in a bucket, use one of the following commands:
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.
 
-
 ## Checking bucket versioning status
 
 To check whether object versioning is enabled on a bucket, use one of
@@ -41,6 +40,22 @@ the following commands:
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.
 
+## Suspending bucket versioning
+
+To suspend versioning on a bucket (versioning cannot be completely
+disabled once enabled), use one of the following commands:
+
+=== "aws"
+    ```bash
+    aws --profile <region> \
+    s3api put-bucket-versioning \
+    --versioning-configuration Status=Suspended \
+    --bucket <bucket-name>
+    ```
+=== "mc"
+    ```bash
+    mc version suspend <region>/<bucket-name>
+    ```
 
 ## Creating a versioned object
 
@@ -48,10 +63,9 @@ Once object versioning is enabled on a bucket, the normal object
 creation and replacement commands behave in a manner different from
 that in unversioned buckets:
 
-* If the object does not already exist, it is created (as in an
-  unversioned bucket).
-* If the object does already exist, it is not replaced. Instead, a new
-  version appears in addition to the old one.
+* If the object does not already exist, it is created (as in an unversioned bucket).
+* If the object does exist, it is not replaced.
+  Instead, the new version becomes the current one.
 
 === "aws"
     ```bash
@@ -71,7 +85,6 @@ that in unversioned buckets:
     ```bash
     s3cmd put <local-filename> s3://<bucket>
     ```
-
 
 ## Listing object versions
 
@@ -93,7 +106,6 @@ available for an object:
     the `mc` client.
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.
-
 
 ## Retrieving a versioned object
 
@@ -123,16 +135,14 @@ When you download an object from a versioned bucket *without*
 specifying a version identifier, your S3 client will download the
 latest version of that object.
 
-
 ## Deleting a versioned object
 
 Like the commands to *create* objects, the commands to *delete* them
 behave differently once object versioning is enabled on a bucket.
 
-The command to delete an object will normally not delete it, but
-revert it to the prior version. The exception to this rule is when
-there is only a single version of the object left in the bucket, in
-which case object removal does occur.
+The command to delete an object will not delete it, but
+put a delete marker on it instead. This will keep all the versions
+but return a "Not found" 404 on any request not specifying a valid version id.
 
 === "aws"
     ```bash
