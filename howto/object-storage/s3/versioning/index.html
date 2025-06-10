@@ -2028,6 +2028,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deleting-a-versioned-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting a versioned bucket
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4562,6 +4571,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deleting-a-versioned-bucket" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting a versioned bucket
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4779,6 +4797,44 @@ specific object version:</p>
 </div>
 </div>
 </div>
+<h2 id="deleting-a-versioned-bucket">Deleting a versioned bucket</h2>
+<p>Sometimes, you may want to delete a whole bucket that</p>
+<ul>
+<li>is versioning-enabled,</li>
+<li>contains lots of objects, and</li>
+<li>contains multiple versions of each object.</li>
+</ul>
+<p>In that case, the deletion process can become quite involved.</p>
+<p>However, you can use a shortcut via <a href="../expiry/">object expiry</a>:
+you set a lifecycle policy that defines the minimum expiry age of 1 day, and includes both older versions and delete markers in object expiry.</p>
+<p>A lifecycle policy applicable for this purpose would be this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="nt">&quot;ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;empty-bucket&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enabled&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Expiration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Days&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;NoncurrentVersionExpiration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;NoncurrentDays&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;expire-delete-markers&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enabled&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Expiration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;ExpiredObjectDeleteMarker&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;NoncurrentVersionExpiration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;NoncurrentDays&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="../expiry/#enabling-object-expiry">Enable</a> this policy on the bucket you want to delete, and wait 24 hours.
+Then, you should be able to delete the bucket, which will at that point be empty.</p>
 
 
 
@@ -4801,7 +4857,7 @@ specific object version:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 23, 2025 10:36:49 UTC">2025-05-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 5, 2025 13:02:15 UTC">2025-06-05</span>
   </span>
 
     
