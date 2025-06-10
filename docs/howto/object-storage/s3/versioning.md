@@ -180,3 +180,48 @@ specific object version:
     ```
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.
+
+## Deleting a versioned bucket
+
+Sometimes, you may want to delete a whole bucket that
+
+* is versioning-enabled,
+* contains lots of objects, and
+* contains multiple versions of each object.
+
+In that case, the deletion process can become quite involved.
+
+However, you can use a shortcut via [object expiry](expiry.md):
+you set a lifecycle policy that defines the minimum expiry age of 1 day, and includes both older versions and delete markers in object expiry.
+
+A lifecycle policy applicable for this purpose would be this:
+
+```json
+{
+  "Rules": [{
+    "ID": "empty-bucket",
+    "Status": "Enabled",
+    "Prefix": "",
+    "Expiration": {
+      "Days": 1
+    },
+    "NoncurrentVersionExpiration": {
+      "NoncurrentDays": 1
+    }
+  },
+  {
+    "ID": "expire-delete-markers",
+    "Status": "Enabled",
+    "Prefix": "",
+    "Expiration": {
+      "ExpiredObjectDeleteMarker": true
+    },
+    "NoncurrentVersionExpiration": {
+      "NoncurrentDays": 1
+    }
+  }]
+}
+```
+
+[Enable](expiry.md#enabling-object-expiry) this policy on the bucket you want to delete, and wait 24 hours.
+Then, you should be able to delete the bucket, which will at that point be empty.
