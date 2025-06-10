@@ -6,3 +6,4 @@ nav:
   - "Object storage": object-storage.md
   - "Disaster recovery": disaster-recovery.md
   - kubernetes
+  - Marketplace: marketplace.md
