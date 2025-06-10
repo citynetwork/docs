@@ -1,5 +1,10 @@
 #!/bin/bash -ex
 
+if [ -n "$DOCS_DISABLE_LINKCHECK" ]; then
+    echo "Linkcheck disabled, unset DOCS_DISABLE_LINKCHECK to enable" >&2
+    exit 0
+fi
+
 DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.* .*sto-com.cleura.cloud.*'
 
 if test `basename $0` = "linkcheck-local.sh"; then
