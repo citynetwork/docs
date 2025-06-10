@@ -83,7 +83,7 @@ that in unversioned buckets:
     ```
 === "s3cmd"
     ```bash
-    s3cmd put <local-filename> s3://<bucket>
+    s3cmd -c ~/.s3cfg-<region> put <local-filename> s3://<bucket>
     ```
 
 ## Listing object versions
@@ -158,7 +158,7 @@ but return a "Not found" 404 on any request not specifying a valid version id.
     ```
 === "s3cmd"
     ```bash
-    s3cmd del s3://<bucket-name>/<object-name>
+    s3cmd -c ~/.s3cfg-<region> del s3://<bucket-name>/<object-name>
     ```
 
 You also have the option of deleting not the latest version, but a
