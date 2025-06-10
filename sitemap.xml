@@ -17,6 +17,10 @@
          <lastmod>2025-06-10</lastmod>
     </url>
     <url>
+         <loc>https://docs.cleura.cloud/background/marketplace/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
          <loc>https://docs.cleura.cloud/background/object-storage/</loc>
          <lastmod>2025-06-10</lastmod>
     </url>
@@ -130,6 +134,74 @@
     </url>
     <url>
          <loc>https://docs.cleura.cloud/howto/kubernetes/magnum/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/bareos/delete/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/bareos/deploy/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/clavister/delete/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/clavister/deploy/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/grafana/delete/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/grafana/deploy/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/harbor/delete/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/harbor/deploy/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/keycloak/delete/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/keycloak/deploy/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/matomo/delete/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/matomo/deploy/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/prometheus/delete/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/prometheus/deploy/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/taiga/delete/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/marketplace/taiga/deploy/</loc>
          <lastmod>2025-06-10</lastmod>
     </url>
     <url>
@@ -278,6 +350,10 @@
     </url>
     <url>
          <loc>https://docs.cleura.cloud/howto/openstack/nova/move-server-between-regions/</loc>
+         <lastmod>2025-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/howto/openstack/nova/new-server-cnw/</loc>
          <lastmod>2025-06-10</lastmod>
     </url>
     <url>
