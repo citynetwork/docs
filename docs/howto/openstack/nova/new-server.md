@@ -26,133 +26,120 @@ to work with the OpenStack CLI, please do not forget to [source the RC
 file first](../../getting-started/enable-openstack-cli.md).
 
 === "{{gui}}"
-    On the top right-hand side of the {{gui}}, click the _Create_ button. A
-    new pane titled _Create_ will slide into view from the right-hand side
-    of the browser window.
+    On the top right-hand side of the {{gui}}, click the _Create_ button.
+    A new pane titled _Create_ slides into view.
 
     ![Create new {{brand}} object](assets/new-server/shot-01.png)
 
-    You will notice several rounded boxes on that pane, each for defining,
-    configuring, and instantiating a different {{brand}} object. Go ahead
-    and click the _Server_ box. A new pane titled _Create a Server_ will
-    slide over. At the top, type in a name for the new server and select one
-    of the available regions.
+    Notice all these rounded boxes on that pane, each for defining, configuring, and instantiating a different {{brand}} object.
+    Go ahead and click the _Server_ box.
+    
+    Another pane, titled _Create a Server_, slides over.
+    At the top, type in a name for the new server and select one of the available regions.
 
     ![Type in server name and select region](assets/new-server/shot-02.png)
 
-    Below the region selection is a drop-down menu where you must select a
-    _server profile_. Currently, four profiles are available:
+    Set the _Connect to_ parameter to _Network_.
+    Select at least one of the available networks to attach the new server to.
+
+    ![Attach server to a network, and optionally connect a floating IP to server](assets/new-server/shot-03.png)
+
+    If that network is dual-stack or has one IPv4-based subnet, you may want the server to be publicly accessible via an IPv4 address.
+    In that case, make sure to activate the _Connect&nbsp;a&nbsp;floating&nbsp;IP&nbsp;to&nbsp;the&nbsp;server_ switch.
+    Then, use the dropdown menu below to set the _Create&nbsp;External&nbsp;IP&nbsp;on_ parameter to the network you have already attached the server to.
+    
+    Now, pay attention to the _Server profile_ parameter.
+    
+    ![Select server profile](assets/new-server/shot-04.png)
+        
+    From the corresponding dropdown menu, you must select a profile.
+    Currently, the following profiles are available:
 
     *  _Generic_,
     * _High CPU_, and
     * _Low Latency Disk_.
 
-    Selecting one of those gives you access to a subset of all available
-    [_flavors_](../../../reference/flavors/index.md).
+    Selecting one of those gives you access to a subset of all available [_flavors_](../../../reference/flavors/index.md).
 
-    As the profile names suggest, each profile but the _Generic_ points to a
-    set of flavors suitable for servers intended to run specific types of
-    applications:
+    As the profile names suggest, each profile but the _Generic_ points to a subset of flavors suitable for servers intended to run specific types of applications:
 
-    * The _Generic_ profile is for general-purpose cloud servers.
-    * The _CPU_ profile is for servers designed to host CPU-intensive
-      applications.
-    * The _Low Latency Disk_ profile is for servers that boot off of a local
-      low-latency disk.
+    * the _Generic_ profile is for general-purpose cloud servers,
+    * the _High CPU_ profile is for servers designed to host CPU-intensive applications, and
+    * the _Low Latency Disk_ profile is for servers that use a local low-latency disk.
 
-    We should point out that not _all_ profiles may be available in any
-    region. Choose the _Generic_ profile for now, which is available in any
-    of the regions.
+    We should point out that some profiles may not be available in all regions.
+    Choose the _Generic_ profile for now, which is available in any of the regions.
 
-    ![Select server profile](assets/new-server/shot-03.png)
+    In the _Boot source_ section below, click the dropdown menu on the left and make sure you select _Image_, so you can choose one of the readily available OS images to boot the new server off of.
+    
+    ![Select boot source and image](assets/new-server/shot-05.png)
 
-    In the _Boot source_ section below, click the dropdown menu on the left
-    and make sure you select _Image_, so you can choose one of the readily
-    available OS images to boot the new server off of. To pick one of the
-    images, click on the dropdown menu on the right. For this how-to guide,
-    we have chosen _ubuntu_ in general and _Ubuntu 22.04 Jammy Jellyfish_ in
-    particular.
+    To pick a specific image, click on the dropdown menu on the right.
+    In this example, we have chosen _ubuntu_ in general and *Ubuntu 24.04 Noble Numbat x86_64* in particular.
 
-    ![Select image for the new server](assets/new-server/shot-04.png)
+    Next, notice that the _Boot Target_ is preselected for you.
+    Depending on the server profile you have already selected, the boot target will be either _Volume_ or _Ephemeral_.
+    Specifically:
 
-    Next up, notice that the _Boot Target_ is preselected for you. Depending
-    on the server profile you have already selected, the boot target will be
-    either _Volume_ or _Ephemeral_. More specifically...
+    * for the _Generic_ and _High CPU_ profiles, the boot target is _Volume_, and
+    * for the _Low Latency Disk_ profile, the boot target is _Ephemeral_.
 
-    * for the _Generic_ and _High CPU_ profiles the boot target is
-      _Volume_, and
-    * for the _Low Latency Disk_ profile the boot target is _Ephemeral_.
+    ![Boot target, volume, and volume size](assets/new-server/shot-06.png)
 
-    Regarding the server's CPU core count and amount of memory, set the
-    [_Flavor_](../../../reference/flavors/index.md) accordingly. We suggest
-    selecting a flavor that specifies a server with 1 CPU core and 1GiB of
-    RAM.
+    Regarding the server's CPU core count and amount of memory, set the [_Flavor_](../../../reference/flavors/index.md) accordingly.
+    We suggest selecting a flavor that specifies a server with 1 CPU core and 1 GiB of RAM.
 
-    Please note that, depending on the chosen flavor, the estimated monthly
-    cost of the server changes. (While a server is shut off you are still
-    getting charged for it, but less so.) At any time, this estimated cost
-    is displayed in the green rectangular area at the top.
+    Note that, depending on the chosen flavor, the estimated monthly cost of the server changes.
+    (While a server is shut off, you are still getting charged for it, but less so.)
+    At any time, this estimated cost is displayed in the green rectangular area at the top.
 
     Something else that affects the cost is the size of the root device.
-    Take a look at the _Volume_ parameter below, and notice the default (in
-    [gibibytes](https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary))).
-    You may leave the root device size unchanged or modify it to be a bit
-    lower or higher than the default.
+    Take a look at the _Volume_ parameter below, and notice the default (in [gibibytes](https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary))).
+    You may leave the root device size unchanged, or modify it to be a bit higher than the default.
 
-    When, at a later time, you decide to delete the server, you can do so
-    but **keep** its boot volume (you may want, for example, to attach the
-    exact same volume to a new server). Just disable the _Delete on
-    termination_ option if you want this kind of flexibility. On the other
-    hand, if you want your root volume to be automatically deleted when the
-    server terminates, the _Delete on termination_ option is already enabled
-    for you. In any case, use this option with caution.
+    When, at a later time, you decide to delete the server, you can do so but **keep** its boot volume (you may want, for example, to attach that volume to a new server).
+    Just disable the _Delete&nbsp;on&nbsp;termination_ option if you want this kind of flexibility.
+    On the other hand, if you want your root volume to be automatically deleted when the server is deleted, the _Delete&nbsp;on&nbsp;termination_ option is already enabled for you.
+    In any case, use this option with caution.
+    
+    ![Boot target, volume, and volume size](assets/new-server/shot-07.png)
+    
+    Also, notice the _Storage classes (types)_ parameter, which actually deals with [volume types](../../../reference/volumes/index.md).
+    By default, this parameter is set to _cbs_.
 
-    Finally, you may leave the _Disaster recovery_ enabled. If you do, then
-    daily server snapshots will be created, and you will have the option for
-    easy and fast rollups to previous snapshots. Please be aware that
-    leaving this option enabled increases the server's monthly estimated
-    cost (again, it is displayed in the green rectangular area at the top).
+    You may want to leave the _Disaster&nbsp;recovery_ option enabled.
+    If you do, then daily server snapshots will be created, and you will have the option for easy and fast roll-ups to previous snapshots.
+    Please be aware that leaving this option enabled increases the server's monthly estimated cost (again, it is displayed in the green rectangular area at the top).
 
-    ![Select server flavor and set volume size](assets/new-server/shot-05.png)
+    ![Disaster recovery option](assets/new-server/shot-08.png)
 
-    Regarding networking, select at least one of the available (local)
-    networks to attach the new server to. If you want the server to be
-    accessible from the Internet, enable the _Connect a floating IP to the
-    server_ option. Then, from the _Create External IP on_ drop-down menu,
-    select one of the networks the server is attached to. A typical scenario
-    is that the server is connected to just one local network, thus the
-    external IP will be associated with that same network. In the section
-    below, set _Security Groups_ to _default_ or to a security group you
-    have already created.
+    To control network access to the server, use the dropdown menu to the right of [_Security Groups_](../neutron/create-security-groups.md) and choose one.
 
-    ![Connect floating IP, select network and security group](assets/new-server/shot-06.png)
+    ![Choose a security group](assets/new-server/shot-09.png)
 
-    If you already have one or more key pairs in your {{brand}} account, you
-    can now select a public key to be included in the
-    `~/.ssh/authorized_keys` file of the server's default user (for the
-    image you have selected, that user would be `ubuntu`). That way, you can
-    securely log into the remote user's account via SSH without typing a
-    password. If there are no key pairs to choose from, activate the _Set
-    password_ option and set a password for the default user account.
+    If you already have one or more key pairs in your {{brand}} account, you can now select a public key to be included in the `~/.ssh/authorized_keys` file of the server's default user.
+    (For the image you have selected, that user would be `ubuntu`.)
+    That way, you can securely log into the remote user's account via SSH without typing a password.
+    
+    ![Indicate an existing keypair](assets/new-server/shot-10.png)
 
-    ![Select keypair or set default user password](assets/new-server/shot-07.png)
+    In case there are no key pairs to choose from, activate the _Set&nbsp;password_ option and set a password for the default user account (`ubuntu`).
 
-    A configuration script is automatically prepared based on the choices
-    you have already made. That script runs during system boot and performs
-    housekeeping tasks like user account creation, enabling acceptable
-    authentication methods, and configuring remote package repositories.
+    ![Optionally set a password for the default user account](assets/new-server/shot-11.png)
+
+    A configuration script is automatically prepared based on the choices you have already made.
+    That script runs during system boot and performs housekeeping tasks like user account creation, enabling acceptable authentication methods, and configuring remote package repositories.
     Click on _Advanced Options_ to see the default script.
 
-    It is now time to create your {{brand}} server; click the green _Create_
-    button, and the new server will be readily available in a few seconds.
+    ![Default server configuration script and user data propagation method](assets/new-server/shot-12.png)
 
-    ![Initiate server creation process](assets/new-server/shot-08.png)
+    Regarding the _User-data propagation method_ above, notice that the _Use&nbsp;metadata&nbsp;service_ is pre-selected for you.
+    For more on what this is and why you might want to select the _Use&nbsp;configuration&nbsp;drive_ method, please read our guide on [launching a server with a configuration drive](config-drive.md).
+    
+    It is now time to create your {{brand}} server.
+    Click the green _Create_ button, and the new server will be readily available in a few seconds.
 
-    Regarding the _User-data propagation method_ above, notice that the _Use
-    metadata service_ is pre-selected for you. For more on what this is and
-    why you might want to select the _Use configuration drive_ method,
-    please read our guide on [launching a server with a configuration
-    drive](config-drive.md).
+    ![Initiate server creation process](assets/new-server/shot-13.png)
 === "OpenStack CLI"
     An `openstack` command for creating a server may look like
     this:
@@ -198,24 +185,24 @@ file first](../../getting-started/enable-openstack-cli.md).
     openstack image list
     ```
 
-    This time you get a shorter list, but you can still filter for
+    This time, you get a shorter list, but you can still filter for
     images with the OS you prefer. For example, filter for Ubuntu:
 
     ```bash
     openstack image list --tag "os:ubuntu"
     ```
 
-    Continue with the `Ubuntu 22.04 Jammy Jellyfish 20220810` image:
+    Continue with the `Ubuntu 24.04 Noble Numbat x86_64` image:
 
     ```bash
-    IMAGE_NAME="Ubuntu 22.04 Jammy Jellyfish 20220810"
+    IMAGE_NAME="Ubuntu 24.04 Noble Numbat x86_64"
     ```
 
     Before you go on, decide on the capacity (in gibibytes) of the server's
-    boot volume (`VOL_SIZE`). We suggest you start with 20 gibibytes:
+    boot volume (`VOL_SIZE`). We suggest you start with 10 gibibytes:
 
     ```bash
-    VOL_SIZE="20"
+    VOL_SIZE="10"
     ```
 
     You need at least one network in the region you're about to
@@ -287,7 +274,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     ...and get more information regarding the one you just uploaded:
 
     ```bash
-    openstack keypair show bahnhof
+    openstack keypair show $KEY_NAME
     ```
 
     You are almost ready to create your new server. Decide on a
@@ -311,15 +298,15 @@ file first](../../getting-started/enable-openstack-cli.md).
         zug
     ```
 
-    (For clarity's sake, and with the exception of `IMAGE_NAME`, we
+    (For clarity's sake, and with the exception of `$IMAGE_NAME`, we
     used the actual values and not the variables we so meticulously set.)
     The `--wait` parameter is optional. Whenever you choose to
     use it, you get back control of your terminal only after the server is
     readily available in {{brand}}.
 
-    To connect to your server remotely, you need to create a floating IP
-    for the external network in the {{brand}}, and then assign
-    this IP to your server. First, create the floating IP:
+    The network your server is attached to might be dual-stack, or it might have an IPv4-based subnet.
+    If this is the case and, additionally, you want the server to be reachable via a public IPv4 address, then you need to create a floating IP and assign it to your server.
+    First, create the floating IP:
 
     ```bash
     openstack floating ip create ext-net
@@ -353,12 +340,10 @@ file first](../../getting-started/enable-openstack-cli.md).
 
 ## Viewing information about the newly created server
 === "{{gui}}"
-    At any time, from the {{gui}} you may see all servers, and get detailed
-    information regarding each one of them; expand the left-hand side
-    vertical pane, click _Compute_, then _Servers_, and, in the central
-    pane, select the region you want.
+    At any time, from the {{gui}} you may see all servers, and get detailed information regarding each one of them.
+    Expand the left-hand side vertical pane, click _Compute_, then _Servers_, and, in the central pane, select the region you want.
 
-    ![View server details](assets/new-server/shot-09.png)
+    ![View server details](assets/new-server/shot-14.png)
 === "OpenStack CLI"
     To see all available servers in the region, type:
 
@@ -373,19 +358,16 @@ file first](../../getting-started/enable-openstack-cli.md).
     ```
 ## Connecting to the server console
 === "{{gui}}"
-    While viewing information regarding your server, you may get its public
-    IP  address (e.g., from the _Addresses_ tab) and connect to it remotely
-    via SSH. Alternatively, you may launch a web console and log in; click
-    on the three-dot icon on the right of the server header, and from the
-    pop-up menu that appears select _Remote Console_.
+    While viewing information regarding your server, you may get its IPv6 or public IPv4 address (e.g., from the _Addresses_ tab), and connect to it remotely via SSH.
+    Alternatively, you may launch a web console and log in.
+    Click on the three-dot icon on the right of the server header, and from the pop-up menu that appears, select _Remote Console_.
 
-    ![Launch remote console](assets/new-server/shot-10.png)
+    ![Launch remote console](assets/new-server/shot-15.png)
 
-    A new window pops up, and that's your web console to your {{brand}}
-    server. Please note that this window cannot be resized but can be opened
-    in a new browser window or tab.
+    A new window pops up, and that's your web console to your {{brand}} server.
+    Please note that this window cannot be resized but can be opened in a new browser window or tab.
 
-    ![View and use server console](assets/new-server/shot-11.png)
+    ![View and use server console](assets/new-server/shot-16.png)
 === "OpenStack CLI"
     You may have access to the web console of your server, and you need the
     corresponding URL for it:
