@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.cleura.cloud/howto/object-storage/s3/credentials/">
+        <link rel="canonical" href="https://docs.cleura.cloud/howto/openstack/glance/custom/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../filter/">
       
       
-        <link rel="next" href="../public-bucket/">
+        <link rel="next" href="../../keystone/app-creds/">
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Working with S3-compatible credentials - Cleura Docs</title>
+        <title>Managing custom images - Cleura Docs</title>
       
     
     
@@ -66,11 +66,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Working with S3-compatible credentials - Cleura Docs" >
+        <meta  property="og:title"  content="Managing custom images - Cleura Docs" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/credentials.png" >
+        <meta  property="og:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/glance/custom.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -78,15 +78,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://docs.cleura.cloud/howto/object-storage/s3/credentials/" >
+        <meta  property="og:url"  content="https://docs.cleura.cloud/howto/openstack/glance/custom/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Working with S3-compatible credentials - Cleura Docs" >
+        <meta  name="twitter:title"  content="Managing custom images - Cleura Docs" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/object-storage/s3/credentials.png" >
+        <meta  name="twitter:image"  content="https://docs.cleura.cloud/assets/images/social/howto/openstack/glance/custom.png" >
       
     
     
@@ -118,7 +118,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#working-with-s3-compatible-credentials" class="md-skip">
+        <a href="#managing-custom-images" class="md-skip">
           Skip to content
         </a>
       
@@ -153,7 +153,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Working with S3-compatible credentials
+              Managing custom images
             
           </span>
         </div>
@@ -509,8 +509,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -534,11 +536,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -554,7 +556,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             OpenStack
@@ -590,7 +592,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../openstack/barbican/" class="md-nav__link ">
+            <a href="../../barbican/" class="md-nav__link ">
               
   
   
@@ -625,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/barbican/generic-secret/" class="md-nav__link">
+      <a href="../../barbican/generic-secret/" class="md-nav__link">
         
   
   
@@ -648,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/barbican/share-secret/" class="md-nav__link">
+      <a href="../../barbican/share-secret/" class="md-nav__link">
         
   
   
@@ -727,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/resize-volumes/" class="md-nav__link">
+      <a href="../../cinder/resize-volumes/" class="md-nav__link">
         
   
   
@@ -750,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/encrypted-volumes/" class="md-nav__link">
+      <a href="../../cinder/encrypted-volumes/" class="md-nav__link">
         
   
   
@@ -773,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/retype-volumes/" class="md-nav__link">
+      <a href="../../cinder/retype-volumes/" class="md-nav__link">
         
   
   
@@ -796,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/cinder/sync-volumes/" class="md-nav__link">
+      <a href="../../cinder/sync-volumes/" class="md-nav__link">
         
   
   
@@ -824,6 +826,8 @@
                 
   
   
+    
+  
   
   
     
@@ -843,15 +847,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../openstack/glance/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -870,7 +874,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3_3">
             <span class="md-nav__icon md-icon"></span>
             Glance (image service)
@@ -886,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/glance/examine/" class="md-nav__link">
+      <a href="../examine/" class="md-nav__link">
         
   
   
@@ -909,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/glance/filter/" class="md-nav__link">
+      <a href="../filter/" class="md-nav__link">
         
   
   
@@ -929,10 +933,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../openstack/glance/custom/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Managing custom images
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -943,6 +969,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-a-custom-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uploading a custom image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-image-from-a-boot-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an image from a boot volume
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1005,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/keystone/app-creds/" class="md-nav__link">
+      <a href="../../keystone/app-creds/" class="md-nav__link">
         
   
   
@@ -1080,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/magnum/new-k8s-cluster/" class="md-nav__link">
+      <a href="../../magnum/new-k8s-cluster/" class="md-nav__link">
         
   
   
@@ -1103,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/magnum/kubectl/" class="md-nav__link">
+      <a href="../../magnum/kubectl/" class="md-nav__link">
         
   
   
@@ -1184,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/new-network/" class="md-nav__link">
+      <a href="../../neutron/new-network/" class="md-nav__link">
         
   
   
@@ -1207,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/create-security-groups/" class="md-nav__link">
+      <a href="../../neutron/create-security-groups/" class="md-nav__link">
         
   
   
@@ -1230,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/multiple-public-ips/" class="md-nav__link">
+      <a href="../../neutron/multiple-public-ips/" class="md-nav__link">
         
   
   
@@ -1253,7 +1317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/vpnaas/" class="md-nav__link">
+      <a href="../../neutron/vpnaas/" class="md-nav__link">
         
   
   
@@ -1276,7 +1340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/neutron/delete-network/" class="md-nav__link">
+      <a href="../../neutron/delete-network/" class="md-nav__link">
         
   
   
@@ -1365,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/new-server/" class="md-nav__link">
+      <a href="../../nova/new-server/" class="md-nav__link">
         
   
   
@@ -1388,7 +1452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/new-server-cnw/" class="md-nav__link">
+      <a href="../../nova/new-server-cnw/" class="md-nav__link">
         
   
   
@@ -1411,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/server-group/" class="md-nav__link">
+      <a href="../../nova/server-group/" class="md-nav__link">
         
   
   
@@ -1434,7 +1498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/config-drive/" class="md-nav__link">
+      <a href="../../nova/config-drive/" class="md-nav__link">
         
   
   
@@ -1457,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/resize-server/" class="md-nav__link">
+      <a href="../../nova/resize-server/" class="md-nav__link">
         
   
   
@@ -1480,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/move-server-between-regions/" class="md-nav__link">
+      <a href="../../nova/move-server-between-regions/" class="md-nav__link">
         
   
   
@@ -1503,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/boot-image-volume/" class="md-nav__link">
+      <a href="../../nova/boot-image-volume/" class="md-nav__link">
         
   
   
@@ -1526,7 +1590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/restore-srv-to-snap/" class="md-nav__link">
+      <a href="../../nova/restore-srv-to-snap/" class="md-nav__link">
         
   
   
@@ -1549,7 +1613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/nova/rescue-server/" class="md-nav__link">
+      <a href="../../nova/rescue-server/" class="md-nav__link">
         
   
   
@@ -1628,7 +1692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/lbaas-tcp/" class="md-nav__link">
+      <a href="../../octavia/lbaas-tcp/" class="md-nav__link">
         
   
   
@@ -1651,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/tls-lb/" class="md-nav__link">
+      <a href="../../octavia/tls-lb/" class="md-nav__link">
         
   
   
@@ -1674,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/lbaas-l7pol/" class="md-nav__link">
+      <a href="../../octavia/lbaas-l7pol/" class="md-nav__link">
         
   
   
@@ -1697,7 +1761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../openstack/octavia/metrics/" class="md-nav__link">
+      <a href="../../octavia/metrics/" class="md-nav__link">
         
   
   
@@ -1733,10 +1797,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1748,11 +1810,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
           <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
@@ -1768,7 +1830,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Object storage
@@ -1779,8 +1841,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1810,15 +1870,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../object-storage/s3/" class="md-nav__link ">
               
   
   
@@ -1837,7 +1897,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4_1">
             <span class="md-nav__icon md-icon"></span>
             S3 API
@@ -1850,32 +1910,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Working with S3-compatible credentials
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
         
   
   
@@ -1886,62 +1924,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#creating-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating credentials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#listing-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Listing credentials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-your-s3-api-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring your S3 API client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deleting-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deleting credentials
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1954,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../public-bucket/" class="md-nav__link">
+      <a href="../../../object-storage/s3/public-bucket/" class="md-nav__link">
         
   
   
@@ -1977,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../presign/" class="md-nav__link">
+      <a href="../../../object-storage/s3/presign/" class="md-nav__link">
         
   
   
@@ -2000,7 +1982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../expiry/" class="md-nav__link">
+      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
         
   
   
@@ -2023,7 +2005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../object-lock/" class="md-nav__link">
+      <a href="../../../object-storage/s3/object-lock/" class="md-nav__link">
         
   
   
@@ -2046,7 +2028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning/" class="md-nav__link">
+      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
         
   
   
@@ -2069,7 +2051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sse-c/" class="md-nav__link">
+      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
         
   
   
@@ -2092,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utilization/" class="md-nav__link">
+      <a href="../../../object-storage/s3/utilization/" class="md-nav__link">
         
   
   
@@ -2153,7 +2135,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../swift/" class="md-nav__link ">
+            <a href="../../../object-storage/swift/" class="md-nav__link ">
               
   
   
@@ -2188,7 +2170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/private-container/" class="md-nav__link">
+      <a href="../../../object-storage/swift/private-container/" class="md-nav__link">
         
   
   
@@ -2211,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/public-container/" class="md-nav__link">
+      <a href="../../../object-storage/swift/public-container/" class="md-nav__link">
         
   
   
@@ -2234,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/tempurl/" class="md-nav__link">
+      <a href="../../../object-storage/swift/tempurl/" class="md-nav__link">
         
   
   
@@ -2257,7 +2239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/expiry/" class="md-nav__link">
+      <a href="../../../object-storage/swift/expiry/" class="md-nav__link">
         
   
   
@@ -2280,7 +2262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/versioning/" class="md-nav__link">
+      <a href="../../../object-storage/swift/versioning/" class="md-nav__link">
         
   
   
@@ -2303,7 +2285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swift/utilization/" class="md-nav__link">
+      <a href="../../../object-storage/swift/utilization/" class="md-nav__link">
         
   
   
@@ -5411,36 +5393,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-credentials" class="md-nav__link">
+  <a href="#uploading-a-custom-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating credentials
+      Uploading a custom image
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#listing-credentials" class="md-nav__link">
+  <a href="#creating-an-image-from-a-boot-volume" class="md-nav__link">
     <span class="md-ellipsis">
-      Listing credentials
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-your-s3-api-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring your S3 API client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deleting-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deleting credentials
+      Creating an image from a boot volume
     </span>
   </a>
   
@@ -5462,7 +5426,7 @@
 
 
   
-    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/object-storage/s3/credentials.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/glance/custom.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5470,138 +5434,118 @@
   
 
 
-<h1 id="working-with-s3-compatible-credentials">Working with S3-compatible credentials</h1>
-<p>When you want to interact with object storage in Cleura Cloud using
-tools that support an Amazon S3 compatible API (such as <code>s3cmd</code>,
-<code>rclone</code>, the <code>aws</code> CLI, or the Python <code>boto3</code> library), you need an
-S3-compatible access key ID and secret key.</p>
-<h2 id="creating-credentials">Creating credentials</h2>
-<p>You can create a set of S3-compatible credentials with the following
-command:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>ec2<span class="w"> </span>credentials<span class="w"> </span>create
-</code></pre></div>
-<p>This will return an <code>Access</code> and <code>Secret</code> key that you can use to
-populate the <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code>
-environment variables (or whichever configuration options your
-application requires).</p>
+<h1 id="managing-custom-images">Managing custom images</h1>
+<p>You can use the <code>openstack</code> CLI to upload a custom image to any of the regions you have access to.
+In addition to that, you can create an image from a server&rsquo;s boot volume.</p>
 <blockquote>
-<p>Your S3-compatible credentials are always scoped to your
-Cleura Cloud <em>region</em> and <em>project</em>. You cannot reuse an access
-and secret key across multiple regions or projects.</p>
-<p>Also, your credentials are only “S3-compatible” in the sense that
-they use the same <em>format</em> as AWS S3 does. They are never valid against
-AWS S3 itself.</p>
+<p>Whenever possible, you should use the <a href="../../../../reference/images/">supported base images</a> instead of creating your own.</p>
 </blockquote>
-<h2 id="listing-credentials">Listing credentials</h2>
-<p>You can list any previously-created credentials with:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>ec2<span class="w"> </span>credentials<span class="w"> </span>list
+<h2 id="uploading-a-custom-image">Uploading a custom image</h2>
+<p>To upload a custom image, use <code>openstack</code> like so:</p>
+<div class="highlight"><pre><span></span><code>openstack image create --disk-format &lt;format&gt; --file &lt;local-filename&gt; &lt;image-name&gt;
 </code></pre></div>
-<h2 id="configuring-your-s3-api-client">Configuring your S3 API client</h2>
-<p>Once you have obtained your S3-compatible access and secret key, you
-need to configure your S3 client with it.</p>
-<p>How exactly you do that depends on your preferred client:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label><label for="__tabbed_1_4">rclone</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>The AWS CLI comes in two major versions with different features and configuration methods.</p>
-<p><strong>Configuring AWS CLI v1</strong></p>
-<p>Install the <a href="https://pypi.org/project/awscli-plugin-endpoint/"><code>endpoint</code></a> plugin:
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>awscli-plugin-endpoint
+<p>For instance, see how to upload a Debian 13 cloud image, which you can subsequently use to create cloud servers in Cleura Cloud:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--disk-format<span class="w"> </span>qcow2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--file<span class="w"> </span>debian-13-genericcloud-amd64-daily-20250623-2152.qcow2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>debian-13-daily
+
+<span class="go">+------------------+-------------------------------------------------------------------------------+</span>
+<span class="go">| Field            | Value                                                                         |</span>
+<span class="go">+------------------+-------------------------------------------------------------------------------+</span>
+<span class="go">| checksum         | 5d073d57c0b89afa3a7a3352a42fd073                                              |</span>
+<span class="go">| container_format | bare                                                                          |</span>
+<span class="go">| created_at       | 2025-06-23T15:32:37Z                                                          |</span>
+<span class="go">| disk_format      | qcow2                                                                         |</span>
+<span class="go">| file             | /v2/images/b8e875da-cf0a-4732-ac12-5aad29adc2c0/file                          |</span>
+<span class="go">| id               | b8e875da-cf0a-4732-ac12-5aad29adc2c0                                          |</span>
+<span class="go">| min_disk         | 0                                                                             |</span>
+<span class="go">| min_ram          | 0                                                                             |</span>
+<span class="go">| name             | debian-13-daily-20250623-2152                                                 |</span>
+<span class="go">| owner            | dfc700467396428bacba4376e72cc3e9                                              |</span>
+<span class="go">| properties       | direct_url=&#39;rbd://2ae305d1-6742-4b1c-af69-825a3bae8b53/images/b8e875da-       |</span>
+<span class="go">|                  | cf0a-4732-ac12-5aad29adc2c0/snap&#39;, locations=&#39;[{&#39;url&#39;:                        |</span>
+<span class="go">|                  | &#39;rbd://2ae305d1-6742-4b1c-af69-825a3bae8b53/images/b8e875da-                  |</span>
+<span class="go">|                  | cf0a-4732-ac12-5aad29adc2c0/snap&#39;, &#39;metadata&#39;: {&#39;store&#39;: &#39;rbd&#39;}}]&#39;,           |</span>
+<span class="go">|                  | os_hash_algo=&#39;sha512&#39;, os_hash_value=&#39;8f7c42267ca2b592f5d0b4d2155951e4cbc33be |</span>
+<span class="go">|                  | 0c9e64063a986424b123ac15acfba33c93a14211ba2071f5a18601de6665f7dae6e989fec8578 |</span>
+<span class="go">|                  | f1f1a800d06f&#39;, os_hidden=&#39;False&#39;,                                             |</span>
+<span class="go">|                  | owner_specified.openstack.md5=&#39;5d073d57c0b89afa3a7a3352a42fd073&#39;,             |</span>
+<span class="go">|                  | owner_specified.openstack.object=&#39;images/debian-13-daily-20250623-2152&#39;, owne |</span>
+<span class="go">|                  | r_specified.openstack.sha256=&#39;440c4c8be83225f855de5a91e009b2c3257bfb84beb9550 |</span>
+<span class="go">|                  | 7c5beffeeaaa59a32&#39;, self=&#39;/v2/images/b8e875da-cf0a-4732-ac12-5aad29adc2c0&#39;,   |</span>
+<span class="go">|                  | stores=&#39;rbd&#39;                                                                  |</span>
+<span class="go">| protected        | False                                                                         |</span>
+<span class="go">| schema           | /v2/schemas/image                                                             |</span>
+<span class="go">| size             | 337444864                                                                     |</span>
+<span class="go">| status           | active                                                                        |</span>
+<span class="go">| tags             |                                                                               |</span>
+<span class="go">| updated_at       | 2025-06-23T15:36:54Z                                                          |</span>
+<span class="go">| virtual_size     | 3221225472                                                                    |</span>
+<span class="go">| visibility       | shared                                                                        |</span>
+<span class="go">+------------------+-------------------------------------------------------------------------------+</span>
 </code></pre></div>
-Then, enable the plugin in your configuration.
-Open the <code>aws</code> configuration file (normally <code>~/.aws/config</code>), and add or modify the <code>[plugins]</code> section:
-<div class="highlight"><pre><span></span><code><span class="k">[plugins]</span>
-<span class="na">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">awscli_plugin_endpoint</span>
+<p>You may also set properties like <code>os_type</code>, <code>os_distro</code>, and <code>os_admin_user</code>, so it becomes easier to filter through your list of custom images:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--disk-format<span class="w"> </span>qcow2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--property<span class="w"> </span><span class="nv">os_type</span><span class="o">=</span>linux<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--property<span class="w"> </span><span class="nv">os_distro</span><span class="o">=</span>freebsd<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--property<span class="w"> </span><span class="nv">os_admin_user</span><span class="o">=</span>freebsd<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--file<span class="w"> </span>freebsd-14.2-ufs-2024-12-08.qcow2<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>freebsd-14.2-ufs
 </code></pre></div>
-Now, create a new profile, named after your Cleura Cloud region.
-Set the credentials and endpoint URLs, using the following commands:
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>aws_access_key_id<span class="w"> </span>&lt;access-key&gt;
-aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>aws_secret_access_key<span class="w"> </span>&lt;secret-key&gt;
-aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3.endpoint_url<span class="w"> </span>https://s3-&lt;region&gt;.citycloud.com
-aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>s3api.endpoint_url<span class="w"> </span>https://s3-&lt;region&gt;.citycloud.com
-</code></pre></div></p>
-<p><strong>Configuring AWS CLI v2</strong></p>
-<p>AWS CLI v2 supports custom endpoints natively without plugins.
-You can configure it using command-line options and configuration file.
-Create a new profile with credentials:
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>aws_access_key_id<span class="w"> </span>&lt;access-key&gt;
-aws<span class="w"> </span>configure<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>aws_secret_access_key<span class="w"> </span>&lt;secret-key&gt;
+<p>Please keep in mind that although the uploaded disk image is in the <code>qcow2</code> format, whenever you create a boot volume from it, that volume will be in the <code>raw</code> format.</p>
+<h2 id="creating-an-image-from-a-boot-volume">Creating an image from a boot volume</h2>
+<p>You can create an image from an existing server&rsquo;s boot volume.
+Let&rsquo;s assume you have a server named <code>app-srv</code>, which you have customized to your liking with the applications you want.
+The server has one boot volume, and you need to know its ID:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>volumes_attached<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span>app-srv
+<span class="go">id=&#39;a90787d6-00e0-4ad2-b923-5e4659736b27&#39;</span>
 </code></pre></div>
-Then configure the endpoint URL using configuration file.
-Edit <code>~/.aws/config</code> and add:
-<div class="highlight"><pre><span></span><code><span class="k">[profile &lt;region&gt;]</span>
-<span class="na">services</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;region&gt;-services</span>
-<span class="k">[services &lt;region&gt;-services]</span>
-<span class="na">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
-<span class="w">  </span><span class="na">endpoint_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://s3-&lt;region&gt;.citycloud.com</span>
-<span class="na">s3api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
-<span class="w">  </span><span class="na">endpoint_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://s3-&lt;region&gt;.citycloud.com</span>
-</code></pre></div></p>
-</div>
-<div class="tabbed-block">
-<p>Create a new alias, named after your Cleura Cloud region:
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>https://s3-&lt;region&gt;.citycloud.com<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>&lt;access-key&gt;<span class="w"> </span>&lt;secret-key&gt;
-</code></pre></div>
-Once you have configured an alias like this, you are able to
-run bucket operations with <code>mc</code> using the <code>alias/bucket</code> syntax.</p>
-</div>
-<div class="tabbed-block">
-<p><code>s3cmd</code> does not support configuration profiles, so you need to use
-a separate configuration file for each Cleura Cloud region you
-want to use:
-<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>--configure
-</code></pre></div></p>
-<ul>
-<li>Set your <code>Access Key</code> and <code>Secret Key</code> when prompted.</li>
-<li>Leave <code>Default Region</code> unchanged.</li>
-<li>Set <code>S3 Endpoint</code> to <code>s3-&lt;region&gt;.citycloud.com</code>.</li>
-<li>Set <code>DNS-style bucket+hostname:port template for accessing a bucket</code>
-  to <code>s3-&lt;region&gt;.citycloud.com</code> as well.</li>
-<li>Set <code>Use HTTPS protocol</code> to <code>Yes</code> (the default).</li>
-<li>Configure GnuPG encryption and your HTTP proxy server, if needed.</li>
-<li>Test access with your supplied credentials.</li>
-</ul>
-<p>On subsequent invocations of the <code>s3cmd</code> CLI, always add the
-<code>-c ~/.s3cfg-&lt;region&gt;</code> option.</p>
-</div>
-<div class="tabbed-block">
-<p>Create or edit the configuration file named <code>~/.rclone.conf</code>, and insert a section named after your Cleura Cloud region.
-That section should contain the following content:
-<div class="highlight"><pre><span></span><code><span class="k">[&lt;region&gt;]</span>
-<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s3</span>
-<span class="na">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Ceph</span>
-<span class="na">env_auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
-<span class="na">access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;access key id&gt;</span>
-<span class="na">secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;secret key&gt;</span>
-<span class="na">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;region&gt;.citycloud.com</span>
-<span class="na">acl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">private</span>
-</code></pre></div></p>
-</div>
-</div>
-</div>
-<h2 id="deleting-credentials">Deleting credentials</h2>
-<p>If at any time you need to delete a set of AWS-compatible credentials,
-you can do so with the following command:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>ec2<span class="w"> </span>credentials<span class="w"> </span>delete<span class="w"> </span>&lt;access-key-id&gt;
-</code></pre></div>
+<p>To create an image from the boot volume, you first have to delete the parent server.</p>
 <blockquote>
-<p>Deleting a set of S3-compatible credentials will <em>immediately</em>
-revoke access for any applications that were using it.</p>
+<p>Before you delete the parent server, you should be sure that during its creation, its boot server was <strong>not</strong> configured for automatic deletion in the event of server deletion.</p>
 </blockquote>
+<p>You can now create that image:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--volume<span class="w"> </span>a90787d6-00e0-4ad2-b923-5e4659736b27<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>app-srv-img
+
+<span class="go">+---------------------+--------------------------------------+</span>
+<span class="go">| Field               | Value                                |</span>
+<span class="go">+---------------------+--------------------------------------+</span>
+<span class="go">| container_format    | bare                                 |</span>
+<span class="go">| disk_format         | raw                                  |</span>
+<span class="go">| display_description |                                      |</span>
+<span class="go">| id                  | a90787d6-00e0-4ad2-b923-5e4659736b27 |</span>
+<span class="go">| image_id            | 2d842eea-f523-4ffc-9407-20de439dd4ed |</span>
+<span class="go">| image_name          | app-srv-img                          |</span>
+<span class="go">| protected           | False                                |</span>
+<span class="go">| size                | 16                                   |</span>
+<span class="go">| status              | uploading                            |</span>
+<span class="go">| updated_at          | 2025-06-24T13:14:34.000000           |</span>
+<span class="go">| visibility          | shared                               |</span>
+<span class="go">| volume_type         | cbs                                  |</span>
+<span class="go">+---------------------+--------------------------------------+</span>
+</code></pre></div>
+<p>You may check the progress of the whole process using the <code>openstack image show</code> command:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>app-srv-img
+
+<span class="go">+--------+--------+</span>
+<span class="go">| Field  | Value  |</span>
+<span class="go">+--------+--------+</span>
+<span class="go">| status | saving |</span>
+<span class="go">+--------+--------+</span>
+</code></pre></div>
+<p>When the image creation is complete, its status will be <code>active</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>app-srv-img
+
+<span class="go">+--------+--------+</span>
+<span class="go">| Field  | Value  |</span>
+<span class="go">+--------+--------+</span>
+<span class="go">| status | active |</span>
+<span class="go">+--------+--------+</span>
+</code></pre></div>
 
 
 
@@ -5624,7 +5568,7 @@ revoke access for any applications that were using it.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 23, 2025 13:15:14 UTC">2025-05-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 23, 2025 19:30:11 UTC">2025-06-23</span>
   </span>
 
     
@@ -5634,7 +5578,7 @@ revoke access for any applications that were using it.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 11, 2022 14:52:17 UTC">2022-05-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 23, 2025 19:30:11 UTC">2025-06-23</span>
   </span>
 
     
@@ -5644,11 +5588,11 @@ revoke access for any applications that were using it.</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
-      Florian Haas, Foad Lind, Pawel Stefanski
+      Christos Varelas
     </nav>
   </span>
 

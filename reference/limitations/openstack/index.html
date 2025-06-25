@@ -835,6 +835,8 @@
       
         
       
+        
+      
     
     
     
@@ -911,6 +913,29 @@
   
   <span class="md-ellipsis">
     Listing and filtering images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../howto/openstack/glance/custom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing custom images
     
   </span>
   
@@ -4580,6 +4605,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Glance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image imports
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nova" class="md-nav__link">
     <span class="md-ellipsis">
       Nova
@@ -5543,6 +5592,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Glance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image imports
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nova" class="md-nav__link">
     <span class="md-ellipsis">
       Nova
@@ -5689,6 +5762,10 @@ You must do so via the Cleura Cloud Management Panel, or the <a href="../../ap
 <h3 id="volume-backup-service">Volume backup service</h3>
 <p>Cleura Cloud does not support the OpenStack volume backup service (<code>cinder-backup</code>).</p>
 <p>For automated, scheduled volume <em>snapshots,</em> consider configuring your servers for <a href="../../../background/disaster-recovery/">Disaster Recovery (DR)</a> via the Cleura Cloud Management Panel.</p>
+<h2 id="glance">Glance</h2>
+<h3 id="image-imports">Image imports</h3>
+<p>The web-download import method, which allows importing images from remote URLs, is not supported.
+Although we recommend you use one of our <a href="../../images/">supported images</a>, it is possible to <a href="../../../howto/openstack/glance/custom/">create or upload a custom image</a> using the <code>openstack</code> CLI.</p>
 <h2 id="nova">Nova</h2>
 <h3 id="nested-virtualization">Nested virtualization</h3>
 <p>Running nested virtualization is only supported for Nova instances (<a href="../../../howto/openstack/nova/new-server/">servers</a>) running Linux.
@@ -5735,7 +5812,7 @@ If you require multiple servers to be able to access the same files, <a href="..
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 6, 2024 18:38:42 UTC">2024-12-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 23, 2025 19:25:43 UTC">2025-06-23</span>
   </span>
 
     
