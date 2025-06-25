@@ -28,6 +28,13 @@ It also means that you cannot use the following `openstack` CLI commands; they a
 
 For automated, scheduled volume *snapshots,* consider configuring your servers for [Disaster Recovery (DR)](../../background/disaster-recovery.md) via the {{gui}}.
 
+## Glance
+
+### Image imports
+
+The web-download import method, which allows importing images from remote URLs, is not supported.
+Although we recommend you use one of our [supported images](../images/index.md), it is possible to [create or upload a custom image](../../howto/openstack/glance/custom.md) using the `openstack` CLI.
+
 ## Nova
 
 ### Nested virtualization
