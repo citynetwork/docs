@@ -14,8 +14,12 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install tox
-      - name: Deploy to gh-pages
-        run: tox -e deploy-github
+      - env:
+          GIT_COMMITTER_EMAIL: "${{ github.actor }}@users.noreply.github.com"
+          GIT_COMMITTER_NAME: "${{ github.actor }}"
+        name: Deploy to gh-pages
+        run: |
+          tox -e mike -- --push
 
 name: deploy
 
@@ -23,3 +27,9 @@ name: deploy
   push:
     branches:
       - main
+      - kna1
+      - fra1
+      - sto2
+      - sto1hs
+      - sto2hs
+      - sto-com
