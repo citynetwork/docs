@@ -14,12 +14,34 @@ lint:
   script:
     - tox -e gitlint
     - tox
+  except:
+    - gh-pages
 
 test:
   stage: test
   script:
     - tox -e build
     - tox -e check
+  except:
+    - gh-pages
+
+update-gh-pages:
+  stage: deploy
+  variables:
+    GIT_COMMITTER_NAME: "$GITLAB_USER_NAME"
+    GIT_COMMITTER_EMAIL: "$GITLAB_USER_EMAIL"
+    DOCS_DEPLOY_BRANCH: "$CI_COMMIT_BRANCH"
+  script:
+    - git fetch origin gh-pages
+    - tox -e mike -- --push
+  only:
+    - main
+    - kna1
+    - sto2
+    - fra1
+    - sto1hs
+    - sto2hs
+    - sto-com
 
 .pages:
   stage: deploy
@@ -29,11 +51,6 @@ test:
     paths:
       - public
 
-pages-main:
-  extends: .pages
-  only:
-    - main
-
 pages:
   extends: .pages
   pages:
@@ -41,3 +58,13 @@ pages:
     expire_in: 4 weeks
   except:
     - main
+    - gh-pages
+
+gh-pages:
+  stage: deploy
+  extends: .pages
+  script:
+    - mkdir public
+    - mv * public
+  only:
+    - gh-pages
