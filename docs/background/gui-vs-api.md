@@ -14,7 +14,6 @@ Provided you have an [account in {{brand}}](../howto/getting-started/create-acco
 You can just as easily perform administrative tasks like
 
 * creating [security groups](../howto/openstack/neutron/create-security-groups.md),
-* setting up [region-to-region VPN](../howto/openstack/neutron/vpnaas.md) connections,
 * [deleting networks](../howto/openstack/neutron/delete-network.md),
 * modifying [billing data](../howto/account-billing/change-account-data.md), or
 * [managing invoices](../howto/account-billing/manage-invoices.md).
