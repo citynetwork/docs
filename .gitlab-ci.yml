@@ -24,8 +24,7 @@ test:
 .pages:
   stage: deploy
   script:
-    - tox -e build
-    - mv site public
+    - tox -e deploy-gitlab
   artifacts:
     paths:
       - public
