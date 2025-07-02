@@ -34,7 +34,8 @@ The verification email looks like the example below, with the subject line _Plea
 
 ![An example of a verification email with a verification code](assets/verifyemail.png)
 
-Please enter this code to verify your email address. Then click the green button labeled _Verify_.
+Please enter this code to verify your email address.
+Then click the green button labeled _Verify_.
 
 ![A 'Modify Email' dialog with a text box where you enter your verification code](assets/verify.png)
 
@@ -52,7 +53,8 @@ Click on the red _Trash_ icon :fontawesome-solid-trash: next to the email addres
 
 ![The 'Email Address' table with Trash icons in red](assets/trash-role.png)
 
-A pop-up window appears. Click on the red button labeled _Yes, Delete_.
+A pop-up window appears.
+Click on the red button labeled _Yes, Delete_.
 
 ![Pop-up window confirming email deletion](assets/delete.png)
 
