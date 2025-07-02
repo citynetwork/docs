@@ -30,8 +30,10 @@ If you have lost your {{support}} credentials, you may also send it by email to 
 
 ## What happens after you delete your account
 
-Three (3) days after receiving the request for deletion, any running virtual machines will be shut off. Then, after ten (10) days, all virtual machines and any other resources connected to your account will be deleted, **including** backups.
+Three (3) days after receiving the request for deletion, any running virtual machines will be shut off.
+Then, after ten (10) days, all virtual machines and any other resources connected to your account will be deleted, **including** backups.
 
-After the last invoice has been paid, we will delete your account. This entire process may take up to thirty (30) days after the last invoice is paid.
+After the last invoice has been paid, we will delete your account.
+This entire process may take up to thirty (30) days after the last invoice is paid.
 
 If you change your mind during the first three (3) days, please get in touch with our [{{support}}](https://{{support_domain}}/servicedesk), and we will **not delete** your assets or your account.
