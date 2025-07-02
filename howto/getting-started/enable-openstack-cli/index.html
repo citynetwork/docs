@@ -5505,69 +5505,50 @@
 
 
 <h1 id="enabling-the-openstack-cli">Enabling the OpenStack CLI</h1>
-<p>The OpenStack Command Line Interface (CLI) tool, also known as OpenStack
-Client (OSC) or simply <code>openstack</code>, conveniently provides access to
-various OpenStack APIs. Using the OpenStack CLI tool, you can remotely
-create and manage the lifecycle of objects related, for example, to
-Compute, Networking, or Storage.</p>
-<p>Before installing <code>openstack</code> to your local laptop or workstation, you
-first need to have an OpenStack user in your Cleura Cloud account.
-Next, you create and download a special RC file onto your computer,
-modify it to reflect your OpenStack user&rsquo;s credentials, and source it.
+<p>The OpenStack Command Line Interface (CLI) tool, also known as OpenStack Client (OSC) or simply <code>openstack</code>, conveniently provides access to various OpenStack APIs.
+Using the OpenStack CLI tool, you can remotely create and manage the lifecycle of objects related, for example, to Compute, Networking, or Storage.</p>
+<p>Before installing <code>openstack</code> to your local laptop or workstation, you first need to have an OpenStack user in your Cleura Cloud account.
+Next, you create and download a special RC file onto your computer, modify it to reflect your OpenStack user&rsquo;s credentials, and source it.
 Only then will you be able to use any installed <code>openstack</code> client.</p>
 <h2 id="creating-an-openstack-user">Creating an OpenStack user</h2>
-<p>From your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and login into your
-Cleura Cloud account.</p>
-<p>Please make sure the left-hand side pane on the Cleura Cloud Management Panel is fully
-visible, click the <em>Users</em> category to expand it, and click on
-<em>Openstack Users</em>.</p>
+<p>From your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and login into your Cleura Cloud account.</p>
+<p>Please make sure the left-hand side pane on the Cleura Cloud Management Panel is fully visible, click the <em>Users</em> category to expand it, and click on <em>Openstack Users</em>.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add a new OpenStack user" src="../assets/ostack-cli/shot-01.png" /></a></p>
-<p>Then, at the top right-hand side of the Cleura Cloud Management Panel, click once more
-the <em>Add new Openstack user</em> option. A new pane will slide into view,
-titled <em>Create Openstack User</em>.</p>
+<p>Then, at the top right-hand side of the Cleura Cloud Management Panel, click once more the <em>Add new Openstack user</em> option.
+A new pane will slide into view, titled <em>Create Openstack User</em>.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new OpenStack user" src="../assets/ostack-cli/shot-02.png" /></a></p>
-<p>Type in a username and a password for the new OpenStack user. To ensure
-you typed the password correctly, you must re-type it below. This
-password should be adequately strong, and thus a password manager may
-come in handy.</p>
+<p>Type in a username and a password for the new OpenStack user.
+To ensure you typed the password correctly, you must re-type it below.
+This password should be adequately strong, and thus a password manager may come in handy.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Set username and password" src="../assets/ostack-cli/shot-03.png" /></a></p>
-<p>Scroll down a bit, so the <em>Regions</em> section is in full view. Expand one
-or more of the available regions you want your new user to have access
-to. For each one of the expanded regions, select one or more
-<em>Projects</em>. For each project, activate one or more <em>Roles</em>. (Hint: For
-an overview of the rights that roles provide, hover the mouse pointer
-over the exclamation mark icon by the <em>Roles</em>.)</p>
+<p>Scroll down a bit, so the <em>Regions</em> section is in full view.
+Expand one or more of the available regions you want your new user to have access to.
+For each one of the expanded regions, select one or more <em>Projects</em>.
+For each project, activate one or more <em>Roles</em>.
+(Hint: For an overview of the rights that roles provide, hover the mouse pointer over the exclamation mark icon by the <em>Roles</em>.)</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Regions, projects, and roles" src="../assets/ostack-cli/shot-04.png" /></a></p>
-<p>Optionally, type in a description for the new OpenStack user. Then,
-create the user by clicking the green <em>Create</em> button below the
-<em>Description</em> box.</p>
+<p>Optionally, type in a description for the new OpenStack user.
+Then, create the user by clicking the green <em>Create</em> button below the <em>Description</em> box.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="User description and creation" src="../assets/ostack-cli/shot-05.png" /></a></p>
-<p>The new OpenStack user will be ready in just a few seconds. At any
-time, you can view all available OpenStack users by going to the
-left-hand side pane on the Cleura Cloud Management Panel and selecting <em>Users</em> &gt;
-<em>Openstack Users</em>.</p>
+<p>The new OpenStack user will be ready in just a few seconds.
+At any time, you can view all available OpenStack users by going to the left-hand side pane on the Cleura Cloud Management Panel and selecting <em>Users</em> &gt; <em>Openstack Users</em>.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All available OpenStack users" src="../assets/ostack-cli/shot-06.png" /></a></p>
 <h2 id="downloading-an-rc-file">Downloading an RC file</h2>
-<p>On the Cleura Cloud Management Panel, expand the left-hand side vertical pane, click <em>Users</em>,
-and then <em>Openstack Users</em>. You will see, listed in the main pane, all
-available users. Click the three-dot round icon on the right of the user
-their RC file you want. From the drop-down menu that appears, select
-<em>Download RC-File.</em></p>
+<p>On the Cleura Cloud Management Panel, expand the left-hand side vertical pane, click <em>Users</em>, and then <em>Openstack Users</em>.
+You will see, listed in the main pane, all available users.
+Click the three-dot round icon on the right of the user their RC file you want.
+From the drop-down menu that appears, select <em>Download RC-File.</em></p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Download RC file" src="../assets/ostack-cli/shot-07.png" /></a></p>
-<p>Before downloading the RC file onto your local computer, you must select
-one of the available projects to relate it to. Do so and then click the
-blue <em>Download</em> button.</p>
+<p>Before downloading the RC file onto your local computer, you must select one of the available projects to relate it to.
+Do so and then click the blue <em>Download</em> button.</p>
 <p><a class="glightbox" href="../assets/ostack-cli/shot-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select project" src="../assets/ostack-cli/shot-08.png" /></a></p>
-<p>A <em>Save as</em> dialog window appears. Select a convenient location and save
-your RC file.</p>
+<p>A <em>Save as</em> dialog window appears.
+Select a convenient location and save your RC file.</p>
 <h2 id="modifying-and-sourcing-the-rc-file">Modifying and sourcing the RC file</h2>
 <p>The general naming for RC files goes like this:</p>
 <div class="highlight"><pre><span></span><code>your_username--region_name--project_name--rc
 </code></pre></div>
-<p>So, assuming your username is <code>olafsdottir</code>, and the RC file has been
-created for the <code>fra1</code> region and the <code>katla</code> project, your RC file
-name should be this:</p>
+<p>So, assuming your username is <code>olafsdottir</code>, and the RC file has been created for the <code>fra1</code> region and the <code>katla</code> project, your RC file name should be this:</p>
 <div class="highlight"><pre><span></span><code>olafsdottir--fra1--katla--rc
 </code></pre></div>
 <p>Take a look at the contents of this file &mdash; they should be like this:</p>
@@ -5582,20 +5563,16 @@ name should be this:</p>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_VERSION</span><span class="o">=</span><span class="m">3</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
 </code></pre></div>
-<p>Before you source the RC file, and thus initialize all relevant environment
-variables, make sure to edit the file and put your OpenStack user
-password in place of <code>&lt;your password goes here&gt;</code>. Also, change the
-permissions of the file, so it is readable and writable by your local
-user only:</p>
+<p>Before you source the RC file, and thus initialize all relevant environment variables, make sure to edit the file and put your OpenStack user password in place of <code>&lt;your password goes here&gt;</code>.
+Also, change the permissions of the file, so it is readable and writable by your local user only:</p>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>olafsdottir--fra1--katla--rc
 </code></pre></div>
 <p>Then, go ahead and source it:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>olafsdottir--fra1--katla--rc
 </code></pre></div>
 <h2 id="installing-the-openstack-cli">Installing the OpenStack CLI</h2>
-<p>If you do not have the OpenStack CLI tool readily available, use your
-operating system&rsquo;s package manager or <code>pip</code> to install it. Some
-examples follow.</p>
+<p>If you do not have the OpenStack CLI tool readily available, use your operating system&rsquo;s package manager or <code>pip</code> to install it.
+Some examples follow.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">Mac OS X with Homebrew</label><label for="__tabbed_1_3">Python package</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5613,31 +5590,21 @@ examples follow.</p>
 </div>
 </div>
 <h2 id="testing-access">Testing access</h2>
-<p>Provided you have already sourced your RC file, you can now use the
-<code>openstack</code> command line tool to access various OpenStack APIs on the
-Cleura Cloud.</p>
-<p>To make sure your local installation of <code>openstack</code> works as expected,
-type:</p>
+<p>Provided you have already sourced your RC file, you can now use the <code>openstack</code> command line tool to access various OpenStack APIs on the Cleura Cloud.</p>
+<p>To make sure your local installation of <code>openstack</code> works as expected, type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>token<span class="w"> </span>issue
 </code></pre></div>
-<p>If <code>openstack</code> can indeed connect to the Cleura Cloud
-OpenStack APIs, then you will get information, in tabular format,
-regarding the issuance of a new token.</p>
+<p>If <code>openstack</code> can indeed connect to the Cleura Cloud OpenStack APIs, then you will get information, in tabular format, regarding the issuance of a new token.</p>
 <p>To get general help regarding <code>openstack</code>, type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>--help
 </code></pre></div>
-<p>When you need help on a specific command, type something like
-<code>openstack help command</code>.</p>
+<p>When you need help on a specific command, type something like <code>openstack help command</code>.</p>
 <h2 id="auto-adjusting-the-cli-output-to-your-terminal-size">Auto-adjusting the CLI output to your terminal size</h2>
-<p>Many of the subcommands available in the <code>openstack</code> CLI produce
-tabular about by default. To ensure that this output always fits
-neatly into your terminal window, you may add the following line
-either to OpenStack RC file(s), or to your shell initialization file
-(like <code>.profile</code> or <code>.bashrc</code>):</p>
+<p>Many of the subcommands available in the <code>openstack</code> CLI produce tabular about by default.
+To ensure that this output always fits neatly into your terminal window, you may add the following line either to OpenStack RC file(s), or to your shell initialization file (like <code>.profile</code> or <code>.bashrc</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CLIFF_FIT_WIDTH</span><span class="o">=</span><span class="m">1</span>
 </code></pre></div>
-<p>Then, be sure to either re-source the file you modified, and/or
-restart your shell.</p>
+<p>Then, be sure to either re-source the file you modified, and/or restart your shell.</p>
 
 
 
@@ -5660,7 +5627,7 @@ restart your shell.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 13, 2023 11:16:21 UTC">2023-04-13</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 2, 2025 14:07:14 UTC">2025-07-02</span>
   </span>
 
     
