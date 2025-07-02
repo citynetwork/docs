@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -3981,18 +3981,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-case-for-cleura-cloud-management-panel" class="md-nav__link">
+  <a href="#the-case-for-the-cleura-cloud-management-panel" class="md-nav__link">
     <span class="md-ellipsis">
-      The case for Cleura Cloud Management Panel
+      The case for the Cleura Cloud Management Panel
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-case-for-openstack-api" class="md-nav__link">
+  <a href="#the-case-for-the-openstack-api" class="md-nav__link">
     <span class="md-ellipsis">
-      The case for OpenStack API
+      The case for the OpenStack API
     </span>
   </a>
   
@@ -5389,18 +5389,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-case-for-cleura-cloud-management-panel" class="md-nav__link">
+  <a href="#the-case-for-the-cleura-cloud-management-panel" class="md-nav__link">
     <span class="md-ellipsis">
-      The case for Cleura Cloud Management Panel
+      The case for the Cleura Cloud Management Panel
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-case-for-openstack-api" class="md-nav__link">
+  <a href="#the-case-for-the-openstack-api" class="md-nav__link">
     <span class="md-ellipsis">
-      The case for OpenStack API
+      The case for the OpenStack API
     </span>
   </a>
   
@@ -5422,7 +5422,7 @@
 
 
   
-    <a href="https://github.com/citynetwork/docs/edit/main/docs/background/gui-vs-api.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/background/gui-vs-api.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5431,55 +5431,32 @@
 
 
 <h1 id="cleura-cloud-management-panel-vs-openstack-api">Cleura Cloud Management Panel vs. OpenStack API</h1>
-<p>You can do many tasks in Cleura Cloud via the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> or via the OpenStack API, e.g., with
-the help of the
-<a href="../../howto/getting-started/enable-openstack-cli/">OpenStack CLI</a> tool.
+<p>You can do many tasks in Cleura Cloud via the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> or via the OpenStack API, e.g., with the help of the <a href="../../howto/getting-started/enable-openstack-cli/">OpenStack CLI</a> tool.
 For some tasks, though, you <em>will need</em> the OpenStack API.</p>
 <p>But when does it make sense to prefer a particular way of working?
 What are the reasons, if any, for choosing one method over the other?</p>
-<h2 id="the-case-for-cleura-cloud-management-panel">The case for Cleura Cloud Management Panel</h2>
-<p>Ease of use is probably the main reason for choosing the Cleura Cloud Management Panel over
-the OpenStack API. Provided you have an <a href="../../howto/getting-started/create-account/">account in
-Cleura Cloud</a>, you can simply
-log in and then follow step-by-step guides to create entities such as
-<a href="../../howto/openstack/neutron/new-network/">networks</a>,
-<a href="../../howto/openstack/nova/new-server/">servers</a>, or even
-<a href="../../howto/openstack/magnum/new-k8s-cluster/">Kubernetes clusters</a>.
-You can just as easily perform administrative tasks like creating
-<a href="../../howto/openstack/neutron/create-security-groups/">security
-groups</a>, setting
-up <a href="../../howto/openstack/neutron/vpnaas/">region-to-region VPN</a>
-connections, <a href="../../howto/openstack/neutron/delete-network/">deleting
-networks</a>, modifying
-<a href="../../howto/account-billing/change-account-data/">billing data</a>, or
-<a href="../../howto/account-billing/manage-invoices/">managing invoices</a>.</p>
-<p>All in all, there are many instances when the Cleura Cloud Management Panel is all you want
-and, at the same time, is more than enough for what you want.</p>
-<h2 id="the-case-for-openstack-api">The case for OpenStack API</h2>
-<p>There will be times when working from the terminal of your laptop is
-preferable to using the Cleura Cloud Management Panel. In cases like this, you will use the
-OpenStack API via a tool like the OpenStack CLI. Although <code>openstack</code>
-usually requires some reading before doing a specific task, it doesn&rsquo;t
-take much time to get used to its logic for constructing commands to
-achieve what you want. Plus, there is hardly a thing you can&rsquo;t do with
-<code>openstack</code> or a CLI tool that talks to the OpenStack API.</p>
-<p>We should also point out that specific tasks can be performed <em>only</em>
-via the OpenStack API, for there is no counterpart tool in the Cleura Cloud Management Panel
-toolbox.</p>
-<p>For instance, whenever you need to
-<a href="../../howto/openstack/nova/move-server-between-regions/">move servers between regions</a>,
-then <code>openstack</code> is your only option. Another instance where you work
-with the OpenStack API and various CLI tools, is when you have to
-interact with the <a href="../../howto/object-storage/s3/">S3 API</a> or the
-<a href="../../howto/object-storage/swift/">Swift API</a>.</p>
-<p>Even though the command syntax of <code>openstack</code> may sometimes look overly
-complicated, the potential for scripting can speed up many operations
-considerably. In addition to that, the OpenStack API is employed by
-configuration management systems and automation platforms like
-<a href="https://www.ansible.com">Ansible</a>, and infrastructure as code
-systems like <a href="https://www.terraform.io">Terraform</a> and
-<a href="https://www.pulumi.com">Pulumi</a>.</p>
+<h2 id="the-case-for-the-cleura-cloud-management-panel">The case for the Cleura Cloud Management Panel</h2>
+<p>Ease of use is probably the main reason for choosing the Cleura Cloud Management Panel over the OpenStack API.
+Provided you have an <a href="../../howto/getting-started/create-account/">account in Cleura Cloud</a>, you can simply log in and then follow step-by-step guides to create entities such as <a href="../../howto/openstack/neutron/new-network/">networks</a>, <a href="../../howto/openstack/nova/new-server/">servers</a>, or even <a href="../../howto/openstack/magnum/new-k8s-cluster/">Kubernetes clusters</a>.</p>
+<p>You can just as easily perform administrative tasks like</p>
+<ul>
+<li>creating <a href="../../howto/openstack/neutron/create-security-groups/">security groups</a>,</li>
+<li>setting up <a href="../../howto/openstack/neutron/vpnaas/">region-to-region VPN</a> connections,</li>
+<li><a href="../../howto/openstack/neutron/delete-network/">deleting networks</a>,</li>
+<li>modifying <a href="../../howto/account-billing/change-account-data/">billing data</a>, or</li>
+<li><a href="../../howto/account-billing/manage-invoices/">managing invoices</a>.</li>
+</ul>
+<p>All in all, there are many instances when the Cleura Cloud Management Panel is all you want and, at the same time, is more than enough for what you want.</p>
+<h2 id="the-case-for-the-openstack-api">The case for the OpenStack API</h2>
+<p>There will be times when working from the terminal of your laptop is preferable to using the Cleura Cloud Management Panel.
+In cases like this, you will use the OpenStack API via a tool like the OpenStack CLI.
+Although <code>openstack</code> usually requires some reading before doing a specific task, it doesn&rsquo;t take much time to get used to its logic for constructing commands to achieve what you want.
+Plus, there is hardly a thing you can&rsquo;t do with <code>openstack</code> or a CLI tool that talks to the OpenStack API.</p>
+<p>We should also point out that specific tasks can be performed <em>only</em> via the OpenStack API, for there is no counterpart tool in the Cleura Cloud Management Panel toolbox.</p>
+<p>For instance, whenever you need to <a href="../../howto/openstack/nova/move-server-between-regions/">move servers between regions</a>, then <code>openstack</code> is your only option.
+Another instance where you work with the OpenStack API and various CLI tools, is when you have to interact with the <a href="../../howto/object-storage/s3/">S3 API</a> or the <a href="../../howto/object-storage/swift/">Swift API</a>.</p>
+<p>Even though the command syntax of <code>openstack</code> may sometimes look overly complicated, the potential for scripting can speed up many operations considerably.
+In addition to that, the OpenStack API is employed by configuration management systems and automation platforms like <a href="https://www.ansible.com">Ansible</a>, and infrastructure as code systems like <a href="https://www.terraform.io">Terraform</a> and <a href="https://www.pulumi.com">Pulumi</a>.</p>
 
 
 
@@ -5502,7 +5479,7 @@ systems like <a href="https://www.terraform.io">Terraform</a> and
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 20, 2023 08:46:10 UTC">2023-09-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 1, 2025 15:05:50 UTC">2025-07-01</span>
   </span>
 
     
@@ -5584,7 +5561,7 @@ systems like <a href="https://www.terraform.io">Terraform</a> and
       <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
