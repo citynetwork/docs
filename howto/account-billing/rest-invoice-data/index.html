@@ -5451,12 +5451,9 @@
 
 
 <h1 id="retrieving-invoice-data-with-the-cleura-cloud-rest-api">Retrieving invoice data with the Cleura Cloud REST API</h1>
-<p>You may download some or all of your Cleura Cloud invoice data
-using the Cleura Cloud REST API.</p>
+<p>You may download some or all of your Cleura Cloud invoice data using the Cleura Cloud REST API.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Before retrieving any of your invoice data, you need to
-<a href="../../getting-started/accessing-cc-rest-api/">create a token</a>
-for the current session.</p>
+<p>Before retrieving any of your invoice data, you need to <a href="../../getting-started/accessing-cc-rest-api/">create a token</a> for the current session.</p>
 <h2 id="saving-invoice-data">Saving invoice data</h2>
 <p>To save JSON data about all available invoices locally, submit
 a Cleura Cloud REST API request like this:</p>
@@ -5465,20 +5462,18 @@ a Cleura Cloud REST API request like this:</p>
 <span class="w">     </span>-o<span class="w"> </span>invoices.json<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>https://rest.cleura.cloud/account/v1/invoices
 </code></pre></div>
-<p>A command like the above will download the data of up to 20 invoices
-and save them as JSON objects into the file <code>invoices.json</code>. You may
-change the number of invoices with the <code>limit</code> parameter:</p>
+<p>A command like the above will download the data of up to 20 invoices and save them as JSON objects into the file <code>invoices.json</code>.
+You may change the number of invoices with the <code>limit</code> parameter:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-AUTH-LOGIN: your_username&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>-H<span class="w"> </span><span class="s2">&quot;X-AUTH-TOKEN: your_token&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>-o<span class="w"> </span>invoices.json<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>https://rest.cleura.cloud/account/v1/invoices?limit<span class="o">=</span><span class="m">2</span>
 </code></pre></div>
-<p>That will limit the number of invoices to 2. Please note that you may
-download data from up to 100 invoices.</p>
+<p>That will limit the number of invoices to 2.
+Please note that you may download data from up to 100 invoices.</p>
 <h2 id="sifting-through-invoice-data">Sifting through invoice data</h2>
-<p>Once you have your invoice data, you may sift through it with a tool
-like <code>jq</code>. For example, here is a quick way to check if all downloaded
-invoices are already paid:</p>
+<p>Once you have your invoice data, you may sift through it with a tool like <code>jq</code>.
+For example, here is a quick way to check if all downloaded invoices are already paid:</p>
 <div class="highlight"><pre><span></span><code><span class="go">jq &#39;.[].status&#39; invoices.json</span>
 <span class="go">&quot;paid&quot;</span>
 <span class="go">&quot;paid&quot;</span>
@@ -5488,9 +5483,8 @@ invoices are already paid:</p>
 <span class="go">&quot;164...&quot;</span>
 <span class="go">&quot;163...&quot;</span>
 </code></pre></div>
-<p>You may now get more information regarding a specific invoice. Find
-out, for instance, when is (or was) the due date for the invoice with
-ID <code>164...</code>:</p>
+<p>You may now get more information regarding a specific invoice.
+Find out, for instance, when is (or was) the due date for the invoice with ID <code>164...</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="go">jq &#39;.[] | select(.id==&quot;164...&quot;) .dueDate&#39; invoices.json</span>
 <span class="go">&quot;2023-01-23&quot;</span>
 </code></pre></div>
@@ -5516,7 +5510,7 @@ ID <code>164...</code>:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2023 10:47:52 UTC">2023-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 2, 2025 12:59:26 UTC">2025-07-02</span>
   </span>
 
     
@@ -5536,11 +5530,11 @@ ID <code>164...</code>:</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas
     </nav>
   </span>
 
