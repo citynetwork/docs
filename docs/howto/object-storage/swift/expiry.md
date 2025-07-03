@@ -1,30 +1,26 @@
 # Object expiry
 
-Using the Swift API, you have the option for objects to automatically
-be deleted, after they have passed an expiry threshold.
+Using the Swift API, you have the option for objects to automatically be deleted, after they have passed an expiry threshold.
 
 
 ## Prerequisites
 
-In order to manage object expiry, be sure that you have [installed and
-configured](index.md) the `swift` command-line interface (CLI). There is
-presently no way to set object expiry with the `openstack` CLI.
+In order to manage object expiry, be sure that you have [installed and configured](index.md) the `swift` command-line interface (CLI).
+There is presently no way to set object expiry with the `openstack` CLI.
 
 
 ## Auto-deletion at a fixed date
 
-In order for an object to be automatically deleted at a certain date,
-you must first convert that date to a POSIX timestamp. You may do so
-with the `date` command. For example, to retrieve the POSIX timestamp
-for February 29, 2024, at 0000 UTC, use this command:
+In order for an object to be automatically deleted at a certain date, you must first convert that date to a POSIX timestamp.
+You may do so with the `date` command.
+For example, to retrieve the POSIX timestamp for February 29, 2024, at 0000 UTC, use this command:
 
 ```console
 $ TZ=Etc/UTC date -d '2024-02-29' +'%s'
 1709164800
 ```
 
-You can then set the `X-Delete-At` header on an object, so that it is
-automatically deleted at that time:
+You can then set the `X-Delete-At` header on an object, so that it is automatically deleted at that time:
 
 ```console
 $ swift post -H "X-Delete-At: 1709164800" private-container testobj.txt
@@ -52,23 +48,18 @@ X-Openstack-Request-Id: tx00000646596cd018a2d7b-00638dfb91-300de11-default
 
 ## Auto-deletion after a time period
 
-Instead of giving an absolute time with `X-Delete-At`, you can also
-use `X-Delete-After` (in seconds), so that the object is automatically
-deleted after that timespan. This example uses 600 seconds or
-10 minutes:
+Instead of giving an absolute time with `X-Delete-At`, you can also use `X-Delete-After` (in seconds), so that the object is automatically deleted after that timespan.
+This example uses 600 seconds or 10 minutes:
 
 ```console
 $ swift post -H "X-Delete-After: 600" private-container testobj.txt
 
 ```
 
-The Swift API then converts this into an `X-Delete-At` header, adding
-the specified time span to the date the request is received (indicated
-by the `X-Timestamp` header).
+The Swift API then converts this into an `X-Delete-At` header, adding the specified time span to the date the request is received (indicated by the `X-Timestamp` header).
 
-You can then read back the object metadata. Observe that in this
-example, the difference between the `X-Timestamp` and `X-Delete-At`
-headers is 600 seconds:
+You can then read back the object metadata.
+Observe that in this example, the difference between the `X-Timestamp` and `X-Delete-At` headers is 600 seconds:
 
 ```console
 $ swift stat private-container testobj.txt

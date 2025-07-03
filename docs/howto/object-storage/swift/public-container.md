@@ -5,15 +5,12 @@ description: You can use the Swift API to configure a container with public read
 
 ## Prerequisites
 
-In order to create a Swift container, be sure that you have
-[installed and configured](index.md) the required command-line interface
-(CLI) tools.
+In order to create a Swift container, be sure that you have [installed and configured](index.md) the required command-line interface (CLI) tools.
 
 
 ## Creating the container
 
-To create a public container (that is, one whose contents can be
-accessed without credentials), use the following command:
+To create a public container (that is, one whose contents can be accessed without credentials), use the following command:
 
 === "OpenStack CLI"
     ```console
@@ -33,8 +30,7 @@ accessed without credentials), use the following command:
 
 ## Retrieving container information
 
-To create a list of all containers accessible with your current set of
-credentials, use this command:
+To create a list of all containers accessible with your current set of credentials, use this command:
 
 === "OpenStack CLI"
     ```console
@@ -53,11 +49,8 @@ credentials, use this command:
     public-container
     ```
 
-To retrieve more detailed information about an individual container,
-you can also use this command. Observe that the Read access control
-list (ACL) contains the entry `.r:*,.rlistings`, which enables read
-access to all objects in a container, and to a list of objects
-included in the container.
+To retrieve more detailed information about an individual container, you can also use this command.
+Observe that the Read access control list (ACL) contains the entry `.r:*,.rlistings`, which enables read access to all objects in a container, and to a list of objects included in the container.
 
 === "OpenStack CLI"
     ```console
@@ -103,8 +96,7 @@ To upload an object into the container, create a local test file:
 echo "hello world" > testobj.txt
 ```
 
-Then, upload the file (as a Swift object) into your container, and
-read back its metadata:
+Then, upload the file (as a Swift object) into your container, and read back its metadata:
 
 === "OpenStack CLI"
     ```console
@@ -149,46 +141,36 @@ read back its metadata:
 
 ## Downloading data
 
-To download an object from your public Swift container, you can use
-the following commands (as with a private container):
+To download an object from your public Swift container, you can use the following commands (as with a private container):
 
 === "OpenStack CLI"
     ```console
     $ openstack object save --file - private-container testobj.txt
     hello world
     ```
-    The `--file -` option prints the file contents to stdout. If
-    instead you want to save the object's content to a local file,
-    use `--file <filename>`.
+    The `--file -` option prints the file contents to stdout.
+    If instead you want to save the object's content to a local file, use `--file <filename>`.
 
-    If you omit the `--file` argument altogether, `openstack object
-    save` will create a local file named like the object you are
-    downloading (in this case, `testobj.txt`).
+    If you omit the `--file` argument altogether, `openstack object save` will create a local file named like the object you are downloading (in this case, `testobj.txt`).
 === "Swift CLI"
     ```console
     $ swift download -o - private-container testobj.txt
     hello world
     ```
-    The `-o -` option prints the file contents to stdout. If
-    instead you want to save the object's content to a local file,
-    use `-o <filename>`.
+    The `-o -` option prints the file contents to stdout.
+    If instead you want to save the object's content to a local file, use `-o <filename>`.
 
-    If you omit the `-o` argument altogether, `swift download`
-    will create a local file named like the object you are
-    downloading (in this case, `testobj.txt`).
+    If you omit the `-o` argument altogether, `swift download` will create a local file named like the object you are downloading (in this case, `testobj.txt`).
 
-However, this being a public container, you can *also* retrieve your
-object using any regular HTTP/HTTPS client, using a public URL. This
-URL is composed as follows:
+However, this being a public container, you can *also* retrieve your object using any regular HTTP/HTTPS client, using a public URL.
+This URL is composed as follows:
 
-1. The Swift API's base URL, which differs by {{brand}} region
-   (`https://swift‑<region>.{{brand_domain}}:<port>/swift/v1/`),
+1. The Swift API's base URL, which differs by {{brand}} region (`https://swift‑<region>.{{brand_domain}}:<port>/swift/v1/`),
 2. the container's account string, starting with `AUTH_`,
 3. the container name (in our example, `public-container`),
 4. the object name (in our example, `testobj.txt`).
 
-Rather than composing the public URL manually, you can also retrieve
-it by parsing the CLI's debug output:
+Rather than composing the public URL manually, you can also retrieve it by parsing the CLI's debug output:
 
 === "OpenStack CLI"
     ```console
@@ -205,8 +187,8 @@ it by parsing the CLI's debug output:
     https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
     ```
 
-Once you have retrieved your public URL, you can fetch the object's
-contents using the client of your choice. This example uses `curl`:
+Once you have retrieved your public URL, you can fetch the object's contents using the client of your choice.
+This example uses `curl`:
 
 ```console
 $ curl https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt

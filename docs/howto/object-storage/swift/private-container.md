@@ -2,15 +2,12 @@
 
 ## Prerequisites
 
-In order to create a Swift container, be sure that you have
-[installed and configured](index.md) the required command-line interface
-(CLI) tools.
+In order to create a Swift container, be sure that you have [installed and configured](index.md) the required command-line interface (CLI) tools.
 
 
 ## Creating a private container
 
-To create a private container (that is, one that can only be accessed
-with proper Swift API credentials), use the following command:
+To create a private container (that is, one that can only be accessed with proper Swift API credentials), use the following command:
 
 === "OpenStack CLI"
     ```console
@@ -30,8 +27,7 @@ with proper Swift API credentials), use the following command:
 
 ## Retrieving container information
 
-To create a list of all containers accessible with your current set of
-credentials, use this command:
+To create a list of all containers accessible with your current set of credentials, use this command:
 
 === "OpenStack CLI"
     ```console
@@ -48,8 +44,7 @@ credentials, use this command:
     private-container
     ```
 
-To retrieve more detailed information about an individual container,
-you can also use this command:
+To retrieve more detailed information about an individual container, you can also use this command:
 
 === "OpenStack CLI"
     ```console
@@ -94,8 +89,7 @@ To upload an object into the container, create a local test file:
 echo "hello world" > testobj.txt
 ```
 
-Then, upload the file (as a Swift object) into your container, and
-read back its metadata:
+Then, upload the file (as a Swift object) into your container, and read back its metadata:
 
 === "OpenStack CLI"
     ```console
@@ -142,30 +136,23 @@ read back its metadata:
 
 ## Downloading data
 
-To download an object from your Swift container, use the following
-command:
+To download an object from your Swift container, use the following command:
 
 === "OpenStack CLI"
     ```console
     $ openstack object save --file - private-container testobj.txt
     hello world
     ```
-    The `--file -` option prints the file contents to stdout. If
-    instead you want to save the object's content to a local file,
-    use `--file <filename>`.
+    The `--file -` option prints the file contents to stdout.
+    If instead you want to save the object's content to a local file, use `--file <filename>`.
 
-    If you omit the `--file` argument altogether, `openstack object
-    save` will create a local file named like the object you are
-    downloading (in this case, `testobj.txt`).
+    If you omit the `--file` argument altogether, `openstack object save` will create a local file named like the object you are downloading (in this case, `testobj.txt`).
 === "Swift CLI"
     ```console
     $ swift download -o - private-container testobj.txt
     hello world
     ```
-    The `-o -` option prints the file contents to stdout. If
-    instead you want to save the object's content to a local file,
-    use `-o <filename>`.
+    The `-o -` option prints the file contents to stdout.
+    If instead you want to save the object's content to a local file, use `-o <filename>`.
 
-    If you omit the `-o` argument altogether, `swift download`
-    will create a local file named like the object you are
-    downloading (in this case, `testobj.txt`).
+    If you omit the `-o` argument altogether, `swift download` will create a local file named like the object you are downloading (in this case, `testobj.txt`).
