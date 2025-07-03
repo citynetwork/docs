@@ -5490,12 +5490,9 @@
 
 <h1 id="working-with-a-private-swift-container">Working with a private Swift container</h1>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>In order to create a Swift container, be sure that you have
-<a href="../">installed and configured</a> the required command-line interface
-(CLI) tools.</p>
+<p>In order to create a Swift container, be sure that you have <a href="../">installed and configured</a> the required command-line interface (CLI) tools.</p>
 <h2 id="creating-a-private-container">Creating a private container</h2>
-<p>To create a private container (that is, one that can only be accessed
-with proper Swift API credentials), use the following command:</p>
+<p>To create a private container (that is, one that can only be accessed with proper Swift API credentials), use the following command:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">OpenStack CLI</label><label for="__tabbed_1_2">Swift CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5515,8 +5512,7 @@ This command produces no output.</p>
 </div>
 </div>
 <h2 id="retrieving-container-information">Retrieving container information</h2>
-<p>To create a list of all containers accessible with your current set of
-credentials, use this command:</p>
+<p>To create a list of all containers accessible with your current set of credentials, use this command:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">OpenStack CLI</label><label for="__tabbed_2_2">Swift CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5535,8 +5531,7 @@ credentials, use this command:</p>
 </div>
 </div>
 </div>
-<p>To retrieve more detailed information about an individual container,
-you can also use this command:</p>
+<p>To retrieve more detailed information about an individual container, you can also use this command:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">OpenStack CLI</label><label for="__tabbed_3_2">Swift CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5579,8 +5574,7 @@ you can also use this command:</p>
 <p>To upload an object into the container, create a local test file:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello world&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>testobj.txt
 </code></pre></div>
-<p>Then, upload the file (as a Swift object) into your container, and
-read back its metadata:</p>
+<p>Then, upload the file (as a Swift object) into your container, and read back its metadata:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">OpenStack CLI</label><label for="__tabbed_4_2">Swift CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5628,31 +5622,24 @@ read back its metadata:</p>
 </div>
 </div>
 <h2 id="downloading-data">Downloading data</h2>
-<p>To download an object from your Swift container, use the following
-command:</p>
+<p>To download an object from your Swift container, use the following command:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">OpenStack CLI</label><label for="__tabbed_5_2">Swift CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>object<span class="w"> </span>save<span class="w"> </span>--file<span class="w"> </span>-<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
 <span class="go">hello world</span>
 </code></pre></div>
-The <code>--file -</code> option prints the file contents to stdout. If
-instead you want to save the object&rsquo;s content to a local file,
-use <code>--file &lt;filename&gt;</code>.</p>
-<p>If you omit the <code>--file</code> argument altogether, <code>openstack object
-save</code> will create a local file named like the object you are
-downloading (in this case, <code>testobj.txt</code>).</p>
+The <code>--file -</code> option prints the file contents to stdout.
+If instead you want to save the object&rsquo;s content to a local file, use <code>--file &lt;filename&gt;</code>.</p>
+<p>If you omit the <code>--file</code> argument altogether, <code>openstack object save</code> will create a local file named like the object you are downloading (in this case, <code>testobj.txt</code>).</p>
 </div>
 <div class="tabbed-block">
 <p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>download<span class="w"> </span>-o<span class="w"> </span>-<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
 <span class="go">hello world</span>
 </code></pre></div>
-The <code>-o -</code> option prints the file contents to stdout. If
-instead you want to save the object&rsquo;s content to a local file,
-use <code>-o &lt;filename&gt;</code>.</p>
-<p>If you omit the <code>-o</code> argument altogether, <code>swift download</code>
-will create a local file named like the object you are
-downloading (in this case, <code>testobj.txt</code>).</p>
+The <code>-o -</code> option prints the file contents to stdout.
+If instead you want to save the object&rsquo;s content to a local file, use <code>-o &lt;filename&gt;</code>.</p>
+<p>If you omit the <code>-o</code> argument altogether, <code>swift download</code> will create a local file named like the object you are downloading (in this case, <code>testobj.txt</code>).</p>
 </div>
 </div>
 </div>
@@ -5678,7 +5665,7 @@ downloading (in this case, <code>testobj.txt</code>).</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2023 10:47:52 UTC">2023-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2025 13:50:51 UTC">2025-07-03</span>
   </span>
 
     
@@ -5698,11 +5685,11 @@ downloading (in this case, <code>testobj.txt</code>).</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
-      Florian Haas
+      Christos Varelas, Florian Haas
     </nav>
   </span>
 
