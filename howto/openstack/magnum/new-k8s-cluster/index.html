@@ -5471,18 +5471,12 @@
 
 
 <h1 id="creating-a-kubernetes-cluster">Creating a Kubernetes cluster</h1>
-<p>By employing OpenStack
-<a href="https://docs.openstack.org/magnum">Magnum</a> you can create
-Kubernetes clusters via OpenStack, using the Cleura Cloud Management Panel or the OpenStack
-CLI.</p>
+<p>By employing OpenStack <a href="https://docs.openstack.org/magnum">Magnum</a> you can create Kubernetes clusters via OpenStack, using the Cleura Cloud Management Panel or the OpenStack CLI.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>First and foremost, you need an <a href="../../../getting-started/create-account/">account in
-Cleura Cloud</a>. Should you choose to
-work from your terminal, you will also need to <a href="../../../getting-started/enable-openstack-cli/">enable the OpenStack
-CLI</a>. In that case, in
-addition to the Python <code>openstackclient</code> module, make sure you also
-install the corresponding plugin module for Magnum. Use either the
-package manager of your operating system or <code>pip</code>:</p>
+<p>First and foremost, you need an <a href="../../../getting-started/create-account/">account in Cleura Cloud</a>.
+Should you choose to work from your terminal, you will also need to <a href="../../../getting-started/enable-openstack-cli/">enable the OpenStack CLI</a>.
+In that case, in addition to the Python <code>openstackclient</code> module, make sure you also install the corresponding plugin module for Magnum.
+Use either the package manager of your operating system or <code>pip</code>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">Mac OS X with Homebrew</label><label for="__tabbed_1_3">Python Package</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5490,8 +5484,7 @@ package manager of your operating system or <code>pip</code>:</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>This Python module is unavailable via <code>brew</code>, but you can install it
-via <code>pip</code>.</p>
+<p>This Python module is unavailable via <code>brew</code>, but you can install it via <code>pip</code>.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>python-magnumclient
@@ -5503,16 +5496,14 @@ via <code>pip</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Fire up your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
-Cleura Cloud account. On the top right-hand side of the Cleura Cloud Management Panel, click the
-<em>Create</em> button. A new pane titled <em>Create</em> slides into view.</p>
+<p>Fire up your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your Cleura Cloud account.
+On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em> button.
+A new pane titled <em>Create</em> slides into view.</p>
 <p><a class="glightbox" href="../assets/shot-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/shot-01.png" /></a></p>
-<p>You will notice several rounded boxes on that pane, each for defining,
-configuring, and instantiating a different Cleura Cloud object. Go ahead
-and click the <em>Magnum Cluster</em> box. A new vertical pane titled <em>Create a
-Magnum Cluster</em> slides over. At the top, type in a name for the new
-cluster and select one of the available regions.</p>
+<p>You will notice several rounded boxes on that pane, each for defining, configuring, and instantiating a different Cleura Cloud object.
+Go ahead and click the <em>Magnum Cluster</em> box.
+A new vertical pane titled <em>Create a Magnum Cluster</em> slides over.
+At the top, type in a name for the new cluster and select one of the available regions.</p>
 <p><a class="glightbox" href="../assets/shot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Name and region" src="../assets/shot-02.png" /></a></p>
 <p>A bit further below, use the drop-down menus to select a template and a keypair for the cluster nodes.
 Notice the <em>Docker volume size</em> option which, by default, is set to 50 GiB.
@@ -5521,25 +5512,18 @@ That whole storage capacity will be used for saving persistent data.
 If you believe the default size is too much or too little, change it accordingly.
 Unless you want to define the number of master nodes or the number of worker nodes, click the green <em>Create</em> button now.</p>
 <p><a class="glightbox" href="../assets/shot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select template and keypair" src="../assets/shot-03.png" /></a></p>
-<p>If you do want to play with the aforementioned parameters, then before
-clicking the <em>Create</em> button go ahead and expand the <em>Advanced Options</em>
-section. Since the new cluster templates come with the master load
-balancer enabled by default, you might want to equip your new cluster
-with 3 master nodes. Optionally, increase the number of worker nodes
-from 1 (the default) to, say, 3. Contrary to the number of master nodes,
-you may change the number of worker nodes <em>after</em> the cluster is created.</p>
+<p>If you do want to play with the aforementioned parameters, then before clicking the <em>Create</em> button go ahead and expand the <em>Advanced Options</em> section.
+Since the new cluster templates come with the master load balancer enabled by default, you might want to equip your new cluster with 3 master nodes.
+Optionally, increase the number of worker nodes from 1 (the default) to, say, 3.
+Contrary to the number of master nodes, you may change the number of worker nodes <em>after</em> the cluster is created.</p>
 <p><a class="glightbox" href="../assets/shot-03.1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster creation in progress" src="../assets/shot-03.1.png" /></a></p>
-<p>When the cluster creation process begins, please keep in mind that it
-takes some time to complete. While waiting, bring the vertical pane on
-the left-hand side of the Cleura Cloud Management Panel in full view, select
-<em>Magnum</em> → <em>Clusters</em>, and in the main pane, take a look at the creation
-progress. You can tell when the whole process is complete by the animated
-icon at the left of the cluster row.</p>
+<p>When the cluster creation process begins, please keep in mind that it takes some time to complete.
+While waiting, bring the vertical pane on the left-hand side of the Cleura Cloud Management Panel in full view, select <em>Magnum</em> → <em>Clusters</em>, and in the main pane, take a look at the creation progress.
+You can tell when the whole process is complete by the animated icon at the left of the cluster row.</p>
 <p><a class="glightbox" href="../assets/shot-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Magnum cluster ready" src="../assets/shot-04.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>A simple, general command for creating a new Kubernetes cluster with
-Magnum looks like this:</p>
+<p>A simple, general command for creating a new Kubernetes cluster with Magnum looks like this:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--cluster-template<span class="w"> </span><span class="nv">$CLUSTER_TMPL</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--keypair<span class="w"> </span><span class="nv">$KEYPAIR</span><span class="w"> </span><span class="se">\</span>
@@ -5561,8 +5545,7 @@ Magnum looks like this:</p>
 <span class="go">| 9ca03308-996e-4eaa-b507-5730dcc19fcc | Kubernetes v1.24.16 on Fedora-coreos 37     | None |</span>
 <span class="go">+--------------------------------------+---------------------------------------------+------+</span>
 </code></pre></div>
-<p>Select the template you want by setting the corresponding <code>name</code>
-value to the <code>CLUSTER_TMPL</code> variable:</p>
+<p>Select the template you want by setting the corresponding <code>name</code> value to the <code>CLUSTER_TMPL</code> variable:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">CLUSTER_TMPL</span><span class="o">=</span><span class="s2">&quot;Kubernetes v1.24.16 on Fedora-coreos 37&quot;</span>
 </code></pre></div>
 <p>Then, list all available keypairs&hellip;</p>
@@ -5573,8 +5556,7 @@ value to the <code>CLUSTER_TMPL</code> variable:</p>
 <span class="go">| lefkanti | e7:e9:c5:95:ee:7b:72:37:3c:89:c5:fc:6e:8c:a1:72 | ssh  |</span>
 <span class="go">+----------+-------------------------------------------------+------+</span>
 </code></pre></div>
-<p>&hellip;and set the <code>KEYPAIR</code> variable to the <code>Name</code> of the keypair you
-want:</p>
+<p>&hellip;and set the <code>KEYPAIR</code> variable to the <code>Name</code> of the keypair you want:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">KEYPAIR</span><span class="o">=</span><span class="s2">&quot;lefkanti&quot;</span><span class="w"> </span><span class="c1"># this is just an example</span>
 </code></pre></div>
 <p>Besides the OS disk, all cluster nodes have an extra disk for permanently storing application data.
@@ -5586,8 +5568,7 @@ Staying loyal to the theme of setting parameters via shell variables, decide on 
 Finally, decide on a name for your new Kubernetes cluster:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">CLUSTER_NAME</span><span class="o">=</span><span class="s2">&quot;bangor&quot;</span>
 </code></pre></div>
-<p>With everything in place, go ahead and create your new Kubernetes
-cluster like so:</p>
+<p>With everything in place, go ahead and create your new Kubernetes cluster like so:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--cluster-template<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CLUSTER_TMPL</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--keypair<span class="w"> </span><span class="nv">$KEYPAIR</span><span class="w"> </span><span class="se">\</span>
@@ -5595,12 +5576,10 @@ cluster like so:</p>
 <span class="gp">    $</span>CLUSTER_NAME
 </code></pre></div>
 <p>New Magnum clusters start with 1 master node and 1 worker node by default.
-Since the new cluster templates have the master load balancer enabled,
-you might want to give your cluster 3 master nodes from the get-go.
+Since the new cluster templates have the master load balancer enabled, you might want to give your cluster 3 master nodes from the get-go.
 Optionally, you can increase the number of worker nodes from 1 to 3 or to 5.
-Contrary to the number of master nodes, you can always change the number of
-worker nodes <em>after</em> the cluster is created. So, to start the new cluster
-with 3 master nodes and 5 worker nodes, type the following:</p>
+Contrary to the number of master nodes, you can always change the number of worker nodes <em>after</em> the cluster is created.
+So, to start the new cluster with 3 master nodes and 5 worker nodes, type the following:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--cluster-template<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CLUSTER_TMPL</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--keypair<span class="w"> </span><span class="nv">$KEYPAIR</span><span class="w"> </span><span class="se">\</span>
@@ -5609,12 +5588,10 @@ with 3 master nodes and 5 worker nodes, type the following:</p>
 <span class="w">    </span>--node-count<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
 <span class="gp">    $</span>CLUSTER_NAME
 </code></pre></div>
-<p>In any case, if everything went well with your request for a new cluster,
-on the terminal, you will see a message like the following:</p>
+<p>In any case, if everything went well with your request for a new cluster, on the terminal, you will see a message like the following:</p>
 <div class="highlight"><pre><span></span><code>Request to create cluster 7ca7838a-aa33-4259-8784-02e5941a2cf0 accepted
 </code></pre></div>
-<p>The cluster creation process takes some time to complete, and while
-you are waiting, you can check if everything is progressing smoothly:</p>
+<p>The cluster creation process takes some time to complete, and while you are waiting, you can check if everything is progressing smoothly:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>status
 <span class="go">+--------------------+</span>
 <span class="go">| status             |</span>
@@ -5622,9 +5599,8 @@ you are waiting, you can check if everything is progressing smoothly:</p>
 <span class="go">| CREATE_IN_PROGRESS |</span>
 <span class="go">+--------------------+</span>
 </code></pre></div>
-<p>If everything is going well, the message you will get will be
-<code>CREATE_IN_PROGRESS</code>. When Magnum has finished creating the cluster, the
-message will be <code>CREATE_COMPLETE</code>.</p>
+<p>If everything is going well, the message you will get will be <code>CREATE_IN_PROGRESS</code>.
+When Magnum has finished creating the cluster, the message will be <code>CREATE_COMPLETE</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>coe<span class="w"> </span>cluster<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>status
 <span class="go">+-----------------+</span>
 <span class="go">| status          |</span>
@@ -5636,15 +5612,13 @@ message will be <code>CREATE_COMPLETE</code>.</p>
 </div>
 </div>
 <h2 id="viewing-the-kubernetes-cluster">Viewing the Kubernetes cluster</h2>
-<p>After the Kubernetes cluster is ready, you may at any time view it and
-get detailed information about it.</p>
+<p>After the Kubernetes cluster is ready, you may at any time view it and get detailed information about it.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Bring the vertical pane on the left-hand side of the Cleura Cloud Management Panel in full
-view, then select <em>Magnum</em> → <em>Clusters</em>. In the main pane, take a look
-at the row of the cluster you are interested in. In our example, there
-is only one cluster, hence only one row.</p>
+<p>Bring the vertical pane on the left-hand side of the Cleura Cloud Management Panel in full view, then select <em>Magnum</em> → <em>Clusters</em>.
+In the main pane, take a look at the row of the cluster you are interested in.
+In our example, there is only one cluster, hence only one row.</p>
 <p><a class="glightbox" href="../assets/shot-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster row" src="../assets/shot-05.png" /></a></p>
 <p>To see more of the cluster, just click on its row.
 Then, all relative information will appear below.</p>
@@ -5732,7 +5706,7 @@ Then, all relative information will appear below.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 2, 2024 16:51:52 UTC">2024-07-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2025 16:07:07 UTC">2025-07-03</span>
   </span>
 
     
