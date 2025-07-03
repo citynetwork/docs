@@ -4,10 +4,8 @@ description: Object lock enables you to keep S3 objects from being deleted or ov
 # Object lock
 
 
-Object lock is a feature in S3 that enables you to lock your objects
-to prevent them from being deleted or overwritten. This feature can be
-helpful when you want to maintain data integrity, comply with
-regulations, or retain data for a specific period.
+Object lock is a feature in S3 that enables you to lock your objects to prevent them from being deleted or overwritten.
+This feature can be helpful when you want to maintain data integrity, comply with regulations, or retain data for a specific period.
 
 Note that this feature is distinct from *object expiry*, which is covered in a [separate guide](expiry.md).
 
@@ -43,8 +41,7 @@ Note that this will enable [bucket versioning](versioning.md) as well.
 
 ## Configure the default object lock mode and retention period for a bucket
 
-To configure your bucket to use the **Compliance** mode,
-use one of the following commands:
+To configure your bucket to use the **Compliance** mode, use one of the following commands:
 
 === "aws"
     ```bash
@@ -62,18 +59,13 @@ use one of the following commands:
     ```
     > The `--default` parameter sets the default object lock settings for new objects, and is optional.
 
-    > To specify a duration, use a string formatted as `Nd`
-    > for days or `Ny` for years.
-    > For example, use `30d` to indicate 30 days after
-    > the object creation, or use `1y` to indicate 1 year
-    > after the object creation.
+    > To specify a duration, use a string formatted as `Nd` for days or `Ny` for years.
+    > For example, use `30d` to indicate 30 days after the object creation, or use `1y` to indicate 1 year after the object creation.
 
 ## Configure the object lock mode and retention period for a single object
 
-If you want to set a specific retention period for an object,
-instead of using the default retention period, use one of the
-following commands. You can also use these commands to update
-the retention period for an object:
+If you want to set a specific retention period for an object, instead of using the default retention period, use one of the following commands.
+You can also use these commands to update the retention period for an object:
 
 === "aws"
     ```bash
@@ -83,27 +75,21 @@ the retention period for an object:
       --key <object-name> \
       --retention '{ "Mode": "COMPLIANCE", "RetainUntilDate": "2023-01-01T12:00:00.00Z" }'
     ```
-    > For the value of the `RetainUntilDate` parameter, use the
-    > [ISO 8601 date-time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)
-    > format.
+    > For the value of the `RetainUntilDate` parameter, use the [ISO 8601 date-time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) format.
 === "mc"
     ```bash
     mc retention set \
       COMPLIANCE 30d \
       <region>/<bucket>/<object-name>
     ```
-    > To specify a duration, use a string formatted as `Nd`
-    > for days or `Ny` for years.
-    > For example, use `30d` to indicate 30 days after
-    > the object creation, or use `1y` to indicate 1 year
-    > after the object creation.
+    > To specify a duration, use a string formatted as `Nd` for days or `Ny` for years.
+    > For example, use `30d` to indicate 30 days after the object creation, or use `1y` to indicate 1 year after the object creation.
 
 ## Retrieve the object lock mode and retention period
 
 ### Bucket-level
 
-To view the default object lock mode and retention period set on
-a bucket, use the following command:
+To view the default object lock mode and retention period set on a bucket, use the following command:
 
 === "aws"
     ```bash
@@ -142,8 +128,7 @@ a bucket, use the following command:
 
 ### Object-level
 
-To view the default object lock mode and retention period set on
-an object, use the following command:
+To view the default object lock mode and retention period set on an object, use the following command:
 
 === "aws"
     ```bash
@@ -161,9 +146,7 @@ an object, use the following command:
       }
     }
     ```
-    > For the value of the `RetainUntilDate` parameter, use the
-    > [ISO 8601 date-time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)
-    > format.
+    > For the value of the `RetainUntilDate` parameter, use the [ISO 8601 date-time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) format.
 === "mc"
     ```bash
     mc retention info --json <region>/<bucket>/<object-name>
@@ -183,20 +166,15 @@ an object, use the following command:
 
 ## Configure the object lock legal hold for an object
 
-**Legal hold** requires that the specified bucket
-has object locking enabled.
+**Legal hold** requires that the specified bucket has object locking enabled.
 
 ### Per bucket
 
-To configure the legal hold for all objects in a bucket,
-use the following command:
+To configure the legal hold for all objects in a bucket, use the following command:
 
 === "aws"
-    The `aws s3api`
-    command **can only set the legal hold for a single object**
-    at a time. However, you can use the `ls` command along with
-    `--recursive` to list all objects in a bucket, and then
-    set the legal hold for each object in your bucket.
+    The `aws s3api` command **can only set the legal hold for a single object** at a time.
+    However, you can use the `ls` command along with `--recursive` to list all objects in a bucket, and then set the legal hold for each object in your bucket.
 
     ```bash
     aws --profile <region> \
@@ -214,8 +192,7 @@ use the following command:
 
 ### Per object
 
-To configure the legal hold for a single object,
-use the following command:
+To configure the legal hold for a single object, use the following command:
 
 === "aws"
     ```bash
@@ -226,8 +203,7 @@ use the following command:
       --version-id <version-id> \
       --legal-hold Status=ON
     ```
-    > Note that if you don't specify a version ID, the legal hold
-    > will be applied to the latest version of the object.
+    > Note that if you don't specify a version ID, the legal hold will be applied to the latest version of the object.
 === "mc"
     ```bash
     mc legalhold set \
