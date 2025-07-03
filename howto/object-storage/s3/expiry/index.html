@@ -5438,14 +5438,12 @@
 
 <h1 id="object-expiry">Object expiry</h1>
 <blockquote>
-<p>Object expiry requires that you configure your environment with
-<a href="../credentials/">working S3-compatible credentials</a>.</p>
+<p>Object expiry requires that you configure your environment with <a href="../credentials/">working S3-compatible credentials</a>.</p>
 </blockquote>
 <p>You can set a bucket’s lifecycle configuration such that it automatically deletes objects after a certain number of days.</p>
 <h2 id="enabling-object-expiry">Enabling object expiry</h2>
-<p>First, you need to create a JSON file, <code>lifecycle.json</code>, that contains
-the lifecycle configuration rule. Be sure to set <code>Days</code> to your
-desired value:</p>
+<p>First, you need to create a JSON file, <code>lifecycle.json</code>, that contains the lifecycle configuration rule.
+Be sure to set <code>Days</code> to your desired value:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;Rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
 <span class="w">    </span><span class="nt">&quot;ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cleanup&quot;</span><span class="p">,</span>
@@ -5457,8 +5455,7 @@ desired value:</p>
 <span class="w">  </span><span class="p">}]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Then, apply this lifecycle configuration to your bucket using one of
-the following commands:</p>
+<p>Then, apply this lifecycle configuration to your bucket using one of the following commands:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5479,29 +5476,24 @@ the following commands:</p>
 </div>
 </div>
 <h2 id="removing-object-expiry">Removing object expiry</h2>
-<p>At some point, you might want to remove the object expiry
-functionality configuration from a bucket, so that objects in it no
-longer auto-delete after a period.</p>
+<p>At some point, you might want to remove the object expiry functionality configuration from a bucket, so that objects in it no longer auto-delete after a period.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label><label for="__tabbed_2_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>With the <code>aws s3api</code> command, you can remove the lifecycle
-configuration from a bucket:
+<p>With the <code>aws s3api</code> command, you can remove the lifecycle configuration from a bucket:
 <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>&lt;region&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>delete-bucket-lifecycle<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<p>With <code>mc</code>, you are able to remove just an individual bucket
-lifecycle rule. Assuming your rule uses the ID <code>cleanup</code>, here is
-how you remove it:
+<p>With <code>mc</code>, you are able to remove just an individual bucket lifecycle rule.
+Assuming your rule uses the ID <code>cleanup</code>, here is how you remove it:
 <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>ilm<span class="w"> </span>rm<span class="w"> </span>--id<span class="w"> </span><span class="s2">&quot;cleanup&quot;</span><span class="w"> </span>&lt;region&gt;/&lt;bucket-name&gt;
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<p>With <code>s3cmd</code>, you can remove the lifecycle configuration from a
-bucket:
+<p>With <code>s3cmd</code>, you can remove the lifecycle configuration from a bucket:
 <div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-&lt;region&gt;<span class="w"> </span>dellifecycle<span class="w"> </span>s3://&lt;bucket-name&gt;
 </code></pre></div></p>
 </div>
@@ -5529,7 +5521,7 @@ bucket:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 24, 2023 14:07:54 UTC">2023-02-24</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2025 12:21:05 UTC">2025-07-03</span>
   </span>
 
     
@@ -5553,7 +5545,7 @@ bucket:
       
     </span>
     <nav>
-      Florian Haas, Foad Lind
+      Christos Varelas, Florian Haas, Foad Lind
     </nav>
   </span>
 
