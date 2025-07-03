@@ -60,8 +60,7 @@ Once you have your encryption secret available, you can create or access enabled
        aws --profile <region> \
          s3 mb s3://{{brand|lower|replace(' ','')}}-encrypted
        ```
-    2. Sync a directory to the S3 bucket, encrypting the files it
-       contains on upload:
+    2. Sync a directory to the S3 bucket, encrypting the files it contains on upload:
        ```bash
        aws --profile <region> \
          s3 sync \
@@ -119,7 +118,8 @@ Once you have your encryption secret available, you can create or access enabled
     > `s3cmd` does contain a *client* side encryption facility, using GnuPG for encryption.
     > It also supports SSE-KMS, which is a different SSE flavor that is currently not available in {{brand}}.
 === "rclone"
-    SSE-C encryption has been implemented/fixed with version 1.54. Earlier `rclone` versions won't work.
+    SSE-C encryption has been implemented/fixed with version 1.54.
+    Earlier `rclone` versions won't work.
 
     1. To start with, modify the section in your configuration file that is named after your target region, adding the `sse_customer_algorithm` option:
        ```ini

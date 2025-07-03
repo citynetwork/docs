@@ -24,8 +24,7 @@ To enable versioning in a bucket, use one of the following commands:
 
 ## Checking bucket versioning status
 
-To check whether object versioning is enabled on a bucket, use one of
-the following commands:
+To check whether object versioning is enabled on a bucket, use one of the following commands:
 
 === "aws"
     ```bash
@@ -42,8 +41,7 @@ the following commands:
 
 ## Suspending bucket versioning
 
-To suspend versioning on a bucket (versioning cannot be completely
-disabled once enabled), use one of the following commands:
+To suspend versioning on a bucket (versioning cannot be completely disabled once enabled), use one of the following commands:
 
 === "aws"
     ```bash
@@ -59,9 +57,7 @@ disabled once enabled), use one of the following commands:
 
 ## Creating a versioned object
 
-Once object versioning is enabled on a bucket, the normal object
-creation and replacement commands behave in a manner different from
-that in unversioned buckets:
+Once object versioning is enabled on a bucket, the normal object creation and replacement commands behave in a manner different from that in unversioned buckets:
 
 * If the object does not already exist, it is created (as in an unversioned bucket).
 * If the object does exist, it is not replaced.
@@ -88,8 +84,7 @@ that in unversioned buckets:
 
 ## Listing object versions
 
-In a bucket that has versioning enabled, you may list the versions
-available for an object:
+In a bucket that has versioning enabled, you may list the versions available for an object:
 
 === "aws"
     ```bash
@@ -102,15 +97,13 @@ available for an object:
     ```bash
     mc stat --versions <region>/<bucket-name>
     ```
-    This functionality may be impacted by bugs in several versions of
-    the `mc` client.
+    This functionality may be impacted by bugs in several versions of the `mc` client.
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.
 
 ## Retrieving a versioned object
 
-To download a specific version of an object in a bucket, use one of
-the following commands:
+To download a specific version of an object in a bucket, use one of the following commands:
 
 === "aws"
     ```bash
@@ -131,18 +124,14 @@ the following commands:
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.
 
-When you download an object from a versioned bucket *without*
-specifying a version identifier, your S3 client will download the
-latest version of that object.
+When you download an object from a versioned bucket *without* specifying a version identifier, your S3 client will download the latest version of that object.
 
 ## Deleting a versioned object
 
-Like the commands to *create* objects, the commands to *delete* them
-behave differently once object versioning is enabled on a bucket.
+Like the commands to *create* objects, the commands to *delete* them behave differently once object versioning is enabled on a bucket.
 
-The command to delete an object will not delete it, but
-put a delete marker on it instead. This will keep all the versions
-but return a "Not found" 404 on any request not specifying a valid version id.
+The command to delete an object will not delete it, but put a delete marker on it instead.
+This will keep all the versions but return a "Not found" 404 on any request not specifying a valid version id.
 
 === "aws"
     ```bash
@@ -161,8 +150,7 @@ but return a "Not found" 404 on any request not specifying a valid version id.
     s3cmd -c ~/.s3cfg-<region> del s3://<bucket-name>/<object-name>
     ```
 
-You also have the option of deleting not the latest version, but a
-specific object version:
+You also have the option of deleting not the latest version, but a specific object version:
 
 === "aws"
     ```bash
