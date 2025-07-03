@@ -1,27 +1,20 @@
 # Creating a Kubernetes cluster
 
-By employing OpenStack
-[Magnum](https://docs.openstack.org/magnum) you can create
-Kubernetes clusters via OpenStack, using the {{gui}} or the OpenStack
-CLI.
+By employing OpenStack [Magnum](https://docs.openstack.org/magnum) you can create Kubernetes clusters via OpenStack, using the {{gui}} or the OpenStack CLI.
 
 ## Prerequisites
 
-First and foremost, you need an [account in
-{{brand}}](../../getting-started/create-account.md). Should you choose to
-work from your terminal, you will also need to [enable the OpenStack
-CLI](../../getting-started/enable-openstack-cli.md). In that case, in
-addition to the Python `openstackclient` module, make sure you also
-install the corresponding plugin module for Magnum. Use either the
-package manager of your operating system or `pip`:
+First and foremost, you need an [account in {{brand}}](../../getting-started/create-account.md).
+Should you choose to work from your terminal, you will also need to [enable the OpenStack CLI](../../getting-started/enable-openstack-cli.md).
+In that case, in addition to the Python `openstackclient` module, make sure you also install the corresponding plugin module for Magnum.
+Use either the package manager of your operating system or `pip`:
 
 === "Debian/Ubuntu"
     ```bash
     apt install python3-magnumclient
     ```
 === "Mac OS X with Homebrew"
-    This Python module is unavailable via `brew`, but you can install it
-    via `pip`.
+    This Python module is unavailable via `brew`, but you can install it via `pip`.
 === "Python Package"
     ```bash
     pip install python-magnumclient
@@ -30,18 +23,16 @@ package manager of your operating system or `pip`:
 ## Creating a Kubernetes cluster
 
 === "{{gui}}"
-    Fire up your favorite web browser, navigate to the
-    [{{gui}}](https://{{gui_domain}}) start page, and log into your
-    {{brand}} account. On the top right-hand side of the {{gui}}, click the
-    *Create* button. A new pane titled *Create* slides into view.
+    Fire up your favorite web browser, navigate to the [{{gui}}](https://{{gui_domain}}) start page, and log into your {{brand}} account.
+    On the top right-hand side of the {{gui}}, click the *Create* button.
+    A new pane titled *Create* slides into view.
 
     ![Create new object](assets/shot-01.png)
 
-    You will notice several rounded boxes on that pane, each for defining,
-    configuring, and instantiating a different {{brand}} object. Go ahead
-    and click the *Magnum Cluster* box. A new vertical pane titled *Create a
-    Magnum Cluster* slides over. At the top, type in a name for the new
-    cluster and select one of the available regions.
+    You will notice several rounded boxes on that pane, each for defining, configuring, and instantiating a different {{brand}} object.
+    Go ahead and click the *Magnum Cluster* box.
+    A new vertical pane titled *Create a Magnum Cluster* slides over.
+    At the top, type in a name for the new cluster and select one of the available regions.
 
     ![Name and region](assets/shot-02.png)
 
@@ -54,27 +45,20 @@ package manager of your operating system or `pip`:
 
     ![Select template and keypair](assets/shot-03.png)
 
-    If you do want to play with the aforementioned parameters, then before
-    clicking the *Create* button go ahead and expand the *Advanced Options*
-    section. Since the new cluster templates come with the master load
-    balancer enabled by default, you might want to equip your new cluster
-    with 3 master nodes. Optionally, increase the number of worker nodes
-    from 1 (the default) to, say, 3. Contrary to the number of master nodes,
-    you may change the number of worker nodes *after* the cluster is created.
+    If you do want to play with the aforementioned parameters, then before clicking the *Create* button go ahead and expand the *Advanced Options* section.
+    Since the new cluster templates come with the master load balancer enabled by default, you might want to equip your new cluster with 3 master nodes.
+    Optionally, increase the number of worker nodes from 1 (the default) to, say, 3.
+    Contrary to the number of master nodes, you may change the number of worker nodes *after* the cluster is created.
 
     ![Cluster creation in progress](assets/shot-03.1.png)
 
-    When the cluster creation process begins, please keep in mind that it
-    takes some time to complete. While waiting, bring the vertical pane on
-    the left-hand side of the {{gui}} in full view, select
-    *Magnum* → *Clusters*, and in the main pane, take a look at the creation
-    progress. You can tell when the whole process is complete by the animated
-    icon at the left of the cluster row.
+    When the cluster creation process begins, please keep in mind that it takes some time to complete.
+    While waiting, bring the vertical pane on the left-hand side of the {{gui}} in full view, select *Magnum* → *Clusters*, and in the main pane, take a look at the creation progress.
+    You can tell when the whole process is complete by the animated icon at the left of the cluster row.
 
     ![Magnum cluster ready](assets/shot-04.png)
 === "OpenStack CLI"
-    A simple, general command for creating a new Kubernetes cluster with
-    Magnum looks like this:
+    A simple, general command for creating a new Kubernetes cluster with Magnum looks like this:
 
     ```bash
     openstack coe cluster create \
@@ -102,8 +86,7 @@ package manager of your operating system or `pip`:
     +--------------------------------------+---------------------------------------------+------+
     ```
 
-    Select the template you want by setting the corresponding `name`
-    value to the `CLUSTER_TMPL` variable:
+    Select the template you want by setting the corresponding `name` value to the `CLUSTER_TMPL` variable:
 
     ```console
     $ CLUSTER_TMPL="Kubernetes v1.24.16 on Fedora-coreos 37"
@@ -120,8 +103,7 @@ package manager of your operating system or `pip`:
     +----------+-------------------------------------------------+------+
     ```
 
-    ...and set the `KEYPAIR` variable to the `Name` of the keypair you
-    want:
+    ...and set the `KEYPAIR` variable to the `Name` of the keypair you want:
 
     ```console
     $ KEYPAIR="lefkanti" # this is just an example
@@ -142,8 +124,7 @@ package manager of your operating system or `pip`:
     $ CLUSTER_NAME="bangor"
     ```
 
-    With everything in place, go ahead and create your new Kubernetes
-    cluster like so:
+    With everything in place, go ahead and create your new Kubernetes cluster like so:
 
     ```console
     $ openstack coe cluster create \
@@ -154,12 +135,10 @@ package manager of your operating system or `pip`:
     ```
 
     New Magnum clusters start with 1 master node and 1 worker node by default.
-    Since the new cluster templates have the master load balancer enabled,
-    you might want to give your cluster 3 master nodes from the get-go.
+    Since the new cluster templates have the master load balancer enabled, you might want to give your cluster 3 master nodes from the get-go.
     Optionally, you can increase the number of worker nodes from 1 to 3 or to 5.
-    Contrary to the number of master nodes, you can always change the number of
-    worker nodes *after* the cluster is created. So, to start the new cluster
-    with 3 master nodes and 5 worker nodes, type the following:
+    Contrary to the number of master nodes, you can always change the number of worker nodes *after* the cluster is created.
+    So, to start the new cluster with 3 master nodes and 5 worker nodes, type the following:
 
     ```console
     $ openstack coe cluster create \
@@ -171,15 +150,13 @@ package manager of your operating system or `pip`:
         $CLUSTER_NAME
     ```
 
-    In any case, if everything went well with your request for a new cluster,
-    on the terminal, you will see a message like the following:
+    In any case, if everything went well with your request for a new cluster, on the terminal, you will see a message like the following:
 
     ```plain
     Request to create cluster 7ca7838a-aa33-4259-8784-02e5941a2cf0 accepted
     ```
 
-    The cluster creation process takes some time to complete, and while
-    you are waiting, you can check if everything is progressing smoothly:
+    The cluster creation process takes some time to complete, and while you are waiting, you can check if everything is progressing smoothly:
 
     ```console
     $ openstack coe cluster list -c status
@@ -190,9 +167,8 @@ package manager of your operating system or `pip`:
     +--------------------+
     ```
 
-    If everything is going well, the message you will get will be
-    `CREATE_IN_PROGRESS`. When Magnum has finished creating the cluster, the
-    message will be `CREATE_COMPLETE`.
+    If everything is going well, the message you will get will be `CREATE_IN_PROGRESS`.
+    When Magnum has finished creating the cluster, the message will be `CREATE_COMPLETE`.
 
     ```console
     $ openstack coe cluster list -c status
@@ -205,14 +181,12 @@ package manager of your operating system or `pip`:
 
 ## Viewing the Kubernetes cluster
 
-After the Kubernetes cluster is ready, you may at any time view it and
-get detailed information about it.
+After the Kubernetes cluster is ready, you may at any time view it and get detailed information about it.
 
 === "{{gui}}"
-    Bring the vertical pane on the left-hand side of the {{gui}} in full
-    view, then select *Magnum* → *Clusters*. In the main pane, take a look
-    at the row of the cluster you are interested in. In our example, there
-    is only one cluster, hence only one row.
+    Bring the vertical pane on the left-hand side of the {{gui}} in full view, then select *Magnum* → *Clusters*.
+    In the main pane, take a look at the row of the cluster you are interested in.
+    In our example, there is only one cluster, hence only one row.
 
     ![Cluster row](assets/shot-05.png)
 

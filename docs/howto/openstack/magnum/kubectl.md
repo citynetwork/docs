@@ -18,10 +18,9 @@ To fetch your kubeconfig, you must always use the same facility that you used to
 
 === "{{gui}}"
     In the left-hand side pane of the {{gui}}, select *Magnum* → *Clusters*.
-    Click on the cluster row to expand the details view, then click the
-    *KubeConfig* tab. In a second or two, you will see the contents of the
-    kubeconfig file. Click the blue *Download KubeConfig* button to download
-    it locally.
+    Click on the cluster row to expand the details view, then click the *KubeConfig* tab.
+    In a second or two, you will see the contents of the kubeconfig file.
+    Click the blue *Download KubeConfig* button to download it locally.
 
     ![Kubeconfig view](assets/shot-07.png)
 
@@ -33,28 +32,25 @@ To fetch your kubeconfig, you must always use the same facility that you used to
 
     Feel free to rename it to something simpler, like `config`.
 === "OpenStack CLI"
-    To download the kubeconfig file for your Kubernetes cluster, type
-    the following:
+    To download the kubeconfig file for your Kubernetes cluster, type the following:
 
     ```bash
     openstack coe cluster config --dir=${PWD} <cluster-name>
     ```
 
-After saving the kubeconfig file locally, set the value of variable
-`KUBECONFIG` to the full path of the file. Type, for example:
+After saving the kubeconfig file locally, set the value of variable `KUBECONFIG` to the full path of the file.
+Type, for example:
 
 ```bash
 export KUBECONFIG=${PWD}/config
 ```
 
-If you are currently managing only one cluster, and you already have its
-kubeconfig file stored as `~/.kube/config`, then you do not need to set
-the `KUBECONFIG` variable.
+If you are currently managing only one cluster, and you already have its kubeconfig file stored as `~/.kube/config`, then you do not need to set the `KUBECONFIG` variable.
 
 ## Accessing the Kubernetes cluster with kubectl
 
-You may now use `kubectl` to run commands against your cluster. See, for
-instance, all cluster nodes...
+You may now use `kubectl` to run commands against your cluster.
+See, for instance, all cluster nodes...
 
 ```bash
 kubectl get nodes
