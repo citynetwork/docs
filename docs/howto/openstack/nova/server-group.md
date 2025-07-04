@@ -7,7 +7,8 @@ In {{brand}}, you can use server groups to control the scheduling of a group of 
 
 ## Prerequisites
 
-In order to use server groups you must use the OpenStack CLI. Make sure you have [enabled it](../../getting-started/enable-openstack-cli.md).
+In order to use server groups you must use the OpenStack CLI.
+Make sure you have [enabled it](../../getting-started/enable-openstack-cli.md).
 
 ## Policies
 
@@ -58,7 +59,8 @@ If you subsequently launch more servers referencing the same server group, {{bra
 
 If you keep creating servers within a server group with a policy of `anti-affinity`, you will eventually exceed the total amount of physical compute nodes in the region.
 The command will still succeed, but the server will subsequently fail to be scheduled to a compute node.
-Instead, it will assume the `ERROR` status with the following `fault` message: _No valid host was found. There are not enough hosts available._
+Instead, it will assume the `ERROR` status with the following `fault` message: _No valid host was found.
+There are not enough hosts available._
 
 ```console
 $ openstack server show -c fault -c status <server_id>
@@ -85,6 +87,7 @@ $ openstack server show -c hostId <server_id>
 +--------+----------------------------------------------------------+
 ```
 
-`hostId` is a unique identifier for each physical compute node. By comparing this value on your different servers you can be sure if your server group policy is being upheld or not.
+`hostId` is a unique identifier for each physical compute node.
+By comparing this value on your different servers you can be sure if your server group policy is being upheld or not.
 
 > It's not possible to compare `hostId` between different projects because the values are unique for each project.
