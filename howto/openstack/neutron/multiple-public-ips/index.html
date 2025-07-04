@@ -5417,21 +5417,15 @@
 
 
 <h1 id="assigning-multiple-public-floating-ips-to-a-server">Assigning multiple public (floating) IPs to a server</h1>
-<p>In Cleura Cloud, we do not pass external networks to the compute nodes. This means
-that you, as a user, can not directly attach a server to the public network.</p>
-<p>In order to provide connectivity to the public network (for IPv4), you need to use
-floating IPs. A floating IP is created in the public subnet,
-and is mapped to the specific network port. All traffic comes through a virtual
-router.</p>
-<p>For some scenarios, you might need to have more than one public IP assigned to
-a server. But in case of 1-to-1 NAT (which is how the floating IP is implemented
-under the hood) you can not assign more than one external IP to the internal
-one. And adding a new port to the VM is also not an option, since this would
-result in asymmetric routing, as replies will go through the first interface
-for which a default route is set.</p>
-<p>Instead, you must first configure an additional <em>private</em> (“fixed”) IP
-address for your port, then associate a public (“floating”) IP address
-to map to it.</p>
+<p>In Cleura Cloud, we do not pass external networks to the compute nodes.
+This means that you, as a user, can not directly attach a server to the public network.</p>
+<p>In order to provide connectivity to the public network (for IPv4), you need to use floating IPs.
+A floating IP is created in the public subnet, and is mapped to the specific network port.
+All traffic comes through a virtual router.</p>
+<p>For some scenarios, you might need to have more than one public IP assigned to a server.
+But in case of 1-to-1 NAT (which is how the floating IP is implemented under the hood) you can not assign more than one external IP to the internal one.
+And adding a new port to the VM is also not an option, since this would result in asymmetric routing, as replies will go through the first interface for which a default route is set.</p>
+<p>Instead, you must first configure an additional <em>private</em> (“fixed”) IP address for your port, then associate a public (“floating”) IP address to map to it.</p>
 <h2 id="add-an-extra-ip-to-the-port">Add an extra IP to the port</h2>
 <p>Assume you already have a network port inside your private network:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>port<span class="w"> </span>show<span class="w"> </span>51dae637-ad79-4ba9-9e41-78e5e0f3332c<span class="w"> </span>-c<span class="w"> </span>fixed_ips
@@ -5465,14 +5459,13 @@ to map to it.</p>
 <blockquote>
 <p>Don&rsquo;t forget to configure new IP as an alias to the interface inside your VM!</p>
 </blockquote>
-<p>When you have an IP address on your port that is not yet assigned to any
-floating IP, you can assign it to the new floating IP. Proceed with:</p>
+<p>When you have an IP address on your port that is not yet assigned to any floating IP, you can assign it to the new floating IP.
+Proceed with:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span><span class="nb">set</span><span class="w"> </span>c45a5eaf-2f3a-4679-89fe-266a5cbe840a<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--port<span class="w"> </span>51dae637-ad79-4ba9-9e41-78e5e0f3332c<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--fixed-ip-address<span class="w"> </span><span class="m">10</span>.2.0.228
 </code></pre></div>
-<p>Then, list the floating (public) IP addresses, together with their
-fixed (private) counterparts:</p>
+<p>Then, list the floating (public) IP addresses, together with their fixed (private) counterparts:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>ID<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Floating IP Address&quot;</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Fixed IP Address&quot;</span><span class="w"> </span>-c<span class="w"> </span>Port
 <span class="go">+--------------------------------------+---------------------+------------------+--------------------------------------+</span>
 <span class="go">| ID                                   | Floating IP Address | Fixed IP Address | Port                                 |</span>
@@ -5504,7 +5497,7 @@ fixed (private) counterparts:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 21, 2022 15:53:52 UTC">2022-12-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 4, 2025 05:20:09 UTC">2025-07-04</span>
   </span>
 
     
@@ -5528,7 +5521,7 @@ fixed (private) counterparts:</p>
       
     </span>
     <nav>
-      Dmitriy Rabotyagov, Eliott Trouillet, Florian Haas
+      Christos Varelas, Dmitriy Rabotyagov, Eliott Trouillet, Florian Haas
     </nav>
   </span>
 

@@ -5609,20 +5609,14 @@
 
 
 <h1 id="creating-a-vpn-connection-between-regions">Creating a VPN connection between regions</h1>
-<p>Thanks to the Openstack Neutron VPN as a Service (VPNaaS) feature, you
-can bridge two different regions via a site-to-site IPSec VPN
-connection. This is made possible without setting up and configuring a
-virtual machine in any one of the regions. On the contrary, you can
-quickly establish such a connection using the Cleura Cloud Management Panel or the OpenStack
-CLI. Let us demonstrate the process following both approaches.</p>
+<p>Thanks to the Openstack Neutron VPN as a Service (VPNaaS) feature, you can bridge two different regions via a site-to-site IPSec VPN connection.
+This is made possible without setting up and configuring a virtual machine in any one of the regions.
+On the contrary, you can quickly establish such a connection using the Cleura Cloud Management Panel or the OpenStack CLI.
+Let us demonstrate the process following both approaches.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI,
-you need to <a href="../../../getting-started/create-account/">have an account</a> in
-Cleura Cloud. If you prefer to work with the <a href="../../../getting-started/enable-openstack-cli/">OpenStack
-CLI</a>, then in addition to
-the Python <code>openstackclient</code> module, you need to install the
-Python <code>neutronclient</code> module also. Use either the package manager
-of your operating system or <code>pip</code>:</p>
+<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI, you need to <a href="../../../getting-started/create-account/">have an account</a> in Cleura Cloud.
+If you prefer to work with the <a href="../../../getting-started/enable-openstack-cli/">OpenStack CLI</a>, then in addition to the Python <code>openstackclient</code> module, you need to install the Python <code>neutronclient</code> module also.
+Use either the package manager of your operating system or <code>pip</code>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">Mac OS X with Homebrew</label><label for="__tabbed_1_3">Python Package</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5630,8 +5624,7 @@ of your operating system or <code>pip</code>:</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>This Python module is unavailable via <code>brew</code>, but you can
-install it via <code>pip</code>.</p>
+<p>This Python module is unavailable via <code>brew</code>, but you can install it via <code>pip</code>.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>python-neutronclient
@@ -5640,56 +5633,41 @@ install it via <code>pip</code>.</p>
 </div>
 </div>
 <h2 id="creating-a-vpn-connection-between-two-regions">Creating a VPN connection between two regions</h2>
-<p>To create and establish such a connection from the Cleura Cloud Management Panel, fire up
-your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
-Cleura Cloud account. Should you decide to follow the OpenStack CLI route
-instead, please make sure you have the appropriate <a href="../../../getting-started/enable-openstack-cli/">RC
-file</a> for each region
-involved.</p>
+<p>To create and establish such a connection from the Cleura Cloud Management Panel, fire up your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your Cleura Cloud account.
+Should you decide to follow the OpenStack CLI route instead, please make sure you have the appropriate <a href="../../../getting-started/enable-openstack-cli/">RC file</a> for each region involved.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em>
-button. A vertical pane titled <em>Create</em> will slide into view from the
-right-hand side of the browser window. You will notice several rounded
-boxes, each one for defining, configuring, and instantiating a
-different Cleura Cloud object. Go ahead and click the <em>VPN</em> box.</p>
+<p>On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em> button.
+A vertical pane titled <em>Create</em> will slide into view from the right-hand side of the browser window.
+You will notice several rounded boxes, each one for defining, configuring, and instantiating a different Cleura Cloud object.
+Go ahead and click the <em>VPN</em> box.</p>
 <p><a class="glightbox" href="../assets/vpnaas/shot-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/vpnaas/shot-01.png" /></a></p>
-<p>A new pane titled <em>Create a VPN Service</em> will slide over. Between
-the two boxes, click the one titled <em>Quick (Guided) Connect</em>.</p>
+<p>A new pane titled <em>Create a VPN Service</em> will slide over.
+Between the two boxes, click the one titled <em>Quick (Guided) Connect</em>.</p>
 <p><a class="glightbox" href="../assets/vpnaas/shot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Quick connect" src="../assets/vpnaas/shot-02.png" /></a></p>
 <p>Type in a name for the new site-to-site VPN connection.</p>
 <p><a class="glightbox" href="../assets/vpnaas/shot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Connection name" src="../assets/vpnaas/shot-03.png" /></a></p>
-<p>Select a region, project, and network for each of the two data
-centers involved.</p>
+<p>Select a region, project, and network for each of the two data centers involved.</p>
 <p><a class="glightbox" href="../assets/vpnaas/shot-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Data center choices" src="../assets/vpnaas/shot-04.png" /></a></p>
-<p>Look at the pre-shared key and, optionally, expand the <em>Advanced
-Options</em> section to see all presets. You do not have to change anything
-there. When you are ready, click the green <em>Create</em> button. The VPN
-connection between the two regions will be established in a few seconds.</p>
+<p>Look at the pre-shared key and, optionally, expand the <em>Advanced Options</em> section to see all presets.
+You do not have to change anything there.
+When you are ready, click the green <em>Create</em> button.
+The VPN connection between the two regions will be established in a few seconds.</p>
 <p><a class="glightbox" href="../assets/vpnaas/shot-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create" src="../assets/vpnaas/shot-05.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>First, you need to have the RC files of the two regions you will be
-connecting. In the example that follows, we demonstrate establishing a
-site-to-site connection between regions <code>fra1</code> and <code>kna1</code>. This means
-that, while following through, before working in <code>fra1</code> you need to
-source the RC file for <code>fra1</code>, and before working in <code>kna1</code> you need
-to source the RC file for <code>kna1</code>.</p>
+<p>First, you need to have the RC files of the two regions you will be connecting.
+In the example that follows, we demonstrate establishing a site-to-site connection between regions <code>fra1</code> and <code>kna1</code>.
+This means that, while following through, before working in <code>fra1</code> you need to source the RC file for <code>fra1</code>, and before working in <code>kna1</code> you need to source the RC file for <code>kna1</code>.</p>
 <blockquote>
-<p>It helps to imagine the site-to-site connection schematically,
-with <code>fra1</code> being on the left side and <code>kna1</code> being on the right side
-of the connection. That is why we interchange the terms <code>fra1</code>, <em>left</em>
-and <code>kna1</code>, <em>right</em>.</p>
+<p>It helps to imagine the site-to-site connection schematically, with <code>fra1</code> being on the left side and <code>kna1</code> being on the right side of the connection.
+That is why we interchange the terms <code>fra1</code>, <em>left</em> and <code>kna1</code>, <em>right</em>.</p>
 </blockquote>
-<p>You also have to decide which subnets from either side you will
-connect. Additionally, you need to know the respective CIDR notations
-and routers. In the examples that follow, on the left side we have
-subnet <code>subnet-fra1</code> with CIDR <code>10.15.25.0/24</code> and router
-<code>router-fra1</code>, and on the right side we have subnet <code>subnet-kna1</code> with
-CIDR <code>10.15.20.0/24</code> and router <code>router-kna1</code>. For convenience, we have
-set the shell variables <code>SUBNET_FRA1</code> and <code>SUBNET_KNA1</code>:</p>
+<p>You also have to decide which subnets from either side you will connect.
+Additionally, you need to know the respective CIDR notations and routers.
+In the examples that follow, on the left side we have subnet <code>subnet-fra1</code> with CIDR <code>10.15.25.0/24</code> and router <code>router-fra1</code>, and on the right side we have subnet <code>subnet-kna1</code> with CIDR <code>10.15.20.0/24</code> and router <code>router-kna1</code>.
+For convenience, we have set the shell variables <code>SUBNET_FRA1</code> and <code>SUBNET_KNA1</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">SUBNET_FRA1</span><span class="o">=</span><span class="s2">&quot;10.15.25.0/24&quot;</span>
 <span class="nv">SUBNET_KNA1</span><span class="o">=</span><span class="s2">&quot;10.15.20.0/24&quot;</span>
 </code></pre></div>
@@ -5714,8 +5692,7 @@ set the shell variables <code>SUBNET_FRA1</code> and <code>SUBNET_KNA1</code>:</
 | project_id                    | dfc700467396428bacba4376e72cc3e9     |
 +-------------------------------+--------------------------------------+
 </code></pre></div>
-<p>Then, create a new <a href="https://en.wikipedia.org/wiki/IPsec">IPSec</a>
-policy:</p>
+<p>Then, create a new <a href="https://en.wikipedia.org/wiki/IPsec">IPSec</a> policy:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>policy<span class="w"> </span>create<span class="w"> </span>ipsec-pol-fra1
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+-------------------------------+--------------------------------------+
@@ -5755,18 +5732,14 @@ policy:</p>
 +----------------+--------------------------------------+
 </code></pre></div>
 <p>Notice in the command output that the <code>Status</code> is <code>PENDING_CREATE</code>.
-This is expected. Also, jot down the value of the <code>external_v4_ip</code>
-parameter. Better yet, set this value to a new variable, <code>EXT_IP_FRA1</code>,
-for you will soon need it:</p>
+This is expected.
+Also, jot down the value of the <code>external_v4_ip</code> parameter.
+Better yet, set this value to a new variable, <code>EXT_IP_FRA1</code>, for you will soon need it:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">EXT_IP_FRA1</span><span class="o">=</span><span class="s2">&quot;198.51.100.50&quot;</span>
 </code></pre></div>
-<p>The site-to-site connection you are about to create needs two
-end-point groups on the left, and two end-point groups on the right.
-More specifically, on either side of the connection, there should be
-one end-point group for the local subnet and one end-point group for
-the peer (remote) subnet. You are now on the left side of the
-connection (region <code>fra1</code>), so begin with the left local end-point
-group&hellip;</p>
+<p>The site-to-site connection you are about to create needs two end-point groups on the left, and two end-point groups on the right.
+More specifically, on either side of the connection, there should be one end-point group for the local subnet and one end-point group for the peer (remote) subnet.
+You are now on the left side of the connection (region <code>fra1</code>), so begin with the left local end-point group&hellip;</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>endpoint<span class="w"> </span>group<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--type<span class="w"> </span>subnet<span class="w"> </span>--value<span class="w"> </span>subnet-fra1<span class="w"> </span>local-epg-fra1
 </code></pre></div>
@@ -5799,11 +5772,9 @@ group&hellip;</p>
 +-------------+--------------------------------------+
 </code></pre></div>
 <h3 id="prepare-the-right-side-region-kna1">Prepare the right side (region <code>kna1</code>)</h3>
-<p>Before establishing a site-to-site VPN connection between the two
-regions, you must make similar preparations on the right side of the
-connection (region <code>kna1</code>). You should adjust all commands you entered
-above and execute them on the right side. For your convenience, these
-are all the adjusted commands with the respective outputs:</p>
+<p>Before establishing a site-to-site VPN connection between the two regions, you must make similar preparations on the right side of the connection (region <code>kna1</code>).
+You should adjust all commands you entered above and execute them on the right side.
+For your convenience, these are all the adjusted commands with the respective outputs:</p>
 <p>Create a new IKE policy:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ike<span class="w"> </span>policy<span class="w"> </span>create<span class="w"> </span>ike-pol-kna1
 </code></pre></div>
@@ -5862,8 +5833,7 @@ are all the adjusted commands with the respective outputs:</p>
 | project_id     | 94109c764a754e24ac0f6b01aef82359     |
 +----------------+--------------------------------------+
 </code></pre></div>
-<p>For convenience, set the value of parameter <code>external_v4_ip</code> to a
-shell variable:</p>
+<p>For convenience, set the value of parameter <code>external_v4_ip</code> to a shell variable:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">EXT_IP_KNA1</span><span class="o">=</span><span class="s2">&quot;203.0.113.101&quot;</span>
 </code></pre></div>
 <p>Create a local end-point group:</p>
@@ -5899,19 +5869,17 @@ shell variable:</p>
 +-------------+--------------------------------------+
 </code></pre></div>
 <h3 id="instantiate-a-pre-shared-key">Instantiate a pre-shared key</h3>
-<p>Before establishing a site-to-site IPSec VPN connection, you must
-have a randomly generated pre-shared key. You may use <code>openssl</code> for
-generating a random string and immediately set it to a shell variable:</p>
+<p>Before establishing a site-to-site IPSec VPN connection, you must have a randomly generated pre-shared key.
+You may use <code>openssl</code> for generating a random string and immediately set it to a shell variable:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">PRE_SHARED_KEY</span><span class="o">=</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">24</span><span class="k">)</span>
 </code></pre></div>
-<p>The above is just an example. The key should not necessarily be a
-hexadecimal string, nor do you have to use <code>openssl</code>. Another option
-would be to use the fine <code>pwgen</code> tool, for example like this:</p>
+<p>The above is just an example.
+The key should not necessarily be a hexadecimal string, nor do you have to use <code>openssl</code>.
+Another option would be to use the fine <code>pwgen</code> tool, for example like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">PRE_SHARED_KEY</span><span class="o">=</span><span class="k">$(</span>pwgen<span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="m">1</span><span class="k">)</span>
 </code></pre></div>
 <h3 id="establish-a-left-to-right-connection-region-fra1">Establish a left-to-right connection (region <code>fra1</code>)</h3>
-<p>To create a VPN connection from left to right, i.e., from region
-<code>fra1</code> to region <code>kna1</code>, issue the following command:</p>
+<p>To create a VPN connection from left to right, i.e., from region <code>fra1</code> to region <code>kna1</code>, issue the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--vpnservice<span class="w"> </span>vpn-service-fra1<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--ikepolicy<span class="w"> </span>ike-pol-fra1<span class="w"> </span><span class="se">\</span>
@@ -5951,8 +5919,7 @@ would be to use the fine <code>pwgen</code> tool, for example like this:</p>
 +--------------------------+----------------------------------------------------+
 </code></pre></div>
 <h3 id="establish-a-right-to-left-connection-region-kna1">Establish a right-to-left connection (region <code>kna1</code>)</h3>
-<p>Similarly, to create a VPN connection from right to left, i.e.,
-from region <code>kna1</code> to region <code>fra1</code>, issue the following command:</p>
+<p>Similarly, to create a VPN connection from right to left, i.e., from region <code>kna1</code> to region <code>fra1</code>, issue the following command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--vpnservice<span class="w"> </span>vpn-service-kna1<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--ikepolicy<span class="w"> </span>ike-pol-kna1<span class="w"> </span><span class="se">\</span>
@@ -5995,25 +5962,21 @@ from region <code>kna1</code> to region <code>fra1</code>, issue the following c
 </div>
 </div>
 <h2 id="viewing-vpn-connections-and-getting-details">Viewing VPN connections and getting details</h2>
-<p>No matter if you use the Cleura Cloud Management Panel or the OpenStack CLI, you may at any
-time list all VPN connections and get relevant details.</p>
+<p>No matter if you use the Cleura Cloud Management Panel or the OpenStack CLI, you may at any time list all VPN connections and get relevant details.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In the vertical pane on the left-hand side of the Cleura Cloud Management Panel, expand
-the <em>Networking</em> section and then the <em>VPN Services</em> subsection. From
-the available options, click <em>VPN Services</em> again. You will see two VPN
-connections in the main pane, each from one region to the other.</p>
+<p>In the vertical pane on the left-hand side of the Cleura Cloud Management Panel, expand the <em>Networking</em> section and then the <em>VPN Services</em> subsection.
+From the available options, click <em>VPN Services</em> again.
+You will see two VPN connections in the main pane, each from one region to the other.</p>
 <p><a class="glightbox" href="../assets/vpnaas/shot-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create" src="../assets/vpnaas/shot-06.png" /></a></p>
-<p>For more information regarding a specific connection, click the
-corresponding three-dot icon (right-hand side) and select <em>View
-details</em>. Then, you can glance over all the details regarding, for
-example, the connection status and public IP address.</p>
+<p>For more information regarding a specific connection, click the corresponding three-dot icon (right-hand side) and select <em>View details</em>.
+Then, you can glance over all the details regarding, for example, the connection status and public IP address.</p>
 <p><a class="glightbox" href="../assets/vpnaas/shot-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create" src="../assets/vpnaas/shot-07.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>You can list all IPSec VPN connections working from any of the two
-regions involved. See, for example, the view from <code>fra1</code>:</p>
+<p>You can list all IPSec VPN connections working from any of the two regions involved.
+See, for example, the view from <code>fra1</code>:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------+------------------+---------------+--------------------------+--------+
@@ -6023,8 +5986,7 @@ regions involved. See, for example, the view from <code>fra1</code>:</p>
 | 9e2d97be55e1             |                  |               |                          |        |
 +--------------------------+------------------+---------------+--------------------------+--------+
 </code></pre></div>
-<p>If you want more information regarding a specific connection, type
-something like this:</p>
+<p>If you want more information regarding a specific connection, type something like this:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span>show<span class="w"> </span>vpn-conn-to-kna1
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------+----------------------------------------------------+
@@ -6058,11 +6020,8 @@ something like this:</p>
 </div>
 </div>
 <h2 id="testing-the-site-to-site-vpn-connection">Testing the site-to-site VPN connection</h2>
-<p>One way to test the VPN connection is to have two servers (e.g.,
-<code>server-fra1</code> and <code>server-kna1</code>), each on a different region (e.g.,
-<code>fra1</code> and <code>kna1</code> respectively), ping each other using private IP
-addresses. With no VPN connection between the two regions, pinging
-should not be possible:</p>
+<p>One way to test the VPN connection is to have two servers (e.g., <code>server-fra1</code> and <code>server-kna1</code>), each on a different region (e.g., <code>fra1</code> and <code>kna1</code> respectively), ping each other using private IP addresses.
+With no VPN connection between the two regions, pinging should not be possible:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">ubuntu@server-fra1:~$ </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">10</span>.15.20.148
 <span class="go">PING 10.15.20.148 (10.15.20.148) 56(84) bytes of data.</span>
 
@@ -6075,8 +6034,7 @@ should not be possible:</p>
 <span class="go">--- 10.15.25.58 ping statistics ---</span>
 <span class="go">3 packets transmitted, 0 received, 100% packet loss, time 2045ms</span>
 </code></pre></div>
-<p>On the other hand, with a VPN connection established between the two
-regions, pinging should be all possible:</p>
+<p>On the other hand, with a VPN connection established between the two regions, pinging should be all possible:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">ubuntu@server-fra1:~$ </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">10</span>.15.20.148
 <span class="go">PING 10.15.20.148 (10.15.20.148) 56(84) bytes of data.</span>
 <span class="go">64 bytes from 10.15.20.148: icmp_seq=1 ttl=62 time=32.8 ms</span>
@@ -6102,17 +6060,13 @@ regions, pinging should be all possible:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Currently, there is no way to disable an active connection from the
-Cleura Cloud Management Panel. If you want to disable an active connection, please use the
-OpenStack CLI.</p>
+<p>Currently, there is no way to disable an active connection from the Cleura Cloud Management Panel.
+If you want to disable an active connection, please use the OpenStack CLI.</p>
 </div>
 <div class="tabbed-block">
-<p>All you have to do is get on either side of the connection and
-disable the VPN connection across the other side. Suppose you are on
-the left side of the connection (region <code>fra1</code>), and for whatever
-reason, you want to disable the site-to-site connection between left
-and right (regions <code>fra1</code> and <code>kna1</code>). First, you might want to
-remember the name of the VPN connection to the right:</p>
+<p>All you have to do is get on either side of the connection and disable the VPN connection across the other side.
+Suppose you are on the left side of the connection (region <code>fra1</code>), and for whatever reason, you want to disable the site-to-site connection between left and right (regions <code>fra1</code> and <code>kna1</code>).
+First, you might want to remember the name of the VPN connection to the right:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------+------------------+---------------+--------------------------+--------+
@@ -6122,8 +6076,8 @@ remember the name of the VPN connection to the right:</p>
 | 9e2d97be55e1             |                  |               |                          |        |
 +--------------------------+------------------+---------------+--------------------------+--------+
 </code></pre></div>
-<p>That would be <code>vpn-conn-to-kna1</code>, and according to the command
-output above, it is active. To disable it, type the following:</p>
+<p>That would be <code>vpn-conn-to-kna1</code>, and according to the command output above, it is active.
+To disable it, type the following:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--disable<span class="w"> </span>vpn-conn-to-kna1
 </code></pre></div>
 <p>Check if it is really disabled:</p>
@@ -6137,15 +6091,13 @@ output above, it is active. To disable it, type the following:</p>
 </code></pre></div>
 <p>It looks like it is disabled &mdash; or <code>DOWN</code>.</p>
 <blockquote>
-<p>You will probably have to wait several seconds before seeing a
-status change. If you are impatient, try something like this:
+<p>You will probably have to wait several seconds before seeing a status change.
+If you are impatient, try something like this:
 <div class="highlight"><pre><span></span><code>watch<span class="w"> </span><span class="s2">&quot;openstack vpn ipsec site connection show vpn-conn-to-kna1 -c Status&quot;</span>
 </code></pre></div>
 Hit CTRL+C as soon as you see the status change you expect.</p>
 </blockquote>
-<p>Now, get on the right side of the connection (region <code>kna1</code>),
-optionally look for the name of the VPN connection to the left (in our
-example, that would be <code>vpn-conn-to-fra1</code>), and check its status:</p>
+<p>Now, get on the right side of the connection (region <code>kna1</code>), optionally look for the name of the VPN connection to the left (in our example, that would be <code>vpn-conn-to-fra1</code>), and check its status:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span>show<span class="w"> </span>vpn-conn-to-fra1<span class="w"> </span>-c<span class="w"> </span>Status
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------+-------+
@@ -6158,12 +6110,9 @@ example, that would be <code>vpn-conn-to-fra1</code>), and check its status:</p>
 </div>
 </div>
 </div>
-<p>To test that a previously enabled site-to-site connection is now disabled,
-select a server from one region and try to ping a server in another region.
-Suppose, for example, that a now-disabled connection involved regions
-<code>fra1</code> and <code>kna1</code>, and that we have servers <code>server-fra1</code> (in <code>fra1</code>) and
-<code>server-kna1</code> (in <code>kna1</code>). With the VPN connection between the two regions
-now disabled, pinging should not be possible:</p>
+<p>To test that a previously enabled site-to-site connection is now disabled, select a server from one region and try to ping a server in another region.
+Suppose, for example, that a now-disabled connection involved regions <code>fra1</code> and <code>kna1</code>, and that we have servers <code>server-fra1</code> (in <code>fra1</code>) and <code>server-kna1</code> (in <code>kna1</code>).
+With the VPN connection between the two regions now disabled, pinging should not be possible:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">ubuntu@server-fra1:~$ </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">10</span>.15.20.148
 <span class="go">PING 10.15.20.148 (10.15.20.148) 56(84) bytes of data.</span>
 
@@ -6181,16 +6130,13 @@ now disabled, pinging should not be possible:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Currently, there is no way to enable an inactive connection from
-the Cleura Cloud Management Panel. If you want to re-enable an inactive connection,
-please use the OpenStack CLI.</p>
+<p>Currently, there is no way to enable an inactive connection from the Cleura Cloud Management Panel.
+If you want to re-enable an inactive connection, please use the OpenStack CLI.</p>
 </div>
 <div class="tabbed-block">
-<p>Make sure you hop on the side where you initially disabled the
-connection. According to the example scenario we described in the
-previous section, that would be the left side (region <code>fra1</code>), and the
-name of the disabled connection would be <code>vpn-conn-to-kna1</code>. Make sure
-the connection status is <code>DOWN</code>:</p>
+<p>Make sure you hop on the side where you initially disabled the connection.
+According to the example scenario we described in the previous section, that would be the left side (region <code>fra1</code>), and the name of the disabled connection would be <code>vpn-conn-to-kna1</code>.
+Make sure the connection status is <code>DOWN</code>:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span>show<span class="w"> </span>vpn-conn-to-kna1<span class="w"> </span>-c<span class="w"> </span>Status
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------+-------+
@@ -6199,10 +6145,8 @@ the connection status is <code>DOWN</code>:</p>
 | Status | DOWN  |
 +--------+-------+
 </code></pre></div>
-<p>Note that if you issued a similar command from the right side of
-the connection (region <code>kna1</code>), you would also get a <code>DOWN</code> status.
-Being on the left side, all you have to do to enable the inactive
-connection is type the following:</p>
+<p>Note that if you issued a similar command from the right side of the connection (region <code>kna1</code>), you would also get a <code>DOWN</code> status.
+Being on the left side, all you have to do to enable the inactive connection is type the following:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>vpn<span class="w"> </span>ipsec<span class="w"> </span>site<span class="w"> </span>connection<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--enable<span class="w"> </span>vpn-conn-to-kna1
 </code></pre></div>
 <p>Check the connection status &mdash; it should be <code>ACTIVE</code>:</p>
@@ -6214,11 +6158,9 @@ connection is type the following:</p>
 | Status | ACTIVE |
 +--------+--------+
 </code></pre></div>
-<p>You get the same status by issuing a similar command from the right
-side.</p>
+<p>You get the same status by issuing a similar command from the right side.</p>
 <blockquote>
-<p>Again, since you may have to wait several seconds before seeing
-the status change you expect, try something like this:
+<p>Again, since you may have to wait several seconds before seeing the status change you expect, try something like this:
 <div class="highlight"><pre><span></span><code>watch<span class="w"> </span><span class="s2">&quot;openstack vpn ipsec site connection show vpn-conn-to-kna1 -c Status&quot;</span>
 </code></pre></div>
 Hit CTRL+C to stop watching.</p>
@@ -6226,12 +6168,9 @@ Hit CTRL+C to stop watching.</p>
 </div>
 </div>
 </div>
-<p>To test that a previously disabled site-to-site connection is now enabled,
-select a server from one region and try to ping a server in another region.
-Suppose, for example, that a re-enabled connection involves regions
-<code>fra1</code> and <code>kna1</code>, and that we have servers <code>server-fra1</code> (in <code>fra1</code>) and
-<code>server-kna1</code> (in <code>kna1</code>). With the VPN connection between the two regions
-now re-established, pinging should be possible:</p>
+<p>To test that a previously disabled site-to-site connection is now enabled, select a server from one region and try to ping a server in another region.
+Suppose, for example, that a re-enabled connection involves regions <code>fra1</code> and <code>kna1</code>, and that we have servers <code>server-fra1</code> (in <code>fra1</code>) and <code>server-kna1</code> (in <code>kna1</code>).
+With the VPN connection between the two regions now re-established, pinging should be possible:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">ubuntu@server-fra1:~$ </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">10</span>.15.20.148
 <span class="go">PING 10.15.20.148 (10.15.20.148) 56(84) bytes of data.</span>
 <span class="go">64 bytes from 10.15.20.148: icmp_seq=1 ttl=62 time=32.6 ms</span>
@@ -6274,7 +6213,7 @@ now re-established, pinging should be possible:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2023 10:47:52 UTC">2023-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 4, 2025 05:20:09 UTC">2025-07-04</span>
   </span>
 
     
@@ -6294,11 +6233,11 @@ now re-established, pinging should be possible:</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas
     </nav>
   </span>
 

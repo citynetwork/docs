@@ -5525,36 +5525,25 @@
 
 
 <h1 id="deleting-networks">Deleting networks</h1>
-<p>Deleting a network in Cleura Cloud may sound like a pretty straightforward
-task &mdash; and it is. It&rsquo;s just that before deleting a network, there are
-some steps we almost always need to take. In what follows we show, step
-by step and through specific examples, how we delete networks using
-either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
+<p>Deleting a network in Cleura Cloud may sound like a pretty straightforward task &mdash; and it is.
+It&rsquo;s just that before deleting a network, there are some steps we almost always need to take.
+In what follows we show, step by step and through specific examples, how we delete networks using either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI,
-you need to <a href="../../../getting-started/create-account/">have an account</a> in
-Cleura Cloud. Additionally, to use the OpenStack CLI, make sure to <a href="../../../getting-started/enable-openstack-cli/">enable
-it</a> for the region you
-will be working in.</p>
+<p>Whether you choose to work from the Cleura Cloud Management Panel or with the OpenStack CLI, you need to <a href="../../../getting-started/create-account/">have an account</a> in Cleura Cloud.
+Additionally, to use the OpenStack CLI, make sure to <a href="../../../getting-started/enable-openstack-cli/">enable it</a> for the region you will be working in.</p>
 <h2 id="selecting-a-network">Selecting a network</h2>
-<p>Unless you already have the ID or know the name of the network you wish
-to delete, you may first list all available networks.</p>
+<p>Unless you already have the ID or know the name of the network you wish to delete, you may first list all available networks.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Fire up your favorite web browser, navigate to the
-<a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your
-Cleura Cloud account.</p>
-<p>In the vertical pane on the left-hand side of the dashboard, expand the
-<em>Networking</em> section and click <em>Networks</em>. In the central pane of the
-page, you will see all networks in all regions you have access to. For
-the purposes of this guide, let us assume you no longer need network
-<code>carmacks</code>, so now you want to delete it.</p>
+<p>Fire up your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your Cleura Cloud account.</p>
+<p>In the vertical pane on the left-hand side of the dashboard, expand the <em>Networking</em> section and click <em>Networks</em>.
+In the central pane of the page, you will see all networks in all regions you have access to.
+For the purposes of this guide, let us assume you no longer need network <code>carmacks</code>, so now you want to delete it.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Listing networks" src="../assets/del-net/shot-01.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>To list all available networks in the region you are currently in, type
-the following:</p>
+<p>To list all available networks in the region you are currently in, type the following:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
@@ -5571,23 +5560,17 @@ the following:</p>
 </div>
 <p>Let us assume you wish to delete the network named <code>carmacks</code>.</p>
 <h2 id="determining-component-dependencies">Determining component dependencies</h2>
-<p>If the network to be deleted has a subnet component &mdash; and most likely
-it will have &mdash;, you will first have to delete the subnet before
-deleting the network. If, in addition, the network is behind a router
-(figurately speaking), then before deleting the subnet, you will have
-to disconnect it from the router. Finally, you will have the option to
-delete the router also. Let us see what the situation is with network
-<code>carmacks</code>.</p>
+<p>If the network to be deleted has a subnet component &mdash; and most likely it will have &mdash;, you will first have to delete the subnet before deleting the network.
+If, in addition, the network is behind a router (figurately speaking), then before deleting the subnet, you will have to disconnect it from the router.
+Finally, you will have the option to delete the router also.
+Let us see what the situation is with network <code>carmacks</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>For more information on <code>carmacks</code>, click the three-dot icon
-(right-hand side of the network row) and select <em>View details</em>. Four
-tabs immediately appear below; <em>Details</em>, <em>Ports</em>, <em>Subnets</em>, and
-<em>Routers</em>. Looking at the <em>Details</em> tab, it is clear that network
-<code>carmacks</code> has a subnet and is behind a router. You may click on tabs
-<em>Subnets</em> and <em>Routers</em>, to see more information regarding the network
-subnet and the router in front of the network.</p>
+<p>For more information on <code>carmacks</code>, click the three-dot icon (right-hand side of the network row) and select <em>View details</em>.
+Four tabs immediately appear below; <em>Details</em>, <em>Ports</em>, <em>Subnets</em>, and <em>Routers</em>.
+Looking at the <em>Details</em> tab, it is clear that network <code>carmacks</code> has a subnet and is behind a router.
+You may click on tabs <em>Subnets</em> and <em>Routers</em>, to see more information regarding the network subnet and the router in front of the network.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Network details" src="../assets/del-net/shot-02.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -5600,14 +5583,11 @@ subnet and the router in front of the network.</p>
 | subnets | 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5 |
 +---------+--------------------------------------+
 </code></pre></div></p>
-<p>If the value for the field <code>subnets</code> is non-empty, like in the example
-output above, that means the network has a subnet indeed, and the value
-is the ID of that subnet. At this point, it helps to assign the subnet
-ID to an environment variable, like so:</p>
+<p>If the value for the field <code>subnets</code> is non-empty, like in the example output above, that means the network has a subnet indeed, and the value is the ID of that subnet.
+At this point, it helps to assign the subnet ID to an environment variable, like so:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">SUBNET_ID</span><span class="o">=</span><span class="s2">&quot;7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5&quot;</span>
 </code></pre></div>
-<p>What about a router in front of <code>carmacks</code>? You might try checking the
-output of this command:</p>
+<p>What about a router in front of <code>carmacks</code>? You might try checking the output of this command:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>show<span class="w"> </span>carmacks
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------------------------+--------------------------------------+
@@ -5643,12 +5623,9 @@ output of this command:</p>
 | updated_at                | 2022-12-09T18:55:18Z                 |
 +---------------------------+--------------------------------------+
 </code></pre></div></p>
-<p>While it usually pays off to use <code>openstack</code> commands with the verb
-<code>show</code> on various objects, in this case, you don&rsquo;t get what you&rsquo;re
-looking for &mdash; which is an indication of the presence or absence of a
-router in front of <code>carmacks</code>. In cases like this, try looking at
-things from a different vantage point. Try, in particular, to list all
-routers:</p>
+<p>While it usually pays off to use <code>openstack</code> commands with the verb <code>show</code> on various objects, in this case, you don&rsquo;t get what you&rsquo;re looking for &mdash; which is an indication of the presence or absence of a router in front of <code>carmacks</code>.
+In cases like this, try looking at things from a different vantage point.
+Try, in particular, to list all routers:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+------------------------+-----------------+--------+-------+------------------------+------+
@@ -5660,8 +5637,7 @@ routers:</p>
 | af61-91e923fac87b      |                 |        |       | 01aef82359             |      |
 +------------------------+-----------------+--------+-------+------------------------+------+
 </code></pre></div></p>
-<p>The name of the second router says it all, but since it is just a name,
-it doesn&rsquo;t hurt to verify the role of this router:</p>
+<p>The name of the second router says it all, but since it is just a name, it doesn&rsquo;t hurt to verify the role of this router:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>show<span class="w"> </span>carmacks-router<span class="w"> </span>-c<span class="w"> </span>interfaces_info
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+-----------------+--------------------------------------------------------------------------------+
@@ -5671,13 +5647,11 @@ it doesn&rsquo;t hurt to verify the role of this router:</p>
 |                 | &quot;subnet_id&quot;: &quot;7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5&quot;}]                          |
 +-----------------+--------------------------------------------------------------------------------+
 </code></pre></div></p>
-<p>Looking at the value of <code>interfaces_info</code>, it is easy to see that
-<code>subnet_id</code> has the value of the variable <code>SUBNET_ID</code> you just
-instantiated. In other words, router <code>carmacks-router</code> is indeed in
-front of network <code>carmacks</code>.</p>
+<p>Looking at the value of <code>interfaces_info</code>, it is easy to see that <code>subnet_id</code> has the value of the variable <code>SUBNET_ID</code> you just instantiated.
+In other words, router <code>carmacks-router</code> is indeed in front of network <code>carmacks</code>.</p>
 <blockquote>
-<p>There will be times when router names won&rsquo;t help much. Then, try a
-more exhaustive search approach:</p>
+<p>There will be times when router names won&rsquo;t help much.
+Then, try a more exhaustive search approach:</p>
 <p><div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>openstack<span class="w"> </span>router<span class="w"> </span>list<span class="w"> </span>-f<span class="w"> </span>value<span class="w"> </span>-c<span class="w"> </span>Name<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>Checking<span class="w"> </span>router<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>openstack<span class="w"> </span>router<span class="w"> </span>show<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="w"> </span>-f<span class="w"> </span>json<span class="w"> </span>-c<span class="w"> </span>interfaces_info<span class="w"> </span><span class="se">\</span>
@@ -5693,53 +5667,42 @@ Checking router router-kna1
 </div>
 </div>
 <h2 id="tearing-down-networks">Tearing down networks</h2>
-<p>Now that you know you&rsquo;re dealing with a full-blown network and a
-router, you start by disconnecting the subnet from the router. Then,
-you will move on to deleting the subnet and the network, and after
-that, you can finish up with deleting the router.</p>
+<p>Now that you know you&rsquo;re dealing with a full-blown network and a router, you start by disconnecting the subnet from the router.
+Then, you will move on to deleting the subnet and the network, and after that, you can finish up with deleting the router.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Go to the <em>Subnets</em> tab of the <code>carmacks</code> network, and click the gray
-notepad-and-pen icon (at the left of the red circle-with-trashcan icon).</p>
+<p>Go to the <em>Subnets</em> tab of the <code>carmacks</code> network, and click the gray notepad-and-pen icon (at the left of the red circle-with-trashcan icon).</p>
 <p><a class="glightbox" href="../assets/del-net/shot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Network subnets" src="../assets/del-net/shot-03.png" /></a></p>
-<p>A vertical pane titled <em>Modify Subnet</em> will slide over from the
-right-hand side of the page. Pay attention to the <em>Router Connections</em>
-section. You will notice an active connection to the router. Click the
-red circle-with-line-over-chainlink icon to deactivate the connection,
-effectively disconnecting the subnet from the router.</p>
+<p>A vertical pane titled <em>Modify Subnet</em> will slide over from the right-hand side of the page. Pay attention to the <em>Router Connections</em> section.
+You will notice an active connection to the router.
+Click the red circle-with-line-over-chainlink icon to deactivate the connection, effectively disconnecting the subnet from the router.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Disconnect subnet" src="../assets/del-net/shot-04.png" /></a></p>
-<p>A pop-up window will appear, asking if you really want to go ahead with
-the disconnection. Just click the red <em>Yes, Remove interface</em> button.</p>
+<p>A pop-up window will appear, asking if you really want to go ahead with the disconnection.
+Just click the red <em>Yes, Remove interface</em> button.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Remove interface" src="../assets/del-net/shot-05.png" /></a></p>
-<p>After disconnecting the subnet, click the red circle-and-trashcan icon
-to delete it. Once more, a pop-up will appear asking for confirmation.
+<p>After disconnecting the subnet, click the red circle-and-trashcan icon to delete it.
+Once more, a pop-up will appear asking for confirmation.
 Click the red <em>Yes, Delete</em> button.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete subnet" src="../assets/del-net/shot-06.png" /></a></p>
-<p>As soon as you delete the subnet, in the <em>Subnets</em> tab you will see the
-message <em>No subnets found</em>.</p>
+<p>As soon as you delete the subnet, in the <em>Subnets</em> tab you will see the message <em>No subnets found</em>.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-07.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="No subnets" src="../assets/del-net/shot-07.png" /></a></p>
-<p>You can now delete the network. Click the three-dot icon (right-hand
-side of the network row) and select <em>Delete Network</em>.</p>
+<p>You can now delete the network.
+Click the three-dot icon (right-hand side of the network row) and select <em>Delete Network</em>.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete Carmacks" src="../assets/del-net/shot-08.png" /></a></p>
-<p>Of course, you will have to confirm this action. Clicking the red <em>Yes,
-Delete</em> button is enough.</p>
+<p>Of course, you will have to confirm this action.
+Clicking the red <em>Yes, Delete</em> button is enough.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm network delete" src="../assets/del-net/shot-09.png" /></a></p>
-<p>After deleting the network, it will not be on the list of all available
-networks.</p>
+<p>After deleting the network, it will not be on the list of all available networks.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="List of networks" src="../assets/del-net/shot-10.png" /></a></p>
-<p>There&rsquo;s still that router lying around, and if you have no use for it,
-go to the <em>Routers</em> page to delete it. In the vertical pane on the
-left, expand the <em>Networking</em> section and click on <em>Routers</em>. In the
-central pane of the page, you will see all routers in all regions you
-have access to.</p>
+<p>There&rsquo;s still that router lying around, and if you have no use for it, go to the <em>Routers</em> page to delete it.
+In the vertical pane on the left, expand the <em>Networking</em> section and click on <em>Routers</em>.
+In the central pane of the page, you will see all routers in all regions you have access to.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All routers" src="../assets/del-net/shot-11.png" /></a></p>
-<p>Click the red three-dot icon of the router you wish to delete and
-select <em>Delete Router</em>. A pop-up will appear asking for confirmation,
-so click the red <em>Yes, Delete</em> button.</p>
+<p>Click the red three-dot icon of the router you wish to delete and select <em>Delete Router</em>.
+A pop-up will appear asking for confirmation, so click the red <em>Yes, Delete</em> button.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm router delete" src="../assets/del-net/shot-12.png" /></a></p>
-<p>After successfully deleting the router, there will be no trace of it in
-the list of all routers.</p>
+<p>After successfully deleting the router, there will be no trace of it in the list of all routers.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Router is gone" src="../assets/del-net/shot-13.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -5757,8 +5720,8 @@ the list of all routers.</p>
 | fff47e997e7b                  |                 | f88292870c1d                   |               |
 +-------------------------------+-----------------+--------------------------------+---------------+
 </code></pre></div></p>
-<p>As you would expect, included on the list is subnet <code>carmacks-subnet</code>,
-which you are about to delete. That&rsquo;s easier said than done, though:</p>
+<p>As you would expect, included on the list is subnet <code>carmacks-subnet</code>, which you are about to delete.
+That&rsquo;s easier said than done, though:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>delete<span class="w"> </span><span class="nv">$SUBNET_ID</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Failed to delete subnet with name or ID &#39;7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5&#39;: ConflictException: 409:
@@ -5767,19 +5730,15 @@ Unable to complete operation on subnet 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5:
 One or more ports have an IP allocation from this subnet.
 1 of 1 subnets failed to delete.
 </code></pre></div></p>
-<p>The trick here is to first disconnect the subnet from the corresponding
-router, which is perfectly doable from the side of the router. As we
-discovered a bit earlier, the router we are talking about is
-<code>carmacks-router</code>:</p>
+<p>The trick here is to first disconnect the subnet from the corresponding router, which is perfectly doable from the side of the router.
+As we discovered a bit earlier, the router we are talking about is <code>carmacks-router</code>:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>remove<span class="w"> </span>subnet<span class="w"> </span>carmacks-router<span class="w"> </span><span class="nv">$SUBNET_ID</span>
 </code></pre></div>
-<p>If the command above is successful, you will see no output on your
-terminal. Now, an attempt to delete <code>carmacks-subnet</code> should go through
-with flying colors:</p>
+<p>If the command above is successful, you will see no output on your terminal.
+Now, an attempt to delete <code>carmacks-subnet</code> should go through with flying colors:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>delete<span class="w"> </span><span class="nv">$SUBNET_ID</span>
 </code></pre></div>
-<p>Again, no command output means success, but we suggest you check
-yourself:</p>
+<p>Again, no command output means success, but we suggest you check yourself:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------+---------------+---------------------------------+---------------+
@@ -5791,9 +5750,9 @@ yourself:</p>
 | fff47e997e7b                   |               | f88292870c1d                    |               |
 +--------------------------------+---------------+---------------------------------+---------------+
 </code></pre></div></p>
-<p>The subnet <code>carmacks-subnet</code> is not on the list, which is what you
-wanted exactly. Next is network <code>carmacks</code>, which you should be able to
-delete by now. First, take a look at all available networks:</p>
+<p>The subnet <code>carmacks-subnet</code> is not on the list, which is what you wanted exactly.
+Next is network <code>carmacks</code>, which you should be able to delete by now.
+First, take a look at all available networks:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
@@ -5805,9 +5764,8 @@ delete by now. First, take a look at all available networks:</p>
 | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
 +--------------------------------------+--------------+--------------------------------------+
 </code></pre></div></p>
-<p>Network <code>carmacks</code> is on the list, and by looking at the <code>Subnets</code>
-column, you see that it has no subnet. That&rsquo;s expected, so go ahead and
-delete the network:</p>
+<p>Network <code>carmacks</code> is on the list, and by looking at the <code>Subnets</code> column, you see that it has no subnet.
+That&rsquo;s expected, so go ahead and delete the network:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>delete<span class="w"> </span>carmacks
 </code></pre></div>
 <p>No command output signals success, but it never hurts to verify yourself:</p>
@@ -5821,8 +5779,7 @@ delete the network:</p>
 | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
 +--------------------------------------+--------------+--------------------------------------+
 </code></pre></div></p>
-<p>Network <code>carmacks</code> is gone, and if you have no use of
-<code>carmacks-router</code>, go ahead and delete it:</p>
+<p>Network <code>carmacks</code> is gone, and if you have no use of <code>carmacks-router</code>, go ahead and delete it:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>router<span class="w"> </span>delete<span class="w"> </span>carmacks-router
 </code></pre></div>
 <p>There is no output on the terminal, and yet the router is gone:</p>
@@ -5839,25 +5796,19 @@ delete the network:</p>
 </div>
 </div>
 <h2 id="networks-with-a-subnet-but-no-router">Networks with a subnet but no router</h2>
-<p>These are faster to delete, for there is no router to disconnect the
-subnet from. For our demonstration, we created network <code>teslin</code>, with
-subnet <code>teslin-subnet</code> and no router in front of it.</p>
+<p>These are faster to delete, for there is no router to disconnect the subnet from.
+For our demonstration, we created network <code>teslin</code>, with subnet <code>teslin-subnet</code> and no router in front of it.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>In the vertical pane on the left-hand side of the dashboard, expand the
-<em>Networking</em> section and click <em>Networks</em>. In the central pane of the
-page, you will see all networks in all regions you have access to.
-Select a network with a subnet and no router &mdash; like <code>teslin</code> in our
-example.</p>
-<p>Looking at the network details, it is immediately apparent that there&rsquo;s
-no router in front of it.</p>
+<p>In the vertical pane on the left-hand side of the dashboard, expand the <em>Networking</em> section and click <em>Networks</em>.
+In the central pane of the page, you will see all networks in all regions you have access to.
+Select a network with a subnet and no router &mdash; like <code>teslin</code> in our example.</p>
+<p>Looking at the network details, it is immediately apparent that there&rsquo;s no router in front of it.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="No router in sight" src="../assets/del-net/shot-14.png" /></a></p>
-<p>Go to the <em>Subnets</em> tab, and click the red circle-with-trashcan icon to
-delete the subnet.</p>
+<p>Go to the <em>Subnets</em> tab, and click the red circle-with-trashcan icon to delete the subnet.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete subnet" src="../assets/del-net/shot-15.png" /></a></p>
-<p>Then, click the red three-dot icon at the right-hand side of the
-<code>teslin</code> row, and select <em>Delete Network</em>.</p>
+<p>Then, click the red three-dot icon at the right-hand side of the <code>teslin</code> row, and select <em>Delete Network</em>.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete Teslin" src="../assets/del-net/shot-16.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -5884,12 +5835,11 @@ delete the subnet.</p>
 | fff47e997e7b                   |               | f88292870c1d                    |               |
 +--------------------------------+---------------+---------------------------------+---------------+
 </code></pre></div></p>
-<p>Since there is nothing to disconnect the <code>teslin-subnet</code> from, you may
-go ahead and delete the subnet:</p>
+<p>Since there is nothing to disconnect the <code>teslin-subnet</code> from, you may go ahead and delete the subnet:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>delete<span class="w"> </span>teslin-subnet
 </code></pre></div>
-<p>There is no command output. This is expected, but why not check
-yourself?</p>
+<p>There is no command output.
+This is expected, but why not check yourself?</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>subnet<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------------------------------+-------------+----------------------------------+---------------+
@@ -5902,8 +5852,8 @@ yourself?</p>
 <p>Finally, network <code>teslin</code> can go away with a single command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>delete<span class="w"> </span>teslin
 </code></pre></div>
-<p>The absence of any output means the command was successful. Take a look
-yourself:</p>
+<p>The absence of any output means the command was successful.
+Take a look yourself:</p>
 <p><div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+--------------------------------------+--------------+--------------------------------------+
@@ -5917,16 +5867,13 @@ yourself:</p>
 </div>
 </div>
 <h2 id="networks-with-no-subnet-and-no-router">Networks with no subnet and no router</h2>
-<p>You may directly, without the slightest preparation, delete networks
-like these. For our demonstration, we created a network named <code>mayo</code>,
-with no subnet and no router in front of it.</p>
+<p>You may directly, without the slightest preparation, delete networks like these.
+For our demonstration, we created a network named <code>mayo</code>, with no subnet and no router in front of it.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>While viewing all available networks, click the red three-dot icon at
-the right-hand side of the <code>mayo</code> row and select <em>Delete Network</em>. You
-will have to confirm the action, and the network will be gone as soon
-as you do.</p>
+<p>While viewing all available networks, click the red three-dot icon at the right-hand side of the <code>mayo</code> row and select <em>Delete Network</em>.
+You will have to confirm the action, and the network will be gone as soon as you do.</p>
 <p><a class="glightbox" href="../assets/del-net/shot-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete Mayo" src="../assets/del-net/shot-17.png" /></a></p>
 </div>
 <div class="tabbed-block">
@@ -5956,14 +5903,11 @@ as you do.</p>
 </div>
 </div>
 <h2 id="recap-of-networks-and-towns">Recap: Of networks and towns</h2>
-<p>Depending on the features of a Neutron network, deleting it may require
-some preparation work. For the purposes of this guide, we created three
-different networks with different characteristics; <code>carmacks</code>, <code>teslin</code>,
-and <code>mayo</code>. Then, either from the Cleura Cloud Management Panel or with the help of OpenStack
-CLI, we showed how we discover any component dependencies and how we
-work towards deletion. Eventually, all three test networks were gone.
-We should point out, though, that all three namesake towns in Yukon are
-still there.</p>
+<p>Depending on the features of a Neutron network, deleting it may require some preparation work.
+For the purposes of this guide, we created three different networks with different characteristics; <code>carmacks</code>, <code>teslin</code>, and <code>mayo</code>.
+Then, either from the Cleura Cloud Management Panel or with the help of OpenStack CLI, we showed how we discover any component dependencies and how we work towards deletion.
+Eventually, all three test networks were gone.
+We should point out, though, that all three namesake towns in Yukon are still there.</p>
 
 
 
@@ -5986,7 +5930,7 @@ still there.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2023 10:47:52 UTC">2023-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 4, 2025 05:20:09 UTC">2025-07-04</span>
   </span>
 
     
@@ -6006,11 +5950,11 @@ still there.</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas
     </nav>
   </span>
 
