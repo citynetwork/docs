@@ -1,36 +1,28 @@
 # Creating new networks
 
-Before creating a server in {{brand}}, you need at least
-one network to make the new server a member of. Since you may have
-more than one network per region, let us now walk through creating
-a new network using the {{gui}} or the OpenStack CLI.
+Before creating a server in {{brand}}, you need at least one network to make the new server a member of.
+Since you may have more than one network per region, let us now walk through creating a new network using the {{gui}} or the OpenStack CLI.
 
 ## Prerequisites
 
-Whether you choose to work from the {{gui}} or with the OpenStack CLI,
-you need to [have an account](../../getting-started/create-account.md)
-in {{brand}}. Additionally, to use the OpenStack CLI make sure to
-[enable it first](../../getting-started/enable-openstack-cli.md).
+Whether you choose to work from the {{gui}} or with the OpenStack CLI, you need to [have an account](../../getting-started/create-account.md) in {{brand}}.
+Additionally, to use the OpenStack CLI make sure to [enable it first](../../getting-started/enable-openstack-cli.md).
 
 ## Creating a network
 
-To create a network from the {{gui}}, fire up your favorite web
-browser, navigate to the [Cleura Cloud](https://{{gui_domain}}) start
-page, and login into your {{brand}} account. On the other hand, if you
-prefer to work with OpenStack CLI, please do not forget to source the
-RC file first.
+To create a network from the {{gui}}, fire up your favorite web browser, navigate to the [Cleura Cloud](https://{{gui_domain}}) start page, and login into your {{brand}} account.
+On the other hand, if you prefer to work with OpenStack CLI, please do not forget to source the RC file first.
 
 === "{{gui}}"
     On the top right-hand side of the {{gui}}, click the _Create_ button.
     A new pane will slide into view from the right-hand side of the browser window, titled _Create_.
-    You will notice several rounded boxes prominently displayed, each for defining, configuring, and instantiating a different {{brand}} object.
-    Go ahead and click the _Network_ box.
 
     ![Create a new object](assets/new-net-panel/shot-01.png)
 
-    A new pane titled _Create Network_ will slide over. At the top,
-    type in a name and select one of the available regions for the
-    new network.
+    You will notice several rounded boxes prominently displayed on that pane, each for defining, configuring, and instantiating a different {{brand}} object.
+    Go ahead and click the _Network_ box.
+    A new pane titled _Create Network_ will slide over.
+    At the top, type in a name and select one of the available regions for the new network.
 
     ![New network name and region](assets/new-net-panel/shot-02.png)
 === "OpenStack CLI"
@@ -41,8 +33,7 @@ RC file first.
     openstack network create nordostbahnhof
     ```
 
-    After issuing the command above, you immediately get information
-    regarding the new network:
+    After issuing the command above, you immediately get information regarding the new network:
 
     ```plain
     +---------------------------+--------------------------------------+
@@ -80,16 +71,11 @@ RC file first.
 
 ## Adding a subnet and a router
 
-Creating a new network does not necessarily mean it has all the
-features you most likely would expect. Unless you work from the
-{{gui}}, where almost every component is activated for you with
-a few clicks here and there, when you use the OpenStack CLI there is
-some extra work you need to do before you get a network you would
-characterize as useful.
+Creating a new network does not necessarily mean it has all the features you most likely would expect.
+Unless you work from the {{gui}}, where almost every component is activated for you with a few clicks here and there, when you use the OpenStack CLI there is some extra work you need to do before you get a network you would characterize as useful.
 
 === "{{gui}}"
-    Expand the _Advanced Options_ section below, make sure _Port Security_
-    is enabled, and leave the MTU parameter blank.
+    Expand the _Advanced Options_ section below, make sure _Port Security_ is enabled, and leave the MTU parameter blank.
 
     ![MTU and port security](assets/new-net-panel/shot-03.png)
 
@@ -120,10 +106,9 @@ characterize as useful.
 
     ![IPv6-based network parameters](assets/new-net-panel/shot-04-toronto.png)
 
-    Scroll down a bit if you have to. Assuming you want your cloud
-    servers to reach hosts on the Internet, for the _External network_
-    parameter make sure you select _ext-net_. Then, click the green
-    _Create_ button.
+    Scroll down a bit if you have to.
+    Assuming you want your cloud servers to reach hosts on the Internet, for the _External network_ parameter make sure you select _ext-net_.
+    Then, click the green _Create_ button.
     In a few seconds, the new network will be readily available.
 
     ![Finish creating network](assets/new-net-panel/shot-05.png)
@@ -221,10 +206,8 @@ characterize as useful.
     +----------------------+-----------------------------------------------------------------+
     ```
 
-    If you want servers connected to the `nordostbahnhof` network to have
-    Internet access, you need a router in front of the network. Following
-    our unofficial naming convention, go ahead and create a new router
-    called `nordostbahnhof-router`:
+    If you want servers connected to the `nordostbahnhof` network to have Internet access, you need a router in front of the network.
+    Following our unofficial naming convention, go ahead and create a new router called `nordostbahnhof-router`:
 
     ```bash
     openstack router create nordostbahnhof-router 
@@ -259,17 +242,15 @@ characterize as useful.
     +---------------------------+--------------------------------------+
     ```
 
-    You want the `nordostbahnhof-router` connected to the external
-    network. The name of this network is `ext-net`:
+    You want the `nordostbahnhof-router` connected to the external network.
+    The name of this network is `ext-net`:
 
     ```bash
     openstack router set nordostbahnhof-router --external-gateway ext-net
     ```
 
-    Please note that if the command above is successful, you will get
-    no output on your terminal. There is one last step to take, and
-    that is to connect router `nordostbahnhof-router` to the subnet
-    `nordostbahnhof-subnet-ipv4`...
+    Please note that if the command above is successful, you will get no output on your terminal.
+    There is one last step to take, and that is to connect router `nordostbahnhof-router` to the subnet `nordostbahnhof-subnet-ipv4`...
 
     ```bash
     openstack router add subnet nordostbahnhof-router nordostbahnhof-subnet-ipv4
@@ -285,15 +266,11 @@ characterize as useful.
 
 ## Listing networks and getting information
 
-At any time, you may connect to the {{gui}}, list all networks
-you have already created, and get detailed information for any of
-these networks. Alternatively, you may get all that information using
-the OpenStack CLI.
+At any time, you may connect to the {{gui}}, list all networks you have already created, and get detailed information for any of these networks.
+Alternatively, you may get all that information using the OpenStack CLI.
 
 === "{{gui}}"
-    You may see all defined networks, in all supported regions, by
-    selecting _Networking_ > _Networks_ (see the left-hand side pane
-    on the {{gui}}).
+    You may see all defined networks, in all supported regions, by selecting _Networking_ > _Networks_ (see the left-hand side pane on the {{gui}}).
 
     ![All networks in all regions](assets/new-net-panel/shot-06.png)
 
@@ -317,8 +294,8 @@ the OpenStack CLI.
     +--------------------------------------+----------------+--------------------------------------+
     ```
 
-    You can always ask for more specific results. For instance, to see
-    all internal networks only, type the following:
+    You can always ask for more specific results.
+    For instance, to see all internal networks only, type the following:
 
     ```console
     $ openstack network list --internal
@@ -367,7 +344,4 @@ the OpenStack CLI.
     +---------------------------+--------------------------------------+
     ```
 
-    At any time, type `openstack network list --help` or
-    `openstack network show --help` to see how to get information
-    regarding networks, and what specific pieces of information you
-    can have.
+    At any time, type `openstack network list --help` or `openstack network show --help` to see how to get information regarding networks, and what specific pieces of information you can have.

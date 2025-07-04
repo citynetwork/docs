@@ -1,23 +1,17 @@
 # Assigning multiple public (floating) IPs to a server
 
-In {{brand}}, we do not pass external networks to the compute nodes. This means
-that you, as a user, can not directly attach a server to the public network.
+In {{brand}}, we do not pass external networks to the compute nodes.
+This means that you, as a user, can not directly attach a server to the public network.
 
-In order to provide connectivity to the public network (for IPv4), you need to use
-floating IPs. A floating IP is created in the public subnet,
-and is mapped to the specific network port. All traffic comes through a virtual
-router.
+In order to provide connectivity to the public network (for IPv4), you need to use floating IPs.
+A floating IP is created in the public subnet, and is mapped to the specific network port.
+All traffic comes through a virtual router.
 
-For some scenarios, you might need to have more than one public IP assigned to
-a server. But in case of 1-to-1 NAT (which is how the floating IP is implemented
-under the hood) you can not assign more than one external IP to the internal
-one. And adding a new port to the VM is also not an option, since this would
-result in asymmetric routing, as replies will go through the first interface
-for which a default route is set.
+For some scenarios, you might need to have more than one public IP assigned to a server.
+But in case of 1-to-1 NAT (which is how the floating IP is implemented under the hood) you can not assign more than one external IP to the internal one.
+And adding a new port to the VM is also not an option, since this would result in asymmetric routing, as replies will go through the first interface for which a default route is set.
 
-Instead, you must first configure an additional *private* (“fixed”) IP
-address for your port, then associate a public (“floating”) IP address
-to map to it.
+Instead, you must first configure an additional *private* (“fixed”) IP address for your port, then associate a public (“floating”) IP address to map to it.
 
 
 ## Add an extra IP to the port
@@ -65,8 +59,8 @@ $ openstack port show 51dae637-ad79-4ba9-9e41-78e5e0f3332c -c fixed_ips
 
 > Don't forget to configure new IP as an alias to the interface inside your VM!
 
-When you have an IP address on your port that is not yet assigned to any
-floating IP, you can assign it to the new floating IP. Proceed with:
+When you have an IP address on your port that is not yet assigned to any floating IP, you can assign it to the new floating IP.
+Proceed with:
 
 ```bash
 openstack floating ip set c45a5eaf-2f3a-4679-89fe-266a5cbe840a \
@@ -74,8 +68,7 @@ openstack floating ip set c45a5eaf-2f3a-4679-89fe-266a5cbe840a \
   --fixed-ip-address 10.2.0.228
 ```
 
-Then, list the floating (public) IP addresses, together with their
-fixed (private) counterparts:
+Then, list the floating (public) IP addresses, together with their fixed (private) counterparts:
 
 
 ```console

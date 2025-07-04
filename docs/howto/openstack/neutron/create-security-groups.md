@@ -1,17 +1,12 @@
 # Creating security groups
 
-[By definition](https://docs.openstack.org/nova/latest/admin/security-groups.html),
-security groups are _"[...] sets of IP filter rules that are applied
-to all project instances, which define networking access to the
-instance. Group rules are project specific; project members can edit
-the default rules for their group and add new rule sets."_
+[By definition](https://docs.openstack.org/nova/latest/admin/security-groups.html), security groups are _"[...] sets of IP filter rules that are applied to all project instances, which define networking access to the instance.
+Group rules are project specific; project members can edit the default rules for their group and add new rule sets."_
 
 ## Creating a security group
 
-Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into
-your {{brand}} account. On the other hand, if you prefer to work with
-the OpenStack CLI, please do not forget
-to [source the RC file first](../../getting-started/enable-openstack-cli.md).
+Navigate to the [{{gui}}](https://{{gui_domain}}) page, and log into your {{brand}} account.
+On the other hand, if you prefer to work with the OpenStack CLI, please do not forget to [source the RC file first](../../getting-started/enable-openstack-cli.md).
 
 === "{{gui}}"
     To create a security group, first make sure the left-hand side vertical pane is fully visible.
@@ -33,8 +28,7 @@ to [source the RC file first](../../getting-started/enable-openstack-cli.md).
     openstack security group create <name>
     ```
 
-    When the command is executed successfully, you will get
-    information regarding your new security group:
+    When the command is executed successfully, you will get information regarding your new security group:
 
     ```plain
     +-----------------+--------------------------------------------------------------------------------+
@@ -72,8 +66,7 @@ All traffic to any destination (egress) is allowed by default.
     ![List of rules in the default security group](assets/create-security-groups/default-rules.png)
 
 === "OpenStack CLI"
-    View the details of the `default` security group using the
-    following command:
+    View the details of the `default` security group using the following command:
 
     ```bash
     openstack security group show default
@@ -116,9 +109,7 @@ All traffic to any destination (egress) is allowed by default.
     +-----------------+--------------------------------------------------------------------------------+
     ```
 
-If you want to restrict the ingress rules to disallow access from
-other servers and ports in the group, you need to
-**remove the default two ingress rules.**
+If you want to restrict the ingress rules to disallow access from other servers and ports in the group, you need to **remove the default two ingress rules.**
 
 === "{{gui}}"
     Click each of the red :material-delete-circle: buttons on the right-hand side of the **IPv4 ingress** and also of the **IPv6 ingress** rows.
@@ -362,5 +353,4 @@ Next, create the rules that allow anyone to access a server on **port 80** and *
 
 All the rules for a simple web server are now in place.
 
-For any additional protocol or ingress rule, simply follow the same
-procedure as above.
+For any additional protocol or ingress rule, simply follow the same procedure as above.
