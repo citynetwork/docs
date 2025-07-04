@@ -5474,22 +5474,14 @@
 
 <h1 id="creating-new-servers">Creating new servers</h1>
 <p>Once you have an <a href="../../../getting-started/create-account/">account in
-Cleura Cloud</a>, you can create
-virtual machines &mdash; henceforth simply <em>servers</em> &mdash; using either the
-Cleura Cloud Management Panel or the OpenStack CLI. Let us demonstrate the creation of a new
-server, following both approaches.</p>
+Cleura Cloud</a>, you can create virtual machines &mdash; henceforth simply <em>servers</em> &mdash; using either the Cleura Cloud Management Panel or the OpenStack CLI.
+Let us demonstrate the creation of a new server, following both approaches.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>You need to <a href="../../neutron/new-network/">have at least one
-network</a> in the region you are
-interested in. Additionally, if you prefer to work with the OpenStack
-CLI, then make sure to properly <a href="../../../getting-started/enable-openstack-cli/">enable it
-first</a>.</p>
+<p>You need to <a href="../../neutron/new-network/">have at least one network</a> in the region you are interested in.
+Additionally, if you prefer to work with the OpenStack CLI, then make sure to properly <a href="../../../getting-started/enable-openstack-cli/">enable it first</a>.</p>
 <h2 id="creating-a-server">Creating a server</h2>
-<p>To create a server from the Cleura Cloud Management Panel, fire up your favorite web
-browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page,
-and log into your Cleura Cloud account. On the other hand, if you prefer
-to work with the OpenStack CLI, please do not forget to <a href="../../../getting-started/enable-openstack-cli/">source the RC
-file first</a>.</p>
+<p>To create a server from the Cleura Cloud Management Panel, fire up your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your Cleura Cloud account.
+On the other hand, if you prefer to work with the OpenStack CLI, please do not forget to <a href="../../../getting-started/enable-openstack-cli/">source the RC file first</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5575,8 +5567,7 @@ Click the green <em>Create</em> button, and the new server will be readily avail
 <p><a class="glightbox" href="../assets/new-server/shot-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Initiate server creation process" src="../assets/new-server/shot-13.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>An <code>openstack</code> command for creating a server may look like
-this:</p>
+<p>An <code>openstack</code> command for creating a server may look like this:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--flavor<span class="w"> </span><span class="nv">$FLAVOR_NAME</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--image<span class="w"> </span><span class="nv">$IMAGE_NAME</span><span class="w"> </span><span class="se">\</span>
@@ -5587,39 +5578,34 @@ this:</p>
 <span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="nv">$SERVER_NAME</span>
 </code></pre></div>
-<p>Each variable represents a piece of information we have to look
-for or, in the cases of <code>KEY_NAME</code> and <code>SERVER_NAME</code>, arbitrarily
-define.</p>
-<p>Let us begin with the <a href="../../../../reference/flavors/"><em>flavors</em></a> (<code>FLAVOR_NAME</code>), which
-describe combinations of CPU core count and memory size. Each server has a
-distinct flavor, and to see all available flavors type:</p>
+<p>Each variable represents a piece of information we have to look for or, in the cases of <code>KEY_NAME</code> and <code>SERVER_NAME</code>, arbitrarily define.</p>
+<p>Let us begin with the <a href="../../../../reference/flavors/"><em>flavors</em></a> (<code>FLAVOR_NAME</code>), which describe combinations of CPU core count and memory size.
+Each server has a distinct flavor, and to see all available flavors type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>flavor<span class="w"> </span>list
 </code></pre></div>
-<p>You will get a pretty long list of flavors. For our demonstration,
-we suggest you go with <code>b.1c1gb</code>. A server with this particular flavor will
-have one CPU core and one
-<a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibyte</a> of
-RAM. Go ahead and set <code>FLAVOR_NAME</code> accordingly:</p>
+<p>You will get a pretty long list of flavors.
+For our demonstration, we suggest you go with <code>b.1c1gb</code>.
+A server with this particular flavor will have one CPU core and one <a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibyte</a> of RAM.
+Go ahead and set <code>FLAVOR_NAME</code> accordingly:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">FLAVOR_NAME</span><span class="o">=</span><span class="s2">&quot;b.1c1gb&quot;</span>
 </code></pre></div>
 <p>Your server should have an image to boot off of (<code>IMAGE_NAME</code>).
 For a list of all available images in Cleura Cloud, type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list
 </code></pre></div>
-<p>This time, you get a shorter list, but you can still filter for
-images with the OS you prefer. For example, filter for Ubuntu:</p>
+<p>This time, you get a shorter list, but you can still filter for images with the OS you prefer.
+For example, filter for Ubuntu:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>--tag<span class="w"> </span><span class="s2">&quot;os:ubuntu&quot;</span>
 </code></pre></div>
 <p>Continue with the <code>Ubuntu 24.04 Noble Numbat x86_64</code> image:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">IMAGE_NAME</span><span class="o">=</span><span class="s2">&quot;Ubuntu 24.04 Noble Numbat x86_64&quot;</span>
 </code></pre></div>
-<p>Before you go on, decide on the capacity (in gibibytes) of the server&rsquo;s
-boot volume (<code>VOL_SIZE</code>). We suggest you start with 10 gibibytes:</p>
+<p>Before you go on, decide on the capacity (in gibibytes) of the server&rsquo;s boot volume (<code>VOL_SIZE</code>).
+We suggest you start with 10 gibibytes:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">VOL_SIZE</span><span class="o">=</span><span class="s2">&quot;10&quot;</span>
 </code></pre></div>
-<p>You need at least one network in the region you&rsquo;re about to
-create your new server (<code>NETWORK_NAME</code>). To get the names of all
-available (internal) networks, type:</p>
+<p>You need at least one network in the region you&rsquo;re about to create your new server (<code>NETWORK_NAME</code>).
+To get the names of all available (internal) networks, type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal<span class="w"> </span>-c<span class="w"> </span>Name
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+----------------+
@@ -5631,8 +5617,7 @@ available (internal) networks, type:</p>
 <p>Set the <code>NETWORK_NAME</code> variable accordingly:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">NETWORK_NAME</span><span class="o">=</span><span class="s2">&quot;nordostbahnhof&quot;</span>
 </code></pre></div>
-<p>Regarding the security group (<code>SEC_GROUP_NAME</code>), unless you
-have already created one yourself, you will find only one per region:</p>
+<p>Regarding the security group (<code>SEC_GROUP_NAME</code>), unless you have already created one yourself, you will find only one per region:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-c<span class="w"> </span>Description
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------+------------------------+
@@ -5644,15 +5629,12 @@ have already created one yourself, you will find only one per region:</p>
 <p>Go ahead and set <code>SEC_GROUP_NAME</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">SEC_GROUP_NAME</span><span class="o">=</span><span class="s2">&quot;default&quot;</span>
 </code></pre></div>
-<p>You most likely want a server you can remotely connect to via
-SSH without typing a password. Upload one of our public keys to your
-Cleura Cloud account:</p>
+<p>You most likely want a server you can remotely connect to via SSH without typing a password.
+Upload one of our public keys to your Cleura Cloud account:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>create<span class="w"> </span>--public-key<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>bahnhof
 </code></pre></div>
-<p>In the example above, we uploaded the public key
-<code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named
-it <code>bahnhof</code>. Follow our example, and do not forget to set the
-<code>KEY_NAME</code>:</p>
+<p>In the example above, we uploaded the public key <code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named it <code>bahnhof</code>.
+Follow our example, and do not forget to set the <code>KEY_NAME</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">KEY_NAME</span><span class="o">=</span><span class="s2">&quot;bahnhof&quot;</span>
 </code></pre></div>
 <p>By the way, check all uploaded public keys&hellip;</p>
@@ -5661,8 +5643,7 @@ it <code>bahnhof</code>. Follow our example, and do not forget to set the
 <p>&hellip;and get more information regarding the one you just uploaded:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>show<span class="w"> </span><span class="nv">$KEY_NAME</span>
 </code></pre></div>
-<p>You are almost ready to create your new server. Decide on a
-name&hellip;</p>
+<p>You are almost ready to create your new server. Decide on a name&hellip;</p>
 <div class="highlight"><pre><span></span><code><span class="nv">SERVER_NAME</span><span class="o">=</span><span class="s2">&quot;zug&quot;</span><span class="w"> </span><span class="c1"># just an example</span>
 </code></pre></div>
 <p>&hellip;and then go ahead and create it:</p>
@@ -5676,11 +5657,9 @@ name&hellip;</p>
 <span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>zug
 </code></pre></div>
-<p>(For clarity&rsquo;s sake, and with the exception of <code>$IMAGE_NAME</code>, we
-used the actual values and not the variables we so meticulously set.)
-The <code>--wait</code> parameter is optional. Whenever you choose to
-use it, you get back control of your terminal only after the server is
-readily available in Cleura Cloud.</p>
+<p>(For clarity&rsquo;s sake, and with the exception of <code>$IMAGE_NAME</code>, we used the actual values and not the variables we so meticulously set.)
+The <code>--wait</code> parameter is optional.
+Whenever you choose to use it, you get back control of your terminal only after the server is readily available in Cleura Cloud.</p>
 <p>The network your server is attached to might be dual-stack, or it might have an IPv4-based subnet.
 If this is the case and, additionally, you want the server to be reachable via a public IPv4 address, then you need to create a floating IP and assign it to your server.
 First, create the floating IP:</p>
@@ -5692,9 +5671,7 @@ First, create the floating IP:</p>
 <p>&hellip;and assign the one you just created to your server:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>zug<span class="w"> </span><span class="m">198</span>.51.100.12
 </code></pre></div>
-<p>The username of the default user account in the Ubuntu image is
-<code>ubuntu</code>, so now you can connect to your remote server via SSH without
-typing a password:</p>
+<p>The username of the default user account in the Ubuntu image is <code>ubuntu</code>, so now you can connect to your remote server via SSH without typing a password:</p>
 <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>ubuntu@198.51.100.12
 </code></pre></div>
 <p>Alternatively, you may also use the following command, which is more flexible though slightly longer:</p>
@@ -5734,12 +5711,11 @@ Please note that this window cannot be resized but can be opened in a new browse
 <p><a class="glightbox" href="../assets/new-server/shot-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="View and use server console" src="../assets/new-server/shot-16.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>You may have access to the web console of your server, and you need the
-corresponding URL for it:</p>
+<p>You may have access to the web console of your server, and you need the corresponding URL for it:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>console<span class="w"> </span>url<span class="w"> </span>show<span class="w"> </span>zug
 </code></pre></div>
-<p>Usage of the web console is discouraged, though. Instead,
-securely connect to your server via SSH.</p>
+<p>Usage of the web console is discouraged, though.
+Instead, securely connect to your server via SSH.</p>
 </div>
 </div>
 </div>
@@ -5765,7 +5741,7 @@ securely connect to your server via SSH.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="June 17, 2025 14:11:59 UTC">2025-06-17</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 4, 2025 14:38:40 UTC">2025-07-04</span>
   </span>
 
     

@@ -5455,45 +5455,30 @@
 
 
 <h1 id="rescuing-a-server">Rescuing a server</h1>
-<p>This guide will walk you through the required steps to access a server
-in
-<a href="https://docs.openstack.org/nova/latest/user/rescue.html">rescue mode</a>
-when you need to.</p>
-<p>You can use rescue mode to access the server’s operating system disk
-to fix a corrupted file system, reset access credentials on the
-server, and do other emergency recovery tasks.</p>
+<p>This guide will walk you through the required steps to access a server in <a href="https://docs.openstack.org/nova/latest/user/rescue.html">rescue mode</a> when you need to.</p>
+<p>You can use rescue mode to access the server’s operating system disk to fix a corrupted file system, reset access credentials on the server, and do other emergency recovery tasks.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>You need to have previously <a href="../new-server/">created a server</a> that you
-now wish to rescue. Additionally, if you prefer to work with the
-OpenStack CLI, then make sure to properly <a href="../../../getting-started/enable-openstack-cli/">enable it
-first</a>.</p>
+<p>You need to have previously <a href="../new-server/">created a server</a> that you now wish to rescue.
+Additionally, if you prefer to work with the OpenStack CLI, then make sure to properly <a href="../../../getting-started/enable-openstack-cli/">enable it first</a>.</p>
 <h2 id="initiating-the-rescue">Initiating the rescue</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Navigate to the server list.</p>
-<p><img alt="The left hand side navigation panel, with the word &quot;Servers&quot;
-highlighted." src="../assets/rescue-server/01-left-side-panel.png" /></p>
-<p>Find the server you want to rescue in the list, and on the
-right-hand side, click on its menu button.</p>
-<p><img alt="An orange circle with three white
-dots." src="../assets/rescue-server/02-menu-button.png" /></p>
+<p><a class="glightbox" href="../assets/rescue-server/01-left-side-panel.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The left hand side navigation panel, with the word &quot;Servers&quot; highlighted." src="../assets/rescue-server/01-left-side-panel.png" /></a></p>
+<p>Find the server you want to rescue in the list, and on the right-hand side, click on its menu button.</p>
+<p><a class="glightbox" href="../assets/rescue-server/02-menu-button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="An orange circle with three white dots." src="../assets/rescue-server/02-menu-button.png" /></a></p>
 <p>Click on <em>Rescue Server</em>.</p>
-<p><img alt="A list of server actions, with the line &quot;Rescue Server&quot;
-highlighted." src="../assets/rescue-server/03-menu-list.png" /></p>
+<p><a class="glightbox" href="../assets/rescue-server/03-menu-list.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A list of server actions, with the line &quot;Rescue Server&quot; highlighted." src="../assets/rescue-server/03-menu-list.png" /></a></p>
 <p>Once selected, the rescue dialog appears.
 Leave the default option, <em>Use System Rescue Image</em>.</p>
 <p>Click <em>No</em> to cancel or <em>Rescue</em> to proceed.</p>
-<p><img alt="About to rescue a server, showing details with the default option
-&quot;Use System Rescue Image&quot;." src="../assets/rescue-server/04-rescue-button.png" /></p>
-<p>When a server has been switched to rescue mode, its status icon
-appears with an exclamation mark:</p>
-<p><img alt="Exclamation mark on server icon showing the server on &quot;rescue
-mode&quot;." src="../assets/rescue-server/05-rescue-mode.png" /></p>
+<p><a class="glightbox" href="../assets/rescue-server/04-rescue-button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="About to rescue a server, showing details with the default option &quot;Use System Rescue Image&quot;." src="../assets/rescue-server/04-rescue-button.png" /></a></p>
+<p>When a server has been switched to rescue mode, its status icon appears with an exclamation mark:</p>
+<p><a class="glightbox" href="../assets/rescue-server/05-rescue-mode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Exclamation mark on server icon showing the server on &quot;rescue mode&quot;." src="../assets/rescue-server/05-rescue-mode.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>You must first select a system rescue image from the available
-images:</p>
+<p>You must first select a system rescue image from the available images:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>--tag<span class="w"> </span>system-rescue
 <span class="go">+--------------------------------------+---------------+--------+</span>
 <span class="go">| ID                                   | Name          | Status |</span>
@@ -5501,16 +5486,12 @@ images:</p>
 <span class="go">| cb2217f3-1ca7-4440-b10e-df7ff2d92cae | system-rescue | active |</span>
 <span class="go">+--------------------------------------+---------------+--------+</span>
 </code></pre></div>
-<p>To start the server using the system rescue image, use the
-following command, substituting the correct ID for the
-<code>system-rescue</code> image in your Cleura Cloud region:</p>
+<p>To start the server using the system rescue image, use the following command, substituting the correct ID for the <code>system-rescue</code> image in your Cleura Cloud region:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>--os-compute-api-version<span class="w"> </span><span class="m">2</span>.87<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>server<span class="w"> </span>rescue<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--image<span class="w"> </span>cb2217f3-1ca7-4440-b10e-df7ff2d92cae<span class="w"> </span>&lt;server_id&gt;
 </code></pre></div>
-<p>While the rescue is ongoing, the server should have the
-<code>OS-EXT-STS:vm_state</code> of <code>rescued</code> and the <code>status</code> of
-<code>RESCUE</code>.</p>
+<p>While the rescue is ongoing, the server should have the <code>OS-EXT-STS:vm_state</code> of <code>rescued</code> and the <code>status</code> of <code>RESCUE</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>-v<span class="w"> </span>OS-EXT-STS:vm_state<span class="w"> </span>-c<span class="w"> </span>status<span class="w"> </span>&lt;server_id&gt;
 <span class="go">+---------------------+---------+</span>
 <span class="go">| Field               | Value   |</span>
@@ -5523,13 +5504,8 @@ following command, substituting the correct ID for the
 </div>
 </div>
 <h2 id="accessing-the-server-in-rescue-mode">Accessing the server in rescue mode</h2>
-<p>You can now proceed to accessing the remote console of your server,
-<a href="../new-server/#connecting-to-the-server-console">as you would with any other newly launched
-server</a>.</p>
-<p>Please refer to the <a href="https://www.system-rescue.org/manual/">System Rescue
-documentation</a> documentation
-for details on the available tools and features bundled with System
-Rescue.</p>
+<p>You can now proceed to accessing the remote console of your server, <a href="../new-server/#connecting-to-the-server-console">as you would with any other newly launched server</a>.</p>
+<p>Please refer to the <a href="https://www.system-rescue.org/manual/">System Rescue documentation</a> documentation for details on the available tools and features bundled with System Rescue.</p>
 
 
 
@@ -5552,7 +5528,7 @@ Rescue.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 14, 2023 14:19:20 UTC">2023-12-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 4, 2025 14:38:40 UTC">2025-07-04</span>
   </span>
 
     
@@ -5576,7 +5552,7 @@ Rescue.</p>
       
     </span>
     <nav>
-      Florian Haas, Hosam Al Ali
+      Christos Varelas, Florian Haas, Hosam Al Ali
     </nav>
   </span>
 

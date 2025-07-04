@@ -5419,34 +5419,24 @@
 
 
 <h1 id="restoring-a-server-to-a-snapshot">Restoring a server to a snapshot</h1>
-<p>Servers in Cleura Cloud that have the <a href="../../../../background/disaster-recovery/">disaster
-recovery</a> feature enabled can go back in
-time, meaning you may restore such a server to one of the available
-point-in-time snapshots. Here is how you can do that.</p>
+<p>Servers in Cleura Cloud that have the <a href="../../../../background/disaster-recovery/">disaster recovery</a> feature enabled can go back in time, meaning you may restore such a server to one of the available point-in-time snapshots.
+Here is how you can do that.</p>
 <h2 id="how-to-restore-step-by-step">How to restore, step by step</h2>
-<p>To select a particular snapshot and restore your server to it, first
-off, navigate to the Cleura Cloud Management Panel. From the left-hand side vertical pane,
-choose Compute → <a href="https://cleura.cloud/compute/servers">Servers</a>, then
-expand the detailed view of the server of interest. Select the <em>Disaster
-Recovery</em> tab and see all available snapshots listed below. For each one
-of those, the date and creation time are visible.</p>
-<p><img alt="All available snapshots for selected
-server" src="../assets/rest-srv-to-snap/disaster-recovery-available-snaps.png" /></p>
-<p>Click on the snapshot you want. A pop-up window will appear, asking for
-your permission to proceed. Make sure this is indeed the snapshot you
-want, then click the red button labeled <em>Yes, Restore snapshot</em>.</p>
-<p><img alt="Asking for permission to restore
-snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-permission-to-proceed.png" /></p>
-<p>The restore process will begin immediately. You can tell it is
-progressing by checking the status.</p>
-<p><img alt="Snapshot recovery in
-progress" src="../assets/rest-srv-to-snap/disaster-recovery-recover-in-progress.png" /></p>
-<p>As soon as the snapshot is ready to be used, you will see a message
-indicating that it has started. Do not forget to activate the server;
-click on its row to select it, then click the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80v352c0 17.4 9.4 33.4 24.5 41.9S58.2 482 73 473l288-176c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41z"/></svg></span>
-button above.</p>
-<p><img alt="Start server to the
-snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-boot-from-snapshot.png" /></p>
+<p>To select a particular snapshot and restore your server to it, first off, navigate to the Cleura Cloud Management Panel.
+From the left-hand side vertical pane, choose Compute → <a href="https://cleura.cloud/compute/servers">Servers</a>, then expand the detailed view of the server of interest.
+Select the <em>Disaster Recovery</em> tab and see all available snapshots listed below.
+For each one of those, the date and creation time are visible.</p>
+<p><a class="glightbox" href="../assets/rest-srv-to-snap/disaster-recovery-available-snaps.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All available snapshots for selected server" src="../assets/rest-srv-to-snap/disaster-recovery-available-snaps.png" /></a></p>
+<p>Click on the snapshot you want.
+A pop-up window will appear, asking for your permission to proceed.
+Make sure this is indeed the snapshot you want, then click the red button labeled <em>Yes, Restore snapshot</em>.</p>
+<p><a class="glightbox" href="../assets/rest-srv-to-snap/disaster-recovery-permission-to-proceed.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Asking for permission to restore snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-permission-to-proceed.png" /></a></p>
+<p>The restore process will begin immediately.
+You can tell it is progressing by checking the status.</p>
+<p><a class="glightbox" href="../assets/rest-srv-to-snap/disaster-recovery-recover-in-progress.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Snapshot recovery in progress" src="../assets/rest-srv-to-snap/disaster-recovery-recover-in-progress.png" /></a></p>
+<p>As soon as the snapshot is ready to be used, you will see a message indicating that it has started.
+Do not forget to activate the server; click on its row to select it, then click the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80v352c0 17.4 9.4 33.4 24.5 41.9S58.2 482 73 473l288-176c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41z"/></svg></span> button above.</p>
+<p><a class="glightbox" href="../assets/rest-srv-to-snap/disaster-recovery-boot-from-snapshot.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start server to the snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-boot-from-snapshot.png" /></a></p>
 
 
 
@@ -5469,7 +5459,7 @@ snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-boot-from-snapshot.p
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 18, 2023 08:32:03 UTC">2023-08-18</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 4, 2025 14:38:40 UTC">2025-07-04</span>
   </span>
 
     

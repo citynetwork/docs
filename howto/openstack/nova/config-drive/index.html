@@ -5456,52 +5456,36 @@
 
 <h1 id="launching-a-server-with-a-configuration-drive">Launching a server with a configuration drive</h1>
 <h2 id="background-openstack-metadata-discovery">Background: OpenStack metadata discovery</h2>
-<p>OpenStack Compute uses metadata to inject custom configurations to
-servers on boot. You can add custom scripts, install packages, and
-add SSH keys to the servers using metadata.</p>
-<p>By default, metadata discovery in Cleura Cloud uses an HTTP
-data source that booting servers connect to. Sometimes, this is
-undesirable or — for specific server/networking configurations —
-unreliable. Under those circumstances, you can use an alternate
-configuration source.</p>
+<p>OpenStack Compute uses metadata to inject custom configurations to servers on boot.
+You can add custom scripts, install packages, and add SSH keys to the servers using metadata.</p>
+<p>By default, metadata discovery in Cleura Cloud uses an HTTP data source that booting servers connect to.
+Sometimes, this is undesirable or — for specific server/networking configurations — unreliable.
+Under those circumstances, you can use an alternate configuration source.</p>
 <h2 id="store-metadata-on-a-configuration-drive">Store metadata on a configuration drive</h2>
-<p>A <strong>configuration drive</strong> (config drive) is a read-only virtual drive
-that gets attached to a server during boot. The server can then
-mount the drive and read files from it. Configuration drives are used
-as a data source for
-<a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a>.</p>
+<p>A <strong>configuration drive</strong> (config drive) is a read-only virtual drive that gets attached to a server during boot.
+The server can then mount the drive and read files from it.
+Configuration drives are used as a data source for <a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init</a>.</p>
 <h2 id="enable-the-configuration-drive-on-server-creation">Enable the configuration drive on server creation</h2>
-<p>Follow our <a href="../new-server/">How-To guide</a> to create your new cloud server
-using either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
+<p>Follow our <a href="../new-server/">How-To guide</a> to create your new cloud server using either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>When you are done configuring the server, right before creating it
-notice the icon on the left-hand side of <em>Advanced Options</em>. Click on it
-to expand all related options.</p>
+<p>When you are done configuring the server, right before creating it notice the icon on the left-hand side of <em>Advanced Options</em>.
+Click on it to expand all related options.</p>
 <p><a class="glightbox" href="../assets/config-drive/shot-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Expand advanced configuration options" src="../assets/config-drive/shot-01.png" /></a></p>
-<p>In the <em>User-Data</em> area, you see everything that will be executed upon
-server boot.</p>
-<p>Right below, in the <em>User-data propagation method</em> area, the <em>Use
-metadata service (Default)</em> option is preselected for you. To opt for
-the alternative metadata discovery method, select <em>Use configuration
-drive</em>.</p>
+<p>In the <em>User-Data</em> area, you see everything that will be executed upon server boot.</p>
+<p>Right below, in the <em>User-data propagation method</em> area, the <em>Use metadata service (Default)</em> option is preselected for you.
+To opt for the alternative metadata discovery method, select <em>Use configuration drive</em>.</p>
 <p><a class="glightbox" href="../assets/config-drive/shot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select the configuration drive method" src="../assets/config-drive/shot-02.png" /></a></p>
 <p>Then, instantiate the server by clicking the green <em>Create</em> button.</p>
-<p>Once the server is ready, you may see what happened during configuration
-by examining the console log. In the Cleura Cloud Management Panel, click on the server line
-to get an extended view of its characteristics, and then click once more
-on the <em>Console Output</em> tab.</p>
+<p>Once the server is ready, you may see what happened during configuration by examining the console log.
+In the Cleura Cloud Management Panel, click on the server line to get an extended view of its characteristics, and then click once more on the <em>Console Output</em> tab.</p>
 <p><a class="glightbox" href="../assets/config-drive/shot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Watch the server console" src="../assets/config-drive/shot-03.png" /></a></p>
-<p>There might be quite a lot of text to sift through, but you can easily
-do so by pressing the <code>Up</code> or <code>Down</code> arrow keys.</p>
+<p>There might be quite a lot of text to sift through, but you can easily do so by pressing the <code>Up</code> or <code>Down</code> arrow keys.</p>
 </div>
 <div class="tabbed-block">
-<p>To enable the configuration drive, you need to pass the parameter
-<code>--use-config-drive</code> to the <code>openstack server create</code> command.</p>
-<p>In the following example, replace the image, flavor, keypair, and
-network reference, as well as the server name, to match your desired
-configuration.</p>
+<p>To enable the configuration drive, you need to pass the parameter <code>--use-config-drive</code> to the <code>openstack server create</code> command.</p>
+<p>In the following example, replace the image, flavor, keypair, and network reference, as well as the server name, to match your desired configuration.</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--use-config-drive<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--image<span class="w"> </span><span class="s2">&quot;Ubuntu 22.04 Jammy Jellyfish x86_64&quot;</span><span class="w"> </span><span class="se">\</span>
@@ -5510,8 +5494,7 @@ configuration.</p>
 <span class="w">  </span>--nic<span class="w"> </span>net-id<span class="o">=</span>3a747038-ee59-404c-973d-5f795e8ebb73<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>myserver
 </code></pre></div>
-<p>Once the server launches, you can monitor its configuration process
-by watching the server console log:</p>
+<p>Once the server launches, you can monitor its configuration process by watching the server console log:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>console<span class="w"> </span>log<span class="w"> </span>show<span class="w"> </span>myserver
 </code></pre></div>
 </div>
@@ -5539,7 +5522,7 @@ by watching the server console log:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 15, 2023 14:57:41 UTC">2023-12-15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 4, 2025 14:38:40 UTC">2025-07-04</span>
   </span>
 
     
