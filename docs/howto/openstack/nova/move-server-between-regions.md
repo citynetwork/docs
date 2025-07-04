@@ -3,33 +3,25 @@ description: How to transfer a virtual server between Cleura Cloud regions
 ---
 # Moving a server from one region to another
 
-This guide will show you how to move a server to a different region in
-{{brand}}.
+This guide will show you how to move a server to a different region in {{brand}}.
 
 ## Prerequisites
 
 In order to move a server from one region to another, you will need
 
-- a correctly installed and configured [OpenStack CLI
-  client](../../getting-started/enable-openstack-cli.md),
-- access to the RC files with credentials for both the source and
-  target region,
-- enough space on the local machine to be able to download an image of
-  your server,
-- a sufficiently configured target region including a [virtual
-  network](../neutron/new-network.md) and necessary [security
-  groups](../neutron/create-security-groups.md).
+- a correctly installed and configured [OpenStack CLI client](../../getting-started/enable-openstack-cli.md),
+- access to the RC files with credentials for both the source and target region,
+- enough space on the local machine to be able to download an image of your server,
+- a sufficiently configured target region including a [virtual network](../neutron/new-network.md) and necessary [security groups](../neutron/create-security-groups.md).
 
 ## Finding a volume's ID
 
-To work with the OpenStack CLI, please do not forget to [source the RC
-file first](../../getting-started/enable-openstack-cli.md).
+To work with the OpenStack CLI, please do not forget to [source the RC file first](../../getting-started/enable-openstack-cli.md).
 
-Use the ID of the server instead of using the server name. This will
-make sure that you are using the correct server.
+Use the ID of the server instead of using the server name.
+This will make sure that you are using the correct server.
 
-Find the ID of your server by matching the name, using the following
-command:
+Find the ID of your server by matching the name, using the following command:
 
 ```console
 $ openstack server list --name 'name'
@@ -45,9 +37,8 @@ $ openstack server list --name 'name'
 +-----------------+-----------------+---------+-----------------+--------------------+-------------+
 ```
 
-This guide is only applicable to servers that are using boot from
-volume. To verify this, make sure your server's `Image` value is `N/A
-(booted from volume)`.
+This guide is only applicable to servers that are using boot from volume.
+To verify this, make sure your server's `Image` value is `N/A (booted from volume)`.
 
 To get the ID of your server's boot volume, use the following command:
 
@@ -62,22 +53,17 @@ $ openstack server show -c volumes_attached <server_id>
 +------------------+-------------------------------------------+
 ```
 
-If there are multiple volumes attached, the first volume in the list
-is the server system volume. Copy this ID.
+If there are multiple volumes attached, the first volume in the list is the server system volume.
+Copy this ID.
 
-If you want to move any other attached volumes along with your
-server's system volume, you also need to follow the same steps for
-each one of these volumes.
+If you want to move any other attached volumes along with your server's system volume, you also need to follow the same steps for each one of these volumes.
 
 ## Stopping a running server
 
-In the next step you are instructed to make a copy of the server's
-system volume. Some operating systems or applications might experience
-issues being copied at the same time it might be performing
-operations.
+In the next step you are instructed to make a copy of the server's system volume.
+Some operating systems or applications might experience issues being copied at the same time it might be performing operations.
 
-While this step is not strictly required, it is recommended to first
-power off your server.
+While this step is not strictly required, it is recommended to first power off your server.
 
 Stop the running server with the following command:
 
@@ -93,10 +79,7 @@ Begin by making a copy of the volume, using the following command:
 openstack volume create --source <source_volume_id> <copy_volume_name>
 ```
 
-You will get a printout showing you information about the created
-volume, such as `source_volid` which is the ID of volume you just
-copied, and `id` of this **new** volume, that you will use in the next
-step to create an image.
+You will get a printout showing you information about the created volume, such as `source_volid` which is the ID of volume you just copied, and `id` of this **new** volume, that you will use in the next step to create an image.
 
 ```plain
 +---------------------+--------------------------------------+
@@ -126,8 +109,7 @@ step to create an image.
 
 ## Creating an image of a volume
 
-Then create an image of the copied volume, by using the following
-command:
+Then create an image of the copied volume, by using the following command:
 
 ```bash
 openstack image create --volume <copy_volume_id> <new_image_name>
@@ -135,9 +117,7 @@ openstack image create --volume <copy_volume_id> <new_image_name>
 
 > Substitute `<copy_volume_id>` with the ID from the newly created volume in the previous step.
 
-After a while you will get a printout showing you information of the
-new image, such as the image disk format `disk_format` and the image
-ID `image_id`, you need these two values in an upcoming step.
+After a while you will get a printout showing you information of the new image, such as the image disk format `disk_format` and the image ID `image_id`, you need these two values in an upcoming step.
 
 ```plain
 +---------------------+--------------------------------------+
@@ -158,10 +138,8 @@ ID `image_id`, you need these two values in an upcoming step.
 +---------------------+--------------------------------------+
 ```
 
-Depending on the size of the volume it might take some time to upload
-and while it is, the image `status` will be `uploading`. Before you
-continue to the next step, make sure the image `status` is `active`,
-otherwise wait a bit and then check again with:
+Depending on the size of the volume it might take some time to upload and while it is, the image `status` will be `uploading`.
+Before you continue to the next step, make sure the image `status` is `active`, otherwise wait a bit and then check again with:
 
 ```bash
 openstack image show -c status <image_id>
@@ -177,26 +155,21 @@ The printout should look like this before you continue.
 +--------+--------+
 ```
 
-> It is now safe to remove the volume you created earlier, using the
-> command: `openstack volume delete <copy_volume_id>`
+> It is now safe to remove the volume you created earlier, using the command: `openstack volume delete <copy_volume_id>`
 
 ## Downloading an image
 
-Download the image to your local computer, using the following
-command:
+Download the image to your local computer, using the following command:
 
 ```bash
 openstack image save --file <local_image_name>.<disk_format> <image_id>
 ```
 
-> Substitute `<disk_format>` with the value from the printout in the
-> previous step.
+> Substitute `<disk_format>` with the value from the printout in the previous step.
 >
-> Substitute `<image_id>` with the ID from the printout in the
-> previous step.
+> Substitute `<image_id>` with the ID from the printout in the previous step.
 
-When you have downloaded the file, verify that the checksum of the
-file is the same as the `checksum` value of the image.
+When you have downloaded the file, verify that the checksum of the file is the same as the `checksum` value of the image.
 
 ```bash
 md5 <local_image_name>.<disk_format>
@@ -208,8 +181,7 @@ This will output the checksum of your local file.
 MD5 (<local_image_name>.<disk_format>) = 4b086035a943cc1676583c0cc78f0896
 ```
 
-Show the checksum of the image in the cloud, using the following
-command:
+Show the checksum of the image in the cloud, using the following command:
 
 ```bash
 openstack image show -c checksum <image_id>
@@ -225,11 +197,10 @@ These two checksums should be the same.
 +----------+----------------------------------+
 ```
 
-You are now done with the steps for the source region. The following
-steps will be done on the target region.
+You are now done with the steps for the source region.
+The following steps will be done on the target region.
 
-> It is now safe to remove the image you created earlier, using the
-> command:
+> It is now safe to remove the image you created earlier, using the command:
 > ```bash
 > openstack image delete <image_id>
 > ```
@@ -242,16 +213,15 @@ Source the RC-file for the region you want to upload to.
 source <target_region_openrc>
 ```
 
-Upload the image to the new region. Set the correct disk format, input
-the path to the image file and select a name for the new image.
+Upload the image to the new region.
+Set the correct disk format, input the path to the image file and select a name for the new image.
 
 ```bash
 openstack image create --disk-format <disk_format> --file <local_image_name>.<disk_format> <new_image_name>
 ```
 
-The upload will take some time, depending on your internet upload
-speed and the size of the image. When the upload is finished you get a
-printout displaying information about your image.
+The upload will take some time, depending on your internet upload speed and the size of the image.
+When the upload is finished you get a printout displaying information about your image.
 
 ```plain
 +------------------+-------------------------------------------------------------------------------+
@@ -278,9 +248,8 @@ printout displaying information about your image.
 +------------------+-------------------------------------------------------------------------------+
 ```
 
-But your image is not yet ready to use, {{brand}} still needs to
-process the file, which shouldn't take long. To check the status of
-the image, use the ID of the new image with the following command:
+But your image is not yet ready to use, {{brand}} still needs to process the file, which shouldn't take long.
+To check the status of the image, use the ID of the new image with the following command:
 
 ```console
 $ openstack image show <new_image_id>
@@ -309,11 +278,9 @@ $ openstack image show <new_image_id>
 +------------------+-------------------------------------------------------------------------------+
 ```
 
-When the image's `status` value is `active`, the whole upload process
-is done.
+When the image's `status` value is `active`, the whole upload process is done.
 
-Verify that the checksum of the new image is the same as your local
-file:
+Verify that the checksum of the new image is the same as your local file:
 
 ```bash
 openstack image show -c checksum <new_image_id>
@@ -342,21 +309,16 @@ Then create the volume using the ID of the image in this command:
 openstack volume create --size <GB> --image <new_image_id> <new_volume_name>
 ```
 
-> Substitute `<GB>` with the size in gigabytes you wish the volume to
-> be.
+> Substitute `<GB>` with the size in gigabytes you wish the volume to be.
 
 ## Creating a server from a volume
 
-Now you need to create the new server using the system volume. To
-create a new server, follow [this guide](new-server.md).
+Now you need to create the new server using the system volume.
+To create a new server, follow [this guide](new-server.md).
 
 === "{{gui}}"
-    If you use the {{gui}}, when choosing a _boot source,_ select
-    _Boot from volume_ and then your server's system volume.
+    If you use the {{gui}}, when choosing a _boot source,_ select _Boot from volume_ and then your server's system volume.
 === "OpenStack CLI"
-    If you use the OpenStack CLI, forgo the `--image` and
-    `--boot-from-volume` options and instead use `--volume
-    <new_volume_name>`
+    If you use the OpenStack CLI, forgo the `--image` and `--boot-from-volume` options and instead use `--volume <new_volume_name>`
 
-If you also moved other volumes, after you have created the server is
-the time to attach those volumes to the server.
+If you also moved other volumes, after you have created the server is the time to attach those volumes to the server.

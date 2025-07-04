@@ -4,26 +4,18 @@ description: How to create a new virtual server in Cleura Cloud
 # Creating new servers
 
 Once you have an [account in
-{{brand}}](../../getting-started/create-account.md), you can create
-virtual machines --- henceforth simply _servers_ --- using either the
-{{gui}} or the OpenStack CLI. Let us demonstrate the creation of a new
-server, following both approaches.
+{{brand}}](../../getting-started/create-account.md), you can create virtual machines --- henceforth simply _servers_ --- using either the {{gui}} or the OpenStack CLI.
+Let us demonstrate the creation of a new server, following both approaches.
 
 ## Prerequisites
 
-You need to [have at least one
-network](../neutron/new-network.md) in the region you are
-interested in. Additionally, if you prefer to work with the OpenStack
-CLI, then make sure to properly [enable it
-first](../../getting-started/enable-openstack-cli.md).
+You need to [have at least one network](../neutron/new-network.md) in the region you are interested in.
+Additionally, if you prefer to work with the OpenStack CLI, then make sure to properly [enable it first](../../getting-started/enable-openstack-cli.md).
 
 ## Creating a server
 
-To create a server from the {{gui}}, fire up your favorite web
-browser, navigate to the [{{gui}}](https://{{gui_domain}}) start page,
-and log into your {{brand}} account. On the other hand, if you prefer
-to work with the OpenStack CLI, please do not forget to [source the RC
-file first](../../getting-started/enable-openstack-cli.md).
+To create a server from the {{gui}}, fire up your favorite web browser, navigate to the [{{gui}}](https://{{gui_domain}}) start page, and log into your {{brand}} account.
+On the other hand, if you prefer to work with the OpenStack CLI, please do not forget to [source the RC file first](../../getting-started/enable-openstack-cli.md).
 
 === "{{gui}}"
     On the top right-hand side of the {{gui}}, click the _Create_ button.
@@ -141,8 +133,7 @@ file first](../../getting-started/enable-openstack-cli.md).
 
     ![Initiate server creation process](assets/new-server/shot-13.png)
 === "OpenStack CLI"
-    An `openstack` command for creating a server may look like
-    this:
+    An `openstack` command for creating a server may look like this:
 
     ```bash
     openstack server create \
@@ -156,23 +147,19 @@ file first](../../getting-started/enable-openstack-cli.md).
         $SERVER_NAME
     ```
 
-    Each variable represents a piece of information we have to look
-    for or, in the cases of `KEY_NAME` and `SERVER_NAME`, arbitrarily
-    define.
+    Each variable represents a piece of information we have to look for or, in the cases of `KEY_NAME` and `SERVER_NAME`, arbitrarily define.
 
-    Let us begin with the [_flavors_](../../../reference/flavors/index.md) (`FLAVOR_NAME`), which
-    describe combinations of CPU core count and memory size. Each server has a
-    distinct flavor, and to see all available flavors type:
+    Let us begin with the [_flavors_](../../../reference/flavors/index.md) (`FLAVOR_NAME`), which describe combinations of CPU core count and memory size.
+    Each server has a distinct flavor, and to see all available flavors type:
 
     ```bash
     openstack flavor list
     ```
 
-    You will get a pretty long list of flavors. For our demonstration,
-    we suggest you go with `b.1c1gb`. A server with this particular flavor will
-    have one CPU core and one
-    [gibibyte](https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)) of
-    RAM. Go ahead and set `FLAVOR_NAME` accordingly:
+    You will get a pretty long list of flavors.
+    For our demonstration, we suggest you go with `b.1c1gb`.
+    A server with this particular flavor will have one CPU core and one [gibibyte](https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)) of RAM.
+    Go ahead and set `FLAVOR_NAME` accordingly:
 
     ```bash
     FLAVOR_NAME="b.1c1gb"
@@ -185,8 +172,8 @@ file first](../../getting-started/enable-openstack-cli.md).
     openstack image list
     ```
 
-    This time, you get a shorter list, but you can still filter for
-    images with the OS you prefer. For example, filter for Ubuntu:
+    This time, you get a shorter list, but you can still filter for images with the OS you prefer.
+    For example, filter for Ubuntu:
 
     ```bash
     openstack image list --tag "os:ubuntu"
@@ -198,16 +185,15 @@ file first](../../getting-started/enable-openstack-cli.md).
     IMAGE_NAME="Ubuntu 24.04 Noble Numbat x86_64"
     ```
 
-    Before you go on, decide on the capacity (in gibibytes) of the server's
-    boot volume (`VOL_SIZE`). We suggest you start with 10 gibibytes:
+    Before you go on, decide on the capacity (in gibibytes) of the server's boot volume (`VOL_SIZE`).
+    We suggest you start with 10 gibibytes:
 
     ```bash
     VOL_SIZE="10"
     ```
 
-    You need at least one network in the region you're about to
-    create your new server (`NETWORK_NAME`). To get the names of all
-    available (internal) networks, type:
+    You need at least one network in the region you're about to create your new server (`NETWORK_NAME`).
+    To get the names of all available (internal) networks, type:
 
     ```bash
     openstack network list --internal -c Name
@@ -227,8 +213,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     NETWORK_NAME="nordostbahnhof"
     ```
 
-    Regarding the security group (`SEC_GROUP_NAME`), unless you
-    have already created one yourself, you will find only one per region:
+    Regarding the security group (`SEC_GROUP_NAME`), unless you have already created one yourself, you will find only one per region:
 
     ```bash
     openstack security group list -c Name -c Description
@@ -248,18 +233,15 @@ file first](../../getting-started/enable-openstack-cli.md).
     SEC_GROUP_NAME="default"
     ```
 
-    You most likely want a server you can remotely connect to via
-    SSH without typing a password. Upload one of our public keys to your
-    {{brand}} account:
+    You most likely want a server you can remotely connect to via SSH without typing a password.
+    Upload one of our public keys to your {{brand}} account:
 
     ```bash
     openstack keypair create --public-key ~/.ssh/id_ed25519.pub bahnhof
     ```
 
-    In the example above, we uploaded the public key
-    `~/.ssh/id_ed25519.pub` to our {{brand}} account and named
-    it `bahnhof`. Follow our example, and do not forget to set the
-    `KEY_NAME`:
+    In the example above, we uploaded the public key `~/.ssh/id_ed25519.pub` to our {{brand}} account and named it `bahnhof`.
+    Follow our example, and do not forget to set the `KEY_NAME`:
 
     ```bash
     KEY_NAME="bahnhof"
@@ -277,8 +259,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     openstack keypair show $KEY_NAME
     ```
 
-    You are almost ready to create your new server. Decide on a
-    name...
+    You are almost ready to create your new server. Decide on a name...
 
     ```bash
     SERVER_NAME="zug" # just an example
@@ -298,11 +279,9 @@ file first](../../getting-started/enable-openstack-cli.md).
         zug
     ```
 
-    (For clarity's sake, and with the exception of `$IMAGE_NAME`, we
-    used the actual values and not the variables we so meticulously set.)
-    The `--wait` parameter is optional. Whenever you choose to
-    use it, you get back control of your terminal only after the server is
-    readily available in {{brand}}.
+    (For clarity's sake, and with the exception of `$IMAGE_NAME`, we used the actual values and not the variables we so meticulously set.)
+    The `--wait` parameter is optional.
+    Whenever you choose to use it, you get back control of your terminal only after the server is readily available in {{brand}}.
 
     The network your server is attached to might be dual-stack, or it might have an IPv4-based subnet.
     If this is the case and, additionally, you want the server to be reachable via a public IPv4 address, then you need to create a floating IP and assign it to your server.
@@ -324,9 +303,7 @@ file first](../../getting-started/enable-openstack-cli.md).
     openstack server add floating ip zug 198.51.100.12
     ```
 
-    The username of the default user account in the Ubuntu image is
-    `ubuntu`, so now you can connect to your remote server via SSH without
-    typing a password:
+    The username of the default user account in the Ubuntu image is `ubuntu`, so now you can connect to your remote server via SSH without typing a password:
 
     ```bash
     ssh ubuntu@198.51.100.12
@@ -369,12 +346,11 @@ file first](../../getting-started/enable-openstack-cli.md).
 
     ![View and use server console](assets/new-server/shot-16.png)
 === "OpenStack CLI"
-    You may have access to the web console of your server, and you need the
-    corresponding URL for it:
+    You may have access to the web console of your server, and you need the corresponding URL for it:
 
     ```bash
     openstack console url show zug
     ```
 
-    Usage of the web console is discouraged, though. Instead,
-    securely connect to your server via SSH.
+    Usage of the web console is discouraged, though.
+    Instead, securely connect to your server via SSH.
