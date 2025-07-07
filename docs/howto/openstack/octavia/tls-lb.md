@@ -1,25 +1,17 @@
 # HTTPS-terminating load balancers
 
-In {{brand}}’s load balancing service, [OpenStack
-Octavia](https://docs.openstack.org/octavia/latest/), you can
-configure load balancers so that they manage HTTPS termination. That
-is to say that the load balancer encrypts and decrypts HTTPS traffic,
-and forwards HTTP to and from a backend web server.
+In {{brand}}’s load balancing service, [OpenStack Octavia](https://docs.openstack.org/octavia/latest/), you can configure load balancers so that they manage HTTPS termination.
+That is to say that the load balancer encrypts and decrypts HTTPS traffic, and forwards HTTP to and from a backend web server.
 
-To do so, the load balancer must have access to encryption credentials
-(such as certificates and private keys), which it stores in Barbican.
+To do so, the load balancer must have access to encryption credentials (such as certificates and private keys), which it stores in Barbican.
 
 
 ## PKCS #12 Certificate Bundles
 
-The [PKCS #12](https://en.wikipedia.org/wiki/PKCS_12) archive format
-includes SSL certificates, certificate chains, and private keys all in
-one bundle. Most certificate providers give you the option of
-downloading certificate credentials using the PKCS #12 format.
+The [PKCS #12](https://en.wikipedia.org/wiki/PKCS_12) archive format includes SSL certificates, certificate chains, and private keys all in one bundle.
+Most certificate providers give you the option of downloading certificate credentials using the PKCS #12 format.
 
-In case your certificate provider has made your certificate chain and
-key available separately, using the PEM format, you can easily convert
-it to PKCS #12 using the following `openssl` command:
+In case your certificate provider has made your certificate chain and key available separately, using the PEM format, you can easily convert it to PKCS #12 using the following `openssl` command:
 
 ```bash
 openssl pkcs12 -export -inkey key.pem -in fullchain.pem -out bundle.p12
@@ -30,10 +22,7 @@ When prompted for an export password, use a blank one.
 
 ## Creating Barbican secrets from PKCS #12 bundles
 
-To create a secret from a stored PKCS #12 bundle, you need pass in the
-contents of the bundle, *pre-encoded with
-[Base64](https://en.wikipedia.org/wiki/Base64)*, as the secret’s
-payload.
+To create a secret from a stored PKCS #12 bundle, you need pass in the contents of the bundle, *pre-encoded with [Base64](https://en.wikipedia.org/wiki/Base64)*, as the secret’s payload.
 
 ```console
 $ openstack secret store \
@@ -59,13 +48,10 @@ $ openstack secret store \
 
 ## Creating HTTPS-enabled load balancer listeners
 
-Once you have created your secret containing your certificate data,
-you can create a load balancer *listener* with the following
-properties:
+Once you have created your secret containing your certificate data, you can create a load balancer *listener* with the following properties:
 
 * It uses the `TERMINATED_HTTPS` protocol,
-* It sets its “default TLS container” to the Barbican secret
-  containing the PKCS #12 bundle,
+* It sets its “default TLS container” to the Barbican secret containing the PKCS #12 bundle,
 * It listens on the standard HTTPS port, 443.
 
 
@@ -114,30 +100,24 @@ $ openstack loadbalancer listener create \
 
 ## Updating the TLS certificate for a HTTPS listener
 
-When the certificate associated with a `TERMINATED_HTTPS` listener is
-about to expire, you will need to replace it. You can do this online,
-with no user-noticeable interruption to your service.
+When the certificate associated with a `TERMINATED_HTTPS` listener is about to expire, you will need to replace it.
+You can do this online, with no user-noticeable interruption to your service.
 
-1. [Create a new PKCS#12 bundle](#pkcs-12-certificate-bundles) from
-   the updated key, certificate, and CA certificate.
-2. [Create a new Barbican
-   secret](#creating-barbican-secrets-from-pkcs-12-bundles) from the
-   bundle.
+1. [Create a new PKCS#12 bundle](#pkcs-12-certificate-bundles) from the updated key, certificate, and CA certificate.
+2. [Create a new Barbican secret](#creating-barbican-secrets-from-pkcs-12-bundles) from the bundle.
 3. List the listener(s) associated with your load balancer:
    ```bash
    openstack loadbalancer listener list \
      --loadbalancer <loadbalancer-name-or-id>
    ```
-4. For all listeners using the `TERMINATED_HTTPS` protocol, run the
-   following command:
+4. For all listeners using the `TERMINATED_HTTPS` protocol, run the following command:
    ```bash
    openstack loadbalancer listener set \
      --default-tls-container-ref=https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25  \
      <listener-name-or-id>
    ```
 
-Once all your load balancer listeners have completed the update, you
-may proceed to delete the old, now-unused secret:
+Once all your load balancer listeners have completed the update, you may proceed to delete the old, now-unused secret:
 
 ```bash
 openstack secret delete \
