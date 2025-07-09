@@ -13,8 +13,7 @@ This facilitates the review of your change, and it also helps you notice long ru
 **Headings:** Keep headings concise, under 80 characters.
 
 **Screenshots:** If you are contributing a change that contains screenshots from {{gui}}, they should have a resolution of 1920×1080 pixels (1080p).
-If your screen has a larger resolution, use [Firefox Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/)
-or [Chrome/Chromium Device Mode](https://developer.chrome.com/docs/devtools/device-mode/) to configure your browser with 1080p.
+If your screen has a larger resolution, use [Firefox Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/) or [Chrome/Chromium Device Mode](https://developer.chrome.com/docs/devtools/device-mode/) to configure your browser with 1080p.
 
 Screenshots should be added to a directory named `assets`, located in the same directory as the Markdown file you are adding or editing.
 
