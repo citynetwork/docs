@@ -12,7 +12,8 @@ If you create a volume without specifying a volume type, then the default volume
 | `cbs`                          | :material-check: | :material-close:                                                | 10000           |
 | `cbs-encrypted`                | :material-close: | :material-check:                                                | 10000           |
 
-[^iops]: The maximum IOPS specification is essentially a cap, which creates an upper bound for individual device performance under *ideal* conditions. Actual IOPS may vary based on system load and utilization. IOPS limits are only enforced in [{{brand_public}} regions](../features/public.md).
+[^iops]: The maximum IOPS specification is essentially a cap, which creates an upper bound for individual device performance under *ideal* conditions.
+Actual IOPS may vary based on system load and utilization. IOPS limits are only enforced in [{{brand_public}} regions](../features/public.md).
 
 It is possible --- though somewhat involved --- to [change the type of an existing volume](../../howto/openstack/cinder/retype-volumes.md) (also known as retyping).
 
