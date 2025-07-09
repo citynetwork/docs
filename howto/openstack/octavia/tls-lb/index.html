@@ -5471,29 +5471,18 @@
 
 
 <h1 id="https-terminating-load-balancers">HTTPS-terminating load balancers</h1>
-<p>In Cleura Cloud’s load balancing service, <a href="https://docs.openstack.org/octavia/latest/">OpenStack
-Octavia</a>, you can
-configure load balancers so that they manage HTTPS termination. That
-is to say that the load balancer encrypts and decrypts HTTPS traffic,
-and forwards HTTP to and from a backend web server.</p>
-<p>To do so, the load balancer must have access to encryption credentials
-(such as certificates and private keys), which it stores in Barbican.</p>
+<p>In Cleura Cloud’s load balancing service, <a href="https://docs.openstack.org/octavia/latest/">OpenStack Octavia</a>, you can configure load balancers so that they manage HTTPS termination.
+That is to say that the load balancer encrypts and decrypts HTTPS traffic, and forwards HTTP to and from a backend web server.</p>
+<p>To do so, the load balancer must have access to encryption credentials (such as certificates and private keys), which it stores in Barbican.</p>
 <h2 id="pkcs-12-certificate-bundles">PKCS #12 Certificate Bundles</h2>
-<p>The <a href="https://en.wikipedia.org/wiki/PKCS_12">PKCS #12</a> archive format
-includes SSL certificates, certificate chains, and private keys all in
-one bundle. Most certificate providers give you the option of
-downloading certificate credentials using the PKCS #12 format.</p>
-<p>In case your certificate provider has made your certificate chain and
-key available separately, using the PEM format, you can easily convert
-it to PKCS #12 using the following <code>openssl</code> command:</p>
+<p>The <a href="https://en.wikipedia.org/wiki/PKCS_12">PKCS #12</a> archive format includes SSL certificates, certificate chains, and private keys all in one bundle.
+Most certificate providers give you the option of downloading certificate credentials using the PKCS #12 format.</p>
+<p>In case your certificate provider has made your certificate chain and key available separately, using the PEM format, you can easily convert it to PKCS #12 using the following <code>openssl</code> command:</p>
 <div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>pkcs12<span class="w"> </span>-export<span class="w"> </span>-inkey<span class="w"> </span>key.pem<span class="w"> </span>-in<span class="w"> </span>fullchain.pem<span class="w"> </span>-out<span class="w"> </span>bundle.p12
 </code></pre></div>
 <p>When prompted for an export password, use a blank one.</p>
 <h2 id="creating-barbican-secrets-from-pkcs-12-bundles">Creating Barbican secrets from PKCS #12 bundles</h2>
-<p>To create a secret from a stored PKCS #12 bundle, you need pass in the
-contents of the bundle, <em>pre-encoded with
-<a href="https://en.wikipedia.org/wiki/Base64">Base64</a></em>, as the secret’s
-payload.</p>
+<p>To create a secret from a stored PKCS #12 bundle, you need pass in the contents of the bundle, <em>pre-encoded with <a href="https://en.wikipedia.org/wiki/Base64">Base64</a></em>, as the secret’s payload.</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>secret<span class="w"> </span>store<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--name<span class="o">=</span><span class="s1">&#39;tls_secret1&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-t<span class="w"> </span><span class="s1">&#39;application/octet-stream&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -5515,13 +5504,10 @@ payload.</p>
 <span class="go">+---------------+---------------------------------------------------------------------------------+</span>
 </code></pre></div>
 <h2 id="creating-https-enabled-load-balancer-listeners">Creating HTTPS-enabled load balancer listeners</h2>
-<p>Once you have created your secret containing your certificate data,
-you can create a load balancer <em>listener</em> with the following
-properties:</p>
+<p>Once you have created your secret containing your certificate data, you can create a load balancer <em>listener</em> with the following properties:</p>
 <ul>
 <li>It uses the <code>TERMINATED_HTTPS</code> protocol,</li>
-<li>It sets its “default TLS container” to the Barbican secret
-  containing the PKCS #12 bundle,</li>
+<li>It sets its “default TLS container” to the Barbican secret containing the PKCS #12 bundle,</li>
 <li>It listens on the standard HTTPS port, 443.</li>
 </ul>
 <p>You create such a listener with the following command:</p>
@@ -5565,28 +5551,22 @@ properties:</p>
 <span class="go">+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
 </code></pre></div>
 <h2 id="updating-the-tls-certificate-for-a-https-listener">Updating the TLS certificate for a HTTPS listener</h2>
-<p>When the certificate associated with a <code>TERMINATED_HTTPS</code> listener is
-about to expire, you will need to replace it. You can do this online,
-with no user-noticeable interruption to your service.</p>
+<p>When the certificate associated with a <code>TERMINATED_HTTPS</code> listener is about to expire, you will need to replace it.
+You can do this online, with no user-noticeable interruption to your service.</p>
 <ol>
-<li><a href="#pkcs-12-certificate-bundles">Create a new PKCS#12 bundle</a> from
-   the updated key, certificate, and CA certificate.</li>
-<li><a href="#creating-barbican-secrets-from-pkcs-12-bundles">Create a new Barbican
-   secret</a> from the
-   bundle.</li>
+<li><a href="#pkcs-12-certificate-bundles">Create a new PKCS#12 bundle</a> from the updated key, certificate, and CA certificate.</li>
+<li><a href="#creating-barbican-secrets-from-pkcs-12-bundles">Create a new Barbican secret</a> from the bundle.</li>
 <li>List the listener(s) associated with your load balancer:
    <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--loadbalancer<span class="w"> </span>&lt;loadbalancer-name-or-id&gt;
 </code></pre></div></li>
-<li>For all listeners using the <code>TERMINATED_HTTPS</code> protocol, run the
-   following command:
+<li>For all listeners using the <code>TERMINATED_HTTPS</code> protocol, run the following command:
    <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--default-tls-container-ref<span class="o">=</span>https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25<span class="w">  </span><span class="se">\</span>
 <span class="w">  </span>&lt;listener-name-or-id&gt;
 </code></pre></div></li>
 </ol>
-<p>Once all your load balancer listeners have completed the update, you
-may proceed to delete the old, now-unused secret:</p>
+<p>Once all your load balancer listeners have completed the update, you may proceed to delete the old, now-unused secret:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>secret<span class="w"> </span>delete<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae
 </code></pre></div>
@@ -5612,7 +5592,7 @@ may proceed to delete the old, now-unused secret:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 21, 2022 15:53:52 UTC">2022-12-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 7, 2025 11:31:01 UTC">2025-07-07</span>
   </span>
 
     
@@ -5632,11 +5612,11 @@ may proceed to delete the old, now-unused secret:</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
-      Florian Haas
+      Christos Varelas, Florian Haas
     </nav>
   </span>
 
