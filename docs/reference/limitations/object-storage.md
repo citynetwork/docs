@@ -33,7 +33,8 @@ We do not support `GOVERNANCE` mode.
 
 ### SSE-KMS
 
-There is currently no support for SSE-KMS in {{brand}}. SSE-C, in contrast, [is fully supported](../../howto/object-storage/s3/sse-c.md).
+There is currently no support for SSE-KMS in {{brand}}.
+SSE-C, in contrast, [is fully supported](../../howto/object-storage/s3/sse-c.md).
 
 ### Request checksum calculation
 
