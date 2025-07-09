@@ -5437,63 +5437,31 @@
 
 
 <h1 id="hibernation">Hibernation</h1>
-<p>In Cleura Cloud, you have the option of putting a Gardener-based Kubernetes
-<a href="../../../../howto/kubernetes/gardener/hibernate-shoot-cluster/">cluster in
-hibernation</a>.
-This is something you might want to do whenever you know you won&rsquo;t be
-needing the cluster for some time. Putting it in hibernation makes sense
-because from that time on and before you wake it up, you pay <em>less</em> for
-hosting.</p>
-<p>You may wonder why you still pay <em>something</em> after putting a cluster in
-hibernation, instead of paying nothing at all. To answer this question,
-we have to explain how hibernation works.</p>
+<p>In Cleura Cloud, you have the option of putting a Gardener-based Kubernetes <a href="../../../../howto/kubernetes/gardener/hibernate-shoot-cluster/">cluster in hibernation</a>.
+This is something you might want to do whenever you know you won&rsquo;t be needing the cluster for some time.
+Putting it in hibernation makes sense because from that time on and before you wake it up, you pay <em>less</em> for hosting.</p>
+<p>You may wonder why you still pay <em>something</em> after putting a cluster in hibernation, instead of paying nothing at all.
+To answer this question, we have to explain how hibernation works.</p>
 <h2 id="how-hibernation-works">How hibernation works</h2>
-<p>Learning about the logic of hibernation in Gardener, we immediately get
-a fresh perspective on the whole concept. When we hear about
-hibernation, we usually think of resources that are merely stopped or
-frozen, and their volatile information made persistent. This is <strong>not</strong>
-how Gardener hibernation works &mdash; and here&rsquo;s why.</p>
-<p>When you put a Gardener cluster in hibernation, what really happens is
-that all worker nodes are <strong>removed.</strong> So, as long as the cluster is in
-hibernation, you will not be paying for CPU, RAM, and boot volume
-storage utilization incurred by the worker nodes. But there might still
-be resources created by the cluster, for which you will keep getting
-charged even when the cluster is in hibernation. More specifically, you
-will keep paying for any persistent volumes, floating IPs, and load
-balancers associated with the cluster.</p>
-<p>In Kubernetes, a
-<a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volume</a>
-(or <em>PV</em>), is a piece of storage in the cluster that has been
-provisioned either dynamically (using <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">Storage
-Classes</a>)
-or by an administrator. When a user makes a request for storage, then we
-have a
-<a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims">PersistentVolumeClaim</a>
-(or <em>PVC</em>). Floating IPs, on the other hand, are instantiated to
-be assigned to Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/">Services</a> that need a public IP. Those services
-have an external load balancer (i.e., a service of <code>Type:
-LoadBalancer</code>). When you hibernate a Gardener cluster, objects of any of
-those types are retained.</p>
+<p>Learning about the logic of hibernation in Gardener, we immediately get a fresh perspective on the whole concept.
+When we hear about hibernation, we usually think of resources that are merely stopped or frozen, and their volatile information made persistent.
+This is <strong>not</strong> how Gardener hibernation works &mdash; and here&rsquo;s why.</p>
+<p>When you put a Gardener cluster in hibernation, what really happens is that all worker nodes are <strong>removed.</strong>
+So, as long as the cluster is in hibernation, you will not be paying for CPU, RAM, and boot volume storage utilization incurred by the worker nodes.
+But there might still be resources created by the cluster, for which you will keep getting charged even when the cluster is in hibernation.
+More specifically, you will keep paying for any persistent volumes, floating IPs, and load balancers associated with the cluster.</p>
+<p>In Kubernetes, a <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volume</a> (or <em>PV</em>), is a piece of storage in the cluster that has been provisioned either dynamically (using <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">Storage Classes</a>) or by an administrator.
+When a user makes a request for storage, then we have a <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims">PersistentVolumeClaim</a> (or <em>PVC</em>).
+Floating IPs, on the other hand, are instantiated to be assigned to Kubernetes <a href="https://kubernetes.io/docs/concepts/services-networking/">Services</a> that need a public IP.
+Those services have an external load balancer (i.e., a service of <code>Type: LoadBalancer</code>).
+When you hibernate a Gardener cluster, objects of any of those types are retained.</p>
 <h2 id="waking-up-clusters">Waking up clusters</h2>
-<p>When you wake a hibernated cluster, the previously removed worker
-nodes reappear. Since all information about cluster resources
-(<a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pods</a>,
-<a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a>,
-<a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSets</a>
-etc.) are still available on the control plane, these cluster
-resources <em>also</em> automatically reappear on the recreated worker nodes.</p>
-<p>However, to run your Pods, Gardener will have to re-fetch any
-images they previously ran on. That is because the image cache of
-newly created worker nodes starts empty. Consequently, please keep in
-mind that a cluster whose resources were perfectly humming along
-<em>before</em> the hibernation, might suddenly see Pods failing with
-<code>ImagePullError</code> if any image they depend on has been deleted in an
-upstream registry.</p>
-<p>Last but not least, the act of waking a cluster up may temporarily fail,
-because while the cluster was hibernating, the tenant came close to its
-volume, RAM, CPU, etc. quota, and attempting to re-instantiate the
-worker nodes and re-activate the cluster would breach the <a href="../../../../reference/quotas/openstack/">quota
-limit</a>.</p>
+<p>When you wake a hibernated cluster, the previously removed worker nodes reappear.
+Since all information about cluster resources (<a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pods</a>, <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a>, <a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSets</a> etc.) are still available on the control plane, these cluster resources <em>also</em> automatically reappear on the recreated worker nodes.</p>
+<p>However, to run your Pods, Gardener will have to re-fetch any images they previously ran on.
+That is because the image cache of newly created worker nodes starts empty.
+Consequently, please keep in mind that a cluster whose resources were perfectly humming along <em>before</em> the hibernation, might suddenly see Pods failing with <code>ImagePullError</code> if any image they depend on has been deleted in an upstream registry.</p>
+<p>Last but not least, the act of waking a cluster up may temporarily fail, because while the cluster was hibernating, the tenant came close to its volume, RAM, CPU, etc. quota, and attempting to re-instantiate the worker nodes and re-activate the cluster would breach the <a href="../../../../reference/quotas/openstack/">quota limit</a>.</p>
 
 
 
@@ -5516,7 +5484,7 @@ limit</a>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 20, 2023 12:25:40 UTC">2023-09-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 9, 2025 11:22:05 UTC">2025-07-09</span>
   </span>
 
     
