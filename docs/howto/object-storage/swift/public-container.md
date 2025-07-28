@@ -54,7 +54,7 @@ Observe that the Read access control list (ACL) contains the entry `.r:*,.rlisti
 
 === "OpenStack CLI"
     ```console
-    $ openstack container show public-container
+    openstack container show public-container
     +----------------+---------------------------------------+
     | Field          | Value                                 |
     +----------------+---------------------------------------+
