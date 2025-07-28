@@ -19,7 +19,8 @@ In {{k8s_management_service}}-managed clusters, we do not support `loadbalancer.
 ### Persistent volumes (PVs)
 
 In {{k8s_management_service}}-managed Kubernetes clusters, the supported PV [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) are `ReadWriteOnce` (`RWO`), and `ReadWriteOncePod` (`RWOP`).
-Note that `RWO` enables multiple Pods to access the same volume, as long as they are [configured to run on the same node](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/). Use `RWOP` to restrict the volume to one pod only.
+Note that `RWO` enables multiple Pods to access the same volume, as long as they are [configured to run on the same node](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/).
+Use `RWOP` to restrict the volume to one pod only.
 
 You cannot use `ReadWriteMany` (`RWX`) or `ReadOnlyMany` (`ROX`) PVs.
 

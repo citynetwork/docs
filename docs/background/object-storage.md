@@ -110,4 +110,5 @@ If you configure an object with this mode, you cannot shorten or change its rete
 Legal hold is a feature designed for situations when you are uncertain about the length of time you need to retain an object.
 It can be enabled/disabled for any object in a locked bucket, regardless of the lock configuration, object retention, or age.
 
-This feature provides the same level of protection as a retention period but with no fixed expiration date. Instead, a legal hold will remain in effect until you remove it explicitly.
+This feature provides the same level of protection as a retention period but with no fixed expiration date.
+Instead, a legal hold will remain in effect until you remove it explicitly.
