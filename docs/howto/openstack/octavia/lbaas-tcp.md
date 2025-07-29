@@ -498,22 +498,18 @@ ncat -kv -l 61234 -c 'echo Yello from $(hostname)!'
 
 Since the load balancer has a floating IP (`198.51.100.129`, in our example), and we know the port it listens to, we can try connecting to it via `wget` and see what happens:
 
-```bash
-wget -q 198.51.100.129:61234 -O -
-```
+```console
+$ wget -q 198.51.100.129:61234 -O -
 
-```plain
 Yello from srv-lbaas-1!
 ```
 
 It looks like we talked to the first test server.
 If we run the exact same `wget` command for a second time, since the load balancer distributes client connection requests in a round-robin fashion, we expect to talk to the second server:
 
-```bash
-wget -q 198.51.100.129:61234 -O -
-```
+```console
+$ wget -q 198.51.100.129:61234 -O -
 
-```plain
 Yello from srv-lbaas-2!
 ```
 
@@ -522,11 +518,9 @@ But there is one more expectation of any load balancer: the ability to skip back
 
 To test our load balancer in this new scenario, let us first use `wget` to connect to port 61234 and jot down the backend server that will respond:
 
-```bash
-wget -q 198.51.100.129:61234 -O -
-```
+```console
+$ wget -q 198.51.100.129:61234 -O -
 
-```plain
 Yello from srv-lbaas-2!
 ```
 
@@ -535,11 +529,9 @@ But if we SSH into `srv-lbaas-1` and terminate `ncat`, then after connecting wit
 This, at least, is our expectation.
 So without further ado, we SSH into `srv-lbaas-1`, we terminate `ncat`, we log out, and from our local terminal, we type:
 
-```bash
-wget -q 198.51.100.129:61234 -O -
-```
+```console
+$ wget -q 198.51.100.129:61234 -O -
 
-```plain
 Yello from srv-lbaas-2!
 ```
 
@@ -578,14 +570,12 @@ Of course, whenever an inaccessible service gets accessible again, the load bala
 === "OpenStack CLI"
     To create a health monitor for pool `mylb-pool` of load balancer `mylb`, type something like the following:
 
-    ```bash
-    openstack loadbalancer healthmonitor create \
+    ```console
+    $ openstack loadbalancer healthmonitor create \
         --name=mylb-pool-healthmon --type=TCP \
         --delay=10 --timeout=5 --max-retries=1 \
         mylb-pool
-    ```
 
-    ```plain
     +---------------------+--------------------------------------+
     | Field               | Value                                |
     +---------------------+--------------------------------------+
@@ -615,12 +605,10 @@ Of course, whenever an inaccessible service gets accessible again, the load bala
     The name of the new health monitor is `mylb-pool-healthmon`, and the TCP protocol will be used to check whether members of pool `mylb-pool` are online or offline.
     To check the provisioning status of the health monitor, type:
 
-    ```bash
-    openstack loadbalancer healthmonitor show \
+    ```console
+    $ openstack loadbalancer healthmonitor show \
         mylb-pool-healthmon -c provisioning_status
-    ```
 
-    ```plain
     +---------------------+--------+
     | Field               | Value  |
     +---------------------+--------+
@@ -630,11 +618,9 @@ Of course, whenever an inaccessible service gets accessible again, the load bala
 
     Once the health monitor is provisioned, you may at any time check the pool members status like so:
 
-    ```bash
-    openstack loadbalancer member list mylb-pool
-    ```
+    ```console
+    $ openstack loadbalancer member list mylb-pool
 
-    ```plain
     +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
     | id        | name      | project_id | provisioning_status | address   | protocol_port | operating_status | weight |
     +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
@@ -669,11 +655,9 @@ During our testing, we killed `ncat` running on `srv-lbaas-1`, and then took a l
 === "OpenStack CLI"
     To check the operating status of any of the pool members of your load balancer, type something like this:
 
-    ```bash
-    openstack loadbalancer member list mylb-pool
-    ```
+    ```console
+    # openstack loadbalancer member list mylb-pool
 
-    ```plain
     +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
     | id        | name      | project_id | provisioning_status | address   | protocol_port | operating_status | weight |
     +-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+
@@ -695,12 +679,10 @@ During our testing, we killed `ncat` running on `srv-lbaas-1`, and then took a l
     In the example above, see the `operating_status` column, specifically the status of server `srv-lbaas-1`.
     Regarding the operating status of all pool members, you can always limit the scope of your query like so:
 
-    ```bash
-    openstack loadbalancer member list mylb-pool \
+    ```console
+    $ openstack loadbalancer member list mylb-pool \
         -c name -c operating_status
-    ```
 
-    ```plain
     +-------------+------------------+
     | name        | operating_status |
     +-------------+------------------+

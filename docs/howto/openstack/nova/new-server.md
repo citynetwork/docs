@@ -195,11 +195,9 @@ On the other hand, if you prefer to work with the OpenStack CLI, please do not f
     You need at least one network in the region you're about to create your new server (`NETWORK_NAME`).
     To get the names of all available (internal) networks, type:
 
-    ```bash
-    openstack network list --internal -c Name
-    ```
+    ```console
+    $ openstack network list --internal -c Name
 
-    ```plain
     +----------------+
     | Name           |
     +----------------+
@@ -215,11 +213,9 @@ On the other hand, if you prefer to work with the OpenStack CLI, please do not f
 
     Regarding the security group (`SEC_GROUP_NAME`), unless you have already created one yourself, you will find only one per region:
 
-    ```bash
-    openstack security group list -c Name -c Description
-    ```
+    ```console
+    $ openstack security group list -c Name -c Description
 
-    ```plain
     +---------+------------------------+
     | Name    | Description            |
     +---------+------------------------+

@@ -77,11 +77,9 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
     Begin by creating a new
     [IKE](https://en.wikipedia.org/wiki/Internet_Key_Exchange) policy:
 
-    ```bash
-    openstack vpn ike policy create ike-pol-fra1
-    ```
+    ```console
+    $ openstack vpn ike policy create ike-pol-fra1
 
-    ```plain
     +-------------------------------+--------------------------------------+
     | Field                         | Value                                |
     +-------------------------------+--------------------------------------+
@@ -101,11 +99,9 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     Then, create a new [IPSec](https://en.wikipedia.org/wiki/IPsec) policy:
 
-    ```bash
-    openstack vpn ipsec policy create ipsec-pol-fra1
-    ```
+    ```console
+    $ openstack vpn ipsec policy create ipsec-pol-fra1
 
-    ```plain
     +-------------------------------+--------------------------------------+
     | Field                         | Value                                |
     +-------------------------------+--------------------------------------+
@@ -125,11 +121,9 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     You are ready to create a new VPN service:
 
-    ```bash
-    openstack vpn service create --router router-fra1 vpn-service-fra1
-    ```
+    ```console
+    $ openstack vpn service create --router router-fra1 vpn-service-fra1
 
-    ```plain
     +----------------+--------------------------------------+
     | Field          | Value                                |
     +----------------+--------------------------------------+
@@ -161,12 +155,10 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
     More specifically, on either side of the connection, there should be one end-point group for the local subnet and one end-point group for the peer (remote) subnet.
     You are now on the left side of the connection (region `fra1`), so begin with the left local end-point group...
 
-    ```bash
-    openstack vpn endpoint group create \
+    ```console
+    $ openstack vpn endpoint group create \
         --type subnet --value subnet-fra1 local-epg-fra1
-    ```
 
-    ```plain
     +-------------+------------------------------------------+
     | Field       | Value                                    |
     +-------------+------------------------------------------+
@@ -182,12 +174,10 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     ...and then move on to creating the left peer end-point group:
 
-    ```bash
-    openstack vpn endpoint group create \
+    ```console
+    $ openstack vpn endpoint group create \
         --type cidr --value $SUBNET_KNA1 peer-epg-fra1
-    ```
 
-    ```plain
     +-------------+--------------------------------------+
     | Field       | Value                                |
     +-------------+--------------------------------------+
@@ -209,11 +199,9 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     Create a new IKE policy:
 
-    ```bash
-    openstack vpn ike policy create ike-pol-kna1
-    ```
+    ```console
+    $ openstack vpn ike policy create ike-pol-kna1
 
-    ```plain
     +-------------------------------+--------------------------------------+
     | Field                         | Value                                |
     +-------------------------------+--------------------------------------+
@@ -233,11 +221,9 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     Create a new IPSec policy:
 
-    ```bash
-    openstack vpn ipsec policy create ipsec-pol-kna1
-    ```
+    ```console
+    $ openstack vpn ipsec policy create ipsec-pol-kna1
 
-    ```plain
     +-------------------------------+--------------------------------------+
     | Field                         | Value                                |
     +-------------------------------+--------------------------------------+
@@ -257,11 +243,9 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     Create a new VPN service:
 
-    ```bash
-    openstack vpn service create --router router-kna1 vpn-service-kna1
-    ```
+    ```console
+    $ openstack vpn service create --router router-kna1 vpn-service-kna1
 
-    ```plain
     +----------------+--------------------------------------+
     | Field          | Value                                |
     +----------------+--------------------------------------+
@@ -288,12 +272,10 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     Create a local end-point group:
 
-    ```bash
-    openstack vpn endpoint group create \
+    ```console
+    $ openstack vpn endpoint group create \
         --type subnet --value subnet-kna1 local-epg-kna1
-    ```
 
-    ```plain
     +-------------+------------------------------------------+
     | Field       | Value                                    |
     +-------------+------------------------------------------+
@@ -309,12 +291,10 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     Create a peer (remote) end-point group:
 
-    ```bash
-    openstack vpn endpoint group create \
+    ```console
+    $ openstack vpn endpoint group create \
         --type cidr --value $SUBNET_FRA1 peer-epg-kna1
-    ```
 
-    ```plain
     +-------------+--------------------------------------+
     | Field       | Value                                |
     +-------------+--------------------------------------+
@@ -349,8 +329,8 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     To create a VPN connection from left to right, i.e., from region `fra1` to region `kna1`, issue the following command:
 
-    ```bash
-    openstack vpn ipsec site connection create \
+    ```console
+    $ openstack vpn ipsec site connection create \
       --vpnservice vpn-service-fra1 \
       --ikepolicy ike-pol-fra1 \
       --ipsecpolicy ipsec-pol-fra1 \
@@ -360,9 +340,7 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
       --peer-endpoint-group peer-epg-fra1 \
       --psk $PRE_SHARED_KEY \
       vpn-conn-to-kna1
-    ```
 
-    ```plain
     +--------------------------+----------------------------------------------------+
     | Field                    | Value                                              |
     +--------------------------+----------------------------------------------------+
@@ -395,8 +373,8 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
 
     Similarly, to create a VPN connection from right to left, i.e., from region `kna1` to region `fra1`, issue the following command:
 
-    ```bash
-    openstack vpn ipsec site connection create \
+    ```console
+    $ openstack vpn ipsec site connection create \
       --vpnservice vpn-service-kna1 \
       --ikepolicy ike-pol-kna1 \
       --ipsecpolicy ipsec-pol-kna1 \
@@ -406,9 +384,7 @@ Should you decide to follow the OpenStack CLI route instead, please make sure yo
       --peer-endpoint-group peer-epg-kna1 \
       --psk $PRE_SHARED_KEY \
       vpn-conn-to-fra1
-    ```
 
-    ```plain
     +--------------------------+----------------------------------------------------+
     | Field                    | Value                                              |
     +--------------------------+----------------------------------------------------+
@@ -456,11 +432,9 @@ No matter if you use the {{gui}} or the OpenStack CLI, you may at any time list 
     You can list all IPSec VPN connections working from any of the two regions involved.
     See, for example, the view from `fra1`:
 
-    ```bash
-    openstack vpn ipsec site connection list
-    ```
+    ```console
+    $ openstack vpn ipsec site connection list
 
-    ```plain
     +--------------------------+------------------+---------------+--------------------------+--------+
     | ID                       | Name             | Peer Address  | Authentication Algorithm | Status |
     +--------------------------+------------------+---------------+--------------------------+--------+
@@ -471,11 +445,9 @@ No matter if you use the {{gui}} or the OpenStack CLI, you may at any time list 
 
     If you want more information regarding a specific connection, type something like this:
 
-    ```bash
-    openstack vpn ipsec site connection show vpn-conn-to-kna1
-    ```
+    ```console
+    $ openstack vpn ipsec site connection show vpn-conn-to-kna1
 
-    ```plain
     +--------------------------+----------------------------------------------------+
     | Field                    | Value                                              |
     +--------------------------+----------------------------------------------------+
@@ -563,11 +535,9 @@ You may, at any time, disable an active site-to-site VPN connection.
     Suppose you are on the left side of the connection (region `fra1`), and for whatever reason, you want to disable the site-to-site connection between left and right (regions `fra1` and `kna1`).
     First, you might want to remember the name of the VPN connection to the right:
 
-    ```bash
-    openstack vpn ipsec site connection list
-    ```
+    ```console
+    $ openstack vpn ipsec site connection list
 
-    ```plain
     +--------------------------+------------------+---------------+--------------------------+--------+
     | ID                       | Name             | Peer Address  | Authentication Algorithm | Status |
     +--------------------------+------------------+---------------+--------------------------+--------+
@@ -585,11 +555,9 @@ You may, at any time, disable an active site-to-site VPN connection.
 
     Check if it is really disabled:
 
-    ```bash
-    openstack vpn ipsec site connection show vpn-conn-to-kna1 -c Status
-    ```
+    ```console
+    $ openstack vpn ipsec site connection show vpn-conn-to-kna1 -c Status
 
-    ```plain
     +--------+-------+
     | Field  | Value |
     +--------+-------+
@@ -608,11 +576,9 @@ You may, at any time, disable an active site-to-site VPN connection.
 
     Now, get on the right side of the connection (region `kna1`), optionally look for the name of the VPN connection to the left (in our example, that would be `vpn-conn-to-fra1`), and check its status:
 
-    ```bash
-    openstack vpn ipsec site connection show vpn-conn-to-fra1 -c Status
-    ```
+    ```console
+    $ openstack vpn ipsec site connection show vpn-conn-to-fra1 -c Status
 
-    ```plain
     +--------+-------+
     | Field  | Value |
     +--------+-------+
@@ -654,11 +620,9 @@ You can easily enable an inactive site-to-site VPN connection.
     According to the example scenario we described in the previous section, that would be the left side (region `fra1`), and the name of the disabled connection would be `vpn-conn-to-kna1`.
     Make sure the connection status is `DOWN`:
 
-    ```bash
-    openstack vpn ipsec site connection show vpn-conn-to-kna1 -c Status
-    ```
+    ```console
+    $ openstack vpn ipsec site connection show vpn-conn-to-kna1 -c Status
 
-    ```plain
     +--------+-------+
     | Field  | Value |
     +--------+-------+
@@ -675,11 +639,9 @@ You can easily enable an inactive site-to-site VPN connection.
 
     Check the connection status --- it should be `ACTIVE`:
 
-    ```bash
-    openstack vpn ipsec site connection show vpn-conn-to-kna1 -c Status
-    ```
+    ```console
+    $ openstack vpn ipsec site connection show vpn-conn-to-kna1 -c Status
 
-    ```plain
     +--------+--------+
     | Field  | Value  |
     +--------+--------+

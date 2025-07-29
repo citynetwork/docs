@@ -52,11 +52,9 @@ If you are currently managing only one cluster, and you already have its kubecon
 You may now use `kubectl` to run commands against your cluster.
 See, for instance, all cluster nodes...
 
-```bash
-kubectl get nodes
-```
+```console
+$ kubectl get nodes
 
-```plain
 NAME                           STATUS   ROLES    AGE    VERSION
 bangor-id6nijycp2wy-master-0   Ready    master   113m   v1.18.6
 bangor-id6nijycp2wy-node-0     Ready    <none>   111m   v1.18.6
@@ -64,11 +62,9 @@ bangor-id6nijycp2wy-node-0     Ready    <none>   111m   v1.18.6
 
 ...or all running pods in every namespace:
 
-```bash
-kubectl get pods --all-namespaces
-```
+```console
+$ kubectl get pods --all-namespaces
 
-```plain
 NAMESPACE     NAME                                         READY   STATUS    RESTARTS   AGE
 kube-system   coredns-786ffb7797-tw2hg                     1/1     Running   0          167m
 kube-system   coredns-786ffb7797-vbqwn                     1/1     Running   0          167m

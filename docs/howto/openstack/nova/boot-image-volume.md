@@ -72,11 +72,9 @@ In the following, we show how to perform the conversion using the {{gui}} or the
 === "OpenStack CLI"
     To take a snapshot of the server, all you have to do is type something like the following:
 
-    ```bash
-    openstack server image create --name nanisivik_snap nanisivik
-    ```
+    ```console
+    $ openstack server image create --name nanisivik_snap nanisivik
 
-    ```plain
     +------------+-------------------------------------------------------------------------------------+
     | Field      | Value                                                                               |
     +------------+-------------------------------------------------------------------------------------+
@@ -143,11 +141,9 @@ In the following, we show how to perform the conversion using the {{gui}} or the
     In our example, the size of the snapshot is `50` [gibibytes](https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)).
     Now, go ahead and create a volume slightly larger than the size of the snapshot:
 
-    ```bash
-    openstack volume create --size 56 --image nanisivik_snap nanisivik_vol
-    ```
+    ```console
+    $ openstack volume create --size 56 --image nanisivik_snap nanisivik_vol
 
-    ```plain
     +---------------------+--------------------------------------+
     | Field               | Value                                |
     +---------------------+--------------------------------------+
@@ -195,11 +191,9 @@ In the following, we show how to perform the conversion using the {{gui}} or the
 === "OpenStack CLI"
     To view all details regarding the volume you just created off of the boot-from-image server snapshot, type the following:
 
-    ```bash
-    openstack volume show nanisivik_vol
-    ```
+    ```console
+    $ openstack volume show nanisivik_vol
 
-    ```plain
     +------------------------------+-------------------------------------------------------------------+
     | Field                        | Value                                                             |
     +------------------------------+-------------------------------------------------------------------+
@@ -322,11 +316,9 @@ In the following, we show how to perform the conversion using the {{gui}} or the
 === "OpenStack CLI"
     You may see all details regarding the new boot-from-volume server, by typing something like the following:
 
-    ```bash
-    openstack server show nanisivik
-    ```
+    ```console
+    $ openstack server show nanisivik
 
-    ```plain
     +-----------------------------+----------------------------------------------------------+
     | Field                       | Value                                                    |
     +-----------------------------+----------------------------------------------------------+

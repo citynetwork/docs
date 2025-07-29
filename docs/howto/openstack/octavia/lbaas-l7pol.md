@@ -75,15 +75,13 @@ $ openstack loadbalancer listener list
 
 You may now add `mylb-listener-http`, a new HTTP-based listener for `mylb`:
 
-```bash
-openstack loadbalancer listener create \
+```console
+$ openstack loadbalancer listener create \
     --name mylb-listener-http \
     --protocol HTTP \
     --protocol-port 80 \
     mylb
-```
 
-```plain
 +-----------------------------+--------------------------------------+
 | Field                       | Value                                |
 +-----------------------------+--------------------------------------+
@@ -122,11 +120,9 @@ openstack loadbalancer listener create \
 
 To check the provisioning status of `mylb-listener-http`, type:
 
-```bash
-openstack loadbalancer listener show mylb-listener-http -c provisioning_status
-```
+```console
+$ openstack loadbalancer listener show mylb-listener-http -c provisioning_status
 
-```plain
 +---------------------+--------+
 | Field               | Value  |
 +---------------------+--------+
@@ -136,11 +132,9 @@ openstack loadbalancer listener show mylb-listener-http -c provisioning_status
 
 Have a look at both listeners of `mylb`:
 
-```bash
-openstack loadbalancer listener list
-```
+```console
+$ openstack loadbalancer listener list
 
-```plain
 +-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
 | id          | default_pool_id | name        | project_id  | protocol    | protocol_port | admin_state_up |
 +-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
@@ -161,15 +155,13 @@ openstack loadbalancer listener list
 
 Create `mylb-listener-http-policy`, a policy for `mylb-listener-http`:
 
-```bash
-openstack loadbalancer l7policy create \
+```console
+$ openstack loadbalancer l7policy create \
     --action REDIRECT_PREFIX \
     --redirect-prefix https://whoogle.example.com \
     --name mylb-listener-http-policy \
     mylb-listener-http
-```
 
-```plain
 +---------------------+--------------------------------------+
 | Field               | Value                                |
 +---------------------+--------------------------------------+
@@ -196,11 +188,9 @@ openstack loadbalancer l7policy create \
 
 Make sure the policy is active:
 
-```bash
-openstack loadbalancer l7policy list -c name -c provisioning_status
-```
+```console
+$ openstack loadbalancer l7policy list -c name -c provisioning_status
 
-```plain
 +---------------------------+---------------------+
 | name                      | provisioning_status |
 +---------------------------+---------------------+
@@ -210,15 +200,13 @@ openstack loadbalancer l7policy list -c name -c provisioning_status
 
 Then, add a single rule to `mylb-listener-http-policy`:
 
-```bash
-openstack loadbalancer l7rule create \
+```console
+$ openstack loadbalancer l7rule create \
     --compare-type EQUAL_TO \
     --type HOST_NAME \
     --value whoogle.example.com \
     mylb-listener-http-policy
-```
 
-```plain
 +---------------------+--------------------------------------+
 | Field               | Value                                |
 +---------------------+--------------------------------------+
@@ -240,11 +228,9 @@ openstack loadbalancer l7rule create \
 
 Check the provisioning status of the new rule:
 
-```bash
-openstack loadbalancer l7policy list -c name -c provisioning_status
-```
+```console
+$ openstack loadbalancer l7policy list -c name -c provisioning_status
 
-```plain
 +---------------------------+---------------------+
 | name                      | provisioning_status |
 +---------------------------+---------------------+
@@ -255,11 +241,9 @@ openstack loadbalancer l7policy list -c name -c provisioning_status
 From now on, all client attempts to reach `http://whoogle.example.com` will end up at `https://whoogle.example.com`.
 You may confirm this is the case with any web browser or from your terminal, e.g., using `curl` like this:
 
-```bash
-curl -IL http://whoogle.example.com
-```
+```console
+$ curl -IL http://whoogle.example.com
 
-```plain
 HTTP/1.1 302 Found
 content-length: 0
 location: https://whoogle.example.com/

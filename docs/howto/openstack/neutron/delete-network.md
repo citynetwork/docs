@@ -24,10 +24,9 @@ Unless you already have the ID or know the name of the network you wish to delet
 === "OpenStack CLI"
     To list all available networks in the region you are currently in, type the following:
 
-    ```bash
-    openstack network list --internal
-    ```
-    ```plain
+    ```console
+    $ openstack network list --internal
+
     +--------------------------------------+--------------+--------------------------------------+
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
@@ -57,10 +56,9 @@ Let us see what the situation is with network `carmacks`.
 === "OpenStack CLI"
     To quickly check whether network `carmacks` has a subnet or not, type:
 
-    ```bash
-    openstack network show carmacks -c subnets
-    ```
-    ```plain
+    ```console
+    $ openstack network show carmacks -c subnets
+
     +---------+--------------------------------------+
     | Field   | Value                                |
     +---------+--------------------------------------+
@@ -77,10 +75,9 @@ Let us see what the situation is with network `carmacks`.
 
     What about a router in front of `carmacks`? You might try checking the output of this command:
 
-    ```bash
-    openstack network show carmacks
-    ```
-    ```plain
+    ```console
+    $ openstack network show carmacks
+
     +---------------------------+--------------------------------------+
     | Field                     | Value                                |
     +---------------------------+--------------------------------------+
@@ -119,10 +116,9 @@ Let us see what the situation is with network `carmacks`.
     In cases like this, try looking at things from a different vantage point.
     Try, in particular, to list all routers:
 
-    ```bash
-    openstack router list
-    ```
-    ```plain
+    ```console
+    $ openstack router list
+
     +------------------------+-----------------+--------+-------+------------------------+------+
     | ID                     | Name            | Status | State | Project                | HA   |
     +------------------------+-----------------+--------+-------+------------------------+------+
@@ -135,10 +131,9 @@ Let us see what the situation is with network `carmacks`.
 
     The name of the second router says it all, but since it is just a name, it doesn't hurt to verify the role of this router:
 
-    ```bash
-    openstack router show carmacks-router -c interfaces_info
-    ```
-    ```plain
+    ```console
+    $ openstack router show carmacks-router -c interfaces_info
+
     +-----------------+--------------------------------------------------------------------------------+
     | Field           | Value                                                                          |
     +-----------------+--------------------------------------------------------------------------------+
@@ -153,14 +148,12 @@ Let us see what the situation is with network `carmacks`.
     > There will be times when router names won't help much.
     > Then, try a more exhaustive search approach:
     >
-    > ```bash
-    > for i in $(openstack router list -f value -c Name); \
-    >     do echo Checking router "$i"; \
-    >     openstack router show "$i" -f json -c interfaces_info \
-    >     | grep "$SUBNET_ID"; \
+    > ```console
+    > $ for i in $(openstack router list -f value -c Name); do
+    >     echo Checking router "$i"
+    >     openstack router show "$i" -f json -c interfaces_info | grep "$SUBNET_ID"
     > done
-    > ```
-    > ```plain
+    > 
     > Checking router carmacks-router
     >       "subnet_id": "7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5"
     > Checking router router-kna1
@@ -228,10 +221,9 @@ Then, you will move on to deleting the subnet and the network, and after that, y
 === "OpenStack CLI"
     First, take a look at all available subnets:
 
-    ```bash
-    openstack subnet list
-    ```
-    ```plain
+    ```console
+    $ openstack subnet list
+
     +-------------------------------+-----------------+--------------------------------+---------------+
     | ID                            | Name            | Network                        | Subnet        |
     +-------------------------------+-----------------+--------------------------------+---------------+
@@ -247,10 +239,9 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     As you would expect, included on the list is subnet `carmacks-subnet`, which you are about to delete.
     That's easier said than done, though:
 
-    ```bash
-    openstack subnet delete $SUBNET_ID
-    ```
-    ```plain
+    ```console
+    $ openstack subnet delete $SUBNET_ID
+
     Failed to delete subnet with name or ID '7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5': ConflictException: 409:
     Client Error for url: kna1.{{brand_domain}}:9696/v2.0/subnets/7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5,
     Unable to complete operation on subnet 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5:
@@ -274,10 +265,9 @@ Then, you will move on to deleting the subnet and the network, and after that, y
 
     Again, no command output means success, but we suggest you check yourself:
 
-    ```bash
-    openstack subnet list
-    ```
-    ```plain
+    ```console
+    $ openstack subnet list
+
     +--------------------------------+---------------+---------------------------------+---------------+
     | ID                             | Name          | Network                         | Subnet        |
     +--------------------------------+---------------+---------------------------------+---------------+
@@ -292,10 +282,9 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     Next is network `carmacks`, which you should be able to delete by now.
     First, take a look at all available networks:
 
-    ```bash
-    openstack network list --internal
-    ```
-    ```plain
+    ```console
+    $ openstack network list --internal
+
     +--------------------------------------+--------------+--------------------------------------+
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
@@ -315,10 +304,9 @@ Then, you will move on to deleting the subnet and the network, and after that, y
 
     No command output signals success, but it never hurts to verify yourself:
 
-    ```bash
-    openstack network list --internal
-    ```
-    ```plain
+    ```console
+    $ openstack network list --internal
+
     +--------------------------------------+--------------+--------------------------------------+
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
@@ -336,10 +324,9 @@ Then, you will move on to deleting the subnet and the network, and after that, y
 
     There is no output on the terminal, and yet the router is gone:
 
-    ```bash
-    openstack router list
-    ```
-    ```plain
+    ```console
+    $ openstack router list
+
     +-----------------------------+-------------+--------+-------+------------------------------+------+
     | ID                          | Name        | Status | State | Project                      | HA   |
     +-----------------------------+-------------+--------+-------+------------------------------+------+
@@ -372,10 +359,9 @@ For our demonstration, we created network `teslin`, with subnet `teslin-subnet` 
 === "OpenStack CLI"
     Let us first take a look at all available networks...
 
-    ```bash
-    openstack network list --internal
-    ```
-    ```plain
+    ```console
+    $ openstack network list --internal
+
     +--------------------------------------+--------------+--------------------------------------+
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
@@ -387,10 +373,9 @@ For our demonstration, we created network `teslin`, with subnet `teslin-subnet` 
 
     ...and at all available subnets:
 
-    ```bash
-    openstack subnet list
-    ```
-    ```plain
+    ```console
+    $ openstack subnet list
+
     +--------------------------------+---------------+---------------------------------+---------------+
     | ID                             | Name          | Network                         | Subnet        |
     +--------------------------------+---------------+---------------------------------+---------------+
@@ -410,10 +395,9 @@ For our demonstration, we created network `teslin`, with subnet `teslin-subnet` 
     There is no command output.
     This is expected, but why not check yourself?
 
-    ```bash
-    openstack subnet list
-    ```
-    ```plain
+    ```console
+    $ openstack subnet list
+
     +---------------------------------+-------------+----------------------------------+---------------+
     | ID                              | Name        | Network                          | Subnet        |
     +---------------------------------+-------------+----------------------------------+---------------+
@@ -431,10 +415,9 @@ For our demonstration, we created network `teslin`, with subnet `teslin-subnet` 
     The absence of any output means the command was successful.
     Take a look yourself:
 
-    ```bash
-    openstack network list --internal
-    ```
-    ```plain
+    ```console
+    $ openstack network list --internal
+
     +--------------------------------------+--------------+--------------------------------------+
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
@@ -456,10 +439,9 @@ For our demonstration, we created a network named `mayo`, with no subnet and no 
 === "OpenStack CLI"
     Once more, take a look at all remaining networks:
 
-    ```bash
-    openstack network list --internal
-    ```
-    ```plain
+    ```console
+    $ openstack network list --internal
+
     +--------------------------------------+--------------+--------------------------------------+
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
@@ -476,10 +458,9 @@ For our demonstration, we created a network named `mayo`, with no subnet and no 
 
     And, yes, it is still a good idea to check yourself:
 
-    ```bash
-    openstack network list --internal
-    ```
-    ```plain
+    ```console
+    $ openstack network list --internal
+
     +--------------------------------------+--------------+--------------------------------------+
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
