@@ -165,7 +165,7 @@ To download an object from your public Swift container, you can use the followin
 However, this being a public container, you can *also* retrieve your object using any regular HTTP/HTTPS client, using a public URL.
 This URL is composed as follows:
 
-1. The Swift API's base URL, which differs by {{brand}} region (`https://swift‑<region>.{{brand_domain}}:<port>/swift/v1/`),
+1. The Swift API's base URL, which differs by {{brand}} region (`https://swift‑<region>.{{api_domain}}:<port>/swift/v1/`),
 2. the container's account string, starting with `AUTH_`,
 3. the container name (in our example, `public-container`),
 4. the object name (in our example, `testobj.txt`).
@@ -176,22 +176,22 @@ Rather than composing the public URL manually, you can also retrieve it by parsi
     ```console
     $ openstack object show --debug public-container testobj.txt 2>&1 \
       | grep -o "https://.*testobj.txt"
-    https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
-    https://swift-fra1.{{brand_domain}}:8080 "HEAD /swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
-    https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+    https://swift-fra1.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+    https://swift-fra1.{{api_domain}}:8080 "HEAD /swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+    https://swift-fra1.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
     ```
 === "Swift CLI"
     ```console
     $ swift stat --debug public-container testobj.txt 2>&1 \
       | grep -o "https://.*testobj.txt"
-    https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+    https://swift-fra1.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
     ```
 
 Once you have retrieved your public URL, you can fetch the object's contents using the client of your choice.
 This example uses `curl`:
 
 ```console
-$ curl https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
+$ curl https://swift-fra1.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt
 hello world
 ```
 
@@ -201,5 +201,5 @@ Once you make a container public via the Swift API, its objects also become acce
 
 Thus, the following URL paths allow you to retrieve the same public object:
 
-* `https://swift-fra1.{{brand_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt`
-* `https://s3-fra1.{{brand_domain}}:8080/30a7768a0ffc40359d6110f21a6e7d88:public-container/testobj.txt`
+* `https://swift-fra1.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/public-container/testobj.txt`
+* `https://s3-fra1.{{api_domain}}:8080/30a7768a0ffc40359d6110f21a6e7d88:public-container/testobj.txt`

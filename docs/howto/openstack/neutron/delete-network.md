@@ -243,7 +243,7 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     $ openstack subnet delete $SUBNET_ID
 
     Failed to delete subnet with name or ID '7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5': ConflictException: 409:
-    Client Error for url: kna1.{{brand_domain}}:9696/v2.0/subnets/7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5,
+    Client Error for url: kna1.{{api_domain}}:9696/v2.0/subnets/7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5,
     Unable to complete operation on subnet 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5:
     One or more ports have an IP allocation from this subnet.
     1 of 1 subnets failed to delete.
