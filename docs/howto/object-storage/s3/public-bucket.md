@@ -63,7 +63,7 @@ https://s3-{{api_region|lower}}.{{api_domain}}/<project-uuid>:<bucket-name>/obje
 For example, to retrieve an object named `bar.pdf` in a bucket named `foo` from the project with the UUID `07576783684248f7b2745e34356c6025` in the {{brand}} Kna1 region, you would run:
 
 ```console
-$ curl -O https://s3-kna1.{{api_domain}}/07576783684248f7b2745e34356c6025:foo/bar.pdf
+$ curl -O https://s3-{{api_region|lower}}.{{api_domain}}/07576783684248f7b2745e34356c6025:foo/bar.pdf
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k
@@ -75,8 +75,8 @@ Once you make a bucket public via the S3 API, its objects also become accessible
 
 Thus, the following URL paths allow you to retrieve the same public object:
 
-* `https://s3-kna1.{{api_domain}}/07576783684248f7b2745e34356c6025:foo/bar.pdf`
-* `https://swift-kna1.{{api_domain}}/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf`
+* `https://s3-{{api_region|lower}}.{{api_domain}}/07576783684248f7b2745e34356c6025:foo/bar.pdf`
+* `https://swift-{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf`
 
 ## Enabling bucket listing
 
