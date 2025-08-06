@@ -17,7 +17,7 @@ To show the number of objects in a given bucket, use one of the following comman
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3 ls \
       --recursive \
       --summarize \
@@ -26,7 +26,7 @@ To show the number of objects in a given bucket, use one of the following comman
     The object count is in the line prefixed with `Total Objects`, at the end of the output.
 === "mc"
     ```bash
-    mc ls <region>/<bucket> \
+    mc ls {{api_region|lower}}/<bucket> \
       --recursive \
       --summarize
     ```
@@ -34,12 +34,12 @@ To show the number of objects in a given bucket, use one of the following comman
 
     Alternatively, you may also use the `du` subcommand:
     ```bash
-    mc du <region>/<bucket>
+    mc du {{api_region|lower}}/<bucket>
     ```
     Here, the object count is the second column of the output.
 === "s3cmd"
     ```bash
-    s3cmd -c ~/.s3cfg-<region> \
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} \
       du \
       s3://<bucket>
     ```
@@ -52,7 +52,7 @@ To show the overall size of all objects in a given bucket, use one of the follow
 === "aws"
     You use the same command as for counting objects:
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3 ls \
       --recursive \
       --summarize \
@@ -63,7 +63,7 @@ To show the overall size of all objects in a given bucket, use one of the follow
     By default, the total size is given in bytes.
     If you prefer more sensible units, add the `--human-readable` option:
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3 ls \
       --recursive \
       --summarize \
@@ -73,7 +73,7 @@ To show the overall size of all objects in a given bucket, use one of the follow
 === "mc"
     You could use the same command as for counting objects:
     ```bash
-    mc ls <region>/<bucket> \
+    mc ls {{api_region|lower}}/<bucket> \
       --recursive \
       --summarize
     ```
@@ -82,12 +82,12 @@ To show the overall size of all objects in a given bucket, use one of the follow
 
     Alternatively, you may also use the `du` subcommand:
     ```bash
-    mc du <region>/<bucket>
+    mc du {{api_region|lower}}/<bucket>
     ```
     The total object size is the first column of the output.
 === "s3cmd"
     ```bash
-    s3cmd -c ~/.s3cfg-<region> \
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} \
       du \
       s3://<bucket>
     ```

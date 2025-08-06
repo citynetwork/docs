@@ -10,14 +10,14 @@ To enable versioning in a bucket, use one of the following commands:
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api put-bucket-versioning \
       --versioning-configuration Status=Enabled \
       --bucket <bucket-name>
     ```
 === "mc"
     ```bash
-    mc version enable <region>/<bucket-name>
+    mc version enable {{api_region|lower}}/<bucket-name>
     ```
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.
@@ -28,13 +28,13 @@ To check whether object versioning is enabled on a bucket, use one of the follow
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api get-bucket-versioning \
       --bucket <bucket-name>
     ```
 === "mc"
     ```bash
-    mc version info <region>/<bucket-name>
+    mc version info {{api_region|lower}}/<bucket-name>
     ```
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.
@@ -45,14 +45,14 @@ To suspend versioning on a bucket (versioning cannot be completely disabled once
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
     s3api put-bucket-versioning \
     --versioning-configuration Status=Suspended \
     --bucket <bucket-name>
     ```
 === "mc"
     ```bash
-    mc version suspend <region>/<bucket-name>
+    mc version suspend {{api_region|lower}}/<bucket-name>
     ```
 
 ## Creating a versioned object
@@ -65,7 +65,7 @@ Once object versioning is enabled on a bucket, the normal object creation and re
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api put-object \
       --bucket <bucket-name> \
       --key <object-name> \
@@ -75,11 +75,11 @@ Once object versioning is enabled on a bucket, the normal object creation and re
     ```bash
     mc cp \
       <local-filename> \
-      <region>/<bucket-name>/<object-name>
+      {{api_region|lower}}/<bucket-name>/<object-name>
     ```
 === "s3cmd"
     ```bash
-    s3cmd -c ~/.s3cfg-<region> put <local-filename> s3://<bucket>
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} put <local-filename> s3://<bucket>
     ```
 
 ## Listing object versions
@@ -88,14 +88,14 @@ In a bucket that has versioning enabled, you may list the versions available for
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api list-object-versions \
       --bucket <bucket-name> \
       --key <object-name>
     ```
 === "mc"
     ```bash
-    mc stat --versions <region>/<bucket-name>
+    mc stat --versions {{api_region|lower}}/<bucket-name>
     ```
     This functionality may be impacted by bugs in several versions of the `mc` client.
 === "s3cmd"
@@ -107,7 +107,7 @@ To download a specific version of an object in a bucket, use one of the followin
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api get-object \
       --bucket <bucket-name> \
       --key <object-name> \
@@ -118,7 +118,7 @@ To download a specific version of an object in a bucket, use one of the followin
     ```bash
     mc cp \
       --version-id <versionid> \
-      <region>/<bucket-name>/<object-name> \
+      {{api_region|lower}}/<bucket-name>/<object-name> \
       <local-filename>
     ```
 === "s3cmd"
@@ -135,7 +135,7 @@ This will keep all the versions but return a "Not found" 404 on any request not 
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api delete-object \
       --bucket <bucket-name> \
       --key <object-name>
@@ -143,18 +143,18 @@ This will keep all the versions but return a "Not found" 404 on any request not 
 === "mc"
     ```bash
     mc rm \
-      <region>/<bucket-name>/<object-name>
+      {{api_region|lower}}/<bucket-name>/<object-name>
     ```
 === "s3cmd"
     ```bash
-    s3cmd -c ~/.s3cfg-<region> del s3://<bucket-name>/<object-name>
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} del s3://<bucket-name>/<object-name>
     ```
 
 You also have the option of deleting not the latest version, but a specific object version:
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api delete-object \
       --version-id <versionid> \
       --bucket <bucket-name> \
@@ -164,7 +164,7 @@ You also have the option of deleting not the latest version, but a specific obje
     ```bash
     mc rm \
       --version-id <versionid> \
-      <region>/<bucket-name>/<object-name>
+      {{api_region|lower}}/<bucket-name>/<object-name>
     ```
 === "s3cmd"
     This functionality is not available with the `s3cmd` command.

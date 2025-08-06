@@ -23,14 +23,14 @@ To create a pre-signed URL for an object, you use the following command (replace
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3 presign \
       --expires-in <seconds>
       s3://<bucket-name>/<object-name>
     ```
 === "mc"
     ```bash
-    mc share download --expire <seconds>s <region>/<bucket-name>
+    mc share download --expire <seconds>s {{api_region|lower}}/<bucket-name>
     ```
     Note the `s` suffix for the `--expire` option.
     `mc` also supports the suffix `m` for minutes, `h` for hours, and `d` for days.
@@ -40,7 +40,7 @@ To create a pre-signed URL for an object, you use the following command (replace
     > For pre-signed URLs generated with `s3cmd` to work correctly in {{brand}}, you must use an `s3cmd` version later than 2.0.1, and set `signurl_use_https = True` in your configuration file.
 
     ```bash
-    s3cmd -c ~/.s3cfg-<region> signurl s3://<bucket-name>/<object-name> +<seconds>
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} signurl s3://<bucket-name>/<object-name> +<seconds>
     ```
     Note the `+` prefix on the expiry.
     `s3cmd` also supports setting an absolute expiry date, which does not use the `+` prefix and must be formatted in [Unix time](https://en.wikipedia.org/wiki/Unix_time).
@@ -52,7 +52,7 @@ The command will return the valid pre-signed URL.
 To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like `curl`, open the URL that the pre-sign command returned:
 
 ```console
-curl -f -O https://s3-<region>.{{api_domain}}/<bucket-name>/<object-name>?AWSAccessKeyId=<access-key>&Signature=<signature>&Expires=<expiry>
+curl -f -O https://s3-{{api_region|lower}}.{{api_domain}}/<bucket-name>/<object-name>?AWSAccessKeyId=<access-key>&Signature=<signature>&Expires=<expiry>
 ```
 
 As long as the query parameters are correct and the signature has not yet expired, this command will succeed.
@@ -81,7 +81,7 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api put-object \
       --content-disposition 'attachment;filename="bar.pdf"' \
       --bucket <bucket-name> \
@@ -110,7 +110,7 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
      You should thus set the `Content-Disposition` header with a different client.
 === "s3cmd"
     ```bash
-    s3cmd -c ~/.s3cfg-<region> modify \
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} modify \
       --add-header 'Content-Disposition: attachment; filename="bar.pdf"'
       s3://foo/bar.pdf
     ```
@@ -120,7 +120,7 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
 === "aws"
     To modify the `Content-Disposition` header of an existing object without downloading and re-uploading its contents, you must use `s3api copy-object`, with the object being its own copy source, and the metadata directive set to `replace`:
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api copy-object \
       --copy-source <bucket-name>/<object-name>
       --content-disposition 'attachment;filename="bar.pdf"' \
@@ -133,7 +133,7 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
 === "s3cmd"
     `s3cmd` comes with a handy `modify --add-header` subcommand for updating object metadata in-place:
     ```bash
-    s3cmd -c ~/.s3cfg-<region> modify \
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} modify \
       --add-header 'Content-Disposition: attachment; filename="bar.pdf"'
       s3://foo/bar.pdf
     ```

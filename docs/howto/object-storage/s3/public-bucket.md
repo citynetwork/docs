@@ -34,18 +34,18 @@ To apply this policy to a bucket such that read-only access is permitted for eve
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api put-bucket-policy \
       --policy file://policy.json \
       --bucket <bucket-name>
     ```
 === "mc"
     ```bash
-    mc anonymous set-json policy.json <region>/<bucket-name>
+    mc anonymous set-json policy.json {{api_region|lower}}/<bucket-name>
     ```
 === "s3cmd"
     ```bash
-    s3cmd -c ~/.s3cfg-<region> setpolicy policy.json s3://<bucket-name>
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} setpolicy policy.json s3://<bucket-name>
     ```
 
 ## Accessing objects in a public bucket
@@ -53,7 +53,7 @@ To apply this policy to a bucket such that read-only access is permitted for eve
 To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like `curl`, you must construct its URI as follows:
 
 ```plain
-https://s3-<region>.{{api_domain}}/<project-uuid>:<bucket-name>/object-name
+https://s3-{{api_region|lower}}.{{api_domain}}/<project-uuid>:<bucket-name>/object-name
 ```
 
 > Your project UUID is listed as the `project_id` field in the output of the `openstack ec2 credentials create` command you used to [create your S3-compatible credentials](credentials.md).
@@ -112,7 +112,7 @@ You can then open a bucket path in your browser, to retrieve an XML document con
 You would construct the URL by the following schema:
 
 ```plain
-https://s3-<region>.{{api_domain}}/<project-uuid>:<bucket-name>
+https://s3-{{api_region|lower}}.{{api_domain}}/<project-uuid>:<bucket-name>
 ```
 
 ## Removing a public read policy from a bucket
@@ -121,15 +121,15 @@ If you want to remove a previously-set public read policy from a bucket, and rev
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api delete-bucket-policy \
       --bucket <bucket-name>
     ```
 === "mc"
     ```bash
-    mc anonymous set none <region>/<bucket-name>
+    mc anonymous set none {{api_region|lower}}/<bucket-name>
     ```
 === "s3cmd"
     ```bash
-    s3cmd -c ~/.s3cfg-<region> delpolicy s3://<bucket-name>
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} delpolicy s3://<bucket-name>
     ```

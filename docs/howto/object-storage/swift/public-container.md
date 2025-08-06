@@ -165,7 +165,7 @@ To download an object from your public Swift container, you can use the followin
 However, this being a public container, you can *also* retrieve your object using any regular HTTP/HTTPS client, using a public URL.
 This URL is composed as follows:
 
-1. The Swift API's base URL, which differs by {{brand}} region (`https://swift‑<region>.{{api_domain}}:<port>/swift/v1/`),
+1. The Swift API's base URL, which differs by {{brand}} region (`https://swift‑{{api_region|lower}}.{{api_domain}}:<port>/swift/v1/`),
 2. the container's account string, starting with `AUTH_`,
 3. the container name (in our example, `public-container`),
 4. the object name (in our example, `testobj.txt`).

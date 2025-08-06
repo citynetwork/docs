@@ -51,17 +51,17 @@ How exactly you do that depends on your preferred client:
     Set the credentials and endpoint URLs, using the following commands:
     ```bash
     aws configure set \
-      --profile <region> \
+      --profile {{api_region|lower}} \
       aws_access_key_id <access-key>
     aws configure set \
-      --profile <region> \
+      --profile {{api_region|lower}} \
       aws_secret_access_key <secret-key>
     aws configure set \
-      --profile <region> \
-      s3.endpoint_url https://s3-<region>.{{api_domain}}
+      --profile {{api_region|lower}} \
+      s3.endpoint_url https://s3-{{api_region|lower}}.{{api_domain}}
     aws configure set \
-      --profile <region> \
-      s3api.endpoint_url https://s3-<region>.{{api_domain}}
+      --profile {{api_region|lower}} \
+      s3api.endpoint_url https://s3-{{api_region|lower}}.{{api_domain}}
     ```
 
     **Configuring AWS CLI v2**
@@ -71,57 +71,57 @@ How exactly you do that depends on your preferred client:
     Create a new profile with credentials:
     ```bash
     aws configure set \
-      --profile <region> \
+      --profile {{api_region|lower}} \
       aws_access_key_id <access-key>
     aws configure set \
-      --profile <region> \
+      --profile {{api_region|lower}} \
       aws_secret_access_key <secret-key>
     ```
     Then configure the endpoint URL using configuration file.
     Edit `~/.aws/config` and add:
     ```ini
-    [profile <region>]
-    services = <region>-services
-    [services <region>-services]
+    [profile {{api_region|lower}}]
+    services = {{api_region|lower}}-services
+    [services {{api_region|lower}}-services]
     s3 = 
-      endpoint_url = https://s3-<region>.{{api_domain}}
+      endpoint_url = https://s3-{{api_region|lower}}.{{api_domain}}
     s3api = 
-      endpoint_url = https://s3-<region>.{{api_domain}}
+      endpoint_url = https://s3-{{api_region|lower}}.{{api_domain}}
     ```
 === "mc"
     Create a new alias, named after your {{brand}} region:
     ```bash
-    mc alias set <region> \
-      https://s3-<region>.{{api_domain}} \
+    mc alias set {{api_region|lower}} \
+      https://s3-{{api_region|lower}}.{{api_domain}} \
       <access-key> <secret-key>
     ```
     Once you have configured an alias like this, you are able to run bucket operations with `mc` using the `alias/bucket` syntax.
 === "s3cmd"
     `s3cmd` does not support configuration profiles, so you need to use a separate configuration file for each {{brand}} region you want to use:
     ```bash
-    s3cmd -c ~/.s3cfg-<region> --configure
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} --configure
     ```
 
     * Set your `Access Key` and `Secret Key` when prompted.
     * Leave `Default Region` unchanged.
-    * Set `S3 Endpoint` to `s3-<region>.{{api_domain}}`.
-    * Set `DNS-style bucket+hostname:port template for accessing a bucket` to `s3-<region>.{{api_domain}}` as well.
+    * Set `S3 Endpoint` to `s3-{{api_region|lower}}.{{api_domain}}`.
+    * Set `DNS-style bucket+hostname:port template for accessing a bucket` to `s3-{{api_region|lower}}.{{api_domain}}` as well.
     * Set `Use HTTPS protocol` to `Yes` (the default).
     * Configure GnuPG encryption and your HTTP proxy server, if needed.
     * Test access with your supplied credentials.
 
-    On subsequent invocations of the `s3cmd` CLI, always add the `-c ~/.s3cfg-<region>` option.
+    On subsequent invocations of the `s3cmd` CLI, always add the `-c ~/.s3cfg-{{api_region|lower}}` option.
 === "rclone"
     Create or edit the configuration file named `~/.rclone.conf`, and insert a section named after your {{brand}} region.
     That section should contain the following content:
     ```ini
-    [<region>]
+    [{{api_region|lower}}]
     type = s3
     provider = Ceph
     env_auth = false
     access_key_id = <access key id>
     secret_access_key = <secret key>
-    endpoint = s3-<region>.{{api_domain}}
+    endpoint = s3-{{api_region|lower}}.{{api_domain}}
     acl = private
     ```
 

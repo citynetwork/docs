@@ -29,18 +29,18 @@ Then, apply this lifecycle configuration to your bucket using one of the followi
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api put-bucket-lifecycle-configuration \
       --lifecycle-configuration file://lifecycle.json \
       --bucket <bucket-name>
     ```
 === "mc"
     ```bash
-    mc ilm import <region>/<bucket-name> < lifecycle.json
+    mc ilm import {{api_region|lower}}/<bucket-name> < lifecycle.json
     ```
 === "s3cmd"
     ```bash
-    s3cmd -c ~/.s3cfg-<region> setlifecycle lifecycle.json s3://<bucket-name>
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} setlifecycle lifecycle.json s3://<bucket-name>
     ```
 
 ## Removing object expiry
@@ -50,7 +50,7 @@ At some point, you might want to remove the object expiry functionality configur
 === "aws"
     With the `aws s3api` command, you can remove the lifecycle configuration from a bucket:
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api delete-bucket-lifecycle \
       --bucket <bucket-name>
     ```
@@ -58,10 +58,10 @@ At some point, you might want to remove the object expiry functionality configur
     With `mc`, you are able to remove just an individual bucket lifecycle rule.
     Assuming your rule uses the ID `cleanup`, here is how you remove it:
     ```bash
-    mc ilm rm --id "cleanup" <region>/<bucket-name>
+    mc ilm rm --id "cleanup" {{api_region|lower}}/<bucket-name>
     ```
 === "s3cmd"
     With `s3cmd`, you can remove the lifecycle configuration from a bucket:
     ```bash
-    s3cmd -c ~/.s3cfg-<region> dellifecycle s3://<bucket-name>
+    s3cmd -c ~/.s3cfg-{{api_region|lower}} dellifecycle s3://<bucket-name>
     ```
