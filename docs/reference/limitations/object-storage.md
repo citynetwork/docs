@@ -65,7 +65,7 @@ Other tools can have similar options that can be changed to retain compatibility
 
       backend "s3" {
         endpoints = {
-          s3 = "https://s3-<region>.{{brand_domain}}"
+          s3 = "https://s3-<region>.{{api_domain}}"
         }
 
       bucket = "<your_bucket_name>"

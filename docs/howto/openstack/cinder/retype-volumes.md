@@ -92,7 +92,7 @@ If you attempt to re-attach the volume while it is still retyping, you will rece
 
 ```console
 $ openstack server add volume testsrv testvol
-BadRequestException: 400: Client Error for url: https://sto2.{{brand_domain}}:8774/v2.1/servers/b6a26b0e-f911-4ea2-8e45-51f16442da03/os-volume_attachments, Invalid input received: Invalid volume: Volume e233e7f3-f33b-4d7a-8f5b-785b34f670bf status must be available or downloading to reserve, but the current status is retyping. (HTTP 400) (Request-ID: req-36c4f2e5-ef2f-4ff4-b912-0baed2594f4d)
+BadRequestException: 400: Client Error for url: https://sto2.{{api_domain}}:8774/v2.1/servers/b6a26b0e-f911-4ea2-8e45-51f16442da03/os-volume_attachments, Invalid input received: Invalid volume: Volume e233e7f3-f33b-4d7a-8f5b-785b34f670bf status must be available or downloading to reserve, but the current status is retyping. (HTTP 400) (Request-ID: req-36c4f2e5-ef2f-4ff4-b912-0baed2594f4d)
 ```
 
 You must now wait until the volume status changes back from `retyping` to `available`.
