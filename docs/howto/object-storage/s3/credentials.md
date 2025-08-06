@@ -121,7 +121,7 @@ How exactly you do that depends on your preferred client:
     env_auth = false
     access_key_id = <access key id>
     secret_access_key = <secret key>
-    endpoint = <region>.{{brand_domain}}
+    endpoint = s3-<region>.{{brand_domain}}
     acl = private
     ```
 
