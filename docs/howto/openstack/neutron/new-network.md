@@ -53,7 +53,7 @@ On the other hand, if you prefer to work with OpenStack CLI, please do not forge
     | location                  | cloud='', project.domain_id=,                              |
     |                           | project.domain_name='CCP_Domain_pqrxy',                    |
     |                           | project.id='hdzqyxmxnixcdtgldkhhwdewfacyjdbub',            |
-    |                           | project.name='Nuuk-to-Iqaluit', region_name='Fra1',        |
+    |                           | project.name='Nuuk-to-Iqaluit', region_name=' {{api_region}}',        |
     |                           | zone=                                                      |
     | mtu                       | 1500                                                       |
     | name                      | nordostbahnhof                                             |
@@ -151,7 +151,7 @@ Unless you work from the {{gui}}, where almost every component is activated for 
     | location             | cloud='', project.domain_id=,                                   |
     |                      | project.domain_name='CCP_Domain_pqrxy',                         |
     |                      | project.id='hdzqyxmxnixcdtgldkhhwdewfacyjdbub',                 |
-    |                      | project.name='Nuuk-to-Iqaluit', region_name='Fra1', zone=       |
+    |                      | project.name='Nuuk-to-Iqaluit', region_name=' {{api_region}}', zone=       |
     | name                 | nordostbahnhof-subnet-ipv4                                      |
     | network_id           | f1f1b1f6-2b65-11f0-9769-080027af5a23                            |
     | prefix_length        | None                                                            |
@@ -197,7 +197,7 @@ Unless you work from the {{gui}}, where almost every component is activated for 
     | location             | cloud='', project.domain_id=,                                   |
     |                      | project.domain_name='CCP_Domain_pqrxy',                         |
     |                      | project.id='hdzqyxmxnixcdtgldkhhwdewfacyjdbub',                 |
-    |                      | project.name='Nuuk-to-Iqaluit', region_name='Fra1', zone=       |
+    |                      | project.name='Nuuk-to-Iqaluit', region_name=' {{api_region}}', zone=       |
     | name                 | nordostbahnhof-subnet-ipv6                                      |
     | network_id           | f1f1b1f6-2b65-11f0-9769-080027af5a23                            |
     | prefix_length        | None                                                            |
@@ -236,7 +236,7 @@ Unless you work from the {{gui}}, where almost every component is activated for 
     | location                | cloud='', project.domain_id=,                                |
     |                         | project.domain_name='CCP_Domain_pqrxy',                      |
     |                         | project.id='hdzqyxmxnixcdtgldkhhwdewfacyjdbub',              |
-    |                         | project.name='Nuuk-to-Iqaluit', region_name='Fra1', zone=    |
+    |                         | project.name='Nuuk-to-Iqaluit', region_name=' {{api_region}}', zone=    |
     | name                    | nordostbahnhof-router                                        |
     | project_id              | hdzqyxmxnixcdtgldkhhwdewfacyjdbub                            |
     | revision_number         | 1                                                            |
