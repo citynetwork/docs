@@ -57,12 +57,12 @@ Once you have your encryption secret available, you can create or access enabled
 === "aws"
     1. Create an S3 bucket:
        ```bash
-       aws --profile <region> \
+       aws --profile {{api_region|lower}} \
          s3 mb s3://{{brand|lower|replace(' ','')}}-encrypted
        ```
     2. Sync a directory to the S3 bucket, encrypting the files it contains on upload:
        ```bash
-       aws --profile <region> \
+       aws --profile {{api_region|lower}} \
          s3 sync \
          ~/media/ s3://{{brand|lower|replace(' ','')}}-encrypted \
          --sse-c AES256 \
@@ -70,7 +70,7 @@ Once you have your encryption secret available, you can create or access enabled
        ```
     3. Retrieve a file from S3 and decrypt it:
        ```bash
-       aws --profile <region> \
+       aws --profile {{api_region|lower}} \
          s3 cp \
          s3://{{brand|lower|replace(' ','')}}-encrypted/file.png . \
          --sse-c AES256 \
@@ -79,7 +79,7 @@ Once you have your encryption secret available, you can create or access enabled
 
     Note that attempting to download an encrypted file *without* providing an encryption key results in an immediate HTTP 400 ("Bad Request") error:
     ```console
-    $ aws --profile <region> \
+    $ aws --profile {{api_region|lower}} \
       s3 cp \
       s3://{{brand|lower|replace(' ','')}}-encrypted/file.png .
     fatal error: An error occurred (400) when calling the HeadObject operation: Bad Request
@@ -87,29 +87,29 @@ Once you have your encryption secret available, you can create or access enabled
 === "mc"
     1. Create an S3 bucket:
        ```bash
-       mc mb <region>/{{brand|lower|replace(' ','')}}-encrypted
+       mc mb {{api_region|lower}}/{{brand|lower|replace(' ','')}}-encrypted
        ```
     2. Sync a directory to the S3 bucket, encrypting the files it contains on upload.
        Note that you must specify the encryption secret as the argument to the `--encrypt-key` option, using a syntax of `<minio-alias>/<bucket-name>=<encryption-key>`:
        ```bash
        mc cp \
          --recursive \
-         --encrypt-key "<region>/{{brand|lower|replace(' ','')}}-encrypted=${secret}"
-         ~/media/ <region>/{{brand|lower|replace(' ','')}}-encrypted
+         --encrypt-key "{{api_region|lower}}/{{brand|lower|replace(' ','')}}-encrypted=${secret}"
+         ~/media/ {{api_region|lower}}/{{brand|lower|replace(' ','')}}-encrypted
        ```
     3. Retrieve a file from S3 and decrypt it.
        Again, specify the encryption key in the same manner:
        ```bash
        mc cp \
-         --encrypt-key "<region>/{{brand|lower|replace(' ','')}}-encrypted=${secret}"
-         <region>/{{brand|lower|replace(' ','')}}-encrypted/file.png .
+         --encrypt-key "{{api_region|lower}}/{{brand|lower|replace(' ','')}}-encrypted=${secret}"
+         {{api_region|lower}}/{{brand|lower|replace(' ','')}}-encrypted/file.png .
        ```
 
     Note that attempting to download an encrypted file *without* providing an encryption key results in an immediate HTTP 400 ("Bad Request") error:
     ```console
     $ mc cp \
-      <region>/{{brand|lower|replace(' ','')}}-encrypted/file.png .
-    mc: <ERROR> Unable to validate source `<region>/{{brand|lower|replace(' ','')}}-encrypted/file.png`.
+      {{api_region|lower}}/{{brand|lower|replace(' ','')}}-encrypted/file.png .
+    mc: <ERROR> Unable to validate source `{{api_region|lower}}/{{brand|lower|replace(' ','')}}-encrypted/file.png`.
     ```
 
 === "s3cmd"
@@ -123,13 +123,13 @@ Once you have your encryption secret available, you can create or access enabled
 
     1. To start with, modify the section in your configuration file that is named after your target region, adding the `sse_customer_algorithm` option:
        ```ini
-       [<region>]
+       [{{api_region|lower}}]
        type = s3
        provider = Ceph
        env_auth = false
        access_key_id = <access key id>
        secret_access_key = <secret key>
-       endpoint = <region>.{{api_domain}}
+       endpoint = {{api_region|lower}}.{{api_domain}}
        acl = private
        sse_customer_algorithm = AES256
        ```

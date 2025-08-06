@@ -26,14 +26,14 @@ To use the object lock feature, you must first create a new bucket.
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api create-bucket \
       --bucket <bucket-name> \
       --object-lock-enabled-for-bucket
     ```
 === "mc"
     ```bash
-    mc mb <region>/<bucket> \
+    mc mb {{api_region|lower}}/<bucket> \
       --with-lock
     ```
 
@@ -45,7 +45,7 @@ To configure your bucket to use the **Compliance** mode, use one of the followin
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api put-object-lock-configuration \
       --bucket <bucket-name> \
       --object-lock-configuration \
@@ -55,7 +55,7 @@ To configure your bucket to use the **Compliance** mode, use one of the followin
     ```bash
     mc retention set \
       --default compliance 30d \
-      <region>/<bucket>
+      {{api_region|lower}}/<bucket>
     ```
     > The `--default` parameter sets the default object lock settings for new objects, and is optional.
 
@@ -69,7 +69,7 @@ You can also use these commands to update the retention period for an object:
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api put-object-retention \
       --bucket <bucket-name> \
       --key <object-name> \
@@ -80,7 +80,7 @@ You can also use these commands to update the retention period for an object:
     ```bash
     mc retention set \
       COMPLIANCE 30d \
-      <region>/<bucket>/<object-name>
+      {{api_region|lower}}/<bucket>/<object-name>
     ```
     > To specify a duration, use a string formatted as `Nd` for days or `Ny` for years.
     > For example, use `30d` to indicate 30 days after the object creation, or use `1y` to indicate 1 year after the object creation.
@@ -93,7 +93,7 @@ To view the default object lock mode and retention period set on a bucket, use t
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api get-object-lock-configuration \
       --bucket <bucket-name>
     ```
@@ -113,7 +113,7 @@ To view the default object lock mode and retention period set on a bucket, use t
     ```
 === "mc"
     ```bash
-    mc retention info --json --default <region>/<bucket>
+    mc retention info --json --default {{api_region|lower}}/<bucket>
     ```
     Example output:
     ```json
@@ -132,7 +132,7 @@ To view the default object lock mode and retention period set on an object, use 
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api get-object-retention \
       --bucket <bucket-name> \
       --key <object-name>
@@ -149,7 +149,7 @@ To view the default object lock mode and retention period set on an object, use 
     > For the value of the `RetainUntilDate` parameter, use the [ISO 8601 date-time representation](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) format.
 === "mc"
     ```bash
-    mc retention info --json <region>/<bucket>/<object-name>
+    mc retention info --json {{api_region|lower}}/<bucket>/<object-name>
     ```
     Example output:
     ```json
@@ -177,17 +177,17 @@ To configure the legal hold for all objects in a bucket, use the following comma
     However, you can use the `ls` command along with `--recursive` to list all objects in a bucket, and then set the legal hold for each object in your bucket.
 
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api list-objects \
       --bucket <bucket-name \
       | jq .Contents[].Key \
-      | xargs -n1 aws --profile <region> s3api put-object-legal-hold --legal-hold Status=ON --bucket <bucket-name> --key
+      | xargs -n1 aws --profile {{api_region|lower}} s3api put-object-legal-hold --legal-hold Status=ON --bucket <bucket-name> --key
     ```
 === "mc"
     ```bash
     mc legalhold set \
       --recursive \
-      <region>/<bucket>
+      {{api_region|lower}}/<bucket>
     ```
 
 ### Per object
@@ -196,7 +196,7 @@ To configure the legal hold for a single object, use the following command:
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api put-object-legal-hold \
       --bucket <bucket-name> \
       --key <object-name> \
@@ -207,7 +207,7 @@ To configure the legal hold for a single object, use the following command:
 === "mc"
     ```bash
     mc legalhold set \
-      <region>/<bucket>/<object-name>
+      {{api_region|lower}}/<bucket>/<object-name>
     ```
     > To remove the legal hold, use the `clear` command instead of `set`.
 
@@ -217,7 +217,7 @@ To display the legal hold status for an object, use the following command:
 
 === "aws"
     ```bash
-    aws --profile <region> \
+    aws --profile {{api_region|lower}} \
       s3api get-object-legal-hold \
       --bucket <bucket-name> \
       --key <object-name>
@@ -233,13 +233,13 @@ To display the legal hold status for an object, use the following command:
 === "mc"
     ```bash
     mc legalhold info \
-      --json <region>/<bucket>/<object-name>
+      --json {{api_region|lower}}/<bucket>/<object-name>
     ```
     Example output:
     ```json
     {
       "legalhold": "ON",
-      "urlpath": "https://s3-<region>.{{api_domain}}/<bucket>/<object-name>",
+      "urlpath": "https://s3-{{api_region|lower}}.{{api_domain}}/<bucket>/<object-name>",
       "key": "<object-name>",
       "versionID": "",
       "status": "success"
