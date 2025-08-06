@@ -5660,7 +5660,7 @@ Observe that the Read access control list (ACL) contains the entry <code>.r:*,.r
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">OpenStack CLI</label><label for="__tabbed_5_2">Swift CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>object<span class="w"> </span>save<span class="w"> </span>--file<span class="w"> </span>-<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
+<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>object<span class="w"> </span>save<span class="w"> </span>--file<span class="w"> </span>-<span class="w"> </span>public-container<span class="w"> </span>testobj.txt
 <span class="go">hello world</span>
 </code></pre></div>
 The <code>--file -</code> option prints the file contents to stdout.
@@ -5668,7 +5668,7 @@ If instead you want to save the object&rsquo;s content to a local file, use <cod
 <p>If you omit the <code>--file</code> argument altogether, <code>openstack object save</code> will create a local file named like the object you are downloading (in this case, <code>testobj.txt</code>).</p>
 </div>
 <div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>download<span class="w"> </span>-o<span class="w"> </span>-<span class="w"> </span>private-container<span class="w"> </span>testobj.txt
+<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>swift<span class="w"> </span>download<span class="w"> </span>-o<span class="w"> </span>-<span class="w"> </span>public-container<span class="w"> </span>testobj.txt
 <span class="go">hello world</span>
 </code></pre></div>
 The <code>-o -</code> option prints the file contents to stdout.
@@ -5738,7 +5738,7 @@ This example uses <code>curl</code>:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 3, 2025 13:50:51 UTC">2025-07-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 6, 2025 14:02:19 UTC">2025-08-06</span>
   </span>
 
     
