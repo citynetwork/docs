@@ -14,7 +14,7 @@ openstack secret store \
   -n mysecret
 ```
 
-> The example output below uses {{brand}}'s `Fra1` region.
+> The example output below uses {{brand}}'s `{{api_region}}` region.
 > In other regions, the secret [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) will differ.
 
 
@@ -22,7 +22,7 @@ openstack secret store \
 +---------------+--------------------------------------------------------------------------------+
 | Field         | Value                                                                          |
 +---------------+--------------------------------------------------------------------------------+
-| Secret href   | https://fra1.{{api_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba |
+| Secret href   | https://{{api_region|lower}}.{{api_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba |
 | Name          | mysecret                                                                       |
 | Created       | None                                                                           |
 | Status        | None                                                                           |
@@ -57,7 +57,7 @@ You can retrieve the decrypted secret with the `openstack secret get` command, a
 
 ```console
 $ openstack secret get -p \
-  https://fra1.{{api_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba
+  https://{{api_region|lower}}.{{api_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba
 +---------+---------------------------+
 | Field   | Value                     |
 +---------+---------------------------+

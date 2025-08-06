@@ -61,7 +61,7 @@ If the query parameters are incorrect or the pre-signed URL is past its expiry d
 > Pre-signed URLs are valid for HTTP `GET` requests only.
 > Thus, even a valid pre-signed URL will result in HTTP 403 if you force a different HTTP method (such as `HEAD`, by setting `curl -I`).
 
-For example, to retrieve an object named `bar.pdf` in a bucket named `foo` in the {{brand}} Kna1 region via its pre-signed URL, you would run:
+For example, to retrieve an object named `bar.pdf` in a bucket named `foo` in the {{brand}} {{api_region}} region via its pre-signed URL, you would run:
 
 ```console
 $ curl -o bar.pdf https://s3-{{api_region|lower}}.{{api_domain}}/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&Expires=1673521496&Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D

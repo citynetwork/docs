@@ -69,10 +69,10 @@ The general naming for RC files goes like this:
 your_username--region_name--project_name--rc
 ```
 
-So, assuming your username is `olafsdottir`, and the RC file has been created for the `fra1` region and the `katla` project, your RC file name should be this:
+So, assuming your username is `olafsdottir`, and the RC file has been created for the `{{api_region}}` region and the `katla` project, your RC file name should be this:
 
 ```plain
-olafsdottir--fra1--katla--rc
+olafsdottir--{{api_region|lower}}--katla--rc
 ```
 
 Take a look at the contents of this file --- they should be like this:
@@ -80,10 +80,10 @@ Take a look at the contents of this file --- they should be like this:
 ```bash
 export OS_USERNAME=olafsdottir
 export OS_PASSWORD=<your password goes here>
-export OS_AUTH_URL=https://fra1.citycloud.com:5000
+export OS_AUTH_URL=https://{{api_region|lower}}.{{api_domain}}:5000
 export OS_USER_DOMAIN_NAME=...
 export OS_PROJECT_DOMAIN_NAME=...
-export OS_REGION_NAME=Fra1
+export OS_REGION_NAME={{api_region}}
 export OS_PROJECT_NAME="katla"
 export OS_TENANT_NAME="katla"
 export OS_AUTH_VERSION=3
@@ -94,13 +94,13 @@ Before you source the RC file, and thus initialize all relevant environment vari
 Also, change the permissions of the file, so it is readable and writable by your local user only:
 
 ```bash
-chmod 600 olafsdottir--fra1--katla--rc
+chmod 600 olafsdottir--{{api_region|lower}}--katla--rc
 ```
 
 Then, go ahead and source it:
 
 ```bash
-source olafsdottir--fra1--katla--rc
+source olafsdottir--{{api_region|lower}}--katla--rc
 ```
 
 ## Installing the OpenStack CLI

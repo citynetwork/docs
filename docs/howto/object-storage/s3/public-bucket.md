@@ -60,7 +60,7 @@ https://s3-{{api_region|lower}}.{{api_domain}}/<project-uuid>:<bucket-name>/obje
 >
 > If you did not note it down at the time of account creation, you can always retrieve it with `openstack ec2 credentials <access-key>`.
 
-For example, to retrieve an object named `bar.pdf` in a bucket named `foo` from the project with the UUID `07576783684248f7b2745e34356c6025` in the {{brand}} Kna1 region, you would run:
+For example, to retrieve an object named `bar.pdf` in a bucket named `foo` from the project with the UUID `07576783684248f7b2745e34356c6025` in the {{brand}} {{api_region}} region, you would run:
 
 ```console
 $ curl -O https://s3-{{api_region|lower}}.{{api_domain}}/07576783684248f7b2745e34356c6025:foo/bar.pdf
