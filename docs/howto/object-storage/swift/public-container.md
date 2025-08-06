@@ -145,7 +145,7 @@ To download an object from your public Swift container, you can use the followin
 
 === "OpenStack CLI"
     ```console
-    $ openstack object save --file - private-container testobj.txt
+    $ openstack object save --file - public-container testobj.txt
     hello world
     ```
     The `--file -` option prints the file contents to stdout.
@@ -154,7 +154,7 @@ To download an object from your public Swift container, you can use the followin
     If you omit the `--file` argument altogether, `openstack object save` will create a local file named like the object you are downloading (in this case, `testobj.txt`).
 === "Swift CLI"
     ```console
-    $ swift download -o - private-container testobj.txt
+    $ swift download -o - public-container testobj.txt
     hello world
     ```
     The `-o -` option prints the file contents to stdout.
