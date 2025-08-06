@@ -13,6 +13,8 @@ extra:
   analytics:
     domain: docs.cleura.cloud
     provider: plausible
+  api_domain: "citycloud.com"
+  api_region: "FIXME"
   brand: "Cleura Cloud"
   brand_compliant: "Cleura Compliant Cloud"
   brand_container_orchestration: "Gardener in Cleura Cloud"
