@@ -5,10 +5,9 @@ The content you find here constitutes authoritative documentation for {{company}
 
 ## Per-region documentation
 
-You are currently browsing the `main` view of this site.
-This view should give you a useful overview over most {{brand}} functionality.
+You are currently browsing the documentation for the **{{api_region}} region** in {{brand}}.
 
-However, whenever you are operating in a specific {{brand}} **region**, you should always select the correct region name in the drop-down in the title bar, to be sure to get the most accurate and current information for that region.
+If you are looking for information about another region, please select the correct region name in the drop-down in the title bar.
 
 ## Open source
 
