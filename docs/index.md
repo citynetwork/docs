@@ -3,6 +3,13 @@
 This is the {{company}} documentation web site.
 The content you find here constitutes authoritative documentation for {{company}} products and services, including {{brand}} and the {{gui}}.
 
+## Per-region documentation
+
+You are currently browsing the `main` view of this site.
+This view should give you a useful overview over most {{brand}} functionality.
+
+However, whenever you are operating in a specific {{brand}} **region**, you should always select the correct region name in the drop-down in the title bar, to be sure to get the most accurate and current information for that region.
+
 ## Open source
 
 All content on this site is licensed under the [{{legal_docs.cc_by_sa.short_name}}]({{legal_docs.cc_by_sa.url}}) license.
