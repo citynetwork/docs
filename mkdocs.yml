@@ -50,6 +50,7 @@ extra:
     provider: mike
 extra_css:
   - assets/stylesheets/cleura-palette.css
+  - assets/stylesheets/banner.css
 markdown_extensions:
   - attr_list
   - footnotes
