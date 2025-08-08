@@ -10,7 +10,7 @@ You can create a set of S3-compatible credentials with the following command:
 openstack ec2 credentials create
 ```
 
-This will return an `Access` and `Secret` key that you can use to populate the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables (or whichever configuration options your application requires).
+This will return an `access` and `secret` key that you can use to populate the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables (or whichever configuration options your application requires).
 
 > Your S3-compatible credentials are always scoped to your {{brand}} *region* and *project*.
 > You cannot reuse an access and secret key across multiple regions or projects.

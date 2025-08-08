@@ -71,8 +71,8 @@ Observe that the Read access control list (ACL) contains the entry `.r:*,.rlisti
     $ swift stat public-container
                           Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88
                         Container: public-container
-                          Objects: 0
-                            Bytes: 0
+                          Objects: 1
+                            Bytes: 12
                          Read ACL: .r:*,.rlistings
                         Write ACL:
                           Sync To:
