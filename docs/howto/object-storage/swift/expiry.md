@@ -34,7 +34,7 @@ $ swift stat private-container testobj.txt
                Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88
              Container: private-container
                 Object: testobj.txt
-          Content Type: binary/octet-stream
+          Content Type: text/plain
         Content Length: 12
          Last Modified: Mon, 05 Dec 2022 14:09:02 GMT
                   ETag: 6f5902ac237024bdd0c176cb93063dc4
@@ -66,7 +66,7 @@ $ swift stat private-container testobj.txt
                Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88
              Container: private-container
                 Object: testobj.txt
-          Content Type: binary/octet-stream
+          Content Type: text/plain
         Content Length: 12
          Last Modified: Mon, 05 Dec 2022 14:09:55 GMT
                   ETag: 6f5902ac237024bdd0c176cb93063dc4

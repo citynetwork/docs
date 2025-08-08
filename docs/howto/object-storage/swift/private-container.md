@@ -64,8 +64,8 @@ To retrieve more detailed information about an individual container, you can als
     $ swift stat private-container
                           Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88
                         Container: private-container
-                          Objects: 0
-                            Bytes: 0
+                          Objects: 1
+                            Bytes: 12
                          Read ACL:
                         Write ACL:
                           Sync To:
