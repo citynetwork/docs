@@ -13,7 +13,7 @@ extra:
   analytics:
     domain: docs.cleura.cloud
     provider: plausible
-  api_domain: "citycloud.com"
+  api_domain: "cleura.cloud"
   api_region: "Sto-Com"
   brand: "Cleura Cloud"
   brand_compliant: "Cleura Compliant Cloud"
