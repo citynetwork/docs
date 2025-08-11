@@ -6,7 +6,7 @@ copyright: >
   <a href="https://creativecommons.org/licenses/by-sa/4.0/">
   <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/>
   </a>
-edit_uri: ./edit/v2/docs
+edit_uri: ./edit/main/docs
 extra:
   academy: "Cleura Cloud Academy"
   academy_domain: "academy.cleura.cloud"
@@ -92,7 +92,7 @@ plugins:
         'howto/account-billing/change-billing-data.md': 'howto/account-billing/change-account-data.md'
 repo_url: https://github.com/citynetwork/docs
 site_name: "Cleura Docs"
-site_url: !ENV [DOCS_SITE_URL, "https://v2.docs.cleura.cloud"]
+site_url: !ENV [DOCS_SITE_URL, "https://docs.cleura.cloud"]
 theme:
   custom_dir: theme
   favicon: assets/favicon.ico
