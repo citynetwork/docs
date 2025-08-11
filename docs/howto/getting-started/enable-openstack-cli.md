@@ -32,7 +32,7 @@ For each one of the expanded regions, select one or more _Projects_.
 For each project, activate one or more _Roles_.
 (Hint: For an overview of the rights that roles provide, hover the mouse pointer over the exclamation mark icon by the _Roles_.)
 
-![Regions, projects, and roles](assets/ostack-cli/shot-04.png)
+![Projects and roles](assets/ostack-cli/shot-04.png)
 
 Optionally, type in a description for the new OpenStack user.
 Then, create the user by clicking the green _Create_ button below the _Description_ box.
@@ -42,7 +42,7 @@ Then, create the user by clicking the green _Create_ button below the _Descripti
 The new OpenStack user will be ready in just a few seconds.
 At any time, you can view all available OpenStack users by going to the left-hand side pane on the {{gui}} and selecting _Users_ > _Openstack Users_.
 
-![All available OpenStack users](assets/ostack-cli/shot-06.png)
+![Available OpenStack users and details about a specific user](assets/ostack-cli/shot-06.png)
 
 ## Downloading an RC file
 
@@ -80,7 +80,7 @@ Take a look at the contents of this file --- they should be like this:
 ```bash
 export OS_USERNAME=olafsdottir
 export OS_PASSWORD=<your password goes here>
-export OS_AUTH_URL=https://{{api_region|lower}}.{{api_domain}}:5000
+export OS_AUTH_URL=https://{{api_region|lower}}.{{api_domain}}
 export OS_USER_DOMAIN_NAME=...
 export OS_PROJECT_DOMAIN_NAME=...
 export OS_REGION_NAME={{api_region}}

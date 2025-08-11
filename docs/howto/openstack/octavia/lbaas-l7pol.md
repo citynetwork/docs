@@ -47,14 +47,14 @@ Here is `mylb`, the load balancer we used during testing...
 ```console
 $ openstack loadbalancer list
 
-+---------------+------+---------------+--------------+---------------------+------------------+----------+
-| id            | name | project_id    | vip_address  | provisioning_status | operating_status | provider |
-+---------------+------+---------------+--------------+---------------------+------------------+----------+
-| eaf6d4f3-     | mylb | dfc7004673964 | 10.15.25.155 | ACTIVE              | ONLINE           | amphora  |
-| 8d73-4b77-    |      | 28bacba4376e7 |              |                     |                  |          |
-| 8bc4-         |      | 2cc3e9        |              |                     |                  |          |
-| 788a3b4e3916  |      |               |              |                     |                  |          |
-+---------------+------+---------------+--------------+---------------------+------------------+----------+
++---------------+------+---------------+--------------+---------------------+------------------+-----------+
+| id            | name | project_id    | vip_address  | provisioning_status | operating_status | provider  |
++---------------+------+---------------+--------------+---------------------+------------------+-----------+
+| c544f838-     | mylb | d42230ea21674 | 10.15.25.125 | ACTIVE              | ONLINE           | amphorav2 |
+| dbd6-44af-    |      | 515ab9197af89 |              |                     |                  |           |
+| b8af-         |      | fa5192        |              |                     |                  |           |
+| 16e2871b5195  |      |               |              |                     |                  |           |
++---------------+------+---------------+--------------+---------------------+------------------+-----------+
 ```
 
 ...and here is `mylb-listener-https`, the HTTPS-terminated listener of `mylb`:
@@ -62,15 +62,15 @@ $ openstack loadbalancer list
 ```console
 $ openstack loadbalancer listener list
 
-+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
-| id          | default_pool_id | name        | project_id  | protocol    | protocol_port | admin_state_up |
-+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
-| 95414884-   | 3a683bfb-6c77-  | mylb-       | dfc70046739 | TERMINATED_ |           443 | True           |
-| f9f2-4f76-  | 4ffd-befa-      | listener-   | 6428bacba43 | HTTPS       |               |                |
-| 8aa5-       | 9f5e0e168538    | https       | 76e72cc3e9  |             |               |                |
-| 56741f12825 |                 |             |             |             |               |                |
-| 2           |                 |             |             |             |               |                |
-+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
++-------------+-----------------+-------------+-------------+----------+---------------+----------------+
+| id          | default_pool_id | name        | project_id  | protocol | protocol_port | admin_state_up |
++-------------+-----------------+-------------+-------------+----------+---------------+----------------+
+| ad642af8-   | e57008aa-5d24-  | mylb-       | d42230ea216 | HTTPS    |           443 | True           |
+| 3ccc-412f-  | 4ae0-97fb-      | listener-   | 74515ab9197 |          |               |                |
+| b00c-       | cbd19e65d822    | https       | af89fa5192  |          |               |                |
+| faae4740366 |                 |             |             |          |               |                |
+| c           |                 |             |             |          |               |                |
++-------------+-----------------+-------------+-------------+----------+---------------+----------------+
 ```
 
 You may now add `mylb-listener-http`, a new HTTP-based listener for `mylb`:
@@ -87,17 +87,17 @@ $ openstack loadbalancer listener create \
 +-----------------------------+--------------------------------------+
 | admin_state_up              | True                                 |
 | connection_limit            | -1                                   |
-| created_at                  | 2023-01-29T16:12:24                  |
+| created_at                  | 2025-02-26T19:43:25                  |
 | default_pool_id             | None                                 |
 | default_tls_container_ref   | None                                 |
 | description                 |                                      |
-| id                          | 798e9f76-300d-4769-9dc9-2ee111ed2af7 |
+| id                          | 23b49d49-bcfb-4e82-9568-7f3b2402ccc1 |
 | insert_headers              | None                                 |
 | l7policies                  |                                      |
-| loadbalancers               | eaf6d4f3-8d73-4b77-8bc4-788a3b4e3916 |
+| loadbalancers               | c544f838-dbd6-44af-b8af-16e2871b5195 |
 | name                        | mylb-listener-http                   |
 | operating_status            | OFFLINE                              |
-| project_id                  | dfc700467396428bacba4376e72cc3e9     |
+| project_id                  | d42230ea21674515ab9197af89fa5192     |
 | protocol                    | HTTP                                 |
 | protocol_port               | 80                                   |
 | provisioning_status         | PENDING_CREATE                       |
@@ -115,6 +115,9 @@ $ openstack loadbalancer listener create \
 | tls_versions                | None                                 |
 | alpn_protocols              | None                                 |
 | tags                        |                                      |
+| hsts_max_age                | None                                 |
+| hsts_include_subdomains     | False                                |
+| hsts_preload                | False                                |
 +-----------------------------+--------------------------------------+
 ```
 
@@ -135,20 +138,20 @@ Have a look at both listeners of `mylb`:
 ```console
 $ openstack loadbalancer listener list
 
-+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
-| id          | default_pool_id | name        | project_id  | protocol    | protocol_port | admin_state_up |
-+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
-| 95414884-   | 3a683bfb-6c77-  | mylb-       | dfc70046739 | TERMINATED_ |           443 | True           |
-| f9f2-4f76-  | 4ffd-befa-      | listener-   | 6428bacba43 | HTTPS       |               |                |
-| 8aa5-       | 9f5e0e168538    | https       | 76e72cc3e9  |             |               |                |
-| 56741f12825 |                 |             |             |             |               |                |
-| 2           |                 |             |             |             |               |                |
-| 798e9f76-   | None            | mylb-       | dfc70046739 | HTTP        |            80 | True           |
-| 300d-4769-  |                 | listener-   | 6428bacba43 |             |               |                |
-| 9dc9-       |                 | http        | 76e72cc3e9  |             |               |                |
-| 2ee111ed2af |                 |             |             |             |               |                |
-| 7           |                 |             |             |             |               |                |
-+-------------+-----------------+-------------+-------------+-------------+---------------+----------------+
++-------------+-----------------+-------------+-------------+----------+---------------+----------------+
+| id          | default_pool_id | name        | project_id  | protocol | protocol_port | admin_state_up |
++-------------+-----------------+-------------+-------------+----------+---------------+----------------+
+| ad642af8-   | e57008aa-5d24-  | mylb-       | d42230ea216 | HTTPS    |           443 | True           |
+| 3ccc-412f-  | 4ae0-97fb-      | listener-   | 74515ab9197 |          |               |                |
+| b00c-       | cbd19e65d822    | https       | af89fa5192  |          |               |                |
+| faae4740366 |                 |             |             |          |               |                |
+| c           |                 |             |             |          |               |                |
+| 23b49d49-   | None            | mylb-       | d42230ea216 | HTTP     |            80 | True           |
+| bcfb-4e82-  |                 | listener-   | 74515ab9197 |          |               |                |
+| 9568-       |                 | http        | af89fa5192  |          |               |                |
+| 7f3b2402ccc |                 |             |             |          |               |                |
+| 1           |                 |             |             |          |               |                |
++-------------+-----------------+-------------+-------------+----------+---------------+----------------+
 ```
 
 ## Adding policies and rules
@@ -165,12 +168,12 @@ $ openstack loadbalancer l7policy create \
 +---------------------+--------------------------------------+
 | Field               | Value                                |
 +---------------------+--------------------------------------+
-| listener_id         | 798e9f76-300d-4769-9dc9-2ee111ed2af7 |
+| listener_id         | 23b49d49-bcfb-4e82-9568-7f3b2402ccc1 |
 | description         |                                      |
 | admin_state_up      | True                                 |
 | rules               |                                      |
-| project_id          | dfc700467396428bacba4376e72cc3e9     |
-| created_at          | 2023-01-29T16:24:26                  |
+| project_id          | d42230ea21674515ab9197af89fa5192     |
+| created_at          | 2025-02-26T19:45:51                  |
 | provisioning_status | PENDING_CREATE                       |
 | updated_at          | None                                 |
 | redirect_pool_id    | None                                 |
@@ -178,7 +181,7 @@ $ openstack loadbalancer l7policy create \
 | redirect_prefix     | https://whoogle.example.com          |
 | action              | REDIRECT_PREFIX                      |
 | position            | 1                                    |
-| id                  | baafb237-a7fa-4b26-b4f3-a8e5a0e5ec40 |
+| id                  | 657e5d35-4b89-42f6-8035-dc0360c29880 |
 | operating_status    | OFFLINE                              |
 | name                | mylb-listener-http-policy            |
 | redirect_http_code  | 302                                  |
@@ -210,17 +213,17 @@ $ openstack loadbalancer l7rule create \
 +---------------------+--------------------------------------+
 | Field               | Value                                |
 +---------------------+--------------------------------------+
-| created_at          | 2023-01-29T16:34:21                  |
-| compare_type        | STARTS_WITH                          |
+| created_at          | 2025-02-26T19:47:31                  |
+| compare_type        | EQUAL_TO                             |
 | provisioning_status | PENDING_CREATE                       |
 | invert              | False                                |
 | admin_state_up      | True                                 |
 | updated_at          | None                                 |
 | value               | whoogle.example.com                  |
 | key                 | None                                 |
-| project_id          | dfc700467396428bacba4376e72cc3e9     |
-| type                | PATH                                 |
-| id                  | 40ebeef4-9ee2-42c9-8119-c2e478b48a21 |
+| project_id          | d42230ea21674515ab9197af89fa5192     |
+| type                | HOST_NAME                            |
+| id                  | 12df1ba5-2e47-41ef-9d80-4a44e63fcbdc |
 | operating_status    | OFFLINE                              |
 | tags                |                                      |
 +---------------------+--------------------------------------+

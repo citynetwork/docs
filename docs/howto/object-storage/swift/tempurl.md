@@ -40,32 +40,33 @@ The TempURL secret is not encrypted or hashed; you can read it back at the accou
     +------------+-------------------------------------------------+
     | Field      | Value                                           |
     +------------+-------------------------------------------------+
-    | Account    | AUTH_30a7768a0ffc40359d6110f21a6e7d88           |
-    | Bytes      | 24                                              |
+    | Account    | AUTH_d42230ea21674515ab9197af89fa5192           |
+    | Bytes      | 12                                              |
     | Containers | 2                                               |
-    | Objects    | 2                                               |
-    | properties | temp-url-key='tooNgeiNgieJe6bohg7teik8eiDeeMai' |
+    | Objects    | 1                                               |
+    | properties | temp-url-key='goh3peisohkeeshuush8aut4oiD3wi3a' |
     +------------+-------------------------------------------------+
     ```
 === "Swift CLI"
     ```console
     $ swift stat
-                                        Account: AUTH_30a7768a0ffc40359d6110f21a6e7d88
+                                        Account: AUTH_d42230ea21674515ab9197af89fa5192
                                      Containers: 2
-                                        Objects: 2
-                                          Bytes: 24
+                                        Objects: 1
+                                          Bytes: 12
     Objects in policy "default-placement-bytes": 0
       Bytes in policy "default-placement-bytes": 0
        Containers in policy "default-placement": 2
-          Objects in policy "default-placement": 2
-            Bytes in policy "default-placement": 24
-                              Meta Temp-Url-Key: tooNgeiNgieJe6bohg7teik8eiDeeMai
-                                    X-Timestamp: 1670245963.98328
-                    X-Account-Bytes-Used-Actual: 8192
-                                     X-Trans-Id: tx00000fbce1bedc1e2b138-00638dee4b-301ddeb-default
-                         X-Openstack-Request-Id: tx00000fbce1bedc1e2b138-00638dee4b-301ddeb-default
+          Objects in policy "default-placement": 1
+            Bytes in policy "default-placement": 12
+                              Meta Temp-Url-Key: goh3peisohkeeshuush8aut4oiD3wi3a
+                                    X-Timestamp: 1740651069.33342
+                    X-Account-Bytes-Used-Actual: 4096
+                                     X-Trans-Id: tx0000014568b03aa275005-0067c03a3d-1130eb5-az1
+                         X-Openstack-Request-Id: tx0000014568b03aa275005-0067c03a3d-1130eb5-az1
                                   Accept-Ranges: bytes
                                    Content-Type: text/plain; charset=utf-8
+                                     Connection: close
     ```
 
 ## Creating a TempURL for an object
@@ -88,9 +89,10 @@ When specified in this way, the command returns a path similar to the following:
 
 ```console
 $ swift tempurl GET 3600 \
-    /v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt     \
-    tooNgeiNgieJe6bohg7teik8eiDeeMai
-/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048
+    /v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt \
+    ${TEMP_URL_KEY}
+
+/v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt?temp_url_sig=746d382b7b211bdb24ca59ca21f90745f5741c83&temp_url_expires=1670250048
 ```
 
 ## Accessing objects via their TempURL
@@ -99,19 +101,35 @@ You must then use your freshly generated TempURL path as the path in a URL point
 This will enable you to fetch the object using a simple HTTP client, like `curl`:
 
 ```console
-$ curl 'https://swift-{{api_region|lower}}.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
+$ curl 'https://object-store.{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt?temp_url_sig=746d382b7b211bdb24ca59ca21f90745f5741c83&temp_url_expires=1670250048'
 hello world
 ```
 
 If you (or someone else) were to attempt to fetch the same URL *after* its lifetime expired, they would be met with an [HTTP 401](https://http.cat/401) error:
 
 ```console
-$ curl -i 'https://swift-{{api_region|lower}}.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
-HTTP/1.1 401 Unauthorized
-content-length: 12
-x-trans-id: tx0000001113c5020d8a1de-00638df0ea-301ddeb-default
-x-openstack-request-id: tx0000001113c5020d8a1de-00638df0ea-301ddeb-default
-accept-ranges: bytes
-content-type: text/plain; charset=utf-8
-date: Mon, 05 Dec 2022 14:23:54 GMT
+$ curl --version 'https://object-store.{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt?temp_url_sig=746d382b7b211bdb24ca59ca21f90745f5741c83&temp_url_expires=1670250048'
+
+* Host object-store.{{api_region|lower}}.{{api_domain}}:443 was resolved.
+
+[...]
+
+> GET /swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt?temp_url_sig=e8a6d6304c92fe4cb230545ace6727b43e8ce5ea&temp_url_expires=1740655536 HTTP/2
+> Host: object-store.{{api_region|lower}}.{{api_domain}}
+> User-Agent: curl/8.6.0
+> Accept: */*
+> 
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* old SSL session ID is stale, removing
+< HTTP/2 401 
+< content-length: 12
+< x-trans-id: tx000003a2e52128563efd2-0067c079c5-1133217-az1
+< x-openstack-request-id: tx000003a2e52128563efd2-0067c079c5-1133217-az1
+< accept-ranges: bytes
+< content-type: text/plain; charset=utf-8
+< date: Thu, 27 Feb 2025 14:42:13 GMT
+< 
+* Connection #0 to host object-store.{{api_region|lower}}.{{api_domain}} left intact
+AccessDenied
 ```

@@ -36,42 +36,37 @@ On the other hand, if you prefer to work with OpenStack CLI, please do not forge
     After issuing the command above, you immediately get information regarding the new network:
 
     ```plain
-    +---------------------------+------------------------------------------------------------+
-    | Field                     | Value                                                      |
-    +---------------------------+------------------------------------------------------------+
-    | admin_state_up            | UP                                                         |
-    | availability_zone_hints   |                                                            |
-    | availability_zones        |                                                            |
-    | created_at                | 2025-05-07T17:38:31Z                                       |
-    | description               |                                                            |
-    | dns_domain                |                                                            |
-    | id                        | f1f1b1f6-2b65-11f0-9769-080027af5a23                       |
-    | ipv4_address_scope        | None                                                       |
-    | ipv6_address_scope        | None                                                       |
-    | is_default                | False                                                      |
-    | is_vlan_transparent       | None                                                       |
-    | location                  | cloud='', project.domain_id=,                              |
-    |                           | project.domain_name='CCP_Domain_pqrxy',                    |
-    |                           | project.id='hdzqyxmxnixcdtgldkhhwdewfacyjdbub',            |
-    |                           | project.name='Nuuk-to-Iqaluit', region_name=' {{api_region}}',        |
-    |                           | zone=                                                      |
-    | mtu                       | 1500                                                       |
-    | name                      | nordostbahnhof                                             |
-    | port_security_enabled     | True                                                       |
-    | project_id                | hdzqyxmxnixcdtgldkhhwdewfacyjdbub                          |
-    | provider:network_type     | None                                                       |
-    | provider:physical_network | None                                                       |
-    | provider:segmentation_id  | None                                                       |
-    | qos_policy_id             | None                                                       |
-    | revision_number           | 1                                                          |
-    | router:external           | Internal                                                   |
-    | segments                  | None                                                       |
-    | shared                    | False                                                      |
-    | status                    | ACTIVE                                                     |
-    | subnets                   |                                                            |
-    | tags                      |                                                            |
-    | updated_at                | 2025-05-07T17:38:31Z                                       |
-    +---------------------------+------------------------------------------------------------+
+    +---------------------------+--------------------------------------+
+    | Field                     | Value                                |
+    +---------------------------+--------------------------------------+
+    | admin_state_up            | UP                                   |
+    | availability_zone_hints   | az1, az2, az3                        |
+    | availability_zones        |                                      |
+    | created_at                | 2025-02-16T21:38:52Z                 |
+    | description               |                                      |
+    | dns_domain                | None                                 |
+    | id                        | 688996ba-7a77-4d6e-9630-34cd234abbcd |
+    | ipv4_address_scope        | None                                 |
+    | ipv6_address_scope        | None                                 |
+    | is_default                | False                                |
+    | is_vlan_transparent       | None                                 |
+    | mtu                       | 1500                                 |
+    | name                      | nordostbahnhof                       |
+    | port_security_enabled     | True                                 |
+    | project_id                | d42230ea21674515ab9197af89fa5192     |
+    | provider:network_type     | None                                 |
+    | provider:physical_network | None                                 |
+    | provider:segmentation_id  | None                                 |
+    | qos_policy_id             | None                                 |
+    | revision_number           | 1                                    |
+    | router:external           | Internal                             |
+    | segments                  | None                                 |
+    | shared                    | False                                |
+    | status                    | ACTIVE                               |
+    | subnets                   |                                      |
+    | tags                      |                                      |
+    | updated_at                | 2025-02-16T21:38:52Z                 |
+    +---------------------------+--------------------------------------+
     ```
 
 ## Adding a subnet and a router
@@ -221,30 +216,30 @@ Unless you work from the {{gui}}, where almost every component is activated for 
     As expected, you will see lots of information regarding the new router:
 
     ```plain
-    +-------------------------+--------------------------------------------------------------+
-    | Field                   | Value                                                        |
-    +-------------------------+--------------------------------------------------------------+
-    | admin_state_up          | UP                                                           |
-    | availability_zone_hints |                                                              |
-    | availability_zones      |                                                              |
-    | created_at              | 2025-05-07T17:52:39Z                                         |
-    | description             |                                                              |
-    | external_gateway_info   | null                                                         |
-    | flavor_id               | None                                                         |
-    | ha                      | True                                                         |
-    | id                      | 1ca6aaf8-2b68-11f0-833a-080027af5a23                         |
-    | location                | cloud='', project.domain_id=,                                |
-    |                         | project.domain_name='CCP_Domain_pqrxy',                      |
-    |                         | project.id='hdzqyxmxnixcdtgldkhhwdewfacyjdbub',              |
-    |                         | project.name='Nuuk-to-Iqaluit', region_name=' {{api_region}}', zone=    |
-    | name                    | nordostbahnhof-router                                        |
-    | project_id              | hdzqyxmxnixcdtgldkhhwdewfacyjdbub                            |
-    | revision_number         | 1                                                            |
-    | routes                  |                                                              |
-    | status                  | ACTIVE                                                       |
-    | tags                    |                                                              |
-    | updated_at              | 2025-05-07T17:52:39Z                                         |
-    +-------------------------+--------------------------------------------------------------+
+    +---------------------------+--------------------------------------+
+    | Field                     | Value                                |
+    +---------------------------+--------------------------------------+
+    | admin_state_up            | UP                                   |
+    | availability_zone_hints   | az1, az2, az3                        |
+    | availability_zones        |                                      |
+    | created_at                | 2025-02-16T21:42:15Z                 |
+    | description               |                                      |
+    | enable_default_route_bfd  | False                                |
+    | enable_default_route_ecmp | False                                |
+    | enable_ndp_proxy          | None                                 |
+    | external_gateway_info     | null                                 |
+    | external_gateways         | []                                   |
+    | flavor_id                 | None                                 |
+    | id                        | 0aacc085-5af5-4098-a1db-cedf998b8ca1 |
+    | name                      | nordostbahnhof-router                |
+    | project_id                | d42230ea21674515ab9197af89fa5192     |
+    | revision_number           | 1                                    |
+    | routes                    |                                      |
+    | status                    | ACTIVE                               |
+    | tags                      |                                      |
+    | tenant_id                 | d42230ea21674515ab9197af89fa5192     |
+    | updated_at                | 2025-02-16T21:42:15Z                 |
+    +---------------------------+--------------------------------------+
     ```
 
     You want the `nordostbahnhof-router` connected to the external network.
@@ -287,21 +282,66 @@ Alternatively, you may get all that information using the OpenStack CLI.
 === "OpenStack CLI"
     To list all available networks in a specific region, just type:
 
-    ```bash
-    openstack network list
+    ```console
+    $ openstack network list
+    +--------------------------------------+----------------+--------------------------------------+
+    | ID                                   | Name           | Subnets                              |
+    +--------------------------------------+----------------+--------------------------------------+
+    ...
+    | 688996ba-7a77-4d6e-9630-34cd234abbcd | nordostbahnhof | fc983984-2d6c-4cf4-a147-a7672da1d6b8 |
+    ...
+    | efb30531-a65a-4890-8b3c-56a503b51637 | ext-net        | ee961be4-0555-4e8c-a2fa-7ba521193714 |
+    +--------------------------------------+----------------+--------------------------------------+
     ```
 
     You can always ask for more specific results.
     For instance, to see all internal networks only, type the following:
 
-    ```bash
-    openstack network list --internal
+    ```console
+    $ openstack network list --internal
+    +--------------------------------------+----------------+--------------------------------------+
+    | ID                                   | Name           | Subnets                              |
+    +--------------------------------------+----------------+--------------------------------------+
+    | 1900d6fd-040a-41d4-bb8c-7352f199e143 | test-network   | 5c89208a-eb44-4d25-982b-64f6df0a2549 |
+    | 688996ba-7a77-4d6e-9630-34cd234abbcd | nordostbahnhof | fc983984-2d6c-4cf4-a147-a7672da1d6b8 |
+    +--------------------------------------+----------------+--------------------------------------+
     ```
 
     You can also get detailed information about a specific network:
 
-    ```bash
-    openstack network show nordostbahnhof
+    ```console
+    $ openstack network show nordostbahnhof
+    +---------------------------+--------------------------------------+
+    | Field                     | Value                                |
+    +---------------------------+--------------------------------------+
+    | admin_state_up            | UP                                   |
+    | availability_zone_hints   | az1, az2, az3                        |
+    | availability_zones        | az1, az2, az3                        |
+    | created_at                | 2025-02-16T21:38:52Z                 |
+    | description               |                                      |
+    | dns_domain                | None                                 |
+    | id                        | 688996ba-7a77-4d6e-9630-34cd234abbcd |
+    | ipv4_address_scope        | None                                 |
+    | ipv6_address_scope        | None                                 |
+    | is_default                | None                                 |
+    | is_vlan_transparent       | None                                 |
+    | mtu                       | 1500                                 |
+    | name                      | nordostbahnhof                       |
+    | port_security_enabled     | True                                 |
+    | project_id                | d42230ea21674515ab9197af89fa5192     |
+    | provider:network_type     | None                                 |
+    | provider:physical_network | None                                 |
+    | provider:segmentation_id  | None                                 |
+    | qos_policy_id             | None                                 |
+    | revision_number           | 2                                    |
+    | router:external           | Internal                             |
+    | segments                  | None                                 |
+    | shared                    | False                                |
+    | status                    | ACTIVE                               |
+    | subnets                   | fc983984-2d6c-4cf4-a147-a7672da1d6b8 |
+    | tags                      |                                      |
+    | updated_at                | 2025-02-16T21:40:31Z                 |
+    +---------------------------+--------------------------------------+
     ```
 
     At any time, type `openstack network list --help` or `openstack network show --help` to see how to get information regarding networks, and what specific pieces of information you can have.

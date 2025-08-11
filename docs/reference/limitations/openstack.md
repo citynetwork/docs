@@ -60,6 +60,10 @@ We currently do not expose the ability to configure [BGP](https://en.wikipedia.o
 
 While {{brand}} does use [BGP dynamic routing](https://docs.openstack.org/neutron/latest/admin/config-bgp-dynamic-routing.html) *internally,* our Neutron configuration restricts the ability to use these features to administrative accounts only.
 
+### VPN as a Service
+
+In the Sto-Com region [VPN (IPsec with PSK) is not supported](../features/compliant.md), therefore, the VPN as a Service feature is not available.
+
 ## Octavia
 
 ### Dual-stack support
