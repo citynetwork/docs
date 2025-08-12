@@ -76,19 +76,20 @@ The example below uses 1 hour (3,600 seconds).
 
 Then, use `swift tempurl` and specify
 
+* the digest algorithm (`sha1`)
 * the HTTP method for which the TempURL should apply (usually `GET`),
 * the TempURL lifetime, in seconds,
 * the full path to the object including
-  * the `/v1` prefix,
-  * the account identifier starting with `AUTH_`,
-  * the container name,
-  * the object name,
+    * the `/v1` prefix,
+    * the account identifier starting with `AUTH_`,
+    * the container name,
+    * the object name,
 * the TempURL key.
 
 When specified in this way, the command returns a path similar to the following:
 
 ```console
-$ swift tempurl GET 3600 \
+$ swift tempurl --digest sha1 GET 3600 \
     /v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt \
     ${TEMP_URL_KEY}
 
