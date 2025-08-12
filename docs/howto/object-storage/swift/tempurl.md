@@ -75,6 +75,7 @@ The example below uses 1 hour (3,600 seconds).
 
 Then, use `swift tempurl` and specify
 
+* the digest algorithm (`sha1`)
 * the HTTP method for which the TempURL should apply (usually `GET`),
 * the TempURL lifetime, in seconds,
 * the full path to the object including
@@ -87,7 +88,7 @@ Then, use `swift tempurl` and specify
 When specified in this way, the command returns a path similar to the following:
 
 ```console
-$ swift tempurl GET 3600 \
+$ swift tempurl --digest sha1 GET 3600 \
     /v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt     \
     tooNgeiNgieJe6bohg7teik8eiDeeMai
 /v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048
