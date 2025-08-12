@@ -7,6 +7,9 @@ fi
 
 DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.*'
 
+# Remove whenever kubernetes.io becomes reliable again
+DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*kubernetes.io.*"
+
 if test `basename $0` = "linkcheck-local.sh"; then
     DOCS_SITE_URL="http://localhost:8000"
 elif test `basename $0` = "linkcheck-production.sh"; then
