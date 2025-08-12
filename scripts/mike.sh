@@ -17,4 +17,5 @@ mike deploy \
      $mike_version_alias \
      "$@"
 
-mike set-default $mike_default_version_name "$@"
+# TODO: Re-enable when deploying the mike-versioned docs to production
+# mike set-default $mike_default_version_name "$@"
