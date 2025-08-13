@@ -1,0 +1,17 @@
+---
+gh-pages:
+  stage: deploy
+  pages:
+    path_prefix: "$CI_COMMIT_BRANCH"
+    publish: "."
+    expire_in: 4 weeks
+  script: "true"
+  only:
+    - gh-pages
+  artifacts:
+    name: public
+    paths:
+      - .
+    exclude:
+      - .git/**
+      - .gitlab-ci.yml
