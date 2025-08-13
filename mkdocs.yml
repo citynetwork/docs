@@ -73,6 +73,7 @@ plugins:
       # yamllint disable-line rule:truthy
       on_error_fail: !ENV [DOCS_FAIL_ON_MACRO_ERROR, True]
       on_undefined: strict
+  - privacy
   - search
   - social:
       # yamllint disable-line rule:truthy
