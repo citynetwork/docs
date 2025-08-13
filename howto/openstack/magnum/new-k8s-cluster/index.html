@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -56,7 +56,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5499,28 +5499,28 @@ Use either the package manager of your operating system or <code>pip</code>:</p>
 <p>Fire up your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your Cleura Cloud account.
 On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em> button.
 A new pane titled <em>Create</em> slides into view.</p>
-<p><a class="glightbox" href="../assets/shot-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/shot-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/shot-01.png" /></a></p>
 <p>You will notice several rounded boxes on that pane, each for defining, configuring, and instantiating a different Cleura Cloud object.
 Go ahead and click the <em>Magnum Cluster</em> box.
 A new vertical pane titled <em>Create a Magnum Cluster</em> slides over.
 At the top, type in a name for the new cluster and select one of the available regions.</p>
-<p><a class="glightbox" href="../assets/shot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Name and region" src="../assets/shot-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Name and region" src="../assets/shot-02.png" /></a></p>
 <p>A bit further below, use the drop-down menus to select a template and a keypair for the cluster nodes.
 Notice the <em>Docker volume size</em> option which, by default, is set to 50 GiB.
 This pertains to the size of the extra block device each cluster node will have.
 That whole storage capacity will be used for saving persistent data.
 If you believe the default size is too much or too little, change it accordingly.
 Unless you want to define the number of master nodes or the number of worker nodes, click the green <em>Create</em> button now.</p>
-<p><a class="glightbox" href="../assets/shot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select template and keypair" src="../assets/shot-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select template and keypair" src="../assets/shot-03.png" /></a></p>
 <p>If you do want to play with the aforementioned parameters, then before clicking the <em>Create</em> button go ahead and expand the <em>Advanced Options</em> section.
 Since the new cluster templates come with the master load balancer enabled by default, you might want to equip your new cluster with 3 master nodes.
 Optionally, increase the number of worker nodes from 1 (the default) to, say, 3.
 Contrary to the number of master nodes, you may change the number of worker nodes <em>after</em> the cluster is created.</p>
-<p><a class="glightbox" href="../assets/shot-03.1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster creation in progress" src="../assets/shot-03.1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster creation in progress" src="../assets/shot-03.1.png" /></a></p>
 <p>When the cluster creation process begins, please keep in mind that it takes some time to complete.
 While waiting, bring the vertical pane on the left-hand side of the Cleura Cloud Management Panel in full view, select <em>Magnum</em> → <em>Clusters</em>, and in the main pane, take a look at the creation progress.
 You can tell when the whole process is complete by the animated icon at the left of the cluster row.</p>
-<p><a class="glightbox" href="../assets/shot-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Magnum cluster ready" src="../assets/shot-04.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Magnum cluster ready" src="../assets/shot-04.png" /></a></p>
 </div>
 <div class="tabbed-block">
 <p>A simple, general command for creating a new Kubernetes cluster with Magnum looks like this:</p>
@@ -5619,10 +5619,10 @@ When Magnum has finished creating the cluster, the message will be <code>CREATE_
 <p>Bring the vertical pane on the left-hand side of the Cleura Cloud Management Panel in full view, then select <em>Magnum</em> → <em>Clusters</em>.
 In the main pane, take a look at the row of the cluster you are interested in.
 In our example, there is only one cluster, hence only one row.</p>
-<p><a class="glightbox" href="../assets/shot-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster row" src="../assets/shot-05.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster row" src="../assets/shot-05.png" /></a></p>
 <p>To see more of the cluster, just click on its row.
 Then, all relative information will appear below.</p>
-<p><a class="glightbox" href="../assets/shot-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster info" src="../assets/shot-06.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster info" src="../assets/shot-06.png" /></a></p>
 </div>
 <div class="tabbed-block">
 <p>To list all available Kubernetes clusters, type:</p>
@@ -5761,7 +5761,7 @@ Then, all relative information will appear below.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5791,7 +5791,19 @@ Then, all relative information will appear below.</p>
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5443,34 +5443,34 @@
 <p>In the left vertical pane of the Cleura Cloud Management Panel, expand the <em>Marketplace</em> category and click on <em>Discover Apps and Services</em>.
 In the central pane, you will see all available applications and services.
 Locate the <em>Matomo</em> box and click the green <em>View</em> button.</p>
-<p><a class="glightbox" href="../assets/new-matomo/matomo-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select the Matomo application" src="../assets/new-matomo/matomo-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select the Matomo application" src="../assets/new-matomo/matomo-01.png" /></a></p>
 <p>You will see the <em>Matomo</em> information page, where you can learn more about its features, and obtain pricing information.
 Click the orange <em>Deploy this App</em> button to start the deployment process.</p>
-<p><a class="glightbox" href="../assets/new-matomo/matomo-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start the Matomo deployment process" src="../assets/new-matomo/matomo-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start the Matomo deployment process" src="../assets/new-matomo/matomo-02.png" /></a></p>
 <p>The Matomo application is hosted on a <a href="../../../openstack/nova/new-server/">Nova VM</a>, so now you may select a region, a name, a flavor, a public network, a keypair, and a security group for it.
 Regarding the security group, <a href="../../../openstack/neutron/create-security-groups/">make sure it includes a rule</a> allowing incoming TCP connections to port 80.</p>
 <p>Read and agree to the <em>Terms and Conditions.</em>
 When you are ready, click the green <em>Create</em> button.</p>
-<p><a class="glightbox" href="../assets/new-matomo/matomo-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Specify the characteristics of the particular Matomo deployment" src="../assets/new-matomo/matomo-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Specify the characteristics of the particular Matomo deployment" src="../assets/new-matomo/matomo-03.png" /></a></p>
 <p>The deployment takes some minutes to complete.
 To check how it is going, expand the Marketplace category in the vertical pane on the left and click <em>Provisioned Apps</em>.
 In the central pane, watch the Matomo Heat stack row.
 The animated icon at the left marks the deployment progress.</p>
-<p><a class="glightbox" href="../assets/new-matomo/matomo-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Check the deployment progress" src="../assets/new-matomo/matomo-04.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Check the deployment progress" src="../assets/new-matomo/matomo-04.png" /></a></p>
 <p>When the deployment is complete, you will see a white check mark in a green circle.</p>
-<p><a class="glightbox" href="../assets/new-matomo/matomo-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Matomo is deployed" src="../assets/new-matomo/matomo-05.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Matomo is deployed" src="../assets/new-matomo/matomo-05.png" /></a></p>
 <h2 id="logging-into-the-matomo-dashboard">Logging into the Matomo dashboard</h2>
 <p>Next, you need the URL of your Matomo instance.
 For that, make sure you are in the <em>Provisioned Apps</em> pane.
 Click on the Matomo row to expand it, and select the <em>Stack Output</em> tab.</p>
-<p><a class="glightbox" href="../assets/new-matomo/matomo-dashboard-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Get the URL of your Matomo instance" src="../assets/new-matomo/matomo-dashboard-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Get the URL of your Matomo instance" src="../assets/new-matomo/matomo-dashboard-01.png" /></a></p>
 <p>Get a pop-up window revealing the URL of the particular Matomo deployment.
 Click the icon in the <em>Action</em> column of the <em>matomo_url</em> row, then click the blue <em>Copy Output!</em> button.
 Close the pop-up window by clicking on the <em>Back</em> button.</p>
-<p><a class="glightbox" href="../assets/new-matomo/matomo-dashboard-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Reveal the application URL" src="../assets/new-matomo/matomo-dashboard-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Reveal the application URL" src="../assets/new-matomo/matomo-dashboard-02.png" /></a></p>
 <p>Using your favorite web browser, navigate to your Matomo deployment&rsquo;s URL.
 The Matomo welcome page appears.</p>
-<p><a class="glightbox" href="../assets/new-matomo/matomo-dashboard-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The Matomo welcome page" src="../assets/new-matomo/matomo-dashboard-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The Matomo welcome page" src="../assets/new-matomo/matomo-dashboard-03.png" /></a></p>
 <p>To configure your new traffic analytics service, and to learn how to use it, start with the <a href="https://matomo.org/help/">Matomo Help Centre</a>.</p>
 <p>Keep in mind that while configuring Matomo, you will need pieces of information provided in the application&rsquo;s <em>Stack Output</em> tab.</p>
 
@@ -5550,7 +5550,7 @@ The Matomo welcome page appears.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5580,7 +5580,19 @@ The Matomo welcome page appears.</p>
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

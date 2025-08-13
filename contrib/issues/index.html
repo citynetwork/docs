@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -56,7 +56,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5357,11 +5357,11 @@
 <h1 id="reporting-issues">Reporting issues</h1>
 <p>If you notice an issue (a typo, a grammar glitch, missing or factually incorrect information), here&rsquo;s how you can let us know:</p>
 <p>Go to <a href="https://github.com/citynetwork/docs/issues">our issue tracker</a> and click <em>New issue</em>.</p>
-<p><a class="glightbox" href="../assets/issue-list.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GitHub issues list with the &quot;New issue&quot; button shown in green" src="../assets/issue-list.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GitHub issues list with the &quot;New issue&quot; button shown in green" src="../assets/issue-list.png" /></a></p>
 <p>Select the issue type that most closely matches the type of issue you are reporting.</p>
-<p><a class="glightbox" href="../assets/issue-type-select.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GitHub &quot;New issue&quot; selection showing different types of issues" src="../assets/issue-type-select.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GitHub &quot;New issue&quot; selection showing different types of issues" src="../assets/issue-type-select.png" /></a></p>
 <p>Be sure to fill <em>all</em> required fields (the ones marked with a red asterisk), and fill in the optional ones as necessary.</p>
-<p><a class="glightbox" href="../assets/issue-form.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GitHub &quot;New issue&quot; form for the &quot;Missing or incomplete documentation&quot; issue type" src="../assets/issue-form.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GitHub &quot;New issue&quot; form for the &quot;Missing or incomplete documentation&quot; issue type" src="../assets/issue-form.png" /></a></p>
 <p>Don&rsquo;t forget to click <em>Submit new issue</em> when you&rsquo;re done.</p>
 <p>And if you want to help us <strong>fix</strong> the issue you&rsquo;ve just reported, please take a look at our guidelines for <a href="../modifications/">modifying content</a> on this site!</p>
 
@@ -5441,7 +5441,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5471,7 +5471,19 @@
       <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

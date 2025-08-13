@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5472,15 +5472,15 @@ Configuration drives are used as a data source for <a href="https://cloudinit.re
 <div class="tabbed-block">
 <p>When you are done configuring the server, right before creating it notice the icon on the left-hand side of <em>Advanced Options</em>.
 Click on it to expand all related options.</p>
-<p><a class="glightbox" href="../assets/config-drive/shot-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Expand advanced configuration options" src="../assets/config-drive/shot-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Expand advanced configuration options" src="../assets/config-drive/shot-01.png" /></a></p>
 <p>In the <em>User-Data</em> area, you see everything that will be executed upon server boot.</p>
 <p>Right below, in the <em>User-data propagation method</em> area, the <em>Use metadata service (Default)</em> option is preselected for you.
 To opt for the alternative metadata discovery method, select <em>Use configuration drive</em>.</p>
-<p><a class="glightbox" href="../assets/config-drive/shot-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select the configuration drive method" src="../assets/config-drive/shot-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select the configuration drive method" src="../assets/config-drive/shot-02.png" /></a></p>
 <p>Then, instantiate the server by clicking the green <em>Create</em> button.</p>
 <p>Once the server is ready, you may see what happened during configuration by examining the console log.
 In the Cleura Cloud Management Panel, click on the server line to get an extended view of its characteristics, and then click once more on the <em>Console Output</em> tab.</p>
-<p><a class="glightbox" href="../assets/config-drive/shot-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Watch the server console" src="../assets/config-drive/shot-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Watch the server console" src="../assets/config-drive/shot-03.png" /></a></p>
 <p>There might be quite a lot of text to sift through, but you can easily do so by pressing the <code>Up</code> or <code>Down</code> arrow keys.</p>
 </div>
 <div class="tabbed-block">
@@ -5577,7 +5577,7 @@ In the Cleura Cloud Management Panel, click on the server line to get an exten
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5607,7 +5607,19 @@ In the Cleura Cloud Management Panel, click on the server line to get an exten
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

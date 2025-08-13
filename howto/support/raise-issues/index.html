@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -56,7 +56,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5681,7 +5681,7 @@
 <h1 id="raising-support-issues">Raising support issues</h1>
 <p>The <strong>Service Center portal</strong> is designed for customers with a paid support package tier, typically organizations.
 Using this portal, you can create, manage, and track issue tickets.</p>
-<p><a class="glightbox" href="../assets/01-service-center-portal.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Service Center" src="../assets/01-service-center-portal.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Service Center" src="../assets/01-service-center-portal.png" /></a></p>
 <p>If you are not subscribed to a paid support package plan, you can still reach out to us via email to raise tickets.</p>
 <h2 id="issue-properties">Issue properties</h2>
 <h3 id="issue-type">Issue type</h3>
@@ -5912,7 +5912,7 @@ You can always reply to these notifications to provide additional information or
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5942,7 +5942,19 @@ You can always reply to these notifications to provide additional information or
       <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -56,7 +56,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5368,14 +5368,14 @@ More specifically, you have the option of e-invoicing if all three of the follow
 <p>Make sure the vertical pane at the left-hand side of the Cleura Cloud Management Panel is expanded.
 Click on <em>Settings</em>, then on <em>Manage Invoice Settings</em>.
 In the central pane of the Cleura Cloud Management Panel, titled <em>Invoice Settings</em>, be sure to have the <em>Settings</em> tab open, and then click on the green <em>Request form</em> button.</p>
-<p><a class="glightbox" href="../assets/swe-einv-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Request e-invoice" src="../assets/swe-einv-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Request e-invoice" src="../assets/swe-einv-01.png" /></a></p>
 <p>A pop-up window titled <em>Request e-invoice</em> will appear.
 Click on the <em>Choose Provider</em> drop-down menu to expand it.</p>
-<p><a class="glightbox" href="../assets/swe-einv-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Choose invoicing provider drop-down menu" src="../assets/swe-einv-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Choose invoicing provider drop-down menu" src="../assets/swe-einv-02.png" /></a></p>
 <p>Choose one of the available providers for your invoicing application.</p>
-<p><a class="glightbox" href="../assets/swe-einv-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Available invoicing providers" src="../assets/swe-einv-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Available invoicing providers" src="../assets/swe-einv-03.png" /></a></p>
 <p>Finally, click the green <em>Send request</em> button.</p>
-<p><a class="glightbox" href="../assets/swe-einv-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Submit request for new invoicing provider" src="../assets/swe-einv-04.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Submit request for new invoicing provider" src="../assets/swe-einv-04.png" /></a></p>
 <p>Please note that if your provider is not on the list, we cannot provide e-invoicing.</p>
 
 
@@ -5454,7 +5454,7 @@ Click on the <em>Choose Provider</em> drop-down menu to expand it.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5484,7 +5484,19 @@ Click on the <em>Choose Provider</em> drop-down menu to expand it.</p>
       <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

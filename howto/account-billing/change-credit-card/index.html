@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -56,7 +56,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5477,18 +5477,18 @@
 Click on <em>Settings</em>, and then on <em>Manage Invoice Settings.</em>
 In the central pane, named <em>Invoice Settings,</em> notice the three tabs at the top.
 Click on the one labeled <em>Credit Cards,</em> and then on the green <em>Add New Card</em> button below.</p>
-<p><a class="glightbox" href="../assets/add-new-cc.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Locating the button for adding a new credit card" src="../assets/add-new-cc.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Locating the button for adding a new credit card" src="../assets/add-new-cc.png" /></a></p>
 <p>You are redirected to a PayEx Sverige AB page, where you enter your credit card information.
 When you are done, click the black <em>Confirm</em> button.</p>
-<p><a class="glightbox" href="../assets/add-new-cc-info.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Entering credit card information" src="../assets/add-new-cc-info.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Entering credit card information" src="../assets/add-new-cc-info.png" /></a></p>
 <p>To confirm the new card, Cleura Cloud charges you zero (0) units of your card&rsquo;s currency.
 Depending on your bank, you might have to use whatever mechanism is provided to authorize that zero charge.</p>
-<p><a class="glightbox" href="../assets/accept-zero-charge.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Authorize zero-charge" src="../assets/accept-zero-charge.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Authorize zero-charge" src="../assets/accept-zero-charge.png" /></a></p>
 <p>Once the new credit card is added, it will be visible in the <em>Credit Cards</em> tab.</p>
-<p><a class="glightbox" href="../assets/new-cc-added.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New credit card successfully added" src="../assets/new-cc-added.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New credit card successfully added" src="../assets/new-cc-added.png" /></a></p>
 <h2 id="changing-a-credit-card">Changing a credit card</h2>
 <p>If you want to use another credit card, click the green <em>Add New Card</em> button below the existing card.</p>
-<p><a class="glightbox" href="../assets/change-cc.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Change an existing credit card" src="../assets/change-cc.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Change an existing credit card" src="../assets/change-cc.png" /></a></p>
 <p>Configure the new card as you did when adding the existing card.
 When you are done adding the new one, you will realize that the old one is no longer listed under <em>Credit Cards.</em>
 In addition to the old card not being visible, please keep in mind that it is also <strong>removed</strong> from the system.</p>
@@ -5572,7 +5572,7 @@ This email should come either from the technical contact address or the billing 
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5602,7 +5602,19 @@ This email should come either from the technical contact address or the billing 
       <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

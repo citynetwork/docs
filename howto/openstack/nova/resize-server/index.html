@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5488,15 +5488,15 @@ Additionally, if you prefer to work with the OpenStack CLI, then make sure to pr
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Navigate to the server list.</p>
-<p><a class="glightbox" href="../assets/resize-server/01-left-side-panel.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The left hand side navigation panel, with the word &quot;Servers&quot; highlighted." src="../assets/resize-server/01-left-side-panel.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The left hand side navigation panel, with the word &quot;Servers&quot; highlighted." src="../assets/resize-server/01-left-side-panel.png" /></a></p>
 <p>Find the server you want to resize in the list, and on the right-hand side click on its menu button.</p>
-<p><a class="glightbox" href="../assets/resize-server/02-menu-button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="An orange circle with three white dots." src="../assets/resize-server/02-menu-button.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="An orange circle with three white dots." src="../assets/resize-server/02-menu-button.png" /></a></p>
 <p>Click on <em>Modify Server</em>.</p>
-<p><a class="glightbox" href="../assets/resize-server/03-menu-list.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A list of server actions, with the line &quot;Modify Server&quot; highlighted." src="../assets/resize-server/03-menu-list.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A list of server actions, with the line &quot;Modify Server&quot; highlighted." src="../assets/resize-server/03-menu-list.png" /></a></p>
 <p>On this panel near the top, find the section called <em>Flavor</em>.
 This is the current flavor used by the server.
 Press on the dropdown menu to see all available flavors.</p>
-<p><a class="glightbox" href="../assets/resize-server/04-modify-server.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying the servers current flavor, 8 Cores and 24 GB RAM with the name of the flavor &quot;b.8c24gb&quot; within parenthesis." src="../assets/resize-server/04-modify-server.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying the servers current flavor, 8 Cores and 24 GB RAM with the name of the flavor &quot;b.8c24gb&quot; within parenthesis." src="../assets/resize-server/04-modify-server.png" /></a></p>
 </div>
 <div class="tabbed-block">
 <p>To list all available flavors you can simply run <code>openstack flavor list</code>, but that will return a very long unsorted list, instead we recommend the following command:</p>
@@ -5525,10 +5525,10 @@ b.4c4gb
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Once selected, the <em>Resize</em> button will appear.</p>
-<p><a class="glightbox" href="../assets/resize-server/05-resize-button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying the servers new flavor, 4 Cores and 24 GB RAM with the name of the flavor &quot;b.4c24gb&quot; within parenthesis, also a green button below it with the text &quot;Resize&quot;." src="../assets/resize-server/05-resize-button.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying the servers new flavor, 4 Cores and 24 GB RAM with the name of the flavor &quot;b.4c24gb&quot; within parenthesis, also a green button below it with the text &quot;Resize&quot;." src="../assets/resize-server/05-resize-button.png" /></a></p>
 <p>Click on it to start the resize.</p>
 <p>While the resize is ongoing you will see a spinning circle saying <em>Resize is in progress</em>.</p>
-<p><a class="glightbox" href="../assets/resize-server/06-resize-in-progress.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A spinning circle with the text &quot;Resize in progress...&quot;." src="../assets/resize-server/06-resize-in-progress.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A spinning circle with the text &quot;Resize in progress...&quot;." src="../assets/resize-server/06-resize-in-progress.png" /></a></p>
 </div>
 <div class="tabbed-block">
 <p>To start the resize use the following command:</p>
@@ -5568,7 +5568,7 @@ If you do not confirm the resize, your server will automatically have the resize
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>This is done by clicking the <em>Confirm</em> button.</p>
-<p><a class="glightbox" href="../assets/resize-server/07-resize-confirm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying the servers flavor, 4 Cores and 24 GB RAM with the name of the flavor &quot;b.4c24gb&quot; within parenthesis, a red button with the text &quot;Cancel&quot; below it and a green button with the text &quot;Confirm&quot; beside that." src="../assets/resize-server/07-resize-confirm.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying the servers flavor, 4 Cores and 24 GB RAM with the name of the flavor &quot;b.4c24gb&quot; within parenthesis, a red button with the text &quot;Cancel&quot; below it and a green button with the text &quot;Confirm&quot; beside that." src="../assets/resize-server/07-resize-confirm.png" /></a></p>
 <blockquote>
 <p>If your server is not working as intended, or you simply regret the resize, instead click <em>Cancel</em>.</p>
 </blockquote>
@@ -5661,7 +5661,7 @@ If you do not confirm the resize, your server will automatically have the resize
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5691,7 +5691,19 @@ If you do not confirm the resize, your server will automatically have the resize
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

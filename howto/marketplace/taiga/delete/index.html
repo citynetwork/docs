@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5366,13 +5366,13 @@
 All your deployed applications, including the one you are about to delete, are listed in the central pane.
 Notice the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5"/></svg></span> icon at the right of the application row.
 Click on it, and from the drop-down menu that appears, select <em>Delete Provisioned App</em>.</p>
-<p><a class="glightbox" href="../assets/delete-taiga/taiga-delete-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Request the deletion of Taiga" src="../assets/delete-taiga/taiga-delete-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Request the deletion of Taiga" src="../assets/delete-taiga/taiga-delete-01.png" /></a></p>
 <p>A new window named <em>About to delete a Provisioned App</em> appears.
 Make sure it refers to the Taiga deployment you wish to delete.
 When you are ready, click on the red <em>Yes, Delete</em> button.</p>
-<p><a class="glightbox" href="../assets/delete-taiga/taiga-delete-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Make sure you are about to delete Taiga" src="../assets/delete-taiga/taiga-delete-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Make sure you are about to delete Taiga" src="../assets/delete-taiga/taiga-delete-02.png" /></a></p>
 <p>After a few seconds, your Taiga deployment will be deleted, and that fact will be reflected in the list of provisioned applications.</p>
-<p><a class="glightbox" href="../assets/delete-taiga/taiga-delete-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Taiga is deleted" src="../assets/delete-taiga/taiga-delete-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Taiga is deleted" src="../assets/delete-taiga/taiga-delete-03.png" /></a></p>
 
 
 
@@ -5450,7 +5450,7 @@ When you are ready, click on the red <em>Yes, Delete</em> button.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5480,7 +5480,19 @@ When you are ready, click on the red <em>Yes, Delete</em> button.</p>
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

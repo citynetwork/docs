@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5361,18 +5361,18 @@
 <h1 id="creating-a-new-account">Creating a new account</h1>
 <p>For access to Cleura Cloud, you first have to create a new account.
 For that, navigate to <a href="https://cleura.cloud/register">https://cleura.cloud/register</a>.</p>
-<p><a class="glightbox" href="../assets/02-type-email-country.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Type in necessary details" src="../assets/02-type-email-country.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Type in necessary details" src="../assets/02-type-email-country.png" /></a></p>
 <p>Select the new account type (<em>Company</em> or <em>Private</em>), type in a valid email address, and choose your country.
 Please be sure to read the Terms of Service and our Data Processing Agreement.</p>
 <p>Agree to these documents (select <em>Yes</em>), check the <em>I&rsquo;m not a robot</em> box, and then click on the <em>Create</em> button.</p>
 <p>This will redirect you to the Cleura Cloud Management Panel, and since you are logging in from a new account for the first time, you now have to take three steps.</p>
-<p><a class="glightbox" href="../assets/03-step-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Three steps to take" src="../assets/03-step-1.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Three steps to take" src="../assets/03-step-1.png" /></a></p>
 <ul>
 <li><strong>Step 1 - Confirm your email</strong>.
   Check your inbox or your spam/junk folder for an email from <code>no-reply@cleura.com</code> with the subject <em>Thank you for your registration - Cleura Cloud</em>.
   Open that email, and click on the link in the message body.</li>
 </ul>
-<p><a class="glightbox" href="../assets/04-conf-email.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Three steps to take" src="../assets/04-conf-email.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Three steps to take" src="../assets/04-conf-email.png" /></a></p>
 <ul>
 <li><strong>Step 2 - Account information</strong>.
   After clicking on the confirmation link you move on to step two, where you enter the information that uniquely identifies the brand-new account.
@@ -5382,7 +5382,7 @@ Please be sure to read the Terms of Service and our Data Processing Agreement.</
   In case you have a voucher code, click on <em>I have a voucher code</em> and type it in below.
   When you are done, click on the <em>Save</em> button.</li>
 </ul>
-<p><a class="glightbox" href="../assets/05-step-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm account information" src="../assets/05-step-2.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm account information" src="../assets/05-step-2.png" /></a></p>
 <ul>
 <li><strong>Step 3 - Account verification</strong>.
   To make your account fully operational, you have to take one more verification step.
@@ -5391,7 +5391,7 @@ Please be sure to read the Terms of Service and our Data Processing Agreement.</
   If you prefer to verify by phone (available only for <em>Company</em> accounts), you may do so during business hours (08:00 – 17:00 CET/CEST UTC+1/UTC+2).
   During the verification call, you will be asked for the username of the new account.</li>
 </ul>
-<p><a class="glightbox" href="../assets/06-step-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Account verification" src="../assets/06-step-3.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Account verification" src="../assets/06-step-3.png" /></a></p>
 <p>After the account verification is complete, you can start using <a href="https://cleura.cloud">Cleura Cloud Management Panel</a>.</p>
 
 
@@ -5470,7 +5470,7 @@ Please be sure to read the Terms of Service and our Data Processing Agreement.</
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5500,7 +5500,19 @@ Please be sure to read the Terms of Service and our Data Processing Agreement.</
       <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

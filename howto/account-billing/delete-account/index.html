@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -56,7 +56,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5436,13 +5436,13 @@
 <p>In case you decide to close your Cleura Cloud account, you may do so via the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a>.
 From the vertical pane on the left, select <em>Settings</em> and then <em>Manage Account</em>.</p>
 <p>In the central <em>Account Settings</em> pane, click the red <em>Delete Account</em> tab on the right.</p>
-<p><a class="glightbox" href="../assets/delete-account-button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete account tab" src="../assets/delete-account-button.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete account tab" src="../assets/delete-account-button.png" /></a></p>
 <p>At the bottom of the tab, click the red button named <em>Delete Account</em>.</p>
-<p><a class="glightbox" href="../assets/proceed-to-deletion.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete account tab" src="../assets/proceed-to-deletion.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Delete account tab" src="../assets/proceed-to-deletion.png" /></a></p>
 <p>Choose a reason for leaving and type in your current password.
 Click the red button named <em>Delete Account</em> one more time.
 That will trigger a request for account deletion.</p>
-<p><a class="glightbox" href="../assets/reasonforleaving.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Picture where you choose a reason for leaving us. A field where you type your current password with a red delete button." src="../assets/reasonforleaving.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Picture where you choose a reason for leaving us. A field where you type your current password with a red delete button." src="../assets/reasonforleaving.png" /></a></p>
 <h2 id="using-the-termination-of-subscription-form">Using the Termination of Subscription Form</h2>
 <p>You may be unable to follow the standard account deletion process using the Cleura Cloud Management Panel, because you have lost your administrative credentials or you cannot access your account owner&rsquo;s email address.</p>
 <p>In this case, you can instead terminate your account by filling out the <a href="https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura-Form-Termination-Of-Subscription.pdf">Termination of Subscription Form</a>.
@@ -5532,7 +5532,7 @@ This entire process may take up to thirty (30) days after the last invoice is pa
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5562,7 +5562,19 @@ This entire process may take up to thirty (30) days after the last invoice is pa
       <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

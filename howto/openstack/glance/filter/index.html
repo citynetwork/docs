@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -56,7 +56,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5495,13 +5495,13 @@
 <div class="tabbed-block">
 <h2 id="when-creating-a-server">When creating a server</h2>
 <p>Images are sorted by their Operating System on the <em>Create a Server</em>  menu.</p>
-<p><a class="glightbox" href="../assets/image-folders-create-server.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying the images sorted by operating system during server creation." src="../assets/image-folders-create-server.png" /></a></p>
-<p><a class="glightbox" href="../assets/image-rocky-list-create-server.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying Rocky images when user descends to rocky folder on create a server screen." src="../assets/image-rocky-list-create-server.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying the images sorted by operating system during server creation." src="../assets/image-folders-create-server.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A panel displaying Rocky images when user descends to rocky folder on create a server screen." src="../assets/image-rocky-list-create-server.png" /></a></p>
 <h2 id="on-the-images-tab">On the Images tab</h2>
 <p>You can also see the full list of images in the <em>Images → Public Images</em> menu item.
 On this page you can filter images based on their name, UUID or even tags.</p>
-<p><a class="glightbox" href="../assets/image-rocky-list-public-images.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A public images panel that uses filtering of images by name to show all Rocky images in all regions." src="../assets/image-rocky-list-public-images.png" /></a>
-<a class="glightbox" href="../assets/image-os_version-9-list-public-images.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A public images panel that uses filtering of images by os_version tag to show all images of version 9 in all regions." src="../assets/image-os_version-9-list-public-images.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A public images panel that uses filtering of images by name to show all Rocky images in all regions." src="../assets/image-rocky-list-public-images.png" /></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A public images panel that uses filtering of images by os_version tag to show all images of version 9 in all regions." src="../assets/image-os_version-9-list-public-images.png" /></a></p>
 </div>
 <div class="tabbed-block">
 <p>Using the <code>openstack image list</code> command, the CLI gives you several ways of filtering images.</p>
@@ -5627,7 +5627,7 @@ For example, you cannot use the <code>--property</code> option to list public an
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5657,7 +5657,19 @@ For example, you cannot use the <code>--property</code> option to list public an
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

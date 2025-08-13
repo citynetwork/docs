@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5443,44 +5443,44 @@
 <p>In the left vertical pane of the Cleura Cloud Management Panel, expand the <em>Marketplace</em> category and click on <em>Discover Apps and Services</em>.
 In the central pane, you will see all available applications and services.
 Locate the <em>Harbor</em> box and click the green <em>View</em> button.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select the Harbor application" src="../assets/new-harbor/harbor-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select the Harbor application" src="../assets/new-harbor/harbor-01.png" /></a></p>
 <p>You will see the <em>Harbor</em> information page, where you can learn more about its features, and obtain pricing information.
 Click the orange <em>Deploy this App</em> button to start the deployment process.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start the Harbor deployment process" src="../assets/new-harbor/harbor-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start the Harbor deployment process" src="../assets/new-harbor/harbor-02.png" /></a></p>
 <p>The Harbor application is hosted on a <a href="../../../openstack/nova/new-server/">Nova VM</a>, so now you may select a region, a name, a flavor, a public network, a keypair, and a security group for it.
 Regarding the security group, <a href="../../../openstack/neutron/create-security-groups/">make sure it includes a rule</a> allowing incoming TCP connections to port 80.</p>
 <p>Read and agree to the <em>Terms and Conditions.</em>
 When you are ready, click the green <em>Create</em> button.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Specify the characteristics of the particular Harbor deployment" src="../assets/new-harbor/harbor-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Specify the characteristics of the particular Harbor deployment" src="../assets/new-harbor/harbor-03.png" /></a></p>
 <p>The deployment takes some minutes to complete.
 To check how it is going, expand the Marketplace category in the vertical pane on the left and click <em>Provisioned Apps</em>.
 In the central pane, watch the Harbor Heat stack row.
 The animated icon at the left marks the deployment progress.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Check the deployment progress" src="../assets/new-harbor/harbor-04.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Check the deployment progress" src="../assets/new-harbor/harbor-04.png" /></a></p>
 <p>When the deployment is complete, you will see a white check mark in a green circle.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Harbor is deployed" src="../assets/new-harbor/harbor-05.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Harbor is deployed" src="../assets/new-harbor/harbor-05.png" /></a></p>
 <h2 id="logging-into-the-harbor-dashboard">Logging into the Harbor dashboard</h2>
 <p>You must know Harbor&rsquo;s public IP address and the password automatically generated for the <code>admin</code> user.
 For that, make sure you are in the <em>Provisioned Apps</em> pane.
 Click on the Harbor row to expand it, and select the <em>Stack Output</em> tab.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-dashboard-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Locate the public IP and the admin user password" src="../assets/new-harbor/harbor-dashboard-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Locate the public IP and the admin user password" src="../assets/new-harbor/harbor-dashboard-01.png" /></a></p>
 <p>In the <em>admin_credentials</em> row, click the icon in the <em>Action</em> column.
 A pop-up window appears.
 Click the blue <em>Copy Output!</em> button to copy the content of the <em>Output</em> box to the clipboard.
 Paste that into a new text editor window, but don&rsquo;t save it in a new file.
 Instead, we recommend you create a new entry in your password manager of choice and move the username and the password there.
 Close the pop-up window by clicking on the <em>Back</em> button.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-dashboard-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Copy the username and password to the clipboard" src="../assets/new-harbor/harbor-dashboard-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Copy the username and password to the clipboard" src="../assets/new-harbor/harbor-dashboard-02.png" /></a></p>
 <p>Next, get a pop-up window revealing the particular Harbor deployment&rsquo;s public IP address.
 Click the icon in the <em>Action</em> column of the <em>harbor_url</em> row, then click the blue <em>Copy Output!</em> button.
 Use the IP address to create a URL of the form <code>http://&lt;public-ip&gt;</code>, and put that URL into the Harbor password manager entry.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-dashboard-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Reveal the application public IP" src="../assets/new-harbor/harbor-dashboard-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Reveal the application public IP" src="../assets/new-harbor/harbor-dashboard-03.png" /></a></p>
 <p>Using your favorite web browser, navigate to <code>http://&lt;public-ip&gt;</code>.
 The Harbor login page appears.
 In the left vertical pane, type in the user name (<code>admin</code>), paste the password from your password manager, and click the <em>LOG IN</em> button below.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-dashboard-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The Harbor login page" src="../assets/new-harbor/harbor-dashboard-04.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The Harbor login page" src="../assets/new-harbor/harbor-dashboard-04.png" /></a></p>
 <p>You are directed to the Harbor main page.</p>
-<p><a class="glightbox" href="../assets/new-harbor/harbor-dashboard-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The main Harbor page" src="../assets/new-harbor/harbor-dashboard-05.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The main Harbor page" src="../assets/new-harbor/harbor-dashboard-05.png" /></a></p>
 <p>On a separate browser window or tab, navigate to the <a href="https://goharbor.io/docs/">Harbor documentation page</a> to learn how to start using your new self-hosted container registry.</p>
 
 
@@ -5559,7 +5559,7 @@ In the left vertical pane, type in the user name (<code>admin</code>), paste the
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5589,7 +5589,19 @@ In the left vertical pane, type in the user name (<code>admin</code>), paste the
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

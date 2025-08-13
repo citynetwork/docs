@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5468,33 +5468,33 @@ You will see your Gardener cluster in the main pane.
 Click on its row for a detailed view of the various cluster characteristics.
 Bring up the <em>Status</em> tab and, in the <em>Constraints</em> section, check whether hibernation is possible.
 For the shoot cluster in the example below, it is indeed possible.</p>
-<p><a class="glightbox" href="../assets/shoot-hiber-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Gardener cluster status" src="../assets/shoot-hiber-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Gardener cluster status" src="../assets/shoot-hiber-01.png" /></a></p>
 <p>To hibernate the cluster, click the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5"/></svg></span> icon at the right-hand side of the cluster row.
 From the pop-up menu that appears, select <em>Hibernate Cluster</em>.</p>
-<p><a class="glightbox" href="../assets/shoot-hiber-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernate cluster" src="../assets/shoot-hiber-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernate cluster" src="../assets/shoot-hiber-02.png" /></a></p>
 <p>A big pop-up window labeled <em>About to hibernate a gardener shoot</em> appears, asking you to confirm the action.
 Click the red button labeled <em>Yes, Hibernate</em>.</p>
-<p><a class="glightbox" href="../assets/shoot-hiber-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm cluster hibernation" src="../assets/shoot-hiber-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm cluster hibernation" src="../assets/shoot-hiber-03.png" /></a></p>
 <p>The cluster will begin hibernating.
 The animated icon at the left-hand side of the cluster row marks the progress.</p>
-<p><a class="glightbox" href="../assets/shoot-hiber-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernation in progress" src="../assets/shoot-hiber-04.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Hibernation in progress" src="../assets/shoot-hiber-04.png" /></a></p>
 <p>After a minute or two, the cluster will be in a hibernated state.
 This fact will be indicated by the red <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2M9 9h6v6H9"/></svg></span> icon, again at the left-hand side of the cluster row.</p>
-<p><a class="glightbox" href="../assets/shoot-hiber-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster in hibernation" src="../assets/shoot-hiber-05.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster in hibernation" src="../assets/shoot-hiber-05.png" /></a></p>
 <p>From this point on, and as long as the cluster is in hibernation, any attempt to access it, e.g., via <code>kubectl</code>, will fail.</p>
 <h2 id="waking-up-a-cluster-in-hibernation">Waking up a cluster in hibernation</h2>
 <p>To wake up a cluster in hibernation, click the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5"/></svg></span> icon at the right-hand side of its row.
 From the pop-up menu that appears, select <em>Wake up Cluster</em>.</p>
-<p><a class="glightbox" href="../assets/shoot-wakeup-01.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wake up cluster" src="../assets/shoot-wakeup-01.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wake up cluster" src="../assets/shoot-wakeup-01.png" /></a></p>
 <p>A big pop-up window labeled <em>About to wakeup a gardener shoot</em> appears, asking you to confirm that you want to wake up the cluster.
 Go ahead and click the red <em>Yes, Wakeup</em> button.</p>
-<p><a class="glightbox" href="../assets/shoot-wakeup-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm cluster wake-up" src="../assets/shoot-wakeup-02.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm cluster wake-up" src="../assets/shoot-wakeup-02.png" /></a></p>
 <p>The cluster will start waking up.
 Again, the animated icon at the left-hand side of the cluster row marks the progress.</p>
-<p><a class="glightbox" href="../assets/shoot-wakeup-03.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster is awaking" src="../assets/shoot-wakeup-03.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster is awaking" src="../assets/shoot-wakeup-03.png" /></a></p>
 <p>After a couple of minutes, the cluster will be fully awake.
 The fact will be indicated by the green <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg></span> icon at the left-hand side of the cluster row.</p>
-<p><a class="glightbox" href="../assets/shoot-wakeup-04.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster awake" src="../assets/shoot-wakeup-04.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cluster awake" src="../assets/shoot-wakeup-04.png" /></a></p>
 <p>From then on, the cluster will be fully operational and accessible again.</p>
 
 
@@ -5573,7 +5573,7 @@ The fact will be indicated by the green <span class="twemoji"><svg xmlns="http:/
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5603,7 +5603,19 @@ The fact will be indicated by the green <span class="twemoji"><svg xmlns="http:/
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5426,17 +5426,17 @@ Here is how you can do that.</p>
 From the left-hand side vertical pane, choose Compute → <a href="https://cleura.cloud/compute/servers">Servers</a>, then expand the detailed view of the server of interest.
 Select the <em>Disaster Recovery</em> tab and see all available snapshots listed below.
 For each one of those, the date and creation time are visible.</p>
-<p><a class="glightbox" href="../assets/rest-srv-to-snap/disaster-recovery-available-snaps.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All available snapshots for selected server" src="../assets/rest-srv-to-snap/disaster-recovery-available-snaps.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All available snapshots for selected server" src="../assets/rest-srv-to-snap/disaster-recovery-available-snaps.png" /></a></p>
 <p>Click on the snapshot you want.
 A pop-up window will appear, asking for your permission to proceed.
 Make sure this is indeed the snapshot you want, then click the red button labeled <em>Yes, Restore snapshot</em>.</p>
-<p><a class="glightbox" href="../assets/rest-srv-to-snap/disaster-recovery-permission-to-proceed.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Asking for permission to restore snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-permission-to-proceed.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Asking for permission to restore snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-permission-to-proceed.png" /></a></p>
 <p>The restore process will begin immediately.
 You can tell it is progressing by checking the status.</p>
-<p><a class="glightbox" href="../assets/rest-srv-to-snap/disaster-recovery-recover-in-progress.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Snapshot recovery in progress" src="../assets/rest-srv-to-snap/disaster-recovery-recover-in-progress.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Snapshot recovery in progress" src="../assets/rest-srv-to-snap/disaster-recovery-recover-in-progress.png" /></a></p>
 <p>As soon as the snapshot is ready to be used, you will see a message indicating that it has started.
 Do not forget to activate the server; click on its row to select it, then click the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M91.2 36.9c-12.4-6.8-27.4-6.5-39.6.7S32 57.9 32 72v368c0 14.1 7.5 27.2 19.6 34.4s27.2 7.5 39.6.7l336-184c12.8-7 20.8-20.5 20.8-35.1s-8-28.1-20.8-35.1z"/></svg></span> button above.</p>
-<p><a class="glightbox" href="../assets/rest-srv-to-snap/disaster-recovery-boot-from-snapshot.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start server to the snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-boot-from-snapshot.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start server to the snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-boot-from-snapshot.png" /></a></p>
 
 
 
@@ -5514,7 +5514,7 @@ Do not forget to activate the server; click on its row to select it, then click 
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5544,7 +5544,19 @@ Do not forget to activate the server; click on its row to select it, then click 
       <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -56,7 +56,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5398,7 +5398,7 @@ Markdown is a documentation format that is rich enough to be useful for good tec
 <p>If you’re unfamiliar with Markdown, you can read up on its basics in <a href="https://daringfireball.net/projects/markdown/">this classic article by John Gruber</a> if you’re interested, but chances are that you’ll also find all the information you’ll need in <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">this cheat sheet by Adam Pritchard</a>, or the <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Start Writing guide from GitHub</a>.</p>
 <p>Or you simply look at the source of one of the pages on this site (try the Edit button on this one!) and figure it out as you go along — it’s really pretty straightforward.</p>
 <h2 id="license">License</h2>
-<p>With the sole exception of trademarks like “Cleura” and the Cleura logo, the content on this site is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license, as you can see from the <a class="glightbox" href="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CC BY-SA" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg" /></a> icon at the bottom of each page.
+<p>With the sole exception of trademarks like “Cleura” and the Cleura logo, the content on this site is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license, as you can see from the <a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CC BY-SA" src="../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"></a> icon at the bottom of each page.
 Please keep in mind that you are making your contribution under those terms.</p>
 
 
@@ -5477,7 +5477,7 @@ Please keep in mind that you are making your contribution under those terms.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5507,7 +5507,19 @@ Please keep in mind that you are making your contribution under those terms.</p>
       <script src="../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>

@@ -44,8 +44,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -58,7 +58,7 @@
   
 
 
-  <script defer data-domain="docs.cleura.cloud" src="https://plausible.io/js/plausible.js"></script>
+  <script defer data-domain="docs.cleura.cloud" src="../../assets/external/plausible.io/js/plausible.js"></script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -5470,9 +5470,9 @@
 
 <h1 id="disaster-recovery">Disaster recovery</h1>
 <p>When you <a href="../../howto/openstack/nova/new-server/">create a new server</a> in Cleura Cloud you will notice an option named <strong>Disaster recovery</strong>, which is enabled by default.</p>
-<p><a class="glightbox" href="../assets/disaster-recovery-option-on-by-default.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Disaster recovery is enabled by default for new servers" src="../assets/disaster-recovery-option-on-by-default.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Disaster recovery is enabled by default for new servers" src="../assets/disaster-recovery-option-on-by-default.png" /></a></p>
 <p>Even if you choose to disable it for a particular server, keep in mind that you have the option to enable it at a later time.</p>
-<p><a class="glightbox" href="../assets/disaster-recovery-option-manual-activation.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The disaster recovery feature can be manually activated for any server" src="../assets/disaster-recovery-option-manual-activation.png" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The disaster recovery feature can be manually activated for any server" src="../assets/disaster-recovery-option-manual-activation.png" /></a></p>
 <p>In the following, we explain what this option does, how it works in the background, and why you should consider enabling it.</p>
 <h2 id="what-it-is">What it is</h2>
 <p>The <em>Disaster Recovery</em> (DR) feature is available via the Cleura Cloud Management Panel and applies to servers and volumes that use our <a href="https://docs.ceph.com/">Ceph</a> backend.
@@ -5569,7 +5569,7 @@ Although this whole process takes time analogous to volume size, as we pointed o
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"/> </a>
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
 
     </div>
   
@@ -5599,7 +5599,19 @@ Although this whole process takes time analogous to volume size, as we pointed o
       <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script></body>
 </html>
