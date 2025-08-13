@@ -1,0 +1,6309 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A walk-through of creating a TCP load balancer">
+      
+      
+      
+        <link rel="canonical" href="https://docs.cleura.cloud/main/howto/openstack/octavia/lbaas-tcp/">
+      
+      
+        <link rel="prev" href="../../nova/rescue-server/">
+      
+      
+        <link rel="next" href="../tls-lb/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Setting up a TCP load balancer - Cleura Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/cleura-palette.css">
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/banner.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script defer data-domain="docs.cleura.cloud" src="../../../../assets/external/plausible.io/js/plausible.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Setting up a TCP load balancer - Cleura Docs" >
+      
+        <meta  property="og:description"  content="A walk-through of creating a TCP load balancer" >
+      
+        <meta  property="og:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/octavia/lbaas-tcp.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://docs.cleura.cloud/main/howto/openstack/octavia/lbaas-tcp/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Setting up a TCP load balancer - Cleura Docs" >
+      
+        <meta  name="twitter:description"  content="A walk-through of creating a TCP load balancer" >
+      
+        <meta  name="twitter:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/octavia/lbaas-tcp.png" >
+      
+    
+    
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-a-tcp-load-balancer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  For information about a specific region, use the drop-down menu.
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Cleura Docs" class="md-header__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cleura Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setting up a TCP load balancer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/citynetwork/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Cleura Docs" class="md-nav__button md-logo" aria-label="Cleura Docs" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Cleura Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/citynetwork/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start Here
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    How-To Guides
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            How-To Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/create-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a new account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/enable-openstack-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enabling the OpenStack CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/accessing-cc-rest-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accessing the Cleura Cloud REST API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OpenStack
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            OpenStack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../barbican/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Barbican (secret storage)
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Barbican (secret storage)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../barbican/generic-secret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generic secret storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../barbican/share-secret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sharing secrets via ACLs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cinder (persistent block storage)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cinder (persistent block storage)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cinder/resize-volumes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resizing a volume
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cinder/encrypted-volumes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encrypted volumes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cinder/retype-volumes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changing a volume&rsquo;s type
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cinder/sync-volumes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transferring data between volumes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../glance/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Glance (image service)
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Glance (image service)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glance/examine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Examining images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glance/filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Listing and filtering images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glance/custom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing custom images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Keystone (identity service)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Keystone (identity service)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../keystone/app-creds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_5" id="__nav_2_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Magnum (Kubernetes cluster management)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Magnum (Kubernetes cluster management)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../magnum/new-k8s-cluster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Kubernetes cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../magnum/kubectl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing a Kubernetes cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_6" id="__nav_2_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Neutron (networking service)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Neutron (networking service)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../neutron/new-network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating new networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../neutron/create-security-groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating security groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../neutron/multiple-public-ips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assigning multiple public (floating) IPs to a server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../neutron/vpnaas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a VPN connection between regions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../neutron/delete-network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_7" id="__nav_2_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nova (compute service)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Nova (compute service)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/new-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating new servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/new-server-cnw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating servers behind a Clavister NetWall instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/server-group/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using server groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/config-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Launching a server with a configuration drive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/resize-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resizing a server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/move-server-between-regions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Moving a server from one region to another
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/boot-image-volume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Converting a boot-from-image server to boot-from-volume
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/restore-srv-to-snap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Restoring a server to a snapshot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nova/rescue-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rescuing a server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_8" id="__nav_2_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Octavia (load balancing)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Octavia (load balancing)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Setting up a TCP load balancer
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting up a TCP load balancer
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-and-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario and terminology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a load balancer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-listener" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a listener
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a pool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-members-to-the-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding members to the pool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assigning-a-floating-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assigning a floating IP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the load balancer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-health-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding a health monitor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observing-and-testing-the-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observing and testing the monitor
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tls-lb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTPS-terminating load balancers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lbaas-l7pol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using layer 7 redirection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enabling load balancer metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Object storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Object storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../object-storage/s3/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    S3 API
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            S3 API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/credentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with S3-compatible credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/public-bucket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Public buckets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/presign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pre-signed object URLs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/expiry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object expiry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/object-lock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object lock
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object versioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/sse-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object encryption (SSE-C)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/s3/utilization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object storage utilization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../object-storage/swift/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Swift API
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Swift API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/swift/private-container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with a private Swift container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/swift/public-container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with a public Swift container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/swift/tempurl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using temporary URLs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/swift/expiry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object expiry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/swift/versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object versioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../object-storage/swift/utilization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object storage utilization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kubernetes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kubernetes/gardener/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Gardener
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Gardener
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/gardener/create-shoot-cluster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Kubernetes cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/gardener/kubectl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing a Kubernetes cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/gardener/hibernate-shoot-cluster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernating a Kubernetes cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/gardener/rolling-upgrades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conducting rolling upgrades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kubernetes/magnum/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Magnum
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Magnum
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../marketplace/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Marketplace
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Marketplace
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bareos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Bareos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/bareos/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Bareos instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/bareos/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting a Bareos instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Clavister NetWall
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Clavister NetWall
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/clavister/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Clavister NetWall instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/clavister/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting a Clavister NetWall instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_4" id="__nav_2_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Grafana
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Grafana
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/grafana/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Grafana instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/grafana/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting a Grafana instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_5" id="__nav_2_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Harbor
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Harbor
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/harbor/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Harbor instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/harbor/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting a Harbor instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_6" id="__nav_2_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Keycloak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            Keycloak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/keycloak/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Keycloak instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/keycloak/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting a Keycloak instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_7" id="__nav_2_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Matomo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            Matomo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/matomo/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Matomo instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/matomo/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting a Matomo instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_8" id="__nav_2_6_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Prometheus
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            Prometheus
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/prometheus/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Prometheus instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/prometheus/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting a Prometheus instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_9" id="__nav_2_6_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Taiga
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_9">
+            <span class="md-nav__icon md-icon"></span>
+            Taiga
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/taiga/deploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Taiga instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../marketplace/taiga/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting a Taiga instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Account & Billing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Account & Billing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../account-billing/forgot-your-password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resetting your password or reclaiming your username
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../account-billing/change-account-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changing your account data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../account-billing/change-credit-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing your credit card information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../account-billing/manage-invoices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing invoices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../account-billing/e-invoice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E-invoicing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../account-billing/rest-invoice-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Retrieving invoice data with the Cleura Cloud REST API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../account-billing/delete-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting your account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Support
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Support
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../support/raise-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raising support issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../tutorials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Containers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/heat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Heat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/tf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenTofu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../background/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Background
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Background
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/gui-vs-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CCMP vs. OpenStack API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/project-deletion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/object-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disaster recovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../background/kubernetes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6_2" id="__nav_4_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gardener
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Gardener
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/kubernetes/gardener/autoscaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autoscaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/kubernetes/gardener/autoupgrades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automatic upgrades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/kubernetes/gardener/garden-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Garden Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/kubernetes/gardener/hibernation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../background/marketplace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Marketplace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/features/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Feature Support
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Feature Support
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/features/public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Public Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/features/compliant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliant Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/limitations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Limitations
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Limitations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/limitations/openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/limitations/object-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/limitations/kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/flavors/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Flavors
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Flavors
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/volumes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Volumes
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Volumes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/images/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Images
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Images
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Quotas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Quotas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/quotas/openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/versions/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Service Versions
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Service Versions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/versions/public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Public Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/versions/compliant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliant Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/api/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/api/cc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Cleura Cloud REST API
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cleura Cloud REST API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/api/openstack/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    OpenStack API
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            OpenStack API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../reference/legal/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Legal
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_10">
+            <span class="md-nav__icon md-icon"></span>
+            Legal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../contrib/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    You can help!
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            You can help!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contrib/issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reporting issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contrib/modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modifying content on this site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contrib/quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quality checks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-and-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario and terminology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a load balancer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-listener" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a listener
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a pool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-members-to-the-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding members to the pool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assigning-a-floating-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assigning a floating IP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the load balancer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-health-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding a health monitor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observing-and-testing-the-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observing and testing the monitor
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/octavia/lbaas-tcp.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="setting-up-a-tcp-load-balancer">Setting up a TCP load balancer</h1>
+<p>Octavia is a Load Balancer as a Service (LBaaS) solution designed to work with OpenStack.
+In this guide, we show how to instantiate and configure a simple TCP load balancer in Cleura Cloud.
+All intermediate steps are presented and explained through a specific scenario, and we work using either the Cleura Cloud Management Panel or the OpenStack CLI.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Whether you choose the Cleura Cloud Management Panel or the OpenStack CLI, you need to <a href="../../../getting-started/create-account/">have an account</a> in Cleura Cloud.
+Additionally, to use the OpenStack CLI, make sure to <a href="../../../getting-started/enable-openstack-cli/">enable it</a> for the region you will be working in.
+Besides the Python <code>openstackclient</code> module, you will also have to install the Python <code>octaviaclient</code> module.
+For that, use either the package manager of your operating system or <code>pip</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">Mac OS X with Homebrew</label><label for="__tabbed_1_3">Python Package</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>python3-octaviaclient
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>This particular Python module is unavailable via <code>brew</code>, but you can install it via <code>pip</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>python-octaviaclient
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="scenario-and-terminology">Scenario and terminology</h2>
+<p>To configure and test our basic TCP load balancer, we have two servers in the same Cleura Cloud region, both having <code>ncat</code> listening on port 61234/TCP and returning a greeting to clients asking to connect to that port.
+Both servers are in the same internal network, and our load balancer will be responsible for redirecting client connections to them in a round-robin fashion.
+The load balancer will have a single floating IP address, so prospective clients will have to know only that address and not any of the backend server addresses.</p>
+<blockquote>
+<p>Please note that while working with your load balancer, you will encounter some technical terms which go a long way toward conceptualizing the inner logic of the whole LBaaS system.
+This guide introduces those terms not beforehand but exactly when needed.</p>
+</blockquote>
+<h2 id="creating-a-load-balancer">Creating a load balancer</h2>
+<p>That is only the first step towards our goal, which is to have a fully functional TCP load balancer.
+We will also need a listener and a pool, but first things first.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Fire up your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your Cleura Cloud account.
+On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em> button.
+A new pane titled <em>Create</em> will slide into view from the right-hand side of the browser window.
+You will notice several rounded boxes on that pane, each for defining, configuring, and instantiating a different Cleura Cloud object.
+Go ahead and click the <em>Load Balancer</em> box.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new object" src="../assets/shot-01.png" /></a></p>
+<p>A new pane titled <em>Create a Load Balancer</em> will slide over.
+At the top, type in a name for the new load balancer and select one of the available regions.
+Optionally, type in a description.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Set name, region, and description for the new LB" src="../assets/shot-02.png" /></a></p>
+<p>In the same pane, scroll down a bit if you have to and activate the <em>Subnet</em> radio button.
+Then, from the <em>Subnet</em> dropdown menu below, select an appropriate subnet for the new load balancer to move in front of.
+In our example, the two test servers we have are members of the <code>network-fra1</code> internal network, and <code>subnet-fra1</code> is the name of the corresponding subnet.
+Click the green <em>Create</em> button below to instantiate the new load balancer.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select a subnet for the new LB" src="../assets/shot-03.png" /></a></p>
+<p>The creation of the new load balancer starts and, unless something goes wrong, finishes successfully in a minute or so.
+For a view of the load balancer, make sure the left-hand side vertical pane of the Cleura Cloud Management Panel is fully visible, click on the <em>Networking</em> category to expand it, and then click once more on the <em>Load Balancers</em> option.
+In the main area of the Cleura Cloud Management Panel, select the new load balancer, click the three-dot icon on the right, and select <em>View details</em> from the pop-up menu that appears.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="View the newly created LB" src="../assets/shot-04.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>To create your load balancer, type something like this:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>mylb<span class="w"> </span>--vip-subnet-id<span class="w"> </span>subnet-fra1
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| admin_state_up      | True                                 |
+| availability_zone   | None                                 |
+| created_at          | 2023-01-16T19:20:01                  |
+| description         |                                      |
+| flavor_id           | None                                 |
+| id                  | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+| listeners           |                                      |
+| name                | mylb                                 |
+| operating_status    | OFFLINE                              |
+| pools               |                                      |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| provider            | amphora                              |
+| provisioning_status | PENDING_CREATE                       |
+| updated_at          | None                                 |
+| vip_address         | 10.15.25.169                         |
+| vip_network_id      | 6c340d2b-e2cf-478a-9074-37e6770decf8 |
+| vip_port_id         | c5b49ecb-3631-4e1c-99f0-04b3fba314e2 |
+| vip_qos_policy_id   | None                                 |
+| vip_subnet_id       | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+| tags                |                                      |
+| additional_vips     |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>In the example above, the name of the load balancer is <code>mylb</code>, and the subnet it will be in front of is named <code>subnet-fra1</code> (this is the subnet our two test servers are members of).
+You will notice in the command output that, at first, the <code>provisioning_status</code> is <code>PENDING_CREATE</code>.
+To make sure the load balancer has been successfully created, try this command a couple of times:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>show<span class="w"> </span>mylb<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------+
+| Field               | Value  |
++---------------------+--------+
+| provisioning_status | ACTIVE |
++---------------------+--------+
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="creating-a-listener">Creating a listener</h2>
+<p>A load balancer needs a way to listen for incoming client connection requests.
+The <em>listener</em> allows a load balancer to do just that.
+The load balancer you instantiated has no listener, so let us see how you can equip it with one.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Looking at the detailed view of the new load balancer, you see three tabs: <em>Details</em>, <em>Listeners</em>, and <em>Pools</em>.
+Click the <em>Listeners</em> tab and notice the message: &ldquo;No Listeners for this LoadBalancer&rdquo;.
+Time to create one, so click the green button labeled <em>Create a Listener</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create a listener" src="../assets/shot-05.png" /></a></p>
+<p>From the right-hand side of the Cleura Cloud Management Panel, a pane named <em>Create a Listener</em> slides over.
+Type in a name for the new listener &mdash; and optionally a description.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Set name and description for the new listener" src="../assets/shot-06.png" /></a></p>
+<p>Further down, from the <em>Protocol</em> dropdown menu, select the protocol the listener will be paying attention to.
+Since you are setting up a TCP load balancer, the protocol for the listener will also have to be TCP.
+Additionally, type in the listening port.
+The load balancer will be redirecting connections to a couple of servers, which listen for connections on port 61234/TCP, so it makes sense &mdash;though it is not necessary&mdash; for the load balancer to use that same listening port.
+Since you have not yet defined a pool, ignore the <em>Default pool</em> dropdown menu for now.
+Instead, go ahead and click the green <em>Create</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select protocol and set port" src="../assets/shot-07.png" /></a></p>
+<p>The listener will be created in no time, and you will be able to see its characteristics in the <em>Listeners</em> tab of your load balancer detailed view.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Listener successfully created" src="../assets/shot-08.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>Create a listener for your load balancer like this:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>mylb-listener<span class="w"> </span>--protocol<span class="w"> </span>TCP<span class="w"> </span>--protocol-port<span class="w"> </span><span class="m">61234</span><span class="w"> </span>mylb
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+-----------------------------+--------------------------------------+
+| Field                       | Value                                |
++-----------------------------+--------------------------------------+
+| admin_state_up              | True                                 |
+| connection_limit            | -1                                   |
+| created_at                  | 2023-01-16T19:32:59                  |
+| default_pool_id             | None                                 |
+| default_tls_container_ref   | None                                 |
+| description                 |                                      |
+| id                          | 8b4e3309-c460-44a8-a0af-8dd2868138f9 |
+| insert_headers              | None                                 |
+| l7policies                  |                                      |
+| loadbalancers               | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+| name                        | mylb-listener                        |
+| operating_status            | OFFLINE                              |
+| project_id                  | dfc700467396428bacba4376e72cc3e9     |
+| protocol                    | TCP                                  |
+| protocol_port               | 61234                                |
+| provisioning_status         | PENDING_CREATE                       |
+| sni_container_refs          | []                                   |
+| timeout_client_data         | 50000                                |
+| timeout_member_connect      | 5000                                 |
+| timeout_member_data         | 50000                                |
+| timeout_tcp_inspect         | 0                                    |
+| updated_at                  | None                                 |
+| client_ca_tls_container_ref | None                                 |
+| client_authentication       | NONE                                 |
+| client_crl_container_ref    | None                                 |
+| allowed_cidrs               | None                                 |
+| tls_ciphers                 | None                                 |
+| tls_versions                | None                                 |
+| alpn_protocols              | None                                 |
+| tags                        |                                      |
++-----------------------------+--------------------------------------+
+</code></pre></div>
+<p>To check the <code>provisioning_status</code>, type the following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span>show<span class="w"> </span>mylb-listener<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------+
+| Field               | Value  |
++---------------------+--------+
+| provisioning_status | ACTIVE |
++---------------------+--------+
+</code></pre></div>
+<p>Since you wanted to create a TCP load balancer, in the command above, you specified the connection protocol via the <code>--protocol</code> parameter.
+Also, the new load balancer will be redirecting connections to a couple of servers listening on port 61234, so it makes sense to set the listening port to 61234 (see the <code>--protocol-port</code> parameter).</p>
+</div>
+</div>
+</div>
+<h2 id="creating-a-pool">Creating a pool</h2>
+<p>Any server accepting connections from the listener is said to be a <em>member</em> of a <em>pool</em>.
+For our load balancer to work, we must create a pool and explicitly list its members.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Cleura Cloud Management Panel</label><label for="__tabbed_4_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>With the detailed view of the load balancer expanded, click the <em>Pools</em> tab.
+You will notice the message &ldquo;No pools for this LoadBalancer&rdquo;, so click the green <em>Create a Pool</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create a pool" src="../assets/shot-09.png" /></a></p>
+<p>A new pane named <em>Create a Pool</em> slides over.
+First, type in a name for the new pool.
+For the <em>Algorithm</em>, make sure to select <em>ROUND_ROBIN</em>.
+Since you are configuring a TCP load balancer, set the <em>Protocol</em> to <em>TCP</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Type in name, set algorithm and protocol" src="../assets/shot-10.png" /></a></p>
+<p>A little bit further down the pane, there is the <em>Listener</em> dropdown menu; select the one you created in the previous step.
+Leave the <em>Session persistence</em> parameter as it is, and create your pool with a click on the green <em>Create</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select listener, create pool" src="../assets/shot-11.png" /></a></p>
+<p>The pool is instantaneously available; as you can see, it has zero members and one listener (the one you created in the previous step).</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Zero members, one listener" src="../assets/shot-12.png" /></a></p>
+<p>Notice that the listener already knows about the new pool, even though you did not explicitly mention it.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The listener knows" src="../assets/shot-13.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>To create a pool named <code>mylb-pool</code> that distributes incoming TCP connections to its members in a round-robin fashion from the listener named <code>mylb-listener</code>, type this command:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>pool<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>mylb-pool<span class="w"> </span>--lb-algorithm<span class="w"> </span>ROUND_ROBIN<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--listener<span class="w"> </span>mylb-listener<span class="w"> </span>--protocol<span class="w"> </span>TCP
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+----------------------+--------------------------------------+
+| Field                | Value                                |
++----------------------+--------------------------------------+
+| admin_state_up       | True                                 |
+| created_at           | 2023-01-16T19:52:02                  |
+| description          |                                      |
+| healthmonitor_id     |                                      |
+| id                   | e5b9c18d-7c0b-4b95-9dc8-7a778aeb039c |
+| lb_algorithm         | ROUND_ROBIN                          |
+| listeners            | 8b4e3309-c460-44a8-a0af-8dd2868138f9 |
+| loadbalancers        | 6f04228a-19ca-4e94-8965-10f146a9ad81 |
+| members              |                                      |
+| name                 | mylb-pool                            |
+| operating_status     | OFFLINE                              |
+| project_id           | dfc700467396428bacba4376e72cc3e9     |
+| protocol             | TCP                                  |
+| provisioning_status  | PENDING_CREATE                       |
+| session_persistence  | None                                 |
+| updated_at           | None                                 |
+| tls_container_ref    | None                                 |
+| ca_tls_container_ref | None                                 |
+| crl_container_ref    | None                                 |
+| tls_enabled          | False                                |
+| tls_ciphers          | None                                 |
+| tls_versions         | None                                 |
+| tags                 |                                      |
+| alpn_protocols       | None                                 |
++----------------------+--------------------------------------+
+</code></pre></div>
+<p>Once more, you may check the <code>provisioning_status</code> by typing the following:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>pool<span class="w"> </span>show<span class="w"> </span>mylb-pool<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------+
+| Field               | Value  |
++---------------------+--------+
+| provisioning_status | ACTIVE |
++---------------------+--------+
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="adding-members-to-the-pool">Adding members to the pool</h2>
+<p>The pool you created has no members, so it is time to populate it.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Cleura Cloud Management Panel</label><label for="__tabbed_5_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the detailed view of your load balancer, go to the <em>Pools</em> tab and click the bulleted-list icon.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Populate the pool" src="../assets/shot-14.png" /></a></p>
+<p>A new pane titled <em>Modify Pool Members</em> appears, listing all the servers that share the same region with the load balancer.
+In our example, there are three servers.
+We created <code>srv-lbaas-1</code> and <code>srv-lbaas-2</code> to test the load balancer, so now we click on the corresponding plus-sign icons to add those to the pool.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add members" src="../assets/shot-15.png" /></a></p>
+<p>You may have noticed that the listening port of each server we added is by default 80, but we want port 61234.
+To change the listening port of a server, just click the corresponding notepad-and-pen icon.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Modify ports" src="../assets/shot-16.png" /></a></p>
+<p>To confirm the changes, click the green <em>Update</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Apply changes to pool" src="../assets/shot-17.png" /></a></p>
+<p>At this point, the load balancer should have its listener plus a pool with two members.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pool is populated" src="../assets/shot-18.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>Both our test servers are in the <code>subnet-fra1</code> subnet, one of them has IP <code>10.15.25.105</code>, and the other one has IP <code>10.15.25.236</code>.
+To add those two servers in pool <code>mylb-pool</code>, type:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--subnet-id<span class="w"> </span>subnet-fra1<span class="w"> </span>--address<span class="w"> </span><span class="m">10</span>.15.25.105<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--protocol-port<span class="w"> </span><span class="m">61234</span><span class="w"> </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| address             | 10.15.25.105                         |
+| admin_state_up      | True                                 |
+| created_at          | 2023-01-16T20:11:08                  |
+| id                  | 93aed0c8-b425-40b5-b166-f3e44ad9a986 |
+| name                |                                      |
+| operating_status    | NO_MONITOR                           |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| protocol_port       | 61234                                |
+| provisioning_status | PENDING_CREATE                       |
+| subnet_id           | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+| updated_at          | None                                 |
+| weight              | 1                                    |
+| monitor_port        | None                                 |
+| monitor_address     | None                                 |
+| backup              | False                                |
+| tags                |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--subnet-id<span class="w"> </span>subnet-fra1<span class="w"> </span>--address<span class="w"> </span><span class="m">10</span>.15.25.236<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--protocol-port<span class="w"> </span><span class="m">61234</span><span class="w"> </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| address             | 10.15.25.236                         |
+| admin_state_up      | True                                 |
+| created_at          | 2023-01-16T20:11:46                  |
+| id                  | d15527ce-a293-4184-9da5-dcc5f7352a0c |
+| name                |                                      |
+| operating_status    | NO_MONITOR                           |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| protocol_port       | 61234                                |
+| provisioning_status | PENDING_CREATE                       |
+| subnet_id           | df6fb6ca-4751-4b74-8b3e-5fbda0117cea |
+| updated_at          | None                                 |
+| weight              | 1                                    |
+| monitor_port        | None                                 |
+| monitor_address     | None                                 |
+| backup              | False                                |
+| tags                |                                      |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>You may at any time list all members of a particular pool:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>list<span class="w"> </span>mylb-pool
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+------------+------+------------+---------------------+------------+---------------+------------------+--------+
+| id         | name | project_id | provisioning_status | address    | protocol_port | operating_status | weight |
++------------+------+------------+---------------------+------------+---------------+------------------+--------+
+| 93aed0c8-  |      | dfc7004673 | ACTIVE              | 10.15.25.1 |         61234 | NO_MONITOR       |      1 |
+| b425-40b5- |      | 96428bacba |                     | 05         |               |                  |        |
+| b166-      |      | 4376e72cc3 |                     |            |               |                  |        |
+| f3e44ad9a9 |      | e9         |                     |            |               |                  |        |
+| 86         |      |            |                     |            |               |                  |        |
+| d15527ce-  |      | dfc7004673 | ACTIVE              | 10.15.25.2 |         61234 | NO_MONITOR       |      1 |
+| a293-4184- |      | 96428bacba |                     | 36         |               |                  |        |
+| 9da5-      |      | 4376e72cc3 |                     |            |               |                  |        |
+| dcc5f7352a |      | e9         |                     |            |               |                  |        |
+| 0c         |      |            |                     |            |               |                  |        |
++------------+------+------------+---------------------+------------+---------------+------------------+--------+
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="assigning-a-floating-ip">Assigning a floating IP</h2>
+<p>Your load balancer has an internal IP chosen from the subnet you indicated earlier.
+This makes it reachable from other servers in the same subnet but not from the Internet.
+You probably want the load balancer to be reachable from anywhere, meaning you have to equip it with a floating IP.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Cleura Cloud Management Panel</label><label for="__tabbed_6_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>While viewing your load balancer, click the three-dot icon on the right.
+From the pop-up menu that appears, select <em>Modify Load Balancer</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Modify load balancer" src="../assets/shot-19.png" /></a></p>
+<p>The <em>Modify Load Balancer</em> pane appears.
+For the <em>Floating IP</em> option, select <em>Create and attach IP</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create and attach floating IP" src="../assets/shot-20.png" /></a></p>
+<p>A new pane slides over, named <em>Create a Floating IP</em>.
+For the <em>Region</em> parameter, select the one the load balancer resides in.
+For the <em>Assign to</em> parameter, make sure you choose <em>Load Balancer</em>.
+In our example, there&rsquo;s only one load balancer in the region we are working in, so the parameter <em>Assign To</em> is already set for us.
+To finalize the assignment, click the green <em>Create and Assign</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Configure attachment" src="../assets/shot-21.png" /></a></p>
+<p>As you may see, your load balancer now has a floating IP.
+You can now use that to test the balancer and make sure it works as expected.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Floating IP attached to load balancer" src="../assets/shot-22.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>First, create a new floating IP:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>create<span class="w"> </span>ext-net
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| created_at          | 2023-01-16T20:25:25Z                 |
+| description         |                                      |
+| dns_domain          | None                                 |
+| dns_name            | None                                 |
+| fixed_ip_address    | None                                 |
+| floating_ip_address | 198.51.100.129                       |
+| floating_network_id | 2aec7a99-3783-4e2a-bd2b-bbe4fef97d1c |
+| id                  | 69457661-197e-444a-b9ce-54394263dafa |
+| name                | 198.51.100.129                       |
+| port_details        | None                                 |
+| port_id             | None                                 |
+| project_id          | dfc700467396428bacba4376e72cc3e9     |
+| qos_policy_id       | None                                 |
+| revision_number     | 0                                    |
+| router_id           | None                                 |
+| status              | DOWN                                 |
+| subnet_id           | None                                 |
+| tags                | []                                   |
+| updated_at          | 2023-01-16T20:25:25Z                 |
++---------------------+--------------------------------------+
+</code></pre></div>
+<p>Then, load the ID of the new floating IP to a variable:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">FLOAT_IP_ID</span><span class="o">=</span><span class="k">$(</span>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--floating-ip-address<span class="w"> </span><span class="m">198</span>.51.100.129<span class="w"> </span>-c<span class="w"> </span>ID<span class="w"> </span>-f<span class="w"> </span>value<span class="k">)</span>
+</code></pre></div>
+<p>Do the same for the VIP port ID of your load balancer:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">VIP_PORT_ID</span><span class="o">=</span><span class="k">$(</span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>show<span class="w"> </span>mylb<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-c<span class="w"> </span>vip_port_id<span class="w"> </span>-f<span class="w"> </span>value<span class="k">)</span>
+</code></pre></div>
+<p>Finally, assign the floating IP to your load balancer like so:</p>
+<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--port<span class="w"> </span><span class="nv">$VIP_PORT_ID</span><span class="w"> </span><span class="nv">$FLOAT_IP_ID</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="testing-the-load-balancer">Testing the load balancer</h2>
+<p>Each of the two test servers runs <code>ncat</code> to continuously listen on port 61234/TCP and respond to clients with a simple message, revealing its hostname:</p>
+<div class="highlight"><pre><span></span><code>ncat<span class="w"> </span>-kv<span class="w"> </span>-l<span class="w"> </span><span class="m">61234</span><span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo Yello from $(hostname)!&#39;</span>
+</code></pre></div>
+<p>Since the load balancer has a floating IP (<code>198.51.100.129</code>, in our example), and we know the port it listens to, we can try connecting to it via <code>wget</code> and see what happens:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+
+<span class="go">Yello from srv-lbaas-1!</span>
+</code></pre></div>
+<p>It looks like we talked to the first test server.
+If we run the exact same <code>wget</code> command for a second time, since the load balancer distributes client connection requests in a round-robin fashion, we expect to talk to the second server:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+
+<span class="go">Yello from srv-lbaas-2!</span>
+</code></pre></div>
+<p>During our testing, executing the <code>wget</code> command repeatedly, we were getting those two hostnames one after the other &mdash; and that was proof our TCP load balancer was working as expected.
+But there is one more expectation of any load balancer: the ability to skip backend hosts when they are inaccessible.</p>
+<p>To test our load balancer in this new scenario, let us first use <code>wget</code> to connect to port 61234 and jot down the backend server that will respond:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+
+<span class="go">Yello from srv-lbaas-2!</span>
+</code></pre></div>
+<p>We see that <code>srv-lbaas-2</code> responded. That means the next time we try to connect, <code>srv-lbaas-1</code> will respond.
+But if we SSH into <code>srv-lbaas-1</code> and terminate <code>ncat</code>, then after connecting with <code>wget</code> we will get a response from <code>srv-lbaas-2</code> &mdash; again.
+This, at least, is our expectation.
+So without further ado, we SSH into <code>srv-lbaas-1</code>, we terminate <code>ncat</code>, we log out, and from our local terminal, we type:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+
+<span class="go">Yello from srv-lbaas-2!</span>
+</code></pre></div>
+<p>Exactly as we expected, <code>srv-lbaas-2</code> has responded again, proving our load balancer behaves correctly.
+As an exercise, you might want to shutdown your <code>srv-lbaas-1</code> and/or re-enable <code>ncat</code>, and check the behavior of the load balancer.
+There should be no surprises.</p>
+<h2 id="adding-a-health-monitor">Adding a health monitor</h2>
+<p>You can add a health monitor to the pool of your load balancer, so whenever &mdash;and for whatever reason&mdash; one or more of the pool member services are inaccessible, the load balancer will know and won&rsquo;t even bother trying to redirect client requests to them.
+Of course, whenever an inaccessible service gets accessible again, the load balancer will take notice and start treating the corresponding pool member as a fully functional server.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Cleura Cloud Management Panel</label><label for="__tabbed_7_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the detailed view of your load balancer, pull up the <em>Pools</em> tab.
+In the <em>Health Monitor</em> column there is a &ldquo;0&rdquo;, for the pool has no health monitor yet.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="There is no health monitor" src="../assets/shot-23.png" /></a></p>
+<p>To add a health monitor, click the notepad-and-pen icon.
+A pane titled <em>Modify Pool</em> slides over.
+Scroll down if you have to, and stop when the <em>Health Monitor</em> section is fully visible.
+You will see a message saying, &ldquo;No health monitor created&rdquo;, so click the green <em>Create a Healthmonitor</em> button to create one.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new health monitor" src="../assets/shot-24.png" /></a></p>
+<p>Pick a name for the new health monitor, and set its type to TCP.
+That is the connection protocol that will be used to determine whether pool member services are accessible.
+Finalize your choices with a click on the green <em>Create</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Define health monitor characteristics" src="../assets/shot-25.png" /></a></p>
+<p>You will then see that in the <em>Health Monitor</em> column there is a &ldquo;1&rdquo; &mdash; and that means the monitor is active.
+To see real-time information regarding pool members operating status, click over &ldquo;1&rdquo;.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Check members operating status" src="../assets/shot-26.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>To create a health monitor for pool <code>mylb-pool</code> of load balancer <code>mylb</code>, type something like the following:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>healthmonitor<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="o">=</span>mylb-pool-healthmon<span class="w"> </span>--type<span class="o">=</span>TCP<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--delay<span class="o">=</span><span class="m">10</span><span class="w"> </span>--timeout<span class="o">=</span><span class="m">5</span><span class="w"> </span>--max-retries<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mylb-pool
+
+<span class="go">+---------------------+--------------------------------------+</span>
+<span class="go">| Field               | Value                                |</span>
+<span class="go">+---------------------+--------------------------------------+</span>
+<span class="go">| project_id          | dfc700467396428bacba4376e72cc3e9     |</span>
+<span class="go">| name                | mylb-pool-healthmon                  |</span>
+<span class="go">| admin_state_up      | True                                 |</span>
+<span class="go">| pools               | e5b9c18d-7c0b-4b95-9dc8-7a778aeb039c |</span>
+<span class="go">| created_at          | 2023-01-22T20:22:05                  |</span>
+<span class="go">| provisioning_status | PENDING_CREATE                       |</span>
+<span class="go">| updated_at          | None                                 |</span>
+<span class="go">| delay               | 10                                   |</span>
+<span class="go">| expected_codes      | None                                 |</span>
+<span class="go">| max_retries         | 1                                    |</span>
+<span class="go">| http_method         | None                                 |</span>
+<span class="go">| timeout             | 5                                    |</span>
+<span class="go">| max_retries_down    | 3                                    |</span>
+<span class="go">| url_path            | None                                 |</span>
+<span class="go">| type                | TCP                                  |</span>
+<span class="go">| id                  | 8e720877-969d-4653-9e7e-1ae2df66a0b6 |</span>
+<span class="go">| operating_status    | OFFLINE                              |</span>
+<span class="go">| http_version        | None                                 |</span>
+<span class="go">| domain_name         | None                                 |</span>
+<span class="go">| tags                |                                      |</span>
+<span class="go">+---------------------+--------------------------------------+</span>
+</code></pre></div>
+<p>The name of the new health monitor is <code>mylb-pool-healthmon</code>, and the TCP protocol will be used to check whether members of pool <code>mylb-pool</code> are online or offline.
+To check the provisioning status of the health monitor, type:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>healthmonitor<span class="w"> </span>show<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mylb-pool-healthmon<span class="w"> </span>-c<span class="w"> </span>provisioning_status
+
+<span class="go">+---------------------+--------+</span>
+<span class="go">| Field               | Value  |</span>
+<span class="go">+---------------------+--------+</span>
+<span class="go">| provisioning_status | ACTIVE |</span>
+<span class="go">+---------------------+--------+</span>
+</code></pre></div>
+<p>Once the health monitor is provisioned, you may at any time check the pool members status like so:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>list<span class="w"> </span>mylb-pool
+
+<span class="go">+-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+</span>
+<span class="go">| id        | name      | project_id | provisioning_status | address   | protocol_port | operating_status | weight |</span>
+<span class="go">+-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+</span>
+<span class="go">| c4351167- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |</span>
+<span class="go">| fcfa-     | lbaas-1   | 96428bacba |                     | 105       |               |                  |        |</span>
+<span class="go">| 48fb-     |           | 4376e72cc3 |                     |           |               |                  |        |</span>
+<span class="go">| 82ac-     |           | e9         |                     |           |               |                  |        |</span>
+<span class="go">| 76ddfdc73 |           |            |                     |           |               |                  |        |</span>
+<span class="go">| ca2       |           |            |                     |           |               |                  |        |</span>
+<span class="go">| 04a32731- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |</span>
+<span class="go">| f3a6-     | lbaas-2   | 96428bacba |                     | 236       |               |                  |        |</span>
+<span class="go">| 41ca-     |           | 4376e72cc3 |                     |           |               |                  |        |</span>
+<span class="go">| a638-     |           | e9         |                     |           |               |                  |        |</span>
+<span class="go">| 6f8767437 |           |            |                     |           |               |                  |        |</span>
+<span class="go">| 50c       |           |            |                     |           |               |                  |        |</span>
+<span class="go">+-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="observing-and-testing-the-monitor">Observing and testing the monitor</h2>
+<p>Having a health monitor for your load balancer&rsquo;s pool up and running, whenever the service of interest in any of the pool members gets inaccessible, the monitor notices and immediately considers the corresponding member as offline.
+From then on, and until the same service gets accessible again, the load balancer does not even try to redirect client connections to the affected member.
+During our testing, we killed <code>ncat</code> running on <code>srv-lbaas-1</code>, and then took a look at the health monitor from the Cleura Cloud Management Panel &mdash; and also from a local terminal.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Cleura Cloud Management Panel</label><label for="__tabbed_8_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In the detailed view of your load balancer, pull up the <em>Pools</em> tab and click anywhere on its line.
+After a second or two, you will see information regarding all pool members.
+Pay attention to the <em>Operating Status</em> column, where you can see the status of any of the pool members.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Operating status of all pool members" src="../assets/shot-27.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>To check the operating status of any of the pool members of your load balancer, type something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="gp"># </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>list<span class="w"> </span>mylb-pool
+
+<span class="go">+-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+</span>
+<span class="go">| id        | name      | project_id | provisioning_status | address   | protocol_port | operating_status | weight |</span>
+<span class="go">+-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+</span>
+<span class="go">| c4351167- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ERROR            |      1 |</span>
+<span class="go">| fcfa-     | lbaas-1   | 96428bacba |                     | 105       |               |                  |        |</span>
+<span class="go">| 48fb-     |           | 4376e72cc3 |                     |           |               |                  |        |</span>
+<span class="go">| 82ac-     |           | e9         |                     |           |               |                  |        |</span>
+<span class="go">| 76ddfdc73 |           |            |                     |           |               |                  |        |</span>
+<span class="go">| ca2       |           |            |                     |           |               |                  |        |</span>
+<span class="go">| 04a32731- | srv-      | dfc7004673 | ACTIVE              | 10.15.25. |         61234 | ONLINE           |      1 |</span>
+<span class="go">| f3a6-     | lbaas-2   | 96428bacba |                     | 236       |               |                  |        |</span>
+<span class="go">| 41ca-     |           | 4376e72cc3 |                     |           |               |                  |        |</span>
+<span class="go">| a638-     |           | e9         |                     |           |               |                  |        |</span>
+<span class="go">| 6f8767437 |           |            |                     |           |               |                  |        |</span>
+<span class="go">| 50c       |           |            |                     |           |               |                  |        |</span>
+<span class="go">+-----------+-----------+------------+---------------------+-----------+---------------+------------------+--------+</span>
+</code></pre></div>
+<p>In the example above, see the <code>operating_status</code> column, specifically the status of server <code>srv-lbaas-1</code>.
+Regarding the operating status of all pool members, you can always limit the scope of your query like so:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>list<span class="w"> </span>mylb-pool<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-c<span class="w"> </span>name<span class="w"> </span>-c<span class="w"> </span>operating_status
+
+<span class="go">+-------------+------------------+</span>
+<span class="go">| name        | operating_status |</span>
+<span class="go">+-------------+------------------+</span>
+<span class="go">| srv-lbaas-1 | ERROR            |</span>
+<span class="go">| srv-lbaas-2 | ONLINE           |</span>
+<span class="go">+-------------+------------------+</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let us see what happens when we repeatedly try to access the remote service via the load balancer:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+<span class="go">Yello from srv-lbaas-2!</span>
+
+<span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+<span class="go">Yello from srv-lbaas-2!</span>
+
+<span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span><span class="m">198</span>.51.100.129:61234<span class="w"> </span>-O<span class="w"> </span>-
+<span class="go">Yello from srv-lbaas-2!</span>
+</code></pre></div>
+<p>Since pool member <code>srv-lbaas-1</code> is offline to the health monitor, we keep getting an answer from <code>srv-lbaas-2</code>.
+Actually, while the service of interest in <code>srv-lbaas-1</code> is inaccessible, then no matter how many times we run the command above we will keep getting a response from <code>srv-lbaas-2</code> only.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 29, 2025 09:50:44 UTC">2025-07-29</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 17, 2023 09:33:36 UTC">2023-01-17</span>
+  </span>
+
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contributors">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+      
+    </span>
+    <nav>
+      Christos Varelas
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/"> <img src="../../../../assets/external/mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> </a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "content.action.edit"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "non-existent default; this is intentional", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
