@@ -46,7 +46,7 @@ extra:
   support_domain: "servicecenter.cleura.cloud"
   support_email: "support@cleura.com"
   version:
-    default: "main"
+    default: "non-existent default; this is intentional"
     provider: mike
 extra_css:
   - assets/stylesheets/cleura-palette.css
@@ -83,6 +83,7 @@ plugins:
       alias_type: symlink
       canonical_version: main
       version_selector: true
+  - privacy
   - search
   - social:
       # yamllint disable-line rule:truthy

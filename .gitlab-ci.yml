@@ -31,12 +31,11 @@ update-gh-pages:
     GIT_COMMITTER_NAME: "$GITLAB_USER_NAME"
     GIT_COMMITTER_EMAIL: "$GITLAB_USER_EMAIL"
     DOCS_DEPLOY_BRANCH: "$CI_COMMIT_BRANCH"
-    DOCS_DEPLOY_DEFAULT_BRANCH: "mike"
   script:
     - git fetch origin gh-pages
     - tox -e mike -- --push
   only:
-    - mike
+    - main
     - kna1
     - sto2
     - fra1

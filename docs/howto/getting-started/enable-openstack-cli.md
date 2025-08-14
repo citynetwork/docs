@@ -80,7 +80,7 @@ Take a look at the contents of this file --- they should be like this:
 ```bash
 export OS_USERNAME=olafsdottir
 export OS_PASSWORD=<your password goes here>
-export OS_AUTH_URL=https://{{api_region|lower}}.{{api_domain}}
+export OS_AUTH_URL=https://identity.{{api_region|lower}}.{{api_domain}}
 export OS_USER_DOMAIN_NAME=...
 export OS_PROJECT_DOMAIN_NAME=...
 export OS_REGION_NAME={{api_region}}

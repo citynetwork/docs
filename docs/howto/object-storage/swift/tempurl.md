@@ -76,19 +76,20 @@ The example below uses 1 hour (3,600 seconds).
 
 Then, use `swift tempurl` and specify
 
+* the digest algorithm (`sha1`)
 * the HTTP method for which the TempURL should apply (usually `GET`),
 * the TempURL lifetime, in seconds,
 * the full path to the object including
-  * the `/v1` prefix,
-  * the account identifier starting with `AUTH_`,
-  * the container name,
-  * the object name,
+    * the `/v1` prefix,
+    * the account identifier starting with `AUTH_`,
+    * the container name,
+    * the object name,
 * the TempURL key.
 
 When specified in this way, the command returns a path similar to the following:
 
 ```console
-$ swift tempurl GET 3600 \
+$ swift tempurl --digest sha1 GET 3600 \
     /v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt \
     ${TEMP_URL_KEY}
 
@@ -108,28 +109,12 @@ hello world
 If you (or someone else) were to attempt to fetch the same URL *after* its lifetime expired, they would be met with an [HTTP 401](https://http.cat/401) error:
 
 ```console
-$ curl --version 'https://object-store.{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt?temp_url_sig=746d382b7b211bdb24ca59ca21f90745f5741c83&temp_url_expires=1670250048'
-
-* Host object-store.{{api_region|lower}}.{{api_domain}}:443 was resolved.
-
-[...]
-
-> GET /swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt?temp_url_sig=e8a6d6304c92fe4cb230545ace6727b43e8ce5ea&temp_url_expires=1740655536 HTTP/2
-> Host: object-store.{{api_region|lower}}.{{api_domain}}
-> User-Agent: curl/8.6.0
-> Accept: */*
-> 
-* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
-* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
-* old SSL session ID is stale, removing
-< HTTP/2 401 
-< content-length: 12
-< x-trans-id: tx000003a2e52128563efd2-0067c079c5-1133217-az1
-< x-openstack-request-id: tx000003a2e52128563efd2-0067c079c5-1133217-az1
-< accept-ranges: bytes
-< content-type: text/plain; charset=utf-8
-< date: Thu, 27 Feb 2025 14:42:13 GMT
-< 
-* Connection #0 to host object-store.{{api_region|lower}}.{{api_domain}} left intact
-AccessDenied
+$ curl -i 'https://object-store.{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_d42230ea21674515ab9197af89fa5192/private-container/testobj.txt?temp_url_sig=746d382b7b211bdb24ca59ca21f90745f5741c83&temp_url_expires=1670250048'
+HTTP/1.1 401 Unauthorized
+content-length: 12
+x-trans-id: tx0000001113c5020d8a1de-00638df0ea-301ddeb-default
+x-openstack-request-id: tx0000001113c5020d8a1de-00638df0ea-301ddeb-default
+accept-ranges: bytes
+content-type: text/plain; charset=utf-8
+date: Mon, 05 Dec 2022 14:23:54 GMT
 ```
