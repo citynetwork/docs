@@ -92,11 +92,11 @@ To ensure that an object named `bar.pdf` in a bucket named `foo` is always downl
 
      You can set the attribute on object creation:
      ```bash
-     mc cp --attr Content-Disposition='attachment;filename="bar.pdf"' bar.pdf kna1/foo/
+     mc cp --attr Content-Disposition='attachment;filename="bar.pdf"' bar.pdf {{api_region|lower}}/foo/
      ```
      However, `mc` cuts off the `Content-Disposition` header at the semicolon, rendering it useless:
      ```console
-     $ mc stat kna1/foo/bar.pdf
+     $ mc stat {{api_region|lower}}/foo/bar.pdf
      Name      : bar.pdf
      Date      : 2023-01-12 12:53:52 CET
      Size      : 57 KiB
