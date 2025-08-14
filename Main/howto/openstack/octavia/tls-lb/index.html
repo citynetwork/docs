@@ -5506,7 +5506,7 @@ Most certificate providers give you the option of downloading certificate creden
 <span class="go">+---------------+---------------------------------------------------------------------------------+</span>
 <span class="go">| Field         | Value                                                                           |</span>
 <span class="go">+---------------+---------------------------------------------------------------------------------+</span>
-<span class="go">| Secret href   | https://kna1.citycloud.com:9311/v1/secrets/69bd82f5-60c9-4764-99ec-7a3dff05d2aa |</span>
+<span class="go">| Secret href   | https://fixme.citycloud.com:9311/v1/secrets/69bd82f5-60c9-4764-99ec-7a3dff05d2aa |</span>
 <span class="go">| Name          | tls_secret1                                                                     |</span>
 <span class="go">| Created       | None                                                                            |</span>
 <span class="go">| Status        | None                                                                            |</span>
@@ -5530,7 +5530,7 @@ Most certificate providers give you the option of downloading certificate creden
 <span class="w">  </span>--protocol-port<span class="w"> </span><span class="m">443</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--protocol<span class="w"> </span>TERMINATED_HTTPS<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--name<span class="w"> </span>listener1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--default-tls-container-ref<span class="o">=</span>https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae<span class="w">  </span><span class="se">\</span>
+<span class="w">  </span>--default-tls-container-ref<span class="o">=</span>https://fixme.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae<span class="w">  </span><span class="se">\</span>
 <span class="w">  </span>&lt;loadbalancer-name-or-id&gt;
 <span class="go">+-----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span>
 <span class="go">| Field                       | Value                                                                                                                                                                                                                                                                              |</span>
@@ -5539,7 +5539,7 @@ Most certificate providers give you the option of downloading certificate creden
 <span class="go">| connection_limit            | -1                                                                                                                                                                                                                                                                                 |</span>
 <span class="go">| created_at                  | 2021-01-20T11:51:46                                                                                                                                                                                                                                                                |</span>
 <span class="go">| default_pool_id             | None                                                                                                                                                                                                                                                                               |</span>
-<span class="go">| default_tls_container_ref   | https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae                                                                                                                                                                                                    |</span>
+<span class="go">| default_tls_container_ref   | https://fixme.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae                                                                                                                                                                                                    |</span>
 <span class="go">| description                 |                                                                                                                                                                                                                                                                                    |</span>
 <span class="go">| id                          | 4ec6b23d-d08a-4de0-9e12-54ac690ee1ec                                                                                                                                                                                                                                               |</span>
 <span class="go">| insert_headers              | None                                                                                                                                                                                                                                                                               |</span>
@@ -5577,13 +5577,13 @@ You can do this online, with no user-noticeable interruption to your service.</p
 </code></pre></div></li>
 <li>For all listeners using the <code>TERMINATED_HTTPS</code> protocol, run the following command:
    <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>listener<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--default-tls-container-ref<span class="o">=</span>https://kna1.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25<span class="w">  </span><span class="se">\</span>
+<span class="w">  </span>--default-tls-container-ref<span class="o">=</span>https://fixme.citycloud.com:9311/v1/secrets/e2d8acc1-c6b9-4c01-9373-cc167b075c25<span class="w">  </span><span class="se">\</span>
 <span class="w">  </span>&lt;listener-name-or-id&gt;
 </code></pre></div></li>
 </ol>
 <p>Once all your load balancer listeners have completed the update, you may proceed to delete the old, now-unused secret:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>secret<span class="w"> </span>delete<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>https://kna1.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae
+<span class="w">  </span>https://fixme.citycloud.com:9311/v1/secrets/dacfbec1-fbed-403f-a4dc-303e28942dae
 </code></pre></div>
 
 
@@ -5607,7 +5607,7 @@ You can do this online, with no user-noticeable interruption to your service.</p
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 7, 2025 11:31:01 UTC">2025-07-07</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2025 13:52:47 UTC">2025-08-14</span>
   </span>
 
     
