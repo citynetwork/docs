@@ -48,8 +48,8 @@ $ openstack secret list
 +--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
 | Secret href                                                                    | Name     | Created                   | Status | Content types                           | Algorithm | Bit length | Secret type | Mode | Expiration |
 +--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
-| https://fra1.{{api_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba | mysecret | 2021-04-29T10:33:18+00:00 | ACTIVE | {'default': 'application/octet-stream'} | aes       |        256 | passphrase  | cbc  | None       |
-| https://fra1.{{api_domain}}:9311/v1/secrets/ad628532-53b8-4d2f-91e5-0097b51da4e | None     | 2021-04-27T13:52:10+00:00 | ACTIVE | {'default': 'application/octet-stream'} | aes       |        256 | symmetric   | None | None       |
+| https://{{api_region|lower}}.{{api_domain}}:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba | mysecret | 2021-04-29T10:33:18+00:00 | ACTIVE | {'default': 'application/octet-stream'} | aes       |        256 | passphrase  | cbc  | None       |
+| https://{{api_region|lower}}.{{api_domain}}:9311/v1/secrets/ad628532-53b8-4d2f-91e5-0097b51da4e | None     | 2021-04-27T13:52:10+00:00 | ACTIVE | {'default': 'application/octet-stream'} | aes       |        256 | symmetric   | None | None       |
 +--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+
 ```
 
