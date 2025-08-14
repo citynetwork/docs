@@ -294,7 +294,7 @@ In the following, we show how to perform the conversion using the {{gui}} or the
     openstack server create \
         --flavor b.2c4gb \
         --volume nanisivik_vol \
-        --network network-kna1 \
+        --network network-{{api_region|lower}} \
         --security-group default \
         --key-name karlskrona \
         --wait \
@@ -331,7 +331,7 @@ In the following, we show how to perform the conversion using the {{gui}} or the
     | OS-SRV-USG:terminated_at    | None                                                     |
     | accessIPv4                  |                                                          |
     | accessIPv6                  |                                                          |
-    | addresses                   | network-kna1=10.15.20.165                                |
+    | addresses                   | network-{{api_region|lower}}=10.15.20.165                                |
     | config_drive                |                                                          |
     | created                     | 2023-05-10T15:06:20Z                                     |
     | flavor                      | b.2c4gb (2d49822b-a1d8-4f9c-a12c-cba8150611d1)           |
