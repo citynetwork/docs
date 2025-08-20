@@ -39,16 +39,16 @@ The following is a list of domain-based endpoints valid for Sto-Com:
 
 | Service Name | Service Type    | URL                                               |
 | ------------ | ------------    | ---                                               |
-| barbican     | key-manager     | <https://key-manager.sto-com.cleura.cloud/>       |
-| cinderv3     | volumev3        | <https://volume.sto-com.cleura.cloud/>            |
-| octavia      | load-balancer   | <https://load-balancer.sto-com.cleura.cloud/>     |
-| keystone     | identity        | <https://identity.sto-com.cleura.cloud/>          |
-| radosgw      | object-store    | <https://object-store.sto-com.cleura.cloud/>      |
-| placement    | placement       | <https://placement.sto-com.cleura.cloud/>         |
-| heat         | orchestration   | <https://orchestration.sto-com.cleura.cloud/>     |
-| neutron      | network         | <https://network.sto-com.cleura.cloud/>           |
-| nova         | compute         | <https://compute.sto-com.cleura.cloud/v2.1/>      |
-| glance       | image           | <https://image.sto-com.cleura.cloud/>             |
+| barbican     | key-manager     | <https://key-manager.{{api_region|lower}}.{{api_domain}}/>       |
+| cinderv3     | volumev3        | <https://volume.{{api_region|lower}}.{{api_domain}}/>            |
+| octavia      | load-balancer   | <https://load-balancer.{{api_region|lower}}.{{api_domain}}/>     |
+| keystone     | identity        | <https://identity.{{api_region|lower}}.{{api_domain}}/>          |
+| radosgw      | object-store    | <https://object-store.{{api_region|lower}}.{{api_domain}}/>      |
+| placement    | placement       | <https://placement.{{api_region|lower}}.{{api_domain}}/>         |
+| heat         | orchestration   | <https://orchestration.{{api_region|lower}}.{{api_domain}}/>     |
+| neutron      | network         | <https://network.{{api_region|lower}}.{{api_domain}}/>           |
+| nova         | compute         | <https://compute.{{api_region|lower}}.{{api_domain}}/v2.1/>      |
+| glance       | image           | <https://image.{{api_region|lower}}.{{api_domain}}/>             |
 
 
 ## Object storage
