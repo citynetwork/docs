@@ -15,7 +15,7 @@ If you create a volume without specifying a volume type, then the default volume
 
 It is possible --- though somewhat involved --- to [change the type of an existing volume](../../howto/openstack/cinder/retype-volumes.md) (also known as retyping).
 
-In Sto-Com, Quality of Service for Cinder is as follows:
+In {{api_region}}, Quality of Service for Cinder is as follows:
 
 | Volume type    | Min IOPS | IOPS / Provisioned GB | Max IOPS[^iops] | Min throughput (MBps) | Throughput / Provisioned GB (MBps) | Max throughput (MBps) |
 | -----------    | -------- | --------------------- | --------------- | --------------------- | ---------------------------------- | --------------------- |

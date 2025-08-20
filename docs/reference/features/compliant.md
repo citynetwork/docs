@@ -10,12 +10,12 @@
 > :material-close: Feature is not available
 
 
-The new Sto-Com region, also known as Compliant Cloud v2, implements certain technologies that significantly differentiate it from other {{brand}} regions.
+The new {{api_region}} region, also known as Compliant Cloud v2, implements certain technologies that significantly differentiate it from other {{brand}} regions.
 
 
 ## Availability zones
 
-The Sto-Com region has three (3) availability zones (AZs) connected by a stretched Layer 2 network.
+The {{api_region}} region has three (3) availability zones (AZs) connected by a stretched Layer 2 network.
 Resources are allocated randomly between the three whenever an AZ is **not** explicitly specified.
 Each AZ has its own block storage, and no live migration between AZs is possible.
 
@@ -28,14 +28,14 @@ Each AZ has its own block storage, and no live migration between AZs is possible
 | [High-performance local storage](../flavors/index.md#compute-tiers)  | :material-check: | :material-check: | :material-check: |
 | [Volume encryption](../../howto/openstack/cinder/encrypted-volumes.md) | :material-check: | :material-check: | :material-check: |
 
-Volumes in Sto-Com are provided by Ceph.
+Volumes in {{api_region}} are provided by Ceph.
 Cloud servers with ephemeral storage have low-latency disks (LLDs) that are local to the corresponding hypervisor.
 
 ## Domain-based OpenStack endpoints
 
-Instead of having different endpoints on different ports of the same domain name, Sto-Com offers different subdomain names per endpoint.
+Instead of having different endpoints on different ports of the same domain name, {{api_region}} offers different subdomain names per endpoint.
 
-The following is a list of domain-based endpoints valid for Sto-Com:
+The following is a list of domain-based endpoints valid for {{api_region}}:
 
 | Service Name | Service Type    | URL                                               |
 | ------------ | ------------    | ---                                               |
@@ -60,16 +60,16 @@ The following is a list of domain-based endpoints valid for Sto-Com:
 | S3 [object lock](../../howto/object-storage/s3/object-lock.md) | :material-check: | :material-check: | :material-check: |
 | Swift API                                               | :material-check: | :material-check: | :material-check: |
 
-The Object Store in Sto-Com is configured so that data written in a container or a bucket are automatically stored and synchronized between all three availability zones.
+The Object Store in {{api_region}} is configured so that data written in a container or a bucket are automatically stored and synchronized between all three availability zones.
 Users may define policies so that a specific bucket is located in a single AZ.
 
-> Contrary to other regions, where images live on Ceph RBD pools, images in Sto-Com reside in an object store.
-> As a result, new VMs in Sto-Com may take longer to initialize.
+> Contrary to other regions, where images live on Ceph RBD pools, images in {{api_region}} reside in an object store.
+> As a result, new VMs in {{api_region}} may take longer to initialize.
 
 
 ## OVN Octavia provider
 
-Sto-Com comes with two providers for Octavia: the Amphora Layer 7 Load Balancer (LB) and the OVN Layer 4 LB.
+{{api_region}} comes with two providers for Octavia: the Amphora Layer 7 Load Balancer (LB) and the OVN Layer 4 LB.
 The Amphora LB is the default.
 
 
@@ -81,7 +81,7 @@ The Amphora LB is the default.
 | IPv6                 | :material-timer-sand: | :material-close: | :material-close: |
 | VPN (IPsec with PSK) | :material-check: | :material-check: | :material-close: |
 
-In Sto-Com, Quality of Service in Neutron is configured for tenant networks, router gateways, and floating IPs:
+In {{api_region}}, Quality of Service in Neutron is configured for tenant networks, router gateways, and floating IPs:
 
 | Port type                   | Bandwidth limit |
 | --------------------------- | --------------- |

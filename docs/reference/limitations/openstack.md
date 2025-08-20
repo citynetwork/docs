@@ -62,7 +62,7 @@ While {{brand}} does use [BGP dynamic routing](https://docs.openstack.org/neutro
 
 ### VPN as a Service
 
-In the Sto-Com region [VPN (IPsec with PSK) is not supported](../features/compliant.md), therefore, the VPN as a Service feature is not available.
+In the {{api_region}} region [VPN (IPsec with PSK) is not supported](../features/compliant.md), therefore, the VPN as a Service feature is not available.
 
 ## Octavia
 
