@@ -67,12 +67,6 @@ Users may define policies so that a specific bucket is located in a single AZ.
 > As a result, new VMs in {{api_region}} may take longer to initialize.
 
 
-## OVN Octavia provider
-
-{{api_region}} comes with two providers for Octavia: the Amphora Layer 7 Load Balancer (LB) and the OVN Layer 4 LB.
-The Amphora LB is the default.
-
-
 ## Networking (Layer 2/3)
 
 |                      | Sto1HS           | Sto2HS           | Sto-Com          |
