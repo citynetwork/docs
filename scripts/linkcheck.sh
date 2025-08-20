@@ -7,7 +7,13 @@ fi
 
 DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.*'
 
-# Remove whenever kubernetes.io becomes reliable again
+# Ignore placeholder links
+DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*fixme.*"
+
+# Ignore Swift API endpoints
+DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*/swift/.*"
+
+# Remove this whenever kubernetes.io becomes reliable again
 DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*kubernetes.io.*"
 
 if test `basename $0` = "linkcheck-local.sh"; then
