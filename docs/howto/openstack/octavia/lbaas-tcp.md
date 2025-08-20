@@ -56,7 +56,7 @@ We will also need a listener and a pool, but first things first.
 
     In the same pane, scroll down a bit if you have to and activate the _Subnet_ radio button.
     Then, from the _Subnet_ dropdown menu below, select an appropriate subnet for the new load balancer to move in front of.
-    In our example, the two test servers we have are members of the `network-fra1` internal network, and `subnet-fra1` is the name of the corresponding subnet.
+    In our example, the two test servers we have are members of the `network-{{api_region|lower}}` internal network, and `subnet-{{api_region|lower}}` is the name of the corresponding subnet.
     Click the green _Create_ button below to instantiate the new load balancer.
 
     ![Select a subnet for the new LB](assets/shot-03.png)
@@ -71,7 +71,7 @@ We will also need a listener and a pool, but first things first.
 
     ```bash
     openstack loadbalancer create \
-        --name mylb --vip-subnet-id subnet-stocom
+        --name mylb --vip-subnet-id subnet-{{api_region|lower}}
     ```
 
     ```text
@@ -103,7 +103,7 @@ We will also need a listener and a pool, but first things first.
     +---------------------+--------------------------------------+
     ```
 
-    In the example above, the name of the load balancer is `mylb`, and the subnet it will be in front of is named `subnet-fra1` (this is the subnet our two test servers are members of).
+    In the example above, the name of the load balancer is `mylb`, and the subnet it will be in front of is named `subnet-{{api_region|lower}}` (this is the subnet our two test servers are members of).
     You will notice in the command output that, at first, the `provisioning_status` is `PENDING_CREATE`.
     To make sure the load balancer has been successfully created, try this command a couple of times:
 
@@ -326,12 +326,12 @@ The pool you created has no members, so it is time to populate it.
 
     ![Pool is populated](assets/shot-18.png)
 === "OpenStack CLI"
-    Both our test servers are in the `subnet-fra1` subnet, one of them has IP `10.15.25.105`, and the other one has IP `10.15.25.236`.
+    Both our test servers are in the `subnet-{{api_region|lower}}` subnet, one of them has IP `10.15.25.105`, and the other one has IP `10.15.25.236`.
     To add those two servers in pool `mylb-pool`, type:
 
     ```bash
     openstack loadbalancer member create \
-        --subnet-id subnet-stocom --address 10.15.25.149 \
+        --subnet-id subnet-{{api_region|lower}} --address 10.15.25.105 \
         --protocol-port 61234 mylb-pool
     ```
 
@@ -361,7 +361,7 @@ The pool you created has no members, so it is time to populate it.
 
     ```bash
     openstack loadbalancer member create \
-        --subnet-id subnet-stocom --address 10.15.25.155 \
+        --subnet-id subnet-{{api_region|lower}} --address 10.15.25.236 \
         --protocol-port 61234 mylb-pool
     ```
 

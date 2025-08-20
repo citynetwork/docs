@@ -267,7 +267,7 @@ $ openstack application credential show practical_swanson
 
 You need to instantiate four `OS_` variables:
 
-* `OS_AUTH_URL`, which, in our example, is set to `https://identity.sto-com.cleura.cloud`,
+* `OS_AUTH_URL`, which, in our example, is set to `https://identity.{{api_region|lower}}.{{api_domain}}`,
 * `OS_AUTH_TYPE`, which should be set to `v3applicationcredential`,
 * `OS_APPLICATION_CREDENTIAL_ID`, which should be set to the value of `id` (as displayed in the table above),
 * `OS_APPLICATION_CREDENTIAL_SECRET`, which should be set to `$PRETTY_GOOD_SECRET`.
@@ -278,7 +278,7 @@ You need to instantiate four `OS_` variables:
 Create a new file named `acRC`, with the following content:
 
 ```bash
-export OS_AUTH_URL=https://fra1.citycloud.com:5000
+export OS_AUTH_URL=https://{{api_region|lower}}.{{api_domain}}:5000
 export OS_AUTH_TYPE=v3applicationcredential
 export OS_APPLICATION_CREDENTIAL_ID=3e04d504d754445e8b8d503e0e7af3c5
 export OS_APPLICATION_CREDENTIAL_SECRET=<value_of_PRETTY_GOOD_SECRET>

@@ -33,7 +33,7 @@ Unless you already have the ID or know the name of the network you wish to delet
     | 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
     | 9b127d2c-01d7-4803-994f-f88292870c1d | teslin       | bd1d0ff2-7270-4a9a-a7ad-fff47e997e7b |
     | cb0a298a-bbb6-4ad6-832a-1456dafe45db | carmacks     | 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5 |
-    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
+    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-{{api_region|lower}} | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
     +--------------------------------------+--------------+--------------------------------------+
     ```
 
@@ -122,7 +122,7 @@ Let us see what the situation is with network `carmacks`.
     +------------------------+-----------------+--------+-------+------------------------+------+
     | ID                     | Name            | Status | State | Project                | HA   |
     +------------------------+-----------------+--------+-------+------------------------+------+
-    | 5ac45739-a379-4936-    | router-kna1     | ACTIVE | UP    | 94109c764a754e24ac0f6b | True |
+    | 5ac45739-a379-4936-    | router-{{api_region|lower}}     | ACTIVE | UP    | 94109c764a754e24ac0f6b | True |
     | 8b1b-67d10e017f4d      |                 |        |       | 01aef82359             |      |
     | 79ff91ae-91b5-4991-    | carmacks-router | ACTIVE | UP    | 94109c764a754e24ac0f6b | True |
     | af61-91e923fac87b      |                 |        |       | 01aef82359             |      |
@@ -156,7 +156,7 @@ Let us see what the situation is with network `carmacks`.
     > 
     > Checking router carmacks-router
     >       "subnet_id": "7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5"
-    > Checking router router-kna1
+    > Checking router router-{{api_region|lower}}
     > ```
 
 ## Tearing down networks
@@ -227,7 +227,7 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     +-------------------------------+-----------------+--------------------------------+---------------+
     | ID                            | Name            | Network                        | Subnet        |
     +-------------------------------+-----------------+--------------------------------+---------------+
-    | 421d8fd2-dd7f-4f7c-9a51-      | subnet-kna1     | e0c4ce17-2722-4777-8140-       | 10.15.20.0/24 |
+    | 421d8fd2-dd7f-4f7c-9a51-      | subnet-{{api_region|lower}}     | e0c4ce17-2722-4777-8140-       | 10.15.20.0/24 |
     | 42ef4a866dd9                  |                 | d6c87479e190                   |               |
     | 7fa9e5a2-7d5a-466e-b120-      | carmacks-subnet | cb0a298a-bbb6-4ad6-832a-       | 10.1.0.0/24   |
     | 7d2bffb99ce5                  |                 | 1456dafe45db                   |               |
@@ -243,7 +243,7 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     $ openstack subnet delete $SUBNET_ID
 
     Failed to delete subnet with name or ID '7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5': ConflictException: 409:
-    Client Error for url: kna1.{{api_domain}}:9696/v2.0/subnets/7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5,
+    Client Error for url: {{api_region|lower}}.{{api_domain}}:9696/v2.0/subnets/7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5,
     Unable to complete operation on subnet 7fa9e5a2-7d5a-466e-b120-7d2bffb99ce5:
     One or more ports have an IP allocation from this subnet.
     1 of 1 subnets failed to delete.
@@ -271,7 +271,7 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     +--------------------------------+---------------+---------------------------------+---------------+
     | ID                             | Name          | Network                         | Subnet        |
     +--------------------------------+---------------+---------------------------------+---------------+
-    | 421d8fd2-dd7f-4f7c-9a51-       | subnet-kna1   | e0c4ce17-2722-4777-8140-        | 10.15.20.0/24 |
+    | 421d8fd2-dd7f-4f7c-9a51-       | subnet-{{api_region|lower}}   | e0c4ce17-2722-4777-8140-        | 10.15.20.0/24 |
     | 42ef4a866dd9                   |               | d6c87479e190                    |               |
     | bd1d0ff2-7270-4a9a-a7ad-       | teslin-subnet | 9b127d2c-01d7-4803-994f-        | 10.254.0.0/24 |
     | fff47e997e7b                   |               | f88292870c1d                    |               |
@@ -291,7 +291,7 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     | 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
     | 9b127d2c-01d7-4803-994f-f88292870c1d | teslin       | bd1d0ff2-7270-4a9a-a7ad-fff47e997e7b |
     | cb0a298a-bbb6-4ad6-832a-1456dafe45db | carmacks     |                                      |
-    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
+    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-{{api_region|lower}} | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
     +--------------------------------------+--------------+--------------------------------------+
     ```
 
@@ -312,7 +312,7 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     +--------------------------------------+--------------+--------------------------------------+
     | 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
     | 9b127d2c-01d7-4803-994f-f88292870c1d | teslin       | bd1d0ff2-7270-4a9a-a7ad-fff47e997e7b |
-    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
+    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-{{api_region|lower}} | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
     +--------------------------------------+--------------+--------------------------------------+
     ```
 
@@ -330,7 +330,7 @@ Then, you will move on to deleting the subnet and the network, and after that, y
     +-----------------------------+-------------+--------+-------+------------------------------+------+
     | ID                          | Name        | Status | State | Project                      | HA   |
     +-----------------------------+-------------+--------+-------+------------------------------+------+
-    | 5ac45739-a379-4936-8b1b-    | router-kna1 | ACTIVE | UP    | 94109c764a754e24ac0f6b01aef8 | True |
+    | 5ac45739-a379-4936-8b1b-    | router-{{api_region|lower}} | ACTIVE | UP    | 94109c764a754e24ac0f6b01aef8 | True |
     | 67d10e017f4d                |             |        |       | 2359                         |      |
     +-----------------------------+-------------+--------+-------+------------------------------+------+
     ```
@@ -367,7 +367,7 @@ For our demonstration, we created network `teslin`, with subnet `teslin-subnet` 
     +--------------------------------------+--------------+--------------------------------------+
     | 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
     | 9b127d2c-01d7-4803-994f-f88292870c1d | teslin       | bd1d0ff2-7270-4a9a-a7ad-fff47e997e7b |
-    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
+    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-{{api_region|lower}} | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
     +--------------------------------------+--------------+--------------------------------------+
     ```
 
@@ -379,7 +379,7 @@ For our demonstration, we created network `teslin`, with subnet `teslin-subnet` 
     +--------------------------------+---------------+---------------------------------+---------------+
     | ID                             | Name          | Network                         | Subnet        |
     +--------------------------------+---------------+---------------------------------+---------------+
-    | 421d8fd2-dd7f-4f7c-9a51-       | subnet-kna1   | e0c4ce17-2722-4777-8140-        | 10.15.20.0/24 |
+    | 421d8fd2-dd7f-4f7c-9a51-       | subnet-{{api_region|lower}}   | e0c4ce17-2722-4777-8140-        | 10.15.20.0/24 |
     | 42ef4a866dd9                   |               | d6c87479e190                    |               |
     | bd1d0ff2-7270-4a9a-a7ad-       | teslin-subnet | 9b127d2c-01d7-4803-994f-        | 10.254.0.0/24 |
     | fff47e997e7b                   |               | f88292870c1d                    |               |
@@ -401,7 +401,7 @@ For our demonstration, we created network `teslin`, with subnet `teslin-subnet` 
     +---------------------------------+-------------+----------------------------------+---------------+
     | ID                              | Name        | Network                          | Subnet        |
     +---------------------------------+-------------+----------------------------------+---------------+
-    | 421d8fd2-dd7f-4f7c-9a51-        | subnet-kna1 | e0c4ce17-2722-4777-8140-         | 10.15.20.0/24 |
+    | 421d8fd2-dd7f-4f7c-9a51-        | subnet-{{api_region|lower}} | e0c4ce17-2722-4777-8140-         | 10.15.20.0/24 |
     | 42ef4a866dd9                    |             | d6c87479e190                     |               |
     +---------------------------------+-------------+----------------------------------+---------------+
     ```
@@ -422,7 +422,7 @@ For our demonstration, we created network `teslin`, with subnet `teslin-subnet` 
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
     | 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
-    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
+    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-{{api_region|lower}} | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
     +--------------------------------------+--------------+--------------------------------------+
     ```
 
@@ -446,7 +446,7 @@ For our demonstration, we created a network named `mayo`, with no subnet and no 
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
     | 1f94d315-7ca1-4d44-acc1-09c6c650df74 | mayo         |                                      |
-    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
+    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-{{api_region|lower}} | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
     +--------------------------------------+--------------+--------------------------------------+
     ```
 
@@ -464,7 +464,7 @@ For our demonstration, we created a network named `mayo`, with no subnet and no 
     +--------------------------------------+--------------+--------------------------------------+
     | ID                                   | Name         | Subnets                              |
     +--------------------------------------+--------------+--------------------------------------+
-    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-kna1 | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
+    | e0c4ce17-2722-4777-8140-d6c87479e190 | network-{{api_region|lower}} | 421d8fd2-dd7f-4f7c-9a51-42ef4a866dd9 |
     +--------------------------------------+--------------+--------------------------------------+
     ```
 

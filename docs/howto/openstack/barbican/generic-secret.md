@@ -82,4 +82,4 @@ $ openstack secret get -p \
 ```
 
 > Unlike many other OpenStack services, which allow you to retrieve object references by name or UUID, Barbican only lets you retrieve secrets by their full [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier).
-> That URI must include the `https://key-manager.sto-com.{{api_region|lower}}.{{api_domain}}/v1/secrets/` prefix.
+> That URI must include the `https://key-manager.{{api_region|lower}}.{{api_domain}}/v1/secrets/` prefix.
