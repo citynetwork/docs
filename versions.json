@@ -1,5 +1,12 @@
 [
   {
+    "version": "Sto2HS",
+    "title": "Sto2HS",
+    "aliases": [
+      "sto2hs"
+    ]
+  },
+  {
     "version": "Sto2",
     "title": "Sto2",
     "aliases": [
