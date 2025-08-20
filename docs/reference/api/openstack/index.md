@@ -18,14 +18,14 @@ The {{brand}} {{api_region}} region exposes the following OpenStack API endpoint
 | Service Name | Service Type    | URL                                                             |
 | ------------ | ------------    | ---                                                             |
 | barbican     | key-manager     | <https://key-manager.{{api_region|lower}}.{{api_domain}}/>      |
-| cinderv3     | volumev3        | <https://volume.{{api_region|lower}}.{{api_domain}}/v3/>        |
+| cinderv3     | volumev3        | <https://volume.{{api_region|lower}}.{{api_domain}}/>           |
 | octavia      | load-balancer   | <https://load-balancer.{{api_region|lower}}.{{api_domain}}/>    |
 | keystone     | identity        | <https://identity.{{api_region|lower}}.{{api_domain}}/>         |
 | radosgw      | object-store    | <https://object-store.{{api_region|lower}}.{{api_domain}}/swift/> |
 | placement    | placement       | <https://placement.{{api_region|lower}}.{{api_domain}}/>        |
-| heat         | orchestration   | <https://orchestration.{{api_region|lower}}.{{api_domain}}/v1/> |
+| heat         | orchestration   | <https://orchestration.{{api_region|lower}}.{{api_domain}}/>    |
 | neutron      | network         | <https://network.{{api_region|lower}}.{{api_domain}}/>          |
-| nova         | compute         | <https://compute.{{api_region|lower}}.{{api_domain}}/v2.1/>     |
+| nova         | compute         | <https://compute.{{api_region|lower}}.{{api_domain}}/>          |
 | glance       | image           | <https://image.{{api_region|lower}}.{{api_domain}}/>            |
 
 ## OpenStack SDKs
