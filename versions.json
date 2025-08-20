@@ -7,6 +7,13 @@
     ]
   },
   {
+    "version": "Sto-Com",
+    "title": "Sto-Com",
+    "aliases": [
+      "sto-com"
+    ]
+  },
+  {
     "version": "Main",
     "title": "Main",
     "aliases": [
