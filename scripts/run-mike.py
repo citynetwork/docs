@@ -8,6 +8,16 @@ import sys
 from mike.driver import main as mike_main
 
 
+# Map of branch names to version names.
+#
+# Need only include those branches where the name of the version is
+# *not* simply the branch name, title-cased.
+BRANCH_VERSION_MAP = {
+    "sto1hs": "Sto1HS",
+    "sto2hs": "Sto2HS",
+}
+
+
 def run_mike(args):
     mike_argv = ['mike'] + args + sys.argv[1:]
 
@@ -25,7 +35,10 @@ def main():
     # Set the default branch name (all-lowercase) and corresponding
     # Mike version string (title case)
     deploy_default_branch = os.getenv("DOCS_DEPLOY_DEFAULT_BRANCH", "main")
-    mike_default_version_name = deploy_default_branch.title()
+    mike_default_version_name = BRANCH_VERSION_MAP.get(
+        deploy_default_branch,
+        deploy_default_branch.title()
+    )
 
     # Set the deployment branch name (all-lowercase, defaulting to the
     # current branch) and corresponding Mike version string (title
@@ -36,7 +49,10 @@ def main():
         subprocess.check_output(git_rev_parse,
                                 shell=True,
                                 encoding=sys.getfilesystemencoding())).strip()
-    mike_version_name = deploy_branch.title()
+    mike_version_name = BRANCH_VERSION_MAP.get(
+        deploy_branch,
+        deploy_branch.title()
+    )
     mike_version_alias = deploy_branch
 
     mike_deploy_args = [
