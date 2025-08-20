@@ -21,7 +21,6 @@ The {{brand}} {{api_region}} region exposes the following OpenStack API endpoint
 | cinderv3     | volumev3        | <https://{{api_region|lower}}.{{api_domain}}:8776/v3/>          |
 | octavia      | load-balancer   | <https://{{api_region|lower}}.{{api_domain}}:9876/>             |
 | keystone     | identity        | <https://{{api_region|lower}}.{{api_domain}}:5000/>             |
-| radosgw      | object-store    | <https://swift-{{api_region|lower}}.{{api_domain}}:8080/swift/> |
 | placement    | placement       | <https://{{api_region|lower}}.{{api_domain}}:8780/>             |
 | heat         | orchestration   | <https://{{api_region|lower}}.{{api_domain}}:8004/v1/>          |
 | neutron      | network         | <https://{{api_region|lower}}.{{api_domain}}:9696/>             |
