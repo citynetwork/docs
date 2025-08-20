@@ -5645,7 +5645,7 @@ Optionally, type in a description.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Set name, region, and description for the new LB" src="../assets/shot-02.png" /></a></p>
 <p>In the same pane, scroll down a bit if you have to and activate the <em>Subnet</em> radio button.
 Then, from the <em>Subnet</em> dropdown menu below, select an appropriate subnet for the new load balancer to move in front of.
-In our example, the two test servers we have are members of the <code>network-sto2</code> internal network, and <code>subnet-sto2</code> is the name of the corresponding subnet.
+In our example, the two test servers we have are members of the <code>network-sto1hs</code> internal network, and <code>subnet-sto1hs</code> is the name of the corresponding subnet.
 Click the green <em>Create</em> button below to instantiate the new load balancer.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select a subnet for the new LB" src="../assets/shot-03.png" /></a></p>
 <p>The creation of the new load balancer starts and, unless something goes wrong, finishes successfully in a minute or so.
@@ -5656,7 +5656,7 @@ In the main area of the Cleura Cloud Management Panel, select the new load bal
 <div class="tabbed-block">
 <p>To create your load balancer, type something like this:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--name<span class="w"> </span>mylb<span class="w"> </span>--vip-subnet-id<span class="w"> </span>subnet-sto2
+<span class="w">    </span>--name<span class="w"> </span>mylb<span class="w"> </span>--vip-subnet-id<span class="w"> </span>subnet-sto1hs
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
 | Field               | Value                                |
@@ -5684,7 +5684,7 @@ In the main area of the Cleura Cloud Management Panel, select the new load bal
 | additional_vips     |                                      |
 +---------------------+--------------------------------------+
 </code></pre></div>
-<p>In the example above, the name of the load balancer is <code>mylb</code>, and the subnet it will be in front of is named <code>subnet-sto2</code> (this is the subnet our two test servers are members of).
+<p>In the example above, the name of the load balancer is <code>mylb</code>, and the subnet it will be in front of is named <code>subnet-sto1hs</code> (this is the subnet our two test servers are members of).
 You will notice in the command output that, at first, the <code>provisioning_status</code> is <code>PENDING_CREATE</code>.
 To make sure the load balancer has been successfully created, try this command a couple of times:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>show<span class="w"> </span>mylb<span class="w"> </span>-c<span class="w"> </span>provisioning_status
@@ -5865,10 +5865,10 @@ To change the listening port of a server, just click the corresponding notepad-a
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pool is populated" src="../assets/shot-18.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>Both our test servers are in the <code>subnet-sto2</code> subnet, one of them has IP <code>10.15.25.105</code>, and the other one has IP <code>10.15.25.236</code>.
+<p>Both our test servers are in the <code>subnet-sto1hs</code> subnet, one of them has IP <code>10.15.25.105</code>, and the other one has IP <code>10.15.25.236</code>.
 To add those two servers in pool <code>mylb-pool</code>, type:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--subnet-id<span class="w"> </span>subnet-sto2<span class="w"> </span>--address<span class="w"> </span><span class="m">10</span>.15.25.105<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--subnet-id<span class="w"> </span>subnet-sto1hs<span class="w"> </span>--address<span class="w"> </span><span class="m">10</span>.15.25.105<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--protocol-port<span class="w"> </span><span class="m">61234</span><span class="w"> </span>mylb-pool
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+
@@ -5893,7 +5893,7 @@ To add those two servers in pool <code>mylb-pool</code>, type:</p>
 +---------------------+--------------------------------------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>loadbalancer<span class="w"> </span>member<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--subnet-id<span class="w"> </span>subnet-sto2<span class="w"> </span>--address<span class="w"> </span><span class="m">10</span>.15.25.236<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--subnet-id<span class="w"> </span>subnet-sto1hs<span class="w"> </span>--address<span class="w"> </span><span class="m">10</span>.15.25.236<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--protocol-port<span class="w"> </span><span class="m">61234</span><span class="w"> </span>mylb-pool
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>+---------------------+--------------------------------------+

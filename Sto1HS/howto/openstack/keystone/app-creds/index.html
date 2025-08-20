@@ -5735,7 +5735,7 @@ Let us see how you can go about this, by first creating a new set of application
 </code></pre></div>
 <p>You need to instantiate four <code>OS_</code> variables:</p>
 <ul>
-<li><code>OS_AUTH_URL</code>, which, in our example, is set to <code>https://sto2.citycloud.com:5000</code>,</li>
+<li><code>OS_AUTH_URL</code>, which, in our example, is set to <code>https://sto1hs.citycloud.com:5000</code>,</li>
 <li><code>OS_AUTH_TYPE</code>, which should be set to <code>v3applicationcredential</code>,</li>
 <li><code>OS_APPLICATION_CREDENTIAL_ID</code>, which should be set to the value of <code>id</code> (as displayed in the table above),</li>
 <li><code>OS_APPLICATION_CREDENTIAL_SECRET</code>, which should be set to <code>$PRETTY_GOOD_SECRET</code>.</li>
@@ -5745,7 +5745,7 @@ Let us see how you can go about this, by first creating a new set of application
 That way, you will not have to bother with the application credentials ID.</p>
 </blockquote>
 <p>Create a new file named <code>acRC</code>, with the following content:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_URL</span><span class="o">=</span>https://sto2.citycloud.com:5000
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_URL</span><span class="o">=</span>https://sto1hs.citycloud.com:5000
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_TYPE</span><span class="o">=</span>v3applicationcredential
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_APPLICATION_CREDENTIAL_ID</span><span class="o">=</span>3e04d504d754445e8b8d503e0e7af3c5
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_APPLICATION_CREDENTIAL_SECRET</span><span class="o">=</span>&lt;value_of_PRETTY_GOOD_SECRET&gt;

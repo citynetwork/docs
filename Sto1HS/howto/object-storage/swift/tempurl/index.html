@@ -5576,11 +5576,11 @@ The example below uses 1 hour (3,600 seconds).</p>
 <h2 id="accessing-objects-via-their-tempurl">Accessing objects via their TempURL</h2>
 <p>You must then use your freshly generated TempURL path as the path in a URL pointing to the object.
 This will enable you to fetch the object using a simple HTTP client, like <code>curl</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://swift-sto2.citycloud.com:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&amp;temp_url_expires=1670250048&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span><span class="s1">&#39;https://swift-sto1hs.citycloud.com:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&amp;temp_url_expires=1670250048&#39;</span>
 <span class="go">hello world</span>
 </code></pre></div>
 <p>If you (or someone else) were to attempt to fetch the same URL <em>after</em> its lifetime expired, they would be met with an <a href="https://http.cat/401">HTTP 401</a> error:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;https://swift-sto2.citycloud.com:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&amp;temp_url_expires=1670250048&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;https://swift-sto1hs.citycloud.com:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&amp;temp_url_expires=1670250048&#39;</span>
 <span class="go">HTTP/1.1 401 Unauthorized</span>
 <span class="go">content-length: 12</span>
 <span class="go">x-trans-id: tx0000001113c5020d8a1de-00638df0ea-301ddeb-default</span>

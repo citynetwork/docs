@@ -5654,14 +5654,14 @@ To enable object lock on existing data, you must first create a new bucket with 
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>create-bucket<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--object-lock-enabled-for-bucket
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>mb<span class="w"> </span>sto2/&lt;bucket&gt;<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>mb<span class="w"> </span>sto1hs/&lt;bucket&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--with-lock
 </code></pre></div>
 </div>
@@ -5673,7 +5673,7 @@ To enable object lock on existing data, you must first create a new bucket with 
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>put-object-lock-configuration<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--object-lock-configuration<span class="w"> </span><span class="se">\</span>
@@ -5683,7 +5683,7 @@ To enable object lock on existing data, you must first create a new bucket with 
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--default<span class="w"> </span>compliance<span class="w"> </span>30d<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sto2/&lt;bucket&gt;
+<span class="w">  </span>sto1hs/&lt;bucket&gt;
 </code></pre></div>
 <blockquote>
 <p>The <code>--default</code> parameter sets the default object lock settings for new objects, and is optional.</p>
@@ -5699,7 +5699,7 @@ You can also use these commands to update the retention period for an object:</p
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">aws</label><label for="__tabbed_3_2">mc</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>put-object-retention<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;<span class="w"> </span><span class="se">\</span>
@@ -5712,7 +5712,7 @@ You can also use these commands to update the retention period for an object:</p
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>COMPLIANCE<span class="w"> </span>30d<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sto2/&lt;bucket&gt;/&lt;object-name&gt;
+<span class="w">  </span>sto1hs/&lt;bucket&gt;/&lt;object-name&gt;
 </code></pre></div>
 <blockquote>
 <p>To specify a duration, use a string formatted as <code>Nd</code> for days or <code>Ny</code> for years.
@@ -5727,7 +5727,7 @@ For example, use <code>30d</code> to indicate 30 days after the object creation,
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">aws</label><label for="__tabbed_4_2">mc</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>get-object-lock-configuration<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
 </code></pre></div>
@@ -5746,7 +5746,7 @@ Example output:
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span>info<span class="w"> </span>--json<span class="w"> </span>--default<span class="w"> </span>sto2/&lt;bucket&gt;
+<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span>info<span class="w"> </span>--json<span class="w"> </span>--default<span class="w"> </span>sto1hs/&lt;bucket&gt;
 </code></pre></div>
 Example output:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -5765,7 +5765,7 @@ Example output:
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">aws</label><label for="__tabbed_5_2">mc</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>get-object-retention<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;
@@ -5783,7 +5783,7 @@ Example output:
 </blockquote>
 </div>
 <div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span>info<span class="w"> </span>--json<span class="w"> </span>sto2/&lt;bucket&gt;/&lt;object-name&gt;
+<p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>retention<span class="w"> </span>info<span class="w"> </span>--json<span class="w"> </span>sto1hs/&lt;bucket&gt;/&lt;object-name&gt;
 </code></pre></div>
 Example output:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -5807,17 +5807,17 @@ Example output:
 <div class="tabbed-block">
 <p>The <code>aws s3api</code> command <strong>can only set the legal hold for a single object</strong> at a time.
 However, you can use the <code>ls</code> command along with <code>--recursive</code> to list all objects in a bucket, and then set the legal hold for each object in your bucket.</p>
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>list-objects<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.Contents<span class="o">[]</span>.Key<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-n1<span class="w"> </span>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span>s3api<span class="w"> </span>put-object-legal-hold<span class="w"> </span>--legal-hold<span class="w"> </span><span class="nv">Status</span><span class="o">=</span>ON<span class="w"> </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span>--key
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-n1<span class="w"> </span>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span>s3api<span class="w"> </span>put-object-legal-hold<span class="w"> </span>--legal-hold<span class="w"> </span><span class="nv">Status</span><span class="o">=</span>ON<span class="w"> </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span>--key
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>legalhold<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--recursive<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sto2/&lt;bucket&gt;
+<span class="w">  </span>sto1hs/&lt;bucket&gt;
 </code></pre></div>
 </div>
 </div>
@@ -5827,7 +5827,7 @@ However, you can use the <code>ls</code> command along with <code>--recursive</c
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">aws</label><label for="__tabbed_7_2">mc</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>put-object-legal-hold<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;<span class="w"> </span><span class="se">\</span>
@@ -5840,7 +5840,7 @@ However, you can use the <code>ls</code> command along with <code>--recursive</c
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>legalhold<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sto2/&lt;bucket&gt;/&lt;object-name&gt;
+<span class="w">  </span>sto1hs/&lt;bucket&gt;/&lt;object-name&gt;
 </code></pre></div>
 <blockquote>
 <p>To remove the legal hold, use the <code>clear</code> command instead of <code>set</code>.</p>
@@ -5853,7 +5853,7 @@ However, you can use the <code>ls</code> command along with <code>--recursive</c
 <div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">aws</label><label for="__tabbed_8_2">mc</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<p><div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>get-object-legal-hold<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--key<span class="w"> </span>&lt;object-name&gt;
@@ -5868,12 +5868,12 @@ Example output:
 </div>
 <div class="tabbed-block">
 <p><div class="highlight"><pre><span></span><code>mc<span class="w"> </span>legalhold<span class="w"> </span>info<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--json<span class="w"> </span>sto2/&lt;bucket&gt;/&lt;object-name&gt;
+<span class="w">  </span>--json<span class="w"> </span>sto1hs/&lt;bucket&gt;/&lt;object-name&gt;
 </code></pre></div>
 Example output:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;legalhold&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ON&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;urlpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://s3-sto2.citycloud.com/&lt;bucket&gt;/&lt;object-name&gt;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;urlpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://s3-sto1hs.citycloud.com/&lt;bucket&gt;/&lt;object-name&gt;&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;object-name&gt;&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;versionID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span>

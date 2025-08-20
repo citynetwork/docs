@@ -5537,18 +5537,18 @@ This means that you need to provide an encryption/decryption key with each reque
 <div class="tabbed-block">
 <ol>
 <li>Create an S3 bucket:
-   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://cleura<span class="w"> </span>cloud-encrypted
 </code></pre></div></li>
 <li>Sync a directory to the S3 bucket, encrypting the files it contains on upload:
-   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3<span class="w"> </span>sync<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>~/media/<span class="w"> </span>s3://cleura<span class="w"> </span>cloud-encrypted<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sse-c<span class="w"> </span>AES256<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sse-c-key<span class="w"> </span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span>
 </code></pre></div></li>
 <li>Retrieve a file from S3 and decrypt it:
-   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+   <div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3://cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sse-c<span class="w"> </span>AES256<span class="w"> </span><span class="se">\</span>
@@ -5556,7 +5556,7 @@ This means that you need to provide an encryption/decryption key with each reque
 </code></pre></div></li>
 </ol>
 <p>Note that attempting to download an encrypted file <em>without</em> providing an encryption key results in an immediate HTTP 400 (&ldquo;Bad Request&rdquo;) error:
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3://cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.
 <span class="go">fatal error: An error occurred (400) when calling the HeadObject operation: Bad Request</span>
@@ -5565,26 +5565,26 @@ This means that you need to provide an encryption/decryption key with each reque
 <div class="tabbed-block">
 <ol>
 <li>Create an S3 bucket:
-   <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>mb<span class="w"> </span>sto2/cleura<span class="w"> </span>cloud-encrypted
+   <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>mb<span class="w"> </span>sto1hs/cleura<span class="w"> </span>cloud-encrypted
 </code></pre></div></li>
 <li>Sync a directory to the S3 bucket, encrypting the files it contains on upload.
    Note that you must specify the encryption secret as the argument to the <code>--encrypt-key</code> option, using a syntax of <code>&lt;minio-alias&gt;/&lt;bucket-name&gt;=&lt;encryption-key&gt;</code>:
    <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--recursive<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">&quot;sto2/cleura cloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">  </span>~/media/<span class="w"> </span>sto2/cleura<span class="w"> </span>cloud-encrypted
+<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">&quot;sto1hs/cleura cloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span>~/media/<span class="w"> </span>sto1hs/cleura<span class="w"> </span>cloud-encrypted
 </code></pre></div></li>
 <li>Retrieve a file from S3 and decrypt it.
    Again, specify the encryption key in the same manner:
    <div class="highlight"><pre><span></span><code>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">&quot;sto2/cleura cloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">  </span>sto2/cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.
+<span class="w">  </span>--encrypt-key<span class="w"> </span><span class="s2">&quot;sto1hs/cleura cloud-encrypted=</span><span class="si">${</span><span class="nv">secret</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span>sto1hs/cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.
 </code></pre></div></li>
 </ol>
 <p>Note that attempting to download an encrypted file <em>without</em> providing an encryption key results in an immediate HTTP 400 (&ldquo;Bad Request&rdquo;) error:
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mc<span class="w"> </span>cp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sto2/cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.
-<span class="go">mc: &lt;ERROR&gt; Unable to validate source `sto2/cleura cloud-encrypted/file.png`.</span>
+<span class="w">  </span>sto1hs/cleura<span class="w"> </span>cloud-encrypted/file.png<span class="w"> </span>.
+<span class="go">mc: &lt;ERROR&gt; Unable to validate source `sto1hs/cleura cloud-encrypted/file.png`.</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
@@ -5599,13 +5599,13 @@ It also supports SSE-KMS, which is a different SSE flavor that is currently not 
 Earlier <code>rclone</code> versions won&rsquo;t work.</p>
 <ol>
 <li>To start with, modify the section in your configuration file that is named after your target region, adding the <code>sse_customer_algorithm</code> option:
-   <div class="highlight"><pre><span></span><code><span class="k">[sto2]</span>
+   <div class="highlight"><pre><span></span><code><span class="k">[sto1hs]</span>
 <span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">s3</span>
 <span class="na">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Ceph</span>
 <span class="na">env_auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
 <span class="na">access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;access key id&gt;</span>
 <span class="na">secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;secret key&gt;</span>
-<span class="na">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">sto2.citycloud.com</span>
+<span class="na">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">sto1hs.citycloud.com</span>
 <span class="na">acl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">private</span>
 <span class="na">sse_customer_algorithm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">AES256</span>
 </code></pre></div></li>

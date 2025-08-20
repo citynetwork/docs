@@ -5563,16 +5563,16 @@ Select a convenient location and save your RC file.</p>
 <p>The general naming for RC files goes like this:</p>
 <div class="highlight"><pre><span></span><code>your_username--region_name--project_name--rc
 </code></pre></div>
-<p>So, assuming your username is <code>olafsdottir</code>, and the RC file has been created for the <code>Sto2</code> region and the <code>katla</code> project, your RC file name should be this:</p>
-<div class="highlight"><pre><span></span><code>olafsdottir--sto2--katla--rc
+<p>So, assuming your username is <code>olafsdottir</code>, and the RC file has been created for the <code>Sto1HS</code> region and the <code>katla</code> project, your RC file name should be this:</p>
+<div class="highlight"><pre><span></span><code>olafsdottir--sto1hs--katla--rc
 </code></pre></div>
 <p>Take a look at the contents of this file &mdash; they should be like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_USERNAME</span><span class="o">=</span>olafsdottir
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_PASSWORD</span><span class="o">=</span>&lt;your<span class="w"> </span>password<span class="w"> </span>goes<span class="w"> </span>here&gt;
-<span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_URL</span><span class="o">=</span>https://sto2.citycloud.com:5000
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_URL</span><span class="o">=</span>https://sto1hs.citycloud.com:5000
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>...
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>...
-<span class="nb">export</span><span class="w"> </span><span class="nv">OS_REGION_NAME</span><span class="o">=</span>Sto2
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_REGION_NAME</span><span class="o">=</span>Sto1HS
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_PROJECT_NAME</span><span class="o">=</span><span class="s2">&quot;katla&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_TENANT_NAME</span><span class="o">=</span><span class="s2">&quot;katla&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_AUTH_VERSION</span><span class="o">=</span><span class="m">3</span>
@@ -5580,10 +5580,10 @@ Select a convenient location and save your RC file.</p>
 </code></pre></div>
 <p>Before you source the RC file, and thus initialize all relevant environment variables, make sure to edit the file and put your OpenStack user password in place of <code>&lt;your password goes here&gt;</code>.
 Also, change the permissions of the file, so it is readable and writable by your local user only:</p>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>olafsdottir--sto2--katla--rc
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>olafsdottir--sto1hs--katla--rc
 </code></pre></div>
 <p>Then, go ahead and source it:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>olafsdottir--sto2--katla--rc
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>olafsdottir--sto1hs--katla--rc
 </code></pre></div>
 <h2 id="installing-the-openstack-cli">Installing the OpenStack CLI</h2>
 <p>If you do not have the OpenStack CLI tool readily available, use your operating system&rsquo;s package manager or <code>pip</code> to install it.

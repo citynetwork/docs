@@ -5460,13 +5460,13 @@ The command below will create a secret of the type <code>passphrase</code>, name
 <span class="w">  </span>-n<span class="w"> </span>mysecret
 </code></pre></div>
 <blockquote>
-<p>The example output below uses Cleura Cloud&rsquo;s <code>Sto2</code> region.
+<p>The example output below uses Cleura Cloud&rsquo;s <code>Sto1HS</code> region.
 In other regions, the secret <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URIs</a> will differ.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="go">+---------------+--------------------------------------------------------------------------------+</span>
 <span class="go">| Field         | Value                                                                          |</span>
 <span class="go">+---------------+--------------------------------------------------------------------------------+</span>
-<span class="go">| Secret href   | https://sto2.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba |</span>
+<span class="go">| Secret href   | https://sto1hs.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba |</span>
 <span class="go">| Name          | mysecret                                                                       |</span>
 <span class="go">| Created       | None                                                                           |</span>
 <span class="go">| Status        | None                                                                           |</span>
@@ -5487,13 +5487,13 @@ You can see a list of secrets created for your user with the following command:<
 <span class="go">+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+</span>
 <span class="go">| Secret href                                                                    | Name     | Created                   | Status | Content types                           | Algorithm | Bit length | Secret type | Mode | Expiration |</span>
 <span class="go">+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+</span>
-<span class="go">| https://sto2.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba | mysecret | 2021-04-29T10:33:18+00:00 | ACTIVE | {&#39;default&#39;: &#39;application/octet-stream&#39;} | aes       |        256 | passphrase  | cbc  | None       |</span>
-<span class="go">| https://sto2.citycloud.com:9311/v1/secrets/ad628532-53b8-4d2f-91e5-0097b51da4e | None     | 2021-04-27T13:52:10+00:00 | ACTIVE | {&#39;default&#39;: &#39;application/octet-stream&#39;} | aes       |        256 | symmetric   | None | None       |</span>
+<span class="go">| https://sto1hs.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba | mysecret | 2021-04-29T10:33:18+00:00 | ACTIVE | {&#39;default&#39;: &#39;application/octet-stream&#39;} | aes       |        256 | passphrase  | cbc  | None       |</span>
+<span class="go">| https://sto1hs.citycloud.com:9311/v1/secrets/ad628532-53b8-4d2f-91e5-0097b51da4e | None     | 2021-04-27T13:52:10+00:00 | ACTIVE | {&#39;default&#39;: &#39;application/octet-stream&#39;} | aes       |        256 | symmetric   | None | None       |</span>
 <span class="go">+--------------------------------------------------------------------------------+----------+---------------------------+--------+-----------------------------------------+-----------+------------+-------------+------+------------+</span>
 </code></pre></div>
 <p>You can retrieve the decrypted secret with the <code>openstack secret get</code> command, adding the <code>-p</code> (or <code>--payload</code>) option:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>secret<span class="w"> </span>get<span class="w"> </span>-p<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>https://sto2.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba
+<span class="w">  </span>https://sto1hs.citycloud.com:9311/v1/secrets/33ef0985-f89e-4bf0-b318-887ecac0cba
 <span class="go">+---------+---------------------------+</span>
 <span class="go">| Field   | Value                     |</span>
 <span class="go">+---------+---------------------------+</span>
@@ -5502,7 +5502,7 @@ You can see a list of secrets created for your user with the following command:<
 </code></pre></div>
 <blockquote>
 <p>Unlike many other OpenStack services, which allow you to retrieve object references by name or UUID, Barbican only lets you retrieve secrets by their full <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI</a>.
-That URI must include the <code>https://sto2.citycloud.com:9311/v1/secrets/</code> prefix.</p>
+That URI must include the <code>https://sto1hs.citycloud.com:9311/v1/secrets/</code> prefix.</p>
 </blockquote>
 
 

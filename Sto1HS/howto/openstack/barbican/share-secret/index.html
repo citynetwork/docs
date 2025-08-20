@@ -5390,13 +5390,13 @@ However, under some circumstances it may be desirable to make a secret available
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>acl<span class="w"> </span>user<span class="w"> </span>add<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--user<span class="w"> </span>&lt;user_id&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--operation-type<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>https://sto2.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
+<span class="w">  </span>https://sto1hs.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
 </code></pre></div>
 <p>If you want to unshare the secret again, you use the corresponding <code>openstack acl user remove</code> command:</p>
 <div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>acl<span class="w"> </span>user<span class="w"> </span>remove<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--user<span class="w"> </span>&lt;user_id&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--operation-type<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>https://sto2.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
+<span class="w">  </span>https://sto1hs.citycloud.com:9311/v1/secrets/&lt;secret_id&gt;
 </code></pre></div>
 
 

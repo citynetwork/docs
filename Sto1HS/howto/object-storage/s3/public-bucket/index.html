@@ -5561,32 +5561,32 @@ To avoid inadvertent disclosure of existing information, consider setting public
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">aws</label><label for="__tabbed_1_2">mc</label><label for="__tabbed_1_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>put-bucket-policy<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--policy<span class="w"> </span>file://policy.json<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>anonymous<span class="w"> </span>set-json<span class="w"> </span>policy.json<span class="w"> </span>sto2/&lt;bucket-name&gt;
+<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>anonymous<span class="w"> </span>set-json<span class="w"> </span>policy.json<span class="w"> </span>sto1hs/&lt;bucket-name&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-sto2<span class="w"> </span>setpolicy<span class="w"> </span>policy.json<span class="w"> </span>s3://&lt;bucket-name&gt;
+<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-sto1hs<span class="w"> </span>setpolicy<span class="w"> </span>policy.json<span class="w"> </span>s3://&lt;bucket-name&gt;
 </code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="accessing-objects-in-a-public-bucket">Accessing objects in a public bucket</h2>
 <p>To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like <code>curl</code>, you must construct its URI as follows:</p>
-<div class="highlight"><pre><span></span><code>https://s3-sto2.citycloud.com/&lt;project-uuid&gt;:&lt;bucket-name&gt;/object-name
+<div class="highlight"><pre><span></span><code>https://s3-sto1hs.citycloud.com/&lt;project-uuid&gt;:&lt;bucket-name&gt;/object-name
 </code></pre></div>
 <blockquote>
 <p>Your project UUID is listed as the <code>project_id</code> field in the output of the <code>openstack ec2 credentials create</code> command you used to <a href="../credentials/">create your S3-compatible credentials</a>.</p>
 <p>If you did not note it down at the time of account creation, you can always retrieve it with <code>openstack ec2 credentials &lt;access-key&gt;</code>.</p>
 </blockquote>
-<p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> from the project with the UUID <code>07576783684248f7b2745e34356c6025</code> in the Cleura Cloud Sto2 region, you would run:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-O<span class="w"> </span>https://s3-sto2.citycloud.com/07576783684248f7b2745e34356c6025:foo/bar.pdf
+<p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> from the project with the UUID <code>07576783684248f7b2745e34356c6025</code> in the Cleura Cloud Sto1HS region, you would run:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-O<span class="w"> </span>https://s3-sto1hs.citycloud.com/07576783684248f7b2745e34356c6025:foo/bar.pdf
 <span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
 <span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
 <span class="go">100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k</span>
@@ -5595,8 +5595,8 @@ To avoid inadvertent disclosure of existing information, consider setting public
 <p>Once you make a bucket public via the S3 API, its objects also become accessible via <a href="../../swift/public-container/">the corresponding Swift API path</a>.</p>
 <p>Thus, the following URL paths allow you to retrieve the same public object:</p>
 <ul>
-<li><code>https://s3-sto2.citycloud.com/07576783684248f7b2745e34356c6025:foo/bar.pdf</code></li>
-<li><code>https://swift-sto2.citycloud.com/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf</code></li>
+<li><code>https://s3-sto1hs.citycloud.com/07576783684248f7b2745e34356c6025:foo/bar.pdf</code></li>
+<li><code>https://swift-sto1hs.citycloud.com/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf</code></li>
 </ul>
 <h2 id="enabling-bucket-listing">Enabling bucket listing</h2>
 <p>The <code>policy.json</code> file above allows anyone to retrieve known objects by name, but does not enable listing the bucket&rsquo;s contents.
@@ -5623,24 +5623,24 @@ Most of the time, this is what you want.</p>
 <p>Once you have updated your local <code>policy.json</code> file, apply it just as when you created the policy.</p>
 <p>You can then open a bucket path in your browser, to retrieve an XML document containing a list of all objects in the bucket.
 You would construct the URL by the following schema:</p>
-<div class="highlight"><pre><span></span><code>https://s3-sto2.citycloud.com/&lt;project-uuid&gt;:&lt;bucket-name&gt;
+<div class="highlight"><pre><span></span><code>https://s3-sto1hs.citycloud.com/&lt;project-uuid&gt;:&lt;bucket-name&gt;
 </code></pre></div>
 <h2 id="removing-a-public-read-policy-from-a-bucket">Removing a public read policy from a bucket</h2>
 <p>If you want to remove a previously-set public read policy from a bucket, and revert to its default policy that requires authentication on every object access, run the following command:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">aws</label><label for="__tabbed_2_2">mc</label><label for="__tabbed_2_3">s3cmd</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto2<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>--profile<span class="w"> </span>sto1hs<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>s3api<span class="w"> </span>delete-bucket-policy<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--bucket<span class="w"> </span>&lt;bucket-name&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>anonymous<span class="w"> </span><span class="nb">set</span><span class="w"> </span>none<span class="w"> </span>sto2/&lt;bucket-name&gt;
+<div class="highlight"><pre><span></span><code>mc<span class="w"> </span>anonymous<span class="w"> </span><span class="nb">set</span><span class="w"> </span>none<span class="w"> </span>sto1hs/&lt;bucket-name&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-sto2<span class="w"> </span>delpolicy<span class="w"> </span>s3://&lt;bucket-name&gt;
+<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span>-c<span class="w"> </span>~/.s3cfg-sto1hs<span class="w"> </span>delpolicy<span class="w"> </span>s3://&lt;bucket-name&gt;
 </code></pre></div>
 </div>
 </div>

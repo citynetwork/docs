@@ -5570,7 +5570,7 @@ If you were to change the volume type from <code>default</code> to <code>ceph_hd
 <h2 id="re-attaching-the-volume">Re-attaching the volume</h2>
 <p>If you attempt to re-attach the volume while it is still retyping, you will receive an error:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>volume<span class="w"> </span>testsrv<span class="w"> </span>testvol
-<span class="go">BadRequestException: 400: Client Error for url: https://sto2.citycloud.com:8774/v2.1/servers/b6a26b0e-f911-4ea2-8e45-51f16442da03/os-volume_attachments, Invalid input received: Invalid volume: Volume e233e7f3-f33b-4d7a-8f5b-785b34f670bf status must be available or downloading to reserve, but the current status is retyping. (HTTP 400) (Request-ID: req-36c4f2e5-ef2f-4ff4-b912-0baed2594f4d)</span>
+<span class="go">BadRequestException: 400: Client Error for url: https://sto1hs.citycloud.com:8774/v2.1/servers/b6a26b0e-f911-4ea2-8e45-51f16442da03/os-volume_attachments, Invalid input received: Invalid volume: Volume e233e7f3-f33b-4d7a-8f5b-785b34f670bf status must be available or downloading to reserve, but the current status is retyping. (HTTP 400) (Request-ID: req-36c4f2e5-ef2f-4ff4-b912-0baed2594f4d)</span>
 </code></pre></div>
 <p>You must now wait until the volume status changes back from <code>retyping</code> to <code>available</code>.
 One way to do this is with a bash <code>until</code> loop:</p>
