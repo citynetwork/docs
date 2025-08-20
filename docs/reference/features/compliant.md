@@ -31,26 +31,6 @@ Each AZ has its own block storage, and no live migration between AZs is possible
 Volumes in {{api_region}} are provided by Ceph.
 Cloud servers with ephemeral storage have low-latency disks (LLDs) that are local to the corresponding hypervisor.
 
-## Domain-based OpenStack endpoints
-
-Instead of having different endpoints on different ports of the same domain name, {{api_region}} offers different subdomain names per endpoint.
-
-The following is a list of domain-based endpoints valid for {{api_region}}:
-
-| Service Name | Service Type    | URL                                               |
-| ------------ | ------------    | ---                                               |
-| barbican     | key-manager     | <https://key-manager.{{api_region|lower}}.{{api_domain}}/>       |
-| cinderv3     | volumev3        | <https://volume.{{api_region|lower}}.{{api_domain}}/>            |
-| octavia      | load-balancer   | <https://load-balancer.{{api_region|lower}}.{{api_domain}}/>     |
-| keystone     | identity        | <https://identity.{{api_region|lower}}.{{api_domain}}/>          |
-| radosgw      | object-store    | <https://object-store.{{api_region|lower}}.{{api_domain}}/>      |
-| placement    | placement       | <https://placement.{{api_region|lower}}.{{api_domain}}/>         |
-| heat         | orchestration   | <https://orchestration.{{api_region|lower}}.{{api_domain}}/>     |
-| neutron      | network         | <https://network.{{api_region|lower}}.{{api_domain}}/>           |
-| nova         | compute         | <https://compute.{{api_region|lower}}.{{api_domain}}/v2.1/>      |
-| glance       | image           | <https://image.{{api_region|lower}}.{{api_domain}}/>             |
-
-
 ## Object storage
 
 |                                                         | Sto1HS           | Sto2HS           | Sto-Com          |

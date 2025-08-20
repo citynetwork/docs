@@ -17,17 +17,16 @@ The {{brand}} {{api_region}} region exposes the following OpenStack API endpoint
 
 | Service Name | Service Type    | URL                                                             |
 | ------------ | ------------    | ---                                                             |
-| barbican     | key-manager     | <https://{{api_region|lower}}.{{api_domain}}:9311/>             |
-| cinderv3     | volumev3        | <https://{{api_region|lower}}.{{api_domain}}:8776/v3/>          |
-| octavia      | load-balancer   | <https://{{api_region|lower}}.{{api_domain}}:9876/>             |
-| keystone     | identity        | <https://{{api_region|lower}}.{{api_domain}}:5000/>             |
-| radosgw      | object-store    | <https://swift-{{api_region|lower}}.{{api_domain}}:8080/swift/> |
-| placement    | placement       | <https://{{api_region|lower}}.{{api_domain}}:8780/>             |
-| heat         | orchestration   | <https://{{api_region|lower}}.{{api_domain}}:8004/v1/>          |
-| neutron      | network         | <https://{{api_region|lower}}.{{api_domain}}:9696/>             |
-| nova         | compute         | <https://{{api_region|lower}}.{{api_domain}}:8774/v2.1/>        |
-| glance       | image           | <https://{{api_region|lower}}.{{api_domain}}:9292/>             |
-| magnum       | container-infra | <https://{{api_region|lower}}.{{api_domain}}:9511/>             |
+| barbican     | key-manager     | <https://key-manager.{{api_region|lower}}.{{api_domain}}/>      |
+| cinderv3     | volumev3        | <https://volume.{{api_region|lower}}.{{api_domain}}/v3/>        |
+| octavia      | load-balancer   | <https://load-balancer.{{api_region|lower}}.{{api_domain}}/>    |
+| keystone     | identity        | <https://identity.{{api_region|lower}}.{{api_domain}}/>         |
+| radosgw      | object-store    | <https://object-store.{{api_region|lower}}.{{api_domain}}/swift/> |
+| placement    | placement       | <https://placement.{{api_region|lower}}.{{api_domain}}/>        |
+| heat         | orchestration   | <https://orchestration.{{api_region|lower}}.{{api_domain}}/v1/> |
+| neutron      | network         | <https://network.{{api_region|lower}}.{{api_domain}}/>          |
+| nova         | compute         | <https://compute.{{api_region|lower}}.{{api_domain}}/v2.1/>     |
+| glance       | image           | <https://image.{{api_region|lower}}.{{api_domain}}/>            |
 
 ## OpenStack SDKs
 
