@@ -34,14 +34,7 @@ update-gh-pages:
   script:
     - git fetch origin gh-pages
     - tox -e mike -- --push
-  only:
-    - main
-    - kna1
-    - sto2
-    - fra1
-    - sto1hs
-    - sto2hs
-    - sto-com
+  only: []  # Disabled
 
 .pages:
   stage: deploy
