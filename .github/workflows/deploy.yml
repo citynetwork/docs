@@ -15,6 +15,7 @@ jobs:
         run: |
           pip install tox
       - env:
+          DOCS_DEPLOY_DEFAULT_BRANCH: "kna1"
           GIT_COMMITTER_EMAIL: "${{ github.actor }}@users.noreply.github.com"
           GIT_COMMITTER_NAME: "${{ github.actor }}"
         name: Deploy to gh-pages
@@ -26,7 +27,6 @@ name: deploy
 'on':
   push:
     branches:
-      - main
       - kna1
       - fra1
       - sto2
