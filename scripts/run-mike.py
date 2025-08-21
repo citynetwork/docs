@@ -10,9 +10,9 @@ from mike.driver import main as mike_main
 
 # Map of branch names to version names.
 #
-# Need only include those branches where the name of the version is
+# Need only include those branches where the title of the version is
 # *not* simply the branch name, title-cased.
-BRANCH_VERSION_MAP = {
+VERSION_TITLE_MAP = {
     "sto1hs": "Sto1HS",
     "sto2hs": "Sto2HS",
 }
@@ -32,34 +32,28 @@ def main():
         level=os.getenv("DOCS_LOGLEVEL", "WARNING").upper()
     )
 
-    # Set the default branch name (all-lowercase) and corresponding
-    # Mike version string (title case)
-    deploy_default_branch = os.getenv("DOCS_DEPLOY_DEFAULT_BRANCH", "main")
-    mike_default_version_name = BRANCH_VERSION_MAP.get(
-        deploy_default_branch,
-        deploy_default_branch.title()
-    )
+    # Set the default branch name (all-lowercase)
+    mike_default_version_name = os.getenv("DOCS_DEPLOY_DEFAULT_BRANCH", "main")
 
     # Set the deployment branch name (all-lowercase, defaulting to the
-    # current branch) and corresponding Mike version string (title
-    # case)
+    # current branch) and corresponding Mike version string (title case)
     git_rev_parse = "git rev-parse --abbrev-ref HEAD"
-    deploy_branch = os.getenv(
+    mike_version_name = os.getenv(
         "DOCS_DEPLOY_BRANCH",
         subprocess.check_output(git_rev_parse,
                                 shell=True,
                                 encoding=sys.getfilesystemencoding())).strip()
-    mike_version_name = BRANCH_VERSION_MAP.get(
-        deploy_branch,
-        deploy_branch.title()
+    mike_version_title = VERSION_TITLE_MAP.get(
+        mike_version_name,
+        mike_version_name.title()
     )
-    mike_version_alias = deploy_branch
 
     mike_deploy_args = [
         "deploy",
         "--allow-empty",
+        "--title",
+        mike_version_title,
         mike_version_name,
-        mike_version_alias,
     ]
     run_mike(mike_deploy_args)
 
