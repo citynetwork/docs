@@ -24,13 +24,13 @@ $ openstack volume list --long
 +---------------+-----------+--------+------+---------+----------+---------------+------------+
 | ID            | Name      | Status | Size | Type    | Bootable | Attached to   | Properties |
 +---------------+-----------+--------+------+---------+----------+---------------+------------+
-| 526f7741-2c44 | sourcevol | in-use |   50 | default | false    | Attached to   |            |
+| 526f7741-2c44 | sourcevol | in-use |   50 | cbs     | false    | Attached to   |            |
 | -4d04-a0c8-86 |           |        |      |         |          | testsrv on    |            |
 | b8d039e674    |           |        |      |         |          | /dev/vdb      |            |
 +---------------+-----------+--------+------+---------+----------+---------------+------------+
 ```
 
-In this example, the volume status is `in-use` (meaning the volume is currently attached to a server), and the volume type is `default`.
+In this example, the volume status is `in-use` (meaning the volume is currently attached to a server), and the volume type is `cbs`.
 
 ## Taking a snapshot of the source volume
 
@@ -99,7 +99,7 @@ $ openstack volume create --snapshot sourcevol-snap targetvol
 | snapshot_id         | 05ece580-4fb0-45dd-96e8-06a46399c38e |
 | source_volid        | None                                 |
 | status              | creating                             |
-| type                | default                              |
+| type                | cbs                                  |
 | updated_at          | None                                 |
 | user_id             | 51ce99c11f9e4ed08e92acca176c33ca     |
 +---------------------+--------------------------------------+
@@ -225,7 +225,7 @@ $ openstack volume show sourcevol
 | snapshot_id                  | None                                 |
 | source_volid                 | None                                 |
 | status                       | available                            |
-| type                         | default                              |
+| type                         | cbs                                  |
 | updated_at                   | 2023-01-05T16:03:55.000000           |
 | user_id                      | 51ce99c11f9e4ed08e92acca176c33ca     |
 +------------------------------+--------------------------------------+
