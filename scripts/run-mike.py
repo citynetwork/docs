@@ -18,8 +18,15 @@ VERSION_TITLE_MAP = {
 }
 
 
+# The argument list we were originally invoked with.
+#
+# Remembering this is necessary because mike gives us no option to
+# populate its command-line arguments other, than overriding sys.argv.
+ORIG_ARGS = sys.argv[1:]
+
+
 def run_mike(args):
-    mike_argv = ['mike'] + args + sys.argv[1:]
+    mike_argv = ['mike'] + args + ORIG_ARGS
 
     logging.debug("Invoking %s", mike_argv)
 
@@ -31,6 +38,8 @@ def main():
     logging.basicConfig(
         level=os.getenv("DOCS_LOGLEVEL", "WARNING").upper()
     )
+
+    logging.debug("Invoked with arguments: %s", ORIG_ARGS)
 
     # Set the default branch name (all-lowercase)
     mike_default_version_name = os.getenv("DOCS_DEPLOY_DEFAULT_BRANCH", "main")
@@ -57,12 +66,11 @@ def main():
     ]
     run_mike(mike_deploy_args)
 
-    # TODO: Re-enable when deploying the mike-versioned docs to production
-    mike_set_default_args = [  # noqa: F841
+    mike_set_default_args = [
         "set-default",
         mike_default_version_name,
     ]
-    # run_mike(mike_set_default_args)
+    run_mike(mike_set_default_args)
 
 
 if __name__ == '__main__':
