@@ -4,8 +4,6 @@ description: Changing the type of a volume ("retyping") is an offline operation 
 # Changing a volume's type
 
 You may occasionally need to change the type of a volume.
-This may be due to a volume type being phased out on {{brand}}'s part, necessitating data migration.
-Or you might want to enable or disable [volume-level encryption](encrypted-volumes.md).
 
 {{page.meta.description}}
 The resulting downtime may be quite substantial, particularly for large volumes.
@@ -27,13 +25,13 @@ $ openstack volume list --long
 +----------------+---------+--------+------+---------+----------+----------------+------------+
 | ID             | Name    | Status | Size | Type    | Bootable | Attached to    | Properties |
 +----------------+---------+--------+------+---------+----------+----------------+------------+
-| e233e7f3-f33b- | testvol | in-use |   50 | default | false    | Attached to    |            |
+| e233e7f3-f33b- | testvol | in-use |   50 | cbs     | false    | Attached to    |            |
 | 4d7a-8f5b-785b |         |        |      |         |          | testsrv on     |            |
 | 34f670bf       |         |        |      |         |          | /dev/vdb       |            |
 +----------------+---------+--------+------+---------+----------+----------------+------------+
 ```
 
-In this example, this volume status is `in-use`, meaning it is currently attached to a server, and the volume type is `default`.
+In this example, this volume status is `in-use`, meaning it is currently attached to a server, and the volume type is `cbs`.
 
 ## Detaching the volume
 
@@ -69,22 +67,29 @@ $ openstack volume list
 ## Retyping the volume
 
 With the volume safely detached, you can now change its volume type.
-If you were to change the volume type from `default` to `ceph_hdd`, you would proceed as follows:
+If you were to change the volume type from `cbs` to `<new-vol-type>`, you would proceed as follows:
 
 ```console
-$ openstack volume set --type ceph_hdd --retype-policy on-demand testvol
+$ openstack volume set --type <new-vol-type> --retype-policy on-demand testvol
 
 $ openstack volume list --long
 +---------------+---------+----------+------+---------+----------+-------------+------------+
 | ID            | Name    | Status   | Size | Type    | Bootable | Attached to | Properties |
 +---------------+---------+----------+------+---------+----------+-------------+------------+
-| e233e7f3-f33b | testvol | retyping |   50 | default | false    |             |            |
+| e233e7f3-f33b | testvol | retyping |   50 | cbs     | false    |             |            |
 | -4d7a-8f5b-78 |         |          |      |         |          |             |            |
 | 5b34f670bf    |         |          |      |         |          |             |            |
 +---------------+---------+----------+------+---------+----------+-------------+------------+
 ```
 
 Note that the volume status changes from `available` to `retyping`: this status change kicks off the actual data migration, which might take a significant amount of time.
+
+> You **cannot** use retyping to convert an [encrypted volume](encrypted-volumes.md) to an unencrypted one, or vice versa.
+> Instead, you will need to move your data:
+>
+> * Attach a new volume to a running VM that **also** has the original volume attached,
+>
+> * copy data over to the new volume.
 
 ## Re-attaching the volume
 
