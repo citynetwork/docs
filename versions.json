@@ -1,5 +1,10 @@
 [
   {
+    "version": "main",
+    "title": "Main",
+    "aliases": []
+  },
+  {
     "version": "kna1",
     "title": "Kna1",
     "aliases": []
