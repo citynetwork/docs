@@ -1,7 +1,17 @@
 [
   {
-    "version": "sto2hs",
-    "title": "Sto2HS",
+    "version": "main",
+    "title": "Main",
+    "aliases": []
+  },
+  {
+    "version": "kna1",
+    "title": "Kna1",
+    "aliases": []
+  },
+  {
+    "version": "fra1",
+    "title": "Fra1",
     "aliases": []
   },
   {
@@ -15,23 +25,13 @@
     "aliases": []
   },
   {
+    "version": "sto2hs",
+    "title": "Sto2HS",
+    "aliases": []
+  },
+  {
     "version": "sto-com",
     "title": "Sto-Com",
-    "aliases": []
-  },
-  {
-    "version": "main",
-    "title": "Main",
-    "aliases": []
-  },
-  {
-    "version": "kna1",
-    "title": "Kna1",
-    "aliases": []
-  },
-  {
-    "version": "fra1",
-    "title": "Fra1",
     "aliases": []
   }
 ]
