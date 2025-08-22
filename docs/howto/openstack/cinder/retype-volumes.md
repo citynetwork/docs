@@ -4,8 +4,6 @@ description: Changing the type of a volume ("retyping") is an offline operation 
 # Changing a volume's type
 
 You may occasionally need to change the type of a volume.
-This may be due to a volume type being phased out on {{brand}}'s part, necessitating data migration.
-Or you might want to enable or disable [volume-level encryption](encrypted-volumes.md).
 
 {{page.meta.description}}
 The process of volume retyping incurs a short downtime.
@@ -83,6 +81,15 @@ $ openstack volume list --long
 | 2           |         |           |      |             |          |             |            |
 +-------------+---------+-----------+------+-------------+----------+-------------+------------+
 ```
+
+Note that the volume status changes from `available` to `retyping`: this status change kicks off the actual data migration, which might take a significant amount of time.
+
+> You **cannot** use retyping to convert an [encrypted volume](encrypted-volumes.md) to an unencrypted one, or vice versa.
+> Instead, you will need to move your data:
+>
+> * Attach a new volume to a running VM that **also** has the original volume attached,
+>
+> * copy data over to the new volume.
 
 ## Re-attaching the volume
 
