@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -5506,9 +5506,7 @@
 
 
 <h1 id="changing-a-volumes-type">Changing a volume&rsquo;s type</h1>
-<p>You may occasionally need to change the type of a volume.
-This may be due to a volume type being phased out on Cleura Cloud&rsquo;s part, necessitating data migration.
-Or you might want to enable or disable <a href="../encrypted-volumes/">volume-level encryption</a>.</p>
+<p>You may occasionally need to change the type of a volume.</p>
 <p>Changing the type of a volume (&ldquo;retyping&rdquo;) is an offline operation that requires detaching the volume from its server, and setting its new type.
 The resulting downtime may be quite substantial, particularly for large volumes.
 As such, when you need to retype volumes, you should plan ahead well in advance.</p>
@@ -5522,12 +5520,12 @@ In that case, please file a support request with our <a href="https://servicecen
 <span class="go">+----------------+---------+--------+------+---------+----------+----------------+------------+</span>
 <span class="go">| ID             | Name    | Status | Size | Type    | Bootable | Attached to    | Properties |</span>
 <span class="go">+----------------+---------+--------+------+---------+----------+----------------+------------+</span>
-<span class="go">| e233e7f3-f33b- | testvol | in-use |   50 | default | false    | Attached to    |            |</span>
+<span class="go">| e233e7f3-f33b- | testvol | in-use |   50 | cbs     | false    | Attached to    |            |</span>
 <span class="go">| 4d7a-8f5b-785b |         |        |      |         |          | testsrv on     |            |</span>
 <span class="go">| 34f670bf       |         |        |      |         |          | /dev/vdb       |            |</span>
 <span class="go">+----------------+---------+--------+------+---------+----------+----------------+------------+</span>
 </code></pre></div>
-<p>In this example, this volume status is <code>in-use</code>, meaning it is currently attached to a server, and the volume type is <code>default</code>.</p>
+<p>In this example, this volume status is <code>in-use</code>, meaning it is currently attached to a server, and the volume type is <code>cbs</code>.</p>
 <h2 id="detaching-the-volume">Detaching the volume</h2>
 <p>You cannot retype a volume while it is attached to a server.
 You must thus detach it first.
@@ -5554,19 +5552,31 @@ This will change the volume status from <code>in-use</code> to <code>available</
 </code></pre></div>
 <h2 id="retyping-the-volume">Retyping the volume</h2>
 <p>With the volume safely detached, you can now change its volume type.
-If you were to change the volume type from <code>default</code> to <code>ceph_hdd</code>, you would proceed as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--type<span class="w"> </span>ceph_hdd<span class="w"> </span>--retype-policy<span class="w"> </span>on-demand<span class="w"> </span>testvol
+If you were to change the volume type from <code>cbs</code> to <code>&lt;new-vol-type&gt;</code>, you would proceed as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--type<span class="w"> </span>&lt;new-vol-type&gt;<span class="w"> </span>--retype-policy<span class="w"> </span>on-demand<span class="w"> </span>testvol
 
 <span class="gp">$ </span>openstack<span class="w"> </span>volume<span class="w"> </span>list<span class="w"> </span>--long
 <span class="go">+---------------+---------+----------+------+---------+----------+-------------+------------+</span>
 <span class="go">| ID            | Name    | Status   | Size | Type    | Bootable | Attached to | Properties |</span>
 <span class="go">+---------------+---------+----------+------+---------+----------+-------------+------------+</span>
-<span class="go">| e233e7f3-f33b | testvol | retyping |   50 | default | false    |             |            |</span>
+<span class="go">| e233e7f3-f33b | testvol | retyping |   50 | cbs     | false    |             |            |</span>
 <span class="go">| -4d7a-8f5b-78 |         |          |      |         |          |             |            |</span>
 <span class="go">| 5b34f670bf    |         |          |      |         |          |             |            |</span>
 <span class="go">+---------------+---------+----------+------+---------+----------+-------------+------------+</span>
 </code></pre></div>
 <p>Note that the volume status changes from <code>available</code> to <code>retyping</code>: this status change kicks off the actual data migration, which might take a significant amount of time.</p>
+<blockquote>
+<p>You <strong>cannot</strong> use retyping to convert an <a href="../encrypted-volumes/">encrypted volume</a> to an unencrypted one, or vice versa.
+Instead, you will need to move your data:</p>
+<ul>
+<li>
+<p>Attach a new volume to a running VM that <strong>also</strong> has the original volume attached,</p>
+</li>
+<li>
+<p>copy data over to the new volume.</p>
+</li>
+</ul>
+</blockquote>
 <h2 id="re-attaching-the-volume">Re-attaching the volume</h2>
 <p>If you attempt to re-attach the volume while it is still retyping, you will receive an error:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>volume<span class="w"> </span>testsrv<span class="w"> </span>testvol
@@ -5623,7 +5633,7 @@ One way to do this is with a bash <code>until</code> loop:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2025 13:52:47 UTC">2025-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 21, 2025 09:16:23 UTC">2025-08-21</span>
   </span>
 
     
@@ -5643,11 +5653,11 @@ One way to do this is with a bash <code>until</code> loop:</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
-      Florian Haas
+      Christos Varelas, Florian Haas
     </nav>
   </span>
 
