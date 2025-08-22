@@ -19,12 +19,11 @@ $ openstack volume type list
 | ID                                   | Name                  | Is Public |
 +--------------------------------------+-----------------------+-----------+
 | a479a6b0-b283-41a5-b38b-5b08e7f902ca | cbs-encrypted         | True      |
-| d9dfa98a-238d-4ca0-9abf-701fceb05623 | __DEFAULT__           | True      |
 | 86796611-fb12-4628-b6b1-e09469e301d7 | cbs                   | True      |
 +--------------------------------------+-----------------------+-----------+
 ```
 
-> In {{brand}}, all volume types that support encryption use the suffix `_encrypted`.
+> In {{brand}}, all volume types that support encryption use the suffix `-encrypted`.
 
 To create a volume with encryption, you need to explicitly specify the `--type` option to the `openstack volume create` command.
 The following example creates a volume using the `cbs-encrypted` type, naming it `enc_drive` and setting its size to 10 GiB:

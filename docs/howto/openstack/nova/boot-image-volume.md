@@ -163,7 +163,7 @@ In the following, we show how to perform the conversion using the {{gui}} or the
     | snapshot_id         | None                                 |
     | source_volid        | None                                 |
     | status              | creating                             |
-    | type                | ceph_hdd                             |
+    | type                | cbs                                  |
     | updated_at          | None                                 |
     | user_id             | c096cf99f65a4d22a6954b67d2ec11d7     |
     +---------------------+--------------------------------------+
@@ -214,7 +214,7 @@ In the following, we show how to perform the conversion using the {{gui}} or the
     | snapshot_id                  | None                                                              |
     | source_volid                 | None                                                              |
     | status                       | available                                                         |
-    | type                         | ceph_hdd                                                          |
+    | type                         | cbs                                                               |
     | updated_at                   | 2023-05-10T13:39:05.000000                                        |
     | user_id                      | c096cf99f65a4d22a6954b67d2ec11d7                                  |
     | volume_image_metadata        | {'hw_qemu_guest_agent': 'yes', 'base_image_ref':                  |
