@@ -1,7 +1,0 @@
-title: Gardener
-nav:
-  - index.md
-  - create-shoot-cluster.md
-  - kubectl.md
-  - hibernate-shoot-cluster.md
-  - rolling-upgrades.md

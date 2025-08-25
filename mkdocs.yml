@@ -78,9 +78,6 @@ plugins:
   - social:
       # yamllint disable-line rule:truthy
       cards: !ENV [DOCS_ENABLE_SOCIAL_CARDS, True]
-  - redirects:
-      redirect_maps:
-        'howto/account-billing/change-billing-data.md': 'howto/account-billing/change-account-data.md'
 repo_url: https://github.com/citynetwork/docs
 site_name: "Cleura Docs"
 site_url: !ENV [DOCS_SITE_URL, "https://v2.docs.cleura.cloud"]

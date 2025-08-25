@@ -1,6 +1,0 @@
-nav:
-  - index.md
-  - Ansible: ansible.md
-  - Containers: containers.md
-  - Heat: heat.md
-  - OpenTofu: tf.md
