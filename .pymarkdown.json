@@ -23,6 +23,9 @@
         "no-duplicate-heading": {
             "enabled": false
         },
+        "no-trailing-punctuation": {
+            "punctuation": ".,;:。，；："
+        },
         "blanks-around-headings": {
             "enabled": false
         },
