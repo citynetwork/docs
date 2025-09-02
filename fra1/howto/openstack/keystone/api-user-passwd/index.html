@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="How to restore a server to a particular snapshot">
+        <meta name="description" content="A walk-through of changing the password of an OpenStack API user">
       
       
       
-        <link rel="canonical" href="https://docs.cleura.cloud/main/howto/openstack/nova/restore-srv-to-snap/">
+        <link rel="canonical" href="https://docs.cleura.cloud/main/howto/openstack/keystone/api-user-passwd/">
       
       
-        <link rel="prev" href="../boot-image-volume/">
+        <link rel="prev" href="../app-creds/">
       
       
-        <link rel="next" href="../rescue-server/">
+        <link rel="next" href="../../magnum/new-k8s-cluster/">
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Restoring a server to a snapshot - Cleura Docs</title>
+        <title>Changing the password of an OpenStack user - Cleura Docs</title>
       
     
     
@@ -70,11 +70,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Restoring a server to a snapshot - Cleura Docs" >
+        <meta  property="og:title"  content="Changing the password of an OpenStack user - Cleura Docs" >
       
-        <meta  property="og:description"  content="How to restore a server to a particular snapshot" >
+        <meta  property="og:description"  content="A walk-through of changing the password of an OpenStack API user" >
       
-        <meta  property="og:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/nova/restore-srv-to-snap.png" >
+        <meta  property="og:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/keystone/api-user-passwd.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -82,15 +82,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://docs.cleura.cloud/main/howto/openstack/nova/restore-srv-to-snap/" >
+        <meta  property="og:url"  content="https://docs.cleura.cloud/main/howto/openstack/keystone/api-user-passwd/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Restoring a server to a snapshot - Cleura Docs" >
+        <meta  name="twitter:title"  content="Changing the password of an OpenStack user - Cleura Docs" >
       
-        <meta  name="twitter:description"  content="How to restore a server to a particular snapshot" >
+        <meta  name="twitter:description"  content="A walk-through of changing the password of an OpenStack API user" >
       
-        <meta  name="twitter:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/nova/restore-srv-to-snap.png" >
+        <meta  name="twitter:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/keystone/api-user-passwd.png" >
       
     
     
@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#restoring-a-server-to-a-snapshot" class="md-skip">
+        <a href="#changing-the-password-of-an-openstack-user" class="md-skip">
           Skip to content
         </a>
       
@@ -170,7 +170,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Restoring a server to a snapshot
+              Changing the password of an OpenStack user
             
           </span>
         </div>
@@ -979,8 +979,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -992,11 +994,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
@@ -1012,7 +1014,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3_4">
             <span class="md-nav__icon md-icon"></span>
             Keystone (identity service)
@@ -1026,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../keystone/app-creds/" class="md-nav__link">
+      <a href="../app-creds/" class="md-nav__link">
         
   
   
@@ -1046,10 +1048,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../keystone/api-user-passwd/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Changing the password of an OpenStack user
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1060,6 +1084,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#updating-local-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating local files
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1348,10 +1401,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1377,11 +1428,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_7" >
         
           
           <label class="md-nav__link" for="__nav_2_3_7" id="__nav_2_3_7_label" tabindex="0">
@@ -1397,7 +1448,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3_7">
             <span class="md-nav__icon md-icon"></span>
             Nova (compute service)
@@ -1411,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-server/" class="md-nav__link">
+      <a href="../../nova/new-server/" class="md-nav__link">
         
   
   
@@ -1434,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-server-cnw/" class="md-nav__link">
+      <a href="../../nova/new-server-cnw/" class="md-nav__link">
         
   
   
@@ -1457,7 +1508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../server-group/" class="md-nav__link">
+      <a href="../../nova/server-group/" class="md-nav__link">
         
   
   
@@ -1480,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config-drive/" class="md-nav__link">
+      <a href="../../nova/config-drive/" class="md-nav__link">
         
   
   
@@ -1503,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../resize-server/" class="md-nav__link">
+      <a href="../../nova/resize-server/" class="md-nav__link">
         
   
   
@@ -1526,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../move-server-between-regions/" class="md-nav__link">
+      <a href="../../nova/move-server-between-regions/" class="md-nav__link">
         
   
   
@@ -1549,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../boot-image-volume/" class="md-nav__link">
+      <a href="../../nova/boot-image-volume/" class="md-nav__link">
         
   
   
@@ -1569,32 +1620,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Restoring a server to a snapshot
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../nova/restore-srv-to-snap/" class="md-nav__link">
         
   
   
@@ -1605,35 +1634,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-restore-step-by-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to restore, step by step
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1646,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rescue-server/" class="md-nav__link">
+      <a href="../../nova/rescue-server/" class="md-nav__link">
         
   
   
@@ -5426,9 +5426,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-restore-step-by-step" class="md-nav__link">
+  <a href="#updating-local-files" class="md-nav__link">
     <span class="md-ellipsis">
-      How to restore, step by step
+      Updating local files
     </span>
   </a>
   
@@ -5450,7 +5450,7 @@
 
 
   
-    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/nova/restore-srv-to-snap.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/keystone/api-user-passwd.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5458,25 +5458,42 @@
   
 
 
-<h1 id="restoring-a-server-to-a-snapshot">Restoring a server to a snapshot</h1>
-<p>Servers in Cleura Cloud that have the <a href="../../../../background/disaster-recovery/">disaster recovery</a> feature enabled can go back in time, meaning you may restore such a server to one of the available point-in-time snapshots.
-Here is how you can do that.</p>
-<h2 id="how-to-restore-step-by-step">How to restore, step by step</h2>
-<p>To select a particular snapshot and restore your server to it, first off, navigate to the Cleura Cloud Management Panel.
-From the left-hand side vertical pane, choose Compute → <a href="https://cleura.cloud/compute/servers">Servers</a>, then expand the detailed view of the server of interest.
-Select the <em>Disaster Recovery</em> tab and see all available snapshots listed below.
-For each one of those, the date and creation time are visible.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All available snapshots for selected server" src="../assets/rest-srv-to-snap/disaster-recovery-available-snaps.png" /></a></p>
-<p>Click on the snapshot you want.
-A pop-up window will appear, asking for your permission to proceed.
-Make sure this is indeed the snapshot you want, then click the red button labeled <em>Yes, Restore snapshot</em>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Asking for permission to restore snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-permission-to-proceed.png" /></a></p>
-<p>The restore process will begin immediately.
-You can tell it is progressing by checking the status.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Snapshot recovery in progress" src="../assets/rest-srv-to-snap/disaster-recovery-recover-in-progress.png" /></a></p>
-<p>As soon as the snapshot is ready to be used, you will see a message indicating that it has started.
-Do not forget to activate the server; click on its row to select it, then click the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M91.2 36.9c-12.4-6.8-27.4-6.5-39.6.7S32 57.9 32 72v368c0 14.1 7.5 27.2 19.6 34.4s27.2 7.5 39.6.7l336-184c12.8-7 20.8-20.5 20.8-35.1s-8-28.1-20.8-35.1z"/></svg></span> button above.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Start server to the snapshot" src="../assets/rest-srv-to-snap/disaster-recovery-boot-from-snapshot.png" /></a></p>
+<h1 id="changing-the-password-of-an-openstack-user">Changing the password of an OpenStack user</h1>
+<p>Having created at least one <a href="../../../getting-started/enable-openstack-cli/">OpenStack API user</a>, you may at any time change their password.
+You do so using the Cleura Cloud Management Panel, or the OpenStack CLI.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>From your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and login into your Cleura Cloud account.</p>
+<p>Make sure the left-hand side vertical pane is fully visible, click the <em>Users</em> category to expand it, and click once more on <em>Openstack Users</em>.</p>
+<p>All of your OpenStack users, categorized by Cleura Cloud region, appear on the main pane.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All OpenStack users" src="../assets/api-user-passwd-shot-01.png" /></a></p>
+<p>Locate the OpenStack user you wish to change their password, click the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5"/></svg></span> icon at the right of its row, and from the drop-down menu that appears, select <em>Modify Openstack user</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Modify OpenStack user" src="../assets/api-user-passwd-shot-02.png" /></a></p>
+<p>A vertical pane, titled <em>Modify Openstack User</em>, slides over from the right-hand side of the browser window.
+Notice the text field labeled <em>Password</em>.
+There, type-in a new password for the OpenStack user.
+When ready, confirm with a click on the green <em>Update</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Change password of OpenStack user" src="../assets/api-user-passwd-shot-03.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p>First, source the RC file of the OpenStack user you wish to change their password.
+Then, change it as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>user<span class="w"> </span>password<span class="w"> </span><span class="nb">set</span>
+<span class="go">Current Password:</span>
+<span class="go">New Password:</span>
+<span class="go">Repeat New Password:</span>
+</code></pre></div>
+<p>Before the new password is set, you are asked to enter the current password.
+Next, you enter the new password two times, for security reasons.
+Notice that what you type is not echoed on the terminal.</p>
+<p>Whenever the command above executes successfully, it returns no further output.</p>
+</div>
+</div>
+</div>
+<h2 id="updating-local-files">Updating local files</h2>
+<p>After changing the password of a specific OpenStack user, please do not forget to update your local copy of the corresponding RC file &ndash; and then source it.</p>
+<p>Finally, do the same for any <code>clouds.yaml</code> file that still has the old OpenStack user password.</p>
 
 
 
@@ -5499,7 +5516,7 @@ Do not forget to activate the server; click on its row to select it, then click 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 4, 2025 14:38:40 UTC">2025-07-04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 2, 2025 10:26:31 UTC">2025-09-02</span>
   </span>
 
     
@@ -5509,7 +5526,7 @@ Do not forget to activate the server; click on its row to select it, then click 
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 3, 2023 13:06:20 UTC">2023-05-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 2, 2025 10:26:31 UTC">2025-09-02</span>
   </span>
 
     
@@ -5519,11 +5536,11 @@ Do not forget to activate the server; click on its row to select it, then click 
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas
     </nav>
   </span>
 
