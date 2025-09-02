@@ -1,3 +1,4 @@
 title: Keystone (identity service)
 nav:
   - app-creds.md
+  - api-user-passwd.md
