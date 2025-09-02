@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="How to create a new virtual server in Cleura Cloud">
+        <meta name="description" content="A walk-through of changing the password of an OpenStack API user">
       
       
       
-        <link rel="canonical" href="https://docs.cleura.cloud/main/howto/openstack/nova/new-server/">
+        <link rel="canonical" href="https://docs.cleura.cloud/main/howto/openstack/keystone/api-user-passwd/">
       
       
-        <link rel="prev" href="../../neutron/delete-network/">
+        <link rel="prev" href="../app-creds/">
       
       
-        <link rel="next" href="../new-server-cnw/">
+        <link rel="next" href="../../neutron/new-network/">
       
       
       <link rel="icon" href="../../../../assets/favicon.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Creating new servers - Cleura Docs</title>
+        <title>Changing the password of an OpenStack user - Cleura Docs</title>
       
     
     
@@ -70,11 +70,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Creating new servers - Cleura Docs" >
+        <meta  property="og:title"  content="Changing the password of an OpenStack user - Cleura Docs" >
       
-        <meta  property="og:description"  content="How to create a new virtual server in Cleura Cloud" >
+        <meta  property="og:description"  content="A walk-through of changing the password of an OpenStack API user" >
       
-        <meta  property="og:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/nova/new-server.png" >
+        <meta  property="og:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/keystone/api-user-passwd.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -82,15 +82,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://docs.cleura.cloud/main/howto/openstack/nova/new-server/" >
+        <meta  property="og:url"  content="https://docs.cleura.cloud/main/howto/openstack/keystone/api-user-passwd/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Creating new servers - Cleura Docs" >
+        <meta  name="twitter:title"  content="Changing the password of an OpenStack user - Cleura Docs" >
       
-        <meta  name="twitter:description"  content="How to create a new virtual server in Cleura Cloud" >
+        <meta  name="twitter:description"  content="A walk-through of changing the password of an OpenStack API user" >
       
-        <meta  name="twitter:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/nova/new-server.png" >
+        <meta  name="twitter:image"  content="https://docs.cleura.cloud/main/assets/images/social/howto/openstack/keystone/api-user-passwd.png" >
       
     
     
@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-new-servers" class="md-skip">
+        <a href="#changing-the-password-of-an-openstack-user" class="md-skip">
           Skip to content
         </a>
       
@@ -170,7 +170,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating new servers
+              Changing the password of an OpenStack user
             
           </span>
         </div>
@@ -977,8 +977,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -990,11 +992,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
@@ -1010,7 +1012,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3_4">
             <span class="md-nav__icon md-icon"></span>
             Keystone (identity service)
@@ -1024,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../keystone/app-creds/" class="md-nav__link">
+      <a href="../app-creds/" class="md-nav__link">
         
   
   
@@ -1044,10 +1046,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../keystone/api-user-passwd/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Changing the password of an OpenStack user
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1058,6 +1082,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#updating-local-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating local files
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1223,10 +1276,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1250,11 +1301,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_6" >
         
           
           <label class="md-nav__link" for="__nav_2_3_6" id="__nav_2_3_6_label" tabindex="0">
@@ -1270,7 +1321,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3_6">
             <span class="md-nav__icon md-icon"></span>
             Nova (compute service)
@@ -1281,32 +1332,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Creating new servers
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../nova/new-server/" class="md-nav__link">
         
   
   
@@ -1317,62 +1346,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a server
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#viewing-information-about-the-newly-created-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Viewing information about the newly created server
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connecting-to-the-server-console" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connecting to the server console
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1385,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new-server-cnw/" class="md-nav__link">
+      <a href="../../nova/new-server-cnw/" class="md-nav__link">
         
   
   
@@ -1408,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../server-group/" class="md-nav__link">
+      <a href="../../nova/server-group/" class="md-nav__link">
         
   
   
@@ -1431,7 +1404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config-drive/" class="md-nav__link">
+      <a href="../../nova/config-drive/" class="md-nav__link">
         
   
   
@@ -1454,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../resize-server/" class="md-nav__link">
+      <a href="../../nova/resize-server/" class="md-nav__link">
         
   
   
@@ -1477,7 +1450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../move-server-between-regions/" class="md-nav__link">
+      <a href="../../nova/move-server-between-regions/" class="md-nav__link">
         
   
   
@@ -1500,7 +1473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../restore-srv-to-snap/" class="md-nav__link">
+      <a href="../../nova/restore-srv-to-snap/" class="md-nav__link">
         
   
   
@@ -1523,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rescue-server/" class="md-nav__link">
+      <a href="../../nova/rescue-server/" class="md-nav__link">
         
   
   
@@ -5245,36 +5218,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#updating-local-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a server
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#viewing-information-about-the-newly-created-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Viewing information about the newly created server
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connecting-to-the-server-console" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connecting to the server console
+      Updating local files
     </span>
   </a>
   
@@ -5296,7 +5242,7 @@
 
 
   
-    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/nova/new-server.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/citynetwork/docs/edit/main/docs/howto/openstack/keystone/api-user-passwd.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5304,253 +5250,42 @@
   
 
 
-<h1 id="creating-new-servers">Creating new servers</h1>
-<p>Once you have an <a href="../../../getting-started/create-account/">account in
-Cleura Cloud</a>, you can create virtual machines &mdash; henceforth simply <em>servers</em> &mdash; using either the Cleura Cloud Management Panel or the OpenStack CLI.
-Let us demonstrate the creation of a new server, following both approaches.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>You need to <a href="../../neutron/new-network/">have at least one network</a> in the region you are interested in.
-Additionally, if you prefer to work with the OpenStack CLI, then make sure to properly <a href="../../../getting-started/enable-openstack-cli/">enable it first</a>.</p>
-<h2 id="creating-a-server">Creating a server</h2>
-<p>To create a server from the Cleura Cloud Management Panel, fire up your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and log into your Cleura Cloud account.
-On the other hand, if you prefer to work with the OpenStack CLI, please do not forget to <a href="../../../getting-started/enable-openstack-cli/">source the RC file first</a>.</p>
+<h1 id="changing-the-password-of-an-openstack-user">Changing the password of an OpenStack user</h1>
+<p>Having created at least one <a href="../../../getting-started/enable-openstack-cli/">OpenStack API user</a>, you may at any time change their password.
+You do so using the Cleura Cloud Management Panel, or the OpenStack CLI.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cleura Cloud Management Panel</label><label for="__tabbed_1_2">OpenStack CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>On the top right-hand side of the Cleura Cloud Management Panel, click the <em>Create</em> button.
-A new pane titled <em>Create</em> slides into view.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new Cleura Cloud object" src="../assets/new-server/shot-01.png" /></a></p>
-<p>Notice all these rounded boxes on that pane, each for defining, configuring, and instantiating a different Cleura Cloud object.
-Go ahead and click the <em>Server</em> box.</p>
-<p>Another pane, titled <em>Create a Server</em>, slides over.
-At the top, type in a name for the new server and select one of the available regions.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Type in server name and select region" src="../assets/new-server/shot-02.png" /></a></p>
-<p>Set the <em>Connect to</em> parameter to <em>Network</em>.
-Select at least one of the available networks to attach the new server to.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Attach server to a network, and optionally connect a floating IP to server" src="../assets/new-server/shot-03.png" /></a></p>
-<p>If that network is dual-stack or has one IPv4-based subnet, you may want the server to be publicly accessible via an IPv4 address.
-In that case, make sure to activate the <em>Connect&nbsp;a&nbsp;floating&nbsp;IP&nbsp;to&nbsp;the&nbsp;server</em> switch.
-Then, use the dropdown menu below to set the <em>Create&nbsp;External&nbsp;IP&nbsp;on</em> parameter to the network you have already attached the server to.</p>
-<p>Now, pay attention to the <em>Server profile</em> parameter.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select server profile" src="../assets/new-server/shot-04.png" /></a></p>
-<p>From the corresponding dropdown menu, you must select a profile.
-Currently, the following profiles are available:</p>
-<ul>
-<li><em>Generic</em>,</li>
-<li><em>High CPU</em>, and</li>
-<li><em>Low Latency Disk</em>.</li>
-</ul>
-<p>Selecting one of those gives you access to a subset of all available <a href="../../../../reference/flavors/"><em>flavors</em></a>.</p>
-<p>As the profile names suggest, each profile but the <em>Generic</em> points to a subset of flavors suitable for servers intended to run specific types of applications:</p>
-<ul>
-<li>the <em>Generic</em> profile is for general-purpose cloud servers,</li>
-<li>the <em>High CPU</em> profile is for servers designed to host CPU-intensive applications, and</li>
-<li>the <em>Low Latency Disk</em> profile is for servers that use a local low-latency disk.</li>
-</ul>
-<p>We should point out that some profiles may not be available in all regions.
-Choose the <em>Generic</em> profile for now, which is available in any of the regions.</p>
-<p>In the <em>Boot source</em> section below, click the dropdown menu on the left and make sure you select <em>Image</em>, so you can choose one of the readily available OS images to boot the new server off of.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Select boot source and image" src="../assets/new-server/shot-05.png" /></a></p>
-<p>To pick a specific image, click on the dropdown menu on the right.
-In this example, we have chosen <em>ubuntu</em> in general and <em>Ubuntu 24.04 Noble Numbat x86_64</em> in particular.</p>
-<p>Next, notice that the <em>Boot Target</em> is preselected for you.
-Depending on the server profile you have already selected, the boot target will be either <em>Volume</em> or <em>Ephemeral</em>.
-Specifically:</p>
-<ul>
-<li>for the <em>Generic</em> and <em>High CPU</em> profiles, the boot target is <em>Volume</em>, and</li>
-<li>for the <em>Low Latency Disk</em> profile, the boot target is <em>Ephemeral</em>.</li>
-</ul>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Boot target, volume, and volume size" src="../assets/new-server/shot-06.png" /></a></p>
-<p>Regarding the server&rsquo;s CPU core count and amount of memory, set the <a href="../../../../reference/flavors/"><em>Flavor</em></a> accordingly.
-We suggest selecting a flavor that specifies a server with 1 CPU core and 1 GiB of RAM.</p>
-<p>Note that, depending on the chosen flavor, the estimated monthly cost of the server changes.
-(While a server is shut off, you are still getting charged for it, but less so.)
-At any time, this estimated cost is displayed in the green rectangular area at the top.</p>
-<p>Something else that affects the cost is the size of the root device.
-Take a look at the <em>Volume</em> parameter below, and notice the default (in <a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibytes</a>).
-You may leave the root device size unchanged, or modify it to be a bit higher than the default.</p>
-<p>When, at a later time, you decide to delete the server, you can do so but <strong>keep</strong> its boot volume (you may want, for example, to attach that volume to a new server).
-Just disable the <em>Delete&nbsp;on&nbsp;termination</em> option if you want this kind of flexibility.
-On the other hand, if you want your root volume to be automatically deleted when the server is deleted, the <em>Delete&nbsp;on&nbsp;termination</em> option is already enabled for you.
-In any case, use this option with caution.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Boot target, volume, and volume size" src="../assets/new-server/shot-07.png" /></a></p>
-<p>Also, notice the <em>Storage classes (types)</em> parameter, which actually deals with <a href="../../../../reference/volumes/">volume types</a>.
-By default, this parameter is set to <em>cbs</em>.</p>
-<p>You may want to leave the <em>Disaster&nbsp;recovery</em> option enabled.
-If you do, then daily server snapshots will be created, and you will have the option for easy and fast roll-ups to previous snapshots.
-Please be aware that leaving this option enabled increases the server&rsquo;s monthly estimated cost (again, it is displayed in the green rectangular area at the top).</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Disaster recovery option" src="../assets/new-server/shot-08.png" /></a></p>
-<p>To control network access to the server, use the dropdown menu to the right of <a href="../../neutron/create-security-groups/"><em>Security Groups</em></a> and choose one.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Choose a security group" src="../assets/new-server/shot-09.png" /></a></p>
-<p>If you already have one or more key pairs in your Cleura Cloud account, you can now select a public key to be included in the <code>~/.ssh/authorized_keys</code> file of the server&rsquo;s default user.
-(For the image you have selected, that user would be <code>ubuntu</code>.)
-That way, you can securely log into the remote user&rsquo;s account via SSH without typing a password.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Indicate an existing keypair" src="../assets/new-server/shot-10.png" /></a></p>
-<p>In case there are no key pairs to choose from, activate the <em>Set&nbsp;password</em> option and set a password for the default user account (<code>ubuntu</code>).</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Optionally set a password for the default user account" src="../assets/new-server/shot-11.png" /></a></p>
-<p>A configuration script is automatically prepared based on the choices you have already made.
-That script runs during system boot and performs housekeeping tasks like user account creation, enabling acceptable authentication methods, and configuring remote package repositories.
-Click on <em>Advanced Options</em> to see the default script.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Default server configuration script and user data propagation method" src="../assets/new-server/shot-12.png" /></a></p>
-<p>Regarding the <em>User-data propagation method</em> above, notice that the <em>Use&nbsp;metadata&nbsp;service</em> is pre-selected for you.
-For more on what this is and why you might want to select the <em>Use&nbsp;configuration&nbsp;drive</em> method, please read our guide on <a href="../config-drive/">launching a server with a configuration drive</a>.</p>
-<p>It is now time to create your Cleura Cloud server.
-Click the green <em>Create</em> button, and the new server will be readily available in a few seconds.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Initiate server creation process" src="../assets/new-server/shot-13.png" /></a></p>
+<p>From your favorite web browser, navigate to the <a href="https://cleura.cloud">Cleura Cloud Management Panel</a> start page, and login into your Cleura Cloud account.</p>
+<p>Make sure the left-hand side vertical pane is fully visible, click the <em>Users</em> category to expand it, and click once more on <em>Openstack Users</em>.</p>
+<p>All of your OpenStack users, categorized by Cleura Cloud region, appear on the main pane.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="All OpenStack users" src="../assets/api-user-passwd-shot-01.png" /></a></p>
+<p>Locate the OpenStack user you wish to change their password, click the orange <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 8.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5m-5.5 0A1.5 1.5 0 0 0 5 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 8 12a1.5 1.5 0 0 0-1.5-1.5m11 0A1.5 1.5 0 0 0 16 12a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 19 12a1.5 1.5 0 0 0-1.5-1.5"/></svg></span> icon at the right of its row, and from the drop-down menu that appears, select <em>Modify Openstack user</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Modify OpenStack user" src="../assets/api-user-passwd-shot-02.png" /></a></p>
+<p>A vertical pane, titled <em>Modify Openstack User</em>, slides over from the right-hand side of the browser window.
+Notice the text field labeled <em>Password</em>.
+There, type-in a new password for the OpenStack user.
+When ready, confirm with a click on the green <em>Update</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Change password of OpenStack user" src="../assets/api-user-passwd-shot-03.png" /></a></p>
 </div>
 <div class="tabbed-block">
-<p>An <code>openstack</code> command for creating a server may look like this:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--flavor<span class="w"> </span><span class="nv">$FLAVOR_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--image<span class="w"> </span><span class="nv">$IMAGE_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--boot-from-volume<span class="w"> </span><span class="nv">$VOL_SIZE</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--network<span class="w"> </span><span class="nv">$NETWORK_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--security-group<span class="w"> </span><span class="nv">$SEC_GROUP_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--key-name<span class="w"> </span><span class="nv">$KEY_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nv">$SERVER_NAME</span>
+<p>First, source the RC file of the OpenStack user you wish to change their password.
+Then, change it as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>user<span class="w"> </span>password<span class="w"> </span><span class="nb">set</span>
+<span class="go">Current Password:</span>
+<span class="go">New Password:</span>
+<span class="go">Repeat New Password:</span>
 </code></pre></div>
-<p>Each variable represents a piece of information we have to look for or, in the cases of <code>KEY_NAME</code> and <code>SERVER_NAME</code>, arbitrarily define.</p>
-<p>Let us begin with the <a href="../../../../reference/flavors/"><em>flavors</em></a> (<code>FLAVOR_NAME</code>), which describe combinations of CPU core count and memory size.
-Each server has a distinct flavor, and to see all available flavors type:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>flavor<span class="w"> </span>list
-</code></pre></div>
-<p>You will get a pretty long list of flavors.
-For our demonstration, we suggest you go with <code>b.1c1gb</code>.
-A server with this particular flavor will have one CPU core and one <a href="https://en.wikipedia.org/wiki/Gigabyte#Base_2_(binary)">gibibyte</a> of RAM.
-Go ahead and set <code>FLAVOR_NAME</code> accordingly:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">FLAVOR_NAME</span><span class="o">=</span><span class="s2">&quot;b.1c1gb&quot;</span>
-</code></pre></div>
-<p>Your server should have an image to boot off of (<code>IMAGE_NAME</code>).
-For a list of all available images in Cleura Cloud, type:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list
-</code></pre></div>
-<p>This time, you get a shorter list, but you can still filter for images with the OS you prefer.
-For example, filter for Ubuntu:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>--tag<span class="w"> </span><span class="s2">&quot;os:ubuntu&quot;</span>
-</code></pre></div>
-<p>Continue with the <code>Ubuntu 24.04 Noble Numbat x86_64</code> image:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">IMAGE_NAME</span><span class="o">=</span><span class="s2">&quot;Ubuntu 24.04 Noble Numbat x86_64&quot;</span>
-</code></pre></div>
-<p>Before you go on, decide on the capacity (in gibibytes) of the server&rsquo;s boot volume (<code>VOL_SIZE</code>).
-We suggest you start with 10 gibibytes:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">VOL_SIZE</span><span class="o">=</span><span class="s2">&quot;10&quot;</span>
-</code></pre></div>
-<p>You need at least one network in the region you&rsquo;re about to create your new server (<code>NETWORK_NAME</code>).
-To get the names of all available (internal) networks, type:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>network<span class="w"> </span>list<span class="w"> </span>--internal<span class="w"> </span>-c<span class="w"> </span>Name
-
-<span class="go">+----------------+</span>
-<span class="go">| Name           |</span>
-<span class="go">+----------------+</span>
-<span class="go">| nordostbahnhof |</span>
-<span class="go">+----------------+</span>
-</code></pre></div>
-<p>Set the <code>NETWORK_NAME</code> variable accordingly:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">NETWORK_NAME</span><span class="o">=</span><span class="s2">&quot;nordostbahnhof&quot;</span>
-</code></pre></div>
-<p>Regarding the security group (<code>SEC_GROUP_NAME</code>), unless you have already created one yourself, you will find only one per region:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack<span class="w"> </span>security<span class="w"> </span>group<span class="w"> </span>list<span class="w"> </span>-c<span class="w"> </span>Name<span class="w"> </span>-c<span class="w"> </span>Description
-
-<span class="go">+---------+------------------------+</span>
-<span class="go">| Name    | Description            |</span>
-<span class="go">+---------+------------------------+</span>
-<span class="go">| default | Default security group |</span>
-<span class="go">+---------+------------------------+</span>
-</code></pre></div>
-<p>Go ahead and set <code>SEC_GROUP_NAME</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">SEC_GROUP_NAME</span><span class="o">=</span><span class="s2">&quot;default&quot;</span>
-</code></pre></div>
-<p>You most likely want a server you can remotely connect to via SSH without typing a password.
-Upload one of our public keys to your Cleura Cloud account:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>create<span class="w"> </span>--public-key<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>bahnhof
-</code></pre></div>
-<p>In the example above, we uploaded the public key <code>~/.ssh/id_ed25519.pub</code> to our Cleura Cloud account and named it <code>bahnhof</code>.
-Follow our example, and do not forget to set the <code>KEY_NAME</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">KEY_NAME</span><span class="o">=</span><span class="s2">&quot;bahnhof&quot;</span>
-</code></pre></div>
-<p>By the way, check all uploaded public keys&hellip;</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>list
-</code></pre></div>
-<p>&hellip;and get more information regarding the one you just uploaded:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>keypair<span class="w"> </span>show<span class="w"> </span><span class="nv">$KEY_NAME</span>
-</code></pre></div>
-<p>You are almost ready to create your new server. Decide on a name&hellip;</p>
-<div class="highlight"><pre><span></span><code><span class="nv">SERVER_NAME</span><span class="o">=</span><span class="s2">&quot;zug&quot;</span><span class="w"> </span><span class="c1"># just an example</span>
-</code></pre></div>
-<p>&hellip;and then go ahead and create it:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--flavor<span class="w"> </span>b.1c1gb<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--image<span class="w"> </span><span class="nv">$IMAGE_NAME</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--boot-from-volume<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--network<span class="w"> </span>nordostbahnhof<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--security-group<span class="w"> </span>default<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--key-name<span class="w"> </span>bahnhof<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>zug
-</code></pre></div>
-<p>(For clarity&rsquo;s sake, and with the exception of <code>$IMAGE_NAME</code>, we used the actual values and not the variables we so meticulously set.)
-The <code>--wait</code> parameter is optional.
-Whenever you choose to use it, you get back control of your terminal only after the server is readily available in Cleura Cloud.</p>
-<p>The network your server is attached to might be dual-stack, or it might have an IPv4-based subnet.
-If this is the case and, additionally, you want the server to be reachable via a public IPv4 address, then you need to create a floating IP and assign it to your server.
-First, create the floating IP:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>create<span class="w"> </span>ext-net
-</code></pre></div>
-<p>See all floating IPs&hellip;</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>list
-</code></pre></div>
-<p>&hellip;and assign the one you just created to your server:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>add<span class="w"> </span>floating<span class="w"> </span>ip<span class="w"> </span>zug<span class="w"> </span><span class="m">198</span>.51.100.12
-</code></pre></div>
-<p>The username of the default user account in the Ubuntu image is <code>ubuntu</code>, so now you can connect to your remote server via SSH without typing a password:</p>
-<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>ubuntu@198.51.100.12
-</code></pre></div>
-<p>Alternatively, you may also use the following command, which is more flexible though slightly longer:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>ssh<span class="w"> </span>--public<span class="w"> </span>zug<span class="w"> </span>--<span class="w"> </span>-l<span class="w"> </span>ubuntu
-</code></pre></div>
+<p>Before the new password is set, you are asked to enter the current password.
+Next, you enter the new password two times, for security reasons.
+Notice that what you type is not echoed on the terminal.</p>
+<p>Whenever the command above executes successfully, it returns no further output.</p>
 </div>
 </div>
 </div>
-<h2 id="viewing-information-about-the-newly-created-server">Viewing information about the newly created server</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cleura Cloud Management Panel</label><label for="__tabbed_2_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>At any time, from the Cleura Cloud Management Panel you may see all servers, and get detailed information regarding each one of them.
-Expand the left-hand side vertical pane, click <em>Compute</em>, then <em>Servers</em>, and, in the central pane, select the region you want.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="View server details" src="../assets/new-server/shot-14.png" /></a></p>
-</div>
-<div class="tabbed-block">
-<p>To see all available servers in the region, type:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>list
-</code></pre></div>
-<p>You can always get specific information on a particular server:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>server<span class="w"> </span>show<span class="w"> </span>zug
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="connecting-to-the-server-console">Connecting to the server console</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Cleura Cloud Management Panel</label><label for="__tabbed_3_2">OpenStack CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>While viewing information regarding your server, you may get its IPv6 or public IPv4 address (e.g., from the <em>Addresses</em> tab), and connect to it remotely via SSH.
-Alternatively, you may launch a web console and log in.
-Click on the three-dot icon on the right of the server header, and from the pop-up menu that appears, select <em>Remote Console</em>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Launch remote console" src="../assets/new-server/shot-15.png" /></a></p>
-<p>A new window pops up, and that&rsquo;s your web console to your Cleura Cloud server.
-Please note that this window cannot be resized but can be opened in a new browser window or tab.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="View and use server console" src="../assets/new-server/shot-16.png" /></a></p>
-</div>
-<div class="tabbed-block">
-<p>You may have access to the web console of your server, and you need the corresponding URL for it:</p>
-<div class="highlight"><pre><span></span><code>openstack<span class="w"> </span>console<span class="w"> </span>url<span class="w"> </span>show<span class="w"> </span>zug
-</code></pre></div>
-<p>Usage of the web console is discouraged, though.
-Instead, securely connect to your server via SSH.</p>
-</div>
-</div>
-</div>
+<h2 id="updating-local-files">Updating local files</h2>
+<p>After changing the password of a specific OpenStack user, please do not forget to update your local copy of the corresponding RC file &ndash; and then source it.</p>
+<p>Finally, do the same for any <code>clouds.yaml</code> file that still has the old OpenStack user password.</p>
 
 
 
@@ -5573,7 +5308,7 @@ Instead, securely connect to your server via SSH.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 29, 2025 09:50:44 UTC">2025-07-29</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 2, 2025 10:26:31 UTC">2025-09-02</span>
   </span>
 
     
@@ -5583,7 +5318,7 @@ Instead, securely connect to your server via SSH.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 3, 2022 20:12:34 UTC">2022-11-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 2, 2025 10:26:31 UTC">2025-09-02</span>
   </span>
 
     
@@ -5593,11 +5328,11 @@ Instead, securely connect to your server via SSH.</p>
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
-      Christos Varelas, Florian Haas
+      Christos Varelas
     </nav>
   </span>
 
