@@ -1,5 +1,6 @@
 title: Account & Billing
 nav:
+  - index.md
   - forgot-your-password.md
   - change-account-data.md
   - change-credit-card.md
