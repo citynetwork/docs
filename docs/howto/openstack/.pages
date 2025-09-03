@@ -1,1 +1,10 @@
 title: OpenStack
+nav:
+  - nova
+  - neutron
+  - octavia
+  - cinder
+  - glance
+  - magnum
+  - keystone
+  - barbican
