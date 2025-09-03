@@ -1,4 +1,4 @@
-title: "Magnum (Kubernetes cluster management)"
+title: "Kubernetes management (Magnum)"
 nav:
   - new-k8s-cluster.md
   - kubectl.md
