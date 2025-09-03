@@ -1,4 +1,4 @@
-title: "Cinder (persistent block storage)"
+title: "Block storage (Cinder)"
 nav:
   - resize-volumes.md
   - encrypted-volumes.md
