@@ -1,5 +1,6 @@
 title: "Networking (Neutron)"
 nav:
+  - index.md
   - new-network.md
   - create-security-groups.md
   - multiple-public-ips.md

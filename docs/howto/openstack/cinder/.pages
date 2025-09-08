@@ -1,5 +1,6 @@
 title: "Block storage (Cinder)"
 nav:
+  - index.md
   - resize-volumes.md
   - encrypted-volumes.md
   - retype-volumes.md
