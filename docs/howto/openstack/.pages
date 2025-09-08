@@ -1,5 +1,6 @@
 title: OpenStack
 nav:
+  - index.md
   - nova
   - neutron
   - octavia
