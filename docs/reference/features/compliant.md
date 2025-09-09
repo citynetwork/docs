@@ -46,3 +46,10 @@
 | Application layer (HTTP)                                                                                    | :material-check: | :material-check: | :material-check: |
 | Application layer ([HTTPS, with secrets management for TLS certificates](../../howto/openstack/octavia/tls-lb.md)) | :material-check: | :material-check: | :material-check: |
 | [Metrics endpoint](../../howto/openstack/octavia/metrics.md)                                                | :material-check: | :material-check: | :material-check: |
+
+
+## Kubernetes management
+|                            | Sto1HS           | Sto2HS           | Sto-Com          |
+| -----------------          | ---------------- | ---------------- | ---------------- |
+| OpenStack Magnum           | :material-check: | :material-check: | :material-close: |
+| {{k8s_management_service}} | :material-check: | :material-check: | :material-check: |
