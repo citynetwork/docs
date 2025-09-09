@@ -13,6 +13,9 @@ DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*fixme.*"
 # Ignore Swift API endpoints
 DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*/swift/.*"
 
+# www.terraform.io links to developer.hashicorp.com, which is rate-limited
+DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*www.terraform.io.*"
+
 # Remove this whenever kubernetes.io becomes reliable again
 DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*kubernetes.io.*"
 
