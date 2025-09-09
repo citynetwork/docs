@@ -9,7 +9,7 @@
 | Glance (image management)      | Caracal | Caracal | Caracal |
 | Heat (orchestration)           | Caracal | Caracal | Caracal |
 | Keystone (identity management) | Caracal | Caracal | Caracal |
-| Magnum (container management)  | Caracal | Caracal | Caracal |
+| Magnum (container management)  | Caracal | Caracal | :material-close: |
 | Neutron (networking)           | Caracal | Caracal | Caracal |
 | Nova (server virtualization)   | Caracal | Caracal | Caracal |
 | Octavia (load balancing)       | Caracal | Caracal | Caracal |
