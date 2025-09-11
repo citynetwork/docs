@@ -72,3 +72,31 @@ After a few seconds, the new values for the autoscaler parameters will be visibl
 
 ![View modified Worker Group](assets/shoot-enable-ha-11.png)
 
+## Having Worker Groups in different Availability Zones
+
+Another way to make Worker Groups highly available is to have _at least_ two such groups, each in its own Availability Zone (AZ).
+
+To create a new Worker Group in its own AZ, begin by locating the cluster you are interested in, then click its row to have all relevant details in full view.
+Click once more on the _Worker Groups_ tab to see all available groups.
+In the example below, there is only one Worker Group that resides in the AZ named `az1`.
+To create a new Worker Group, click on the green _Create a Worker Group_ button.
+
+![{{k8s_management_service}} cluster with one Worker Group](assets/shoot-enable-ha-12.png)
+
+A vertical pane named _Create Worker Group_ slides over from the right.
+There, you see the parameters of a new group.
+Before you create it, click on the drop-down menu for _Availability Zones_, and indicate an AZ for the new group.
+Make sure you pick one which is **different** from the AZ where the first Worker Group resides.
+
+![Selecting an Availability Zone for a new Worker Group](assets/shoot-enable-ha-13.png)
+
+Optionally, you can have the new Worker Group reside **only** in the new AZ you just selected:
+for that, click the old AZ label to remove it.
+Finally, click on the green _Create_ button to instantiate the new WG.
+
+![Removing the label of the default Availability Zone and create the new Worker Group](assets/shoot-enable-ha-14.png)
+
+When the new Worker Group is ready, you can see all groups in the _Worker Groups_ tab, each in its own AZ.
+
+![Two Worker Groups, each in its own Availability Zone](assets/shoot-enable-ha-15.png)
+
