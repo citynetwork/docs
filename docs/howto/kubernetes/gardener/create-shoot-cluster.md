@@ -4,7 +4,6 @@ description: How to spin up a Kubernetes cluster with Gardener
 # Creating a Kubernetes cluster
 
 To create a Kubernetes cluster, you may use the {{gui}} and the {{k8s_management_service}} service in particular.
-This guide shows you how to do that.
 
 ## Prerequisites
 
@@ -20,72 +19,76 @@ In {{k8s_management_service}} terminology, a Kubernetes cluster is referred to a
 
 At the top right-hand side of the central pane, click on *Create Kubernetes cluster*.
 
-![{{k8s_management_service}} page in {{gui}}](assets/create-shoot-00.png)
+![{{k8s_management_service}} page in {{gui}}](assets/create-shoot-01.png)
 
 A new pane named *Create {{k8s_management_service}} Shoot Cluster* slides over from the right-hand side of the browser.
 Type in a name for the new shoot cluster, and select a region.
 Also, select the version of Kubernetes the new cluster will be running.
-In the example below, we have chosen version 1.30.5, which, at the time of writing, was the latest supported in {{brand}}.
-Please note the *Load balancer provider* and *Availability Zone* parameters.
-Both are already set and for the time being, you cannot modify any of them.
+In the example below, we have chosen version 1.32.7, which, at the time of writing, was the latest supported in {{brand}}.
+Please note the *Load balancer provider* parameter, which is already set.
+By turning on the setting below, which is by default disabled, you may enable high availability for the **control plane** of the new cluster.
 
-!["Create {{k8s_management_service}} Shoot Cluster" panel, showing options to type in a cluster name, select region and Kubernetes version](assets/create-shoot-01.png)
+!["Create {{k8s_management_service}} Shoot Cluster" panel, showing options to type in a cluster name, select a region, set the Kubernetes version, and turn on HA for the control plane](assets/create-shoot-02.png)
+
+You should keep in mind that once you enable high availability for the control plane, you cannot disable it for that particular cluster.
+
+![Once you enable high availability for the control plane, you cannot disable it](assets/create-shoot-03.png)
 
 Next, you may accept the proposed network address (in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)) for the worker nodes, or type in the one you prefer.
 
-![Accept the proposed CIDR network address for the worker nodes or type in the CIDR network address you prefer](assets/create-shoot-02.png)
+![Accept the proposed CIDR network address for the worker nodes or type in the CIDR network address you prefer](assets/create-shoot-04.png)
 
 Alternatively, click on the drop-down menu at the right-hand side of *Network for worker nodes*.
 From the available menu items, choose a pre-existing network.
 Be sure to select one that has an assigned subnet and is connected to a router.
 
-![Select a pre-existing network](assets/create-shoot-03.png)
+![Select a pre-existing network](assets/create-shoot-05.png)
 
 Then, define a new subnet for the worker nodes by typing in a CIDR network address.
 If the new subnet overlaps with one of the subnets of the network you just selected, you will see an error message in red.
 
-![Select a pre-existing network](assets/create-shoot-04.png)
+![Select a pre-existing network](assets/create-shoot-06.png)
 
 Instead, you should define a subnet that does not overlap with any of the subnets of your selected network.
 
-![New, valid subnet for the worker nodes](assets/create-shoot-05.png)
+![New, valid subnet for the worker nodes](assets/create-shoot-07.png)
 
 Now, scroll down a bit until you bring the *Worker Groups* section into full view.
 Make sure there is at least one defined.
 (By default, you start with one Worker Group.)
 Pay attention to the values you may set for the following parameters, and keep in mind that they apply to the particular Worker Group only.
-In case you'll create another Worker Group, you'll have another set of parameters for it.
+If you create another Worker Group, you'll have another set of parameters for it.
 
 * *Flavor:* The [flavor](../../../reference/flavors/index.md) your worker nodes will use;
 this determines the number of CPU cores and the amount of RAM allocated to them.
 * *Volume Size:* The amount of local storage allocated to each worker node.
 * *Autoscaler Min:* The minimum number of worker nodes to run at any time.
-* *Autoscaler Max:* The maximum number of worker nodes the cluster automatically scales to, in the event that the current number of nodes cannot handle the deployed workload.
+* *Autoscaler Max:* The maximum number of worker nodes the cluster automatically scales to, in case the current number of nodes cannot handle the deployed workload.
 * *Max Surge:* The maximum number of additional nodes to deploy in an autoscaling event.
 
-!["Create {{k8s_management_service}} Shoot Cluster" panel](assets/create-shoot-06.png)
+!["Create {{k8s_management_service}} Shoot Cluster" panel](assets/create-shoot-08.png)
 
 For a test cluster, feel free to leave each parameter at its default value.
 When you scroll a bit further down, you see that for each Worker Group you may add [*Labels*](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels), [*Annotations*](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations), or [*Taints*](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration).
 
-!["Define Labels, Annotations, or Taints"](assets/create-shoot-07.png)
+!["Define Labels, Annotations, or Taints"](assets/create-shoot-09.png)
 
 Each shoot cluster in {{brand}} has a maintenance window.
 Additionally, the operating system of the worker nodes can be automatically updated, and so can Kubernetes itself.
 Do not change anything regarding the maintenance window or the [updates](rolling-upgrades.md), for everything is already set for you.
 Instead, at the bottom of the pane, click the green *Create* button.
 
-!["Create {{k8s_management_service}} Shoot Cluster" panel](assets/create-shoot-08.png)
+!["Create {{k8s_management_service}} Shoot Cluster" panel](assets/create-shoot-10.png)
 
 In the list of clusters, you will see your new {{k8s_management_service}} shoot bootstrapping.
 The animated icon on the left-hand side of the cluster row marks the progress.
 Creating the cluster may take several minutes.
 
-![Shoot cluster bootstrapping](assets/create-shoot-09.png)
+![Shoot cluster bootstrapping](assets/create-shoot-11.png)
 
-Once your Gardener cluster has successfully launched, a green check mark will appear at the left of the cluster row.
+Once your {{k8s_management_service}} cluster has successfully launched, a green check mark (:material-check-circle:) will appear to the left of the cluster row.
 
-![Shoot cluster is ready](assets/create-shoot-10.png)
+![Shoot cluster is ready](assets/create-shoot-12.png)
 
 ### A note on quotas
 
@@ -102,26 +105,26 @@ If necessary, be sure to request a quota increase via our [{{support}}](https://
 After the new shoot cluster finishes bootstrapping, you may click on its row to bring all relevant details into view.
 For instance, click the *Details* tab to get networking information about the worker nodes.
 
-![Networking information about the worker nodes](assets/create-shoot-11.png)
+![Details regarding the new cluster](assets/create-shoot-13.png)
 
 Next, go to the *Monitoring* tab.
 There, you will notice two orange buttons: one for launching [Prometheus](https://prometheus.io), and one for launching [Plutono](https://github.com/credativ/plutono).
 
-![Monitoring tab for launching Prometheus or Plutono](assets/create-shoot-12.png)
+![Monitoring tab for launching Prometheus or Plutono](assets/create-shoot-14.png)
 
 As an example, we have clicked the button for Plutono.
-Prior to launching the dashboard, a pop-up window appears.
+Before launching the dashboard, a pop-up window appears.
 This shows the default username (`admin`), and the masked generated password.
 You get this pop-up every time you click on either of the orange buttons.
 In any case, to copy the password into the clipboard, click the related button shown below.
 Then, click the orange button labeled *Open Dashboard*.
 
-![Copy the Plutono password](assets/create-shoot-13.png)
+![Copy the Plutono password](assets/create-shoot-15.png)
 
 After typing in the default username and pasting the password, you get access to the Prometheus or Plutono dashboard for your shoot cluster.
 In the example below, we have the Plutono dashboard displaying graphical information regarding the cluster nodes.
 
-![Plutono dashboard displaying information about the worker nodes](assets/create-shoot-14.png)
+![Plutono dashboard displaying information about the worker nodes](assets/create-shoot-16.png)
 
 ## Interacting with your cluster
 
