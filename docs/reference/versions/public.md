@@ -2,17 +2,17 @@
 
 ## OpenStack Services
 
-|                                | Kna1    | Sto2    | Fra1  |
-| ------------------------------ | ------- | ------  | ----- |
-| Barbican (secret storage)      | Caracal | Caracal | Epoxy |
-| Cinder (block storage)         | Caracal | Caracal | Epoxy |
-| Glance (image management)      | Caracal | Caracal | Epoxy |
-| Heat (orchestration)           | Caracal | Caracal | Epoxy |
-| Keystone (identity management) | Caracal | Caracal | Epoxy |
-| Magnum (container management)  | Caracal | Caracal | Epoxy |
-| Neutron (networking)           | Caracal | Caracal | Epoxy |
-| Nova (server virtualization)   | Caracal | Caracal | Epoxy |
-| Octavia (load balancing)       | Caracal | Caracal | Epoxy |
+|                                | Kna1    | Sto2  | Fra1  |
+| ------------------------------ | ------- | ----- | ----- |
+| Barbican (secret storage)      | Caracal | Epoxy | Epoxy |
+| Cinder (block storage)         | Caracal | Epoxy | Epoxy |
+| Glance (image management)      | Caracal | Epoxy | Epoxy |
+| Heat (orchestration)           | Caracal | Epoxy | Epoxy |
+| Keystone (identity management) | Caracal | Epoxy | Epoxy |
+| Magnum (container management)  | Caracal | Epoxy | Epoxy |
+| Neutron (networking)           | Caracal | Epoxy | Epoxy |
+| Nova (server virtualization)   | Caracal | Epoxy | Epoxy |
+| Octavia (load balancing)       | Caracal | Epoxy | Epoxy |
 
 
 ## Ceph Services
