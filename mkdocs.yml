@@ -23,7 +23,7 @@ extra:
   company: "Cleura"
   company_domain: "cleura.com"
   gui: "Cleura Cloud Management Panel"
-  gui_domain: "cleura.cloud"
+  gui_domain: "compliant.cleura.cloud"
   k8s_management_service: Gardener
   legal_docs:
     cc_by_sa:
@@ -41,7 +41,7 @@ extra:
       name: "Transfer Form"
       url: "https://s3-kna1.citycloud.com/6a5aa55d8f094a13ae18199639aa72c2:cleura.files/Cleura-Form-Transfer-Ownership.pdf"
   rest_api: "Cleura Cloud REST API"
-  rest_api_domain: "rest.cleura.cloud"
+  rest_api_domain: "rest.compliant.cleura.cloud"
   support: "Service Center"
   support_domain: "servicecenter.cleura.cloud"
   support_email: "support@cleura.com"
