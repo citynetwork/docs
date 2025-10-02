@@ -92,59 +92,59 @@ All supported regions should be returned as objects in a JSON array:
 [
   {
     "area": {
-      "id": "6",
-      "name": "Sweden \/ Stockholm",
-      "tag": "SE_STO2",
+      "id": 4,
+      "name": "CityCloud Compliant Sto1hs",
+      "tag": "STO1HS",
       "regions": [
         {
-          "zone_id": "2",
-          "name": "Stockholm \/ Sweden",
+          "zone_id": 103,
+          "name": "Sto1 HS",
           "status": "active",
-          "region": "Sto2"
+          "region": "sto1hs"
         }
       ]
     },
     "id": "b7c3998142f0496aa3582d8a3ae9ae1e",
     "status": "provisioned",
-    "name": "CCP_Domain_123P456",
+    "name": "CCP_Domain_123C456",
     "enabled": true
   },
   {
     "area": {
-      "id": "7",
-      "name": "Germany \/ Frankfurt",
-      "tag": "DE",
+      "id": 1,
+      "name": "CityCloud Compliant Sto2hs",
+      "tag": "STO2HS",
       "regions": [
         {
-          "zone_id": "6",
-          "name": "Frankfurt \/ Germany",
+          "zone_id": 101,
+          "name": "Sto2 HS",
           "status": "active",
-          "region": "Fra1"
+          "region": "sto2hs"
         }
       ]
     },
     "id": "2d04a791db0e4a799b65c3794eda09bf",
     "status": "provisioned",
-    "name": "CCP_Domain_123P456",
+    "name": "CCP_Domain_123C456",
     "enabled": true
   },
   {
     "area": {
-      "id": "1",
-      "name": "Europe",
-      "tag": "EU",
+      "id": 5,
+      "name": "Cleura STO-COM",
+      "tag": "STO-COM",
       "regions": [
         {
-          "zone_id": "1",
-          "name": "Karlskrona \/ Sweden",
+          "zone_id": 104,
+          "name": "Stockholm Compliant",
           "status": "active",
-          "region": "Kna1"
+          "region": "sto-com"
         }
       ]
     },
     "id": "989d137c832c42eb9a6c6839a5c28675",
     "status": "provisioned",
-    "name": "CCP_Domain_123P456",
+    "name": "CCP_Domain_123C456",
     "enabled": true
   }
 ]
