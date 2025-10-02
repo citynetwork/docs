@@ -104,9 +104,9 @@ All supported regions should be returned as objects in a JSON array:
         }
       ]
     },
-    "id": "79b0cef45b504586ad0bf057dc4cb8b8",
+    "id": "b7c3998142f0496aa3582d8a3ae9ae1e",
     "status": "provisioned",
-    "name": "CCP_Domain_43597",
+    "name": "CCP_Domain_123P456",
     "enabled": true
   },
   {
@@ -123,9 +123,9 @@ All supported regions should be returned as objects in a JSON array:
         }
       ]
     },
-    "id": "08db589d04f442e19c272f2cd1a02906",
+    "id": "2d04a791db0e4a799b65c3794eda09bf",
     "status": "provisioned",
-    "name": "CCP_Domain_43597",
+    "name": "CCP_Domain_123P456",
     "enabled": true
   },
   {
@@ -142,9 +142,9 @@ All supported regions should be returned as objects in a JSON array:
         }
       ]
     },
-    "id": "a018123218f5428ba96d7fb212d90cf2",
+    "id": "989d137c832c42eb9a6c6839a5c28675",
     "status": "provisioned",
-    "name": "CCP_Domain_43597",
+    "name": "CCP_Domain_123P456",
     "enabled": true
   }
 ]
