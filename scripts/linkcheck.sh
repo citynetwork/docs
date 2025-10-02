@@ -13,6 +13,9 @@ DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*fixme.*"
 # Ignore Swift API endpoints
 DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*/swift/.*"
 
+# Ignore Compliant Cloud API endpoints, which are rate-limited
+DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*//sto1hs.citycloud.com.*"
+
 # www.terraform.io links to developer.hashicorp.com, which is rate-limited
 DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*www.terraform.io.*"
 
