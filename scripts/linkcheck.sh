@@ -5,13 +5,16 @@ if [ -n "$DOCS_DISABLE_LINKCHECK" ]; then
     exit 0
 fi
 
-DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.* .*sto-com.cleura.cloud.*'
+DOCS_LINKCHECK_IGNORE='.*github\.com.*/edit/.*'
 
 # Ignore placeholder links
 DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*fixme.*"
 
 # Ignore Swift API endpoints
 DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*/swift/.*"
+
+# Ignore Compliant Cloud API endpoints, which are rate-limited
+DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*sto-com.cleura.cloud.*"
 
 # www.terraform.io links to developer.hashicorp.com, which is rate-limited
 DOCS_LINKCHECK_IGNORE="$DOCS_LINKCHECK_IGNORE .*www.terraform.io.*"
