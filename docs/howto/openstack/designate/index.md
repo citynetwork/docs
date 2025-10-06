@@ -1,4 +1,4 @@
-# Using OpenStack Designate for DNS
+# DNS (Designate)
 
 **[Designate](https://docs.openstack.org/designate/latest)** is OpenStack's DNS-as-a-Service solution.
 In {{brand}}, you may use Designate for the following purposes:
