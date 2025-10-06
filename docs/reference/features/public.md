@@ -48,6 +48,18 @@
 | [Metrics endpoint](../../howto/openstack/octavia/metrics.md)                                                       | :material-check: | :material-check: | :material-check: |
 
 
+## DNS
+
+|                      | Kna1             | Sto2             | Fra1                  |
+| -------------------- | ---------------- | ---------------- | ----------------      |
+| Zones                | :material-close: | :material-close: | :material-timer-sand: |
+| A records            | :material-close: | :material-close: | :material-timer-sand: |
+| AAAA records         | :material-close: | :material-close: | :material-timer-sand: |
+| PTR records          | :material-close: | :material-close: | :material-close:      |
+| SRV records          | :material-close: | :material-close: | :material-timer-sand: |
+| TXT records          | :material-close: | :material-close: | :material-timer-sand: |
+
+
 ## Kubernetes management
 |                            | Kna1             | Sto2             | Fra1             |
 | -----------------          | ---------------- | ---------------- | ---------------- |
