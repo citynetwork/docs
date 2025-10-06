@@ -34,7 +34,7 @@
 |                      | Sto1HS           | Sto2HS           | Sto-Com          |
 | -------------------- | ---------------- | ---------------- | ---------------- |
 | IPv4 (with NAT)      | :material-check: | :material-check: | :material-check: |
-| IPv6                 | :material-timer-sand: | :material-close: | :material-close: |
+| IPv6                 | :material-timer-sand: | :material-close: | :material-check: |
 | VPN (IPsec with PSK) | :material-check: | :material-check: | :material-close: |
 
 
