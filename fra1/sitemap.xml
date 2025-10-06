@@ -317,6 +317,18 @@
          <lastmod>2025-10-06</lastmod>
     </url>
     <url>
+         <loc>https://docs.cleura.cloud/main/howto/openstack/designate/</loc>
+         <lastmod>2025-10-06</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/main/howto/openstack/designate/recordsets/</loc>
+         <lastmod>2025-10-06</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.cleura.cloud/main/howto/openstack/designate/zones/</loc>
+         <lastmod>2025-10-06</lastmod>
+    </url>
+    <url>
          <loc>https://docs.cleura.cloud/main/howto/openstack/glance/</loc>
          <lastmod>2025-10-06</lastmod>
     </url>
