@@ -52,7 +52,7 @@ Users may define policies so that a specific bucket is located in a single AZ.
 |                      | Sto1HS           | Sto2HS           | Sto-Com          |
 | -------------------- | ---------------- | ---------------- | ---------------- |
 | IPv4 (with NAT)      | :material-check: | :material-check: | :material-check: |
-| IPv6                 | :material-timer-sand: | :material-close: | :material-close: |
+| IPv6                 | :material-timer-sand: | :material-close: | :material-check: |
 | VPN (IPsec with PSK) | :material-check: | :material-check: | :material-close: |
 
 In {{api_region}}, Quality of Service in Neutron is configured for tenant networks, router gateways, and floating IPs:
