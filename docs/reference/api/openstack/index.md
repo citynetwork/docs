@@ -25,6 +25,7 @@ The {{brand}} {{api_region}} region exposes the following OpenStack API endpoint
 | placement    | placement       | <https://{{api_region|lower}}.{{api_domain}}:8780/>             |
 | heat         | orchestration   | <https://{{api_region|lower}}.{{api_domain}}:8004/>             |
 | neutron      | network         | <https://{{api_region|lower}}.{{api_domain}}:9696/>             |
+| designate    | dns             | <https://{{api_region|lower}}.{{api_domain}}:9001/>             |
 | nova         | compute         | <https://{{api_region|lower}}.{{api_domain}}:8774/>             |
 | glance       | image           | <https://{{api_region|lower}}.{{api_domain}}:9292/>             |
 | magnum       | container-infra | <https://{{api_region|lower}}.{{api_domain}}:9511/>             |
