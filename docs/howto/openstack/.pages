@@ -3,6 +3,7 @@ nav:
   - index.md
   - nova
   - neutron
+  - designate
   - octavia
   - cinder
   - glance
