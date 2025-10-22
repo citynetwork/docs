@@ -50,14 +50,14 @@
 
 ## DNS
 
-|                      | Sto1HS                | Sto2HS           | Sto-Com          |
-| -------------------- | ----------------      | ---------------- | ---------------- |
-| Zones                | :material-timer-sand: | :material-close: | :material-close: |
-| A records            | :material-timer-sand: | :material-close: | :material-close: |
-| AAAA records         | :material-timer-sand: | :material-close: | :material-close: |
-| PTR records          | :material-close:      | :material-close: | :material-close: |
-| SRV records          | :material-timer-sand: | :material-close: | :material-close: |
-| TXT records          | :material-timer-sand: | :material-close: | :material-close: |
+|                      | Sto1HS                | Sto2HS                | Sto-Com          |
+| -------------------- | ----------------      | ----------------      | ---------------- |
+| Zones                | :material-timer-sand: | :material-timer-sand: | :material-close: |
+| A records            | :material-timer-sand: | :material-timer-sand: | :material-close: |
+| AAAA records         | :material-timer-sand: | :material-timer-sand: | :material-close: |
+| PTR records          | :material-close:      | :material-close:      | :material-close: |
+| SRV records          | :material-timer-sand: | :material-timer-sand: | :material-close: |
+| TXT records          | :material-timer-sand: | :material-timer-sand: | :material-close: |
 
 
 ## Kubernetes management
