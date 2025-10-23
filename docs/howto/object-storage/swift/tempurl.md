@@ -100,14 +100,14 @@ You must then use your freshly generated TempURL path as the path in a URL point
 This will enable you to fetch the object using a simple HTTP client, like `curl`:
 
 ```console
-$ curl 'https://swift-{{api_region|lower}}.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
+$ curl 'https://swift-{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
 hello world
 ```
 
 If you (or someone else) were to attempt to fetch the same URL *after* its lifetime expired, they would be met with an [HTTP 401](https://http.cat/401) error:
 
 ```console
-$ curl -i 'https://swift-{{api_region|lower}}.{{api_domain}}:8080/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
+$ curl -i 'https://swift-{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_30a7768a0ffc40359d6110f21a6e7d88/private-container/testobj.txt?temp_url_sig=995d136bf2a8b1140d4b26886c9a8fc73bfb6c0d&temp_url_expires=1670250048'
 HTTP/1.1 401 Unauthorized
 content-length: 12
 x-trans-id: tx0000001113c5020d8a1de-00638df0ea-301ddeb-default
