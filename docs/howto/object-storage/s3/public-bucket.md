@@ -53,17 +53,17 @@ To apply this policy to a bucket such that read-only access is permitted for eve
 To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like `curl`, you must construct its URI as follows:
 
 ```plain
-https://s3-{{api_region|lower}}.{{api_domain}}/<project-uuid>:<bucket-name>/object-name
+https://s3-{{api_region|lower}}.{{api_domain}}/<bucket-name>/object-name
 ```
 
 > Your project UUID is listed as the `project_id` field in the output of the `openstack ec2 credentials create` command you used to [create your S3-compatible credentials](credentials.md).
 >
 > If you did not note it down at the time of account creation, you can always retrieve it with `openstack ec2 credentials <access-key>`.
 
-For example, to retrieve an object named `bar.pdf` in a bucket named `foo` from the project with the UUID `07576783684248f7b2745e34356c6025` in the {{brand}} {{api_region}} region, you would run:
+For example, to retrieve an object named `bar.pdf` in a bucket named `foo` in the {{brand}} {{api_region}} region, you would run:
 
 ```console
-$ curl -O https://s3-{{api_region|lower}}.{{api_domain}}/07576783684248f7b2745e34356c6025:foo/bar.pdf
+$ curl -O https://s3-{{api_region|lower}}.{{api_domain}}/foo/bar.pdf
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k
@@ -75,7 +75,7 @@ Once you make a bucket public via the S3 API, its objects also become accessible
 
 Thus, the following URL paths allow you to retrieve the same public object:
 
-* `https://s3-{{api_region|lower}}.{{api_domain}}/07576783684248f7b2745e34356c6025:foo/bar.pdf`
+* `https://s3-{{api_region|lower}}.{{api_domain}}/foo/bar.pdf`
 * `https://swift-{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf`
 
 ## Enabling bucket listing
@@ -112,7 +112,7 @@ You can then open a bucket path in your browser, to retrieve an XML document con
 You would construct the URL by the following schema:
 
 ```plain
-https://s3-{{api_region|lower}}.{{api_domain}}/<project-uuid>:<bucket-name>
+https://s3-{{api_region|lower}}.{{api_domain}}/<bucket-name>
 ```
 
 ## Removing a public read policy from a bucket
