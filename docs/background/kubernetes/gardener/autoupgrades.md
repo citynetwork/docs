@@ -37,3 +37,71 @@ Whenever a {{k8s_management_service}} cluster is [hibernated](hibernation.md), a
 
 If automatic upgrades are enabled on a hibernated cluster, then waking the cluster will initiate an immediate automated upgrade.
 That is to say that, rather than recreating them with the old versions and waiting for the next maintenance window, {{k8s_management_service}} recreates the worker nodes using current (updated) Garden Linux and Kubernetes versions.
+
+## Forced upgrades
+
+For a {{k8s_management_service}} cluster, it is possible to disable automatic upgrades both for Garden Linux *and* Kubernetes.
+
+![Disable automatic upgrades](assets/disable_automatic_upgrades.png)
+
+Even so, you may find out that, from time to time, your cluster gets upgraded.
+These seemingly unscheduled upgrades happen when either the cluster's Kubernetes or Garden Linux release _expires_.
+In this context, the expiration happens about a month after the _next_ release of Kubernetes or Garden Linux is out.
+
+You may use the [{{brand}} REST API](../../../howto/getting-started/accessing-cc-rest-api.md) to know in advance if any of your Gardener clusters is about to expire.
+Consider the following example, specifically paying attention to the `expirationDate` field:
+
+```console
+$ curl -s -H "X-AUTH-LOGIN: <username>" -H "X-AUTH-TOKEN: <token>" \
+    https://rest.cleura.cloud/gardener/v1/public/cloudprofile | jq
+
+[
+  {
+    "name": "cleuracloud",
+    "spec": {
+      "kubernetes": {
+        "versions": [
+          {
+            "version": "1.30.14",
+            "classification": "supported"
+          },
+          {
+            "version": "1.31.11",
+            "expirationDate": "2025-09-24T00:00:00Z",
+            "classification": "deprecated"
+          },
+
+      [...]
+
+      "machineImages": [
+        {
+          "name": "gardenlinux",
+          "versions": [
+            {
+              "version": "1592.9.0",
+              "expirationDate": "2025-09-02T00:00:00Z",
+              "classification": "deprecated",
+              "cri": [
+                {
+                  "name": "containerd"
+                }
+              ],
+              "architectures": [
+                "amd64"
+              ]
+            },
+            {
+              "version": "1592.14.0",
+              "classification": "supported",
+              "cri": [
+                {
+                  "name": "containerd"
+                }
+              ],
+              "architectures": [
+                "amd64"
+              ]
+            },
+
+            [...]
+```
