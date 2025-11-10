@@ -30,6 +30,7 @@ jobs:
           name: build-${{ matrix.python-version }}-${{ github.sha }}
           path: site/
     strategy:
+      fail-fast: false
       matrix:
         python-version:
           - '3.10'
