@@ -25,6 +25,7 @@ The {{brand}} {{api_region}} region exposes the following OpenStack API endpoint
 | placement    | placement       | <https://placement.{{api_region|lower}}.{{api_domain}}/>        |
 | heat         | orchestration   | <https://orchestration.{{api_region|lower}}.{{api_domain}}/>    |
 | neutron      | network         | <https://network.{{api_region|lower}}.{{api_domain}}/>          |
+| designate    | dns             | <https://dns.{{api_region|lower}}.{{api_domain}}/>              |
 | nova         | compute         | <https://compute.{{api_region|lower}}.{{api_domain}}/>          |
 | glance       | image           | <https://image.{{api_region|lower}}.{{api_domain}}/>            |
 
