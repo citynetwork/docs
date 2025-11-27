@@ -9,11 +9,11 @@ It serves to provide general reference information about {{brand}} services.
 
 * The **[Limitations](limitations/index.md)** section lists support limitations for specific {{brand}} services.
 
-* The **[DNS servers](designate/index.md)** reference offers clarifications regarding the physical locations of the name servers used by Designate.
-
 * The **[Flavors](flavors/index.md)** reference explains our naming convention for pre-defined CPU/RAM/disk configurations ("flavors") for server instances, and their availability across {{brand}} regions.
 
 * The **[Volume Types](volumes/index.md)** reference lists the available persistent block storage ("volume") types.
+
+* The **[DNS servers](dns/index.md)** reference offers clarifications regarding the physical locations of the name servers used by Designate.
 
 * Our **[Service Version Matrix](versions/index.md)** lists the open source software versions running in our {{brand}} regions.
 
