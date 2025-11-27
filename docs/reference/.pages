@@ -3,10 +3,10 @@ nav:
   - index.md
   - features
   - limitations
-  - designate
   - flavors
   - volumes
   - images
+  - DNS: dns
   - quotas
   - versions
   - api
