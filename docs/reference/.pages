@@ -3,6 +3,7 @@ nav:
   - index.md
   - features
   - limitations
+  - designate
   - flavors
   - volumes
   - images
