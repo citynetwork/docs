@@ -158,6 +158,9 @@ nuuk.example.com.  3600    IN  AAAA    2001:db8:ffff:ffff:ffff:ffff:ffff:ffff
 ;; MSG SIZE  rcvd: 78
 ```
 
+> For extra resilience, the two name servers in any zone reside in different geographic locations.
+> You may see the location of a name server [in the Reference section](../../../reference/dns/index.md).
+
 ## Deleting recordsets
 
 To delete a recordset, you use the `openstack recordset delete` command and specify the name of the zone, together with the `id` of the recordset.

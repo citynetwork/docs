@@ -13,6 +13,8 @@ It serves to provide general reference information about {{brand}} services.
 
 * The **[Volume Types](volumes/index.md)** reference lists the available persistent block storage ("volume") types.
 
+* The **[DNS servers](dns/index.md)** reference offers clarifications regarding the physical locations of the name servers used by Designate.
+
 * Our **[Service Version Matrix](versions/index.md)** lists the open source software versions running in our {{brand}} regions.
 
 ## API reference
