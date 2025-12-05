@@ -4,15 +4,15 @@
 
 |                                | Sto1HS | Sto2HS | Sto-Com |
 | ------------------------------ | ------ | ------ | ------- |
-| Barbican (secret storage)      | Epoxy  | Epoxy  | Caracal |
-| Cinder (block storage)         | Epoxy  | Epoxy  | Caracal |
-| Glance (image management)      | Epoxy  | Epoxy  | Caracal |
-| Heat (orchestration)           | Epoxy  | Epoxy  | Caracal |
-| Keystone (identity management) | Epoxy  | Epoxy  | Caracal |
+| Barbican (secret storage)      | Epoxy  | Epoxy  | Epoxy   |
+| Cinder (block storage)         | Epoxy  | Epoxy  | Epoxy   |
+| Glance (image management)      | Epoxy  | Epoxy  | Epoxy   |
+| Heat (orchestration)           | Epoxy  | Epoxy  | Epoxy   |
+| Keystone (identity management) | Epoxy  | Epoxy  | Epoxy   |
 | Magnum (container management)  | Epoxy  | Epoxy  | :material-close: |
-| Neutron (networking)           | Epoxy  | Epoxy  | Caracal |
-| Nova (server virtualization)   | Epoxy  | Epoxy  | Caracal |
-| Octavia (load balancing)       | Epoxy  | Epoxy  | Caracal |
+| Neutron (networking)           | Epoxy  | Epoxy  | Epoxy   |
+| Nova (server virtualization)   | Epoxy  | Epoxy  | Epoxy   |
+| Octavia (load balancing)       | Epoxy  | Epoxy  | Epoxy   |
 
 
 ## Ceph Services
