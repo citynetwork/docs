@@ -14,7 +14,7 @@ This section lists the cloud API service versions available in each {{brand}} re
 [OpenStack releases](https://releases.openstack.org) are named in alphabetical order, and occur on a six-month release schedule.
 In {{brand_public}} we upgrade OpenStack releases annually; this means that we normally deploy every other OpenStack release and skip the intervening one.
 
-{{brand}} currently runs OpenStack [Caracal](https://releases.openstack.org/caracal/) and [Epoxy](https://releases.openstack.org/epoxy/).
+{{brand}} currently runs OpenStack [Epoxy](https://releases.openstack.org/epoxy/) in all regions.
 
 
 ## Ceph Services
