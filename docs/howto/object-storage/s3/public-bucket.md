@@ -56,10 +56,6 @@ To access an object in a public bucket from a web browser or a generic HTTP/HTTP
 https://object-store.{{api_region|lower}}.{{api_domain}}/<bucket-name>/object-name
 ```
 
-> Your project UUID is listed as the `project_id` field in the output of the `openstack ec2 credentials create` command you used to [create your S3-compatible credentials](credentials.md).
->
-> If you did not note it down at the time of account creation, you can always retrieve it with `openstack ec2 credentials <access-key>`.
-
 For example, to retrieve an object named `bar.pdf` in a bucket named `foo` in the {{brand}} {{api_region}} region, you would run:
 
 ```console
