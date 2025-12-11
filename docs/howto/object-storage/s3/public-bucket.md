@@ -108,7 +108,7 @@ You can then open a bucket path in your browser, to retrieve an XML document con
 You would construct the URL by the following schema:
 
 ```plain
-https://object-store.{{api_region|lower}}.{{api_domain}}/<project-uuid>:<bucket-name>
+https://object-store.{{api_region|lower}}.{{api_domain}}/<bucket-name>
 ```
 
 ## Removing a public read policy from a bucket
