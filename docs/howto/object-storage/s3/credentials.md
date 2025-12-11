@@ -58,10 +58,10 @@ How exactly you do that depends on your preferred client:
       aws_secret_access_key <secret-key>
     aws configure set \
       --profile {{api_region|lower}} \
-      s3.endpoint_url https://s3-{{api_region|lower}}.{{api_domain}}
+      s3.endpoint_url https://object-store.{{api_region|lower}}.{{api_domain}}
     aws configure set \
       --profile {{api_region|lower}} \
-      s3api.endpoint_url https://s3-{{api_region|lower}}.{{api_domain}}
+      s3api.endpoint_url https://object-store.{{api_region|lower}}.{{api_domain}}
     ```
 
     **Configuring AWS CLI v2**
@@ -84,15 +84,15 @@ How exactly you do that depends on your preferred client:
     services = {{api_region|lower}}-services
     [services {{api_region|lower}}-services]
     s3 = 
-      endpoint_url = https://s3-{{api_region|lower}}.{{api_domain}}
+      endpoint_url = https://object-store.{{api_region|lower}}.{{api_domain}}
     s3api = 
-      endpoint_url = https://s3-{{api_region|lower}}.{{api_domain}}
+      endpoint_url = https://object-store.{{api_region|lower}}.{{api_domain}}
     ```
 === "mc"
     Create a new alias, named after your {{brand}} region:
     ```bash
     mc alias set {{api_region|lower}} \
-      https://s3-{{api_region|lower}}.{{api_domain}} \
+      https://object-store.{{api_region|lower}}.{{api_domain}} \
       <access-key> <secret-key>
     ```
     Once you have configured an alias like this, you are able to run bucket operations with `mc` using the `alias/bucket` syntax.
@@ -104,8 +104,8 @@ How exactly you do that depends on your preferred client:
 
     * Set your `Access Key` and `Secret Key` when prompted.
     * Leave `Default Region` unchanged.
-    * Set `S3 Endpoint` to `s3-{{api_region|lower}}.{{api_domain}}`.
-    * Set `DNS-style bucket+hostname:port template for accessing a bucket` to `s3-{{api_region|lower}}.{{api_domain}}` as well.
+    * Set `S3 Endpoint` to `object-store.{{api_region|lower}}.{{api_domain}}`.
+    * Set `DNS-style bucket+hostname:port template for accessing a bucket` to `object-store.{{api_region|lower}}.{{api_domain}}` as well.
     * Set `Use HTTPS protocol` to `Yes` (the default).
     * Configure GnuPG encryption and your HTTP proxy server, if needed.
     * Test access with your supplied credentials.
@@ -121,7 +121,7 @@ How exactly you do that depends on your preferred client:
     env_auth = false
     access_key_id = <access key id>
     secret_access_key = <secret key>
-    endpoint = s3-{{api_region|lower}}.{{api_domain}}
+    endpoint = object-store.{{api_region|lower}}.{{api_domain}}
     acl = private
     ```
 
