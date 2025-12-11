@@ -6912,7 +6912,7 @@ Note the <code>+</code> prefix on the expiry.
 <p>The command will return the valid pre-signed URL.</p>
 <h2 id="accessing-objects-with-a-pre-signed-url">Accessing objects with a pre-signed URL</h2>
 <p>To access an object in a public bucket from a web browser or a generic HTTP/HTTPS client like <code>curl</code>, open the URL that the pre-sign command returned:</p>
-<div class="highlight"><pre><span></span><code><span class="go">curl -f -O https://s3-sto-com.cleura.cloud/&lt;bucket-name&gt;/&lt;object-name&gt;?AWSAccessKeyId=&lt;access-key&gt;&amp;Signature=&lt;signature&gt;&amp;Expires=&lt;expiry&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="go">curl -f -O https://object-store.sto-com.cleura.cloud/&lt;bucket-name&gt;/&lt;object-name&gt;?AWSAccessKeyId=&lt;access-key&gt;&amp;Signature=&lt;signature&gt;&amp;Expires=&lt;expiry&gt;</span>
 </code></pre></div>
 <p>As long as the query parameters are correct and the signature has not yet expired, this command will succeed.
 If the query parameters are incorrect or the pre-signed URL is past its expiry date, it will fail with HTTP 403 (Forbidden) instead.</p>
@@ -6921,7 +6921,7 @@ If the query parameters are incorrect or the pre-signed URL is past its expiry d
 Thus, even a valid pre-signed URL will result in HTTP 403 if you force a different HTTP method (such as <code>HEAD</code>, by setting <code>curl&nbsp;-I</code>).</p>
 </blockquote>
 <p>For example, to retrieve an object named <code>bar.pdf</code> in a bucket named <code>foo</code> in the Cleura&nbsp;Cloud Sto-Com region via its pre-signed URL, you would run:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-o<span class="w"> </span>bar.pdf<span class="w"> </span>https://s3-sto-com.cleura.cloud/foo/bar.pdf?AWSAccessKeyId<span class="o">=</span>07576783684248f7b2745e34356c6025<span class="p">&amp;</span><span class="nv">Expires</span><span class="o">=</span><span class="m">1673521496</span><span class="p">&amp;</span><span class="nv">Signature</span><span class="o">=</span>%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-o<span class="w"> </span>bar.pdf<span class="w"> </span>https://object-store.sto-com.cleura.cloud/foo/bar.pdf?AWSAccessKeyId<span class="o">=</span>07576783684248f7b2745e34356c6025<span class="p">&amp;</span><span class="nv">Expires</span><span class="o">=</span><span class="m">1673521496</span><span class="p">&amp;</span><span class="nv">Signature</span><span class="o">=</span>%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D
 <span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
 <span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
 <span class="go">100 62703  100 62703    0     0   186k      0 --:--:-- --:--:-- --:--:--  186k</span>
@@ -6996,7 +6996,7 @@ This can lead to rather unwieldly filenames.</p>
 </div>
 <h3 id="testing-the-content-disposition-header">Testing the <code>Content-Disposition</code> header</h3>
 <p>Once you have set the <code>Content-Disposition</code> header on an object and created a pre-signed URL for it, you can test its functionality with the <code>curl&nbsp;-OJ</code> command:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-f<span class="w"> </span>-OJ<span class="w"> </span><span class="s1">'https://s3-sto-com.cleura.cloud/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&amp;Expires=1673521496&amp;Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D'</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-f<span class="w"> </span>-OJ<span class="w"> </span><span class="s1">'https://object-store.sto-com.cleura.cloud/foo/bar.pdf?AWSAccessKeyId=07576783684248f7b2745e34356c6025&amp;Expires=1673521496&amp;Signature=%2Frm9nLV3moP%2FQz7aGCAnrESXjbk%3D'</span>
 <span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
 <span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
 <span class="go">100 58503  100 58503    0     0   178k      0 --:--:-- --:--:-- --:--:--  178k</span>
@@ -7033,7 +7033,7 @@ This is obviously <strong>not a good idea,</strong> and you should avoid setting
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2025 13:52:47 UTC">2025-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 11, 2025 06:32:29 UTC">2025-12-11</span>
   </span>
 
     
