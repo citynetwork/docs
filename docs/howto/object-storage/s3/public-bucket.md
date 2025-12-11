@@ -72,7 +72,7 @@ Once you make a bucket public via the S3 API, its objects also become accessible
 Thus, the following URL paths allow you to retrieve the same public object:
 
 * `https://object-store.{{api_region|lower}}.{{api_domain}}/foo/bar.pdf`
-* `https://swift-{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf`
+* `https://object-store.{{api_region|lower}}.{{api_domain}}/swift/v1/AUTH_07576783684248f7b2745e34356c6025/foo/bar.pdf`
 
 ## Enabling bucket listing
 
