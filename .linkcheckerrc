@@ -1,6 +1,12 @@
 [checking]
 recursionlevel=2
 
+# Set number of concurrently running checks (default 10).
+#
+# High values may reduce overall run time, but increase the risk of
+# running into rate limits.
+threads=1
+
 [filtering]
 # Check external links (i.e. ones not within the domain given as a
 # command-line argument).
